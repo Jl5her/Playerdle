@@ -145,6 +145,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
         <input
           ref={inputRef}
           type="text"
+          name="player-search"
           value={query}
           onInput={handleInput}
           onChange={() => { }}
@@ -162,6 +163,9 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
           autoCorrect="off"
           autoCapitalize="off"
           spellCheck={false}
+          inputMode="search"
+          enterKeyHint="search"
+          data-form-type="other"
         />
         {showDropdown && filtered.length > 0 && (
           <div ref={dropdownRef} style={styles.dropdown}>

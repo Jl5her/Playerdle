@@ -75,10 +75,11 @@ const styles: Record<string, CSSProperties> = {
   headerCell: {
     width: "clamp(3rem, 17vw, 5.5rem)",
     textAlign: "center",
-    fontSize: "0.6rem",
+    fontSize: "0.7rem",
     fontWeight: 700,
-    color: "var(--text-secondary)",
-    letterSpacing: "0.05em",
+    color: "var(--text-primary)",
+    letterSpacing: "0.08em",
+    textTransform: "uppercase",
   },
   emptyRow: {
     marginBottom: "0.5rem",

@@ -1,21 +1,97 @@
 :root {
-  --bg: #ffffff;
-  --bg-secondary: #f5f5f5;
-  --text: #1a1a1a;
-  --text-secondary: #6b7280;
-  --border: #d1d5db;
-  --green: #538d4e;
-  --red: #b91c1c;
-  --yellow: #b59f3b;
-  --cell-text: #ffffff;
-  --input-bg: #ffffff;
-  --input-border: #d1d5db;
-  --dropdown-bg: #ffffff;
-  --dropdown-hover: #f3f4f6;
-  --header-bg: #1a1a1a;
-  --header-text: #ffffff;
-  --empty-cell-bg: #e5e7eb;
-  --empty-cell-border: #d1d5db;
+  /* =========================
+     Core Brand Colors
+     ========================= */
+
+  --color-bg-primary: #151826; /* Deep Navy */
+  --color-bg-secondary: #1e2233; /* Charcoal Navy */
+  --color-border-default: #2c3248; /* Muted Slate */
+
+  --color-text-primary: #f2eedc; /* Warm Off-White */
+  --color-text-secondary: #a8a5a0; /* Muted Off-White */
+  --color-text-muted: #8c90a3; /* Muted Gray-Blue */
+
+  /* =========================
+     Accent Colors
+     ========================= */
+
+  --color-accent-primary: #d6c27a; /* Vintage Gold */
+  --color-accent-secondary: #8fa3bf; /* Cool Steel */
+
+  /* =========================
+     State Colors
+     ========================= */
+
+  --color-success: #7fae8e; /* Correct Guess */
+  --color-error: #b26a6a; /* Incorrect Guess */
+  --color-warning: #c9a96a; /* Neutral / Partial */
+
+  --color-success-muted: #4a6b5c; /* Muted correct (for cells) */
+  --color-error-muted: #6b4f4f; /* Muted incorrect (for cells) */
+
+  /* =========================
+     Interactive States
+     ========================= */
+
+  --color-link-default: var(--color-accent-secondary);
+  --color-link-hover: var(--color-accent-primary);
+
+  --color-button-primary-bg: var(--color-accent-primary);
+  --color-button-primary-text: var(--color-bg-primary);
+
+  --color-button-secondary-bg: transparent;
+  --color-button-secondary-text: var(--color-text-primary);
+  --color-button-secondary-border: var(--color-accent-secondary);
+
+  /* =========================
+     Surface Elevation
+     ========================= */
+
+  --color-card-bg: var(--color-bg-secondary);
+  --color-card-border: var(--color-border-default);
+
+  /* =========================
+     Misc
+     ========================= */
+
+  --focus-ring-color: rgba(214, 194, 122, 0.45);
+
+  /* =========================
+     Tile System
+     ========================= */
+
+  --tile-empty: var(--color-bg-secondary);
+  --tile-border: #272b3d;
+  --tile-border-strong: #3a3f56;
+  --ok: var(--color-success-muted);
+  --ok-hover: #557763;
+  --bad: var(--color-error-muted);
+  --bad-hover: #765858;
+  --state-text: #e5e2d0;
+  --focus: var(--focus-ring-color);
+
+  /* =========================
+     Legacy Variable Mappings
+     (for backwards compatibility)
+     ========================= */
+
+  --bg: var(--color-bg-primary);
+  --bg-secondary: var(--color-bg-secondary);
+  --text: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --border: var(--color-border-default);
+  --green: var(--color-success-muted);
+  --red: var(--color-error-muted);
+  --yellow: var(--color-warning);
+  --cell-text: var(--state-text);
+  --input-bg: var(--color-bg-secondary);
+  --input-border: var(--color-border-default);
+  --dropdown-bg: var(--color-bg-secondary);
+  --dropdown-hover: var(--color-bg-primary);
+  --header-bg: var(--color-bg-primary);
+  --header-text: var(--color-text-primary);
+  --empty-cell-bg: var(--tile-empty);
+  --empty-cell-border: var(--tile-border);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,25 +99,97 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --bg: #121213;
-    --bg-secondary: #1e1e1f;
-    --text: #e5e5e5;
-    --text-secondary: #9ca3af;
-    --border: #3a3a3c;
-    --green: #538d4e;
-    --red: #dc2626;
-    --yellow: #b59f3b;
-    --cell-text: #ffffff;
-    --input-bg: #2a2a2c;
-    --input-border: #4a4a4c;
-    --dropdown-bg: #2a2a2c;
-    --dropdown-hover: #3a3a3c;
-    --header-bg: #1a1a1a;
-    --header-text: #ffffff;
-    --empty-cell-bg: #3a3a3c;
-    --empty-cell-border: #4a4a4c;
+    /* =========================
+       Core Brand Colors (Light)
+       ========================= */
+
+    --color-bg-primary: #f2eedc; /* Base */
+    --color-bg-secondary: #ece6d2; /* Surface */
+    --color-border-default: #c9c3b1; /* Tile Border */
+
+    --color-text-primary: #1a2233; /* Text */
+    --color-text-secondary: #3c465a; /* Text-2 */
+    --color-text-muted: #667089; /* Text Muted */
+
+    /* =========================
+       Accent Colors (Light)
+       ========================= */
+
+    --color-accent-primary: #b89f4a; /* Darker Gold */
+    --color-accent-secondary: #667089; /* Muted Slate */
+
+    /* =========================
+       State Colors (Light)
+       ========================= */
+
+    --color-success: #4f8463; /* OK */
+    --color-error: #9a4a4a; /* Bad */
+    --color-warning: #a88f4a; /* Warning Yellow */
+
+    --color-success-muted: #4f8463; /* OK (for cells) */
+    --color-error-muted: #9a4a4a; /* Bad (for cells) */
+
+    /* =========================
+       Interactive States (Light)
+       ========================= */
+
+    --color-link-default: var(--color-accent-secondary);
+    --color-link-hover: var(--color-accent-primary);
+
+    --color-button-primary-bg: var(--color-accent-primary);
+    --color-button-primary-text: var(--color-bg-primary);
+
+    --color-button-secondary-bg: transparent;
+    --color-button-secondary-text: var(--color-text-primary);
+    --color-button-secondary-border: var(--color-accent-secondary);
+
+    /* =========================
+       Surface Elevation (Light)
+       ========================= */
+
+    --color-card-bg: var(--color-bg-secondary);
+    --color-card-border: var(--color-border-default);
+
+    /* =========================
+       Misc (Light)
+       ========================= */
+
+    --focus-ring-color: rgba(26, 34, 51, 0.25);
+
+    /* =========================
+       Tile System (Light)
+       ========================= */
+
+    --tile-empty: #e7e1cf;
+    --tile-border: #c9c3b1;
+    --tile-border-strong: #b8b19e;
+    --ok: #4f8463;
+    --ok-hover: #447457;
+    --bad: #9a4a4a;
+    --bad-hover: #883f3f;
+    --state-text: #f7f4e8;
+    --focus: var(--focus-ring-color);
+
+    /* Legacy mappings updated for light mode */
+    --bg: var(--color-bg-primary);
+    --bg-secondary: var(--color-bg-secondary);
+    --text: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --border: var(--color-border-default);
+    --green: var(--ok);
+    --red: var(--bad);
+    --yellow: var(--color-warning);
+    --cell-text: var(--state-text);
+    --input-bg: var(--color-bg-secondary);
+    --input-border: var(--color-border-default);
+    --dropdown-bg: var(--color-bg-secondary);
+    --dropdown-hover: #e7e1cf;
+    --header-bg: var(--color-bg-primary);
+    --header-text: var(--color-text-primary);
+    --empty-cell-bg: var(--tile-empty);
+    --empty-cell-border: var(--tile-border-strong);
   }
 }
 
@@ -59,8 +207,9 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
   background-color: var(--bg);
   color: var(--text);
   overflow: hidden;
@@ -106,4 +255,81 @@ input {
 
 .cell-flip {
   animation: cellReveal 0.5s ease-out both;
+}
+
+/* Tile system */
+.tile {
+  position: relative;
+  background: var(--tile-empty);
+  border: 2px solid var(--tile-border);
+  color: var(--text);
+  border-radius: 4px;
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.tile:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.tile--correct {
+  background: var(--ok);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--state-text);
+}
+
+.tile--wrong {
+  background: var(--bad);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--state-text);
+}
+
+.tile--wrong::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(247, 244, 232, 0.03),
+    rgba(247, 244, 232, 0.03) 6px,
+    rgba(247, 244, 232, 0) 6px,
+    rgba(247, 244, 232, 0) 12px
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tile--close {
+  background: var(--yellow);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: var(--state-text);
+}
+
+.tile--correct:hover {
+  background: var(--ok-hover);
+}
+.tile--wrong:hover {
+  background: var(--bad-hover);
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+
+  /* Compact spacing for mobile */
+  #root {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra compact for very small screens */
+  body {
+    font-size: 13px;
+  }
 }

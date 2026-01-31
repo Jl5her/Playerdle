@@ -1,18 +1,41 @@
-import { useState, lazy, Suspense } from "react";
-import Header from "./components/Header";
-import MainMenu from "./components/MainMenu";
-import HelpScreen from "./components/HelpScreen";
-import AboutScreen from "./components/AboutScreen";
-import ArcadeDifficulty from "./components/ArcadeDifficulty";
+import { useState, lazy, Suspense, useEffect } from "react";
+import {
+  Header,
+  MainMenu,
+  HelpScreen,
+  AboutScreen,
+  ArcadeDifficulty,
+  TutorialScreen,
+} from "./components";
 import type { Screen } from "./components/MainMenu";
 import type { ArcadeDifficulty as DifficultyLevel } from "./utils/daily";
 
 const Game = lazy(() => import("./components/Game"));
 
+const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen";
+
 function App() {
   const [screen, setScreen] = useState<Screen>("menu");
   const [gameKey, setGameKey] = useState(0);
   const [arcadeDifficulty, setArcadeDifficulty] = useState<DifficultyLevel | null>(null);
+  const [showTutorial, setShowTutorial] = useState(false);
+
+  useEffect(() => {
+    // Check if user has seen the tutorial
+    const hasSeenTutorial = localStorage.getItem(TUTORIAL_SEEN_KEY);
+    if (!hasSeenTutorial) {
+      setShowTutorial(true);
+    }
+  }, []);
+
+  function handleCloseTutorial() {
+    setShowTutorial(false);
+    localStorage.setItem(TUTORIAL_SEEN_KEY, "true");
+  }
+
+  function handleShowTutorial() {
+    setShowTutorial(true);
+  }
 
   function goToMenu() {
     setScreen("menu");
@@ -35,8 +58,9 @@ function App() {
 
   return (
     <>
-      {screen !== "menu" && <Header />}
+      {screen !== "menu" && <Header onShowTutorial={handleShowTutorial} />}
       {screen === "menu" && <MainMenu onNavigate={handleNavigate} />}
+      {showTutorial && <TutorialScreen onClose={handleCloseTutorial} />}
       <Suspense fallback={<div>Loading...</div>}>
         {screen === "daily" && (
           <Game key="daily" mode="daily" onBack={goToMenu} />
