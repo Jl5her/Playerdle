@@ -10,14 +10,14 @@ const menuItems: { label: string; description: string; screen: Screen }[] = [
   { label: "Daily", description: "Same player for everyone each day", screen: "daily" },
   { label: "Arcade", description: "Random player every round", screen: "arcade" },
   { label: "Help", description: "How to play", screen: "help" },
-  { label: "About", description: "About Athlete Wordle", screen: "about" },
+  { label: "About", description: "About Playerdle", screen: "about" },
 ];
 
 export default function MainMenu({ onNavigate }: Props) {
   return (
     <div style={styles.container}>
       <div style={styles.titleSection}>
-        <h1 style={styles.title}>ATHLETE WORDLE</h1>
+        <h1 style={styles.title}>PLAYERDLE</h1>
         <p style={styles.subtitle}>Guess the NFL player in 5 tries</p>
       </div>
 

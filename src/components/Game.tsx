@@ -6,7 +6,7 @@ import GuessInput from "./GuessInput";
 import WinBanner from "./WinBanner";
 
 const MAX_GUESSES = 6;
-const STORAGE_KEY = "athlete-wordle-state";
+const STORAGE_KEY = "playerdle-state";
 
 export type GameMode = "daily" | "arcade";
 

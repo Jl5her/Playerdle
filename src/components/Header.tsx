@@ -20,7 +20,7 @@ const styles: Record<string, CSSProperties> = {
 export default function Header() {
   return (
     <header style={styles.header}>
-      <h1 style={styles.title}>Athlete Wordle</h1>
+      <h1 style={styles.title}>Playerdle</h1>
     </header>
   );
 }

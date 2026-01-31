@@ -11,7 +11,7 @@ export default function AboutScreen({ onBack }: Props) {
 
       <div style={styles.section}>
         <p style={styles.text}>
-          <strong>Athlete Wordle</strong> is a daily guessing game for NFL fans.
+          <strong>Playerdle</strong> is a daily guessing game for NFL fans.
           Test your knowledge by identifying players based on their conference,
           division, team, position, and jersey number.
         </p>
