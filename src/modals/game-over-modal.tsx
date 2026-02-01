@@ -1,4 +1,4 @@
-import { useEffect, useState, type CSSProperties } from "react"
+import { useEffect, useState } from "react"
 import confetti from "canvas-confetti"
 import type { Player } from "@/data/players"
 import type { GameMode } from "@/screens/game"
@@ -120,71 +120,68 @@ export default function GameOverModal({
   if (!isOpen) return null
 
   return (
-    <div
-      style={styles.overlay}
-      onClick={won && mode === "arcade" && onPlayAgain ? undefined : undefined}
-    >
+    <div className="fixed inset-0 bg-black/75 flex items-center justify-center z-1000 p-4">
       <div
-        style={styles.modal}
+        className="bg-primary-50 dark:bg-primary-900 rounded-lg max-w-lg w-full border-2 border-primary-300 dark:border-primary-700 relative"
         onClick={e => e.stopPropagation()}
       >
         <button
-          style={styles.closeButton}
+          className="absolute top-3 right-3 bg-transparent border-none text-primary-500 dark:text-primary-200 text-2xl cursor-pointer p-1 leading-none transition-colors z-10 hover:text-primary-900 dark:hover:text-primary-50"
           onClick={onClose}
         >
           ✕
         </button>
-        <div style={styles.content}>
+        <div className="text-center px-6 py-8">
           {mode === "daily" ? (
             <>
-              <h2 style={styles.heading}>Statistics</h2>
+              <h2 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-4 mt-0 uppercase text-left">Statistics</h2>
             </>
           ) : (
             <>
               {won ? (
                 <>
-                  <div style={styles.emoji}>&#127942;</div>
-                  <div style={styles.playerName}>{player.name}</div>
-                  <div style={styles.subtitle}>
+                  <div className="text-5xl mb-2">&#127942;</div>
+                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{player.name}</div>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
                     {player.team} &middot; {player.position} &middot; #{player.number}
                   </div>
-                  <div style={styles.result}>Guessed in {guessCount}/6</div>
+                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Guessed in {guessCount}/6</div>
                 </>
               ) : (
                 <>
-                  <div style={styles.lostLabel}>The answer was</div>
-                  <div style={styles.playerName}>{player.name}</div>
-                  <div style={styles.subtitle}>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">The answer was</div>
+                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{player.name}</div>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
                     {player.team} &middot; {player.position} &middot; #{player.number}
                   </div>
-                  <div style={styles.result}>Better luck tomorrow!</div>
+                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Better luck tomorrow!</div>
                 </>
               )}
             </>
           )}
 
           {mode === "daily" && stats && (
-            <div style={styles.statsSection}>
-              <div style={styles.statsGrid}>
-                <div style={styles.statBox}>
-                  <div style={styles.statValue}>{stats.played}</div>
-                  <div style={styles.statLabel}>Played</div>
+            <div className="mt-4">
+              <div className="grid grid-cols-4 gap-2 mb-6">
+                <div className="text-center">
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.played}</div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">Played</div>
                 </div>
-                <div style={styles.statBox}>
-                  <div style={styles.statValue}>{stats.winPercentage}</div>
-                  <div style={styles.statLabel}>Win %</div>
+                <div className="text-center">
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.winPercentage}</div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">Win %</div>
                 </div>
-                <div style={styles.statBox}>
-                  <div style={styles.statValue}>{stats.currentStreak}</div>
-                  <div style={styles.statLabel}>
+                <div className="text-center">
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.currentStreak}</div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
                     Current
                     <br />
                     Streak
                   </div>
                 </div>
-                <div style={styles.statBox}>
-                  <div style={styles.statValue}>{stats.maxStreak}</div>
-                  <div style={styles.statLabel}>
+                <div className="text-center">
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.maxStreak}</div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
                     Max
                     <br />
                     Streak
@@ -192,8 +189,8 @@ export default function GameOverModal({
                 </div>
               </div>
 
-              <div style={styles.distribution}>
-                <h3 style={styles.distributionTitle}>Guess Distribution</h3>
+              <div className="mt-4">
+                <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left">Guess Distribution</h3>
                 {[1, 2, 3, 4, 5, 6].map(guessNum => {
                   const count = stats.guessDistribution[guessNum] || 0
                   const percentage = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
@@ -201,17 +198,17 @@ export default function GameOverModal({
                   return (
                     <div
                       key={guessNum}
-                      style={styles.distributionRow}
+                      className="flex items-center mb-1 gap-2"
                     >
-                      <div style={styles.distributionLabel}>{guessNum}</div>
-                      <div style={styles.distributionBarContainer}>
+                      <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">{guessNum}</div>
+                      <div className="flex-1 relative">
                         <div
+                          className="bg-primary-200 dark:bg-primary-800 px-1 rounded transition-all duration-300 min-w-8"
                           style={{
-                            ...styles.distributionBar,
                             width: `${Math.max(percentage, count > 0 ? 7 : 0)}%`,
                           }}
                         >
-                          <span style={styles.distributionCount}>{count}</span>
+                          <span className="text-xs font-semibold text-primary-900 dark:text-primary-50">{count}</span>
                         </div>
                       </div>
                     </div>
@@ -221,14 +218,14 @@ export default function GameOverModal({
             </div>
           )}
 
-          <div style={styles.buttonRow}>
+          <div className="flex gap-3 justify-center mt-6">
             {mode === "daily" && (
               <button
-                style={styles.shareBtn}
+                className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-accent-500 dark:bg-accent-400 border-none rounded cursor-pointer flex items-center gap-2 hover:opacity-90 transition-opacity"
                 onClick={handleShare}
               >
                 <svg
-                  style={styles.shareIcon}
+                  className="w-4 h-4"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -250,7 +247,7 @@ export default function GameOverModal({
             )}
             {onPlayAgain && (
               <button
-                style={styles.playAgainBtn}
+                className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-success-500 dark:bg-success-400 border-none rounded cursor-pointer uppercase hover:opacity-90 transition-opacity"
                 onClick={onPlayAgain}
               >
                 Play Again
@@ -261,184 +258,4 @@ export default function GameOverModal({
       </div>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.75)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-    padding: "1rem",
-  },
-  modal: {
-    backgroundColor: "var(--bg)",
-    borderRadius: "8px",
-    maxWidth: "400px",
-    width: "100%",
-    border: "2px solid var(--border)",
-    position: "relative" as const,
-  },
-  closeButton: {
-    position: "absolute" as const,
-    top: "0.75rem",
-    right: "0.75rem",
-    background: "transparent",
-    border: "none",
-    color: "var(--text-secondary)",
-    fontSize: "1.5rem",
-    cursor: "pointer",
-    padding: "0.25rem",
-    lineHeight: 1,
-    transition: "color 0.2s",
-    zIndex: 1,
-  },
-  content: {
-    textAlign: "center",
-    padding: "2rem 1.5rem",
-  },
-  heading: {
-    fontSize: "0.9rem",
-    fontWeight: 600,
-    color: "var(--text)",
-    marginBottom: "1rem",
-    marginTop: 0,
-    textTransform: "uppercase" as const,
-    textAlign: "left" as const,
-  },
-  emoji: {
-    fontSize: "3rem",
-    marginBottom: "0.5rem",
-  },
-  playerName: {
-    fontSize: "1.5rem",
-    fontWeight: 800,
-    color: "var(--text)",
-    textTransform: "uppercase" as const,
-  },
-  subtitle: {
-    fontSize: "0.9rem",
-    color: "var(--text-secondary)",
-    marginTop: "0.5rem",
-    textTransform: "uppercase" as const,
-  },
-  result: {
-    fontSize: "1rem",
-    color: "var(--green)",
-    fontWeight: 700,
-    marginTop: "0.75rem",
-    textTransform: "uppercase" as const,
-  },
-  lostLabel: {
-    fontSize: "0.9rem",
-    color: "var(--text-secondary)",
-    marginBottom: "0.5rem",
-    textTransform: "uppercase" as const,
-  },
-  buttonRow: {
-    display: "flex",
-    gap: "0.75rem",
-    justifyContent: "center",
-    marginTop: "1.5rem",
-  },
-  shareBtn: {
-    padding: "0.65rem 1.5rem",
-    fontSize: "0.95rem",
-    fontWeight: 700,
-    color: "#fff",
-    backgroundColor: "var(--primary, #538d4e)",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-  },
-  shareIcon: {
-    width: "1rem",
-    height: "1rem",
-  },
-  playAgainBtn: {
-    padding: "0.65rem 1.5rem",
-    fontSize: "0.95rem",
-    fontWeight: 700,
-    color: "#fff",
-    backgroundColor: "var(--green)",
-    border: "none",
-    borderRadius: "6px",
-    cursor: "pointer",
-    textTransform: "uppercase" as const,
-  },
-  answerSection: {
-    marginBottom: "1.5rem",
-    paddingBottom: "1.5rem",
-    borderBottom: "2px solid var(--border)",
-  },
-  statsSection: {
-    marginTop: "1rem",
-  },
-  statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "0.5rem",
-    marginBottom: "1.5rem",
-  },
-  statBox: {
-    textAlign: "center" as const,
-  },
-  statValue: {
-    fontSize: "2.5rem",
-    fontWeight: 300,
-    color: "var(--text)",
-  },
-  statLabel: {
-    fontSize: "0.65rem",
-    color: "var(--text-secondary)",
-    marginTop: "0.25rem",
-    lineHeight: 1.3,
-    fontWeight: 300,
-  },
-  distribution: {
-    marginTop: "1rem",
-  },
-  distributionTitle: {
-    fontSize: "0.9rem",
-    fontWeight: 600,
-    color: "var(--text)",
-    marginBottom: "0.75rem",
-    textTransform: "uppercase" as const,
-    textAlign: "left" as const,
-  },
-  distributionRow: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "0.4rem",
-    gap: "0.5rem",
-  },
-  distributionLabel: {
-    fontSize: "0.85rem",
-    fontWeight: 600,
-    color: "var(--text)",
-    width: "1rem",
-    flexShrink: 0,
-  },
-  distributionBarContainer: {
-    flex: 1,
-    position: "relative" as const,
-  },
-  distributionBar: {
-    backgroundColor: "var(--text-secondary)",
-    padding: "0.25rem 0.4rem",
-    borderRadius: "2px",
-    minWidth: "2rem",
-    transition: "width 0.3s ease",
-  },
-  distributionCount: {
-    fontSize: "0.75rem",
-    fontWeight: 600,
-    color: "var(--bg)",
-  },
 }

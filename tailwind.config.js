@@ -5,42 +5,102 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Background colors
-        bg: {
-          primary: "#151826",
-          secondary: "#1e2233",
+        primary: {
+          50: '#ece6d2',
+          100: '#c9c3b1',
+          200: '#a8a5a0',
+          300: '#8c90a3',
+          400: '#6b7290',
+          500: '#515772',
+          600: '#3a3f56',
+          700: '#272b3d',
+          800: '#1e2233',
+          900: '#151826',
         },
-        // Text colors
-        text: {
-          primary: "#f2eedc",
-          secondary: "#a8a5a0",
-          muted: "#8c90a3",
+        neutral: {
+          50: '#f7f4e8',
+          100: '#f2eedc',
+          200: '#e7e1cf',
+          300: '#c9c3b1',
+          400: '#b8b19e',
+          500: '#9aa2b3',
+          600: '#7f889d',
+          700: '#667089',
+          800: '#3c465a',
+          900: '#232c41',
         },
-        // Border colors
-        border: {
-          DEFAULT: "#2c3248",
-          strong: "#3a3f56",
-        },
-        // Accent colors
         accent: {
-          primary: "#d6c27a",
-          secondary: "#8fa3bf",
+          50: '#fbf7e6',
+          100: '#f4edcf',
+          200: '#ede3b9',
+          300: '#e2d29a',
+          400: '#d6c27a',
+          500: '#c9a96a',
+          600: '#b89f4a',
+          700: '#a88f4a',
+          800: '#8a6f2f',
+          900: '#6b5422',
         },
-        // State colors
-        state: {
-          success: "#7fae8e",
-          "success-muted": "#4a6b5c",
-          error: "#b26a6a",
-          "error-muted": "#6b4f4f",
-          warning: "#c9a96a",
+        secondary: {
+          50: '#eef3f8',
+          100: '#d8e1eb',
+          200: '#c1cfdf',
+          300: '#a9bbd3',
+          400: '#8fa3bf',
+          500: '#7d89a3',
+          600: '#667089',
+          700: '#3c465a',
+          800: '#2a3446',
+          900: '#232c41',
         },
-        // Tile colors
-        tile: {
-          empty: "#1e2233",
-          border: "#272b3d",
-          "border-strong": "#3a3f56",
-          text: "#e5e2d0",
+        success: {
+          50: '#eef8f2',
+          100: '#d4eadf',
+          200: '#b7d7c5',
+          300: '#9ac4aa',
+          400: '#7fae8e',
+          500: '#557763',
+          600: '#4f8463',
+          700: '#4a6b5c',
+          800: '#355445',
+          900: '#233b30',
         },
+        error: {
+          50: '#fbf1f1',
+          100: '#f1d7d7',
+          200: '#deb1b1',
+          300: '#c98b8b',
+          400: '#b26a6a',
+          500: '#9a4a4a',
+          600: '#883f3f',
+          700: '#6b4f4f',
+          800: '#543333',
+          900: '#3a2424',
+        },
+        warning: {
+          50: '#fff9f0',
+          100: '#fbf2dd',
+          200: '#f5e7c4',
+          300: '#edd9a8',
+          400: '#e0c889',
+          500: '#c9a96a',
+          600: '#a88f4a',
+          700: '#7a6330',
+          800: '#5e4b22',
+          900: '#5e4b22',
+        },
+      },
+      keyframes: {
+        cellReveal: {
+          '0%': { transform: 'rotateX(0deg)' },
+          '100%': { transform: 'rotateX(180deg)' },
+        },
+      },
+      animation: {
+        'cell-flip': 'cellReveal 0.6s cubic-bezier(0.4, 0.2, 0.2, 1) forwards',
+      },
+      screens: {
+        xs: '400px',
       },
     },
   },

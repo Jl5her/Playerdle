@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react"
 import type { Player } from "@/data/players"
 import { teams, type Team } from "@/data/teams"
 import Tile from "./tile"
@@ -74,9 +73,9 @@ export default function GuessRow({ result, animate }: Props) {
   ]
 
   return (
-    <div style={styles.row}>
-      <div style={styles.name}>{result.guess.name}</div>
-      <div style={styles.cells}>
+    <div className="mb-2">
+      <div className="text-xs font-bold mb-0.5 text-center uppercase tracking-wider text-primary-700 dark:text-primary-200">{result.guess.name}</div>
+      <div className="flex gap-1 justify-center">
         {cells.map((cell, i) => (
           <Tile
             key={i}
@@ -88,24 +87,4 @@ export default function GuessRow({ result, animate }: Props) {
       </div>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  row: {
-    marginBottom: "0.5rem",
-  },
-  name: {
-    fontSize: "0.75rem",
-    fontWeight: 700,
-    color: "var(--text-secondary)",
-    marginBottom: "0.2rem",
-    textAlign: "center",
-    textTransform: "uppercase",
-    letterSpacing: "0.05em",
-  },
-  cells: {
-    display: "flex",
-    gap: "0.25rem",
-    justifyContent: "center",
-  },
 }

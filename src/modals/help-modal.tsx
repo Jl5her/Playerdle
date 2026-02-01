@@ -1,124 +1,62 @@
-import type { CSSProperties } from "react"
-
 interface Props {
   onBack: () => void
 }
 
 export default function HelpModal({ onBack }: Props) {
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>How to Play</h2>
+    <div className="flex flex-col items-center px-6 py-8 gap-5 max-w-sm mx-auto overflow-y-auto flex-1">
+      <h2 className="text-2xl font-black tracking-wider text-primary-900 dark:text-primary-50">How to Play</h2>
 
-      <div style={styles.section}>
-        <p style={styles.text}>
+      <div className="w-full flex flex-col gap-1">
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           Guess the NFL player in <strong>5 tries</strong>. After each guess, the tiles will change
           color to show how close your guess was.
         </p>
       </div>
 
-      <div style={styles.section}>
-        <div style={styles.colorRow}>
-          <span style={{ ...styles.swatch, backgroundColor: "var(--green)" }} />
-          <span style={styles.text}>Exact match</span>
+      <div className="w-full flex flex-col gap-1">
+        <div className="flex items-center gap-2.5">
+          <span className="inline-block w-5 h-5 rounded bg-success-500 dark:bg-success-400 shrink-0" />
+          <span className="text-sm text-primary-500 dark:text-primary-200 leading-6">Exact match</span>
         </div>
-        <div style={styles.colorRow}>
-          <span style={{ ...styles.swatch, backgroundColor: "var(--yellow)" }} />
-          <span style={styles.text}>Same division but wrong team</span>
+        <div className="flex items-center gap-2.5">
+          <span className="inline-block w-5 h-5 rounded bg-warning-500 dark:bg-warning-400 shrink-0" />
+          <span className="text-sm text-primary-500 dark:text-primary-200 leading-6">Same division but wrong team</span>
         </div>
-        <div style={styles.colorRow}>
-          <span style={{ ...styles.swatch, backgroundColor: "var(--red)" }} />
-          <span style={styles.text}>No match</span>
+        <div className="flex items-center gap-2.5">
+          <span className="inline-block w-5 h-5 rounded bg-error-500 dark:bg-error-400 shrink-0" />
+          <span className="text-sm text-primary-500 dark:text-primary-200 leading-6">No match</span>
         </div>
       </div>
 
-      <div style={styles.section}>
-        <h3 style={styles.subheading}>Categories</h3>
-        <p style={styles.text}>
+      <div className="w-full flex flex-col gap-1">
+        <h3 className="text-base font-bold text-primary-900 dark:text-primary-50 mb-1">Categories</h3>
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           Each guess reveals clues across five categories: <strong>Conference</strong>,{" "}
           <strong>Division</strong>, <strong>Team</strong>, <strong>Position</strong>, and{" "}
           <strong>Jersey Number</strong>.
         </p>
-        <p style={styles.text}>
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           For jersey number, an arrow indicates whether the answer's number is higher or lower.
         </p>
       </div>
 
-      <div style={styles.section}>
-        <h3 style={styles.subheading}>Game Modes</h3>
-        <p style={styles.text}>
+      <div className="w-full flex flex-col gap-1">
+        <h3 className="text-base font-bold text-primary-900 dark:text-primary-50 mb-1">Game Modes</h3>
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           <strong>Daily</strong> &mdash; Everyone gets the same player each day.
         </p>
-        <p style={styles.text}>
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           <strong>Arcade</strong> &mdash; Play unlimited rounds with a random player each time.
         </p>
       </div>
 
       <button
-        style={styles.backBtn}
+        className="mt-2 px-6 py-2 text-sm font-bold bg-success-500 dark:bg-success-400 text-primary-50 dark:text-primary-900 border-none rounded cursor-pointer hover:opacity-90 transition-opacity"
         onClick={onBack}
       >
         Back to Menu
       </button>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "2rem 1.5rem",
-    gap: "1.25rem",
-    maxWidth: "28rem",
-    margin: "0 auto",
-    overflowY: "auto",
-    flex: 1,
-  },
-  heading: {
-    fontSize: "1.4rem",
-    fontWeight: 800,
-    letterSpacing: "0.05em",
-    color: "var(--text)",
-  },
-  subheading: {
-    fontSize: "1rem",
-    fontWeight: 700,
-    color: "var(--text)",
-    marginBottom: "0.25rem",
-  },
-  section: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.4rem",
-  },
-  text: {
-    fontSize: "0.85rem",
-    color: "var(--text-secondary)",
-    lineHeight: 1.5,
-  },
-  colorRow: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.6rem",
-  },
-  swatch: {
-    display: "inline-block",
-    width: "1.25rem",
-    height: "1.25rem",
-    borderRadius: "3px",
-    flexShrink: 0,
-  },
-  backBtn: {
-    marginTop: "0.5rem",
-    padding: "0.5rem 1.5rem",
-    fontSize: "0.85rem",
-    fontWeight: 700,
-    color: "#fff",
-    backgroundColor: "var(--green)",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
 }

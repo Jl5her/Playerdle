@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react"
 import type { Player } from "@/data/players"
 import { GuessRow } from "@/components"
 
@@ -15,15 +14,16 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
   const emptySlots = maxGuesses - guesses.length
 
   return (
-    <div style={styles.grid}>
+    <div className="flex flex-col items-center px-2 pt-0 pb-2">
       {/* Column headers */}
-      <div style={styles.headerRow}>
-        <div style={styles.headerSpacer} />
-        <div style={styles.headerCells}>
+      <div className="mb-1.5 w-full flex flex-col items-center">
+        <div className="h-3" />
+        <div className="flex gap-1 justify-center">
           {LABELS.map(label => (
             <div
               key={label}
-              style={styles.headerCell}
+              className="text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
+              style={{ width: "clamp(3rem, 17vw, 5.5rem)" }}
             >
               {label}
             </div>
@@ -42,14 +42,18 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
       {Array.from({ length: emptySlots }).map((_, i) => (
         <div
           key={`empty-${i}`}
-          style={styles.emptyRow}
+          className="mb-2"
         >
-          <div style={styles.emptyName}>&nbsp;</div>
-          <div style={styles.emptyCells}>
+          <div className="mb-0.5" style={{ height: "0.95rem" }}>&nbsp;</div>
+          <div className="flex gap-1 justify-center">
             {LABELS.map((_, j) => (
               <div
                 key={j}
-                style={styles.emptyCell}
+                className="rounded-md bg-primary-50 border-2 border-primary-300 dark:bg-primary-900 dark:border-primary-700"
+                style={{
+                  width: "clamp(3rem, 17vw, 5.5rem)",
+                  height: "clamp(2.8rem, 14vw, 4.5rem)",
+                }}
               />
             ))}
           </div>
@@ -57,56 +61,4 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
       ))}
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  grid: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "0.5rem 0.5rem 0",
-  },
-  headerRow: {
-    marginBottom: "0.35rem",
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  headerSpacer: {
-    height: "0.75rem",
-  },
-  headerCells: {
-    display: "flex",
-    gap: "0.25rem",
-    justifyContent: "center",
-  },
-  headerCell: {
-    width: "clamp(3rem, 17vw, 5.5rem)",
-    textAlign: "center",
-    fontSize: "0.7rem",
-    fontWeight: 700,
-    color: "var(--text-primary)",
-    letterSpacing: "0.08em",
-    textTransform: "uppercase",
-  },
-  emptyRow: {
-    marginBottom: "0.5rem",
-  },
-  emptyName: {
-    height: "0.95rem",
-    marginBottom: "0.2rem",
-  },
-  emptyCells: {
-    display: "flex",
-    gap: "0.25rem",
-    justifyContent: "center",
-  },
-  emptyCell: {
-    width: "clamp(3rem, 17vw, 5.5rem)",
-    height: "clamp(2.8rem, 14vw, 4.5rem)",
-    borderRadius: "0.375rem",
-    backgroundColor: "var(--empty-cell-bg)",
-    border: "2px solid var(--empty-cell-border)",
-  },
 }

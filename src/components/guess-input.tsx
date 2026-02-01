@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useMemo, type CSSProperties } from "react"
+import { useState, useRef, useEffect, useMemo } from "react"
 import Fuse from "fuse.js"
 import { type Player, players, playerId } from "@/data/players"
 
@@ -161,15 +161,15 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
   }
 
   return (
-    <div style={styles.container}>
-      <div style={styles.inputWrapper}>
+    <div className="shrink-0 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700">
+      <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
           type="text"
           name="player-search"
           value={query}
           onInput={handleInput}
-          onChange={() => {}}
+          onChange={() => { }}
           onCompositionStart={() => {
             composingRef.current = true
           }}
@@ -181,7 +181,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
           onFocus={() => query.trim() && setShowDropdown(true)}
           onKeyDown={handleKeyDown}
           placeholder="Type a player name..."
-          style={styles.input}
+          className="w-full px-4 py-3 text-base rounded-lg border-2 border-primary-300 bg-secondary-50 text-primary-900 outline-none dark:bg-secondary-900 dark:text-primary-50 dark:border-primary-700"
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
@@ -193,28 +193,27 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
         {showDropdown && filtered.length > 0 && (
           <div
             ref={dropdownRef}
-            style={styles.dropdown}
+            className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-10 dark:bg-secondary-900 dark:border-primary-700"
           >
             {filtered.map((player, i) => (
               <button
                 key={`${playerId(player)}-${i}`}
-                style={{
-                  ...styles.dropdownItem,
-                  backgroundColor: i === highlightIndex ? "var(--dropdown-hover)" : "transparent",
-                }}
+                className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${i === highlightIndex ? "bg-primary-100 dark:bg-primary-800" : "hover:bg-primary-50 dark:hover:bg-primary-900"}`}
                 onMouseDown={e => {
                   e.preventDefault()
                   selectPlayer(player)
                 }}
                 onMouseEnter={() => setHighlightIndex(i)}
               >
-                <span style={styles.playerName}>
+                <span className="font-semibold text-sm">
                   {player.name}
                   {duplicateNames.has(player.name) && (
-                    <span style={styles.playerMeta}> ({player.position})</span>
+                    <span className="text-xs font-normal text-primary-500 dark:text-primary-200"> ({player.position})</span>
                   )}
                 </span>
-                {i === highlightIndex && <span style={styles.enterHint}>↵</span>}
+                {i === highlightIndex && (
+                  <span className="text-sm text-primary-500 dark:text-primary-200 opacity-60 ml-2 font-normal border border-primary-500 dark:border-primary-200 rounded px-1">↵</span>
+                )}
               </button>
             ))}
           </div>
@@ -222,74 +221,4 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
       </div>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    flexShrink: 0,
-    padding: "0.75rem",
-    paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
-    borderTop: "1px solid var(--border)",
-    backgroundColor: "var(--bg)",
-  },
-  inputWrapper: {
-    position: "relative",
-    maxWidth: "32rem",
-    margin: "0 auto",
-  },
-  input: {
-    width: "100%",
-    padding: "0.75rem 1rem",
-    fontSize: "1rem",
-    borderRadius: "0.5rem",
-    border: "2px solid var(--input-border)",
-    backgroundColor: "var(--input-bg)",
-    color: "var(--text)",
-    outline: "none",
-  },
-  dropdown: {
-    position: "absolute",
-    bottom: "100%",
-    left: 0,
-    right: 0,
-    maxHeight: "12rem",
-    overflowY: "auto",
-    backgroundColor: "var(--dropdown-bg)",
-    border: "1px solid var(--border)",
-    borderRadius: "0.5rem",
-    marginBottom: "0.25rem",
-    boxShadow: "0 -4px 12px rgba(0,0,0,0.15)",
-    zIndex: 10,
-  },
-  dropdownItem: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    width: "100%",
-    padding: "0.5rem 0.75rem",
-    border: "none",
-    background: "none",
-    color: "var(--text)",
-    textAlign: "left",
-    cursor: "pointer",
-  },
-  playerName: {
-    fontWeight: 600,
-    fontSize: "0.9rem",
-  },
-  playerMeta: {
-    fontSize: "0.75rem",
-    fontWeight: 400,
-    color: "var(--text-secondary)",
-  },
-  enterHint: {
-    fontSize: "0.85rem",
-    color: "var(--text-secondary)",
-    opacity: 0.6,
-    marginLeft: "0.5rem",
-    fontWeight: 400,
-    border: "1px solid var(--text-secondary)",
-    borderRadius: "0.25rem",
-    padding: "0.1rem 0.4rem",
-  },
 }

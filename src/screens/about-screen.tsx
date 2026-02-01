@@ -1,70 +1,30 @@
-import type { CSSProperties } from "react"
-
 interface Props {
   onBack: () => void
 }
 
 export default function AboutScreen({ onBack }: Props) {
   return (
-    <div style={styles.container}>
-      <h2 style={styles.heading}>About</h2>
+    <div className="flex flex-col items-center px-6 py-8 gap-5 max-w-sm mx-auto flex-1">
+      <h2 className="text-2xl font-black tracking-wider text-primary-900 dark:text-primary-50">About</h2>
 
-      <div style={styles.section}>
-        <p style={styles.text}>
+      <div className="w-full">
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           <strong>Playerdle</strong> is a daily guessing game for NFL fans. Test your knowledge by
           identifying players based on their conference, division, team, position, and jersey
           number.
         </p>
       </div>
 
-      <div style={styles.section}>
-        <p style={styles.text}>Inspired by Wordle and other sports guessing games.</p>
+      <div className="w-full">
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">Inspired by Wordle and other sports guessing games.</p>
       </div>
 
       <button
-        style={styles.backBtn}
+        className="mt-2 px-6 py-2 text-sm font-bold bg-success-500 dark:bg-success-400 text-primary-50 dark:text-primary-900 border-none rounded cursor-pointer hover:opacity-90 transition-opacity"
         onClick={onBack}
       >
         Back to Menu
       </button>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "2rem 1.5rem",
-    gap: "1.25rem",
-    maxWidth: "28rem",
-    margin: "0 auto",
-    flex: 1,
-  },
-  heading: {
-    fontSize: "1.4rem",
-    fontWeight: 800,
-    letterSpacing: "0.05em",
-    color: "var(--text)",
-  },
-  section: {
-    width: "100%",
-  },
-  text: {
-    fontSize: "0.85rem",
-    color: "var(--text-secondary)",
-    lineHeight: 1.5,
-  },
-  backBtn: {
-    marginTop: "0.5rem",
-    padding: "0.5rem 1.5rem",
-    fontSize: "0.85rem",
-    fontWeight: 700,
-    color: "#fff",
-    backgroundColor: "var(--green)",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
 }

@@ -1,4 +1,3 @@
-import type { CSSProperties } from "react"
 import type { ArcadeDifficulty } from "@/utils/daily"
 
 interface Props {
@@ -26,84 +25,31 @@ const difficulties: { level: ArcadeDifficulty; label: string; description: strin
 
 export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Select Difficulty</h1>
-      <div style={styles.options}>
+    <div className="flex flex-col items-center justify-center flex-1 px-4 py-8">
+      <h1
+        className="font-black text-primary-900 dark:text-primary-50 mb-8 text-center"
+        style={{ fontSize: "clamp(1.5rem, 5vw, 2.5rem)" }}
+      >
+        Select Difficulty
+      </h1>
+      <div className="flex flex-col gap-4 w-full max-w-md">
         {difficulties.map(({ level, label, description }) => (
           <button
             key={level}
-            style={styles.option}
+            className="p-6 bg-secondary-50 dark:bg-secondary-900 border-2 border-secondary-300 dark:border-secondary-700 rounded-xl cursor-pointer transition-all text-left hover:border-accent-500 dark:hover:border-accent-400 hover:transform hover:scale-[1.02]"
             onClick={() => onSelect(level)}
           >
-            <div style={styles.optionLabel}>{label}</div>
-            <div style={styles.optionDescription}>{description}</div>
+            <div className="text-xl font-bold text-primary-900 dark:text-primary-50 mb-2">{label}</div>
+            <div className="text-sm text-primary-500 dark:text-primary-200">{description}</div>
           </button>
         ))}
       </div>
       <button
-        style={styles.backBtn}
+        className="absolute top-2.5 left-3 px-2.5 py-1.5 text-xs font-semibold text-primary-900 dark:text-primary-50 bg-transparent border border-primary-300 dark:border-primary-700 rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-all"
         onClick={onBack}
       >
         Back
       </button>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    flex: 1,
-    padding: "2rem 1rem",
-  },
-  title: {
-    fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
-    fontWeight: 800,
-    color: "var(--text)",
-    marginBottom: "2rem",
-    textAlign: "center",
-  },
-  options: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1rem",
-    width: "100%",
-    maxWidth: "400px",
-  },
-  option: {
-    padding: "1.5rem",
-    backgroundColor: "var(--bg-secondary)",
-    border: "2px solid var(--border)",
-    borderRadius: "0.75rem",
-    cursor: "pointer",
-    transition: "all 0.2s",
-    textAlign: "left",
-  },
-  optionLabel: {
-    fontSize: "1.25rem",
-    fontWeight: 700,
-    color: "var(--text)",
-    marginBottom: "0.5rem",
-  },
-  optionDescription: {
-    fontSize: "0.9rem",
-    color: "var(--text-secondary)",
-  },
-  backBtn: {
-    position: "absolute",
-    top: "0.65rem",
-    left: "0.75rem",
-    padding: "0.3rem 0.6rem",
-    fontSize: "0.75rem",
-    fontWeight: 600,
-    color: "var(--header-text)",
-    backgroundColor: "transparent",
-    border: "1px solid var(--header-text)",
-    borderRadius: "4px",
-    cursor: "pointer",
-    zIndex: 20,
-  },
 }

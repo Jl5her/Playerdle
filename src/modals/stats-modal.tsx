@@ -1,4 +1,3 @@
-import { type CSSProperties } from "react"
 import { calculateStats } from "@/utils/stats"
 
 interface Props {
@@ -12,44 +11,44 @@ export default function StatsModal({ onClose }: Props) {
 
   return (
     <div
-      style={styles.overlay}
+      className="fixed inset-0 bg-black/75 flex items-center justify-center z-1000 p-4"
       onClick={onClose}
     >
       <div
-        style={styles.modal}
+        className="bg-primary-50 dark:bg-primary-900 rounded-lg max-w-2xl w-full max-h-[90vh] overflow-auto border-2 border-primary-300 dark:border-primary-700"
         onClick={e => e.stopPropagation()}
       >
-        <div style={styles.header}>
-          <h2 style={styles.title}>Statistics</h2>
+        <div className="flex justify-between items-center p-5 border-b-2 border-primary-300 dark:border-primary-700">
+          <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics</h2>
           <button
-            style={styles.closeButton}
+            className="bg-transparent border-none text-primary-500 dark:text-primary-200 text-2xl cursor-pointer p-1 leading-none transition-colors hover:text-primary-900 dark:hover:text-primary-50"
             onClick={onClose}
           >
             ✕
           </button>
         </div>
 
-        <div style={styles.content}>
-          <div style={styles.statsGrid}>
-            <div style={styles.statBox}>
-              <div style={styles.statValue}>{stats.played}</div>
-              <div style={styles.statLabel}>Played</div>
+        <div className="p-6">
+          <div className="grid grid-cols-4 gap-2 mb-8">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.played}</div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">Played</div>
             </div>
-            <div style={styles.statBox}>
-              <div style={styles.statValue}>{stats.winPercentage}</div>
-              <div style={styles.statLabel}>Win %</div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.winPercentage}</div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">Win %</div>
             </div>
-            <div style={styles.statBox}>
-              <div style={styles.statValue}>{stats.currentStreak}</div>
-              <div style={styles.statLabel}>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.currentStreak}</div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
                 Current
                 <br />
                 Streak
               </div>
             </div>
-            <div style={styles.statBox}>
-              <div style={styles.statValue}>{stats.maxStreak}</div>
-              <div style={styles.statLabel}>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.maxStreak}</div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
                 Max
                 <br />
                 Streak
@@ -57,8 +56,8 @@ export default function StatsModal({ onClose }: Props) {
             </div>
           </div>
 
-          <div style={styles.distribution}>
-            <h3 style={styles.distributionTitle}>Guess Distribution</h3>
+          <div className="mt-6">
+            <h3 className="text-base font-semibold text-primary-900 dark:text-primary-50 mb-4">Guess Distribution</h3>
             {[1, 2, 3, 4, 5, 6].map(guessNum => {
               const count = stats.guessDistribution[guessNum] || 0
               const percentage = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
@@ -66,17 +65,19 @@ export default function StatsModal({ onClose }: Props) {
               return (
                 <div
                   key={guessNum}
-                  style={styles.distributionRow}
+                  className="flex items-center mb-1 gap-2"
                 >
-                  <div style={styles.distributionLabel}>{guessNum}</div>
-                  <div style={styles.distributionBarContainer}>
+                  <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">{guessNum}</div>
+                  <div className="flex-1 relative">
                     <div
+                      className="bg-primary-200 dark:bg-primary-800 rounded transition-all duration-300 inline-flex items-center"
                       style={{
-                        ...styles.distributionBar,
                         width: `${Math.max(percentage, count > 0 ? 7 : 0)}%`,
+                        minWidth: "2rem",
+                        padding: "0.3rem 0.5rem",
                       }}
                     >
-                      <span style={styles.distributionCount}>{count}</span>
+                      <span className="text-xs font-semibold text-primary-900 dark:text-primary-50">{count}</span>
                     </div>
                   </div>
                 </div>
@@ -87,110 +88,4 @@ export default function StatsModal({ onClose }: Props) {
       </div>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  overlay: {
-    position: "fixed",
-    inset: 0,
-    backgroundColor: "rgba(0, 0, 0, 0.75)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 1000,
-    padding: "1rem",
-  },
-  modal: {
-    backgroundColor: "var(--bg)",
-    borderRadius: "8px",
-    maxWidth: "500px",
-    width: "100%",
-    maxHeight: "90vh",
-    overflow: "auto",
-    border: "2px solid var(--border)",
-  },
-  header: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "1.25rem 1.5rem",
-    borderBottom: "2px solid var(--border)",
-  },
-  title: {
-    fontSize: "1.5rem",
-    fontWeight: 700,
-    color: "var(--text)",
-    margin: 0,
-  },
-  closeButton: {
-    background: "transparent",
-    border: "none",
-    color: "var(--text-secondary)",
-    fontSize: "1.5rem",
-    cursor: "pointer",
-    padding: "0.25rem",
-    lineHeight: 1,
-    transition: "color 0.2s",
-  },
-  content: {
-    padding: "1.5rem",
-  },
-  statsGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: "0.5rem",
-    marginBottom: "2rem",
-  },
-  statBox: {
-    textAlign: "center",
-  },
-  statValue: {
-    fontSize: "2rem",
-    fontWeight: 700,
-    color: "var(--text)",
-  },
-  statLabel: {
-    fontSize: "0.7rem",
-    color: "var(--text-secondary)",
-    marginTop: "0.25rem",
-    lineHeight: 1.3,
-  },
-  distribution: {
-    marginTop: "1.5rem",
-  },
-  distributionTitle: {
-    fontSize: "1rem",
-    fontWeight: 600,
-    color: "var(--text)",
-    marginBottom: "1rem",
-  },
-  distributionRow: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "0.4rem",
-    gap: "0.5rem",
-  },
-  distributionLabel: {
-    fontSize: "0.9rem",
-    fontWeight: 600,
-    color: "var(--text)",
-    width: "1rem",
-    flexShrink: 0,
-  },
-  distributionBarContainer: {
-    flex: 1,
-    position: "relative",
-  },
-  distributionBar: {
-    backgroundColor: "var(--text-secondary)",
-    padding: "0.3rem 0.5rem",
-    borderRadius: "2px",
-    minWidth: "2rem",
-    transition: "width 0.3s ease",
-  },
-  distributionCount: {
-    fontSize: "0.85rem",
-    fontWeight: 600,
-    color: "var(--bg)",
-  },
 }

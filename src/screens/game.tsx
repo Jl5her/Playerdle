@@ -1,4 +1,4 @@
-import { useState, useEffect, type CSSProperties } from "react"
+import { useState, useEffect } from "react"
 import { type Player, players, playerId, isSamePlayer } from "@/data/players"
 import {
   getDailyPlayer,
@@ -118,7 +118,7 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
   }
 
   return (
-    <div style={styles.container}>
+    <div className="min-h-screen bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50">
       <GameOverModal
         player={answer}
         won={won}
@@ -131,18 +131,18 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
         onClose={() => setShowModal(false)}
       />
       {gameOver && (
-        <div style={styles.answerCard}>
-          <div style={styles.answerLabel}>The answer was</div>
-          <div style={styles.answerName}>{answer.name}</div>
-          <div style={styles.answerDetails}>
+        <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
+          <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
+          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">{answer.name}</div>
+          <div className="text-sm text-primary-500 dark:text-primary-200 mt-0.5 uppercase">
             {answer.team} &middot; {answer.position} &middot; #{answer.number}
           </div>
-          <div style={styles.answerMessage}>
+          <div className="text-sm text-success-500 dark:text-success-400 mt-2 font-medium">
             {won ? `Guessed in ${guesses.length}/6` : "Better luck tomorrow!"}
           </div>
         </div>
       )}
-      <div style={styles.gridArea}>
+      <div className="flex-1 flex flex-col justify-center overflow-hidden min-h-0">
         <GuessGrid
           guesses={guesses}
           answer={answer}
@@ -156,7 +156,7 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
         disabled={gameOver}
       />
       {gameOver && (
-        <div style={styles.resultsContainer}>
+        <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           <Button
             onClick={() => setShowModal(true)}
             variant="secondary"
@@ -166,81 +166,11 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
         </div>
       )}
       <button
-        style={styles.backBtn}
+        className="absolute top-2.5 left-3 px-2.5 py-1.5 text-xs font-semibold text-primary-900 dark:text-primary-50 bg-transparent border border-primary-300 dark:border-primary-700 rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-all"
         onClick={onBack}
       >
         Menu
       </button>
     </div>
   )
-}
-
-const styles: Record<string, CSSProperties> = {
-  container: {
-    display: "flex",
-    flexDirection: "column",
-    flex: 1,
-    minHeight: 0,
-    overflow: "hidden",
-  },
-  gridArea: {
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    overflow: "hidden",
-    minHeight: 0,
-  },
-  answerCard: {
-    backgroundColor: "var(--bg-secondary)",
-    padding: "0.75rem 1rem",
-    textAlign: "center" as const,
-    flexShrink: 0,
-    borderBottom: "2px solid var(--border)",
-  },
-  answerLabel: {
-    fontSize: "0.75rem",
-    color: "var(--text-secondary)",
-    marginBottom: "0.25rem",
-  },
-  answerName: {
-    fontSize: "1.25rem",
-    fontWeight: 700,
-    color: "var(--text)",
-    textTransform: "uppercase" as const,
-  },
-  answerDetails: {
-    fontSize: "0.85rem",
-    color: "var(--text-secondary)",
-    marginTop: "0.15rem",
-    textTransform: "uppercase" as const,
-  },
-  answerMessage: {
-    fontSize: "0.9rem",
-    color: "var(--green)",
-    marginTop: "0.5rem",
-    fontWeight: 500,
-  },
-  resultsContainer: {
-    flexShrink: 0,
-    padding: "0.75rem",
-    paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))",
-    backgroundColor: "var(--bg)",
-    display: "flex",
-    justifyContent: "center",
-  },
-  backBtn: {
-    position: "absolute",
-    top: "0.65rem",
-    left: "0.75rem",
-    padding: "0.3rem 0.6rem",
-    fontSize: "0.75rem",
-    fontWeight: 600,
-    color: "var(--header-text)",
-    backgroundColor: "transparent",
-    border: "1px solid var(--header-text)",
-    borderRadius: "4px",
-    cursor: "pointer",
-    zIndex: 20,
-  },
 }
