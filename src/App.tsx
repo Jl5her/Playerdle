@@ -1,6 +1,6 @@
 import { useState, lazy, Suspense } from "react"
 import { Header } from "@/components"
-import { MainMenu, AboutScreen, ArcadeDifficulty } from "@/screens"
+import { MainMenu, AboutScreen } from "@/screens"
 import { HelpModal, TutorialModal, StatsModal } from "@/modals"
 import type { Screen } from "@/screens/main-menu"
 import type { ArcadeDifficulty as DifficultyLevel } from "@/utils/daily"
@@ -38,11 +38,6 @@ function App() {
     } else {
       setScreen(target)
     }
-  }
-
-  function handleDifficultySelect(difficulty: DifficultyLevel) {
-    setArcadeDifficulty(difficulty)
-    setGameKey(k => k + 1)
   }
 
   return (
