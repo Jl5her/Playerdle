@@ -1,9 +1,9 @@
-import type { CSSProperties } from "react";
-import type { ArcadeDifficulty } from "../utils/daily";
+import type { CSSProperties } from "react"
+import type { ArcadeDifficulty } from "@/utils/daily"
 
 interface Props {
-  onSelect: (difficulty: ArcadeDifficulty) => void;
-  onBack: () => void;
+  onSelect: (difficulty: ArcadeDifficulty) => void
+  onBack: () => void
 }
 
 const difficulties: { level: ArcadeDifficulty; label: string; description: string }[] = [
@@ -22,7 +22,7 @@ const difficulties: { level: ArcadeDifficulty; label: string; description: strin
     label: "Hard",
     description: "All positions",
   },
-];
+]
 
 export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
   return (
@@ -40,11 +40,14 @@ export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
           </button>
         ))}
       </div>
-      <button style={styles.backBtn} onClick={onBack}>
+      <button
+        style={styles.backBtn}
+        onClick={onBack}
+      >
         Back
       </button>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -59,7 +62,7 @@ const styles: Record<string, CSSProperties> = {
   title: {
     fontSize: "clamp(1.5rem, 5vw, 2.5rem)",
     fontWeight: 800,
-    color: "var(--text-primary)",
+    color: "var(--text)",
     marginBottom: "2rem",
     textAlign: "center",
   },
@@ -72,9 +75,9 @@ const styles: Record<string, CSSProperties> = {
   },
   option: {
     padding: "1.5rem",
-    backgroundColor: "var(--cell-bg)",
+    backgroundColor: "var(--bg-secondary)",
     border: "2px solid var(--border)",
-    borderRadius: "0.5rem",
+    borderRadius: "0.75rem",
     cursor: "pointer",
     transition: "all 0.2s",
     textAlign: "left",
@@ -82,7 +85,7 @@ const styles: Record<string, CSSProperties> = {
   optionLabel: {
     fontSize: "1.25rem",
     fontWeight: 700,
-    color: "var(--text-primary)",
+    color: "var(--text)",
     marginBottom: "0.5rem",
   },
   optionDescription: {
@@ -103,4 +106,4 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer",
     zIndex: 20,
   },
-};
+}

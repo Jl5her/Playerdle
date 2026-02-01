@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "react"
 
 interface Props {
-  onBack: () => void;
+  onBack: () => void
 }
 
 export default function AboutScreen({ onBack }: Props) {
@@ -11,21 +11,24 @@ export default function AboutScreen({ onBack }: Props) {
 
       <div style={styles.section}>
         <p style={styles.text}>
-          <strong>Playerdle</strong> is a daily guessing game for NFL fans.
-          Test your knowledge by identifying players based on their conference,
-          division, team, position, and jersey number.
+          <strong>Playerdle</strong> is a daily guessing game for NFL fans. Test your knowledge by
+          identifying players based on their conference, division, team, position, and jersey
+          number.
         </p>
       </div>
 
       <div style={styles.section}>
-        <p style={styles.text}>
-          Inspired by Wordle and other sports guessing games.
-        </p>
+        <p style={styles.text}>Inspired by Wordle and other sports guessing games.</p>
       </div>
 
-      <button style={styles.backBtn} onClick={onBack}>Back to Menu</button>
+      <button
+        style={styles.backBtn}
+        onClick={onBack}
+      >
+        Back to Menu
+      </button>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -64,4 +67,4 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "4px",
     cursor: "pointer",
   },
-};
+}

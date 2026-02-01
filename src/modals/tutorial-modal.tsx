@@ -1,29 +1,37 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "react"
 
 interface Props {
-  onClose: () => void;
+  onClose: () => void
 }
 
-export default function TutorialScreen({ onClose }: Props) {
+export default function TutorialModal({ onClose }: Props) {
   return (
-    <div style={styles.overlay} onClick={onClose}>
-      <div style={styles.modal} onClick={(e) => e.stopPropagation()}>
+    <div
+      style={styles.overlay}
+      onClick={onClose}
+    >
+      <div
+        style={styles.modal}
+        onClick={e => e.stopPropagation()}
+      >
         <div style={styles.header}>
           <h2 style={styles.title}>How to Play</h2>
-          <button style={styles.closeButton} onClick={onClose}>
+          <button
+            style={styles.closeButton}
+            onClick={onClose}
+          >
             ✕
           </button>
         </div>
 
         <div style={styles.content}>
-          <p style={styles.text}>
-            Guess the mystery NFL player in 6 tries.
-          </p>
+          <p style={styles.text}>Guess the mystery NFL player in 6 tries.</p>
 
           <div style={styles.section}>
             <h3 style={styles.sectionTitle}>How It Works</h3>
             <p style={styles.text}>
-              Each guess reveals clues about the player's conference, division, team, position, and jersey number.
+              Each guess reveals clues about the player's conference, division, team, position, and
+              jersey number.
             </p>
           </div>
 
@@ -59,13 +67,16 @@ export default function TutorialScreen({ onClose }: Props) {
             </p>
           </div>
 
-          <button style={styles.playButton} onClick={onClose}>
+          <button
+            style={styles.playButton}
+            onClick={onClose}
+          >
             Got it!
           </button>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -174,4 +185,4 @@ const styles: Record<string, CSSProperties> = {
     cursor: "pointer",
     transition: "background 0.2s",
   },
-};
+}

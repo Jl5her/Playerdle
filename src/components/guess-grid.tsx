@@ -1,18 +1,18 @@
-import type { CSSProperties } from "react";
-import type { Player } from "../data/players";
-import GuessRow from "./GuessRow";
+import type { CSSProperties } from "react"
+import type { Player } from "@/data/players"
+import { GuessRow } from "@/components"
 
 interface Props {
-  guesses: Player[];
-  answer: Player;
-  maxGuesses: number;
-  latestIndex: number;
+  guesses: Player[]
+  answer: Player
+  maxGuesses: number
+  latestIndex: number
 }
 
-const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const;
+const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const
 
 export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: Props) {
-  const emptySlots = maxGuesses - guesses.length;
+  const emptySlots = maxGuesses - guesses.length
 
   return (
     <div style={styles.grid}>
@@ -20,8 +20,11 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
       <div style={styles.headerRow}>
         <div style={styles.headerSpacer} />
         <div style={styles.headerCells}>
-          {LABELS.map((label) => (
-            <div key={label} style={styles.headerCell}>
+          {LABELS.map(label => (
+            <div
+              key={label}
+              style={styles.headerCell}
+            >
               {label}
             </div>
           ))}
@@ -37,17 +40,23 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
       ))}
 
       {Array.from({ length: emptySlots }).map((_, i) => (
-        <div key={`empty-${i}`} style={styles.emptyRow}>
+        <div
+          key={`empty-${i}`}
+          style={styles.emptyRow}
+        >
           <div style={styles.emptyName}>&nbsp;</div>
           <div style={styles.emptyCells}>
             {LABELS.map((_, j) => (
-              <div key={j} style={styles.emptyCell} />
+              <div
+                key={j}
+                style={styles.emptyCell}
+              />
             ))}
           </div>
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -100,4 +109,4 @@ const styles: Record<string, CSSProperties> = {
     backgroundColor: "var(--empty-cell-bg)",
     border: "2px solid var(--empty-cell-border)",
   },
-};
+}

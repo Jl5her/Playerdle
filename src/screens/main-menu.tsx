@@ -1,17 +1,18 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "react"
 
-export type Screen = "menu" | "daily" | "arcade" | "help" | "about";
+export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats"
 
 interface Props {
-  onNavigate: (screen: Screen) => void;
+  onNavigate: (screen: Screen) => void
 }
 
 const menuItems: { label: string; description: string; screen: Screen }[] = [
   { label: "Daily", description: "Same player for everyone each day", screen: "daily" },
   { label: "Arcade", description: "Random player every round", screen: "arcade" },
+  { label: "Stats", description: "View your statistics", screen: "stats" },
   { label: "Help", description: "How to play", screen: "help" },
   { label: "About", description: "About Playerdle", screen: "about" },
-];
+]
 
 export default function MainMenu({ onNavigate }: Props) {
   return (
@@ -22,7 +23,7 @@ export default function MainMenu({ onNavigate }: Props) {
       </div>
 
       <div style={styles.menuList}>
-        {menuItems.map((item) => (
+        {menuItems.map(item => (
           <button
             key={item.screen}
             style={styles.menuItem}
@@ -34,7 +35,7 @@ export default function MainMenu({ onNavigate }: Props) {
         ))}
       </div>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -89,4 +90,4 @@ const styles: Record<string, CSSProperties> = {
     color: "var(--text-secondary)",
     marginTop: "0.15rem",
   },
-};
+}

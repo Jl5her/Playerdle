@@ -1,7 +1,7 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "react"
 
 interface Props {
-  onShowTutorial?: () => void;
+  onShowTutorial?: () => void
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -39,7 +39,7 @@ const styles: Record<string, CSSProperties> = {
     justifyContent: "center",
     transition: "all 0.2s",
   },
-};
+}
 
 export default function Header({ onShowTutorial }: Props) {
   return (
@@ -56,5 +56,5 @@ export default function Header({ onShowTutorial }: Props) {
         </button>
       )}
     </header>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "react"
 
 interface Props {
-  onBack: () => void;
+  onBack: () => void
 }
 
-export default function HelpScreen({ onBack }: Props) {
+export default function HelpModal({ onBack }: Props) {
   return (
     <div style={styles.container}>
       <h2 style={styles.heading}>How to Play</h2>
 
       <div style={styles.section}>
         <p style={styles.text}>
-          Guess the NFL player in <strong>5 tries</strong>. After each guess,
-          the tiles will change color to show how close your guess was.
+          Guess the NFL player in <strong>5 tries</strong>. After each guess, the tiles will change
+          color to show how close your guess was.
         </p>
       </div>
 
@@ -35,12 +35,11 @@ export default function HelpScreen({ onBack }: Props) {
         <h3 style={styles.subheading}>Categories</h3>
         <p style={styles.text}>
           Each guess reveals clues across five categories: <strong>Conference</strong>,{" "}
-          <strong>Division</strong>, <strong>Team</strong>, <strong>Position</strong>,
-          and <strong>Jersey Number</strong>.
+          <strong>Division</strong>, <strong>Team</strong>, <strong>Position</strong>, and{" "}
+          <strong>Jersey Number</strong>.
         </p>
         <p style={styles.text}>
-          For jersey number, an arrow indicates whether the answer's number is
-          higher or lower.
+          For jersey number, an arrow indicates whether the answer's number is higher or lower.
         </p>
       </div>
 
@@ -54,9 +53,14 @@ export default function HelpScreen({ onBack }: Props) {
         </p>
       </div>
 
-      <button style={styles.backBtn} onClick={onBack}>Back to Menu</button>
+      <button
+        style={styles.backBtn}
+        onClick={onBack}
+      >
+        Back to Menu
+      </button>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, CSSProperties> = {
@@ -117,4 +121,4 @@ const styles: Record<string, CSSProperties> = {
     borderRadius: "4px",
     cursor: "pointer",
   },
-};
+}
