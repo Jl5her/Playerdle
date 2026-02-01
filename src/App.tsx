@@ -31,7 +31,9 @@ function App() {
 
   function handleNavigate(target: Screen) {
     if (target === "arcade") {
-      // Don't increment gameKey yet, just show difficulty selection
+      // Skip difficulty selection, go straight to game with default difficulty
+      setArcadeDifficulty("easy")
+      setGameKey(k => k + 1)
       setScreen("arcade")
     } else {
       setScreen(target)
@@ -53,12 +55,6 @@ function App() {
           <Game
             key="daily"
             mode="daily"
-            onBack={goToMenu}
-          />
-        )}
-        {screen === "arcade" && arcadeDifficulty === null && (
-          <ArcadeDifficulty
-            onSelect={handleDifficultySelect}
             onBack={goToMenu}
           />
         )}
