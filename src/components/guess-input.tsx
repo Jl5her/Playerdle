@@ -15,13 +15,35 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
   const composingRef = useRef(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
 
-  // Auto-focus input on mount and when game resets
+  // Detect if user is on mobile device
+  const isMobile = useMemo(() => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent), [])
+
+  // Auto-focus input on mount and when game resets (desktop only)
   useEffect(() => {
-    if (!disabled) {
+    if (!disabled && !isMobile) {
       inputRef.current?.focus()
     }
-  }, [disabled, guessedIds.size])
+  }, [disabled, guessedIds.size, isMobile])
+
+  // Scroll input into view when keyboard opens on mobile
+  useEffect(() => {
+    if (!isMobile) return
+
+    const input = inputRef.current
+    if (!input) return
+
+    const handleFocus = () => {
+      // Small delay to let the keyboard open first
+      setTimeout(() => {
+        input.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
+      }, 300)
+    }
+
+    input.addEventListener("focus", handleFocus)
+    return () => input.removeEventListener("focus", handleFocus)
+  }, [isMobile])
 
   const fuse = useMemo(
     () =>
@@ -161,7 +183,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
   }
 
   return (
-    <div className="shrink-0 px-3 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700">
+    <div ref={containerRef} className="shrink-0 px-3 py-2 border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
@@ -211,7 +233,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
                     <span className="text-xs font-normal text-primary-500 dark:text-primary-200"> ({player.position})</span>
                   )}
                 </span>
-                {i === highlightIndex && (
+                {!isMobile && i === highlightIndex && (
                   <span className="text-sm text-primary-500 dark:text-primary-200 opacity-60 ml-2 font-normal border border-primary-500 dark:border-primary-200 rounded px-1">↵</span>
                 )}
               </button>

@@ -64,15 +64,19 @@ const POSITION_MAP: Record<string, string> = {
   RDE: "DE",
   LDT: "DT",
   RDT: "DT",
+  NT: "DT",
   WLB: "LB",
   MLB: "LB",
   SLB: "LB",
+  RILB: "LB",
+  LILB: "LB",
   LCB: "CB",
   RCB: "CB",
   NB: "CB",
   SS: "S",
   FS: "S",
   PK: "K",
+  G: "OG",
   LG: "OG",
   RG: "OG",
   LT: "OT",
@@ -87,7 +91,7 @@ async function scrapeDepthChart(page: Page, team: Team): Promise<DepthEntry[]> {
   const url = `https://www.espn.com/nfl/team/depth/_/name/${team.abbr}/${team.slug}`
   await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 })
   // Wait for tables to render
-  await page.waitForSelector("table", { timeout: 10_000 }).catch(() => {})
+  await page.waitForSelector("table", { timeout: 10_000 }).catch(() => { })
 
   const entries = await page.evaluate(() => {
     const results: { espnId: string; name: string; position: string; colIndex: number }[] = []
@@ -135,6 +139,7 @@ async function scrapeDepthChart(page: Page, team: Team): Promise<DepthEntry[]> {
           const name = rawName.replace(/\s+(Q|IR|O|D|PUP|SUSP|CEL|DNR|NFI)$/i, "").trim()
           if (!name) continue
 
+          // Note: We store the original name in the database, normalization is for matching only
           results.push({
             espnId: idMatch[1],
             name,
@@ -302,6 +307,7 @@ async function main() {
 
   const allPlayers: OutputPlayer[] = []
   const teamCounts: Record<string, number> = {}
+  const globalSeenIds = new Set<string>() // Track ESPN IDs globally to prevent duplicates
 
   for (let i = 0; i < teams.length; i++) {
     const team = teams[i]
@@ -316,11 +322,19 @@ async function main() {
 
       const players = mergeTeamData(depthEntries, rosterEntries, team)
 
-      allPlayers.push(...players)
-      teamCounts[team.name] = players.length
+      // Only add players we haven't seen before
+      const newPlayers = players.filter(p => {
+        if (!p.espnId || globalSeenIds.has(p.espnId)) return false
+        globalSeenIds.add(p.espnId)
+        return true
+      })
 
+      allPlayers.push(...newPlayers)
+      teamCounts[team.name] = newPlayers.length
+
+      const skipped = players.length - newPlayers.length
       console.log(
-        ` depth: ${depthEntries.length}, api: ${rosterEntries.length}, merged: ${players.length}`,
+        ` depth: ${depthEntries.length}, api: ${rosterEntries.length}, merged: ${players.length}${skipped > 0 ? ` (${skipped} duplicates skipped)` : ""}`,
       )
     } catch (err) {
       console.error(` ERROR: ${err}`)

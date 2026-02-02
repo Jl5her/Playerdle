@@ -23,3 +23,8 @@ export function getTeamByAbbr(abbr: string): Team | undefined {
   const normalizedAbbr = abbr.toLowerCase()
   return Object.values(teams).find(team => team.abbr === normalizedAbbr)
 }
+
+export function getAbbrByTeamName(teamName: string): string | undefined {
+  const team = Object.values(teams).find(t => t.name === teamName)
+  return team?.abbr.toUpperCase()
+}

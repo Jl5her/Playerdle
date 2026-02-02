@@ -2,6 +2,25 @@ interface Props {
   onClose: () => void
 }
 
+const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const
+
+const EXAMPLE_CELLS: { value: string; bg: string }[] = [
+  { value: "NFC", bg: "bg-success-500 dark:bg-success-600" },
+  { value: "South", bg: "bg-error-500 dark:bg-error-600" },
+  { value: "ATL", bg: "bg-error-500 dark:bg-error-600" },
+  { value: "QB", bg: "bg-success-500 dark:bg-success-600" },
+  { value: "15 ↑", bg: "bg-warning-500 dark:bg-warning-600" },
+]
+
+const tileStyle = {
+  width: "clamp(2.5rem, 16vw, 5rem)",
+  height: "clamp(2.5rem, 16vw, 5rem)",
+}
+
+const textStyle = {
+  fontSize: "clamp(0.6rem, 2.8vw, 0.9rem)",
+}
+
 export default function TutorialModal({ onClose }: Props) {
   return (
     <div
@@ -23,50 +42,60 @@ export default function TutorialModal({ onClose }: Props) {
         </div>
 
         <div className="p-6">
-          <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">Guess the mystery NFL player in 6 tries.</p>
+          <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
+            Guess the mystery NFL player in 6 tries. Each guess reveals clues about the player's conference, division, team, position, and jersey number.
+          </p>
 
           <div className="mt-6">
-            <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">How It Works</h3>
-            <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
-              Each guess reveals clues about the player's conference, division, team, position, and
-              jersey number.
-            </p>
-          </div>
-
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">Color Guide</h3>
-            <div className="flex flex-col gap-3 mt-4">
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex items-center justify-center w-20 h-15 rounded border-2 border-primary-300 dark:border-primary-700 shrink-0 bg-success-500 dark:bg-success-400"
-                >
-                  <span className="text-primary-50 dark:text-primary-900 font-bold text-sm relative z-10">NFC</span>
-                </div>
-                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Green = Correct match</p>
+            <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">Example</h3>
+            <div className="flex flex-col items-center">
+              <div className="flex gap-1 justify-center mb-1">
+                {LABELS.map(label => (
+                  <div
+                    key={label}
+                    className="text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
+                    style={{ width: "clamp(2.5rem, 16vw, 5rem)" }}
+                  >
+                    {label}
+                  </div>
+                ))}
               </div>
-
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex items-center justify-center w-20 h-15 rounded border-2 border-primary-300 dark:border-primary-700 shrink-0 bg-warning-500 dark:bg-warning-400"
-                >
-                  <span className="text-primary-50 dark:text-primary-900 font-bold text-sm relative z-10">15 ↑</span>
-                </div>
-                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Yellow = Number within 5</p>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <div
-                  className="flex items-center justify-center w-20 h-15 rounded border-2 border-primary-300 dark:border-primary-700 shrink-0 bg-error-500 dark:bg-error-400"
-                >
-                  <span className="text-primary-50 dark:text-primary-900 font-bold text-sm relative z-10">QB</span>
-                </div>
-                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Red = Incorrect</p>
+              <div className="flex gap-1 justify-center">
+                {EXAMPLE_CELLS.map((cell, i) => (
+                  <div
+                    key={i}
+                    style={tileStyle}
+                    className={`flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 cursor-default text-primary-50 ${cell.bg}`}
+                  >
+                    <span style={textStyle} className="text-center relative z-10">
+                      {cell.value}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
           <div className="mt-6">
-            <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
+            <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">Color Guide</h3>
+            <div className="flex flex-col gap-2 mt-2">
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 rounded-sm shrink-0 bg-success-500 dark:bg-success-600" />
+                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Green = Correct match</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 rounded-sm shrink-0 bg-warning-500 dark:bg-warning-600" />
+                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Yellow = Close (number within 5)</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-4 h-4 rounded-sm shrink-0 bg-error-500 dark:bg-error-600" />
+                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Red = Incorrect</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2 text-sm">
               Arrows (↑ ↓) indicate if the mystery player's number is higher or lower.
             </p>
           </div>

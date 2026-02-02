@@ -92,12 +92,14 @@ export default {
       },
       keyframes: {
         cellReveal: {
-          '0%': { transform: 'rotateX(0deg)' },
-          '100%': { transform: 'rotateX(180deg)' },
+          '0%': { transform: 'perspective(400px) rotateX(0deg)' },
+          '50%': { transform: 'perspective(400px) rotateX(90deg)' },
+          '51%': { transform: 'perspective(400px) rotateX(-90deg)' },
+          '100%': { transform: 'perspective(400px) rotateX(0deg)' },
         },
       },
       animation: {
-        'cell-flip': 'cellReveal 0.6s cubic-bezier(0.4, 0.2, 0.2, 1) forwards',
+        'cell-flip': 'cellReveal 0.6s ease-in-out both',
       },
       screens: {
         xs: '400px',

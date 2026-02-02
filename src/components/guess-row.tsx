@@ -73,8 +73,8 @@ export default function GuessRow({ result, animate }: Props) {
   ]
 
   return (
-    <div className="mb-2">
-      <div className="text-xs font-bold mb-0.5 text-center uppercase tracking-wider text-primary-700 dark:text-primary-200">{result.guess.name}</div>
+    <div>
+      <div className="text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">{result.guess.name}</div>
       <div className="flex gap-1 justify-center">
         {cells.map((cell, i) => (
           <Tile

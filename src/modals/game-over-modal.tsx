@@ -99,6 +99,7 @@ export default function GameOverModal({
         spread: 55,
         origin: { x: 0, y: 0 },
         colors: colors,
+        zIndex: 2000,
       })
       confetti({
         particleCount: 3,
@@ -106,6 +107,7 @@ export default function GameOverModal({
         spread: 55,
         origin: { x: 1, y: 0 },
         colors: colors,
+        zIndex: 2000,
       })
 
       if (Date.now() < end) {

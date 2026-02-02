@@ -6,6 +6,13 @@ interface Props {
 
 export default function StatsModal({ onClose }: Props) {
   const stats = calculateStats()
+  const today = new Date()
+  const dateStr = today.toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  })
 
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
@@ -19,7 +26,10 @@ export default function StatsModal({ onClose }: Props) {
         onClick={e => e.stopPropagation()}
       >
         <div className="flex justify-between items-center p-5 border-b-2 border-primary-300 dark:border-primary-700">
-          <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics</h2>
+          <div>
+            <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics</h2>
+            <p className="text-xs text-primary-500 dark:text-primary-200 mt-1">{dateStr}</p>
+          </div>
           <button
             className="bg-transparent border-none text-primary-500 dark:text-primary-200 text-2xl cursor-pointer p-1 leading-none transition-colors hover:text-primary-900 dark:hover:text-primary-50"
             onClick={onClose}

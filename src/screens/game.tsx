@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react"
 import { type Player, players, playerId, isSamePlayer } from "@/data/players"
-import {
-  getDailyPlayer,
-  getRandomEasyPlayer,
-  getRandomPlayerByDifficulty,
-  getTodayKey,
-  type ArcadeDifficulty,
-} from "@/utils/daily"
+import { getDailyPlayer, getRandomArcadePlayer, getTodayKey } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
 import { GuessGrid, GuessInput, Button } from "@/components"
-import { GameOverModal } from "@/modals"
+import { GameOverModal, ArcadeSettingsModal } from "@/modals"
+import { shouldShowArcadeSettings, type ArcadeSettings } from "@/modals/arcade-settings-modal"
 
 const MAX_GUESSES = 6
 const STORAGE_KEY = "playerdle-state"
@@ -18,8 +13,7 @@ export type GameMode = "daily" | "arcade"
 
 interface Props {
   mode: GameMode
-  onBack: () => void
-  arcadeDifficulty?: ArcadeDifficulty
+  onRegisterSettings?: (callback: () => void) => void
 }
 
 interface SavedState {
@@ -53,13 +47,6 @@ function restoreGuesses(ids: string[]): Player[] {
   return restored
 }
 
-function getInitialPlayer(mode: GameMode, arcadeDifficulty?: ArcadeDifficulty): Player {
-  if (mode === "daily") {
-    return getDailyPlayer()
-  }
-  return arcadeDifficulty ? getRandomPlayerByDifficulty(arcadeDifficulty) : getRandomEasyPlayer()
-}
-
 function getInitialGuesses(mode: GameMode): Player[] {
   if (mode === "daily") {
     const savedIds = loadState(getTodayKey())
@@ -68,8 +55,13 @@ function getInitialGuesses(mode: GameMode): Player[] {
   return []
 }
 
-export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
-  const [answer, setAnswer] = useState<Player>(() => getInitialPlayer(mode, arcadeDifficulty))
+export default function Game({ mode, onRegisterSettings }: Props) {
+  const [includeDefensiveST, setIncludeDefensiveST] = useState(false)
+  const [showArcadeSettings, setShowArcadeSettings] = useState(mode === "arcade" && shouldShowArcadeSettings())
+  const [gameStarted, setGameStarted] = useState(mode === "daily" || !shouldShowArcadeSettings())
+  const [answer, setAnswer] = useState<Player | null>(() =>
+    mode === "daily" ? getDailyPlayer() : (shouldShowArcadeSettings() ? null : getRandomArcadePlayer(undefined, false)),
+  )
   const [dateKey] = useState<string>(getTodayKey)
   const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode))
   const [latestIndex, setLatestIndex] = useState(-1)
@@ -82,9 +74,16 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
 
   const guessedIds = new Set(guesses.map(g => playerId(g)))
 
+  // Register arcade settings callback with parent
+  useEffect(() => {
+    if (mode === "arcade" && onRegisterSettings) {
+      onRegisterSettings(() => () => setShowArcadeSettings(true))
+    }
+  }, [mode, onRegisterSettings])
+
   // Save game result when game is over (daily mode only)
   useEffect(() => {
-    if (mode === "daily" && gameOver) {
+    if (mode === "daily" && gameOver && won !== null) {
       saveGameResult(won, guesses.length)
     }
   }, [mode, gameOver, won, guesses.length])
@@ -109,28 +108,53 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
   }
 
   function handlePlayAgain() {
-    const newPlayer = arcadeDifficulty
-      ? getRandomPlayerByDifficulty(arcadeDifficulty, playerId(answer))
-      : getRandomEasyPlayer(playerId(answer))
+    const newPlayer = getRandomArcadePlayer(playerId(answer!), includeDefensiveST)
     setAnswer(newPlayer)
     setGuesses([])
     setLatestIndex(-1)
   }
 
+  function handleArcadeSettingsStart(settings: ArcadeSettings) {
+    setIncludeDefensiveST(settings.includeDefensiveST)
+    const newPlayer = getRandomArcadePlayer(undefined, settings.includeDefensiveST)
+    setAnswer(newPlayer)
+    setShowArcadeSettings(false)
+    setGameStarted(true)
+  }
+
+  function handleCloseArcadeSettings() {
+    // If game hasn't started yet, start with default settings
+    if (!gameStarted) {
+      handleArcadeSettingsStart({ includeDefensiveST: false })
+    } else {
+      setShowArcadeSettings(false)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50">
-      <GameOverModal
-        player={answer}
-        won={won}
-        lost={lost}
-        guessCount={guesses.length}
-        onPlayAgain={mode === "arcade" ? handlePlayAgain : undefined}
-        mode={mode}
-        guesses={guesses}
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-      />
-      {gameOver && (
+    <div className="flex-1 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
+      {mode === "arcade" && (
+        <ArcadeSettingsModal
+          isOpen={showArcadeSettings}
+          onStart={handleArcadeSettingsStart}
+          onClose={handleCloseArcadeSettings}
+          initialSettings={{ includeDefensiveST }}
+        />
+      )}
+      {answer && (
+        <GameOverModal
+          player={answer}
+          won={won ?? false}
+          lost={lost ?? false}
+          guessCount={guesses.length}
+          onPlayAgain={mode === "arcade" ? handlePlayAgain : undefined}
+          mode={mode}
+          guesses={guesses}
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+        />
+      )}
+      {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
           <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">{answer.name}</div>
@@ -142,19 +166,23 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
           </div>
         </div>
       )}
-      <div className="flex-1 flex flex-col justify-center overflow-hidden min-h-0">
-        <GuessGrid
-          guesses={guesses}
-          answer={answer}
-          maxGuesses={MAX_GUESSES}
-          latestIndex={latestIndex}
-        />
-      </div>
-      <GuessInput
-        onGuess={handleGuess}
-        guessedIds={guessedIds}
-        disabled={gameOver}
-      />
+      {answer && (
+        <>
+          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            <GuessGrid
+              guesses={guesses}
+              answer={answer}
+              maxGuesses={MAX_GUESSES}
+              latestIndex={latestIndex}
+            />
+          </div>
+          <GuessInput
+            onGuess={handleGuess}
+            guessedIds={guessedIds}
+            disabled={gameOver}
+          />
+        </>
+      )}
       {gameOver && (
         <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           <Button
@@ -165,12 +193,6 @@ export default function Game({ mode, onBack, arcadeDifficulty }: Props) {
           </Button>
         </div>
       )}
-      <button
-        className="absolute top-2.5 left-3 px-2.5 py-1.5 text-xs font-semibold text-primary-900 dark:text-primary-50 bg-transparent border border-primary-300 dark:border-primary-700 rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-all"
-        onClick={onBack}
-      >
-        Menu
-      </button>
     </div>
   )
 }

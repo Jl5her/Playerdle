@@ -1,10 +1,12 @@
-import { fantasyPlayers, playerId, type Player } from "@/data/players"
+import { fantasyPlayers, allPlayers, playerId, isSamePlayer, type Player } from "@/data/players"
 
 export type ArcadeDifficulty = "easy" | "medium" | "hard"
 
-const EASY_POSITIONS = ["QB", "RB", "WR", "TE"]
-const MEDIUM_POSITIONS = ["QB", "RB", "WR", "TE", "CB", "S", "DT"]
-// HARD includes all positions
+// Offensive positions (default for daily and arcade)
+const OFFENSIVE_POSITIONS = ["QB", "RB", "WR", "TE"]
+
+// Defensive & Special Teams positions
+const DEFENSIVE_ST_POSITIONS = ["K", "DL", "LB", "DB"]
 
 function hashString(str: string): number {
   let hash = 0
@@ -16,54 +18,52 @@ function hashString(str: string): number {
   return Math.abs(hash)
 }
 
-export function getDailyPlayer(): Player {
-  // Use fantasy players pool for daily answers
-  const eligiblePlayers = fantasyPlayers.filter(p => p && p.name)
-  const today = new Date()
-  const dateStr = `${today.getUTCFullYear()}-${today.getUTCMonth()}-${today.getUTCDate()}`
-  const index = hashString(dateStr) % eligiblePlayers.length
-  return eligiblePlayers[index]
+function getDateKey(date: Date): string {
+  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
 }
 
-export function getRandomEasyPlayer(excludeId?: string): Player {
-  // Use fantasy players pool for arcade answers
-  const easyPlayers = fantasyPlayers.filter(
-    p => p && EASY_POSITIONS.includes(p.position) && playerId(p) !== excludeId,
+export function getDailyPlayer(date?: Date): Player {
+  // Daily mode: only offensive positions (QB, RB, WR, TE)
+  const eligiblePlayers = fantasyPlayers.filter(
+    p => p && p.name && OFFENSIVE_POSITIONS.includes(p.position),
   )
-  return easyPlayers[Math.floor(Math.random() * easyPlayers.length)] || fantasyPlayers[0]
+  const targetDate = date || new Date()
+  const dateStr = getDateKey(targetDate)
+  const hash = hashString(dateStr)
+
+  // Multiply by large prime (Knuth's multiplicative hash) for better distribution
+  // This prevents consecutive dates from selecting consecutive players
+  const shuffledIndex = (hash * 2654435761) % eligiblePlayers.length
+
+  const fantasyPlayer = eligiblePlayers[shuffledIndex]
+
+  // Look up full player data from allPlayers to get jersey number
+  const fullPlayer = allPlayers.find(p => isSamePlayer(p, fantasyPlayer))
+
+  return fullPlayer || fantasyPlayer
 }
 
-export function getRandomPlayerByDifficulty(
-  difficulty: ArcadeDifficulty,
+export function getRandomArcadePlayer(
   excludeId?: string,
+  includeDefensiveST?: boolean,
 ): Player {
-  let allowedPositions: string[]
+  // Arcade mode: offensive positions by default, add D/ST if enabled
+  const allowedPositions = includeDefensiveST
+    ? [...OFFENSIVE_POSITIONS, ...DEFENSIVE_ST_POSITIONS]
+    : OFFENSIVE_POSITIONS
 
-  switch (difficulty) {
-    case "easy":
-      allowedPositions = EASY_POSITIONS
-      break
-    case "medium":
-      allowedPositions = MEDIUM_POSITIONS
-      break
-    case "hard":
-      // Hard mode includes all positions, so no filtering needed
-      allowedPositions = []
-      break
-  }
+  const eligiblePlayers = fantasyPlayers.filter(
+    p => p && p.name && allowedPositions.includes(p.position) && playerId(p) !== excludeId,
+  )
 
-  // Use fantasy players pool for arcade answers
-  const filtered = fantasyPlayers.filter(p => {
-    if (!p) return false
-    if (playerId(p) === excludeId) return false
-    if (allowedPositions.length === 0) return true // Hard mode: all positions
-    return allowedPositions.includes(p.position)
-  })
+  const fantasyPlayer = eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)] || fantasyPlayers[0]
 
-  return filtered[Math.floor(Math.random() * filtered.length)] || fantasyPlayers[0]
+  // Look up full player data from allPlayers to get jersey number
+  const fullPlayer = allPlayers.find(p => isSamePlayer(p, fantasyPlayer))
+
+  return fullPlayer || fantasyPlayer
 }
 
 export function getTodayKey(): string {
-  const today = new Date()
-  return `${today.getUTCFullYear()}-${today.getUTCMonth()}-${today.getUTCDate()}`
+  return getDateKey(new Date())
 }

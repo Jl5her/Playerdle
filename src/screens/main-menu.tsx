@@ -1,4 +1,4 @@
-export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats"
+export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats" | "behind"
 
 interface Props {
   onNavigate: (screen: Screen) => void
@@ -8,7 +8,8 @@ const menuItems: { label: string; description: string; screen: Screen }[] = [
   { label: "Daily", description: "Same player for everyone each day", screen: "daily" },
   { label: "Arcade", description: "Random player every round", screen: "arcade" },
   { label: "About", description: "About Playerdle", screen: "about" },
-]
+  import.meta.env.DEV && { label: "Behind the Scenes (Dev)", description: "See how the daily player is chosen", screen: "behind" },
+].filter(Boolean) as { label: string; description: string; screen: Screen }[]
 
 export default function MainMenu({ onNavigate }: Props) {
   return (

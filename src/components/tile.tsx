@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react"
+
 interface Cell {
   value: string
   correct: boolean
@@ -12,23 +14,35 @@ interface Props {
 }
 
 export default function Tile({ cell, animate, delay }: Props) {
+  const [revealed, setRevealed] = useState(!animate)
   const { value, arrow, correct, close } = cell
-  let bgClass = ""
-  let textClass = ""
-  if (correct) {
-    bgClass = "bg-success-500 dark:bg-success-400"
-    textClass = "text-primary-50 dark:text-primary-900"
+
+  useEffect(() => {
+    if (!animate) return
+    const revealAt = ((delay ?? 0) + 0.3) * 1000
+    const timer = setTimeout(() => setRevealed(true), revealAt)
+    return () => clearTimeout(timer)
+  }, [animate, delay])
+
+  let bgClass: string
+  let textClass: string
+  if (!revealed) {
+    bgClass = "bg-primary-200 dark:bg-primary-700"
+    textClass = "text-primary-200 dark:text-primary-700"
+  } else if (correct) {
+    bgClass = "bg-success-500 dark:bg-success-600"
+    textClass = "text-primary-50"
   } else if (close) {
-    bgClass = "bg-warning-500 dark:bg-warning-400"
-    textClass = "text-primary-50 dark:text-primary-900"
+    bgClass = "bg-warning-500 dark:bg-warning-600"
+    textClass = "text-primary-50"
   } else {
-    bgClass = "bg-error-500 dark:bg-error-400"
-    textClass = "text-primary-50 dark:text-primary-900"
+    bgClass = "bg-error-500 dark:bg-error-600"
+    textClass = "text-primary-50"
   }
 
   const containerStyle = {
-    width: "clamp(2.5rem, 17vw, 5.5rem)",
-    height: "clamp(2.3rem, 14vw, 4.5rem)",
+    width: "clamp(2.5rem, 16vw, 5rem)",
+    height: "clamp(2.5rem, 16vw, 5rem)",
     animationDelay: animate && delay ? `${delay}s` : undefined,
   }
 
@@ -36,7 +50,7 @@ export default function Tile({ cell, animate, delay }: Props) {
     fontSize: "clamp(0.6rem, 2.8vw, 0.9rem)",
   }
 
-  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 transition-all duration-150 cursor-default ${bgClass} ${textClass} ${animate ? "animate-cell-flip" : ""}`
+  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 transition-colors duration-150 cursor-default ${bgClass} ${textClass} ${animate ? "animate-cell-flip" : ""}`
 
   return (
     <div
@@ -47,8 +61,8 @@ export default function Tile({ cell, animate, delay }: Props) {
         style={valueStyle}
         className="text-center wrap-break-words relative z-10"
       >
-        {value}
-        {arrow && <span className="ml-1 text-sm">{arrow}</span>}
+        {revealed ? value : ""}
+        {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
       </span>
     </div>
   )
