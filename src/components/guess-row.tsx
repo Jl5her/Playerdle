@@ -54,9 +54,13 @@ export default function GuessRow({ result, animate }: Props) {
       .find((t: Team) => t.name === result.guess.team)
       ?.abbr.toUpperCase() || result.guess.team
 
-  const cells: { value: string; correct: boolean; close?: boolean; arrow?: string }[] = [
+  const divisionParts = result.guess.division.match(/^(AFC|NFC)\s(.+)$/)
+  const conference = divisionParts?.[1] || result.guess.conference
+  const divisionName = divisionParts?.[2] || result.guess.division
+
+  const cells: { value: string; correct: boolean; close?: boolean; arrow?: string; topValue?: string }[] = [
     { value: result.guess.conference, correct: comp.conference },
-    { value: result.guess.division.replace(/^(AFC|NFC)\s/, ""), correct: comp.division },
+    { value: divisionName, topValue: conference, correct: comp.division },
     { value: teamDisplayAbbr, correct: comp.team },
     { value: result.guess.position, correct: comp.position },
     {

@@ -6,7 +6,7 @@ import type { Screen } from "@/screens/main-menu"
 
 const Game = lazy(() => import("@/screens/game"))
 
-const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen"
+const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 
 function useViewportHeight() {
   const [height, setHeight] = useState<string>("100dvh")

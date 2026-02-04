@@ -5,6 +5,7 @@ interface Cell {
   correct: boolean
   close?: boolean
   arrow?: string
+  topValue?: string
 }
 
 interface Props {
@@ -15,7 +16,7 @@ interface Props {
 
 export default function Tile({ cell, animate, delay }: Props) {
   const [revealed, setRevealed] = useState(!animate)
-  const { value, arrow, correct, close } = cell
+  const { value, arrow, correct, close, topValue } = cell
 
   useEffect(() => {
     if (!animate) return
@@ -57,13 +58,24 @@ export default function Tile({ cell, animate, delay }: Props) {
       style={containerStyle}
       className={containerClass}
     >
-      <span
-        style={valueStyle}
-        className="text-center wrap-break-words relative z-10"
-      >
-        {revealed ? value : ""}
-        {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
-      </span>
+      {topValue ? (
+        <div className="flex flex-col items-center justify-center relative z-10">
+          <span style={{ fontSize: "clamp(0.5rem, 2.2vw, 0.7rem)" }} className="text-center leading-tight">
+            {revealed ? topValue : ""}
+          </span>
+          <span style={valueStyle} className="text-center leading-tight">
+            {revealed ? value : ""}
+          </span>
+        </div>
+      ) : (
+        <span
+          style={valueStyle}
+          className="text-center wrap-break-words relative z-10"
+        >
+          {revealed ? value : ""}
+          {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
+        </span>
+      )}
     </div>
   )
 }

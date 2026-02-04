@@ -112,3 +112,10 @@ export function calculateStats(): Stats {
     guessDistribution,
   }
 }
+
+export function hasBeatTodaysDaily(): boolean {
+  const today = new Date().toISOString().split("T")[0]
+  const history = getGameHistory()
+  const todayResult = history.find(r => r.date === today)
+  return todayResult?.won ?? false
+}

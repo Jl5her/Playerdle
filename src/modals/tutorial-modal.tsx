@@ -4,9 +4,9 @@ interface Props {
 
 const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const
 
-const EXAMPLE_CELLS: { value: string; bg: string }[] = [
+const EXAMPLE_CELLS: { value: string; bg: string; topValue?: string }[] = [
   { value: "NFC", bg: "bg-success-500 dark:bg-success-600" },
-  { value: "South", bg: "bg-error-500 dark:bg-error-600" },
+  { value: "South", topValue: "NFC", bg: "bg-error-500 dark:bg-error-600" },
   { value: "ATL", bg: "bg-error-500 dark:bg-error-600" },
   { value: "QB", bg: "bg-success-500 dark:bg-success-600" },
   { value: "15 ↑", bg: "bg-warning-500 dark:bg-warning-600" },
@@ -46,6 +46,10 @@ export default function TutorialModal({ onClose }: Props) {
             Guess the mystery NFL player in 6 tries. Each guess reveals clues about the player's conference, division, team, position, and jersey number.
           </p>
 
+          <p className="text-primary-900 dark:text-primary-200 leading-relaxed my-2">
+            Players are selected from offensive skill positions only (QB, RB, WR, TE)
+          </p>
+
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">Example</h3>
             <div className="flex flex-col items-center">
@@ -67,9 +71,20 @@ export default function TutorialModal({ onClose }: Props) {
                     style={tileStyle}
                     className={`flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 cursor-default text-primary-50 ${cell.bg}`}
                   >
-                    <span style={textStyle} className="text-center relative z-10">
-                      {cell.value}
-                    </span>
+                    {cell.topValue ? (
+                      <div className="flex flex-col items-center justify-center relative z-10">
+                        <span style={{ fontSize: "clamp(0.5rem, 2.2vw, 0.7rem)" }} className="text-center leading-tight">
+                          {cell.topValue}
+                        </span>
+                        <span style={textStyle} className="text-center leading-tight">
+                          {cell.value}
+                        </span>
+                      </div>
+                    ) : (
+                      <span style={textStyle} className="text-center relative z-10">
+                        {cell.value}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
