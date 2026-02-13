@@ -1,16 +1,43 @@
 import { hasBeatTodaysDaily } from "@/utils/stats"
-import type { SportInfo } from "@/sports"
+import type { SportConfig, SportInfo } from "@/sports"
 
 export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats"
 
-interface Props {
-  onNavigate: (screen: Screen) => void
-  sport: SportInfo
+export interface NavigationOptions {
+  variantId?: string
 }
 
-const menuItems: { label: string; description: string; screen: Screen; requireDaily?: boolean }[] =
-  [
-    { label: "Daily", description: "Same player for everyone each day", screen: "daily" },
+interface Props {
+  onNavigate: (screen: Screen, options?: NavigationOptions) => void
+  sport: SportInfo | SportConfig
+}
+
+export default function MainMenu({ onNavigate, sport }: Props) {
+  const dailyBeaten = hasBeatTodaysDaily(sport.id) || hasBeatTodaysDaily(sport.id, "fanatic")
+  const variants = "variants" in sport ? sport.variants ?? [] : []
+  const fanaticVariant = variants.find(variant => variant.id === "fanatic")
+  const menuItems: {
+    label: string
+    description: string
+    screen: Screen
+    requireDaily?: boolean
+    variantId?: string
+  }[] = [
+    {
+      label: "Daily",
+      description: "Same player for everyone each day",
+      screen: "daily",
+    },
+    ...(fanaticVariant
+      ? [
+          {
+            label: fanaticVariant.label,
+            description: "Season-average stat challenge",
+            screen: "daily" as Screen,
+            variantId: fanaticVariant.id,
+          },
+        ]
+      : []),
     {
       label: "Arcade",
       description: "Random player every round",
@@ -18,15 +45,7 @@ const menuItems: { label: string; description: string; screen: Screen; requireDa
       requireDaily: true,
     },
     { label: "About", description: "About Playerdle", screen: "about" },
-  ].filter(Boolean) as {
-    label: string
-    description: string
-    screen: Screen
-    requireDaily?: boolean
-  }[]
-
-export default function MainMenu({ onNavigate, sport }: Props) {
-  const dailyBeaten = hasBeatTodaysDaily(sport.id)
+  ]
 
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-4 py-8 gap-10">
@@ -48,7 +67,7 @@ export default function MainMenu({ onNavigate, sport }: Props) {
                   ? "border-primary-300 dark:border-primary-700 bg-primary-200 dark:bg-primary-800 text-primary-500 dark:text-primary-400 cursor-not-allowed opacity-70"
                   : "border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 cursor-pointer hover:border-accent-500 dark:hover:border-accent-400"
               } transition-colors`}
-              onClick={() => !isLocked && onNavigate(item.screen)}
+              onClick={() => !isLocked && onNavigate(item.screen, { variantId: item.variantId })}
               disabled={isLocked}
             >
               <span className="text-lg font-bold">

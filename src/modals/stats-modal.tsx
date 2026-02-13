@@ -17,6 +17,7 @@ interface Props {
   sport: SportConfig
   showStatsOnly?: boolean
   includeShareButton?: boolean
+  variantId?: string
 }
 
 function getTeamColors(sport: SportConfig, player: Player): [string, string] {
@@ -40,7 +41,8 @@ function generateShareText(
   }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
 
-  let text = `Playerdle ${sport.displayName} ${dateStr} ${result}\n\n`
+  const variantLabel = sport.activeVariantLabel ? ` ${sport.activeVariantLabel}` : ""
+  let text = `Playerdle ${sport.displayName}${variantLabel} ${dateStr} ${result}\n\n`
 
   for (const guess of guesses) {
     text += `${sport.columns
@@ -69,9 +71,10 @@ export default function StatsModal({
   sport,
   showStatsOnly = false,
   includeShareButton = false,
+  variantId,
 }: Props) {
   const [copied, setCopied] = useState(false)
-  const stats = mode === "daily" ? calculateStats(sport.id) : null
+  const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   async function handleShare() {
@@ -144,7 +147,7 @@ export default function StatsModal({
                 Statistics
               </h2>
             </>
-          ) : (
+          ) : player ? (
             <>
               {won ? (
                 <>
@@ -178,7 +181,7 @@ export default function StatsModal({
                 </>
               )}
             </>
-          )}
+          ) : null}
 
           {mode === "daily" && stats && (
             <div className="mt-4">

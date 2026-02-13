@@ -15,8 +15,8 @@ export interface Stats {
   guessDistribution: Record<number, number>
 }
 
-function getStatsKey(sportId: string): string {
-  return `${STATS_KEY_PREFIX}:${sportId}`
+function getStatsKey(sportId: string, variantId?: string): string {
+  return `${STATS_KEY_PREFIX}:${sportId}:${variantId ?? "classic"}`
 }
 
 function getTodayEasternDateKey(): string {
@@ -29,11 +29,11 @@ function getTodayEasternDateKey(): string {
   return formatter.format(new Date())
 }
 
-export function saveGameResult(sportId: string, won: boolean, guesses: number) {
+export function saveGameResult(sportId: string, won: boolean, guesses: number, variantId?: string) {
   const today = getTodayEasternDateKey()
   const result: GameResult = { date: today, won, guesses }
 
-  const history = getGameHistory(sportId)
+  const history = getGameHistory(sportId, variantId)
 
   // Update or add today's result (only keep one per day)
   const existingIndex = history.findIndex(r => r.date === today)
@@ -43,12 +43,12 @@ export function saveGameResult(sportId: string, won: boolean, guesses: number) {
     history.push(result)
   }
 
-  localStorage.setItem(getStatsKey(sportId), JSON.stringify(history))
+  localStorage.setItem(getStatsKey(sportId, variantId), JSON.stringify(history))
 }
 
-export function getGameHistory(sportId: string): GameResult[] {
+export function getGameHistory(sportId: string, variantId?: string): GameResult[] {
   try {
-    const raw = localStorage.getItem(getStatsKey(sportId))
+    const raw = localStorage.getItem(getStatsKey(sportId, variantId))
     if (!raw) return []
     return JSON.parse(raw)
   } catch {
@@ -56,8 +56,8 @@ export function getGameHistory(sportId: string): GameResult[] {
   }
 }
 
-export function calculateStats(sportId: string): Stats {
-  const history = getGameHistory(sportId)
+export function calculateStats(sportId: string, variantId?: string): Stats {
+  const history = getGameHistory(sportId, variantId)
 
   if (history.length === 0) {
     return {
@@ -128,9 +128,9 @@ export function calculateStats(sportId: string): Stats {
   }
 }
 
-export function hasBeatTodaysDaily(sportId: string): boolean {
+export function hasBeatTodaysDaily(sportId: string, variantId?: string): boolean {
   const today = getTodayEasternDateKey()
-  const history = getGameHistory(sportId)
+  const history = getGameHistory(sportId, variantId)
   const todayResult = history.find(r => r.date === today)
   return todayResult?.won ?? false
 }

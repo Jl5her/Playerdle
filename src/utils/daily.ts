@@ -30,9 +30,13 @@ function getEligiblePlayersForSport(sport: SportConfig): Player[] {
 
 export function getDailyPlayer(sport: SportConfig, date?: Date): Player {
   const eligiblePlayers = getEligiblePlayersForSport(sport)
+  if (eligiblePlayers.length === 0) {
+    throw new Error(`No eligible players available for ${sport.id}`)
+  }
   const targetDate = date || new Date()
   const dateStr = getDateKeyInEasternTime(targetDate)
-  const hash = hashString(`${sport.id}:${dateStr}`)
+  const variantSeed = sport.activeVariantId ?? "classic"
+  const hash = hashString(`${sport.id}:${variantSeed}:${dateStr}`)
   const shuffledIndex = (hash * 2654435761) % eligiblePlayers.length
   return eligiblePlayers[shuffledIndex]
 }

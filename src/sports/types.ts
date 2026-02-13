@@ -49,9 +49,21 @@ export interface SportColumn {
   example: ColumnExample
 }
 
+export interface SportVariant {
+  id: string
+  label: string
+  subtitle?: string
+  players: Player[]
+  answerPool: Player[]
+  columns: SportColumn[]
+}
+
 export interface SportConfig extends SportInfo {
   teams: SportTeam[]
   players: Player[]
   answerPool: Player[]
   columns: SportColumn[]
+  variants?: SportVariant[]
+  activeVariantId?: string
+  activeVariantLabel?: string
 }

@@ -2,8 +2,14 @@ import { useState, useEffect, lazy, Suspense } from "react"
 import { Header, LeagueFooter } from "@/components"
 import { MainMenu, AboutScreen } from "@/screens"
 import { HelpModal, StatsModal, TutorialModal } from "@/modals"
-import type { Screen } from "@/screens/main-menu"
-import { getSportIdFromPath, getSportMetaById, loadSportConfig, type SportConfig } from "@/sports"
+import type { NavigationOptions, Screen } from "@/screens/main-menu"
+import {
+  getSportIdFromPath,
+  getSportMetaById,
+  loadSportConfig,
+  resolveSportConfig,
+  type SportConfig,
+} from "@/sports"
 import type { StatsModalConfig } from "@/screens/game"
 
 const Game = lazy(() => import("@/screens/game"))
@@ -35,6 +41,7 @@ function App() {
   const [screen, setScreen] = useState<Screen>("menu")
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
+  const [activeVariantId, setActiveVariantId] = useState<string | undefined>(undefined)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const [showTutorial, setShowTutorial] = useState(
@@ -56,9 +63,19 @@ function App() {
   }, [sportId])
 
   useEffect(() => {
-    const leagueName = (sport?.displayName ?? sportMeta.displayName).toUpperCase()
+    if (!sport || !activeVariantId) return
+    const variantExists = sport.variants?.some(variant => variant.id === activeVariantId)
+    if (!variantExists) {
+      setActiveVariantId(undefined)
+    }
+  }, [sport, activeVariantId])
+
+  const activeSport = sport ? resolveSportConfig(sport, activeVariantId) : null
+
+  useEffect(() => {
+    const leagueName = (activeSport?.displayName ?? sportMeta.displayName).toUpperCase()
     document.title = `Playerdle ${leagueName}`
-  }, [sport, sportMeta.displayName])
+  }, [activeSport, sportMeta.displayName])
 
   const isGame = screen === "daily" || screen === "arcade"
 
@@ -81,6 +98,7 @@ function App() {
       mode: "daily",
       showStatsOnly: true,
       includeShareButton: false,
+      variantId: activeVariantId,
     })
     setIsStatsModalOpen(true)
   }
@@ -102,7 +120,8 @@ function App() {
     setIsStatsModalOpen(false)
   }
 
-  function handleNavigate(target: Screen) {
+  function handleNavigate(target: Screen, options?: NavigationOptions) {
+    setActiveVariantId(options?.variantId)
     if (target === "arcade") {
       setGameKey(k => k + 1)
     }
@@ -119,10 +138,10 @@ function App() {
           />
         </div>
       )}
-      {showTutorial && sport && !isStatsModalOpen && (
+      {showTutorial && activeSport && !isStatsModalOpen && (
         <TutorialModal
           onClose={handleCloseTutorial}
-          sport={sport}
+          sport={activeSport}
         />
       )}
       {isGame && (
@@ -131,32 +150,34 @@ function App() {
             onShowTutorial={screen === "daily" ? handleShowTutorial : undefined}
             onShowStats={screen === "daily" ? handleShowStats : undefined}
             onBack={goToMenu}
-            sport={sport ?? sportMeta}
+            sport={activeSport ?? sportMeta}
           />
           <Suspense fallback={<div className="flex-1" />}>
-            {screen === "daily" && sport && (
+            {screen === "daily" && activeSport && (
               <Game
                 key="daily"
                 mode="daily"
-                sport={sport}
+                sport={activeSport}
+                variantId={activeVariantId}
                 onOpenStatsModal={handleOpenStatsModal}
               />
             )}
-            {screen === "arcade" && sport && (
+            {screen === "arcade" && activeSport && (
               <Game
                 key={`arcade-${gameKey}`}
                 mode="arcade"
-                sport={sport}
+                sport={activeSport}
+                variantId={activeVariantId}
                 onOpenStatsModal={handleOpenStatsModal}
               />
             )}
           </Suspense>
         </div>
       )}
-      {screen === "help" && sport && (
+      {screen === "help" && activeSport && (
         <HelpModal
           onBack={goToMenu}
-          sport={sport}
+          sport={activeSport}
         />
       )}
       {screen === "about" && (
@@ -165,12 +186,13 @@ function App() {
           sport={sport ?? sportMeta}
         />
       )}
-      {sport && (
+      {activeSport && (
         <StatsModal
           {...statsModalConfig}
           isOpen={isStatsModalOpen}
           onClose={handleCloseStatsModal}
-          sport={sport}
+          sport={activeSport}
+          variantId={activeVariantId}
         />
       )}
       {screen === "menu" && <LeagueFooter currentSportId={sportId} />}

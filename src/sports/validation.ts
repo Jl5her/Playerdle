@@ -1,4 +1,4 @@
-import type { SportConfig, SportValue } from "./types"
+import type { Player, SportColumn, SportConfig, SportValue } from "./types"
 
 function findDuplicateIds(items: Array<{ id: string }>): string[] {
   const seen = new Set<string>()
@@ -27,63 +27,49 @@ function isNumericValue(value: SportValue): boolean {
   return false
 }
 
-export function validateSportConfig(config: SportConfig): string[] {
+function validateColumnSet(columns: SportColumn[], players: Player[], prefix: string): string[] {
   const errors: string[] = []
-
-  const duplicatePlayerIds = findDuplicateIds(config.players)
-  if (duplicatePlayerIds.length > 0) {
-    errors.push(`Duplicate player IDs: ${duplicatePlayerIds.join(", ")}`)
-  }
-
-  const duplicateAnswerIds = findDuplicateIds(config.answerPool)
-  if (duplicateAnswerIds.length > 0) {
-    errors.push(`Duplicate answer pool IDs: ${duplicateAnswerIds.join(", ")}`)
-  }
-
-  const playerIds = new Set(config.players.map(player => player.id))
-  const missingFromPlayers = config.answerPool
-    .map(player => player.id)
-    .filter(id => !playerIds.has(id))
-
-  if (missingFromPlayers.length > 0) {
-    errors.push(`Answer pool IDs missing from players list: ${missingFromPlayers.join(", ")}`)
-  }
-
-  const duplicateColumnIds = findDuplicateIds(config.columns)
+  const duplicateColumnIds = findDuplicateIds(columns)
   if (duplicateColumnIds.length > 0) {
-    errors.push(`Duplicate column IDs: ${duplicateColumnIds.join(", ")}`)
+    errors.push(`${prefix}Duplicate column IDs: ${duplicateColumnIds.join(", ")}`)
   }
 
-  for (const column of config.columns) {
+  for (const column of columns) {
     if (!column.id || !column.key || !column.label) {
-      errors.push(`Column is missing required fields (id/label/key): ${JSON.stringify(column)}`)
+      errors.push(
+        `${prefix}Column is missing required fields (id/label/key): ${JSON.stringify(column)}`,
+      )
     } else {
       if (column.topKey && !column.example.topValue) {
-        errors.push(`Column '${column.id}' defines topKey but example.topValue is missing`)
+        errors.push(`${prefix}Column '${column.id}' defines topKey but example.topValue is missing`)
       }
 
       if (!column.topKey && column.example.topValue) {
-        errors.push(`Column '${column.id}' example.topValue provided without topKey`)
+        errors.push(`${prefix}Column '${column.id}' example.topValue provided without topKey`)
       }
 
       if (column.evaluator.type !== "comparison" && column.example.arrow) {
-        errors.push(`Column '${column.id}' example.arrow is only valid for comparison columns`)
+        errors.push(
+          `${prefix}Column '${column.id}' example.arrow is only valid for comparison columns`,
+        )
       }
 
-      for (const player of config.players) {
+      for (const player of players) {
         const hasColumnKey = Object.prototype.hasOwnProperty.call(player, column.key)
         if (!hasColumnKey) {
-          errors.push(`Column '${column.id}' key '${column.key}' missing on player '${player.id}'`)
+          errors.push(
+            `${prefix}Column '${column.id}' key '${column.key}' missing on player '${player.id}'`,
+          )
         } else {
           if (column.topKey && !Object.prototype.hasOwnProperty.call(player, column.topKey)) {
             errors.push(
-              `Column '${column.id}' topKey '${column.topKey}' missing on player '${player.id}'`,
+              `${prefix}Column '${column.id}' topKey '${column.topKey}' missing on player '${player.id}'`,
             )
           }
 
           if (column.evaluator.type === "comparison" && !isNumericValue(player[column.key])) {
             errors.push(
-              `Column '${column.id}' uses comparison but player '${player.id}' value is not numeric`,
+              `${prefix}Column '${column.id}' uses comparison but player '${player.id}' value is not numeric`,
             )
           }
         }
@@ -95,8 +81,45 @@ export function validateSportConfig(config: SportConfig): string[] {
       column.evaluator.closeWithin !== undefined &&
       column.evaluator.closeWithin < 0
     ) {
-      errors.push(`Column '${column.id}' closeWithin must be >= 0`)
+      errors.push(`${prefix}Column '${column.id}' closeWithin must be >= 0`)
     }
+  }
+
+  return errors
+}
+
+function validatePlayerAndAnswerPool(players: Player[], answerPool: Player[], prefix: string): string[] {
+  const errors: string[] = []
+
+  const duplicatePlayerIds = findDuplicateIds(players)
+  if (duplicatePlayerIds.length > 0) {
+    errors.push(`${prefix}Duplicate player IDs: ${duplicatePlayerIds.join(", ")}`)
+  }
+
+  const duplicateAnswerIds = findDuplicateIds(answerPool)
+  if (duplicateAnswerIds.length > 0) {
+    errors.push(`${prefix}Duplicate answer pool IDs: ${duplicateAnswerIds.join(", ")}`)
+  }
+
+  const playerIds = new Set(players.map(player => player.id))
+  const missingFromPlayers = answerPool.map(player => player.id).filter(id => !playerIds.has(id))
+  if (missingFromPlayers.length > 0) {
+    errors.push(`${prefix}Answer pool IDs missing from players list: ${missingFromPlayers.join(", ")}`)
+  }
+
+  return errors
+}
+
+export function validateSportConfig(config: SportConfig): string[] {
+  const errors: string[] = []
+
+  errors.push(...validatePlayerAndAnswerPool(config.players, config.answerPool, ""))
+  errors.push(...validateColumnSet(config.columns, config.players, ""))
+
+  for (const variant of config.variants ?? []) {
+    const prefix = `Variant '${variant.id}': `
+    errors.push(...validatePlayerAndAnswerPool(variant.players, variant.answerPool, prefix))
+    errors.push(...validateColumnSet(variant.columns, variant.players, prefix))
   }
 
   return errors

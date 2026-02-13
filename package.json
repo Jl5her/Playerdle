@@ -20,10 +20,11 @@
     "generate:answer-pool:mlb": "tsx scripts/generate-mlb-answer-pool.ts",
     "generate:answer-pool:nba": "tsx scripts/generate-nba-answer-pool.ts",
     "generate:answer-pool:nhl": "tsx scripts/generate-nhl-answer-pool.ts",
+    "scrape:nba:fanatic": "tsx scripts/scrape-nba-season-averages.ts",
     "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb",
     "scrape:nfl": "pnpm run scrape:rosters -- --sport=nfl && pnpm run generate:answer-pool",
     "scrape:nhl": "pnpm run scrape:rosters -- --sport=nhl && pnpm run generate:answer-pool:nhl",
-    "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba"
+    "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba && pnpm run scrape:nba:fanatic"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",

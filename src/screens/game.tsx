@@ -18,11 +18,13 @@ export interface StatsModalConfig {
   guesses?: Player[]
   showStatsOnly?: boolean
   includeShareButton?: boolean
+  variantId?: string
 }
 
 interface Props {
   mode: GameMode
   sport: SportConfig
+  variantId?: string
   onOpenStatsModal: (config: StatsModalConfig) => void
 }
 
@@ -31,13 +33,13 @@ interface SavedState {
   guessIds: string[]
 }
 
-function getStorageKey(sportId: string): string {
-  return `playerdle-state:${sportId}`
+function getStorageKey(sportId: string, variantId?: string): string {
+  return `playerdle-state:${sportId}:${variantId ?? "classic"}`
 }
 
-function loadState(sportId: string, dateKey: string): string[] {
+function loadState(sportId: string, dateKey: string, variantId?: string): string[] {
   try {
-    const raw = localStorage.getItem(getStorageKey(sportId))
+    const raw = localStorage.getItem(getStorageKey(sportId, variantId))
     if (!raw) return []
     const parsed: SavedState = JSON.parse(raw)
     if (parsed.dateKey !== dateKey) return []
@@ -47,9 +49,9 @@ function loadState(sportId: string, dateKey: string): string[] {
   }
 }
 
-function saveState(sportId: string, dateKey: string, guessIds: string[]) {
+function saveState(sportId: string, dateKey: string, guessIds: string[], variantId?: string) {
   const state: SavedState = { dateKey, guessIds }
-  localStorage.setItem(getStorageKey(sportId), JSON.stringify(state))
+  localStorage.setItem(getStorageKey(sportId, variantId), JSON.stringify(state))
 }
 
 function restoreGuesses(players: Player[], ids: string[]): Player[] {
@@ -57,20 +59,20 @@ function restoreGuesses(players: Player[], ids: string[]): Player[] {
   return ids.map(id => byId.get(id)).filter(Boolean) as Player[]
 }
 
-function getInitialGuesses(mode: GameMode, sport: SportConfig): Player[] {
+function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: string): Player[] {
   if (mode === "daily") {
-    const savedIds = loadState(sport.id, getTodayKeyInEasternTime())
+    const savedIds = loadState(sport.id, getTodayKeyInEasternTime(), variantId)
     return savedIds.length > 0 ? restoreGuesses(sport.players, savedIds) : []
   }
   return []
 }
 
-export default function Game({ mode, sport, onOpenStatsModal }: Props) {
+export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props) {
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
   )
   const [dateKey] = useState<string>(getTodayKeyInEasternTime)
-  const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport))
+  const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport, variantId))
   const [latestIndex, setLatestIndex] = useState(-1)
 
   const won = !!(answer && guesses.some(g => g.id === answer.id))
@@ -81,9 +83,9 @@ export default function Game({ mode, sport, onOpenStatsModal }: Props) {
 
   useEffect(() => {
     if (mode === "daily" && gameOver) {
-      saveGameResult(sport.id, won, guesses.length)
+      saveGameResult(sport.id, won, guesses.length, variantId)
     }
-  }, [mode, gameOver, won, guesses.length, sport.id])
+  }, [mode, gameOver, won, guesses.length, sport.id, variantId])
 
   function openResultsModal(nextGuesses: Player[], nextWon: boolean, nextLost: boolean) {
     if (!answer) return
@@ -97,6 +99,7 @@ export default function Game({ mode, sport, onOpenStatsModal }: Props) {
       mode,
       guesses: nextGuesses,
       includeShareButton: mode === "daily",
+      variantId,
     })
   }
 
@@ -110,13 +113,14 @@ export default function Game({ mode, sport, onOpenStatsModal }: Props) {
         sport.id,
         dateKey,
         newGuesses.map(g => g.id),
+        variantId,
       )
     }
     const newWon = !!(answer && newGuesses.some(g => g.id === answer.id))
     const newLost = !newWon && newGuesses.length >= MAX_GUESSES
     if (newWon || newLost) {
       if (mode === "daily") {
-        saveGameResult(sport.id, newWon, newGuesses.length)
+        saveGameResult(sport.id, newWon, newGuesses.length, variantId)
       }
       openResultsModal(newGuesses, newWon, newLost)
     }
