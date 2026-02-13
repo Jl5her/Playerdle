@@ -64,7 +64,7 @@ export default function StatsModal({ onClose, sport }: Props) {
               <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
                 {stats.currentStreak}
               </div>
-              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-tight">
                 Current
                 <br />
                 Streak
@@ -74,7 +74,7 @@ export default function StatsModal({ onClose, sport }: Props) {
               <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
                 {stats.maxStreak}
               </div>
-              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-tight">
                 Max
                 <br />
                 Streak
@@ -88,6 +88,9 @@ export default function StatsModal({ onClose, sport }: Props) {
             </h3>
             {[1, 2, 3, 4, 5, 6].map(guessNum => {
               const count = stats.guessDistribution[guessNum] || 0
+              const hasValue = count > 0
+              const scaledWidth = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
+              const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
 
               return (
                 <div
@@ -97,15 +100,17 @@ export default function StatsModal({ onClose, sport }: Props) {
                   <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
                     {guessNum}
                   </div>
-                  <div className="flex-1 flex items-center gap-2">
-                    <progress
-                      className="w-full h-5 rounded-sm overflow-hidden [&::-webkit-progress-bar]:bg-primary-100 [&::-webkit-progress-value]:bg-primary-300 dark:[&::-webkit-progress-bar]:bg-primary-800 dark:[&::-webkit-progress-value]:bg-primary-600"
-                      value={count}
-                      max={maxGuessCount}
-                    />
-                    <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 w-6 text-right">
+                  <div className="flex-1">
+                    <div
+                      className={`min-h-5 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end ${
+                        hasValue
+                          ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                          : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300"
+                      }`}
+                      style={{ width: barWidth }}
+                    >
                       {count}
-                    </span>
+                    </div>
                   </div>
                 </div>
               )

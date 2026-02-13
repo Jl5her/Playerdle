@@ -90,6 +90,9 @@ export default function Game({ mode, sport }: Props) {
     const newWon = !!(answer && newGuesses.some(g => g.id === answer.id))
     const newLost = !newWon && newGuesses.length >= MAX_GUESSES
     if (newWon || newLost) {
+      if (mode === "daily") {
+        saveGameResult(sport.id, newWon, newGuesses.length)
+      }
       setShowModal(true)
     }
   }
