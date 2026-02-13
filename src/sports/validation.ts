@@ -76,7 +76,9 @@ export function validateSportConfig(config: SportConfig): string[] {
           errors.push(`Column '${column.id}' key '${column.key}' missing on player '${player.id}'`)
         } else {
           if (column.topKey && !Object.prototype.hasOwnProperty.call(player, column.topKey)) {
-            errors.push(`Column '${column.id}' topKey '${column.topKey}' missing on player '${player.id}'`)
+            errors.push(
+              `Column '${column.id}' topKey '${column.topKey}' missing on player '${player.id}'`,
+            )
           }
 
           if (column.evaluator.type === "comparison" && !isNumericValue(player[column.key])) {

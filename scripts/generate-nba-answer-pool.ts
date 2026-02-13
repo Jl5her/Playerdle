@@ -110,7 +110,10 @@ function resolveFantasyPlayer(
   return null
 }
 
-function buildNbaAnswerPoolIds(players: NBAPlayer[], fantasyPlayers: FantasyProsPlayer[]): string[] {
+function buildNbaAnswerPoolIds(
+  players: NBAPlayer[],
+  fantasyPlayers: FantasyProsPlayer[],
+): string[] {
   const lookup = buildPlayerLookup(players)
   const ids = new Set<string>()
   const fantasyRankById = new Map<string, number>()

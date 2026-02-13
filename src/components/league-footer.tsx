@@ -1,5 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFootball, faHockeyPuck, faBasketball, faBaseball } from "@fortawesome/free-solid-svg-icons"
+import {
+  faFootball,
+  faHockeyPuck,
+  faBasketball,
+  faBaseball,
+} from "@fortawesome/free-solid-svg-icons"
 import { getAllSportMeta, type SportId } from "@/sports"
 
 interface Props {
@@ -13,10 +18,33 @@ function getSportPath(slug: string): string {
 }
 
 function SportIcon({ sportId }: { sportId: SportId }) {
-  if (sportId === "nfl") return <FontAwesomeIcon icon={faFootball} className="text-[1.35rem]" />
-  if (sportId === "mlb") return <FontAwesomeIcon icon={faBaseball} className="text-[1.35rem]" />
-  if (sportId === "nhl") return <FontAwesomeIcon icon={faHockeyPuck} className="text-[1.35rem]" />
-  return <FontAwesomeIcon icon={faBasketball} className="text-[1.35rem]" />
+  if (sportId === "nfl")
+    return (
+      <FontAwesomeIcon
+        icon={faFootball}
+        className="text-[1.35rem]"
+      />
+    )
+  if (sportId === "mlb")
+    return (
+      <FontAwesomeIcon
+        icon={faBaseball}
+        className="text-[1.35rem]"
+      />
+    )
+  if (sportId === "nhl")
+    return (
+      <FontAwesomeIcon
+        icon={faHockeyPuck}
+        className="text-[1.35rem]"
+      />
+    )
+  return (
+    <FontAwesomeIcon
+      icon={faBasketball}
+      className="text-[1.35rem]"
+    />
+  )
 }
 
 export default function LeagueFooter({ currentSportId }: Props) {
@@ -31,10 +59,11 @@ export default function LeagueFooter({ currentSportId }: Props) {
               href={getSportPath(sport.slug)}
               title={sport.displayName}
               aria-label={`Switch to ${sport.displayName}`}
-              className={`w-10 h-10 rounded-full transition-colors inline-flex items-center justify-center ${isActive
-                ? "text-white"
-                : "text-primary-500 hover:text-primary-300 dark:text-primary-300 dark:hover:text-primary-100"
-                }`}
+              className={`w-10 h-10 rounded-full transition-colors inline-flex items-center justify-center ${
+                isActive
+                  ? "text-white"
+                  : "text-primary-500 hover:text-primary-300 dark:text-primary-300 dark:hover:text-primary-100"
+              }`}
             >
               <SportIcon sportId={sport.id} />
             </a>

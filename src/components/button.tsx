@@ -1,11 +1,8 @@
-import type { CSSProperties } from "react"
-
 interface Props {
   onClick: () => void
   children: React.ReactNode
   variant?: "primary" | "secondary"
   fullWidth?: boolean
-  style?: CSSProperties
 }
 
 export default function Button({
@@ -13,7 +10,6 @@ export default function Button({
   children,
   variant = "primary",
   fullWidth = false,
-  style,
 }: Props) {
   const baseClasses =
     "py-3.5 px-6 rounded-md text-base font-bold cursor-pointer transition-colors uppercase"
@@ -29,9 +25,9 @@ export default function Button({
 
   return (
     <button
+      type="button"
       className={`${baseClasses} ${variantClasses} ${widthClass}`}
       onClick={onClick}
-      style={style}
     >
       {children}
     </button>

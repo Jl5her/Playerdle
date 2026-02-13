@@ -16,7 +16,9 @@ const answerPoolIdSet = new Set(nhlAnswerPoolIds as unknown as string[])
 
 const normalizedPlayers = playersData.map(player => ({
   ...player,
-  division: String(player.division ?? "").replace(/\s+Division$/i, "").trim(),
+  division: String(player.division ?? "")
+    .replace(/\s+Division$/i, "")
+    .trim(),
 }))
 
 const teams: SportTeam[] = teamsData.map(team => ({

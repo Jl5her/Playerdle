@@ -98,8 +98,23 @@ async function fetchTeamMetadata(target: TargetSport): Promise<TeamMeta[]> {
   const teamsUrl = `https://site.api.espn.com/apis/site/v2/sports/${sportPath}/teams`
 
   const [groupsResponse, teamsResponse] = await Promise.all([
-    fetchJson<{ groups?: Array<{ name?: string; abbreviation?: string; children?: Array<{ name?: string; teams?: Array<{ id?: string; displayName?: string; abbreviation?: string }> }> }> }>(groupsUrl),
-    fetchJson<{ sports?: Array<{ leagues?: Array<{ teams?: Array<{ team?: { id?: string; color?: string; alternateColor?: string } }> }> }> }>(teamsUrl),
+    fetchJson<{
+      groups?: Array<{
+        name?: string
+        abbreviation?: string
+        children?: Array<{
+          name?: string
+          teams?: Array<{ id?: string; displayName?: string; abbreviation?: string }>
+        }>
+      }>
+    }>(groupsUrl),
+    fetchJson<{
+      sports?: Array<{
+        leagues?: Array<{
+          teams?: Array<{ team?: { id?: string; color?: string; alternateColor?: string } }>
+        }>
+      }>
+    }>(teamsUrl),
   ])
 
   const colorByTeamId = new Map<string, [string, string]>()
@@ -118,7 +133,10 @@ async function fetchTeamMetadata(target: TargetSport): Promise<TeamMeta[]> {
   for (const conference of groupsResponse.groups ?? []) {
     const conferenceName = conference.abbreviation ?? conference.name ?? ""
     for (const division of conference.children ?? []) {
-      const divisionName = normalizeDivisionName(conference.name ?? conferenceName, division.name ?? "")
+      const divisionName = normalizeDivisionName(
+        conference.name ?? conferenceName,
+        division.name ?? "",
+      )
       for (const team of division.teams ?? []) {
         if (!team.id || !team.displayName || !team.abbreviation) continue
         teams.push({
@@ -138,7 +156,12 @@ async function fetchTeamMetadata(target: TargetSport): Promise<TeamMeta[]> {
 
 type RosterEntry =
   | {
-      items?: Array<{ id?: string; displayName?: string; jersey?: string; position?: { abbreviation?: string } }>
+      items?: Array<{
+        id?: string
+        displayName?: string
+        jersey?: string
+        position?: { abbreviation?: string }
+      }>
     }
   | { id?: string; displayName?: string; jersey?: string; position?: { abbreviation?: string } }
 
@@ -146,18 +169,33 @@ function hasItemsField(value: RosterEntry): value is Extract<RosterEntry, { item
   return Object.prototype.hasOwnProperty.call(value, "items")
 }
 
-async function fetchPlayersForTeam(target: TargetSport, team: TeamMeta): Promise<GeneratedPlayer[]> {
+async function fetchPlayersForTeam(
+  target: TargetSport,
+  team: TeamMeta,
+): Promise<GeneratedPlayer[]> {
   const { sportPath, conferenceField } = SPORT_CONFIG[target]
   const url = `https://site.api.espn.com/apis/site/v2/sports/${sportPath}/teams/${team.id}/roster`
 
   const data = await fetchJson<{ athletes?: RosterEntry[] }>(url)
-  const normalizedAthletes: Array<{ id?: string; displayName?: string; jersey?: string; position?: { abbreviation?: string } }> = []
+  const normalizedAthletes: Array<{
+    id?: string
+    displayName?: string
+    jersey?: string
+    position?: { abbreviation?: string }
+  }> = []
 
   for (const entry of data.athletes ?? []) {
     if (hasItemsField(entry) && Array.isArray(entry.items)) {
       normalizedAthletes.push(...entry.items)
     } else {
-      normalizedAthletes.push(entry as { id?: string; displayName?: string; jersey?: string; position?: { abbreviation?: string } })
+      normalizedAthletes.push(
+        entry as {
+          id?: string
+          displayName?: string
+          jersey?: string
+          position?: { abbreviation?: string }
+        },
+      )
     }
   }
 
@@ -251,7 +289,15 @@ async function buildSportData(target: TargetSport, testMode: boolean) {
 
   writeFileSync(teamsPath, `${JSON.stringify(teams, null, 2)}\n`, "utf-8")
   writeFileSync(playersPath, `${JSON.stringify(players, null, 2)}\n`, "utf-8")
-  writeFileSync(answerPoolPath, `${JSON.stringify(players.map(player => player.id), null, 2)}\n`, "utf-8")
+  writeFileSync(
+    answerPoolPath,
+    `${JSON.stringify(
+      players.map(player => player.id),
+      null,
+      2,
+    )}\n`,
+    "utf-8",
+  )
 
   console.log(`  Wrote ${teams.length} teams to ${teamsPath}`)
   console.log(`  Wrote ${players.length} players to ${playersPath}`)

@@ -123,10 +123,16 @@ function nameFromLeader(entry: NhlLeaderEntry): string {
   return `${entry.firstName?.default ?? ""} ${entry.lastName?.default ?? ""}`.trim()
 }
 
-async function fetchNhlLeaderScores(): Promise<Array<{ normalizedName: string; teamAbbr: string; score: number }>> {
+async function fetchNhlLeaderScores(): Promise<
+  Array<{ normalizedName: string; teamAbbr: string; score: number }>
+> {
   const [skaterResponse, goalieResponse] = await Promise.all([
-    fetch("https://api-web.nhle.com/v1/skater-stats-leaders/current", { signal: AbortSignal.timeout(20_000) }),
-    fetch("https://api-web.nhle.com/v1/goalie-stats-leaders/current", { signal: AbortSignal.timeout(20_000) }),
+    fetch("https://api-web.nhle.com/v1/skater-stats-leaders/current", {
+      signal: AbortSignal.timeout(20_000),
+    }),
+    fetch("https://api-web.nhle.com/v1/goalie-stats-leaders/current", {
+      signal: AbortSignal.timeout(20_000),
+    }),
   ])
 
   if (!skaterResponse.ok) {
@@ -136,8 +142,8 @@ async function fetchNhlLeaderScores(): Promise<Array<{ normalizedName: string; t
     throw new Error(`NHL goalie leaders request failed: HTTP ${goalieResponse.status}`)
   }
 
-  const skaterData = await skaterResponse.json() as Record<string, NhlLeaderEntry[]>
-  const goalieData = await goalieResponse.json() as Record<string, NhlLeaderEntry[]>
+  const skaterData = (await skaterResponse.json()) as Record<string, NhlLeaderEntry[]>
+  const goalieData = (await goalieResponse.json()) as Record<string, NhlLeaderEntry[]>
 
   const scoreByKey = new Map<string, number>()
 

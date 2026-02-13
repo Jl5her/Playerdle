@@ -37,12 +37,12 @@ export function getDailyPlayer(sport: SportConfig, date?: Date): Player {
   return eligiblePlayers[shuffledIndex]
 }
 
-export function getRandomArcadePlayer(
-  sport: SportConfig,
-  excludeId?: string,
-): Player {
+export function getRandomArcadePlayer(sport: SportConfig, excludeId?: string): Player {
   const eligiblePlayers = getEligiblePlayersForSport(sport).filter(p => p.id !== excludeId)
-  return eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)] || getEligiblePlayersForSport(sport)[0]
+  return (
+    eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)] ||
+    getEligiblePlayersForSport(sport)[0]
+  )
 }
 
 export function getTodayKey(): string {

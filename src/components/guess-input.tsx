@@ -19,7 +19,11 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
   const containerRef = useRef<HTMLDivElement>(null)
 
   // Detect if user is on mobile device
-  const isMobile = useMemo(() => /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent), [])
+  const isMobile = useMemo(
+    () =>
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+    [],
+  )
 
   // Auto-focus input on mount and when game resets (desktop only)
   useEffect(() => {
@@ -185,7 +189,10 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
   }
 
   return (
-    <div ref={containerRef} className="shrink-0 px-3 py-2 border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700">
+    <div
+      ref={containerRef}
+      className="shrink-0 px-3 py-2 border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700"
+    >
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
@@ -193,7 +200,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
           name="player-search"
           value={query}
           onInput={handleInput}
-          onChange={() => { }}
+          onChange={() => {}}
           onCompositionStart={() => {
             composingRef.current = true
           }}
@@ -232,11 +239,16 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
                 <span className="font-semibold text-sm">
                   {String(player.name)}
                   {duplicateNames.has(String(player.name)) && (
-                    <span className="text-xs font-normal text-primary-500 dark:text-primary-200"> ({String(player.position ?? "")})</span>
+                    <span className="text-xs font-normal text-primary-500 dark:text-primary-200">
+                      {" "}
+                      ({String(player.position ?? "")})
+                    </span>
                   )}
                 </span>
                 {!isMobile && i === highlightIndex && (
-                  <span className="text-sm text-primary-500 dark:text-primary-200 opacity-60 ml-2 font-normal border border-primary-500 dark:border-primary-200 rounded px-1">↵</span>
+                  <span className="text-sm text-primary-500 dark:text-primary-200 opacity-60 ml-2 font-normal border border-primary-500 dark:border-primary-200 rounded px-1">
+                    ↵
+                  </span>
                 )}
               </button>
             ))}

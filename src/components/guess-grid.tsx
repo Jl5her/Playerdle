@@ -10,7 +10,13 @@ interface GuessGridProps {
   columns: SportColumn[]
 }
 
-export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex, columns }: Readonly<GuessGridProps>) {
+export default function GuessGrid({
+  guesses,
+  answer,
+  maxGuesses,
+  latestIndex,
+  columns,
+}: Readonly<GuessGridProps>) {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
@@ -28,8 +34,7 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex, co
         {columns.map(column => (
           <div
             key={column.id}
-            className="text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
-            style={{ width: "clamp(2.5rem, 16vw, 5rem)" }}
+            className="grid-cell-width text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
           >
             {column.label}
           </div>
@@ -37,29 +42,37 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex, co
       </div>
 
       {Array.from({ length: maxGuesses }).map((_, i) =>
-      (i < guesses.length ? <div key={i} ref={el => { rowRefs.current[i] = el }}><GuessRow
-        result={{ guess: guesses[i], answer }}
-        columns={columns}
-        animate={i === latestIndex}
-      /></div> :
-        <div
-          key={`empty-${i}`}
-          ref={el => { rowRefs.current[i] = el }}
-        >
-          <div className="flex gap-1 justify-center">
-            {columns.map(column => (
-              <div
-                key={column.id}
-                className="rounded-md bg-primary-50 border-2 border-primary-300 dark:bg-primary-900 dark:border-primary-700"
-                style={{
-                  width: "clamp(2.5rem, 16vw, 5rem)",
-                  height: "clamp(2.5rem, 16vw, 5rem)",
-                }}
-              />
-            ))}
+        i < guesses.length ? (
+          <div
+            key={i}
+            ref={el => {
+              rowRefs.current[i] = el
+            }}
+          >
+            <GuessRow
+              result={{ guess: guesses[i], answer }}
+              columns={columns}
+              animate={i === latestIndex}
+            />
           </div>
-        </div>
-      ))}
+        ) : (
+          <div
+            key={`empty-${i}`}
+            ref={el => {
+              rowRefs.current[i] = el
+            }}
+          >
+            <div className="flex gap-1 justify-center">
+              {columns.map(column => (
+                <div
+                  key={column.id}
+                  className="grid-cell-size rounded-md bg-primary-50 border-2 border-primary-300 dark:bg-primary-900 dark:border-primary-700"
+                />
+              ))}
+            </div>
+          </div>
+        ),
+      )}
     </div>
   )
 }

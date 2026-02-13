@@ -27,8 +27,7 @@ export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-4 py-8">
       <h1
-        className="font-black text-primary-900 dark:text-primary-50 mb-8 text-center"
-        style={{ fontSize: "clamp(1.5rem, 5vw, 2.5rem)" }}
+        className="arcade-title-size font-black text-primary-900 dark:text-primary-50 mb-8 text-center"
       >
         Select Difficulty
       </h1>
@@ -39,7 +38,9 @@ export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
             className="p-6 bg-secondary-50 dark:bg-secondary-900 border-2 border-secondary-300 dark:border-secondary-700 rounded-xl cursor-pointer transition-all text-left hover:border-accent-500 dark:hover:border-accent-400 hover:transform hover:scale-[1.02]"
             onClick={() => onSelect(level)}
           >
-            <div className="text-xl font-bold text-primary-900 dark:text-primary-50 mb-2">{label}</div>
+            <div className="text-xl font-bold text-primary-900 dark:text-primary-50 mb-2">
+              {label}
+            </div>
             <div className="text-sm text-primary-500 dark:text-primary-200">{description}</div>
           </button>
         ))}

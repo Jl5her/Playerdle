@@ -29,7 +29,9 @@ export default function StatsModal({ onClose, sport }: Props) {
       >
         <div className="flex justify-between items-center p-5 border-b-2 border-primary-300 dark:border-primary-700">
           <div>
-            <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics ({sport.displayName})</h2>
+            <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">
+              Statistics ({sport.displayName})
+            </h2>
             <p className="text-xs text-primary-500 dark:text-primary-200 mt-1">{dateStr}</p>
           </div>
           <button
@@ -43,15 +45,25 @@ export default function StatsModal({ onClose, sport }: Props) {
         <div className="p-6">
           <div className="grid grid-cols-4 gap-2 mb-8">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.played}</div>
-              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">Played</div>
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
+                {stats.played}
+              </div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
+                Played
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.winPercentage}</div>
-              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">Win %</div>
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
+                {stats.winPercentage}
+              </div>
+              <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
+                Win %
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.currentStreak}</div>
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
+                {stats.currentStreak}
+              </div>
               <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
                 Current
                 <br />
@@ -59,7 +71,9 @@ export default function StatsModal({ onClose, sport }: Props) {
               </div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">{stats.maxStreak}</div>
+              <div className="text-2xl font-bold text-primary-900 dark:text-primary-50">
+                {stats.maxStreak}
+              </div>
               <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-snug">
                 Max
                 <br />
@@ -69,28 +83,29 @@ export default function StatsModal({ onClose, sport }: Props) {
           </div>
 
           <div className="mt-6">
-            <h3 className="text-base font-semibold text-primary-900 dark:text-primary-50 mb-4">Guess Distribution</h3>
+            <h3 className="text-base font-semibold text-primary-900 dark:text-primary-50 mb-4">
+              Guess Distribution
+            </h3>
             {[1, 2, 3, 4, 5, 6].map(guessNum => {
               const count = stats.guessDistribution[guessNum] || 0
-              const percentage = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
 
               return (
                 <div
                   key={guessNum}
                   className="flex items-center mb-1 gap-2"
                 >
-                  <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">{guessNum}</div>
-                  <div className="flex-1 relative">
-                    <div
-                      className="bg-primary-200 dark:bg-primary-800 rounded transition-all duration-300 inline-flex items-center"
-                      style={{
-                        width: `${Math.max(percentage, count > 0 ? 7 : 0)}%`,
-                        minWidth: "2rem",
-                        padding: "0.3rem 0.5rem",
-                      }}
-                    >
-                      <span className="text-xs font-semibold text-primary-900 dark:text-primary-50">{count}</span>
-                    </div>
+                  <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
+                    {guessNum}
+                  </div>
+                  <div className="flex-1 flex items-center gap-2">
+                    <progress
+                      className="w-full h-5 rounded-sm overflow-hidden [&::-webkit-progress-bar]:bg-primary-100 [&::-webkit-progress-value]:bg-primary-300 dark:[&::-webkit-progress-bar]:bg-primary-800 dark:[&::-webkit-progress-value]:bg-primary-600"
+                      value={count}
+                      max={maxGuessCount}
+                    />
+                    <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 w-6 text-right">
+                      {count}
+                    </span>
                   </div>
                 </div>
               )

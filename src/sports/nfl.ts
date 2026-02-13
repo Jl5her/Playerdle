@@ -25,7 +25,10 @@ const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
   name: team.name,
   abbr: team.abbr.toUpperCase(),
-  colors: team.colors && team.colors.length >= 2 ? [team.colors[0], team.colors[1]] as [string, string] : undefined,
+  colors:
+    team.colors && team.colors.length >= 2
+      ? ([team.colors[0], team.colors[1]] as [string, string])
+      : undefined,
 }))
 
 const answerPoolIdSet = new Set(nflAnswerPoolIds as string[])

@@ -113,7 +113,7 @@ async function fetchMlbLeaders(): Promise<string[]> {
     throw new Error(`MLB leaders request failed: HTTP ${response.status}`)
   }
 
-  const data = await response.json() as { leagueLeaders?: Array<{ leaders?: MlbLeaderEntry[] }> }
+  const data = (await response.json()) as { leagueLeaders?: Array<{ leaders?: MlbLeaderEntry[] }> }
   const names: string[] = []
 
   for (const category of data.leagueLeaders ?? []) {
@@ -159,7 +159,11 @@ function resolveFantasyPlayer(
   return null
 }
 
-function buildMlbAnswerPoolIds(players: MLBPlayer[], fantasyPlayers: FantasyProsPlayer[], leaderNames: string[]): string[] {
+function buildMlbAnswerPoolIds(
+  players: MLBPlayer[],
+  fantasyPlayers: FantasyProsPlayer[],
+  leaderNames: string[],
+): string[] {
   const lookup = buildPlayerLookup(players)
   const ids = new Set<string>()
   const fantasyRankById = new Map<string, number>()

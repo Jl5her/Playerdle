@@ -24,7 +24,12 @@ function getTeamColors(sport: SportConfig, player: Player): [string, string] {
   return team?.colors ?? ["#538d4e", "#b59f3b"]
 }
 
-function generateShareText(guesses: Player[], answer: Player, won: boolean, sport: SportConfig): string {
+function generateShareText(
+  guesses: Player[],
+  answer: Player,
+  won: boolean,
+  sport: SportConfig,
+): string {
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
@@ -128,27 +133,41 @@ export default function GameOverModal({
         <div className="text-center px-6 py-8">
           {mode === "daily" ? (
             <>
-              <h2 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-4 mt-0 uppercase text-left">Statistics</h2>
+              <h2 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-4 mt-0 uppercase text-left">
+                Statistics
+              </h2>
             </>
           ) : (
             <>
               {won ? (
                 <>
                   <div className="text-5xl mb-2">&#127942;</div>
-                   <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{String(player.name)}</div>
-                   <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                     {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #{String(player.number ?? "")}
-                   </div>
-                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Guessed in {guessCount}/6</div>
+                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
+                    {String(player.name)}
+                  </div>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+                    {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
+                    {String(player.number ?? "")}
+                  </div>
+                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
+                    Guessed in {guessCount}/6
+                  </div>
                 </>
               ) : (
                 <>
-                  <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">The answer was</div>
-                   <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{String(player.name)}</div>
-                   <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                     {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #{String(player.number ?? "")}
-                   </div>
-                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Better luck tomorrow!</div>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">
+                    The answer was
+                  </div>
+                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
+                    {String(player.name)}
+                  </div>
+                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+                    {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
+                    {String(player.number ?? "")}
+                  </div>
+                  <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
+                    Better luck tomorrow!
+                  </div>
                 </>
               )}
             </>
@@ -158,15 +177,25 @@ export default function GameOverModal({
             <div className="mt-4">
               <div className="grid grid-cols-4 gap-2 mb-6">
                 <div className="text-center">
-                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.played}</div>
-                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">Played</div>
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                    {stats.played}
+                  </div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
+                    Played
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.winPercentage}</div>
-                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">Win %</div>
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                    {stats.winPercentage}
+                  </div>
+                  <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
+                    Win %
+                  </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.currentStreak}</div>
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                    {stats.currentStreak}
+                  </div>
                   <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
                     Current
                     <br />
@@ -174,7 +203,9 @@ export default function GameOverModal({
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{stats.maxStreak}</div>
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                    {stats.maxStreak}
+                  </div>
                   <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-relaxed font-light">
                     Max
                     <br />
@@ -184,26 +215,29 @@ export default function GameOverModal({
               </div>
 
               <div className="mt-4">
-                <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left">Guess Distribution</h3>
+                <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left">
+                  Guess Distribution
+                </h3>
                 {[1, 2, 3, 4, 5, 6].map(guessNum => {
                   const count = stats.guessDistribution[guessNum] || 0
-                  const percentage = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
 
                   return (
                     <div
                       key={guessNum}
                       className="flex items-center mb-1 gap-2"
                     >
-                      <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">{guessNum}</div>
-                      <div className="flex-1 relative">
-                        <div
-                          className="bg-primary-200 dark:bg-primary-800 px-1 rounded transition-all duration-300 min-w-8"
-                          style={{
-                            width: `${Math.max(percentage, count > 0 ? 7 : 0)}%`,
-                          }}
-                        >
-                          <span className="text-xs font-semibold text-primary-900 dark:text-primary-50">{count}</span>
-                        </div>
+                      <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
+                        {guessNum}
+                      </div>
+                      <div className="flex-1 flex items-center gap-2">
+                        <progress
+                          className="w-full h-4 rounded-sm overflow-hidden [&::-webkit-progress-bar]:bg-primary-100 [&::-webkit-progress-value]:bg-primary-300 dark:[&::-webkit-progress-bar]:bg-primary-800 dark:[&::-webkit-progress-value]:bg-primary-600"
+                          value={count}
+                          max={maxGuessCount}
+                        />
+                        <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 w-6 text-right">
+                          {count}
+                        </span>
                       </div>
                     </div>
                   )

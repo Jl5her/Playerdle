@@ -121,9 +121,12 @@ export default function Game({ mode, sport }: Props) {
       {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
-          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">{String(answer.name)}</div>
+          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
+            {String(answer.name)}
+          </div>
           <div className="text-sm text-primary-500 dark:text-primary-200 mt-0.5 uppercase">
-            {String(answer.team ?? "")} &middot; {String(answer.position ?? "")} &middot; #{String(answer.number ?? "")}
+            {String(answer.team ?? "")} &middot; {String(answer.position ?? "")} &middot; #
+            {String(answer.number ?? "")}
           </div>
           <div className="text-sm text-success-500 dark:text-success-400 mt-2 font-medium">
             {won ? `Guessed in ${guesses.length}/6` : "Better luck tomorrow!"}

@@ -25,7 +25,9 @@ export default function Header({ onShowTutorial, onBack, sport }: Props) {
           Menu
         </button>
       )}
-      <h1 className="text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">Playerdle {sport.displayName}</h1>
+      <h1 className="text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
+        Playerdle {sport.displayName}
+      </h1>
       <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{dateStr}</p>
       {onShowTutorial && (
         <button

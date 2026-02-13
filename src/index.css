@@ -11,7 +11,7 @@
   --color-primary-700: #272b3d;
   --color-primary-800: #1e2233;
   --color-primary-900: #151826;
-  
+
   --color-neutral-50: #f7f4e8;
   --color-neutral-100: #f2eedc;
   --color-neutral-200: #e7e1cf;
@@ -22,7 +22,7 @@
   --color-neutral-700: #667089;
   --color-neutral-800: #3c465a;
   --color-neutral-900: #232c41;
-  
+
   --color-accent-50: #fbf7e6;
   --color-accent-100: #f4edcf;
   --color-accent-200: #ede3b9;
@@ -33,7 +33,7 @@
   --color-accent-700: #a88f4a;
   --color-accent-800: #8a6f2f;
   --color-accent-900: #6b5422;
-  
+
   --color-secondary-50: #eef3f8;
   --color-secondary-100: #d8e1eb;
   --color-secondary-200: #c1cfdf;
@@ -44,7 +44,7 @@
   --color-secondary-700: #3c465a;
   --color-secondary-800: #2a3446;
   --color-secondary-900: #232c41;
-  
+
   --color-success-50: #eef8f2;
   --color-success-100: #d4eadf;
   --color-success-200: #b7d7c5;
@@ -55,7 +55,7 @@
   --color-success-700: #4a6b5c;
   --color-success-800: #355445;
   --color-success-900: #233b30;
-  
+
   --color-error-50: #fbf1f1;
   --color-error-100: #f1d7d7;
   --color-error-200: #deb1b1;
@@ -66,7 +66,7 @@
   --color-error-700: #6b4f4f;
   --color-error-800: #543333;
   --color-error-900: #3a2424;
-  
+
   --color-warning-50: #fff9f0;
   --color-warning-100: #fbf2dd;
   --color-warning-200: #f5e7c4;
@@ -82,8 +82,56 @@
 }
 
 @keyframes cellReveal {
-  0% { transform: perspective(400px) rotateX(0deg); }
-  50% { transform: perspective(400px) rotateX(90deg); }
-  51% { transform: perspective(400px) rotateX(-90deg); }
-  100% { transform: perspective(400px) rotateX(0deg); }
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(400px) rotateX(90deg);
+  }
+  51% {
+    transform: perspective(400px) rotateX(-90deg);
+  }
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+  }
 }
+
+:root {
+  --app-vh: 100dvh;
+}
+
+.app-viewport {
+  height: var(--app-vh);
+}
+
+.grid-cell-width {
+  width: clamp(2.5rem, 16vw, 5rem);
+}
+
+.grid-cell-size {
+  width: clamp(2.5rem, 16vw, 5rem);
+  height: clamp(2.5rem, 16vw, 5rem);
+}
+
+.grid-cell-text {
+  font-size: clamp(0.6rem, 2.8vw, 0.9rem);
+}
+
+.grid-cell-top-text {
+  font-size: clamp(0.5rem, 2.2vw, 0.7rem);
+}
+
+.arcade-title-size {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.tile-delay-0 { animation-delay: 0s; }
+.tile-delay-1 { animation-delay: 0.15s; }
+.tile-delay-2 { animation-delay: 0.3s; }
+.tile-delay-3 { animation-delay: 0.45s; }
+.tile-delay-4 { animation-delay: 0.6s; }
+.tile-delay-5 { animation-delay: 0.75s; }
+.tile-delay-6 { animation-delay: 0.9s; }
+.tile-delay-7 { animation-delay: 1.05s; }
+.tile-delay-8 { animation-delay: 1.2s; }
+.tile-delay-9 { animation-delay: 1.35s; }

@@ -30,14 +30,16 @@ export default function GuessRow({ result, columns, animate }: Props) {
 
   return (
     <div>
-      <div className="text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">{String(result.guess.name)}</div>
+      <div className="text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">
+        {String(result.guess.name)}
+      </div>
       <div className="flex gap-1 justify-center">
         {cells.map((cell, i) => (
           <Tile
             key={i}
             cell={cell}
             animate={animate}
-            delay={i * 0.15}
+            delayIndex={i}
           />
         ))}
       </div>

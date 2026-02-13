@@ -10,27 +10,27 @@ const Game = lazy(() => import("@/screens/game"))
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 
 function useViewportHeight() {
-  const [height, setHeight] = useState<string>("100dvh")
-
   useEffect(() => {
-    const vv = window.visualViewport
-    if (!vv) return
-
     function update() {
-      setHeight(`${vv!.height}px`)
+      const height = window.visualViewport?.height ?? window.innerHeight
+      document.documentElement.style.setProperty("--app-vh", `${height}px`)
     }
-    update()
-    vv.addEventListener("resize", update)
-    return () => vv.removeEventListener("resize", update)
-  }, [])
 
-  return height
+    update()
+    window.addEventListener("resize", update)
+    window.visualViewport?.addEventListener("resize", update)
+
+    return () => {
+      window.removeEventListener("resize", update)
+      window.visualViewport?.removeEventListener("resize", update)
+    }
+  }, [])
 }
 
 function App() {
   const sportId = getSportIdFromPath(window.location.pathname)
   const sportMeta = getSportMetaById(sportId)
-  const viewportHeight = useViewportHeight()
+  useViewportHeight()
   const [screen, setScreen] = useState<Screen>("menu")
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
@@ -83,15 +83,20 @@ function App() {
     <>
       {screen === "menu" && (
         <div className="pb-11">
-          <MainMenu onNavigate={handleNavigate} sport={sport ?? sportMeta} />
+          <MainMenu
+            onNavigate={handleNavigate}
+            sport={sport ?? sportMeta}
+          />
         </div>
       )}
-      {showTutorial && sport && <TutorialModal onClose={handleCloseTutorial} sport={sport} />}
+      {showTutorial && sport && (
+        <TutorialModal
+          onClose={handleCloseTutorial}
+          sport={sport}
+        />
+      )}
       {isGame && (
-        <div
-          style={{ height: viewportHeight }}
-          className="flex flex-col bg-primary-50 dark:bg-primary-900"
-        >
+        <div className="app-viewport flex flex-col bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={screen === "daily" ? handleShowTutorial : undefined}
             onBack={goToMenu}
@@ -115,9 +120,24 @@ function App() {
           </Suspense>
         </div>
       )}
-      {screen === "help" && sport && <HelpModal onBack={goToMenu} sport={sport} />}
-      {screen === "about" && <AboutScreen onBack={goToMenu} sport={sport ?? sportMeta} />}
-      {screen === "stats" && sport && <StatsModal onClose={goToMenu} sport={sport} />}
+      {screen === "help" && sport && (
+        <HelpModal
+          onBack={goToMenu}
+          sport={sport}
+        />
+      )}
+      {screen === "about" && (
+        <AboutScreen
+          onBack={goToMenu}
+          sport={sport ?? sportMeta}
+        />
+      )}
+      {screen === "stats" && sport && (
+        <StatsModal
+          onClose={goToMenu}
+          sport={sport}
+        />
+      )}
       {screen === "menu" && <LeagueFooter currentSportId={sportId} />}
     </>
   )

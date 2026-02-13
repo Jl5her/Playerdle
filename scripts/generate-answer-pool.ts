@@ -6,16 +6,16 @@ import { fileURLToPath } from "node:url"
 import * as cheerio from "cheerio"
 
 const fantasyConfig = {
-  "positions": {
-    "QB": 35,
-    "RB": 75,
-    "WR": 75,
-    "TE": 50,
+  positions: {
+    QB: 35,
+    RB: 75,
+    WR: 75,
+    TE: 50,
     // "K": 15,
     // "DL": 15,
     // "LB": 5,
     // "DB": 10
-  }
+  },
 }
 
 interface FantasyPlayer {
@@ -161,7 +161,10 @@ function loadNFLPlayers(): NFLPlayer[] {
   return JSON.parse(data)
 }
 
-function validateAgainstNFLDatabase(fantasyPlayers: FantasyPlayer[], nflPlayers: NFLPlayer[]): FantasyPlayer[] {
+function validateAgainstNFLDatabase(
+  fantasyPlayers: FantasyPlayer[],
+  nflPlayers: NFLPlayer[],
+): FantasyPlayer[] {
   console.log("\nValidating fantasy players against NFL player superset...")
 
   const nflLookup = new Map<string, NFLPlayer[]>()

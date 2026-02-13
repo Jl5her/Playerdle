@@ -56,7 +56,8 @@ export function evaluateColumn(guess: Player, answer: Player, column: SportColum
 
   const diff = Math.abs(guessNumber - answerNumber)
   const isMatch = guessNumber === answerNumber
-  const isClose = !isMatch && column.evaluator.closeWithin !== undefined && diff <= column.evaluator.closeWithin
+  const isClose =
+    !isMatch && column.evaluator.closeWithin !== undefined && diff <= column.evaluator.closeWithin
 
   return {
     value: toDisplayValue(guessValue),
