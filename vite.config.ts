@@ -31,10 +31,6 @@ export default defineConfig({
               return "vendor-confetti"
             }
           }
-          // Separate the player/team data into its own chunk
-          if (id.includes("data/players.json") || id.includes("data/teams.json")) {
-            return "players-data"
-          }
         },
       },
     },

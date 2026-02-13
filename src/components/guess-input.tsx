@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect, useMemo } from "react"
 import Fuse from "fuse.js"
-import { type Player, players, playerId } from "@/data/players"
+import type { Player } from "@/sports"
 
 interface Props {
   onGuess: (player: Player) => void
   guessedIds: Set<string>
   disabled: boolean
+  players: Player[]
 }
 
-export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
+export default function GuessInput({ onGuess, guessedIds, disabled, players }: Props) {
   const [query, setQuery] = useState("")
   const [showDropdown, setShowDropdown] = useState(false)
   const [highlightIndex, setHighlightIndex] = useState(-1)
@@ -52,7 +53,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
         threshold: 0.3,
         distance: 50,
       }),
-    [],
+    [players],
   )
 
   const trimmed = query.trim()
@@ -66,15 +67,15 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
 
     // Token match: every query word must be a prefix of some name word
     const tokenMatches = players.filter(p => {
-      if (guessedIds.has(playerId(p))) return false
-      const nameWords = normalize(p.name).split(/[\s-]+/)
+      if (guessedIds.has(p.id)) return false
+      const nameWords = normalize(String(p.name)).split(/[\s-]+/)
       return queryWords.every(qw => nameWords.some(nw => nw.startsWith(qw)))
     })
 
     // Sort token matches by relevance: exact name > fewer extra words > alphabetical
     tokenMatches.sort((a, b) => {
-      const aNorm = normalize(a.name)
-      const bNorm = normalize(b.name)
+      const aNorm = normalize(String(a.name))
+      const bNorm = normalize(String(b.name))
       // Exact match first
       const aExact = aNorm === queryNorm ? 0 : 1
       const bExact = bNorm === queryNorm ? 0 : 1
@@ -90,7 +91,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
     // Deduplicate by name + position
     const seen = new Set<string>()
     const deduped = tokenMatches.filter(p => {
-      const key = `${p.name.toLowerCase()}-${p.position}`
+      const key = `${String(p.name).toLowerCase()}-${String(p.position ?? "")}`
       if (seen.has(key)) return false
       seen.add(key)
       return true
@@ -98,16 +99,16 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
 
     // Fuzzy fallback for typos — only if token matches are sparse
     if (deduped.length < 5) {
-      const tokenIds = new Set(deduped.map(p => playerId(p)))
+      const tokenIds = new Set(deduped.map(p => p.id))
       const fuzzyResults = fuse
         .search(trimmed, { limit: 15 })
-        .filter(r => !guessedIds.has(playerId(r.item)) && !tokenIds.has(playerId(r.item)))
+        .filter(r => !guessedIds.has(r.item.id) && !tokenIds.has(r.item.id))
         .sort((a, b) => a.score! - b.score!) // Sort by relevance (lower score = better match)
         .map(r => r.item)
 
       // Deduplicate fuzzy results as well
       const fuzzyDeduped = fuzzyResults.filter(p => {
-        const key = `${p.name.toLowerCase()}-${p.position}`
+        const key = `${String(p.name).toLowerCase()}-${String(p.position ?? "")}`
         if (seen.has(key)) return false
         seen.add(key)
         return true
@@ -117,17 +118,18 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
     }
 
     return deduped.slice(0, 8)
-  }, [trimmed, fuse, guessedIds])
+  }, [trimmed, fuse, guessedIds, players])
 
   const duplicateNames = useMemo(() => {
     const dupes = new Set<string>()
     const seen = new Set<string>()
     for (const p of players) {
-      if (seen.has(p.name)) dupes.add(p.name)
-      else seen.add(p.name)
+      const name = String(p.name)
+      if (seen.has(name)) dupes.add(name)
+      else seen.add(name)
     }
     return dupes
-  }, [])
+  }, [players])
 
   useEffect(() => {
     if (highlightIndex >= 0 && dropdownRef.current) {
@@ -219,7 +221,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
           >
             {filtered.map((player, i) => (
               <button
-                key={`${playerId(player)}-${i}`}
+                key={`${player.id}-${i}`}
                 className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${i === highlightIndex ? "bg-primary-100 dark:bg-primary-800" : "hover:bg-primary-50 dark:hover:bg-primary-900"}`}
                 onMouseDown={e => {
                   e.preventDefault()
@@ -228,9 +230,9 @@ export default function GuessInput({ onGuess, guessedIds, disabled }: Props) {
                 onMouseEnter={() => setHighlightIndex(i)}
               >
                 <span className="font-semibold text-sm">
-                  {player.name}
-                  {duplicateNames.has(player.name) && (
-                    <span className="text-xs font-normal text-primary-500 dark:text-primary-200"> ({player.position})</span>
+                  {String(player.name)}
+                  {duplicateNames.has(String(player.name)) && (
+                    <span className="text-xs font-normal text-primary-500 dark:text-primary-200"> ({String(player.position ?? "")})</span>
                   )}
                 </span>
                 {!isMobile && i === highlightIndex && (

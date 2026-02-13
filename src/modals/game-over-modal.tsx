@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react"
 import confetti from "canvas-confetti"
-import type { Player } from "@/data/players"
+import { evaluateColumn, type Player, type SportConfig } from "@/sports"
 import type { GameMode } from "@/screens/game"
 import { calculateStats } from "@/utils/stats"
-import { teams, type Team } from "@/data/teams"
 
 interface Props {
   player: Player
@@ -15,44 +14,36 @@ interface Props {
   guesses: Player[]
   isOpen: boolean
   onClose: () => void
+  sport: SportConfig
 }
 
-function getTeamColors(teamName: string): [string, string] {
-  const team = Object.values(teams).find((t: Team) => t.name === teamName)
-  return team?.colors || ["#538d4e", "#b59f3b"]
+function getTeamColors(sport: SportConfig, player: Player): [string, string] {
+  const teamValue = String(player.team ?? "")
+  const teamAbbrValue = String(player.teamAbbr ?? "")
+  const team = sport.teams.find(t => t.name === teamValue || t.abbr === teamAbbrValue)
+  return team?.colors ?? ["#538d4e", "#b59f3b"]
 }
 
-function getComparison(guess: Player, answer: Player) {
-  const numberDiff = Math.abs(guess.number - answer.number)
-  return {
-    conference: guess.conference === answer.conference,
-    division: guess.division === answer.division,
-    team: guess.team === answer.team,
-    position: guess.position === answer.position,
-    numberMatch: guess.number === answer.number,
-    numberClose: numberDiff > 0 && numberDiff <= 5,
-  }
-}
-
-function generateShareText(guesses: Player[], answer: Player, won: boolean): string {
-  const today = new Date()
-  const dateStr = today.toLocaleDateString("en-US", {
+function generateShareText(guesses: Player[], answer: Player, won: boolean, sport: SportConfig): string {
+  const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
     year: "numeric",
-  })
+    timeZone: "America/New_York",
+  }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
 
-  let text = `Playerdle ${dateStr} ${result}\n\n`
+  let text = `Playerdle ${sport.displayName} ${dateStr} ${result}\n\n`
 
   for (const guess of guesses) {
-    const comp = getComparison(guess, answer)
-    const conf = comp.conference ? "🟩" : "⬜"
-    const div = comp.division ? "🟩" : "⬜"
-    const team = comp.team ? "🟩" : "⬜"
-    const pos = comp.position ? "🟩" : "⬜"
-    const num = comp.numberMatch ? "🟩" : comp.numberClose ? "🟨" : "⬜"
-    text += `${conf}${div}${team}${pos}${num}\n`
+    text += `${sport.columns
+      .map(column => {
+        const evaluated = evaluateColumn(guess, answer, column)
+        if (evaluated.status === "correct") return "🟩"
+        if (evaluated.status === "close") return "🟨"
+        return "⬜"
+      })
+      .join("")}\n`
   }
 
   return text.trim()
@@ -68,13 +59,14 @@ export default function GameOverModal({
   guesses,
   isOpen,
   onClose,
+  sport,
 }: Props) {
   const [copied, setCopied] = useState(false)
-  const stats = mode === "daily" ? calculateStats() : null
+  const stats = mode === "daily" ? calculateStats(sport.id) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   async function handleShare() {
-    const shareText = generateShareText(guesses, player, won)
+    const shareText = generateShareText(guesses, player, won, sport)
 
     try {
       await navigator.clipboard.writeText(shareText)
@@ -86,11 +78,11 @@ export default function GameOverModal({
   }
 
   useEffect(() => {
-    if (!won || !player?.team) return
+    if (!won) return
 
     const duration = 3000
     const end = Date.now() + duration
-    const colors = getTeamColors(player.team)
+    const colors = getTeamColors(sport, player)
 
     function frame() {
       confetti({
@@ -116,7 +108,7 @@ export default function GameOverModal({
     }
 
     frame()
-  }, [won, player?.team])
+  }, [won, player, sport])
 
   if (!won && !lost) return null
   if (!isOpen) return null
@@ -143,19 +135,19 @@ export default function GameOverModal({
               {won ? (
                 <>
                   <div className="text-5xl mb-2">&#127942;</div>
-                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{player.name}</div>
-                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                    {player.team} &middot; {player.position} &middot; #{player.number}
-                  </div>
+                   <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{String(player.name)}</div>
+                   <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+                     {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #{String(player.number ?? "")}
+                   </div>
                   <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Guessed in {guessCount}/6</div>
                 </>
               ) : (
                 <>
                   <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">The answer was</div>
-                  <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{player.name}</div>
-                  <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                    {player.team} &middot; {player.position} &middot; #{player.number}
-                  </div>
+                   <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">{String(player.name)}</div>
+                   <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+                     {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #{String(player.number ?? "")}
+                   </div>
                   <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">Better luck tomorrow!</div>
                 </>
               )}

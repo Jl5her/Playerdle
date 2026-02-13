@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react"
-import { type Player, players, playerId, isSamePlayer } from "@/data/players"
-import { getDailyPlayer, getRandomArcadePlayer, getTodayKey } from "@/utils/daily"
+import type { Player, SportConfig } from "@/sports"
+import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
 import { GuessGrid, GuessInput, Button } from "@/components"
-import { GameOverModal, ArcadeSettingsModal } from "@/modals"
-import { shouldShowArcadeSettings, type ArcadeSettings } from "@/modals/arcade-settings-modal"
+import { GameOverModal } from "@/modals"
 
 const MAX_GUESSES = 6
-const STORAGE_KEY = "playerdle-state"
 
 export type GameMode = "daily" | "arcade"
 
 interface Props {
   mode: GameMode
-  onRegisterSettings?: (callback: () => void) => void
+  sport: SportConfig
 }
 
 interface SavedState {
@@ -21,9 +19,13 @@ interface SavedState {
   guessIds: string[]
 }
 
-function loadState(dateKey: string): string[] {
+function getStorageKey(sportId: string): string {
+  return `playerdle-state:${sportId}`
+}
+
+function loadState(sportId: string, dateKey: string): string[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(getStorageKey(sportId))
     if (!raw) return []
     const parsed: SavedState = JSON.parse(raw)
     if (parsed.dateKey !== dateKey) return []
@@ -33,74 +35,59 @@ function loadState(dateKey: string): string[] {
   }
 }
 
-function saveState(dateKey: string, guessIds: string[]) {
+function saveState(sportId: string, dateKey: string, guessIds: string[]) {
   const state: SavedState = { dateKey, guessIds }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+  localStorage.setItem(getStorageKey(sportId), JSON.stringify(state))
 }
 
-function restoreGuesses(ids: string[]): Player[] {
-  const restored: Player[] = []
-  for (const id of ids) {
-    const p = players.find(pl => playerId(pl) === id)
-    if (p) restored.push(p)
-  }
-  return restored
+function restoreGuesses(players: Player[], ids: string[]): Player[] {
+  const byId = new Map(players.map(player => [player.id, player]))
+  return ids.map(id => byId.get(id)).filter(Boolean) as Player[]
 }
 
-function getInitialGuesses(mode: GameMode): Player[] {
+function getInitialGuesses(mode: GameMode, sport: SportConfig): Player[] {
   if (mode === "daily") {
-    const savedIds = loadState(getTodayKey())
-    return savedIds.length > 0 ? restoreGuesses(savedIds) : []
+    const savedIds = loadState(sport.id, getTodayKeyInEasternTime())
+    return savedIds.length > 0 ? restoreGuesses(sport.players, savedIds) : []
   }
   return []
 }
 
-export default function Game({ mode, onRegisterSettings }: Props) {
-  const [includeDefensiveST, setIncludeDefensiveST] = useState(false)
-  const [showArcadeSettings, setShowArcadeSettings] = useState(mode === "arcade" && shouldShowArcadeSettings())
-  const [gameStarted, setGameStarted] = useState(mode === "daily" || !shouldShowArcadeSettings())
+export default function Game({ mode, sport }: Props) {
   const [answer, setAnswer] = useState<Player | null>(() =>
-    mode === "daily" ? getDailyPlayer() : (shouldShowArcadeSettings() ? null : getRandomArcadePlayer(undefined, false)),
+    mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
   )
-  const [dateKey] = useState<string>(getTodayKey)
-  const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode))
+  const [dateKey] = useState<string>(getTodayKeyInEasternTime)
+  const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport))
   const [latestIndex, setLatestIndex] = useState(-1)
 
-  const won = answer && guesses.some(g => isSamePlayer(g, answer))
+  const won = !!(answer && guesses.some(g => g.id === answer.id))
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
 
   const [showModal, setShowModal] = useState(gameOver)
 
-  const guessedIds = new Set(guesses.map(g => playerId(g)))
+  const guessedIds = new Set(guesses.map(g => g.id))
 
-  // Register arcade settings callback with parent
   useEffect(() => {
-    if (mode === "arcade" && onRegisterSettings) {
-      onRegisterSettings(() => () => setShowArcadeSettings(true))
+    if (mode === "daily" && gameOver) {
+      saveGameResult(sport.id, won, guesses.length)
     }
-  }, [mode, onRegisterSettings])
-
-  // Save game result when game is over (daily mode only)
-  useEffect(() => {
-    if (mode === "daily" && gameOver && won !== null) {
-      saveGameResult(won, guesses.length)
-    }
-  }, [mode, gameOver, won, guesses.length])
+  }, [mode, gameOver, won, guesses.length, sport.id])
 
   function handleGuess(player: Player) {
-    if (gameOver || guessedIds.has(playerId(player))) return
+    if (gameOver || guessedIds.has(player.id)) return
     const newGuesses = [...guesses, player]
     setGuesses(newGuesses)
     setLatestIndex(newGuesses.length - 1)
     if (mode === "daily") {
       saveState(
+        sport.id,
         dateKey,
-        newGuesses.map(g => playerId(g)),
+        newGuesses.map(g => g.id),
       )
     }
-    // Show modal when game ends after this guess
-    const newWon = answer && newGuesses.some(g => isSamePlayer(g, answer))
+    const newWon = !!(answer && newGuesses.some(g => g.id === answer.id))
     const newLost = !newWon && newGuesses.length >= MAX_GUESSES
     if (newWon || newLost) {
       setShowModal(true)
@@ -108,58 +95,35 @@ export default function Game({ mode, onRegisterSettings }: Props) {
   }
 
   function handlePlayAgain() {
-    const newPlayer = getRandomArcadePlayer(playerId(answer!), includeDefensiveST)
+    if (!answer) return
+    const newPlayer = getRandomArcadePlayer(sport, answer.id)
     setAnswer(newPlayer)
     setGuesses([])
     setLatestIndex(-1)
   }
 
-  function handleArcadeSettingsStart(settings: ArcadeSettings) {
-    setIncludeDefensiveST(settings.includeDefensiveST)
-    const newPlayer = getRandomArcadePlayer(undefined, settings.includeDefensiveST)
-    setAnswer(newPlayer)
-    setShowArcadeSettings(false)
-    setGameStarted(true)
-  }
-
-  function handleCloseArcadeSettings() {
-    // If game hasn't started yet, start with default settings
-    if (!gameStarted) {
-      handleArcadeSettingsStart({ includeDefensiveST: false })
-    } else {
-      setShowArcadeSettings(false)
-    }
-  }
-
   return (
     <div className="flex-1 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
-      {mode === "arcade" && (
-        <ArcadeSettingsModal
-          isOpen={showArcadeSettings}
-          onStart={handleArcadeSettingsStart}
-          onClose={handleCloseArcadeSettings}
-          initialSettings={{ includeDefensiveST }}
-        />
-      )}
       {answer && (
         <GameOverModal
           player={answer}
-          won={won ?? false}
-          lost={lost ?? false}
+          won={won}
+          lost={lost}
           guessCount={guesses.length}
           onPlayAgain={mode === "arcade" ? handlePlayAgain : undefined}
           mode={mode}
           guesses={guesses}
           isOpen={showModal}
           onClose={() => setShowModal(false)}
+          sport={sport}
         />
       )}
       {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
-          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">{answer.name}</div>
+          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">{String(answer.name)}</div>
           <div className="text-sm text-primary-500 dark:text-primary-200 mt-0.5 uppercase">
-            {answer.team} &middot; {answer.position} &middot; #{answer.number}
+            {String(answer.team ?? "")} &middot; {String(answer.position ?? "")} &middot; #{String(answer.number ?? "")}
           </div>
           <div className="text-sm text-success-500 dark:text-success-400 mt-2 font-medium">
             {won ? `Guessed in ${guesses.length}/6` : "Better luck tomorrow!"}
@@ -174,12 +138,14 @@ export default function Game({ mode, onRegisterSettings }: Props) {
               answer={answer}
               maxGuesses={MAX_GUESSES}
               latestIndex={latestIndex}
+              columns={sport.columns}
             />
           </div>
           <GuessInput
             onGuess={handleGuess}
             guessedIds={guessedIds}
             disabled={gameOver}
+            players={sport.players}
           />
         </>
       )}

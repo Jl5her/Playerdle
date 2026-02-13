@@ -1,11 +1,13 @@
 import { calculateStats } from "@/utils/stats"
+import type { SportConfig } from "@/sports"
 
 interface Props {
   onClose: () => void
+  sport: SportConfig
 }
 
-export default function StatsModal({ onClose }: Props) {
-  const stats = calculateStats()
+export default function StatsModal({ onClose, sport }: Props) {
+  const stats = calculateStats(sport.id)
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -27,7 +29,7 @@ export default function StatsModal({ onClose }: Props) {
       >
         <div className="flex justify-between items-center p-5 border-b-2 border-primary-300 dark:border-primary-700">
           <div>
-            <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics</h2>
+            <h2 className="text-2xl font-bold text-primary-900 dark:text-primary-50 m-0">Statistics ({sport.displayName})</h2>
             <p className="text-xs text-primary-500 dark:text-primary-200 mt-1">{dateStr}</p>
           </div>
           <button

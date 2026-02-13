@@ -1,8 +1,11 @@
+import type { SportConfig } from "@/sports"
+
 interface Props {
   onBack: () => void
+  sport: SportConfig
 }
 
-export default function HelpModal({ onBack }: Props) {
+export default function HelpModal({ onBack, sport }: Props) {
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -20,7 +23,7 @@ export default function HelpModal({ onBack }: Props) {
 
       <div className="w-full flex flex-col gap-1">
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
-          Guess the NFL player in <strong>5 tries</strong>. After each guess, the tiles will change
+          Guess the {sport.displayName} player in <strong>6 tries</strong>. After each guess, the tiles will change
           color to show how close your guess was.
         </p>
       </div>
@@ -32,7 +35,7 @@ export default function HelpModal({ onBack }: Props) {
         </div>
         <div className="flex items-center gap-2.5">
           <span className="inline-block w-5 h-5 rounded bg-warning-500 dark:bg-warning-400 shrink-0" />
-          <span className="text-sm text-primary-500 dark:text-primary-200 leading-6">Same division but wrong team</span>
+          <span className="text-sm text-primary-500 dark:text-primary-200 leading-6">Close value</span>
         </div>
         <div className="flex items-center gap-2.5">
           <span className="inline-block w-5 h-5 rounded bg-error-500 dark:bg-error-400 shrink-0" />
@@ -43,9 +46,7 @@ export default function HelpModal({ onBack }: Props) {
       <div className="w-full flex flex-col gap-1">
         <h3 className="text-base font-bold text-primary-900 dark:text-primary-50 mb-1">Categories</h3>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
-          Each guess reveals clues across five categories: <strong>Conference</strong>,{" "}
-          <strong>Division</strong>, <strong>Team</strong>, <strong>Position</strong>, and{" "}
-          <strong>Jersey Number</strong>.
+          Each guess reveals clues across the categories shown in the grid.
         </p>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           For jersey number, an arrow indicates whether the answer's number is higher or lower.
@@ -55,7 +56,7 @@ export default function HelpModal({ onBack }: Props) {
       <div className="w-full flex flex-col gap-1">
         <h3 className="text-base font-bold text-primary-900 dark:text-primary-50 mb-1">Game Modes</h3>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
-          <strong>Daily</strong> &mdash; Everyone gets the same player each day.
+          <strong>Daily</strong> &mdash; Everyone gets the same {sport.displayName} player each day (midnight reset).
         </p>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
           <strong>Arcade</strong> &mdash; Play unlimited rounds with a random player each time.

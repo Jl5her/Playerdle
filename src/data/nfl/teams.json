@@ -1,0 +1,354 @@
+[
+  {
+    "id": "22",
+    "name": "Arizona Cardinals",
+    "abbr": "ARI",
+    "conference": "NFC",
+    "division": "NFC West",
+    "colors": [
+      "#a40227",
+      "#ffffff"
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Atlanta Falcons",
+    "abbr": "ATL",
+    "conference": "NFC",
+    "division": "NFC South",
+    "colors": [
+      "#a71930",
+      "#000000"
+    ]
+  },
+  {
+    "id": "33",
+    "name": "Baltimore Ravens",
+    "abbr": "BAL",
+    "conference": "AFC",
+    "division": "AFC North",
+    "colors": [
+      "#29126f",
+      "#000000"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Buffalo Bills",
+    "abbr": "BUF",
+    "conference": "AFC",
+    "division": "AFC East",
+    "colors": [
+      "#00338d",
+      "#d50a0a"
+    ]
+  },
+  {
+    "id": "29",
+    "name": "Carolina Panthers",
+    "abbr": "CAR",
+    "conference": "NFC",
+    "division": "NFC South",
+    "colors": [
+      "#0085ca",
+      "#000000"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Chicago Bears",
+    "abbr": "CHI",
+    "conference": "NFC",
+    "division": "NFC North",
+    "colors": [
+      "#0b1c3a",
+      "#e64100"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Cincinnati Bengals",
+    "abbr": "CIN",
+    "conference": "AFC",
+    "division": "AFC North",
+    "colors": [
+      "#fb4f14",
+      "#000000"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Cleveland Browns",
+    "abbr": "CLE",
+    "conference": "AFC",
+    "division": "AFC North",
+    "colors": [
+      "#472a08",
+      "#ff3c00"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Dallas Cowboys",
+    "abbr": "DAL",
+    "conference": "NFC",
+    "division": "NFC East",
+    "colors": [
+      "#002a5c",
+      "#b0b7bc"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Denver Broncos",
+    "abbr": "DEN",
+    "conference": "AFC",
+    "division": "AFC West",
+    "colors": [
+      "#0a2343",
+      "#fc4c02"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Detroit Lions",
+    "abbr": "DET",
+    "conference": "NFC",
+    "division": "NFC North",
+    "colors": [
+      "#0076b6",
+      "#bbbbbb"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Green Bay Packers",
+    "abbr": "GB",
+    "conference": "NFC",
+    "division": "NFC North",
+    "colors": [
+      "#204e32",
+      "#ffb612"
+    ]
+  },
+  {
+    "id": "34",
+    "name": "Houston Texans",
+    "abbr": "HOU",
+    "conference": "AFC",
+    "division": "AFC South",
+    "colors": [
+      "#00143f",
+      "#c41230"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Indianapolis Colts",
+    "abbr": "IND",
+    "conference": "AFC",
+    "division": "AFC South",
+    "colors": [
+      "#003b75",
+      "#ffffff"
+    ]
+  },
+  {
+    "id": "30",
+    "name": "Jacksonville Jaguars",
+    "abbr": "JAX",
+    "conference": "AFC",
+    "division": "AFC South",
+    "colors": [
+      "#007487",
+      "#d7a22a"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Kansas City Chiefs",
+    "abbr": "KC",
+    "conference": "AFC",
+    "division": "AFC West",
+    "colors": [
+      "#e31837",
+      "#ffb612"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Las Vegas Raiders",
+    "abbr": "LV",
+    "conference": "AFC",
+    "division": "AFC West",
+    "colors": [
+      "#000000",
+      "#a5acaf"
+    ]
+  },
+  {
+    "id": "24",
+    "name": "Los Angeles Chargers",
+    "abbr": "LAC",
+    "conference": "AFC",
+    "division": "AFC West",
+    "colors": [
+      "#0080c6",
+      "#ffc20e"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Los Angeles Rams",
+    "abbr": "LAR",
+    "conference": "NFC",
+    "division": "NFC West",
+    "colors": [
+      "#003594",
+      "#ffd100"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Miami Dolphins",
+    "abbr": "MIA",
+    "conference": "AFC",
+    "division": "AFC East",
+    "colors": [
+      "#008e97",
+      "#fc4c02"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Minnesota Vikings",
+    "abbr": "MIN",
+    "conference": "NFC",
+    "division": "NFC North",
+    "colors": [
+      "#4f2683",
+      "#ffc62f"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "New England Patriots",
+    "abbr": "NE",
+    "conference": "AFC",
+    "division": "AFC East",
+    "colors": [
+      "#002a5c",
+      "#c60c30"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "New Orleans Saints",
+    "abbr": "NO",
+    "conference": "NFC",
+    "division": "NFC South",
+    "colors": [
+      "#d3bc8d",
+      "#000000"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "New York Giants",
+    "abbr": "NYG",
+    "conference": "NFC",
+    "division": "NFC East",
+    "colors": [
+      "#003c7f",
+      "#c9243f"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "New York Jets",
+    "abbr": "NYJ",
+    "conference": "AFC",
+    "division": "AFC East",
+    "colors": [
+      "#115740",
+      "#ffffff"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Philadelphia Eagles",
+    "abbr": "PHI",
+    "conference": "NFC",
+    "division": "NFC East",
+    "colors": [
+      "#06424d",
+      "#000000"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Pittsburgh Steelers",
+    "abbr": "PIT",
+    "conference": "AFC",
+    "division": "AFC North",
+    "colors": [
+      "#000000",
+      "#ffb612"
+    ]
+  },
+  {
+    "id": "25",
+    "name": "San Francisco 49ers",
+    "abbr": "SF",
+    "conference": "NFC",
+    "division": "NFC West",
+    "colors": [
+      "#aa0000",
+      "#b3995d"
+    ]
+  },
+  {
+    "id": "26",
+    "name": "Seattle Seahawks",
+    "abbr": "SEA",
+    "conference": "NFC",
+    "division": "NFC West",
+    "colors": [
+      "#002a5c",
+      "#69be28"
+    ]
+  },
+  {
+    "id": "27",
+    "name": "Tampa Bay Buccaneers",
+    "abbr": "TB",
+    "conference": "NFC",
+    "division": "NFC South",
+    "colors": [
+      "#bd1c36",
+      "#3e3a35"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Tennessee Titans",
+    "abbr": "TEN",
+    "conference": "AFC",
+    "division": "AFC South",
+    "colors": [
+      "#4b92db",
+      "#002a5c"
+    ]
+  },
+  {
+    "id": "28",
+    "name": "Washington Commanders",
+    "abbr": "WSH",
+    "conference": "NFC",
+    "division": "NFC East",
+    "colors": [
+      "#5a1414",
+      "#ffb612"
+    ]
+  }
+]

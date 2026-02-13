@@ -1,4 +1,3 @@
-export { default as ArcadeSettingsModal } from "./arcade-settings-modal"
 export { default as GameOverModal } from "./game-over-modal"
 export { default as HelpModal } from "./help-modal"
 export { default as StatsModal } from "./stats-modal"

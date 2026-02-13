@@ -1,8 +1,9 @@
 import { useState, useEffect, lazy, Suspense } from "react"
-import { Header } from "@/components"
-import { MainMenu, AboutScreen, BehindScenes } from "@/screens"
+import { Header, LeagueFooter } from "@/components"
+import { MainMenu, AboutScreen } from "@/screens"
 import { HelpModal, TutorialModal, StatsModal } from "@/modals"
 import type { Screen } from "@/screens/main-menu"
+import { getSportIdFromPath, getSportMetaById, loadSportConfig, type SportConfig } from "@/sports"
 
 const Game = lazy(() => import("@/screens/game"))
 
@@ -27,17 +28,40 @@ function useViewportHeight() {
 }
 
 function App() {
+  const sportId = getSportIdFromPath(window.location.pathname)
+  const sportMeta = getSportMetaById(sportId)
   const viewportHeight = useViewportHeight()
   const [screen, setScreen] = useState<Screen>("menu")
   const [gameKey, setGameKey] = useState(0)
-  const [showTutorial, setShowTutorial] = useState(() => !localStorage.getItem(TUTORIAL_SEEN_KEY))
-  const [arcadeSettingsCallback, setArcadeSettingsCallback] = useState<(() => void) | undefined>(undefined)
+  const [sport, setSport] = useState<SportConfig | null>(null)
+  const [showTutorial, setShowTutorial] = useState(
+    () => !localStorage.getItem(`${TUTORIAL_SEEN_KEY}:${sportId}`),
+  )
+
+  useEffect(() => {
+    let isMounted = true
+
+    loadSportConfig(sportId).then(config => {
+      if (isMounted) {
+        setSport(config)
+      }
+    })
+
+    return () => {
+      isMounted = false
+    }
+  }, [sportId])
+
+  useEffect(() => {
+    const leagueName = (sport?.displayName ?? sportMeta.displayName).toUpperCase()
+    document.title = `Playerdle ${leagueName}`
+  }, [sport, sportMeta.displayName])
 
   const isGame = screen === "daily" || screen === "arcade"
 
   function handleCloseTutorial() {
     setShowTutorial(false)
-    localStorage.setItem(TUTORIAL_SEEN_KEY, "true")
+    localStorage.setItem(`${TUTORIAL_SEEN_KEY}:${sportId}`, "true")
   }
 
   function handleShowTutorial() {
@@ -57,36 +81,44 @@ function App() {
 
   return (
     <>
-      {screen === "menu" && <MainMenu onNavigate={handleNavigate} />}
-      {showTutorial && <TutorialModal onClose={handleCloseTutorial} />}
+      {screen === "menu" && (
+        <div className="pb-11">
+          <MainMenu onNavigate={handleNavigate} sport={sport ?? sportMeta} />
+        </div>
+      )}
+      {showTutorial && sport && <TutorialModal onClose={handleCloseTutorial} sport={sport} />}
       {isGame && (
-        <div style={{ height: viewportHeight }} className="flex flex-col bg-primary-50 dark:bg-primary-900">
+        <div
+          style={{ height: viewportHeight }}
+          className="flex flex-col bg-primary-50 dark:bg-primary-900"
+        >
           <Header
             onShowTutorial={screen === "daily" ? handleShowTutorial : undefined}
-            onShowSettings={screen === "arcade" ? arcadeSettingsCallback : undefined}
             onBack={goToMenu}
+            sport={sport ?? sportMeta}
           />
           <Suspense fallback={<div className="flex-1" />}>
-            {screen === "daily" && (
+            {screen === "daily" && sport && (
               <Game
                 key="daily"
                 mode="daily"
+                sport={sport}
               />
             )}
-            {screen === "arcade" && (
+            {screen === "arcade" && sport && (
               <Game
                 key={`arcade-${gameKey}`}
                 mode="arcade"
-                onRegisterSettings={setArcadeSettingsCallback}
+                sport={sport}
               />
             )}
           </Suspense>
         </div>
       )}
-      {screen === "help" && <HelpModal onBack={goToMenu} />}
-      {screen === "about" && <AboutScreen onBack={goToMenu} />}
-      {screen === "stats" && <StatsModal onClose={goToMenu} />}
-      {screen === "behind" && <BehindScenes onBack={goToMenu} />}
+      {screen === "help" && sport && <HelpModal onBack={goToMenu} sport={sport} />}
+      {screen === "about" && <AboutScreen onBack={goToMenu} sport={sport ?? sportMeta} />}
+      {screen === "stats" && sport && <StatsModal onClose={goToMenu} sport={sport} />}
+      {screen === "menu" && <LeagueFooter currentSportId={sportId} />}
     </>
   )
 }

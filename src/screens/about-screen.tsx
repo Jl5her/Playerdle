@@ -1,8 +1,11 @@
+import type { SportInfo } from "@/sports"
+
 interface Props {
   onBack: () => void
+  sport: SportInfo
 }
 
-export default function AboutScreen({ onBack }: Props) {
+export default function AboutScreen({ onBack, sport }: Props) {
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -20,7 +23,10 @@ export default function AboutScreen({ onBack }: Props) {
 
       <div className="w-full">
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-6">
-          <strong>Playerdle</strong> is a daily guessing game for NFL fans. Test your knowledge by
+          <strong>Playerdle</strong> is a daily guessing game for sports fans. You are currently playing the {sport.displayName} version.
+        </p>
+        <p className="text-sm text-primary-500 dark:text-primary-200 leading-6 mt-2">
+          Test your knowledge by
           identifying players based on their conference, division, team, position, and jersey
           number.
         </p>

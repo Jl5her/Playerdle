@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import type { Player } from "@/data/players"
+import type { Player, SportColumn } from "@/sports"
 import { GuessRow } from "@/components"
 
 interface GuessGridProps {
@@ -7,11 +7,10 @@ interface GuessGridProps {
   answer: Player
   maxGuesses: number
   latestIndex: number
+  columns: SportColumn[]
 }
 
-const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const
-
-export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: Readonly<GuessGridProps>) {
+export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex, columns }: Readonly<GuessGridProps>) {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
@@ -26,13 +25,13 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
     <div className="flex flex-col items-center gap-1 px-2 pt-1 pb-1">
       {/* Column headers */}
       <div className="sticky top-0 z-10 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
-        {LABELS.map(label => (
+        {columns.map(column => (
           <div
-            key={label}
+            key={column.id}
             className="text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
             style={{ width: "clamp(2.5rem, 16vw, 5rem)" }}
           >
-            {label}
+            {column.label}
           </div>
         ))}
       </div>
@@ -40,6 +39,7 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
       {Array.from({ length: maxGuesses }).map((_, i) =>
       (i < guesses.length ? <div key={i} ref={el => { rowRefs.current[i] = el }}><GuessRow
         result={{ guess: guesses[i], answer }}
+        columns={columns}
         animate={i === latestIndex}
       /></div> :
         <div
@@ -47,9 +47,9 @@ export default function GuessGrid({ guesses, answer, maxGuesses, latestIndex }: 
           ref={el => { rowRefs.current[i] = el }}
         >
           <div className="flex gap-1 justify-center">
-            {LABELS.map((_, j) => (
+            {columns.map(column => (
               <div
-                key={j}
+                key={column.id}
                 className="rounded-md bg-primary-50 border-2 border-primary-300 dark:bg-primary-900 dark:border-primary-700"
                 style={{
                   width: "clamp(2.5rem, 16vw, 5rem)",

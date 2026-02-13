@@ -1,0 +1,332 @@
+[
+  {
+    "id": "29",
+    "name": "Arizona Diamondbacks",
+    "abbr": "ARI",
+    "conference": "NL",
+    "division": "West",
+    "colors": [
+      "#aa182c",
+      "#000000"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Athletics",
+    "abbr": "ATH",
+    "conference": "AL",
+    "division": "West",
+    "colors": [
+      "#003831",
+      "#efb21e"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Atlanta Braves",
+    "abbr": "ATL",
+    "conference": "NL",
+    "division": "East",
+    "colors": [
+      "#0c2340",
+      "#ba0c2f"
+    ]
+  },
+  {
+    "id": "1",
+    "name": "Baltimore Orioles",
+    "abbr": "BAL",
+    "conference": "AL",
+    "division": "East",
+    "colors": [
+      "#df4601",
+      "#000000"
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Boston Red Sox",
+    "abbr": "BOS",
+    "conference": "AL",
+    "division": "East",
+    "colors": [
+      "#0d2b56",
+      "#bd3039"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Chicago Cubs",
+    "abbr": "CHC",
+    "conference": "NL",
+    "division": "Central",
+    "colors": [
+      "#0e3386",
+      "#cc3433"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Chicago White Sox",
+    "abbr": "CHW",
+    "conference": "AL",
+    "division": "Central",
+    "colors": [
+      "#000000",
+      "#c4ced4"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Cincinnati Reds",
+    "abbr": "CIN",
+    "conference": "NL",
+    "division": "Central",
+    "colors": [
+      "#c6011f",
+      "#ffffff"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Cleveland Guardians",
+    "abbr": "CLE",
+    "conference": "AL",
+    "division": "Central",
+    "colors": [
+      "#002b5c",
+      "#e31937"
+    ]
+  },
+  {
+    "id": "27",
+    "name": "Colorado Rockies",
+    "abbr": "COL",
+    "conference": "NL",
+    "division": "West",
+    "colors": [
+      "#33006f",
+      "#000000"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Detroit Tigers",
+    "abbr": "DET",
+    "conference": "AL",
+    "division": "Central",
+    "colors": [
+      "#0a2240",
+      "#ff4713"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Houston Astros",
+    "abbr": "HOU",
+    "conference": "AL",
+    "division": "West",
+    "colors": [
+      "#002d62",
+      "#eb6e1f"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Kansas City Royals",
+    "abbr": "KC",
+    "conference": "AL",
+    "division": "Central",
+    "colors": [
+      "#004687",
+      "#7ab2dd"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Los Angeles Angels",
+    "abbr": "LAA",
+    "conference": "AL",
+    "division": "West",
+    "colors": [
+      "#ba0021",
+      "#c4ced4"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Los Angeles Dodgers",
+    "abbr": "LAD",
+    "conference": "NL",
+    "division": "West",
+    "colors": [
+      "#005a9c",
+      "#ffffff"
+    ]
+  },
+  {
+    "id": "28",
+    "name": "Miami Marlins",
+    "abbr": "MIA",
+    "conference": "NL",
+    "division": "East",
+    "colors": [
+      "#00a3e0",
+      "#000000"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Milwaukee Brewers",
+    "abbr": "MIL",
+    "conference": "NL",
+    "division": "Central",
+    "colors": [
+      "#13294b",
+      "#ffc72c"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Minnesota Twins",
+    "abbr": "MIN",
+    "conference": "AL",
+    "division": "Central",
+    "colors": [
+      "#031f40",
+      "#e20e32"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "New York Mets",
+    "abbr": "NYM",
+    "conference": "NL",
+    "division": "East",
+    "colors": [
+      "#002d72",
+      "#ff5910"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "New York Yankees",
+    "abbr": "NYY",
+    "conference": "AL",
+    "division": "East",
+    "colors": [
+      "#132448",
+      "#c4ced4"
+    ]
+  },
+  {
+    "id": "22",
+    "name": "Philadelphia Phillies",
+    "abbr": "PHI",
+    "conference": "NL",
+    "division": "East",
+    "colors": [
+      "#e81828",
+      "#003278"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Pittsburgh Pirates",
+    "abbr": "PIT",
+    "conference": "NL",
+    "division": "Central",
+    "colors": [
+      "#000000",
+      "#fdb827"
+    ]
+  },
+  {
+    "id": "25",
+    "name": "San Diego Padres",
+    "abbr": "SD",
+    "conference": "NL",
+    "division": "West",
+    "colors": [
+      "#2f241d",
+      "#ffc425"
+    ]
+  },
+  {
+    "id": "26",
+    "name": "San Francisco Giants",
+    "abbr": "SF",
+    "conference": "NL",
+    "division": "West",
+    "colors": [
+      "#000000",
+      "#fd5a1e"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Seattle Mariners",
+    "abbr": "SEA",
+    "conference": "AL",
+    "division": "West",
+    "colors": [
+      "#005c5c",
+      "#0c2c56"
+    ]
+  },
+  {
+    "id": "24",
+    "name": "St. Louis Cardinals",
+    "abbr": "STL",
+    "conference": "NL",
+    "division": "Central",
+    "colors": [
+      "#be0a14",
+      "#001541"
+    ]
+  },
+  {
+    "id": "30",
+    "name": "Tampa Bay Rays",
+    "abbr": "TB",
+    "conference": "AL",
+    "division": "East",
+    "colors": [
+      "#092c5c",
+      "#8fbce6"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Texas Rangers",
+    "abbr": "TEX",
+    "conference": "AL",
+    "division": "West",
+    "colors": [
+      "#003278",
+      "#c0111f"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Toronto Blue Jays",
+    "abbr": "TOR",
+    "conference": "AL",
+    "division": "East",
+    "colors": [
+      "#134a8e",
+      "#6cace5"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "Washington Nationals",
+    "abbr": "WSH",
+    "conference": "NL",
+    "division": "East",
+    "colors": [
+      "#ab0003",
+      "#11225b"
+    ]
+  }
+]

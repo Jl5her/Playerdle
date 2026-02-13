@@ -1,26 +1,27 @@
 import { hasBeatTodaysDaily } from "@/utils/stats"
+import type { SportInfo } from "@/sports"
 
-export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats" | "behind"
+export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats"
 
 interface Props {
   onNavigate: (screen: Screen) => void
+  sport: SportInfo
 }
 
 const menuItems: { label: string; description: string; screen: Screen; requireDaily?: boolean }[] = [
   { label: "Daily", description: "Same player for everyone each day", screen: "daily" },
   { label: "Arcade", description: "Random player every round", screen: "arcade", requireDaily: true },
   { label: "About", description: "About Playerdle", screen: "about" },
-  import.meta.env.DEV && { label: "Behind the Scenes (Dev)", description: "See how the daily player is chosen", screen: "behind" },
 ].filter(Boolean) as { label: string; description: string; screen: Screen; requireDaily?: boolean }[]
 
-export default function MainMenu({ onNavigate }: Props) {
-  const dailyBeaten = hasBeatTodaysDaily()
+export default function MainMenu({ onNavigate, sport }: Props) {
+  const dailyBeaten = hasBeatTodaysDaily(sport.id)
 
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-4 py-8 gap-10">
       <div className="text-center">
-        <h1 className="text-4xl font-black tracking-widest text-primary-900 dark:text-primary-50">PLAYERDLE</h1>
-        <p className="text-sm text-primary-500 dark:text-primary-200 mt-2">Guess the NFL player in 5 tries</p>
+        <h1 className="text-4xl font-black tracking-widest text-primary-900 dark:text-primary-50">PLAYERDLE {sport.displayName}</h1>
+        <p className="text-sm text-primary-500 dark:text-primary-200 mt-2">{sport.subtitle}</p>
       </div>
 
       <div className="flex flex-col gap-3 w-full max-w-xs">

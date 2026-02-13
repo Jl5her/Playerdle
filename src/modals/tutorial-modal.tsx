@@ -1,16 +1,9 @@
+import type { SportConfig } from "@/sports"
+
 interface Props {
   onClose: () => void
+  sport: SportConfig
 }
-
-const LABELS = ["CONF", "DIV", "TEAM", "POS", "#"] as const
-
-const EXAMPLE_CELLS: { value: string; bg: string; topValue?: string }[] = [
-  { value: "NFC", bg: "bg-success-500 dark:bg-success-600" },
-  { value: "South", topValue: "NFC", bg: "bg-error-500 dark:bg-error-600" },
-  { value: "ATL", bg: "bg-error-500 dark:bg-error-600" },
-  { value: "QB", bg: "bg-success-500 dark:bg-success-600" },
-  { value: "15 ↑", bg: "bg-warning-500 dark:bg-warning-600" },
-]
 
 const tileStyle = {
   width: "clamp(2.5rem, 16vw, 5rem)",
@@ -21,7 +14,13 @@ const textStyle = {
   fontSize: "clamp(0.6rem, 2.8vw, 0.9rem)",
 }
 
-export default function TutorialModal({ onClose }: Props) {
+export default function TutorialModal({ onClose, sport }: Props) {
+  function getExampleBg(status: "correct" | "close" | "incorrect"): string {
+    if (status === "correct") return "bg-success-500 dark:bg-success-600"
+    if (status === "close") return "bg-warning-500 dark:bg-warning-600"
+    return "bg-error-500 dark:bg-error-600"
+  }
+
   return (
     <div
       className="fixed inset-0 bg-black/75 flex items-center justify-center z-1000 p-4"
@@ -43,46 +42,48 @@ export default function TutorialModal({ onClose }: Props) {
 
         <div className="p-6">
           <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
-            Guess the mystery NFL player in 6 tries. Each guess reveals clues about the player's conference, division, team, position, and jersey number.
+            Guess the mystery {sport.displayName} player in 6 tries. Each guess reveals clues across the columns shown below.
           </p>
 
           <p className="text-primary-900 dark:text-primary-200 leading-relaxed my-2">
-            Players are selected from offensive skill positions only (QB, RB, WR, TE)
+            Tiles evaluate as exact match, close, or incorrect.
           </p>
 
           <div className="mt-6">
             <h3 className="text-lg font-semibold text-primary-900 dark:text-primary-50 mb-3">Example</h3>
             <div className="flex flex-col items-center">
               <div className="flex gap-1 justify-center mb-1">
-                {LABELS.map(label => (
+                {sport.columns.map(column => (
                   <div
-                    key={label}
+                    key={column.id}
                     className="text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
                     style={{ width: "clamp(2.5rem, 16vw, 5rem)" }}
                   >
-                    {label}
+                    {column.label}
                   </div>
                 ))}
               </div>
               <div className="flex gap-1 justify-center">
-                {EXAMPLE_CELLS.map((cell, i) => (
+                {sport.columns.map(column => (
                   <div
-                    key={i}
+                    key={column.id}
                     style={tileStyle}
-                    className={`flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 cursor-default text-primary-50 ${cell.bg}`}
+                    className={`flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 cursor-default text-primary-50 ${getExampleBg(column.example.status)}`}
                   >
-                    {cell.topValue ? (
+                    {column.example.topValue ? (
                       <div className="flex flex-col items-center justify-center relative z-10">
                         <span style={{ fontSize: "clamp(0.5rem, 2.2vw, 0.7rem)" }} className="text-center leading-tight">
-                          {cell.topValue}
+                          {column.example.topValue}
                         </span>
                         <span style={textStyle} className="text-center leading-tight">
-                          {cell.value}
+                          {column.example.value}
+                          {column.example.arrow ? ` ${column.example.arrow}` : ""}
                         </span>
                       </div>
                     ) : (
                       <span style={textStyle} className="text-center relative z-10">
-                        {cell.value}
+                        {column.example.value}
+                        {column.example.arrow ? ` ${column.example.arrow}` : ""}
                       </span>
                     )}
                   </div>
@@ -100,7 +101,7 @@ export default function TutorialModal({ onClose }: Props) {
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-4 h-4 rounded-sm shrink-0 bg-warning-500 dark:bg-warning-600" />
-                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Yellow = Close (number within 5)</p>
+                <p className="text-primary-900 dark:text-primary-50 m-0 text-sm">Yellow = Close value</p>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-4 h-4 rounded-sm shrink-0 bg-error-500 dark:bg-error-600" />

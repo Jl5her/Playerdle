@@ -1,12 +1,8 @@
-import { fantasyPlayers, allPlayers, playerId, isSamePlayer, type Player } from "@/data/players"
+import type { Player, SportConfig } from "@/sports"
 
 export type ArcadeDifficulty = "easy" | "medium" | "hard"
 
-// Offensive positions (default for daily and arcade)
-const OFFENSIVE_POSITIONS = ["QB", "RB", "WR", "TE"]
-
-// Defensive & Special Teams positions
-const DEFENSIVE_ST_POSITIONS = ["K", "DL", "LB", "DB"]
+const EASTERN_TIME_ZONE = "America/New_York"
 
 function hashString(str: string): number {
   let hash = 0
@@ -18,52 +14,41 @@ function hashString(str: string): number {
   return Math.abs(hash)
 }
 
-function getDateKey(date: Date): string {
-  return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+function getDateKeyInEasternTime(date: Date): string {
+  const formatter = new Intl.DateTimeFormat("en-CA", {
+    timeZone: EASTERN_TIME_ZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+  return formatter.format(date)
 }
 
-export function getDailyPlayer(date?: Date): Player {
-  // Daily mode: only offensive positions (QB, RB, WR, TE)
-  const eligiblePlayers = fantasyPlayers.filter(
-    p => p && p.name && OFFENSIVE_POSITIONS.includes(p.position),
-  )
+function getEligiblePlayersForSport(sport: SportConfig): Player[] {
+  return sport.answerPool
+}
+
+export function getDailyPlayer(sport: SportConfig, date?: Date): Player {
+  const eligiblePlayers = getEligiblePlayersForSport(sport)
   const targetDate = date || new Date()
-  const dateStr = getDateKey(targetDate)
-  const hash = hashString(dateStr)
-
-  // Multiply by large prime (Knuth's multiplicative hash) for better distribution
-  // This prevents consecutive dates from selecting consecutive players
+  const dateStr = getDateKeyInEasternTime(targetDate)
+  const hash = hashString(`${sport.id}:${dateStr}`)
   const shuffledIndex = (hash * 2654435761) % eligiblePlayers.length
-
-  const fantasyPlayer = eligiblePlayers[shuffledIndex]
-
-  // Look up full player data from allPlayers to get jersey number
-  const fullPlayer = allPlayers.find(p => isSamePlayer(p, fantasyPlayer))
-
-  return fullPlayer || fantasyPlayer
+  return eligiblePlayers[shuffledIndex]
 }
 
 export function getRandomArcadePlayer(
+  sport: SportConfig,
   excludeId?: string,
-  includeDefensiveST?: boolean,
 ): Player {
-  // Arcade mode: offensive positions by default, add D/ST if enabled
-  const allowedPositions = includeDefensiveST
-    ? [...OFFENSIVE_POSITIONS, ...DEFENSIVE_ST_POSITIONS]
-    : OFFENSIVE_POSITIONS
-
-  const eligiblePlayers = fantasyPlayers.filter(
-    p => p && p.name && allowedPositions.includes(p.position) && playerId(p) !== excludeId,
-  )
-
-  const fantasyPlayer = eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)] || fantasyPlayers[0]
-
-  // Look up full player data from allPlayers to get jersey number
-  const fullPlayer = allPlayers.find(p => isSamePlayer(p, fantasyPlayer))
-
-  return fullPlayer || fantasyPlayer
+  const eligiblePlayers = getEligiblePlayersForSport(sport).filter(p => p.id !== excludeId)
+  return eligiblePlayers[Math.floor(Math.random() * eligiblePlayers.length)] || getEligiblePlayersForSport(sport)[0]
 }
 
 export function getTodayKey(): string {
-  return getDateKey(new Date())
+  return getDateKeyInEasternTime(new Date())
+}
+
+export function getTodayKeyInEasternTime(): string {
+  return getTodayKey()
 }
