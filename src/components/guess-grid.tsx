@@ -66,7 +66,7 @@ export default function GuessGrid({
               {columns.map(column => (
                 <div
                   key={column.id}
-                  className="grid-cell-size rounded-md bg-primary-50 border-2 border-primary-300 dark:bg-primary-900 dark:border-primary-700"
+                  className="grid-cell-size rounded-md bg-primary-50 border border-primary-200 dark:bg-primary-900 dark:border-primary-600"
                 />
               ))}
             </div>

@@ -19,7 +19,7 @@ export default function Button({
       "bg-primary-500 text-primary-50 hover:bg-primary-400 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-100"
   } else {
     variantClasses =
-      "bg-secondary-500 text-primary-50 border-2 border-secondary-700 hover:bg-secondary-400 dark:bg-secondary-50 dark:text-primary-900 dark:border-secondary-200 dark:hover:bg-secondary-100"
+      "bg-secondary-500 text-primary-50 hover:bg-secondary-400 dark:bg-secondary-50 dark:text-primary-900 dark:hover:bg-secondary-100"
   }
   const widthClass = fullWidth ? "w-full" : ""
 

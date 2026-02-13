@@ -3,15 +3,27 @@ import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
 import { GuessGrid, GuessInput, Button } from "@/components"
-import { GameOverModal } from "@/modals"
 
 const MAX_GUESSES = 6
 
 export type GameMode = "daily" | "arcade"
 
+export interface StatsModalConfig {
+  player?: Player
+  won?: boolean
+  lost?: boolean
+  guessCount?: number
+  onPlayAgain?: () => void
+  mode: GameMode
+  guesses?: Player[]
+  showStatsOnly?: boolean
+  includeShareButton?: boolean
+}
+
 interface Props {
   mode: GameMode
   sport: SportConfig
+  onOpenStatsModal: (config: StatsModalConfig) => void
 }
 
 interface SavedState {
@@ -53,7 +65,7 @@ function getInitialGuesses(mode: GameMode, sport: SportConfig): Player[] {
   return []
 }
 
-export default function Game({ mode, sport }: Props) {
+export default function Game({ mode, sport, onOpenStatsModal }: Props) {
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
   )
@@ -65,8 +77,6 @@ export default function Game({ mode, sport }: Props) {
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
 
-  const [showModal, setShowModal] = useState(gameOver)
-
   const guessedIds = new Set(guesses.map(g => g.id))
 
   useEffect(() => {
@@ -74,6 +84,21 @@ export default function Game({ mode, sport }: Props) {
       saveGameResult(sport.id, won, guesses.length)
     }
   }, [mode, gameOver, won, guesses.length, sport.id])
+
+  function openResultsModal(nextGuesses: Player[], nextWon: boolean, nextLost: boolean) {
+    if (!answer) return
+
+    onOpenStatsModal({
+      player: answer,
+      won: nextWon,
+      lost: nextLost,
+      guessCount: nextGuesses.length,
+      onPlayAgain: mode === "arcade" ? handlePlayAgain : undefined,
+      mode,
+      guesses: nextGuesses,
+      includeShareButton: mode === "daily",
+    })
+  }
 
   function handleGuess(player: Player) {
     if (gameOver || guessedIds.has(player.id)) return
@@ -93,7 +118,7 @@ export default function Game({ mode, sport }: Props) {
       if (mode === "daily") {
         saveGameResult(sport.id, newWon, newGuesses.length)
       }
-      setShowModal(true)
+      openResultsModal(newGuesses, newWon, newLost)
     }
   }
 
@@ -107,20 +132,6 @@ export default function Game({ mode, sport }: Props) {
 
   return (
     <div className="flex-1 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
-      {answer && (
-        <GameOverModal
-          player={answer}
-          won={won}
-          lost={lost}
-          guessCount={guesses.length}
-          onPlayAgain={mode === "arcade" ? handlePlayAgain : undefined}
-          mode={mode}
-          guesses={guesses}
-          isOpen={showModal}
-          onClose={() => setShowModal(false)}
-          sport={sport}
-        />
-      )}
       {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
@@ -158,7 +169,7 @@ export default function Game({ mode, sport }: Props) {
       {gameOver && (
         <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           <Button
-            onClick={() => setShowModal(true)}
+            onClick={() => openResultsModal(guesses, won, lost)}
             variant="secondary"
           >
             See Results

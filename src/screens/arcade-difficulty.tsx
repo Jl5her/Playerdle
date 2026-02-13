@@ -26,9 +26,7 @@ const difficulties: { level: ArcadeDifficulty; label: string; description: strin
 export default function ArcadeDifficulty({ onSelect, onBack }: Props) {
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-4 py-8">
-      <h1
-        className="arcade-title-size font-black text-primary-900 dark:text-primary-50 mb-8 text-center"
-      >
+      <h1 className="arcade-title-size font-black text-primary-900 dark:text-primary-50 mb-8 text-center">
         Select Difficulty
       </h1>
       <div className="flex flex-col gap-4 w-full max-w-md">

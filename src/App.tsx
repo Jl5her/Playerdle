@@ -1,9 +1,10 @@
 import { useState, useEffect, lazy, Suspense } from "react"
 import { Header, LeagueFooter } from "@/components"
 import { MainMenu, AboutScreen } from "@/screens"
-import { HelpModal, TutorialModal, StatsModal } from "@/modals"
+import { HelpModal, StatsModal, TutorialModal } from "@/modals"
 import type { Screen } from "@/screens/main-menu"
 import { getSportIdFromPath, getSportMetaById, loadSportConfig, type SportConfig } from "@/sports"
+import type { StatsModalConfig } from "@/screens/game"
 
 const Game = lazy(() => import("@/screens/game"))
 
@@ -34,6 +35,8 @@ function App() {
   const [screen, setScreen] = useState<Screen>("menu")
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
+  const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
+  const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const [showTutorial, setShowTutorial] = useState(
     () => !localStorage.getItem(`${TUTORIAL_SEEN_KEY}:${sportId}`),
   )
@@ -72,6 +75,33 @@ function App() {
     setScreen("menu")
   }
 
+  function handleShowStats() {
+    setShowTutorial(false)
+    setStatsModalConfig({
+      mode: "daily",
+      showStatsOnly: true,
+      includeShareButton: false,
+    })
+    setIsStatsModalOpen(true)
+  }
+
+  function handleOpenStatsModal(config: StatsModalConfig) {
+    setStatsModalConfig({
+      ...config,
+      onPlayAgain: config.onPlayAgain
+        ? () => {
+            config.onPlayAgain?.()
+            setIsStatsModalOpen(false)
+          }
+        : undefined,
+    })
+    setIsStatsModalOpen(true)
+  }
+
+  function handleCloseStatsModal() {
+    setIsStatsModalOpen(false)
+  }
+
   function handleNavigate(target: Screen) {
     if (target === "arcade") {
       setGameKey(k => k + 1)
@@ -89,7 +119,7 @@ function App() {
           />
         </div>
       )}
-      {showTutorial && sport && (
+      {showTutorial && sport && !isStatsModalOpen && (
         <TutorialModal
           onClose={handleCloseTutorial}
           sport={sport}
@@ -99,6 +129,7 @@ function App() {
         <div className="app-viewport flex flex-col bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={screen === "daily" ? handleShowTutorial : undefined}
+            onShowStats={screen === "daily" ? handleShowStats : undefined}
             onBack={goToMenu}
             sport={sport ?? sportMeta}
           />
@@ -108,6 +139,7 @@ function App() {
                 key="daily"
                 mode="daily"
                 sport={sport}
+                onOpenStatsModal={handleOpenStatsModal}
               />
             )}
             {screen === "arcade" && sport && (
@@ -115,6 +147,7 @@ function App() {
                 key={`arcade-${gameKey}`}
                 mode="arcade"
                 sport={sport}
+                onOpenStatsModal={handleOpenStatsModal}
               />
             )}
           </Suspense>
@@ -132,9 +165,11 @@ function App() {
           sport={sport ?? sportMeta}
         />
       )}
-      {screen === "stats" && sport && (
+      {sport && (
         <StatsModal
-          onClose={goToMenu}
+          {...statsModalConfig}
+          isOpen={isStatsModalOpen}
+          onClose={handleCloseStatsModal}
           sport={sport}
         />
       )}

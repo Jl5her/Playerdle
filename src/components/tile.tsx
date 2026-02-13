@@ -20,7 +20,7 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
 
   useEffect(() => {
     if (!animate) return
-    const revealAt = ((delayIndex * 0.15) + 0.3) * 1000
+    const revealAt = (delayIndex * 0.15 + 0.3) * 1000
     const timer = setTimeout(() => setRevealed(true), revealAt)
     return () => clearTimeout(timer)
   }, [animate, delayIndex])
@@ -42,7 +42,7 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
   }
 
   const delayClass = `tile-delay-${Math.min(delayIndex, 9)}`
-  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md border-2 border-primary-300 dark:border-primary-700 transition-colors duration-150 cursor-default ${bgClass} ${textClass} ${animate ? `animate-cell-flip ${delayClass}` : ""}`
+  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md border border-primary-200 dark:border-primary-600 transition-colors duration-150 cursor-default ${bgClass} ${textClass} ${animate ? `animate-cell-flip ${delayClass}` : ""}`
 
   return (
     <div className={`grid-cell-size ${containerClass}`}>
@@ -51,9 +51,7 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
           <span className="grid-cell-top-text text-center leading-tight">
             {revealed ? topValue : ""}
           </span>
-          <span className="grid-cell-text text-center leading-tight">
-            {revealed ? value : ""}
-          </span>
+          <span className="grid-cell-text text-center leading-tight">{revealed ? value : ""}</span>
         </div>
       ) : (
         <span className="grid-cell-text text-center wrap-break-words relative z-10">
