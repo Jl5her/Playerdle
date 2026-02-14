@@ -18,6 +18,7 @@ export default function GuessGrid({
   columns,
 }: Readonly<GuessGridProps>) {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
+  const isCompactLayout = columns.length > 5
 
   useEffect(() => {
     if (latestIndex < 0) return
@@ -28,7 +29,9 @@ export default function GuessGrid({
   }, [latestIndex, maxGuesses])
 
   return (
-    <div className="guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1">
+    <div
+      className={`guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1 ${isCompactLayout ? "guess-grid-compact" : ""}`}
+    >
       {/* Column headers */}
       <div className="guess-grid-header sticky top-0 z-10 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
         {columns.map(column => (

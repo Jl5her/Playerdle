@@ -274,6 +274,23 @@ body,
   font-size: clamp(0.5rem, 2.2vw, 0.7rem);
 }
 
+.guess-grid-compact .grid-cell-width {
+  width: clamp(2rem, 12vw, 4rem);
+}
+
+.guess-grid-compact .grid-cell-size {
+  width: clamp(2rem, 12vw, 4rem);
+  height: clamp(2rem, 12vw, 4rem);
+}
+
+.guess-grid-compact .grid-cell-text {
+  font-size: clamp(0.5rem, 2.1vw, 0.78rem);
+}
+
+.guess-grid-compact .grid-cell-top-text {
+  font-size: clamp(0.43rem, 1.8vw, 0.62rem);
+}
+
 .arcade-title-size {
   font-size: clamp(1.5rem, 5vw, 2.5rem);
 }

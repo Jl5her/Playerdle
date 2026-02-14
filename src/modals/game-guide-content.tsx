@@ -9,6 +9,7 @@ interface GameGuideContentProps {
 }
 
 export function GameGuideContent({ sport, mode, className }: GameGuideContentProps) {
+  const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
     column => column.evaluator.type === "comparison" && column.evaluator.closeWithin !== undefined,
   )
@@ -38,7 +39,9 @@ export function GameGuideContent({ sport, mode, className }: GameGuideContentPro
         <h3 className="text-lg font-semibold text-primary-700 dark:text-primary-50 mb-3">
           Example
         </h3>
-        <div className="flex flex-col items-center">
+        <div
+          className={`flex flex-col items-center ${isCompactLayout ? "guess-grid-compact" : ""}`}
+        >
           <div className="flex gap-1 justify-center mb-1">
             {sport.columns.map(column => (
               <div
