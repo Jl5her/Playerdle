@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect, useMemo } from "react"
 import Fuse from "fuse.js"
+import { useEffect, useMemo, useRef, useState } from "react"
 import type { Player } from "@/sports"
 
 interface Props {
@@ -16,39 +16,13 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
   const composingRef = useRef(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
 
-  // Detect if user is on mobile device
-  const isMobile = useMemo(
-    () =>
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-    [],
-  )
-
-  // Auto-focus input on mount and when game resets (desktop only)
+  // Auto-focus input on mount and when game resets
   useEffect(() => {
-    if (!disabled && !isMobile) {
+    if (!disabled) {
       inputRef.current?.focus()
     }
-  }, [disabled, guessedIds.size, isMobile])
-
-  // Scroll input into view when keyboard opens on mobile
-  useEffect(() => {
-    if (!isMobile) return
-
-    const input = inputRef.current
-    if (!input) return
-
-    const handleFocus = () => {
-      // Small delay to let the keyboard open first
-      setTimeout(() => {
-        input.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" })
-      }, 300)
-    }
-
-    input.addEventListener("focus", handleFocus)
-    return () => input.removeEventListener("focus", handleFocus)
-  }, [isMobile])
+  }, [disabled, guessedIds.size])
 
   const fuse = useMemo(
     () =>
@@ -142,7 +116,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
     }
   }, [highlightIndex, filtered.length])
 
-  function handleInput(e: React.FormEvent<HTMLInputElement>) {
+  function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     if (!composingRef.current) {
       setQuery(e.currentTarget.value)
       setShowDropdown(true)
@@ -154,7 +128,6 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
     onGuess(player)
     setQuery("")
     setShowDropdown(false)
-    inputRef.current?.focus()
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -189,18 +162,14 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
   }
 
   return (
-    <div
-      ref={containerRef}
-      className="shrink-0 px-3 py-2 border-t border-primary-300 bg-primary-50 dark:bg-primary-900 dark:border-primary-700"
-    >
+    <div className="guess-input-shell shrink-0 mx-3 bg-primary-50 dark:bg-primary-900">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
           type="text"
           name="player-search"
           value={query}
-          onInput={handleInput}
-          onChange={() => {}}
+          onChange={handleInput}
           onCompositionStart={() => {
             composingRef.current = true
           }}
@@ -210,9 +179,10 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
             setShowDropdown(true)
           }}
           onFocus={() => query.trim() && setShowDropdown(true)}
+          onBlur={() => setShowDropdown(false)}
           onKeyDown={handleKeyDown}
           placeholder="Type a player name..."
-          className="w-full px-4 py-3 text-base rounded-lg border-2 border-primary-300 bg-secondary-50 text-primary-900 outline-none dark:bg-secondary-900 dark:text-primary-50 dark:border-primary-700"
+          className="guess-input-field w-full px-4 py-3 text-base rounded-lg border-2 border-primary-300 bg-secondary-50 text-primary-900 outline-none dark:bg-secondary-900 dark:text-primary-50 dark:border-primary-700"
           autoComplete="off"
           autoCorrect="off"
           autoCapitalize="off"
@@ -230,7 +200,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
               <button
                 key={`${player.id}-${i}`}
                 className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${i === highlightIndex ? "bg-primary-100 dark:bg-primary-800" : "hover:bg-primary-50 dark:hover:bg-primary-900"}`}
-                onMouseDown={e => {
+                onPointerDown={e => {
                   e.preventDefault()
                   selectPlayer(player)
                 }}
@@ -245,7 +215,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
                     </span>
                   )}
                 </span>
-                {!isMobile && i === highlightIndex && (
+                {i === highlightIndex && (
                   <span className="text-sm text-primary-500 dark:text-primary-200 opacity-60 ml-2 font-normal border border-primary-500 dark:border-primary-200 rounded px-1">
                     ↵
                   </span>

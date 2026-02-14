@@ -35,10 +35,10 @@ export type ColumnEvaluator =
   | { type: "match" }
   | { type: "mismatch" }
   | {
-      type: "comparison"
-      closeWithin?: number
-      showDirection?: boolean
-    }
+    type: "comparison"
+    closeWithin?: number
+    showDirection?: boolean
+  }
 
 export interface SportColumn {
   id: string

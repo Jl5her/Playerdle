@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import { Button, GuessGrid, GuessInput } from "@/components"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
-import { GuessGrid, GuessInput, Button } from "@/components"
 
 const MAX_GUESSES = 6
 
@@ -135,7 +135,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   }
 
   return (
-    <div className="flex-1 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
+    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
       {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
@@ -152,8 +152,8 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
         </div>
       )}
       {answer && (
-        <>
-          <div className="flex-1 overflow-y-auto overflow-x-hidden">
+        <div className="flex-1 min-h-0 flex flex-col">
+          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none">
             <GuessGrid
               guesses={guesses}
               answer={answer}
@@ -168,7 +168,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
             disabled={gameOver}
             players={sport.players}
           />
-        </>
+        </div>
       )}
       {gameOver && (
         <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">

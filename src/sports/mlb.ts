@@ -1,6 +1,8 @@
-import mlbTeams from "../data/mlb/teams.json"
-import mlbPlayers from "../data/mlb/players.json"
 import mlbAnswerPoolIds from "../data/mlb/answer_pool.json"
+import mlbFanaticAnswerPoolIds from "../data/mlb/fanatic_answer_pool.json"
+import mlbFanaticPlayers from "../data/mlb/fanatic_players.json"
+import mlbPlayers from "../data/mlb/players.json"
+import mlbTeams from "../data/mlb/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedTeam {
@@ -12,7 +14,9 @@ interface GeneratedTeam {
 
 const teamsData = mlbTeams as unknown as GeneratedTeam[]
 const playersData = mlbPlayers as unknown as Player[]
+const fanaticPlayersData = mlbFanaticPlayers as unknown as Player[]
 const answerPoolIdSet = new Set(mlbAnswerPoolIds as unknown as string[])
+const fanaticAnswerPoolIdSet = new Set(mlbFanaticAnswerPoolIds as unknown as string[])
 
 const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
@@ -65,6 +69,52 @@ const mlbConfig: SportConfig = {
       key: "number",
       evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
       example: { value: "27", arrow: "\u2191", status: "close" },
+    },
+  ],
+  variants: [
+    {
+      id: "fanatic",
+      label: "Fanatic",
+      subtitle: "Season stat challenge (hitters only)",
+      players: fanaticPlayersData,
+      answerPool: fanaticPlayersData.filter(player => fanaticAnswerPoolIdSet.has(player.id)),
+      columns: [
+        {
+          id: "batting-average",
+          label: "AVG",
+          key: "avg",
+          evaluator: { type: "comparison", closeWithin: 0.011, showDirection: true },
+          example: { value: "0.287", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "home-runs",
+          label: "HR",
+          key: "hr",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "31", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "runs-batted-in",
+          label: "RBI",
+          key: "rbi",
+          evaluator: { type: "comparison", closeWithin: 10, showDirection: true },
+          example: { value: "92", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "stolen-bases",
+          label: "SB",
+          key: "sb",
+          evaluator: { type: "comparison", closeWithin: 2, showDirection: true },
+          example: { value: "18", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "ops",
+          label: "OPS",
+          key: "ops",
+          evaluator: { type: "comparison", closeWithin: 0.035, showDirection: true },
+          example: { value: "0.845", arrow: "\u2191", status: "close" },
+        },
+      ],
     },
   ],
 }

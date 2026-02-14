@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
-import type { Player, SportColumn } from "@/sports"
 import { GuessRow } from "@/components"
+import type { Player, SportColumn } from "@/sports"
 
 interface GuessGridProps {
   guesses: Player[]
@@ -28,9 +28,9 @@ export default function GuessGrid({
   }, [latestIndex, maxGuesses])
 
   return (
-    <div className="flex flex-col items-center gap-1 px-2 pt-1 pb-1">
+    <div className="guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1">
       {/* Column headers */}
-      <div className="sticky top-0 z-10 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
+      <div className="guess-grid-header sticky top-0 z-10 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
         {columns.map(column => (
           <div
             key={column.id}

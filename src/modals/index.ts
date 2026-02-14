@@ -1,3 +1,2 @@
-export { default as HelpModal } from "./help-modal"
-export { default as StatsModal } from "./stats-modal"
-export { default as TutorialModal } from "./tutorial-modal"
+export { GameGuideContent, type GuideMode } from "./game-guide-content"
+export { StatsContent } from "./stats-content"

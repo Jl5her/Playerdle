@@ -1,6 +1,8 @@
-import nhlTeams from "../data/nhl/teams.json"
-import nhlPlayers from "../data/nhl/players.json"
 import nhlAnswerPoolIds from "../data/nhl/answer_pool.json"
+import nhlFanaticAnswerPoolIds from "../data/nhl/fanatic_answer_pool.json"
+import nhlFanaticPlayers from "../data/nhl/fanatic_players.json"
+import nhlPlayers from "../data/nhl/players.json"
+import nhlTeams from "../data/nhl/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedTeam {
@@ -12,7 +14,9 @@ interface GeneratedTeam {
 
 const teamsData = nhlTeams as unknown as GeneratedTeam[]
 const playersData = nhlPlayers as unknown as Player[]
+const fanaticPlayersData = nhlFanaticPlayers as unknown as Player[]
 const answerPoolIdSet = new Set(nhlAnswerPoolIds as unknown as string[])
+const fanaticAnswerPoolIdSet = new Set(nhlFanaticAnswerPoolIds as unknown as string[])
 
 const normalizedPlayers = playersData.map(player => ({
   ...player,
@@ -71,6 +75,52 @@ const nhlConfig: SportConfig = {
       key: "number",
       evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
       example: { value: "29", arrow: "\u2191", status: "close" },
+    },
+  ],
+  variants: [
+    {
+      id: "fanatic",
+      label: "Fanatic",
+      subtitle: "Season stat challenge (skaters only)",
+      players: fanaticPlayersData,
+      answerPool: fanaticPlayersData.filter(player => fanaticAnswerPoolIdSet.has(player.id)),
+      columns: [
+        {
+          id: "goals",
+          label: "G",
+          key: "goals",
+          evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
+          example: { value: "28", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "assists",
+          label: "A",
+          key: "assists",
+          evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
+          example: { value: "42", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "points",
+          label: "PTS",
+          key: "points",
+          evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
+          example: { value: "70", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "shots-on-goal",
+          label: "SOG",
+          key: "sog",
+          evaluator: { type: "comparison", closeWithin: 14, showDirection: true },
+          example: { value: "220", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "time-on-ice-per-game",
+          label: "TOI/G",
+          key: "toiPerGame",
+          evaluator: { type: "comparison", closeWithin: 1.4, showDirection: true },
+          example: { value: "20.4", arrow: "\u2191", status: "close" },
+        },
+      ],
     },
   ],
 }

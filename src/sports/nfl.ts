@@ -1,6 +1,8 @@
+import nflAnswerPoolIds from "../data/nfl/answer_pool.json"
+import nflFanaticAnswerPoolIds from "../data/nfl/fanatic_answer_pool.json"
+import nflFanaticPlayers from "../data/nfl/fanatic_players.json"
 import nflPlayers from "../data/nfl/players.json"
 import nflTeams from "../data/nfl/teams.json"
-import nflAnswerPoolIds from "../data/nfl/answer_pool.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedNFLTeam {
@@ -12,6 +14,7 @@ interface GeneratedNFLTeam {
 
 const teamsData = nflTeams as unknown as GeneratedNFLTeam[]
 const playersData = nflPlayers as unknown as Player[]
+const fanaticPlayersData = nflFanaticPlayers as unknown as Player[]
 
 function normalizeNFLDivision(value: string): string {
   return value
@@ -32,6 +35,7 @@ const teams: SportTeam[] = teamsData.map(team => ({
 }))
 
 const answerPoolIdSet = new Set(nflAnswerPoolIds as string[])
+const fanaticAnswerPoolIdSet = new Set(nflFanaticAnswerPoolIds as string[])
 const normalizedPlayers = playersData.map(player => ({
   ...player,
   division: normalizeNFLDivision(String(player.division ?? "")),
@@ -81,6 +85,52 @@ const nflConfig: SportConfig = {
       key: "number",
       evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
       example: { value: "15", arrow: "\u2191", status: "close" },
+    },
+  ],
+  variants: [
+    {
+      id: "fanatic",
+      label: "Fanatic",
+      subtitle: "Half-PPR fantasy stats (RB/WR/TE only)",
+      players: fanaticPlayersData,
+      answerPool: fanaticPlayersData.filter(player => fanaticAnswerPoolIdSet.has(player.id)),
+      columns: [
+        {
+          id: "fppg",
+          label: "FPPG",
+          key: "fppg",
+          evaluator: { type: "comparison", closeWithin: 1.3, showDirection: true },
+          example: { value: "15.8", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "receptions-per-game",
+          label: "REC/G",
+          key: "recPerGame",
+          evaluator: { type: "comparison", closeWithin: 0.5, showDirection: true },
+          example: { value: "5.4", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "yards-per-game",
+          label: "YDS/G",
+          key: "ydsPerGame",
+          evaluator: { type: "comparison", closeWithin: 7, showDirection: true },
+          example: { value: "82.5", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "touchdowns-per-game",
+          label: "TD/G",
+          key: "tdPerGame",
+          evaluator: { type: "comparison", closeWithin: 0.1, showDirection: true },
+          example: { value: "0.60", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "targets-per-game",
+          label: "TGT/G",
+          key: "tgtPerGame",
+          evaluator: { type: "comparison", closeWithin: 0.7, showDirection: true },
+          example: { value: "7.8", arrow: "\u2191", status: "close" },
+        },
+      ],
     },
   ],
 }

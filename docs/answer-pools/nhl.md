@@ -22,6 +22,15 @@ Keep answers recognizable to fantasy players while preserving strong hockey iden
 5. Enforce minimum goalie representation by backfilling highest-ranked fantasy goalies.
 6. Write final ID subset to `src/data/nhl/answer_pool.json`.
 
+## Fanatic (Skaters) Generation Logic
+
+1. Scrape Hockey Reference season skater stats (`G`, `A`, `PTS`, `SOG`, `ATOI`).
+2. Match rows to `src/data/nhl/players.json` by normalized name + team abbreviation.
+3. Exclude goalies and small samples (minimum games and TOI/G).
+4. Curate answers by intersecting with classic NHL answer IDs, then backfill by points.
+5. Write players to `src/data/nhl/fanatic_players.json` and IDs to `src/data/nhl/fanatic_answer_pool.json`.
+
 ## Command
 
 - `pnpm run generate:answer-pool:nhl`
+- `pnpm run scrape:nhl:fanatic -- --season=2026`

@@ -7,6 +7,29 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Cloudflare Pages
+
+This project is configured for Cloudflare Pages native builds.
+
+- Build command: `pnpm build` (or `pnpm run build:pages`)
+- Build output directory: `dist`
+- Build cache: enabled in the Cloudflare Pages dashboard
+
+### Cache behavior
+
+- The first deployment after cache enablement warms the cache.
+- Later deployments should restore cached pnpm data and generally build faster.
+- Keep `pnpm-lock.yaml` committed so dependency resolution remains deterministic and cache-friendly.
+
+### Recommended Pages env vars
+
+- Set `NODE_VERSION` in your Pages project settings so builds stay reproducible over time.
+
+### Cache troubleshooting
+
+- If builds behave unexpectedly after dependency/toolchain changes, clear cache in:
+  `Workers & Pages -> <project> -> Settings -> Build -> Build cache -> Clear cache`.
+
 ## React Compiler
 
 The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
