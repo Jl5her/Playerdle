@@ -30,7 +30,7 @@ export default function GuessRow({ result, columns, animate }: Props) {
 
   return (
     <div>
-      <div className="text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">
+      <div className="px-2 py-1 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">
         {String(result.guess.name)}
       </div>
       <div className="flex gap-1 justify-center">

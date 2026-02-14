@@ -42,7 +42,7 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
   }
 
   const delayClass = `tile-delay-${Math.min(delayIndex, 9)}`
-  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md border border-primary-200 dark:border-primary-600 transition-colors duration-150 cursor-default ${bgClass} ${textClass} ${animate ? `animate-cell-flip ${delayClass}` : ""}`
+  const containerClass = `flex items-center justify-center font-bold leading-tight p-1 rounded-md transition-colors duration-150 cursor-default ${bgClass} ${textClass} ${animate ? `animate-cell-flip ${delayClass}` : ""}`
 
   return (
     <div className={`grid-cell-size ${containerClass}`}>

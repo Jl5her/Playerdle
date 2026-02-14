@@ -1,94 +1,92 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
+import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
 import { Header, LeagueFooter } from "@/components"
 import { GameGuideContent, type GuideMode } from "@/modals/game-guide-content"
 import { StatsContent } from "@/modals/stats-content"
 import { MainMenu } from "@/screens"
 import type { StatsModalConfig } from "@/screens/game"
 import type { NavigationOptions, Screen } from "@/screens/main-menu"
-import {
-  getSportIdFromPath,
-  getSportMetaById,
-  loadSportConfig,
-  resolveSportConfig,
-  type SportConfig,
-} from "@/sports"
+import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/sports"
 
 const Game = lazy(() => import("@/screens/game"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
+const FANATIC_VARIANT_ID = "fanatic"
 
 type GameOverlay = "none" | "guide" | "stats"
+type RouteScreen = "menu" | "daily" | "arcade" | "help"
 
-const ROUTABLE_SCREENS: Screen[] = ["menu", "daily", "arcade", "help"]
-
-function isRoutableScreen(screen: string): screen is Screen {
-  return ROUTABLE_SCREENS.includes(screen as Screen)
+interface DailyRouteState {
+  guideMode?: GuideMode
 }
 
-function getScreenFromPath(pathname: string): Screen {
-  const segments = pathname
-    .replace(/^\/+|\/+$/g, "")
-    .split("/")
-    .filter(Boolean)
-
-  const first = segments[0]?.toLowerCase()
-  const second = segments[1]?.toLowerCase()
-
-  if (first && isRoutableScreen(first)) {
-    return first
-  }
-
-  if (second && isRoutableScreen(second)) {
-    return second
-  }
-
-  return "menu"
+interface AppShellProps {
+  sportId: SportConfig["id"]
+  screen: RouteScreen
+  variantId?: string
 }
 
-function buildPath(sportId: SportConfig["id"], screen: Screen): string {
-  const routeScreen = isRoutableScreen(screen) ? screen : "menu"
-  const sportMeta = getSportMetaById(sportId)
-  const prefix = sportMeta.slug ? `/${sportMeta.slug}` : ""
-  if (routeScreen === "menu") {
+function getSportIdFromRouteParam(sport?: string): SportConfig["id"] | null {
+  if (!sport) return "nfl"
+  const normalized = sport.toLowerCase()
+  if (normalized === "mlb") return "mlb"
+  if (normalized === "nhl") return "nhl"
+  if (normalized === "nba") return "nba"
+  return null
+}
+
+function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: string): string {
+  const prefix = sportId === "nfl" ? "" : `/${sportId}`
+  if (screen === "menu") {
     return prefix || "/"
   }
-  return `${prefix}/${routeScreen}`
+  if (screen === "daily" && variantId === FANATIC_VARIANT_ID) {
+    return `${prefix}/${FANATIC_VARIANT_ID}`
+  }
+  return `${prefix}/${screen}`
 }
 
 function getTutorialStorageKey(sportId: string, variantId?: string): string {
   return `${TUTORIAL_SEEN_KEY}:${sportId}:${variantId ?? "classic"}`
 }
 
-function App() {
-  const [sportId, setSportId] = useState(() => getSportIdFromPath(window.location.pathname))
+function getGuideModeFromState(state: unknown): GuideMode | undefined {
+  if (!state || typeof state !== "object") return undefined
+  const routeState = state as DailyRouteState
+  if (routeState.guideMode === "manual" || routeState.guideMode === "onboarding") {
+    return routeState.guideMode
+  }
+  return undefined
+}
+
+function AppShell({ sportId, screen, variantId }: AppShellProps) {
+  const location = useLocation()
+  const navigate = useNavigate()
   const sportMeta = getSportMetaById(sportId)
-  const [screen, setScreen] = useState<Screen>(() => getScreenFromPath(window.location.pathname))
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
-  const [activeVariantId, setActiveVariantId] = useState<string | undefined>(undefined)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
-  const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>("none")
-  const [gameGuideMode, setGameGuideMode] = useState<GuideMode>("manual")
+  const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
+  const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>(
+    initialGuideMode ? "guide" : "none",
+  )
+  const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
+  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help">(
+    screen === "help" ? "help" : "menu",
+  )
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
 
-  function pushRoute(nextSportId: SportConfig["id"], nextScreen: Screen) {
-    const nextPath = buildPath(nextSportId, nextScreen)
-    if (window.location.pathname !== nextPath) {
-      window.history.pushState({}, "", nextPath)
-    }
-  }
-
   useEffect(() => {
-    const initialSportId = getSportIdFromPath(window.location.pathname)
-    const initialScreen = getScreenFromPath(window.location.pathname)
-    const canonicalPath = buildPath(initialSportId, initialScreen)
-
-    if (window.location.pathname !== canonicalPath) {
-      window.history.replaceState({}, "", canonicalPath)
+    if (screen === "help") {
+      setMenuSection("help")
+      return
     }
-  }, [])
+    if (screen !== "menu") {
+      setMenuSection("menu")
+    }
+  }, [screen])
 
   useEffect(() => {
     let isMounted = true
@@ -113,25 +111,8 @@ function App() {
     }
   }, [sportId])
 
-  useEffect(() => {
-    function syncSportFromPath() {
-      setSportId(getSportIdFromPath(window.location.pathname))
-      setScreen(getScreenFromPath(window.location.pathname))
-      setActiveGameOverlay("none")
-    }
-
-    window.addEventListener("popstate", syncSportFromPath)
-    return () => window.removeEventListener("popstate", syncSportFromPath)
-  }, [])
-
-  useEffect(() => {
-    if (!sport || !activeVariantId) return
-    const variantExists = sport.variants?.some(variant => variant.id === activeVariantId)
-    if (!variantExists) {
-      setActiveVariantId(undefined)
-    }
-  }, [sport, activeVariantId])
-
+  const hasVariant = sport?.variants?.some(variant => variant.id === variantId)
+  const activeVariantId = hasVariant ? variantId : undefined
   const activeSport = sport ? resolveSportConfig(sport, activeVariantId) : null
 
   useEffect(() => {
@@ -165,8 +146,8 @@ function App() {
   }
 
   function goToMenu() {
-    pushRoute(sportId, "menu")
-    setScreen("menu")
+    navigate(buildPath(sportId, "menu"))
+    setMenuSection("menu")
     setActiveGameOverlay("none")
   }
 
@@ -189,12 +170,8 @@ function App() {
       return
     }
 
-    const nextPath = buildPath(nextSportId, "menu")
-    window.history.pushState({}, "", nextPath)
-
-    setSportId(nextSportId)
-    setScreen("menu")
-    setActiveVariantId(undefined)
+    navigate(buildPath(nextSportId, "menu"))
+    setMenuSection("menu")
     setActiveGameOverlay("none")
   }
 
@@ -203,9 +180,9 @@ function App() {
       ...config,
       onPlayAgain: config.onPlayAgain
         ? () => {
-            config.onPlayAgain?.()
-            handleCloseStatsModal()
-          }
+          config.onPlayAgain?.()
+          handleCloseStatsModal()
+        }
         : undefined,
     })
     setActiveGameOverlay("stats")
@@ -221,51 +198,50 @@ function App() {
 
   function handleNavigate(target: Screen, options?: NavigationOptions) {
     if (target === "about" && screen === "menu") {
-      setScreen("about")
+      setMenuSection("about")
       return
     }
 
     if (target === "help" && screen === "menu") {
-      pushRoute(sportId, "help")
-      setScreen("help")
+      navigate(buildPath(sportId, "help"))
+      setMenuSection("help")
       return
     }
 
     const nextVariantId = options?.variantId
-    setActiveVariantId(nextVariantId)
 
     if (target === "daily") {
       const seenKey = getTutorialStorageKey(sportId, nextVariantId)
       const shouldShowOnboarding = !localStorage.getItem(seenKey)
-      setGameGuideMode(shouldShowOnboarding ? "onboarding" : "manual")
-      setActiveGameOverlay(shouldShowOnboarding ? "guide" : "none")
-    } else {
-      setActiveGameOverlay("none")
+      navigate(buildPath(sportId, "daily", nextVariantId), {
+        state: shouldShowOnboarding ? ({ guideMode: "onboarding" } as DailyRouteState) : undefined,
+      })
+      return
     }
 
     if (target === "arcade") {
       setGameKey(k => k + 1)
+      navigate(buildPath(sportId, "arcade"))
+      return
     }
-    pushRoute(sportId, target)
-    setScreen(target)
   }
 
   function handleAboutBack() {
-    if (screen === "help") {
-      pushRoute(sportId, "menu")
-      setScreen("menu")
+    if (menuSection === "help") {
+      navigate(buildPath(sportId, "menu"))
+      setMenuSection("menu")
       return
     }
 
-    if (screen === "about") {
-      setScreen("menu")
+    if (menuSection === "about") {
+      setMenuSection("menu")
       return
     }
 
     goToMenu()
   }
 
-  const isMenuView = screen === "menu" || screen === "about" || screen === "help"
+  const isMenuView = screen === "menu" || screen === "help"
 
   return (
     <>
@@ -274,7 +250,7 @@ function App() {
           <MainMenu
             onNavigate={handleNavigate}
             sport={sport ?? sportMeta}
-            section={screen === "about" ? "about" : screen === "help" ? "help" : "menu"}
+            section={menuSection}
             onCloseAbout={handleAboutBack}
             guideSport={activeSport ?? sport}
           />
@@ -292,7 +268,7 @@ function App() {
             onBack={goToMenu}
             sport={activeSport ?? sportMeta}
           />
-          <div className="flex-1 min-h-0 overflow-hidden">
+          <div className="flex flex-1 min-h-0 overflow-hidden">
             <Suspense fallback={<div className="flex-1 min-h-0" />}>
               {screen === "daily" && activeSport && (
                 <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
@@ -308,9 +284,9 @@ function App() {
                     />
                   </div>
                   <div
-                    className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden ${isGuideOpen ? "crossfade-active" : "crossfade-inactive"}`}
+                    className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0 ${isGuideOpen ? "crossfade-active" : "crossfade-inactive"}`}
                   >
-                    <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
+                    <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
                       <div className="flex items-center justify-between pt-3">
                         <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
                           How to Play
@@ -330,7 +306,7 @@ function App() {
                       <GameGuideContent
                         sport={activeSport}
                         mode={gameGuideMode}
-                        className="-mt-1 flex-1 overflow-auto pb-2"
+                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
                       />
                     </div>
                   </div>
@@ -385,6 +361,99 @@ function App() {
         />
       )}
     </>
+  )
+}
+
+interface SportRouteProps {
+  screen: RouteScreen
+  variantId?: string
+}
+
+function SportRoute({ screen, variantId }: SportRouteProps) {
+  const { sport } = useParams<{ sport?: string }>()
+  const sportId = getSportIdFromRouteParam(sport)
+
+  if (!sportId) {
+    return (
+      <Navigate
+        to="/"
+        replace
+      />
+    )
+  }
+
+  return (
+    <AppShell
+      sportId={sportId}
+      screen={screen}
+      variantId={variantId}
+    />
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={<SportRoute screen="menu" />}
+      />
+      <Route
+        path="/help"
+        element={<SportRoute screen="help" />}
+      />
+      <Route
+        path="/daily"
+        element={<SportRoute screen="daily" />}
+      />
+      <Route
+        path="/arcade"
+        element={<SportRoute screen="arcade" />}
+      />
+      <Route
+        path="/fanatic"
+        element={
+          <SportRoute
+            screen="daily"
+            variantId={FANATIC_VARIANT_ID}
+          />
+        }
+      />
+      <Route
+        path="/:sport"
+        element={<SportRoute screen="menu" />}
+      />
+      <Route
+        path="/:sport/help"
+        element={<SportRoute screen="help" />}
+      />
+      <Route
+        path="/:sport/daily"
+        element={<SportRoute screen="daily" />}
+      />
+      <Route
+        path="/:sport/arcade"
+        element={<SportRoute screen="arcade" />}
+      />
+      <Route
+        path="/:sport/fanatic"
+        element={
+          <SportRoute
+            screen="daily"
+            variantId={FANATIC_VARIANT_ID}
+          />
+        }
+      />
+      <Route
+        path="*"
+        element={
+          <Navigate
+            to="/"
+            replace
+          />
+        }
+      />
+    </Routes>
   )
 }
 
