@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Button, GuessGrid, GuessInput } from "@/components"
+import { Button, GuessGrid, GuessInput, Popup } from "@/components"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
@@ -135,7 +135,11 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   }
 
   return (
-    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden">
+    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden relative">
+      <Popup
+        visible={gameOver && !!answer}
+        message={answer?.name ?? ""}
+      />
       {gameOver && answer && (
         <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
