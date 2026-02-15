@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { GameGuideContent } from "@/modals/game-guide-content"
+import AboutSection from "@/screens/about-section"
 import type { SportConfig, SportInfo } from "@/sports"
 import { hasBeatTodaysDaily } from "@/utils/stats"
 
@@ -137,63 +138,10 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
         <div
           className={`crossfade-panel absolute inset-0 ${section === "about" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <div className="w-full max-w-sm mx-auto h-full flex flex-col">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                About
-              </h2>
-              <button
-                type="button"
-                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                aria-label="Close About"
-                onClick={onCloseAbout}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl"
-                />
-              </button>
-            </div>
-            <div className="-mt-1 flex-1 overflow-auto pb-2">
-              <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-3">
-                <strong>Playerdle</strong> is a daily guessing game for sports fans. You are
-                currently playing the {sport.displayName} version.
-              </p>
-              <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
-                Test your knowledge by identifying players based on their conference, division,
-                team, position, and jersey number.
-              </p>
-              <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
-                Inspired by Wordle and other sports guessing games.
-              </p>
-              <div className="mt-6">
-                <p className="text-sm text-primary-600 dark:text-primary-200 leading-6">
-                  Created by{" "}
-                  <a
-                    className="underline decoration-primary-400 underline-offset-2 hover:text-primary-700 dark:hover:text-primary-50"
-                    href="https://jackp.me"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Jack Pfeiffer
-                  </a>
-                  .
-                </p>
-                <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
-                  Playerdle is open source on{" "}
-                  <a
-                    className="underline decoration-primary-400 underline-offset-2 hover:text-primary-700 dark:hover:text-primary-50"
-                    href="https://github.com/Jl5her/Playerdle"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    GitHub
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
+          <AboutSection
+            sport={sport}
+            onClose={onCloseAbout}
+          />
         </div>
         <div
           className={`crossfade-panel absolute inset-0 ${section === "help" ? "crossfade-active" : "crossfade-inactive"}`}

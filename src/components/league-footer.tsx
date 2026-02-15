@@ -58,8 +58,8 @@ export default function LeagueFooter({ currentSportId, onSelectSport }: Props) {
               aria-label={`Switch to ${sport.displayName}`}
               className={`w-10 h-10 rounded-full transition-colors inline-flex items-center justify-center ${
                 isActive
-                  ? "bg-primary-700/10 text-primary-700 ring-1 ring-primary-500/20 dark:bg-primary-200/12 dark:text-primary-100 dark:ring-primary-300/22"
-                  : "text-primary-500 hover:text-primary-300 dark:text-primary-300 dark:hover:text-primary-100"
+                  ? "cursor-default bg-primary-700/10 text-primary-700 ring-1 ring-primary-500/20 dark:bg-primary-200/12 dark:text-primary-100 dark:ring-primary-300/22"
+                  : "cursor-pointer hover:cursor-pointer text-primary-500 hover:text-primary-300 dark:text-primary-300 dark:hover:text-primary-100"
               }`}
               onClick={() => onSelectSport(sport.id)}
             >
