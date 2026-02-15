@@ -1,0 +1,18 @@
+name: Sync NFL Data
+
+on:
+  schedule:
+    - cron: "0 7 * 9-12,1-2 *"
+    - cron: "0 7 * 3-8 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync-league-data.yml
+    with:
+      league: nfl
+      scrape_command: pnpm run scrape:nfl
+      data_path: src/data/nfl

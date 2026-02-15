@@ -1,0 +1,18 @@
+name: Sync NBA Data
+
+on:
+  schedule:
+    - cron: "10 7 * 10-12,1-6 *"
+    - cron: "10 7 * 7-9 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    uses: ./.github/workflows/sync-league-data.yml
+    with:
+      league: nba
+      scrape_command: pnpm run scrape:nba
+      data_path: src/data/nba
