@@ -820,16 +820,6 @@
     "number": 30
   },
   {
-    "id": "nba:4706557",
-    "name": "Chris Youngblood",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "G",
-    "number": 3
-  },
-  {
     "id": "nba:4431767",
     "name": "Christian Braun",
     "conference": "West",
@@ -1730,6 +1720,16 @@
     "number": 55
   },
   {
+    "id": "nba:4291678",
+    "name": "Haywood Highsmith",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Phoenix Suns",
+    "teamAbbr": "PHX",
+    "position": "F",
+    "number": 7
+  },
+  {
     "id": "nba:4277813",
     "name": "Herbert Jones",
     "conference": "West",
@@ -2378,6 +2378,16 @@
     "teamAbbr": "NO",
     "position": "G",
     "number": 0
+  },
+  {
+    "id": "nba:4610139",
+    "name": "Jeremy Sochan",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
+    "position": "F",
+    "number": 10
   },
   {
     "id": "nba:4277922",
@@ -4148,6 +4158,16 @@
     "teamAbbr": "HOU",
     "position": "G",
     "number": 15
+  },
+  {
+    "id": "nba:5177362",
+    "name": "Riley Minix",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "F",
+    "number": 22
   },
   {
     "id": "nba:4395625",
