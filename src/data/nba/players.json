@@ -140,6 +140,16 @@
     "number": 9
   },
   {
+    "id": "nba:4593034",
+    "name": "Alex Morales",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Orlando Magic",
+    "teamAbbr": "ORL",
+    "position": "G",
+    "number": 30
+  },
+  {
     "id": "nba:5160992",
     "name": "Alex Sarr",
     "conference": "East",
@@ -2387,7 +2397,7 @@
     "team": "New York Knicks",
     "teamAbbr": "NY",
     "position": "F",
-    "number": 10
+    "number": 20
   },
   {
     "id": "nba:4277922",
@@ -3530,6 +3540,16 @@
     "number": 25
   },
   {
+    "id": "nba:3195",
+    "name": "Mike Conley",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 10
+  },
+  {
     "id": "nba:4066383",
     "name": "Miles Bridges",
     "conference": "East",
@@ -3888,16 +3908,6 @@
     "teamAbbr": "ATL",
     "position": "F",
     "number": 17
-  },
-  {
-    "id": "nba:4593049",
-    "name": "Orlando Robinson",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Orlando Magic",
-    "teamAbbr": "ORL",
-    "position": "C",
-    "number": 7
   },
   {
     "id": "nba:4432827",
