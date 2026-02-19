@@ -740,6 +740,16 @@
     "number": 23
   },
   {
+    "id": "nba:3064230",
+    "name": "Cameron Payne",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Philadelphia 76ers",
+    "teamAbbr": "PHI",
+    "position": "PG",
+    "number": 20
+  },
+  {
     "id": "nba:2991043",
     "name": "Caris LeVert",
     "conference": "East",
@@ -2520,16 +2530,6 @@
     "number": 12
   },
   {
-    "id": "nba:4432817",
-    "name": "Johnny Juzang",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
-    "position": "G",
-    "number": 9
-  },
-  {
     "id": "nba:6477",
     "name": "Jonas Valanciunas",
     "conference": "West",
@@ -3760,16 +3760,6 @@
     "number": 33
   },
   {
-    "id": "nba:5144067",
-    "name": "Nikola Durisic",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
-    "position": "F",
-    "number": 22
-  },
-  {
     "id": "nba:3112335",
     "name": "Nikola Jokic",
     "conference": "West",
@@ -4768,6 +4758,16 @@
     "teamAbbr": "PHI",
     "position": "F",
     "number": 12
+  },
+  {
+    "id": "nba:4432645",
+    "name": "Trevor Keels",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Miami Heat",
+    "teamAbbr": "MIA",
+    "position": "G",
+    "number": 8
   },
   {
     "id": "nba:4433268",
