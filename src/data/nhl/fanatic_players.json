@@ -3328,22 +3328,6 @@
     "toiPerGame": 18.4
   },
   {
-    "id": "nhl:5188523",
-    "name": "Ian Moore",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Anaheim Ducks",
-    "teamAbbr": "ANA",
-    "position": "D",
-    "number": 74,
-    "gp": 41,
-    "goals": 2,
-    "assists": 7,
-    "points": 9,
-    "sog": 39,
-    "toiPerGame": 14.2
-  },
-  {
     "id": "nhl:4342107",
     "name": "Ilya Lyubushkin",
     "conference": "West",
@@ -7950,6 +7934,22 @@
     "points": 55,
     "sog": 147,
     "toiPerGame": 21.4
+  },
+  {
+    "id": "nhl:5080173",
+    "name": "Sam Rinzel",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 6,
+    "gp": 31,
+    "goals": 2,
+    "assists": 7,
+    "points": 9,
+    "sog": 48,
+    "toiPerGame": 17.1
   },
   {
     "id": "nhl:4024998",
