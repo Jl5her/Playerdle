@@ -170,6 +170,16 @@
     "number": 55
   },
   {
+    "id": "nba:4592216",
+    "name": "Alondes Williams",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nba:4871144",
     "name": "Alperen Sengun",
     "conference": "West",
@@ -378,16 +388,6 @@
     "teamAbbr": "BOS",
     "position": "G",
     "number": 55
-  },
-  {
-    "id": "nba:5242502",
-    "name": "Ben Saraf",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Brooklyn Nets",
-    "teamAbbr": "BKN",
-    "position": "G",
-    "number": 77
   },
   {
     "id": "nba:4433076",
@@ -1012,10 +1012,10 @@
   {
     "id": "nba:4397885",
     "name": "Dalano Banton",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
     "position": "F",
     "number": 45
   },
@@ -2510,6 +2510,16 @@
     "number": 55
   },
   {
+    "id": "nba:4593043",
+    "name": "John Tonje",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "F",
+    "number": 8
+  },
+  {
     "id": "nba:4433569",
     "name": "Johni Broome",
     "conference": "East",
@@ -3028,6 +3038,16 @@
     "teamAbbr": "DAL",
     "position": "F",
     "number": 20
+  },
+  {
+    "id": "nba:4683834",
+    "name": "KJ Simpson",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Denver Nuggets",
+    "teamAbbr": "DEN",
+    "position": "G",
+    "number": 25
   },
   {
     "id": "nba:6475",
@@ -3690,6 +3710,16 @@
     "number": 13
   },
   {
+    "id": "nba:4397821",
+    "name": "Nate Williams",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "G",
+    "number": 19
+  },
+  {
     "id": "nba:4396971",
     "name": "Naz Reid",
     "conference": "West",
@@ -3988,16 +4018,6 @@
     "teamAbbr": "GS",
     "position": "G",
     "number": 61
-  },
-  {
-    "id": "nba:4433246",
-    "name": "Patrick Baldwin Jr.",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Philadelphia 76ers",
-    "teamAbbr": "PHI",
-    "position": "G",
-    "number": 23
   },
   {
     "id": "nba:4431687",
@@ -4884,10 +4904,10 @@
     "name": "Tyrese Martin",
     "conference": "East",
     "division": "Atlantic",
-    "team": "Brooklyn Nets",
-    "teamAbbr": "BKN",
+    "team": "Philadelphia 76ers",
+    "teamAbbr": "PHI",
     "position": "G",
-    "number": 13
+    "number": 23
   },
   {
     "id": "nba:4431678",
