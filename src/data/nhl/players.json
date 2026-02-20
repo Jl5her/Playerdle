@@ -880,6 +880,16 @@
     "number": 46
   },
   {
+    "id": "nhl:4378685",
+    "name": "Bo Groulx",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 29
+  },
+  {
     "id": "nhl:3042002",
     "name": "Bo Horvat",
     "conference": "East",
@@ -1408,16 +1418,6 @@
     "teamAbbr": "VGK",
     "position": "G",
     "number": 30
-  },
-  {
-    "id": "nhl:5149238",
-    "name": "Carson Bjarnason",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "G",
-    "number": 64
   },
   {
     "id": "nhl:3042198",
@@ -3100,16 +3100,6 @@
     "number": 48
   },
   {
-    "id": "nhl:5103725",
-    "name": "Hunter McDonald",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "D",
-    "number": 41
-  },
-  {
     "id": "nhl:4991",
     "name": "Ian Cole",
     "conference": "West",
@@ -4760,6 +4750,16 @@
     "number": 97
   },
   {
+    "id": "nhl:5188566",
+    "name": "Kirill Kirsanov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 78
+  },
+  {
     "id": "nhl:4587996",
     "name": "Kirill Marchenko",
     "conference": "East",
@@ -5458,6 +5458,16 @@
     "teamAbbr": "STL",
     "position": "RW",
     "number": 39
+  },
+  {
+    "id": "nhl:4419662",
+    "name": "Matt Murray",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "G",
+    "number": 32
   },
   {
     "id": "nhl:3067862",
@@ -6418,16 +6428,6 @@
     "teamAbbr": "TB",
     "position": "RW",
     "number": 22
-  },
-  {
-    "id": "nhl:5149199",
-    "name": "Oliver Bonk",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "D",
-    "number": 59
   },
   {
     "id": "nhl:5488",
