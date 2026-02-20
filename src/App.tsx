@@ -180,9 +180,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       ...config,
       onPlayAgain: config.onPlayAgain
         ? () => {
-          config.onPlayAgain?.()
-          handleCloseStatsModal()
-        }
+            config.onPlayAgain?.()
+            handleCloseStatsModal()
+          }
         : undefined,
     })
     setActiveGameOverlay("stats")

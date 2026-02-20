@@ -55,7 +55,9 @@ const mlbConfig: SportConfig = {
           return (
             <div className="flex flex-col items-center justify-center">
               <span className="grid-cell-top-text text-center leading-tight">{parts[0]}</span>
-              <span className="grid-cell-text text-center leading-tight">{parts.slice(1).join(" ")}</span>
+              <span className="grid-cell-text text-center leading-tight">
+                {parts.slice(1).join(" ")}
+              </span>
             </div>
           )
         }

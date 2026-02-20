@@ -183,7 +183,10 @@ function loadClassicAnswerPoolIds(): Set<string> {
   return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
 }
 
-function buildFanaticSkaters(players: NhlPlayer[], rows: HockeyReferenceSkaterRow[]): FanaticSkater[] {
+function buildFanaticSkaters(
+  players: NhlPlayer[],
+  rows: HockeyReferenceSkaterRow[],
+): FanaticSkater[] {
   const byName = new Map<string, HockeyReferenceSkaterRow[]>()
   for (const row of rows) {
     const normalized = normalizeName(row.playerName)
@@ -223,7 +226,10 @@ function buildFanaticSkaters(players: NhlPlayer[], rows: HockeyReferenceSkaterRo
   return fanatics.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function buildCuratedAnswerPool(players: FanaticSkater[], classicAnswerPoolIds: Set<string>): string[] {
+function buildCuratedAnswerPool(
+  players: FanaticSkater[],
+  classicAnswerPoolIds: Set<string>,
+): string[] {
   const curated = players.filter(player => classicAnswerPoolIds.has(player.id))
   if (curated.length >= MIN_CURATED_ANSWER_POOL_SIZE) {
     return curated.map(player => player.id)

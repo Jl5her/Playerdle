@@ -243,7 +243,10 @@ function loadClassicAnswerPoolIds(): Set<string> {
   return new Set(ids)
 }
 
-function buildFanaticPlayers(players: NbaPlayer[], seasonRows: BasketballReferenceRow[]): FanaticPlayer[] {
+function buildFanaticPlayers(
+  players: NbaPlayer[],
+  seasonRows: BasketballReferenceRow[],
+): FanaticPlayer[] {
   const byName = new Map<string, BasketballReferenceRow[]>()
   for (const row of seasonRows) {
     const normalized = normalizeName(row.playerName)
@@ -263,10 +266,7 @@ function buildFanaticPlayers(players: NbaPlayer[], seasonRows: BasketballReferen
     const teamMatch = matches.find(match => match.teamAbbr === player.teamAbbr)
     const selected = teamMatch ?? matches[0]
 
-    if (
-      selected.gamesPlayed < MIN_GAMES_PLAYED ||
-      selected.minutesPerGame < MIN_MINUTES_PER_GAME
-    ) {
+    if (selected.gamesPlayed < MIN_GAMES_PLAYED || selected.minutesPerGame < MIN_MINUTES_PER_GAME) {
       continue
     }
 
@@ -289,7 +289,10 @@ function buildFanaticPlayers(players: NbaPlayer[], seasonRows: BasketballReferen
   return fanaticPlayers.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function buildCuratedFanaticAnswerPoolIds(players: FanaticPlayer[], classicAnswerPoolIds: Set<string>): string[] {
+function buildCuratedFanaticAnswerPoolIds(
+  players: FanaticPlayer[],
+  classicAnswerPoolIds: Set<string>,
+): string[] {
   const curated = players.filter(player => classicAnswerPoolIds.has(player.id))
 
   if (curated.length >= MIN_CURATED_ANSWER_POOL_SIZE) {
@@ -333,7 +336,10 @@ async function main() {
   console.log(`Loaded ${seasonRows.length} Basketball Reference season-average rows`)
 
   const fanaticPlayers = buildFanaticPlayers(players, seasonRows)
-  const fanaticAnswerPoolIds = buildCuratedFanaticAnswerPoolIds(fanaticPlayers, classicAnswerPoolIds)
+  const fanaticAnswerPoolIds = buildCuratedFanaticAnswerPoolIds(
+    fanaticPlayers,
+    classicAnswerPoolIds,
+  )
   console.log(`Selected ${fanaticAnswerPoolIds.length} curated Fanatic answer pool IDs`)
   writeFanaticData(fanaticPlayers, fanaticAnswerPoolIds)
 }

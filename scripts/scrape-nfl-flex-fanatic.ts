@@ -216,7 +216,9 @@ function buildFanaticFlexPlayers(
   nflPlayers: NflPlayer[],
   fantasyRows: FantasyProsFlexRow[],
 ): FanaticFlexPlayer[] {
-  const eligiblePlayers = nflPlayers.filter(player => FLEX_POSITIONS.includes(player.position as FlexPosition))
+  const eligiblePlayers = nflPlayers.filter(player =>
+    FLEX_POSITIONS.includes(player.position as FlexPosition),
+  )
   const byName = new Map<string, FantasyProsFlexRow[]>()
   for (const row of fantasyRows) {
     const normalized = normalizeName(row.playerName)
@@ -235,7 +237,8 @@ function buildFanaticFlexPlayers(
 
     const teamMatch = candidates.find(
       candidate =>
-        candidate.position === player.position && (!candidate.teamAbbr || candidate.teamAbbr === player.teamAbbr),
+        candidate.position === player.position &&
+        (!candidate.teamAbbr || candidate.teamAbbr === player.teamAbbr),
     )
     const posMatch = candidates.find(candidate => candidate.position === player.position)
     const selected = teamMatch ?? posMatch ?? candidates[0]
@@ -256,7 +259,10 @@ function buildFanaticFlexPlayers(
   return fanaticPlayers.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function buildCuratedAnswerPool(players: FanaticFlexPlayer[], classicAnswerPoolIds: Set<string>): string[] {
+function buildCuratedAnswerPool(
+  players: FanaticFlexPlayer[],
+  classicAnswerPoolIds: Set<string>,
+): string[] {
   const curated = players.filter(player => classicAnswerPoolIds.has(player.id))
   if (curated.length >= MIN_CURATED_ANSWER_POOL_SIZE) {
     return curated.map(player => player.id)

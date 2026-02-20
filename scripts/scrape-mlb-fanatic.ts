@@ -155,7 +155,10 @@ function loadClassicAnswerPoolIds(): Set<string> {
   return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
 }
 
-function buildFanaticBatters(players: MlbPlayer[], rows: BaseballReferenceBatterRow[]): FanaticBatter[] {
+function buildFanaticBatters(
+  players: MlbPlayer[],
+  rows: BaseballReferenceBatterRow[],
+): FanaticBatter[] {
   const hitters = players.filter(player => !String(player.position).toUpperCase().includes("P"))
   const byName = new Map<string, BaseballReferenceBatterRow[]>()
   for (const row of rows) {
@@ -202,7 +205,10 @@ function buildFanaticBatters(players: MlbPlayer[], rows: BaseballReferenceBatter
   return fanatics.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function buildCuratedAnswerPool(players: FanaticBatter[], classicAnswerPoolIds: Set<string>): string[] {
+function buildCuratedAnswerPool(
+  players: FanaticBatter[],
+  classicAnswerPoolIds: Set<string>,
+): string[] {
   const curated = players.filter(player => classicAnswerPoolIds.has(player.id))
   if (curated.length >= MIN_CURATED_ANSWER_POOL_SIZE) {
     return curated.map(player => player.id)

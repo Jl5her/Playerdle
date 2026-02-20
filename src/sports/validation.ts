@@ -74,7 +74,11 @@ function validateColumnSet(columns: SportColumn[], players: Player[], prefix: st
   return errors
 }
 
-function validatePlayerAndAnswerPool(players: Player[], answerPool: Player[], prefix: string): string[] {
+function validatePlayerAndAnswerPool(
+  players: Player[],
+  answerPool: Player[],
+  prefix: string,
+): string[] {
   const errors: string[] = []
 
   const duplicatePlayerIds = findDuplicateIds(players)
@@ -90,7 +94,9 @@ function validatePlayerAndAnswerPool(players: Player[], answerPool: Player[], pr
   const playerIds = new Set(players.map(player => player.id))
   const missingFromPlayers = answerPool.map(player => player.id).filter(id => !playerIds.has(id))
   if (missingFromPlayers.length > 0) {
-    errors.push(`${prefix}Answer pool IDs missing from players list: ${missingFromPlayers.join(", ")}`)
+    errors.push(
+      `${prefix}Answer pool IDs missing from players list: ${missingFromPlayers.join(", ")}`,
+    )
   }
 
   return errors

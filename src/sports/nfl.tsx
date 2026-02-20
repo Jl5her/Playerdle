@@ -29,7 +29,6 @@ const teams: SportTeam[] = teamsData.map(team => ({
 const answerPoolIdSet = new Set(nflAnswerPoolIds as string[])
 const fanaticAnswerPoolIdSet = new Set(nflFanaticAnswerPoolIds as string[])
 
-
 const nflConfig: SportConfig = {
   id: "nfl",
   slug: "",
@@ -56,7 +55,9 @@ const nflConfig: SportConfig = {
         return (
           <div className="flex flex-col items-center justify-center">
             <span className="grid-cell-top-text text-center leading-tight">{parts[0]}</span>
-            <span className="grid-cell-text text-center leading-tight">{parts.slice(1).join(" ")}</span>
+            <span className="grid-cell-text text-center leading-tight">
+              {parts.slice(1).join(" ")}
+            </span>
           </div>
         )
       },
