@@ -710,16 +710,6 @@
     "number": 26
   },
   {
-    "id": "nfl:4038432",
-    "name": "Amen Ogbongbemiga",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 45
-  },
-  {
     "id": "nfl:4239694",
     "name": "Amik Robertson",
     "conference": "NFC",
@@ -16028,6 +16018,16 @@
     "teamAbbr": "TEN",
     "position": "CB",
     "number": 21
+  },
+  {
+    "id": "nfl:4034704",
+    "name": "Michael Bandy",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "WR",
+    "number": 83
   },
   {
     "id": "nfl:2515270",
