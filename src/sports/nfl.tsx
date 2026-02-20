@@ -16,14 +16,6 @@ const teamsData = nflTeams as unknown as GeneratedNFLTeam[]
 const playersData = nflPlayers as unknown as Player[]
 const fanaticPlayersData = nflFanaticPlayers as unknown as Player[]
 
-function normalizeNFLDivision(value: string): string {
-  return value
-    .replace(/^(AFC|NFC)\s+/i, "")
-    .replace(/^American Football Conference\s+/i, "")
-    .replace(/^National Football Conference\s+/i, "")
-    .trim()
-}
-
 const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
   name: team.name,
@@ -36,10 +28,7 @@ const teams: SportTeam[] = teamsData.map(team => ({
 
 const answerPoolIdSet = new Set(nflAnswerPoolIds as string[])
 const fanaticAnswerPoolIdSet = new Set(nflFanaticAnswerPoolIds as string[])
-const normalizedPlayers = playersData.map(player => ({
-  ...player,
-  division: normalizeNFLDivision(String(player.division ?? "")),
-}))
+
 
 const nflConfig: SportConfig = {
   id: "nfl",
@@ -47,8 +36,8 @@ const nflConfig: SportConfig = {
   displayName: "NFL",
   subtitle: "Guess the NFL player in 6 tries",
   teams,
-  players: normalizedPlayers,
-  answerPool: normalizedPlayers.filter(player => answerPoolIdSet.has(player.id)),
+  players: playersData,
+  answerPool: playersData.filter(player => answerPoolIdSet.has(player.id)),
   columns: [
     {
       id: "conference",
@@ -61,9 +50,18 @@ const nflConfig: SportConfig = {
       id: "division",
       label: "DIV",
       key: "division",
-      topKey: "conference",
+      renderValue: (value: string) => {
+        const parts = value.trim().split(/\s+/).filter(Boolean)
+        if (parts.length < 2) return value
+        return (
+          <div className="flex flex-col items-center justify-center">
+            <span className="grid-cell-top-text text-center leading-tight">{parts[0]}</span>
+            <span className="grid-cell-text text-center leading-tight">{parts.slice(1).join(" ")}</span>
+          </div>
+        )
+      },
       evaluator: { type: "match" },
-      example: { value: "South", topValue: "NFC", status: "incorrect" },
+      example: { value: "NFC South", status: "incorrect" },
     },
     {
       id: "team",

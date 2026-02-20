@@ -58,15 +58,10 @@ export function GameGuideContent({ sport, mode, className }: GameGuideContentPro
                 key={column.id}
                 className={`grid-cell-size flex items-center justify-center font-bold leading-tight p-1 rounded-md cursor-default text-primary-50 ${getExampleBg(column.example.status)}`}
               >
-                {column.example.topValue ? (
-                  <div className="flex flex-col items-center justify-center relative z-10">
-                    <span className="grid-cell-top-text text-center leading-tight">
-                      {column.example.topValue}
-                    </span>
-                    <span className="grid-cell-text text-center leading-tight">
-                      {column.example.value}
-                      {column.example.arrow ? ` ${column.example.arrow}` : ""}
-                    </span>
+                {column.renderValue ? (
+                  <div className="relative z-10 text-center leading-tight">
+                    {column.renderValue(column.example.value)}
+                    {column.example.arrow ? ` ${column.example.arrow}` : ""}
                   </div>
                 ) : (
                   <span className="grid-cell-text text-center relative z-10">

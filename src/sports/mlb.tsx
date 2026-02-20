@@ -45,9 +45,30 @@ const mlbConfig: SportConfig = {
       id: "division",
       label: "DIV",
       key: "division",
-      topKey: "league",
+      renderValue: (value: string, context?: { player?: Player }) => {
+        const league = String(context?.player?.league ?? "").trim()
+        const division = value.trim()
+
+        if (!league) {
+          const parts = value.trim().split(/\s+/).filter(Boolean)
+          if (parts.length < 2) return value
+          return (
+            <div className="flex flex-col items-center justify-center">
+              <span className="grid-cell-top-text text-center leading-tight">{parts[0]}</span>
+              <span className="grid-cell-text text-center leading-tight">{parts.slice(1).join(" ")}</span>
+            </div>
+          )
+        }
+
+        return (
+          <div className="flex flex-col items-center justify-center">
+            <span className="grid-cell-top-text text-center leading-tight">{league}</span>
+            <span className="grid-cell-text text-center leading-tight">{division}</span>
+          </div>
+        )
+      },
       evaluator: { type: "match" },
-      example: { value: "West", topValue: "NL", status: "incorrect" },
+      example: { value: "NL West", status: "incorrect" },
     },
     {
       id: "team",

@@ -1,3 +1,5 @@
+import type { ReactNode } from "react"
+
 export type SportId = "nfl" | "mlb" | "nhl" | "nba"
 
 export type SportValue = string | number | boolean | null | undefined
@@ -26,25 +28,26 @@ export type ExampleStatus = "correct" | "close" | "incorrect"
 
 export interface ColumnExample {
   value: string
-  topValue?: string
   status: ExampleStatus
   arrow?: string
 }
+
+export type ColumnValueRenderer = (value: string, context?: { player?: Player }) => ReactNode
 
 export type ColumnEvaluator =
   | { type: "match" }
   | { type: "mismatch" }
   | {
-    type: "comparison"
-    closeWithin?: number
-    showDirection?: boolean
-  }
+      type: "comparison"
+      closeWithin?: number
+      showDirection?: boolean
+    }
 
 export interface SportColumn {
   id: string
   label: string
   key: string
-  topKey?: string
+  renderValue?: ColumnValueRenderer
   evaluator: ColumnEvaluator
   example: ColumnExample
 }

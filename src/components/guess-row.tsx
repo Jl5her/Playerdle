@@ -21,7 +21,7 @@ export default function GuessRow({ result, columns, animate }: Props) {
     const evaluated = evaluateColumn(result.guess, result.answer, column)
     return {
       value: evaluated.value,
-      topValue: evaluated.topValue,
+      renderedValue: column.renderValue?.(evaluated.value, { player: result.guess }),
       arrow: evaluated.arrow,
       correct: evaluated.status === "correct",
       close: evaluated.status === "close",

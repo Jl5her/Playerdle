@@ -1,11 +1,12 @@
+import type { ReactNode } from "react"
 import { useEffect, useState } from "react"
 
 interface Cell {
   value: string
+  renderedValue?: ReactNode
   correct: boolean
   close?: boolean
   arrow?: string
-  topValue?: string
 }
 
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
 
 export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
   const [revealed, setRevealed] = useState(!animate)
-  const { value, arrow, correct, close, topValue } = cell
+  const { value, renderedValue, arrow, correct, close } = cell
 
   useEffect(() => {
     if (!animate) return
@@ -46,12 +47,10 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
 
   return (
     <div className={`grid-cell-size ${containerClass}`}>
-      {topValue ? (
-        <div className="flex flex-col items-center justify-center relative z-10">
-          <span className="grid-cell-top-text text-center leading-tight">
-            {revealed ? topValue : ""}
-          </span>
-          <span className="grid-cell-text text-center leading-tight">{revealed ? value : ""}</span>
+      {renderedValue !== undefined ? (
+        <div className="relative z-10 text-center leading-tight">
+          {revealed ? renderedValue : null}
+          {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
         </div>
       ) : (
         <span className="grid-cell-text text-center wrap-break-words relative z-10">

@@ -6,7 +6,6 @@ export interface EvaluatedCell {
   value: string
   status: CellStatus
   arrow?: string
-  topValue?: string
 }
 
 function toDisplayValue(value: SportValue): string {
@@ -26,13 +25,11 @@ function toNumber(value: SportValue): number | null {
 export function evaluateColumn(guess: Player, answer: Player, column: SportColumn): EvaluatedCell {
   const guessValue = guess[column.key]
   const answerValue = answer[column.key]
-  const topValue = column.topKey ? toDisplayValue(guess[column.topKey]) : undefined
 
   if (column.evaluator.type === "match") {
     return {
       value: toDisplayValue(guessValue),
       status: guessValue === answerValue ? "correct" : "incorrect",
-      topValue,
     }
   }
 
@@ -40,7 +37,6 @@ export function evaluateColumn(guess: Player, answer: Player, column: SportColum
     return {
       value: toDisplayValue(guessValue),
       status: guessValue !== answerValue ? "correct" : "incorrect",
-      topValue,
     }
   }
 
@@ -50,7 +46,6 @@ export function evaluateColumn(guess: Player, answer: Player, column: SportColum
     return {
       value: toDisplayValue(guessValue),
       status: "incorrect",
-      topValue,
     }
   }
 
@@ -68,6 +63,5 @@ export function evaluateColumn(guess: Player, answer: Player, column: SportColum
           ? "\u2191"
           : "\u2193"
         : undefined,
-    topValue,
   }
 }

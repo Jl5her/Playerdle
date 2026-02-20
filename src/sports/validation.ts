@@ -40,14 +40,6 @@ function validateColumnSet(columns: SportColumn[], players: Player[], prefix: st
         `${prefix}Column is missing required fields (id/label/key): ${JSON.stringify(column)}`,
       )
     } else {
-      if (column.topKey && !column.example.topValue) {
-        errors.push(`${prefix}Column '${column.id}' defines topKey but example.topValue is missing`)
-      }
-
-      if (!column.topKey && column.example.topValue) {
-        errors.push(`${prefix}Column '${column.id}' example.topValue provided without topKey`)
-      }
-
       if (column.evaluator.type !== "comparison" && column.example.arrow) {
         errors.push(
           `${prefix}Column '${column.id}' example.arrow is only valid for comparison columns`,
@@ -61,12 +53,6 @@ function validateColumnSet(columns: SportColumn[], players: Player[], prefix: st
             `${prefix}Column '${column.id}' key '${column.key}' missing on player '${player.id}'`,
           )
         } else {
-          if (column.topKey && !Object.prototype.hasOwnProperty.call(player, column.topKey)) {
-            errors.push(
-              `${prefix}Column '${column.id}' topKey '${column.topKey}' missing on player '${player.id}'`,
-            )
-          }
-
           if (column.evaluator.type === "comparison" && !isNumericValue(player[column.key])) {
             errors.push(
               `${prefix}Column '${column.id}' uses comparison but player '${player.id}' value is not numeric`,
