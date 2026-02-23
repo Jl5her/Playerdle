@@ -220,16 +220,6 @@
     "number": 16
   },
   {
-    "id": "nhl:5188331",
-    "name": "Aleksei Kolosov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "G",
-    "number": 35
-  },
-  {
     "id": "nhl:4270820",
     "name": "Alex Barre-Boulet",
     "conference": "West",
@@ -820,16 +810,6 @@
     "number": 8
   },
   {
-    "id": "nhl:4393032",
-    "name": "Ben Gleason",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 6
-  },
-  {
     "id": "nhl:3571762",
     "name": "Ben Hutton",
     "conference": "West",
@@ -948,16 +928,6 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 38
-  },
-  {
-    "id": "nhl:4063495",
-    "name": "Boris Katchouk",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "LW",
-    "number": 61
   },
   {
     "id": "nhl:4565225",
@@ -2330,16 +2300,6 @@
     "number": 9
   },
   {
-    "id": "nhl:5149847",
-    "name": "Domenic DiVincentiis",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "G",
-    "number": 50
-  },
-  {
     "id": "nhl:4997033",
     "name": "Dominic James",
     "conference": "East",
@@ -2828,16 +2788,6 @@
     "teamAbbr": "OTT",
     "position": "LW",
     "number": 20
-  },
-  {
-    "id": "nhl:5080175",
-    "name": "Filip Bystedt",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "C",
-    "number": 18
   },
   {
     "id": "nhl:4233643",
@@ -5160,6 +5110,16 @@
     "number": 71
   },
   {
+    "id": "nhl:5103534",
+    "name": "Maksymilian Szuber",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 55
+  },
+  {
     "id": "nhl:4697442",
     "name": "Marat Khusnutdinov",
     "conference": "East",
@@ -5548,6 +5508,16 @@
     "teamAbbr": "FLA",
     "position": "LW",
     "number": 19
+  },
+  {
+    "id": "nhl:5149189",
+    "name": "Matthew Wood",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "RW",
+    "number": 71
   },
   {
     "id": "nhl:2558631",
@@ -7340,16 +7310,6 @@
     "number": 60
   },
   {
-    "id": "nhl:4320665",
-    "name": "Scott Perunovich",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "D",
-    "number": 26
-  },
-  {
     "id": "nhl:3067840",
     "name": "Scott Sabourin",
     "conference": "East",
@@ -8548,6 +8508,16 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 28
+  },
+  {
+    "id": "nhl:4874744",
+    "name": "Zachary L'Heureux",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "LW",
+    "number": 68
   },
   {
     "id": "nhl:4874734",
