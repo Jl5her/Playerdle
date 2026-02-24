@@ -750,6 +750,16 @@
     "number": 34
   },
   {
+    "id": "nhl:5172806",
+    "name": "Avery Hayes",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 85
+  },
+  {
     "id": "nhl:5149192",
     "name": "Axel Sandin-Pellikka",
     "conference": "East",
@@ -828,16 +838,6 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 81
-  },
-  {
-    "id": "nhl:4586827",
-    "name": "Ben McCartney",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "LW",
-    "number": 62
   },
   {
     "id": "nhl:4755729",
@@ -2300,6 +2300,16 @@
     "number": 9
   },
   {
+    "id": "nhl:5149847",
+    "name": "Domenic DiVincentiis",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "G",
+    "number": 50
+  },
+  {
     "id": "nhl:4997033",
     "name": "Dominic James",
     "conference": "East",
@@ -2308,6 +2318,16 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:4272081",
+    "name": "Dominik Shine",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "RW",
+    "number": 50
   },
   {
     "id": "nhl:4697791",
@@ -2928,16 +2948,6 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 93
-  },
-  {
-    "id": "nhl:4894681",
-    "name": "Garin Bjorklund",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "G",
-    "number": 68
   },
   {
     "id": "nhl:3149633",
@@ -4620,16 +4630,6 @@
     "number": 7
   },
   {
-    "id": "nhl:5265",
-    "name": "Kevin Connauton",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "D",
-    "number": 6
-  },
-  {
     "id": "nhl:3114743",
     "name": "Kevin Fiala",
     "conference": "West",
@@ -5108,16 +5108,6 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 71
-  },
-  {
-    "id": "nhl:5103534",
-    "name": "Maksymilian Szuber",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "D",
-    "number": 55
   },
   {
     "id": "nhl:4697442",
@@ -7480,6 +7470,16 @@
     "number": 27
   },
   {
+    "id": "nhl:4196931",
+    "name": "Sheldon Dries",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 15
+  },
+  {
     "id": "nhl:3114",
     "name": "Sidney Crosby",
     "conference": "East",
@@ -7578,6 +7578,16 @@
     "teamAbbr": "NJ",
     "position": "RW",
     "number": 11
+  },
+  {
+    "id": "nhl:5136706",
+    "name": "Stephen Halliday",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "C",
+    "number": 83
   },
   {
     "id": "nhl:3939658",
@@ -7988,6 +7998,16 @@
     "teamAbbr": "CHI",
     "position": "LW",
     "number": 59
+  },
+  {
+    "id": "nhl:4874724",
+    "name": "Tyler Boucher",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "RW",
+    "number": 54
   },
   {
     "id": "nhl:4697448",
