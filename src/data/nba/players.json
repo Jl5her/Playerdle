@@ -1542,12 +1542,12 @@
   {
     "id": "nba:4432872",
     "name": "Emanuel Miller",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "San Antonio Spurs",
+    "teamAbbr": "SA",
     "position": "F",
-    "number": 15
+    "number": 14
   },
   {
     "id": "nba:4592699",
@@ -3050,6 +3050,16 @@
     "number": 20
   },
   {
+    "id": "nba:4683024",
+    "name": "Killian Hayes",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Sacramento Kings",
+    "teamAbbr": "SAC",
+    "position": "G",
+    "number": 3
+  },
+  {
     "id": "nba:4683834",
     "name": "KJ Simpson",
     "conference": "West",
@@ -3270,16 +3280,6 @@
     "number": 23
   },
   {
-    "id": "nba:4596528",
-    "name": "Lawson Lovering",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
-    "position": "C",
-    "number": 34
-  },
-  {
     "id": "nba:4395650",
     "name": "Leaky Black",
     "conference": "East",
@@ -3468,6 +3468,16 @@
     "teamAbbr": "DAL",
     "position": "F",
     "number": 35
+  },
+  {
+    "id": "nba:2488653",
+    "name": "Mason Plumlee",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "San Antonio Spurs",
+    "teamAbbr": "SA",
+    "position": "C",
+    "number": 22
   },
   {
     "id": "nba:4711294",
@@ -4040,6 +4050,16 @@
     "number": 61
   },
   {
+    "id": "nba:4433246",
+    "name": "Patrick Baldwin Jr.",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Sacramento Kings",
+    "teamAbbr": "SAC",
+    "position": "G",
+    "number": 23
+  },
+  {
     "id": "nba:4431687",
     "name": "Patrick Williams",
     "conference": "East",
@@ -4173,9 +4193,9 @@
     "id": "nba:5099752",
     "name": "Rayan Rupert",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Portland Trail Blazers",
-    "teamAbbr": "POR",
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "G",
     "number": 21
   },
@@ -4518,16 +4538,6 @@
     "teamAbbr": "DEN",
     "position": "F",
     "number": 21
-  },
-  {
-    "id": "nba:4279532",
-    "name": "Stanley Umude",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "San Antonio Spurs",
-    "teamAbbr": "SA",
-    "position": "G",
-    "number": 17
   },
   {
     "id": "nba:3975",
