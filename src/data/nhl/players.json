@@ -90,16 +90,6 @@
     "number": 81
   },
   {
-    "id": "nhl:4587818",
-    "name": "Adam Ginning",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "D",
-    "number": 13
-  },
-  {
     "id": "nhl:5074",
     "name": "Adam Henrique",
     "conference": "West",
@@ -708,6 +698,16 @@
     "teamAbbr": "LA",
     "position": "LW",
     "number": 10
+  },
+  {
+    "id": "nhl:5209793",
+    "name": "Arttu Hyry",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "RW",
+    "number": 25
   },
   {
     "id": "nhl:3042050",
@@ -1460,16 +1460,6 @@
     "number": 23
   },
   {
-    "id": "nhl:5216868",
-    "name": "Carter Yakemchuk",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 58
-  },
-  {
     "id": "nhl:5262",
     "name": "Casey Cizikas",
     "conference": "East",
@@ -2178,16 +2168,6 @@
     "teamAbbr": "NYI",
     "position": "G",
     "number": 33
-  },
-  {
-    "id": "nhl:5103533",
-    "name": "David Spacek",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 82
   },
   {
     "id": "nhl:5278081",
@@ -4580,6 +4560,16 @@
     "number": 6
   },
   {
+    "id": "nhl:5239180",
+    "name": "Kai Uchacz",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 77
+  },
+  {
     "id": "nhl:4697399",
     "name": "Kaiden Guhle",
     "conference": "East",
@@ -4938,6 +4928,16 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 92
+  },
+  {
+    "id": "nhl:5080162",
+    "name": "Lian Bichsel",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 6
   },
   {
     "id": "nhl:4587713",
@@ -5498,6 +5498,16 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 3
+  },
+  {
+    "id": "nhl:5080153",
+    "name": "Matt Savoie",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 22
   },
   {
     "id": "nhl:4697719",
@@ -6860,16 +6870,6 @@
     "number": 19
   },
   {
-    "id": "nhl:4697829",
-    "name": "Remi Poirier",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "G",
-    "number": 31
-  },
-  {
     "id": "nhl:2562629",
     "name": "Rickard Rakell",
     "conference": "East",
@@ -7590,16 +7590,6 @@
     "number": 17
   },
   {
-    "id": "nhl:3114756",
-    "name": "Sonny Milano",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "LW",
-    "number": 15
-  },
-  {
     "id": "nhl:4565234",
     "name": "Spencer Knight",
     "conference": "West",
@@ -7708,6 +7698,16 @@
     "teamAbbr": "BOS",
     "position": "LW",
     "number": 84
+  },
+  {
+    "id": "nhl:4392137",
+    "name": "Tanner Laczynski",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 28
   },
   {
     "id": "nhl:2976860",
