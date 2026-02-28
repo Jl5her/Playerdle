@@ -1190,16 +1190,6 @@
     "number": 5
   },
   {
-    "id": "nhl:4874733",
-    "name": "Brennan Othmann",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "LW",
-    "number": 78
-  },
-  {
     "id": "nhl:2300",
     "name": "Brent Burns",
     "conference": "West",
@@ -2280,16 +2270,6 @@
     "number": 9
   },
   {
-    "id": "nhl:5149847",
-    "name": "Domenic DiVincentiis",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "G",
-    "number": 50
-  },
-  {
     "id": "nhl:4997033",
     "name": "Dominic James",
     "conference": "East",
@@ -2808,6 +2788,16 @@
     "teamAbbr": "MIN",
     "position": "G",
     "number": 32
+  },
+  {
+    "id": "nhl:4588331",
+    "name": "Filip Hallander",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "C",
+    "number": 11
   },
   {
     "id": "nhl:4063607",
@@ -5700,16 +5690,6 @@
     "number": 53
   },
   {
-    "id": "nhl:4392765",
-    "name": "Michael DiPietro",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Boston Bruins",
-    "teamAbbr": "BOS",
-    "position": "G",
-    "number": 80
-  },
-  {
     "id": "nhl:4270247",
     "name": "Michael Eyssimont",
     "conference": "East",
@@ -8008,6 +7988,16 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 49
+  },
+  {
+    "id": "nhl:4588750",
+    "name": "Tye Kartye",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "LW",
+    "number": 12
   },
   {
     "id": "nhl:3042056",
