@@ -390,6 +390,16 @@
     "number": 55
   },
   {
+    "id": "nba:5242502",
+    "name": "Ben Saraf",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Brooklyn Nets",
+    "teamAbbr": "BKN",
+    "position": "G",
+    "number": 77
+  },
+  {
     "id": "nba:4433076",
     "name": "Ben Sheppard",
     "conference": "East",
@@ -898,16 +908,6 @@
     "teamAbbr": "UTAH",
     "position": "F",
     "number": 5
-  },
-  {
-    "id": "nba:4432809",
-    "name": "Cole Anthony",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Phoenix Suns",
-    "teamAbbr": "PHX",
-    "position": "G",
-    "number": 50
   },
   {
     "id": "nba:4397204",
@@ -3170,16 +3170,6 @@
     "number": 7
   },
   {
-    "id": "nba:2993874",
-    "name": "Kyle Anderson",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
-    "position": "F",
-    "number": 5
-  },
-  {
     "id": "nba:4684793",
     "name": "Kyle Filipowski",
     "conference": "West",
@@ -4217,7 +4207,7 @@
     "team": "Memphis Grizzlies",
     "teamAbbr": "MEM",
     "position": "G",
-    "number": 21
+    "number": 32
   },
   {
     "id": "nba:4431941",
