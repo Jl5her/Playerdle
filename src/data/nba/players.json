@@ -90,16 +90,6 @@
     "number": 20
   },
   {
-    "id": "nba:5170947",
-    "name": "AJ Johnson",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Dallas Mavericks",
-    "teamAbbr": "DAL",
-    "position": "G",
-    "number": 8
-  },
-  {
     "id": "nba:4900671",
     "name": "Ajay Mitchell",
     "conference": "West",
@@ -2088,6 +2078,16 @@
     "teamAbbr": "DEN",
     "position": "G",
     "number": 24
+  },
+  {
+    "id": "nba:4398207",
+    "name": "Jalen Slawson",
+    "conference": "East",
+    "division": "Central",
+    "team": "Indiana Pacers",
+    "teamAbbr": "IND",
+    "position": "F",
+    "number": 18
   },
   {
     "id": "nba:4397189",
@@ -4998,16 +4998,6 @@
     "teamAbbr": "LAC",
     "position": "G",
     "number": 15
-  },
-  {
-    "id": "nba:3135046",
-    "name": "Tyus Jones",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Dallas Mavericks",
-    "teamAbbr": "DAL",
-    "position": "G",
-    "number": 1
   },
   {
     "id": "nba:5104157",
