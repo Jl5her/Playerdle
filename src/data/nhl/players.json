@@ -480,16 +480,6 @@
     "number": 28
   },
   {
-    "id": "nhl:5077308",
-    "name": "Andrei Kuzmenko",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "LW",
-    "number": 96
-  },
-  {
     "id": "nhl:4352683",
     "name": "Andrei Svechnikov",
     "conference": "East",
@@ -548,6 +538,16 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 26
+  },
+  {
+    "id": "nhl:5103541",
+    "name": "Angus Booth",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 81
   },
   {
     "id": "nhl:4894401",
@@ -638,16 +638,6 @@
     "teamAbbr": "FLA",
     "position": "C",
     "number": 15
-  },
-  {
-    "id": "nhl:5149226",
-    "name": "Anton Wahlberg",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Buffalo Sabres",
-    "teamAbbr": "BUF",
-    "position": "C",
-    "number": 92
   },
   {
     "id": "nhl:3183",
@@ -1770,16 +1760,6 @@
     "number": 10
   },
   {
-    "id": "nhl:3941125",
-    "name": "Colton White",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
-    "position": "D",
-    "number": 45
-  },
-  {
     "id": "nhl:5149125",
     "name": "Connor Bedard",
     "conference": "West",
@@ -2278,6 +2258,16 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:4272081",
+    "name": "Dominik Shine",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "RW",
+    "number": 50
   },
   {
     "id": "nhl:4697791",
@@ -8040,6 +8030,16 @@
     "number": 57
   },
   {
+    "id": "nhl:5526",
+    "name": "Tyler Pitlick",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 19
+  },
+  {
     "id": "nhl:5430",
     "name": "Tyler Seguin",
     "conference": "West",
@@ -8247,7 +8247,7 @@
     "team": "New York Rangers",
     "teamAbbr": "NYR",
     "position": "D",
-    "number": 22
+    "number": 6
   },
   {
     "id": "nhl:2563036",
