@@ -90,6 +90,16 @@
     "number": 20
   },
   {
+    "id": "nba:5170947",
+    "name": "AJ Johnson",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 8
+  },
+  {
     "id": "nba:4900671",
     "name": "Ajay Mitchell",
     "conference": "West",
@@ -2520,13 +2530,23 @@
     "number": 55
   },
   {
+    "id": "nba:4898238",
+    "name": "John Poulakidas",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 1
+  },
+  {
     "id": "nba:4593043",
     "name": "John Tonje",
     "conference": "East",
     "division": "Atlantic",
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
-    "position": "F",
+    "position": "G",
     "number": 8
   },
   {
@@ -3610,16 +3630,6 @@
     "number": 0
   },
   {
-    "id": "nba:4696317",
-    "name": "Miles Kelly",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Dallas Mavericks",
-    "teamAbbr": "DAL",
-    "position": "G",
-    "number": 14
-  },
-  {
     "id": "nba:4431823",
     "name": "Miles McBride",
     "conference": "East",
@@ -3938,6 +3948,16 @@
     "teamAbbr": "IND",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:4397018",
+    "name": "Ochai Agbaji",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Brooklyn Nets",
+    "teamAbbr": "BKN",
+    "position": "G",
+    "number": 30
   },
   {
     "id": "nba:3934719",
@@ -4940,6 +4960,16 @@
     "number": 13
   },
   {
+    "id": "nba:5167876",
+    "name": "Tyler Smith",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "F",
+    "number": 23
+  },
+  {
     "id": "nba:4396993",
     "name": "Tyrese Haliburton",
     "conference": "East",
@@ -5228,5 +5258,15 @@
     "teamAbbr": "NO",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:4592979",
+    "name": "Zyon Pullin",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 5
   }
 ]
