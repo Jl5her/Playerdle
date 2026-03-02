@@ -90,6 +90,16 @@
     "number": 81
   },
   {
+    "id": "nhl:4587818",
+    "name": "Adam Ginning",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "D",
+    "number": 13
+  },
+  {
     "id": "nhl:5074",
     "name": "Adam Henrique",
     "conference": "West",
@@ -188,16 +198,6 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 20
-  },
-  {
-    "id": "nhl:4331611",
-    "name": "Alec Regula",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Edmonton Oilers",
-    "teamAbbr": "EDM",
-    "position": "D",
-    "number": 75
   },
   {
     "id": "nhl:3041970",
@@ -520,16 +520,6 @@
     "number": 18
   },
   {
-    "id": "nhl:3149619",
-    "name": "Andrew Mangiapane",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Edmonton Oilers",
-    "teamAbbr": "EDM",
-    "position": "LW",
-    "number": 88
-  },
-  {
     "id": "nhl:4064936",
     "name": "Andrew Peeke",
     "conference": "East",
@@ -538,16 +528,6 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 26
-  },
-  {
-    "id": "nhl:5103541",
-    "name": "Angus Booth",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "D",
-    "number": 81
   },
   {
     "id": "nhl:4894401",
@@ -6828,16 +6808,6 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 71
-  },
-  {
-    "id": "nhl:3114774",
-    "name": "Robby Fabbri",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "C",
-    "number": 9
   },
   {
     "id": "nhl:4233637",
