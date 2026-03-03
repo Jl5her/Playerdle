@@ -640,16 +640,6 @@
     "number": 7
   },
   {
-    "id": "nba:4395676",
-    "name": "Buddy Boeheim",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "F",
-    "number": 14
-  },
-  {
     "id": "nba:2990984",
     "name": "Buddy Hield",
     "conference": "East",
@@ -868,6 +858,16 @@
     "teamAbbr": "TOR",
     "position": "G",
     "number": 24
+  },
+  {
+    "id": "nba:4702602",
+    "name": "CJ Huntley",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Phoenix Suns",
+    "teamAbbr": "PHX",
+    "position": "F",
+    "number": 22
   },
   {
     "id": "nba:2490149",
@@ -2280,16 +2280,6 @@
     "number": 10
   },
   {
-    "id": "nba:4597259",
-    "name": "Javonte Cooke",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Portland Trail Blazers",
-    "teamAbbr": "POR",
-    "position": "G",
-    "number": 18
-  },
-  {
     "id": "nba:2596112",
     "name": "Javonte Green",
     "conference": "East",
@@ -2768,6 +2758,16 @@
     "teamAbbr": "MIN",
     "position": "F",
     "number": 4
+  },
+  {
+    "id": "nba:4683742",
+    "name": "Julian Reese",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "F",
+    "number": 15
   },
   {
     "id": "nba:4432181",
@@ -3657,7 +3657,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "C",
-    "number": 4
+    "number": 11
   },
   {
     "id": "nba:5289900",
@@ -3928,6 +3928,16 @@
     "teamAbbr": "BKN",
     "position": "G",
     "number": 88
+  },
+  {
+    "id": "nba:4702134",
+    "name": "Norchad Omier",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
+    "position": "F",
+    "number": 55
   },
   {
     "id": "nba:2595516",
@@ -4478,6 +4488,16 @@
     "teamAbbr": "MEM",
     "position": "G",
     "number": 1
+  },
+  {
+    "id": "nba:4709131",
+    "name": "Sean Pedulla",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
+    "position": "G",
+    "number": 0
   },
   {
     "id": "nba:2326307",
