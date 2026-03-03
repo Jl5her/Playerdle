@@ -530,6 +530,16 @@
     "number": 26
   },
   {
+    "id": "nhl:5103541",
+    "name": "Angus Booth",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 81
+  },
+  {
     "id": "nhl:4894401",
     "name": "Anson Thornton",
     "conference": "West",
@@ -1833,9 +1843,9 @@
     "id": "nhl:2562618",
     "name": "Connor Murphy",
     "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
     "position": "D",
     "number": 5
   },
@@ -2590,16 +2600,6 @@
     "number": 44
   },
   {
-    "id": "nhl:3891922",
-    "name": "Erik Gustafsson",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "D",
-    "number": 56
-  },
-  {
     "id": "nhl:2593311",
     "name": "Erik Haula",
     "conference": "West",
@@ -3068,6 +3068,16 @@
     "teamAbbr": "NYI",
     "position": "G",
     "number": 30
+  },
+  {
+    "id": "nhl:5080179",
+    "name": "Isaac Howard",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 53
   },
   {
     "id": "nhl:4233871",
@@ -3608,6 +3618,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 46
+  },
+  {
+    "id": "nhl:5104200",
+    "name": "Jared Wright",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "RW",
+    "number": 53
   },
   {
     "id": "nhl:3042062",
@@ -4517,16 +4537,6 @@
     "team": "Utah Mammoth",
     "teamAbbr": "UTA",
     "position": "RW",
-    "number": 56
-  },
-  {
-    "id": "nhl:4063267",
-    "name": "Kale Clague",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "D",
     "number": 56
   },
   {
@@ -6810,6 +6820,16 @@
     "number": 71
   },
   {
+    "id": "nhl:3114774",
+    "name": "Robby Fabbri",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 9
+  },
+  {
     "id": "nhl:4233637",
     "name": "Robert Thomas",
     "conference": "West",
@@ -7998,16 +8018,6 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 57
-  },
-  {
-    "id": "nhl:5526",
-    "name": "Tyler Pitlick",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 19
   },
   {
     "id": "nhl:5430",
