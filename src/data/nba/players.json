@@ -830,6 +830,16 @@
     "number": 30
   },
   {
+    "id": "nba:4706557",
+    "name": "Chris Youngblood",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Portland Trail Blazers",
+    "teamAbbr": "POR",
+    "position": "G",
+    "number": 11
+  },
+  {
     "id": "nba:4431767",
     "name": "Christian Braun",
     "conference": "West",
@@ -1010,16 +1020,6 @@
     "number": 29
   },
   {
-    "id": "nba:4397885",
-    "name": "Dalano Banton",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Boston Celtics",
-    "teamAbbr": "BOS",
-    "position": "F",
-    "number": 45
-  },
-  {
     "id": "nba:4433159",
     "name": "Dalen Terry",
     "conference": "East",
@@ -1078,16 +1078,6 @@
     "teamAbbr": "BKN",
     "position": "F",
     "number": 2
-  },
-  {
-    "id": "nba:4397450",
-    "name": "Darius Brown",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
-    "position": "G",
-    "number": 10
   },
   {
     "id": "nba:4396907",
@@ -2360,6 +2350,16 @@
     "number": 20
   },
   {
+    "id": "nba:4703889",
+    "name": "Jayson Kent",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Portland Trail Blazers",
+    "teamAbbr": "POR",
+    "position": "G",
+    "number": 29
+  },
+  {
     "id": "nba:4065648",
     "name": "Jayson Tatum",
     "conference": "East",
@@ -3188,6 +3188,16 @@
     "teamAbbr": "GS",
     "position": "C",
     "number": 7
+  },
+  {
+    "id": "nba:2993874",
+    "name": "Kyle Anderson",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 5
   },
   {
     "id": "nba:4684793",
