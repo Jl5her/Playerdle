@@ -530,16 +530,6 @@
     "number": 26
   },
   {
-    "id": "nhl:5103541",
-    "name": "Angus Booth",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "D",
-    "number": 81
-  },
-  {
     "id": "nhl:4894401",
     "name": "Anson Thornton",
     "conference": "West",
@@ -1130,16 +1120,6 @@
     "number": 10
   },
   {
-    "id": "nhl:4697412",
-    "name": "Brendan Brisson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "C",
-    "number": 91
-  },
-  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "East",
@@ -1550,6 +1530,16 @@
     "number": 22
   },
   {
+    "id": "nhl:5172810",
+    "name": "Christoffer Sedoff",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 44
+  },
+  {
     "id": "nhl:3775",
     "name": "Claude Giroux",
     "conference": "East",
@@ -1663,9 +1653,9 @@
     "id": "nhl:4197130",
     "name": "Cole Smith",
     "conference": "West",
-    "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
     "position": "RW",
     "number": 36
   },
@@ -1868,6 +1858,16 @@
     "teamAbbr": "VAN",
     "position": "RW",
     "number": 8
+  },
+  {
+    "id": "nhl:5080155",
+    "name": "Conor Geekie",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 14
   },
   {
     "id": "nhl:3149827",
@@ -2620,16 +2620,6 @@
     "number": 65
   },
   {
-    "id": "nhl:4781548",
-    "name": "Erik Portillo",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "G",
-    "number": 1
-  },
-  {
     "id": "nhl:3069352",
     "name": "Esa Lindell",
     "conference": "West",
@@ -2648,6 +2638,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 74
+  },
+  {
+    "id": "nhl:4894726",
+    "name": "Ethan Del Mastro",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 38
   },
   {
     "id": "nhl:5188404",
@@ -3628,6 +3628,16 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 53
+  },
+  {
+    "id": "nhl:5188348",
+    "name": "Jaroslav Chmelar",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "RW",
+    "number": 49
   },
   {
     "id": "nhl:3042062",
@@ -5380,16 +5390,6 @@
     "number": 48
   },
   {
-    "id": "nhl:4799741",
-    "name": "Matt Kiersted",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 26
-  },
-  {
     "id": "nhl:4062234",
     "name": "Matt Luff",
     "conference": "East",
@@ -5694,8 +5694,8 @@
     "name": "Michael McCarron",
     "conference": "West",
     "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
     "position": "C",
     "number": 47
   },
@@ -6750,6 +6750,16 @@
     "number": 7
   },
   {
+    "id": "nhl:4565261",
+    "name": "Raphael Lavoie",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 36
+  },
+  {
     "id": "nhl:3904186",
     "name": "Rasmus Andersson",
     "conference": "West",
@@ -7288,16 +7298,6 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 24
-  },
-  {
-    "id": "nhl:4874882",
-    "name": "Scott Morrow",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "D",
-    "number": 60
   },
   {
     "id": "nhl:3067840",
