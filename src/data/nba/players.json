@@ -2417,7 +2417,7 @@
     "team": "New York Knicks",
     "teamAbbr": "NY",
     "position": "F",
-    "number": 20
+    "number": 10
   },
   {
     "id": "nba:4277922",
@@ -2718,6 +2718,16 @@
     "teamAbbr": "BKN",
     "position": "F",
     "number": 0
+  },
+  {
+    "id": "nba:4432068",
+    "name": "Josh Oduro",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "C",
+    "number": 13
   },
   {
     "id": "nba:4065663",
@@ -3420,16 +3430,6 @@
     "number": 5
   },
   {
-    "id": "nba:4565201",
-    "name": "Malaki Branham",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
-    "position": "G",
-    "number": 8
-  },
-  {
     "id": "nba:4897449",
     "name": "Malevy Leons",
     "conference": "West",
@@ -3988,6 +3988,16 @@
     "teamAbbr": "NY",
     "position": "F",
     "number": 8
+  },
+  {
+    "id": "nba:4278046",
+    "name": "Olivier Sarr",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "F",
+    "number": 33
   },
   {
     "id": "nba:4595400",
@@ -4660,14 +4670,14 @@
     "number": 4
   },
   {
-    "id": "nba:4683933",
-    "name": "Tamar Bates",
+    "id": "nba:3986",
+    "name": "Taj Gibson",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Denver Nuggets",
-    "teamAbbr": "DEN",
-    "position": "G",
-    "number": 7
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
+    "position": "F",
+    "number": 67
   },
   {
     "id": "nba:4433192",
