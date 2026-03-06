@@ -2990,16 +2990,6 @@
     "number": 16
   },
   {
-    "id": "nba:4585618",
-    "name": "Keshon Gilbert",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Washington Wizards",
-    "teamAbbr": "WSH",
-    "position": "G",
-    "number": 55
-  },
-  {
     "id": "nba:3202",
     "name": "Kevin Durant",
     "conference": "West",
@@ -3260,16 +3250,6 @@
     "number": 18
   },
   {
-    "id": "nba:4433149",
-    "name": "L.J. Cryer",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Golden State Warriors",
-    "teamAbbr": "GS",
-    "position": "G",
-    "number": 18
-  },
-  {
     "id": "nba:5091709",
     "name": "Lachlan Olbrich",
     "conference": "East",
@@ -3327,7 +3307,7 @@
     "team": "Washington Wizards",
     "teamAbbr": "WSH",
     "position": "F",
-    "number": 12
+    "number": 14
   },
   {
     "id": "nba:1966",
@@ -3368,6 +3348,16 @@
     "teamAbbr": "SA",
     "position": "F",
     "number": 43
+  },
+  {
+    "id": "nba:4433149",
+    "name": "LJ Cryer",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "G",
+    "number": 18
   },
   {
     "id": "nba:4397020",
