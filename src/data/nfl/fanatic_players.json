@@ -1296,22 +1296,6 @@
     "tdPerGame": 0.41
   },
   {
-    "id": "nfl:3121427",
-    "name": "Curtis Samuel",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Buffalo Bills",
-    "teamAbbr": "BUF",
-    "position": "WR",
-    "number": 1,
-    "gp": 6,
-    "fppg": 2.9,
-    "tgtPerGame": 1.5,
-    "recPerGame": 1.2,
-    "ydsPerGame": 13.5,
-    "tdPerGame": 0.17
-  },
-  {
     "id": "nfl:4259545",
     "name": "D'Andre Swift",
     "conference": "NFC",
@@ -1566,22 +1550,6 @@
     "recPerGame": 0.3,
     "ydsPerGame": 2,
     "tdPerGame": 0.07
-  },
-  {
-    "id": "nfl:4035538",
-    "name": "David Montgomery",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "RB",
-    "number": 5,
-    "gp": 17,
-    "fppg": 9.1,
-    "tgtPerGame": 1.7,
-    "recPerGame": 1.4,
-    "ydsPerGame": 53.4,
-    "tdPerGame": 0.47
   },
   {
     "id": "nfl:3123076",
@@ -1918,22 +1886,6 @@
     "recPerGame": 0,
     "ydsPerGame": 10.7,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:3915416",
-    "name": "DJ Moore",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 2,
-    "gp": 17,
-    "fppg": 8.5,
-    "tgtPerGame": 5,
-    "recPerGame": 2.9,
-    "ydsPerGame": 44.8,
-    "tdPerGame": 0.41
   },
   {
     "id": "nfl:4047650",
@@ -3566,22 +3518,6 @@
     "recPerGame": 2.7,
     "ydsPerGame": 115.5,
     "tdPerGame": 1.18
-  },
-  {
-    "id": "nfl:3054212",
-    "name": "Jonnu Smith",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "TE",
-    "number": 81,
-    "gp": 17,
-    "fppg": 3.9,
-    "tgtPerGame": 3.2,
-    "recPerGame": 2.2,
-    "ydsPerGame": 17.2,
-    "tdPerGame": 0.18
   },
   {
     "id": "nfl:4429205",
@@ -6398,22 +6334,6 @@
     "recPerGame": 5.8,
     "ydsPerGame": 63.7,
     "tdPerGame": 0.25
-  },
-  {
-    "id": "nfl:3127292",
-    "name": "Will Dissly",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "TE",
-    "number": 89,
-    "gp": 9,
-    "fppg": 1.7,
-    "tgtPerGame": 1.8,
-    "recPerGame": 1.2,
-    "ydsPerGame": 10.8,
-    "tdPerGame": 0
   },
   {
     "id": "nfl:4431545",
