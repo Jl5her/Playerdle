@@ -870,6 +870,16 @@
     "number": 46
   },
   {
+    "id": "nhl:4378685",
+    "name": "Bo Groulx",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 29
+  },
+  {
     "id": "nhl:3042002",
     "name": "Bo Horvat",
     "conference": "East",
@@ -1120,16 +1130,6 @@
     "number": 10
   },
   {
-    "id": "nhl:4697412",
-    "name": "Brendan Brisson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "C",
-    "number": 91
-  },
-  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "East",
@@ -1168,6 +1168,16 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 84
+  },
+  {
+    "id": "nhl:4697654",
+    "name": "Brett Berard",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "LW",
+    "number": 65
   },
   {
     "id": "nhl:4024989",
@@ -7598,6 +7608,16 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 18
+  },
+  {
+    "id": "nhl:3042015",
+    "name": "Steven Santini",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 16
   },
   {
     "id": "nhl:5037",
