@@ -2320,16 +2320,6 @@
     "number": 19
   },
   {
-    "id": "nhl:4697450",
-    "name": "Drew Commesso",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 33
-  },
-  {
     "id": "nhl:3995",
     "name": "Drew Doughty",
     "conference": "West",
@@ -3348,6 +3338,16 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 78
+  },
+  {
+    "id": "nhl:5188437",
+    "name": "Jacob Fowler",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "G",
+    "number": 32
   },
   {
     "id": "nhl:5104158",
@@ -7498,6 +7498,16 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 27
+  },
+  {
+    "id": "nhl:4196931",
+    "name": "Sheldon Dries",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nhl:3114",
