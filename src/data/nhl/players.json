@@ -350,6 +350,16 @@
     "number": 72
   },
   {
+    "id": "nhl:4352805",
+    "name": "Alexander Alexeyev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 56
+  },
+  {
     "id": "nhl:4697388",
     "name": "Alexander Holtz",
     "conference": "West",
@@ -728,6 +738,16 @@
     "teamAbbr": "CHI",
     "position": "G",
     "number": 40
+  },
+  {
+    "id": "nhl:2525761",
+    "name": "Austin Watson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "LW",
+    "number": 24
   },
   {
     "id": "nhl:4024123",
@@ -3038,6 +3058,16 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 74
+  },
+  {
+    "id": "nhl:5216907",
+    "name": "Igor Chernyshov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "LW",
+    "number": 92
   },
   {
     "id": "nhl:3151297",
@@ -5710,6 +5740,16 @@
     "number": 77
   },
   {
+    "id": "nhl:4392215",
+    "name": "Michael Pezzetta",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 61
+  },
+  {
     "id": "nhl:4233576",
     "name": "Michael Rasmussen",
     "conference": "East",
@@ -6948,16 +6988,6 @@
     "teamAbbr": "CHI",
     "position": "C",
     "number": 8
-  },
-  {
-    "id": "nhl:3042122",
-    "name": "Ryan Graves",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "D",
-    "number": 27
   },
   {
     "id": "nhl:5080227",
