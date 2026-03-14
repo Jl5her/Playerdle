@@ -3287,7 +3287,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "C",
-    "number": 62
+    "number": 37
   },
   {
     "id": "nhl:4565222",
@@ -4507,7 +4507,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "D",
-    "number": 3
+    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -4858,6 +4858,16 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 89
+  },
+  {
+    "id": "nhl:3026526",
+    "name": "Laurent Brossoit",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "G",
+    "number": 93
   },
   {
     "id": "nhl:3899951",
@@ -5668,6 +5678,16 @@
     "teamAbbr": "OTT",
     "position": "RW",
     "number": 22
+  },
+  {
+    "id": "nhl:4697652",
+    "name": "Michael Benning",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
+    "number": 44
   },
   {
     "id": "nhl:5216883",
@@ -7648,16 +7668,6 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 18
-  },
-  {
-    "id": "nhl:3042015",
-    "name": "Steven Santini",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "D",
-    "number": 16
   },
   {
     "id": "nhl:5037",
