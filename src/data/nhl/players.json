@@ -1677,7 +1677,7 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "RW",
-    "number": 36
+    "number": 22
   },
   {
     "id": "nhl:2590857",
@@ -1878,16 +1878,6 @@
     "teamAbbr": "CBJ",
     "position": "RW",
     "number": 83
-  },
-  {
-    "id": "nhl:5080155",
-    "name": "Conor Geekie",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "C",
-    "number": 14
   },
   {
     "id": "nhl:3149827",
@@ -2470,6 +2460,16 @@
     "number": 53
   },
   {
+    "id": "nhl:5276295",
+    "name": "Eduards Tralmaks",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "RW",
+    "number": 14
+  },
+  {
     "id": "nhl:4233720",
     "name": "Eeli Tolvanen",
     "conference": "West",
@@ -2948,6 +2948,16 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 19
+  },
+  {
+    "id": "nhl:5337",
+    "name": "Garrett Wilson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "LW",
+    "number": 87
   },
   {
     "id": "nhl:5136614",
@@ -4860,6 +4870,16 @@
     "number": 89
   },
   {
+    "id": "nhl:4565240",
+    "name": "Lassi Thomson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "D",
+    "number": 60
+  },
+  {
     "id": "nhl:3026526",
     "name": "Laurent Brossoit",
     "conference": "West",
@@ -5128,16 +5148,6 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 71
-  },
-  {
-    "id": "nhl:5103534",
-    "name": "Maksymilian Szuber",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "D",
-    "number": 55
   },
   {
     "id": "nhl:4697442",
@@ -5630,6 +5640,16 @@
     "number": 11
   },
   {
+    "id": "nhl:4024980",
+    "name": "Max Jones",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 46
+  },
+  {
     "id": "nhl:4996099",
     "name": "Max Sasson",
     "conference": "West",
@@ -5808,6 +5828,16 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 64
+  },
+  {
+    "id": "nhl:4997019",
+    "name": "Mike Benning",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
+    "number": 20
   },
   {
     "id": "nhl:2976851",
@@ -7668,6 +7698,16 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 18
+  },
+  {
+    "id": "nhl:3042015",
+    "name": "Steven Santini",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 16
   },
   {
     "id": "nhl:5037",
