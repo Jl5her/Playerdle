@@ -304,22 +304,6 @@
     "tdPerGame": 0.14
   },
   {
-    "id": "nfl:3043275",
-    "name": "Austin Hooper",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "TE",
-    "number": 81,
-    "gp": 16,
-    "fppg": 3.1,
-    "tgtPerGame": 1.6,
-    "recPerGame": 1.3,
-    "ydsPerGame": 16.4,
-    "tdPerGame": 0.13
-  },
-  {
     "id": "nfl:4244856",
     "name": "Austin Trammell",
     "conference": "AFC",
@@ -370,10 +354,10 @@
   {
     "id": "nfl:4373030",
     "name": "Ben Sims",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
     "position": "TE",
     "number": 89,
     "gp": 9,
@@ -928,22 +912,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4241263",
-    "name": "Charlie Kolar",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "TE",
-    "number": 88,
-    "gp": 17,
-    "fppg": 1.8,
-    "tgtPerGame": 0.9,
-    "recPerGame": 0.6,
-    "ydsPerGame": 8.4,
-    "tdPerGame": 0.12
-  },
-  {
     "id": "nfl:4035020",
     "name": "Charlie Woerner",
     "conference": "NFC",
@@ -974,22 +942,6 @@
     "recPerGame": 4.1,
     "ydsPerGame": 85.6,
     "tdPerGame": 0.65
-  },
-  {
-    "id": "nfl:4360635",
-    "name": "Chig Okonkwo",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "TE",
-    "number": 85,
-    "gp": 17,
-    "fppg": 5.6,
-    "tgtPerGame": 4.6,
-    "recPerGame": 3.3,
-    "ydsPerGame": 32.9,
-    "tdPerGame": 0.12
   },
   {
     "id": "nfl:4431268",
@@ -1090,10 +1042,10 @@
   {
     "id": "nfl:4362619",
     "name": "Chris Rodriguez Jr.",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Washington Commanders",
-    "teamAbbr": "WSH",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
     "position": "RB",
     "number": 36,
     "gp": 13,
@@ -1376,22 +1328,6 @@
     "tdPerGame": 0.18
   },
   {
-    "id": "nfl:4361516",
-    "name": "Daniel Bellinger",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "TE",
-    "number": 82,
-    "gp": 16,
-    "fppg": 3.1,
-    "tgtPerGame": 1.6,
-    "recPerGame": 1.2,
-    "ydsPerGame": 17.9,
-    "tdPerGame": 0.13
-  },
-  {
     "id": "nfl:3127306",
     "name": "Dante Pettis",
     "conference": "NFC",
@@ -1469,22 +1405,6 @@
     "tgtPerGame": 4.5,
     "recPerGame": 2.6,
     "ydsPerGame": 38.4,
-    "tdPerGame": 0.07
-  },
-  {
-    "id": "nfl:4040655",
-    "name": "Darnell Mooney",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "WR",
-    "number": 1,
-    "gp": 15,
-    "fppg": 4.4,
-    "tgtPerGame": 4.8,
-    "recPerGame": 2.1,
-    "ydsPerGame": 29.5,
     "tdPerGame": 0.07
   },
   {
@@ -2000,22 +1920,6 @@
     "tdPerGame": 0.06
   },
   {
-    "id": "nfl:3052897",
-    "name": "Durham Smythe",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 81,
-    "gp": 17,
-    "fppg": 0.3,
-    "tgtPerGame": 0.4,
-    "recPerGame": 0.2,
-    "ydsPerGame": 1.5,
-    "tdPerGame": 0
-  },
-  {
     "id": "nfl:4361577",
     "name": "Dyami Brown",
     "conference": "AFC",
@@ -2144,22 +2048,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4887558",
-    "name": "Emanuel Wilson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Green Bay Packers",
-    "teamAbbr": "GB",
-    "position": "RB",
-    "number": 23,
-    "gp": 17,
-    "fppg": 5.1,
-    "tgtPerGame": 1,
-    "recPerGame": 0.9,
-    "ydsPerGame": 35,
-    "tdPerGame": 0.18
-  },
-  {
     "id": "nfl:4362478",
     "name": "Emari Demercado",
     "conference": "NFC",
@@ -2258,10 +2146,10 @@
   {
     "id": "nfl:3843945",
     "name": "Foster Moreau",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
     "position": "TE",
     "number": 87,
     "gp": 11,
@@ -2656,22 +2544,6 @@
     "tdPerGame": 0.14
   },
   {
-    "id": "nfl:4361050",
-    "name": "Isaiah Likely",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "TE",
-    "number": 80,
-    "gp": 14,
-    "fppg": 3.4,
-    "tgtPerGame": 2.6,
-    "recPerGame": 1.9,
-    "ydsPerGame": 21.9,
-    "tdPerGame": 0.07
-  },
-  {
     "id": "nfl:4569371",
     "name": "Isaiah Williams",
     "conference": "AFC",
@@ -2686,22 +2558,6 @@
     "recPerGame": 1.7,
     "ydsPerGame": 15.1,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4361529",
-    "name": "Isiah Pacheco",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "RB",
-    "number": 10,
-    "gp": 13,
-    "fppg": 6,
-    "tgtPerGame": 2,
-    "recPerGame": 1.5,
-    "ydsPerGame": 43.3,
-    "tdPerGame": 0.15
   },
   {
     "id": "nfl:4241985",
@@ -2768,22 +2624,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4034862",
-    "name": "Jack Stoll",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "TE",
-    "number": 88,
-    "gp": 15,
-    "fppg": 0.9,
-    "tgtPerGame": 0.7,
-    "recPerGame": 0.4,
-    "ydsPerGame": 3.1,
-    "tdPerGame": 0.07
-  },
-  {
     "id": "nfl:4361100",
     "name": "Jack Westover",
     "conference": "AFC",
@@ -2846,22 +2686,6 @@
     "recPerGame": 0.5,
     "ydsPerGame": 51.4,
     "tdPerGame": 0.47
-  },
-  {
-    "id": "nfl:4361409",
-    "name": "Jahan Dotson",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "WR",
-    "number": 2,
-    "gp": 17,
-    "fppg": 2.4,
-    "tgtPerGame": 2.1,
-    "recPerGame": 1.1,
-    "ydsPerGame": 15.4,
-    "tdPerGame": 0.06
   },
   {
     "id": "nfl:5160110",
@@ -3006,22 +2830,6 @@
     "recPerGame": 3,
     "ydsPerGame": 35.8,
     "tdPerGame": 0.27
-  },
-  {
-    "id": "nfl:4382466",
-    "name": "Jalen Nailor",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "WR",
-    "number": 1,
-    "gp": 17,
-    "fppg": 5.1,
-    "tgtPerGame": 3.1,
-    "recPerGame": 1.7,
-    "ydsPerGame": 26.9,
-    "tdPerGame": 0.24
   },
   {
     "id": "nfl:5082630",
@@ -3376,22 +3184,6 @@
     "tdPerGame": 0.06
   },
   {
-    "id": "nfl:4372019",
-    "name": "Jerome Ford",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "RB",
-    "number": 34,
-    "gp": 13,
-    "fppg": 2.4,
-    "tgtPerGame": 2.5,
-    "recPerGame": 2,
-    "ydsPerGame": 13.5,
-    "tdPerGame": 0
-  },
-  {
     "id": "nfl:4241463",
     "name": "Jerry Jeudy",
     "conference": "AFC",
@@ -3454,38 +3246,6 @@
     "recPerGame": 0.8,
     "ydsPerGame": 4.8,
     "tdPerGame": 0.07
-  },
-  {
-    "id": "nfl:4567096",
-    "name": "John Metchie III",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "WR",
-    "number": 3,
-    "gp": 16,
-    "fppg": 3.5,
-    "tgtPerGame": 3,
-    "recPerGame": 2.1,
-    "ydsPerGame": 16.8,
-    "tdPerGame": 0.13
-  },
-  {
-    "id": "nfl:3052096",
-    "name": "Johnny Mundt",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Jacksonville Jaguars",
-    "teamAbbr": "JAX",
-    "position": "TE",
-    "number": 86,
-    "gp": 16,
-    "fppg": 1,
-    "tgtPerGame": 1.2,
-    "recPerGame": 0.6,
-    "ydsPerGame": 6.9,
-    "tdPerGame": 0
   },
   {
     "id": "nfl:4426485",
@@ -3684,8 +3444,8 @@
     "name": "Julian Hill",
     "conference": "AFC",
     "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
     "position": "TE",
     "number": 89,
     "gp": 14,
@@ -3774,22 +3534,6 @@
     "recPerGame": 0.1,
     "ydsPerGame": 7.8,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:2973405",
-    "name": "Kalif Raymond",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "WR",
-    "number": 11,
-    "gp": 15,
-    "fppg": 3.7,
-    "tgtPerGame": 2,
-    "recPerGame": 1.6,
-    "ydsPerGame": 20.5,
-    "tdPerGame": 0.07
   },
   {
     "id": "nfl:5097554",
@@ -3888,22 +3632,6 @@
     "tdPerGame": 0.1
   },
   {
-    "id": "nfl:4596334",
-    "name": "Keaton Mitchell",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "RB",
-    "number": 34,
-    "gp": 13,
-    "fppg": 3.9,
-    "tgtPerGame": 0.9,
-    "recPerGame": 0.7,
-    "ydsPerGame": 31.1,
-    "tdPerGame": 0.08
-  },
-  {
     "id": "nfl:15818",
     "name": "Keenan Allen",
     "conference": "AFC",
@@ -3936,22 +3664,6 @@
     "tdPerGame": 0.14
   },
   {
-    "id": "nfl:3045523",
-    "name": "Kendrick Bourne",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 84,
-    "gp": 16,
-    "fppg": 4.6,
-    "tgtPerGame": 3.3,
-    "recPerGame": 2.3,
-    "ydsPerGame": 34.4,
-    "tdPerGame": 0
-  },
-  {
     "id": "nfl:4035537",
     "name": "Kene Nwangwu",
     "conference": "AFC",
@@ -3966,38 +3678,6 @@
     "recPerGame": 0,
     "ydsPerGame": 4.9,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4371733",
-    "name": "Kenneth Gainwell",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "RB",
-    "number": 14,
-    "gp": 17,
-    "fppg": 10.9,
-    "tgtPerGame": 5,
-    "recPerGame": 4.3,
-    "ydsPerGame": 60.2,
-    "tdPerGame": 0.47
-  },
-  {
-    "id": "nfl:4567048",
-    "name": "Kenneth Walker III",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
-    "position": "RB",
-    "number": 9,
-    "gp": 17,
-    "fppg": 10.4,
-    "tgtPerGame": 2.1,
-    "recPerGame": 1.8,
-    "ydsPerGame": 77,
-    "tdPerGame": 0.29
   },
   {
     "id": "nfl:4635008",
@@ -4560,22 +4240,6 @@
     "tdPerGame": 0.08
   },
   {
-    "id": "nfl:4035687",
-    "name": "Michael Pittman Jr.",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "WR",
-    "number": 11,
-    "gp": 17,
-    "fppg": 9.6,
-    "tgtPerGame": 6.5,
-    "recPerGame": 4.7,
-    "ydsPerGame": 46.1,
-    "tdPerGame": 0.41
-  },
-  {
     "id": "nfl:4360761",
     "name": "Michael Wilson",
     "conference": "NFC",
@@ -4590,22 +4254,6 @@
     "recPerGame": 4.6,
     "ydsPerGame": 59.2,
     "tdPerGame": 0.41
-  },
-  {
-    "id": "nfl:16737",
-    "name": "Mike Evans",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Tampa Bay Buccaneers",
-    "teamAbbr": "TB",
-    "position": "WR",
-    "number": 13,
-    "gp": 8,
-    "fppg": 8.7,
-    "tgtPerGame": 7.6,
-    "recPerGame": 3.8,
-    "ydsPerGame": 46,
-    "tdPerGame": 0.38
   },
   {
     "id": "nfl:3116164",
@@ -4768,22 +4416,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4036131",
-    "name": "Noah Fant",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cincinnati Bengals",
-    "teamAbbr": "CIN",
-    "position": "TE",
-    "number": 86,
-    "gp": 15,
-    "fppg": 3.9,
-    "tgtPerGame": 2.7,
-    "recPerGame": 2.3,
-    "ydsPerGame": 19.2,
-    "tdPerGame": 0.2
-  },
-  {
     "id": "nfl:4240472",
     "name": "Noah Gray",
     "conference": "AFC",
@@ -4798,22 +4430,6 @@
     "recPerGame": 1.3,
     "ydsPerGame": 11.1,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:3917914",
-    "name": "Olamide Zaccheaus",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 14,
-    "gp": 16,
-    "fppg": 4.1,
-    "tgtPerGame": 4.1,
-    "recPerGame": 2.4,
-    "ydsPerGame": 21.1,
-    "tdPerGame": 0.13
   },
   {
     "id": "nfl:4711533",
@@ -5152,22 +4768,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4038815",
-    "name": "Rico Dowdle",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Carolina Panthers",
-    "teamAbbr": "CAR",
-    "position": "RB",
-    "number": 5,
-    "gp": 17,
-    "fppg": 11.6,
-    "tgtPerGame": 2.9,
-    "recPerGame": 2.3,
-    "ydsPerGame": 80.8,
-    "tdPerGame": 0.41
-  },
-  {
     "id": "nfl:4568490",
     "name": "RJ Harvey",
     "conference": "AFC",
@@ -5230,22 +4830,6 @@
     "recPerGame": 3.7,
     "ydsPerGame": 55.1,
     "tdPerGame": 0.5
-  },
-  {
-    "id": "nfl:4361432",
-    "name": "Romeo Doubs",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Green Bay Packers",
-    "teamAbbr": "GB",
-    "position": "WR",
-    "number": 87,
-    "gp": 16,
-    "fppg": 8.6,
-    "tgtPerGame": 5.3,
-    "recPerGame": 3.4,
-    "ydsPerGame": 45.3,
-    "tdPerGame": 0.38
   },
   {
     "id": "nfl:4243003",
@@ -5437,22 +5021,6 @@
     "tgtPerGame": 0,
     "recPerGame": 0,
     "ydsPerGame": 0.5,
-    "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4430191",
-    "name": "Skyy Moore",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 9,
-    "gp": 17,
-    "fppg": 0.7,
-    "tgtPerGame": 0.4,
-    "recPerGame": 0.3,
-    "ydsPerGame": 5.8,
     "tdPerGame": 0
   },
   {
@@ -5824,22 +5392,6 @@
     "tdPerGame": 0.63
   },
   {
-    "id": "nfl:4239996",
-    "name": "Travis Etienne Jr.",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Jacksonville Jaguars",
-    "teamAbbr": "JAX",
-    "position": "RB",
-    "number": 1,
-    "gp": 17,
-    "fppg": 13.9,
-    "tgtPerGame": 3.1,
-    "recPerGame": 2.1,
-    "ydsPerGame": 82.3,
-    "tdPerGame": 0.76
-  },
-  {
     "id": "nfl:4037457",
     "name": "Travis Homer",
     "conference": "NFC",
@@ -6048,22 +5600,6 @@
     "tdPerGame": 0.75
   },
   {
-    "id": "nfl:4360797",
-    "name": "Tutu Atwell",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Los Angeles Rams",
-    "teamAbbr": "LAR",
-    "position": "WR",
-    "number": 5,
-    "gp": 10,
-    "fppg": 2.8,
-    "tgtPerGame": 1.5,
-    "recPerGame": 0.6,
-    "ydsPerGame": 19.2,
-    "tdPerGame": 0.1
-  },
-  {
     "id": "nfl:3915411",
     "name": "Ty Johnson",
     "conference": "AFC",
@@ -6112,22 +5648,6 @@
     "tdPerGame": 0.07
   },
   {
-    "id": "nfl:4373626",
-    "name": "Tyler Allgeier",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "RB",
-    "number": 25,
-    "gp": 17,
-    "fppg": 6.8,
-    "tgtPerGame": 0.9,
-    "recPerGame": 0.8,
-    "ydsPerGame": 35.9,
-    "tdPerGame": 0.47
-  },
-  {
     "id": "nfl:4362748",
     "name": "Tyler Badie",
     "conference": "AFC",
@@ -6146,10 +5666,10 @@
   {
     "id": "nfl:3915486",
     "name": "Tyler Conklin",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
     "position": "TE",
     "number": 83,
     "gp": 10,
@@ -6318,22 +5838,6 @@
     "recPerGame": 0,
     "ydsPerGame": 5.3,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4569587",
-    "name": "Wan'Dale Robinson",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 17,
-    "gp": 16,
-    "fppg": 10.7,
-    "tgtPerGame": 8.8,
-    "recPerGame": 5.8,
-    "ydsPerGame": 63.7,
-    "tdPerGame": 0.25
   },
   {
     "id": "nfl:4431545",
