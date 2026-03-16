@@ -220,6 +220,16 @@
     "number": 2
   },
   {
+    "id": "nba:4702431",
+    "name": "Andersson Garcia",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "G",
+    "number": 0
+  },
+  {
     "id": "nba:6585",
     "name": "Andre Drummond",
     "conference": "East",
@@ -808,6 +818,16 @@
     "teamAbbr": "BKN",
     "position": "F",
     "number": 31
+  },
+  {
+    "id": "nba:4397886",
+    "name": "Charles Bassey",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "C",
+    "number": 54
   },
   {
     "id": "nba:4700852",
@@ -3227,7 +3247,7 @@
     "team": "Minnesota Timberwolves",
     "teamAbbr": "MIN",
     "position": "F",
-    "number": 5
+    "number": 12
   },
   {
     "id": "nba:4684793",
@@ -4038,6 +4058,16 @@
     "teamAbbr": "MEM",
     "position": "F",
     "number": 18
+  },
+  {
+    "id": "nba:3074213",
+    "name": "Omer Yurtseven",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "C",
+    "number": 7
   },
   {
     "id": "nba:4431680",
@@ -5348,15 +5378,5 @@
     "teamAbbr": "NO",
     "position": "F",
     "number": 1
-  },
-  {
-    "id": "nba:4592979",
-    "name": "Zyon Pullin",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
-    "position": "G",
-    "number": 5
   }
 ]
