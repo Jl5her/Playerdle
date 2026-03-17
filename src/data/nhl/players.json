@@ -350,16 +350,6 @@
     "number": 72
   },
   {
-    "id": "nhl:4352805",
-    "name": "Alexander Alexeyev",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "D",
-    "number": 56
-  },
-  {
     "id": "nhl:4697388",
     "name": "Alexander Holtz",
     "conference": "West",
@@ -3030,6 +3020,16 @@
     "number": 20
   },
   {
+    "id": "nhl:4997138",
+    "name": "Henry Thrun",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 3
+  },
+  {
     "id": "nhl:4392880",
     "name": "Hugh McGing",
     "conference": "West",
@@ -3670,16 +3670,6 @@
     "number": 24
   },
   {
-    "id": "nhl:4587568",
-    "name": "Jan Jenik",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "C",
-    "number": 14
-  },
-  {
     "id": "nhl:3900154",
     "name": "Jansen Harkins",
     "conference": "West",
@@ -4207,7 +4197,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "LW",
-    "number": 29
+    "number": 92
   },
   {
     "id": "nhl:2562606",
@@ -6440,6 +6430,16 @@
     "number": 7
   },
   {
+    "id": "nhl:4565248",
+    "name": "Nolan Foote",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "LW",
+    "number": 25
+  },
+  {
     "id": "nhl:5311224",
     "name": "Oasiz Wiesblatt",
     "conference": "West",
@@ -6957,7 +6957,7 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "C",
-    "number": 9
+    "number": 21
   },
   {
     "id": "nhl:4233637",
@@ -7208,6 +7208,16 @@
     "teamAbbr": "SEA",
     "position": "D",
     "number": 41
+  },
+  {
+    "id": "nhl:5216886",
+    "name": "Sacha Boisvert",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "C",
+    "number": 12
   },
   {
     "id": "nhl:3114732",
