@@ -3020,16 +3020,6 @@
     "number": 20
   },
   {
-    "id": "nhl:4997138",
-    "name": "Henry Thrun",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "D",
-    "number": 3
-  },
-  {
     "id": "nhl:4392880",
     "name": "Hugh McGing",
     "conference": "West",
@@ -3048,6 +3038,16 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 48
+  },
+  {
+    "id": "nhl:5080216",
+    "name": "Hunter Haight",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 43
   },
   {
     "id": "nhl:4991",
@@ -3338,6 +3338,16 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 28
+  },
+  {
+    "id": "nhl:4755690",
+    "name": "Jack St. Ivany",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 3
   },
   {
     "id": "nhl:5103645",
@@ -5768,16 +5778,6 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 77
-  },
-  {
-    "id": "nhl:4392215",
-    "name": "Michael Pezzetta",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "LW",
-    "number": 61
   },
   {
     "id": "nhl:4233576",
