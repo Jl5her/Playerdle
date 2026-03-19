@@ -1610,6 +1610,16 @@
     "number": 82
   },
   {
+    "id": "nhl:5216918",
+    "name": "Cole Hutson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 44
+  },
+  {
     "id": "nhl:4419679",
     "name": "Cole Koepke",
     "conference": "West",
@@ -2947,7 +2957,7 @@
     "team": "Philadelphia Flyers",
     "teamAbbr": "PHI",
     "position": "LW",
-    "number": 87
+    "number": 10
   },
   {
     "id": "nhl:5136614",
@@ -3678,6 +3688,16 @@
     "teamAbbr": "SEA",
     "position": "D",
     "number": 24
+  },
+  {
+    "id": "nhl:5080217",
+    "name": "Jani Nyman",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 38
   },
   {
     "id": "nhl:3900154",
@@ -8208,6 +8228,16 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 71
+  },
+  {
+    "id": "nhl:5206895",
+    "name": "Tyson Gross",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 39
   },
   {
     "id": "nhl:4024879",
