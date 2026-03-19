@@ -827,7 +827,7 @@
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
     "position": "C",
-    "number": 54
+    "number": 99
   },
   {
     "id": "nba:4700852",
@@ -3387,7 +3387,7 @@
     "team": "Chicago Bulls",
     "teamAbbr": "CHI",
     "position": "F",
-    "number": 33
+    "number": 11
   },
   {
     "id": "nba:5239590",
@@ -3718,16 +3718,6 @@
     "teamAbbr": "NY",
     "position": "C",
     "number": 23
-  },
-  {
-    "id": "nba:4277919",
-    "name": "Mo Bamba",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
-    "position": "C",
-    "number": 11
   },
   {
     "id": "nba:5289900",
@@ -5388,5 +5378,15 @@
     "teamAbbr": "NO",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:4592979",
+    "name": "Zyon Pullin",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 5
   }
 ]
