@@ -750,16 +750,6 @@
     "number": 34
   },
   {
-    "id": "nhl:5172806",
-    "name": "Avery Hayes",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "RW",
-    "number": 85
-  },
-  {
     "id": "nhl:5149192",
     "name": "Axel Sandin-Pellikka",
     "conference": "East",
@@ -6990,6 +6980,16 @@
     "number": 18
   },
   {
+    "id": "nhl:4697437",
+    "name": "Roby Jarventie",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 15
+  },
+  {
     "id": "nhl:4064976",
     "name": "Rodrigo Abols",
     "conference": "East",
@@ -7058,6 +7058,16 @@
     "teamAbbr": "CHI",
     "position": "C",
     "number": 8
+  },
+  {
+    "id": "nhl:3042122",
+    "name": "Ryan Graves",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 27
   },
   {
     "id": "nhl:5080227",
