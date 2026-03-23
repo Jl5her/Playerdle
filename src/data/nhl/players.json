@@ -5080,6 +5080,16 @@
     "number": 1
   },
   {
+    "id": "nhl:4697400",
+    "name": "Lukas Reichel",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 75
+  },
+  {
     "id": "nhl:4697446",
     "name": "Luke Evangelista",
     "conference": "West",
@@ -5458,16 +5468,6 @@
     "teamAbbr": "NYI",
     "position": "RW",
     "number": 39
-  },
-  {
-    "id": "nhl:4419662",
-    "name": "Matt Murray",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
-    "position": "G",
-    "number": 32
   },
   {
     "id": "nhl:3067862",
@@ -8408,16 +8408,6 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 33
-  },
-  {
-    "id": "nhl:4874911",
-    "name": "Ville Koivunen",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "RW",
-    "number": 41
   },
   {
     "id": "nhl:3904189",
