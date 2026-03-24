@@ -730,16 +730,6 @@
     "number": 24
   },
   {
-    "id": "nba:4432174",
-    "name": "Cam Thomas",
-    "conference": "East",
-    "division": "Central",
-    "team": "Milwaukee Bucks",
-    "teamAbbr": "MIL",
-    "position": "G",
-    "number": 24
-  },
-  {
     "id": "nba:5105592",
     "name": "Cam Whitmore",
     "conference": "East",
@@ -3558,6 +3548,16 @@
     "teamAbbr": "PHX",
     "position": "C",
     "number": 15
+  },
+  {
+    "id": "nba:4066636",
+    "name": "Markelle Fultz",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 20
   },
   {
     "id": "nba:4277848",
