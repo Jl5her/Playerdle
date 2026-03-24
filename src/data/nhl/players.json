@@ -750,16 +750,6 @@
     "number": 34
   },
   {
-    "id": "nhl:5149192",
-    "name": "Axel Sandin-Pellikka",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "D",
-    "number": 44
-  },
-  {
     "id": "nhl:3069411",
     "name": "Barclay Goodrow",
     "conference": "West",
@@ -2180,6 +2170,16 @@
     "number": 6
   },
   {
+    "id": "nhl:5174160",
+    "name": "Dennis Hildeby",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 35
+  },
+  {
     "id": "nhl:5080156",
     "name": "Denton Mateychuk",
     "conference": "East",
@@ -2338,6 +2338,16 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 8
+  },
+  {
+    "id": "nhl:5188394",
+    "name": "Drew Fortescue",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "D",
+    "number": 45
   },
   {
     "id": "nhl:4565270",
@@ -4898,16 +4908,6 @@
     "teamAbbr": "OTT",
     "position": "D",
     "number": 60
-  },
-  {
-    "id": "nhl:3026526",
-    "name": "Laurent Brossoit",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "G",
-    "number": 93
   },
   {
     "id": "nhl:3899951",
