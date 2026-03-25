@@ -150,6 +150,16 @@
     "number": 3
   },
   {
+    "id": "nhl:5080232",
+    "name": "Adam Sykora",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "LW",
+    "number": 38
+  },
+  {
     "id": "nhl:4697765",
     "name": "Adam Wilsby",
     "conference": "West",
@@ -618,6 +628,16 @@
     "teamAbbr": "LA",
     "position": "G",
     "number": 31
+  },
+  {
+    "id": "nhl:5291935",
+    "name": "Anton Frondell",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nhl:4697395",
@@ -1400,6 +1420,16 @@
     "number": 23
   },
   {
+    "id": "nhl:5216868",
+    "name": "Carter Yakemchuk",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "D",
+    "number": 58
+  },
+  {
     "id": "nhl:5262",
     "name": "Casey Cizikas",
     "conference": "East",
@@ -1458,6 +1488,16 @@
     "teamAbbr": "TB",
     "position": "D",
     "number": 51
+  },
+  {
+    "id": "nhl:5188462",
+    "name": "Charles-Alexis Legault",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "D",
+    "number": 62
   },
   {
     "id": "nhl:2555315",
@@ -1798,16 +1838,6 @@
     "teamAbbr": "EDM",
     "position": "G",
     "number": 39
-  },
-  {
-    "id": "nhl:4319927",
-    "name": "Connor Mackey",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "D",
-    "number": 12
   },
   {
     "id": "nhl:3895074",
@@ -3200,6 +3230,16 @@
     "number": 21
   },
   {
+    "id": "nhl:5171570",
+    "name": "Isaiah George",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 36
+  },
+  {
     "id": "nhl:4874731",
     "name": "Isak Rosen",
     "conference": "West",
@@ -4380,6 +4420,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5102979",
+    "name": "Jorian Donovan",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "D",
+    "number": 56
+  },
+  {
     "id": "nhl:4271575",
     "name": "Joseph Woll",
     "conference": "East",
@@ -5018,6 +5068,16 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 23
+  },
+  {
+    "id": "nhl:3988782",
+    "name": "Logan O'Connor",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "RW",
+    "number": 25
   },
   {
     "id": "nhl:4874899",
@@ -5730,16 +5790,6 @@
     "number": 44
   },
   {
-    "id": "nhl:5216883",
-    "name": "Michael Brandsegg-Nygard",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "RW",
-    "number": 28
-  },
-  {
     "id": "nhl:3149603",
     "name": "Michael Bunting",
     "conference": "West",
@@ -6388,6 +6438,16 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 53
+  },
+  {
+    "id": "nhl:4063460",
+    "name": "Noah Gregor",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "LW",
+    "number": 18
   },
   {
     "id": "nhl:3652964",
@@ -8408,6 +8468,16 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 33
+  },
+  {
+    "id": "nhl:4874911",
+    "name": "Ville Koivunen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 41
   },
   {
     "id": "nhl:3904189",
