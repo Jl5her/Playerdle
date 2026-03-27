@@ -1,6 +1,6 @@
 #!/usr/bin/env tsx
 
-import { mkdirSync, writeFileSync } from "node:fs"
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 
@@ -207,7 +207,7 @@ async function fetchPlayersForTeam(
     const position = athlete.position?.abbreviation
     const jerseyNumber = Number(athlete.jersey)
 
-    if (!espnId || !name || !position || Number.isNaN(jerseyNumber)) {
+    if (!espnId || !name || !position) {
       continue
     }
 
@@ -281,27 +281,51 @@ async function buildSportData(target: TargetSport, testMode: boolean) {
     }
   }
 
-  const players = dedupePlayers(allPlayers).sort((a, b) => a.name.localeCompare(b.name))
+  const deduped = dedupePlayers(allPlayers)
 
   const teamsPath = resolve(outputDir, "teams.json")
   const playersPath = resolve(outputDir, "players.json")
+
+  // Backfill missing jersey numbers from previous data
+  const backfilledIds = new Set<string>()
+  if (existsSync(playersPath)) {
+    const previousPlayers = JSON.parse(readFileSync(playersPath, "utf-8")) as GeneratedPlayer[]
+    const previousById = new Map(previousPlayers.map(p => [p.id, p]))
+    for (const player of deduped) {
+      if (Number.isNaN(player.number)) {
+        const previous = previousById.get(player.id)
+        if (previous && !Number.isNaN(previous.number)) {
+          player.number = previous.number
+          backfilledIds.add(player.id)
+        }
+      }
+    }
+    if (backfilledIds.size > 0) {
+      console.log(`  Backfilled ${backfilledIds.size} jersey numbers from previous data`)
+    }
+  }
+
+  const players = deduped
+    .filter(player => !Number.isNaN(player.number))
+    .sort((a, b) => a.name.localeCompare(b.name))
+
+  // Mark backfilled players so the UI can show an asterisk
+  for (const player of players) {
+    if (backfilledIds.has(player.id)) {
+      ;(player as GeneratedPlayer & { numberBackfilled?: boolean }).numberBackfilled = true
+    }
+  }
+
   const answerPoolPath = resolve(outputDir, "answer_pool.json")
+  const answerPoolIds = players.filter(p => !backfilledIds.has(p.id)).map(p => p.id)
 
   writeFileSync(teamsPath, `${JSON.stringify(teams, null, 2)}\n`, "utf-8")
   writeFileSync(playersPath, `${JSON.stringify(players, null, 2)}\n`, "utf-8")
-  writeFileSync(
-    answerPoolPath,
-    `${JSON.stringify(
-      players.map(player => player.id),
-      null,
-      2,
-    )}\n`,
-    "utf-8",
-  )
+  writeFileSync(answerPoolPath, `${JSON.stringify(answerPoolIds, null, 2)}\n`, "utf-8")
 
   console.log(`  Wrote ${teams.length} teams to ${teamsPath}`)
   console.log(`  Wrote ${players.length} players to ${playersPath}`)
-  console.log(`  Wrote ${players.length} answer pool IDs to ${answerPoolPath}`)
+  console.log(`  Wrote ${answerPoolIds.length} answer pool IDs to ${answerPoolPath} (excluded ${backfilledIds.size} backfilled)`)
 }
 
 async function main() {

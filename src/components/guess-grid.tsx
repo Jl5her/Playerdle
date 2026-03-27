@@ -28,6 +28,8 @@ export default function GuessGrid({
     el?.scrollIntoView({ behavior: "smooth", block: "nearest" })
   }, [latestIndex, maxGuesses])
 
+  const hasBackfilledGuess = guesses.some(g => g.numberBackfilled)
+
   return (
     <div
       className={`guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1 ${isCompactLayout ? "guess-grid-compact" : ""}`}
@@ -75,6 +77,12 @@ export default function GuessGrid({
             </div>
           </div>
         ),
+      )}
+
+      {hasBackfilledGuess && (
+        <p className="text-xs text-primary-500 dark:text-primary-400 mt-1">
+          * Jersey number from previous team
+        </p>
       )}
     </div>
   )

@@ -90,6 +90,8 @@ const mlbConfig: SportConfig = {
       id: "number",
       label: "#",
       key: "number",
+      renderValue: (value, context) =>
+        context?.player?.numberBackfilled ? `${value}*` : value,
       evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
       example: { value: "27", arrow: "\u2191", status: "close" },
     },
