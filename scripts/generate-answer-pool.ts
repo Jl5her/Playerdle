@@ -29,6 +29,8 @@ interface NFLPlayer {
   id: string
   name: string
   position: string
+  teamAbbr: string
+  numberBackfilled?: boolean
 }
 
 const POSITIONS_CONFIG = fantasyConfig.positions
@@ -47,6 +49,10 @@ const FANTASYPROS_POSITIONS: Record<string, string> = {
 const NICKNAME_MAP: Record<string, string> = {
   "marquise brown": "hollywood brown",
   "hollywood brown": "marquise brown",
+}
+
+const TEAM_ABBR_ALIASES: Record<string, string> = {
+  JAC: "JAX",
 }
 
 function normalizeName(name: string): string {
@@ -88,6 +94,18 @@ function positionsAreCompatible(nflPosition: string, fantasyPosition: string): b
   if (fpPos === "RB" && nflPos === "FB") return true
 
   return false
+}
+
+function normalizeTeamAbbr(teamAbbr: string | null): string | null {
+  if (!teamAbbr) return null
+  const normalized = teamAbbr.toUpperCase().trim()
+  return TEAM_ABBR_ALIASES[normalized] ?? normalized
+}
+
+function teamsAreCompatible(nflTeamAbbr: string, fantasyTeamAbbr: string | null): boolean {
+  const fantasyTeam = normalizeTeamAbbr(fantasyTeamAbbr)
+  if (!fantasyTeam || fantasyTeam === "FA") return true
+  return normalizeTeamAbbr(nflTeamAbbr) === fantasyTeam
 }
 
 async function scrapeFantasyProsRankings(position: string, topN: number): Promise<FantasyPlayer[]> {
@@ -167,8 +185,14 @@ function validateAgainstNFLDatabase(
 ): FantasyPlayer[] {
   console.log("\nValidating fantasy players against NFL player superset...")
 
+  const eligibleNflPlayers = nflPlayers.filter(player => !player.numberBackfilled)
+  const backfilledCount = nflPlayers.length - eligibleNflPlayers.length
+  if (backfilledCount > 0) {
+    console.log(`  Excluding ${backfilledCount} players with backfilled jersey numbers`)
+  }
+
   const nflLookup = new Map<string, NFLPlayer[]>()
-  for (const player of nflPlayers) {
+  for (const player of eligibleNflPlayers) {
     const name = normalizeName(player.name)
     if (!nflLookup.has(name)) {
       nflLookup.set(name, [])
@@ -188,7 +212,14 @@ function validateAgainstNFLDatabase(
       nflMatches = nflLookup.get(NICKNAME_MAP[name])
     }
 
-    if (nflMatches && nflMatches.some(p => positionsAreCompatible(p.position, fantasyPosition))) {
+    if (
+      nflMatches &&
+      nflMatches.some(
+        p =>
+          positionsAreCompatible(p.position, fantasyPosition) &&
+          teamsAreCompatible(p.teamAbbr, fp.team),
+      )
+    ) {
       validatedPlayers.push(fp)
     } else {
       unmatchedPlayers.push(fp)
@@ -207,8 +238,9 @@ function validateAgainstNFLDatabase(
 }
 
 function buildAnswerPoolIds(fantasyPlayers: FantasyPlayer[], nflPlayers: NFLPlayer[]): string[] {
+  const eligibleNflPlayers = nflPlayers.filter(player => !player.numberBackfilled)
   const nflLookup = new Map<string, NFLPlayer[]>()
-  for (const player of nflPlayers) {
+  for (const player of eligibleNflPlayers) {
     const name = normalizeName(player.name)
     if (!nflLookup.has(name)) {
       nflLookup.set(name, [])
@@ -228,7 +260,11 @@ function buildAnswerPoolIds(fantasyPlayers: FantasyPlayer[], nflPlayers: NFLPlay
     }
     if (!matches) continue
 
-    const selected = matches.find(match => positionsAreCompatible(match.position, fantasyPosition))
+    const selected = matches.find(
+      match =>
+        positionsAreCompatible(match.position, fantasyPosition) &&
+        teamsAreCompatible(match.teamAbbr, fp.team),
+    )
     if (selected) {
       ids.add(selected.id)
     }
