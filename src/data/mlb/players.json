@@ -671,6 +671,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:36974",
+    "name": "Blake Perkins",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "CF",
+    "number": 16,
+    "league": "NL"
+  },
+  {
     "id": "mlb:32185",
     "name": "Blake Treinen",
     "conference": "NL",
@@ -891,6 +902,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5000931",
+    "name": "Braxton Fulford",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 37,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4720856",
     "name": "Brayan Bello",
     "conference": "AL",
@@ -986,7 +1008,7 @@
     "team": "Los Angeles Angels",
     "teamAbbr": "LAA",
     "position": "RP",
-    "number": 37,
+    "number": 35,
     "league": "AL"
   },
   {
@@ -1397,17 +1419,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42504",
-    "name": "Carlos Vargas",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4298378",
     "name": "Carmen Mlodzinski",
     "conference": "NL",
@@ -1425,7 +1436,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "CF",
+    "position": "OF",
     "number": 3,
     "league": "NL"
   },
@@ -1459,7 +1470,7 @@
     "team": "Texas Rangers",
     "teamAbbr": "TEX",
     "position": "RP",
-    "number": 68,
+    "number": 45,
     "league": "AL"
   },
   {
@@ -1881,6 +1892,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4413868",
+    "name": "Cole Wilcox",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 43,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41177",
     "name": "Cole Winn",
     "conference": "AL",
@@ -2031,7 +2053,7 @@
     "team": "Seattle Mariners",
     "teamAbbr": "SEA",
     "position": "RP",
-    "number": 18,
+    "number": 88,
     "league": "AL"
   },
   {
@@ -2526,7 +2548,7 @@
     "team": "Chicago White Sox",
     "teamAbbr": "CHW",
     "position": "C",
-    "number": 7,
+    "number": 26,
     "league": "AL"
   },
   {
@@ -2636,7 +2658,7 @@
     "team": "Athletics",
     "teamAbbr": "ATH",
     "position": "RP",
-    "number": 61,
+    "number": 37,
     "league": "AL"
   },
   {
@@ -3230,7 +3252,7 @@
     "team": "Washington Nationals",
     "teamAbbr": "WSH",
     "position": "RP",
-    "number": 76,
+    "number": 47,
     "league": "NL"
   },
   {
@@ -3540,17 +3562,6 @@
     "position": "SP",
     "number": 22,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4917869",
-    "name": "Jackson Chourio",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "CF",
-    "number": 11,
-    "league": "NL"
   },
   {
     "id": "mlb:4872691",
@@ -4715,7 +4726,7 @@
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
     "position": "RP",
-    "number": 67,
+    "number": 62,
     "league": "NL"
   },
   {
@@ -6017,17 +6028,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:36181",
-    "name": "Mickey Moniak",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RF",
-    "number": 22,
-    "league": "NL"
-  },
-  {
     "id": "mlb:38905",
     "name": "Miguel Amaya",
     "conference": "NL",
@@ -6442,7 +6442,7 @@
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
     "position": "RP",
-    "number": 56,
+    "number": 70,
     "league": "NL"
   },
   {
@@ -6463,7 +6463,7 @@
     "division": "East",
     "team": "Philadelphia Phillies",
     "teamAbbr": "PHI",
-    "position": "OF",
+    "position": "LF",
     "number": 4,
     "league": "NL"
   },
@@ -6651,7 +6651,7 @@
     "team": "Cleveland Guardians",
     "teamAbbr": "CLE",
     "position": "RP",
-    "number": 63,
+    "number": 41,
     "league": "AL"
   },
   {
@@ -6728,7 +6728,7 @@
     "team": "St. Louis Cardinals",
     "teamAbbr": "STL",
     "position": "3B",
-    "number": 33,
+    "number": 29,
     "league": "NL"
   },
   {
@@ -6838,7 +6838,7 @@
     "team": "New York Mets",
     "teamAbbr": "NYM",
     "position": "RP",
-    "number": 76,
+    "number": 55,
     "league": "NL"
   },
   {
@@ -7513,6 +7513,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4833671",
+    "name": "Spencer Miles",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 62,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4722857",
     "name": "Spencer Steer",
     "conference": "NL",
@@ -7575,7 +7586,7 @@
     "team": "Houston Astros",
     "teamAbbr": "HOU",
     "position": "RP",
-    "number": 45,
+    "number": 48,
     "league": "AL"
   },
   {
@@ -7938,7 +7949,7 @@
     "team": "San Diego Padres",
     "teamAbbr": "SD",
     "position": "1B",
-    "number": 4,
+    "number": 25,
     "league": "NL"
   },
   {
@@ -7950,17 +7961,6 @@
     "teamAbbr": "TEX",
     "position": "RP",
     "number": 13,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:40559",
-    "name": "Tyler Gilbert",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RP",
-    "number": 40,
     "league": "AL"
   },
   {
