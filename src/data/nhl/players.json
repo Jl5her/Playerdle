@@ -890,16 +890,6 @@
     "number": 46
   },
   {
-    "id": "nhl:4378685",
-    "name": "Bo Groulx",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 29
-  },
-  {
     "id": "nhl:3042002",
     "name": "Bo Horvat",
     "conference": "East",
@@ -2050,6 +2040,16 @@
     "number": 22
   },
   {
+    "id": "nhl:5122414",
+    "name": "Danny Zhilkin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 53
+  },
+  {
     "id": "nhl:4024959",
     "name": "Dante Fabbro",
     "conference": "East",
@@ -3108,16 +3108,6 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 48
-  },
-  {
-    "id": "nhl:5080216",
-    "name": "Hunter Haight",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 43
   },
   {
     "id": "nhl:4991",
@@ -5090,6 +5080,16 @@
     "number": 23
   },
   {
+    "id": "nhl:4894822",
+    "name": "Logan Morrison",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 96
+  },
+  {
     "id": "nhl:3988782",
     "name": "Logan O'Connor",
     "conference": "West",
@@ -6708,6 +6708,16 @@
     "teamAbbr": "NSH",
     "position": "C",
     "number": 89
+  },
+  {
+    "id": "nhl:5173114",
+    "name": "Parker Ford",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 25
   },
   {
     "id": "nhl:4392309",
