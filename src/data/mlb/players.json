@@ -385,17 +385,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42394",
-    "name": "Andrew Vaughn",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "1B",
-    "number": 28,
-    "league": "NL"
-  },
-  {
     "id": "mlb:36950",
     "name": "Andruw Monasterio",
     "conference": "AL",
@@ -1008,7 +997,7 @@
     "team": "Los Angeles Angels",
     "teamAbbr": "LAA",
     "position": "RP",
-    "number": 35,
+    "number": 37,
     "league": "AL"
   },
   {
@@ -1119,6 +1108,17 @@
     "teamAbbr": "TB",
     "position": "RP",
     "number": 47,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4991171",
+    "name": "Bryan Hudson",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 60,
     "league": "AL"
   },
   {
@@ -1738,17 +1738,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42927",
-    "name": "Christopher Morel",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "LF",
-    "number": 5,
-    "league": "NL"
-  },
-  {
     "id": "mlb:36089",
     "name": "Cionel Perez",
     "conference": "NL",
@@ -2351,6 +2340,17 @@
     "teamAbbr": "NYM",
     "position": "RP",
     "number": 38,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4989046",
+    "name": "Deyvison De Los Santos",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "3B",
+    "number": 63,
     "league": "NL"
   },
   {
@@ -3969,6 +3969,17 @@
     "position": "SP",
     "number": 63,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4917867",
+    "name": "Jeferson Quero",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "C",
+    "number": 15,
+    "league": "NL"
   },
   {
     "id": "mlb:33841",
