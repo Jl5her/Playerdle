@@ -770,16 +770,6 @@
     "number": 34
   },
   {
-    "id": "nhl:5172806",
-    "name": "Avery Hayes",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "RW",
-    "number": 85
-  },
-  {
     "id": "nhl:3069411",
     "name": "Barclay Goodrow",
     "conference": "West",
@@ -1170,6 +1160,16 @@
     "number": 5
   },
   {
+    "id": "nhl:4874733",
+    "name": "Brennan Othmann",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 78
+  },
+  {
     "id": "nhl:2300",
     "name": "Brent Burns",
     "conference": "West",
@@ -1408,6 +1408,16 @@
     "teamAbbr": "VGK",
     "position": "G",
     "number": 79
+  },
+  {
+    "id": "nhl:4997026",
+    "name": "Carter Mazur",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "LW",
+    "number": 34
   },
   {
     "id": "nhl:3042088",
@@ -2008,6 +2018,16 @@
     "teamAbbr": "PHI",
     "position": "G",
     "number": 80
+  },
+  {
+    "id": "nhl:5149183",
+    "name": "Daniil But",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "LW",
+    "number": 19
   },
   {
     "id": "nhl:4587994",
@@ -4330,16 +4350,6 @@
     "number": 22
   },
   {
-    "id": "nhl:4268746",
-    "name": "Joona Koppanen",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "LW",
-    "number": 15
-  },
-  {
     "id": "nhl:3069266",
     "name": "Joonas Korpisalo",
     "conference": "East",
@@ -4428,16 +4438,6 @@
     "teamAbbr": "CAR",
     "position": "C",
     "number": 11
-  },
-  {
-    "id": "nhl:5102979",
-    "name": "Jorian Donovan",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 56
   },
   {
     "id": "nhl:4271575",
@@ -4650,16 +4650,6 @@
     "number": 74
   },
   {
-    "id": "nhl:4867883",
-    "name": "Juuso Parssinen",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "C",
-    "number": 71
-  },
-  {
     "id": "nhl:4352770",
     "name": "K'Andre Miller",
     "conference": "East",
@@ -4798,6 +4788,16 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 13
+  },
+  {
+    "id": "nhl:5080148",
+    "name": "Kevin Korchinski",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 14
   },
   {
     "id": "nhl:4341584",
@@ -4970,6 +4970,16 @@
     "number": 60
   },
   {
+    "id": "nhl:3026526",
+    "name": "Laurent Brossoit",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "G",
+    "number": 93
+  },
+  {
     "id": "nhl:3899951",
     "name": "Lawson Crouse",
     "conference": "West",
@@ -5078,16 +5088,6 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 23
-  },
-  {
-    "id": "nhl:4894822",
-    "name": "Logan Morrison",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
-    "position": "C",
-    "number": 96
   },
   {
     "id": "nhl:3988782",
@@ -5890,16 +5890,6 @@
     "number": 27
   },
   {
-    "id": "nhl:5302578",
-    "name": "Michal Postava",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "G",
-    "number": 35
-  },
-  {
     "id": "nhl:2562637",
     "name": "Mika Zibanejad",
     "conference": "East",
@@ -6650,6 +6640,16 @@
     "number": 81
   },
   {
+    "id": "nhl:5149239",
+    "name": "Oscar Fisker Molgaard",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 78
+  },
+  {
     "id": "nhl:4894398",
     "name": "Oskar Back",
     "conference": "West",
@@ -6688,6 +6688,16 @@
     "teamAbbr": "BUF",
     "position": "D",
     "number": 25
+  },
+  {
+    "id": "nhl:5344178",
+    "name": "Owen Protz",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 68
   },
   {
     "id": "nhl:4392072",
@@ -7168,6 +7178,16 @@
     "teamAbbr": "ANA",
     "position": "LW",
     "number": 44
+  },
+  {
+    "id": "nhl:5080158",
+    "name": "Rutger McGroarty",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 2
   },
   {
     "id": "nhl:3115033",
