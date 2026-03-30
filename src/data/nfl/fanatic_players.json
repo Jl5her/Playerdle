@@ -5409,6 +5409,22 @@
     "tdPerGame": 0.06
   },
   {
+    "id": "nfl:3122168",
+    "name": "Trent Sherfield Sr.",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
+    "position": "WR",
+    "number": 16,
+    "gp": 12,
+    "fppg": 0.3,
+    "tgtPerGame": 0.4,
+    "recPerGame": 0.3,
+    "ydsPerGame": 1.8,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4432710",
     "name": "TreVeyon Henderson",
     "conference": "AFC",
