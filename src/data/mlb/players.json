@@ -286,17 +286,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42949",
-    "name": "Andres Chaparro",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "1B",
-    "number": 87,
-    "league": "NL"
-  },
-  {
     "id": "mlb:37729",
     "name": "Andres Gimenez",
     "conference": "AL",
@@ -7436,6 +7425,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:39681",
+    "name": "Shaun Anderson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "RP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33499",
     "name": "Shawn Armstrong",
     "conference": "AL",
@@ -8181,17 +8181,6 @@
     "teamAbbr": "TOR",
     "position": "1B",
     "number": 27,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5197476",
-    "name": "Walbert Urena",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 57,
     "league": "AL"
   },
   {
