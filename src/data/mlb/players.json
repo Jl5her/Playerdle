@@ -1683,17 +1683,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4298336",
-    "name": "Christian Roa",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SP",
-    "number": 73,
-    "league": "AL"
-  },
-  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -1804,6 +1793,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41407",
+    "name": "Cody Bolton",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 67,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5012036",
     "name": "Cody Laweryson",
     "conference": "AL",
@@ -1900,17 +1900,6 @@
     "teamAbbr": "SEA",
     "position": "2B",
     "number": 2,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4917897",
-    "name": "Colin Holderman",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "RP",
-    "number": 35,
     "league": "AL"
   },
   {
@@ -2076,6 +2065,17 @@
     "teamAbbr": "PHI",
     "position": "SP",
     "number": 61,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:42360",
+    "name": "Curtis Mead",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "1B",
+    "number": 45,
     "league": "NL"
   },
   {
@@ -2329,28 +2329,6 @@
     "teamAbbr": "NYM",
     "position": "RP",
     "number": 38,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4989046",
-    "name": "Deyvison De Los Santos",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 63,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5291189",
-    "name": "Didier Fuentes",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SP",
-    "number": 72,
     "league": "NL"
   },
   {
@@ -4532,6 +4510,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5010500",
+    "name": "Jose Fernandez",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "SS",
+    "number": 11,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5119607",
     "name": "Jose Ferrer",
     "conference": "AL",
@@ -5038,6 +5027,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:34980",
+    "name": "Kolby Allard",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "RP",
+    "number": 49,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41201",
     "name": "Kris Bubic",
     "conference": "AL",
@@ -5278,6 +5278,17 @@
     "position": "2B",
     "number": 50,
     "league": "AL"
+  },
+  {
+    "id": "mlb:41397",
+    "name": "Leo Jimenez",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "SS",
+    "number": 19,
+    "league": "NL"
   },
   {
     "id": "mlb:40858",
@@ -5621,6 +5632,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:31098",
+    "name": "Martin Perez",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SP",
+    "number": 33,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4872598",
     "name": "Masataka Yoshida",
     "conference": "AL",
@@ -5753,6 +5775,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4309612",
+    "name": "Matt Pushard",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 67,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4867667",
     "name": "Matt Shaw",
     "conference": "NL",
@@ -5827,17 +5860,6 @@
     "teamAbbr": "STL",
     "position": "SP",
     "number": 32,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4309612",
-    "name": "Matthew Pushard",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 67,
     "league": "NL"
   },
   {
@@ -6501,17 +6523,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4019760",
-    "name": "P.J. Poulin",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 50,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41223",
     "name": "Parker Meadows",
     "conference": "AL",
@@ -6589,17 +6600,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:40767",
-    "name": "Pavin Smith",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "1B",
-    "number": 26,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42608",
     "name": "Pedro Pages",
     "conference": "NL",
@@ -6674,6 +6674,17 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 52,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4019760",
+    "name": "PJ Poulin",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 50,
     "league": "NL"
   },
   {
