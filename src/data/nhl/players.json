@@ -770,6 +770,16 @@
     "number": 34
   },
   {
+    "id": "nhl:5172806",
+    "name": "Avery Hayes",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 85
+  },
+  {
     "id": "nhl:3069411",
     "name": "Barclay Goodrow",
     "conference": "West",
@@ -878,6 +888,16 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 46
+  },
+  {
+    "id": "nhl:4378685",
+    "name": "Bo Groulx",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 29
   },
   {
     "id": "nhl:3042002",
@@ -1207,7 +1227,7 @@
     "team": "Colorado Avalanche",
     "teamAbbr": "COL",
     "position": "D",
-    "number": 77
+    "number": 27
   },
   {
     "id": "nhl:3025535",
@@ -1378,6 +1398,16 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 78
+  },
+  {
+    "id": "nhl:3942461",
+    "name": "Cameron Hughes",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 34
   },
   {
     "id": "nhl:5188581",
@@ -2637,7 +2667,7 @@
     "team": "Pittsburgh Penguins",
     "teamAbbr": "PIT",
     "position": "LW",
-    "number": 85
+    "number": 25
   },
   {
     "id": "nhl:3151038",
@@ -3147,7 +3177,7 @@
     "team": "Anaheim Ducks",
     "teamAbbr": "ANA",
     "position": "D",
-    "number": 74
+    "number": 3
   },
   {
     "id": "nhl:5216907",
@@ -6080,6 +6110,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5080170",
+    "name": "Nathan Gaucher",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "C",
+    "number": 41
+  },
+  {
     "id": "nhl:3041969",
     "name": "Nathan MacKinnon",
     "conference": "West",
@@ -7347,7 +7387,7 @@
     "team": "Calgary Flames",
     "teamAbbr": "CGY",
     "position": "C",
-    "number": 16
+    "number": 22
   },
   {
     "id": "nhl:5188493",
