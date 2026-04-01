@@ -50,6 +50,16 @@
     "number": 84
   },
   {
+    "id": "nhl:5188450",
+    "name": "Adam Engstrom",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 42
+  },
+  {
     "id": "nhl:3041991",
     "name": "Adam Erne",
     "conference": "West",
@@ -2048,16 +2058,6 @@
     "teamAbbr": "PHI",
     "position": "G",
     "number": 80
-  },
-  {
-    "id": "nhl:5149183",
-    "name": "Daniil But",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "LW",
-    "number": 19
   },
   {
     "id": "nhl:4587994",
@@ -5170,6 +5170,16 @@
     "number": 46
   },
   {
+    "id": "nhl:5080211",
+    "name": "Luca Del Bel Belluz",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Columbus Blue Jackets",
+    "teamAbbr": "CBJ",
+    "position": "C",
+    "number": 65
+  },
+  {
     "id": "nhl:4697385",
     "name": "Lucas Raymond",
     "conference": "East",
@@ -6990,6 +7000,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5291941",
+    "name": "Porter Martone",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "RW",
+    "number": 94
+  },
+  {
     "id": "nhl:4565259",
     "name": "Pyotr Kochetkov",
     "conference": "East",
@@ -7148,16 +7168,6 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 18
-  },
-  {
-    "id": "nhl:4697437",
-    "name": "Roby Jarventie",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Edmonton Oilers",
-    "teamAbbr": "EDM",
-    "position": "LW",
-    "number": 15
   },
   {
     "id": "nhl:4064976",
@@ -8848,6 +8858,16 @@
     "teamAbbr": "EDM",
     "position": "LW",
     "number": 18
+  },
+  {
+    "id": "nhl:4419696",
+    "name": "Zach Metsa",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Buffalo Sabres",
+    "teamAbbr": "BUF",
+    "position": "D",
+    "number": 73
   },
   {
     "id": "nhl:3899972",
