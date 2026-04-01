@@ -1815,17 +1815,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:34999",
-    "name": "Cody Ponce",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "SP",
-    "number": 66,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4414361",
     "name": "Cole Henry",
     "conference": "NL",
@@ -3091,6 +3080,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5123582",
+    "name": "Gordon Graceffo",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 44,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4084179",
     "name": "Graham Ashcraft",
     "conference": "NL",
@@ -3936,17 +3936,6 @@
     "position": "SP",
     "number": 63,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4917867",
-    "name": "Jeferson Quero",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "C",
-    "number": 15,
-    "league": "NL"
   },
   {
     "id": "mlb:33841",
@@ -5269,6 +5258,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5264531",
+    "name": "Lazaro Estrada",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 60,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41684",
     "name": "Lenyn Sosa",
     "conference": "AL",
@@ -5431,6 +5431,17 @@
     "teamAbbr": "WSH",
     "position": "2B",
     "number": 2,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4722941",
+    "name": "Luis Matos",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "RF",
+    "number": 21,
     "league": "NL"
   },
   {
@@ -5772,17 +5783,6 @@
     "teamAbbr": "ATL",
     "position": "1B",
     "number": 28,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4309612",
-    "name": "Matt Pushard",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 67,
     "league": "NL"
   },
   {
