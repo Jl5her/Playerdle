@@ -154,6 +154,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:31109",
+    "name": "Albert Suarez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 49,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41169",
     "name": "Alec Bohm",
     "conference": "NL",
@@ -880,17 +891,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5000931",
-    "name": "Braxton Fulford",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "C",
-    "number": 37,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4720856",
     "name": "Brayan Bello",
     "conference": "AL",
@@ -1372,17 +1372,6 @@
     "teamAbbr": "ATH",
     "position": "LF",
     "number": 26,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:34861",
-    "name": "Carlos Estevez",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 53,
     "league": "AL"
   },
   {
@@ -3927,17 +3916,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5332994",
-    "name": "Jedixson Paez",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "SP",
-    "number": 63,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33841",
     "name": "Jeff Hoffman",
     "conference": "AL",
@@ -5376,6 +5354,17 @@
     "teamAbbr": "KC",
     "position": "RP",
     "number": 60,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:32807",
+    "name": "Lucas Sims",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 39,
     "league": "AL"
   },
   {
@@ -7579,6 +7568,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5002931",
+    "name": "Steven Cruz",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41996",
     "name": "Steven Kwan",
     "conference": "AL",
@@ -7984,6 +7984,17 @@
     "position": "RP",
     "number": 13,
     "league": "AL"
+  },
+  {
+    "id": "mlb:40958",
+    "name": "Tyler Freeman",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RF",
+    "number": 2,
+    "league": "NL"
   },
   {
     "id": "mlb:33190",
@@ -8512,17 +8523,6 @@
     "position": "RP",
     "number": 36,
     "league": "NL"
-  },
-  {
-    "id": "mlb:32804",
-    "name": "Zach Eflin",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "SP",
-    "number": 24,
-    "league": "AL"
   },
   {
     "id": "mlb:38420",

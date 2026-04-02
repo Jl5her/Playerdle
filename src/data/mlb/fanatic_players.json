@@ -360,24 +360,6 @@
     "ops": 0.574
   },
   {
-    "id": "mlb:5000931",
-    "name": "Braxton Fulford",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "C",
-    "number": 37,
-    "league": "NL",
-    "gp": 38,
-    "pa": 120,
-    "avg": 0.213,
-    "hr": 1,
-    "rbi": 16,
-    "sb": 1,
-    "ops": 0.591
-  },
-  {
     "id": "mlb:40926",
     "name": "Brent Rooker",
     "conference": "AL",
@@ -3004,6 +2986,24 @@
     "rbi": 52,
     "sb": 1,
     "ops": 0.681
+  },
+  {
+    "id": "mlb:40958",
+    "name": "Tyler Freeman",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RF",
+    "number": 2,
+    "league": "NL",
+    "gp": 110,
+    "pa": 428,
+    "avg": 0.281,
+    "hr": 2,
+    "rbi": 31,
+    "sb": 18,
+    "ops": 0.715
   },
   {
     "id": "mlb:34168",
