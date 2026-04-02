@@ -1020,16 +1020,6 @@
     "number": 7
   },
   {
-    "id": "nhl:5272307",
-    "name": "Braeden Bowman",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "RW",
-    "number": 42
-  },
-  {
     "id": "nhl:5291951",
     "name": "Braeden Cootes",
     "conference": "West",
@@ -1328,6 +1318,16 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 8
+  },
+  {
+    "id": "nhl:3941970",
+    "name": "Caleb Jones",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 82
   },
   {
     "id": "nhl:2555316",
@@ -6020,6 +6020,16 @@
     "number": 96
   },
   {
+    "id": "nhl:5209557",
+    "name": "Mikulas Hovorka",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
+    "number": 96
+  },
+  {
     "id": "nhl:3042110",
     "name": "Miles Wood",
     "conference": "East",
@@ -8330,6 +8340,16 @@
     "number": 49
   },
   {
+    "id": "nhl:5188640",
+    "name": "Ty Mueller",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 39
+  },
+  {
     "id": "nhl:4588750",
     "name": "Tye Kartye",
     "conference": "East",
@@ -8888,6 +8908,16 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 28
+  },
+  {
+    "id": "nhl:3988830",
+    "name": "Zachary Aston-Reese",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Columbus Blue Jackets",
+    "teamAbbr": "CBJ",
+    "position": "LW",
+    "number": 27
   },
   {
     "id": "nhl:4874744",
