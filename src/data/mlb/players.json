@@ -649,14 +649,14 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5137038",
-    "name": "Billy Cook",
+    "id": "mlb:4719088",
+    "name": "Blade Tidwell",
     "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "OF",
-    "number": 25,
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "SP",
+    "number": 46,
     "league": "NL"
   },
   {
@@ -3443,6 +3443,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:33210",
+    "name": "J.P. Crawford",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "SS",
+    "number": 3,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4414002",
     "name": "J.T. Ginn",
     "conference": "AL",
@@ -4444,17 +4455,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4905900",
-    "name": "Jose Butto",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 70,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42135",
     "name": "Jose Caballero",
     "conference": "AL",
@@ -4507,17 +4507,6 @@
     "teamAbbr": "CIN",
     "position": "SP",
     "number": 74,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:32106",
-    "name": "Jose Quintana",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SP",
-    "number": 62,
     "league": "NL"
   },
   {
@@ -6996,17 +6985,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4414241",
-    "name": "Ryan Bliss",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "2B",
-    "number": 1,
-    "league": "AL"
-  },
-  {
     "id": "mlb:36192",
     "name": "Ryan Borucki",
     "conference": "NL",
@@ -7092,17 +7070,6 @@
     "teamAbbr": "PIT",
     "position": "1B",
     "number": 29,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5196606",
-    "name": "Ryan Ritter",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SS",
-    "number": 8,
     "league": "NL"
   },
   {
@@ -8137,6 +8104,17 @@
     "teamAbbr": "NYM",
     "position": "CF",
     "number": 15,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5216700",
+    "name": "Valente Bellozo",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 56,
     "league": "NL"
   },
   {
