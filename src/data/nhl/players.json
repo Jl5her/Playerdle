@@ -790,6 +790,16 @@
     "number": 85
   },
   {
+    "id": "nhl:5188613",
+    "name": "Aydar Suniev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 36
+  },
+  {
     "id": "nhl:3069411",
     "name": "Barclay Goodrow",
     "conference": "West",
@@ -2098,16 +2108,6 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 22
-  },
-  {
-    "id": "nhl:5122414",
-    "name": "Danny Zhilkin",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "C",
-    "number": 53
   },
   {
     "id": "nhl:4024959",
@@ -4848,6 +4848,16 @@
     "teamAbbr": "VAN",
     "position": "G",
     "number": 32
+  },
+  {
+    "id": "nhl:3096235",
+    "name": "Kevin Rooney",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 25
   },
   {
     "id": "nhl:3904191",
