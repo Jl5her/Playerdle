@@ -198,17 +198,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42081",
-    "name": "Alejandro Kirk",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 30,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41215",
     "name": "Alek Thomas",
     "conference": "NL",
@@ -845,6 +834,17 @@
     "position": "SP",
     "number": 23,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4918248",
+    "name": "Brandon Valenzuela",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 59,
+    "league": "AL"
   },
   {
     "id": "mlb:42431",
@@ -4730,17 +4730,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:6341",
-    "name": "Justin Verlander",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "SP",
-    "number": 35,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4417203",
     "name": "Justin Wrobleski",
     "conference": "NL",
@@ -4805,6 +4794,17 @@
     "position": "C",
     "number": 20,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5182933",
+    "name": "Keider Montero",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "SP",
+    "number": 54,
+    "league": "AL"
   },
   {
     "id": "mlb:4189711",
@@ -5256,6 +5256,17 @@
     "position": "SP",
     "number": 36,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4917878",
+    "name": "Logan Henderson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "SP",
+    "number": 43,
+    "league": "NL"
   },
   {
     "id": "mlb:42047",
