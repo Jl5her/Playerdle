@@ -1200,16 +1200,6 @@
     "number": 5
   },
   {
-    "id": "nhl:4874733",
-    "name": "Brennan Othmann",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "LW",
-    "number": 78
-  },
-  {
     "id": "nhl:2300",
     "name": "Brent Burns",
     "conference": "West",
@@ -4510,16 +4500,6 @@
     "number": 11
   },
   {
-    "id": "nhl:5102979",
-    "name": "Jorian Donovan",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 56
-  },
-  {
     "id": "nhl:4271575",
     "name": "Joseph Woll",
     "conference": "East",
@@ -6087,16 +6067,6 @@
     "team": "Dallas Stars",
     "teamAbbr": "DAL",
     "position": "RW",
-    "number": 96
-  },
-  {
-    "id": "nhl:5209557",
-    "name": "Mikulas Hovorka",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Florida Panthers",
-    "teamAbbr": "FLA",
-    "position": "D",
     "number": 96
   },
   {
@@ -8088,6 +8058,16 @@
     "teamAbbr": "BUF",
     "position": "LW",
     "number": 70
+  },
+  {
+    "id": "nhl:5122230",
+    "name": "Taylor Gauthier",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "G",
+    "number": 33
   },
   {
     "id": "nhl:5428",
