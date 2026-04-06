@@ -802,12 +802,13 @@
   {
     "id": "nba:4397886",
     "name": "Charles Bassey",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Boston Celtics",
-    "teamAbbr": "BOS",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
     "position": "C",
-    "number": 99
+    "number": 99,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4700852",
@@ -1100,16 +1101,6 @@
     "number": 2
   },
   {
-    "id": "nba:3913220",
-    "name": "DaQuan Jeffries",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Sacramento Kings",
-    "teamAbbr": "SAC",
-    "position": "G",
-    "number": 19
-  },
-  {
     "id": "nba:4432735",
     "name": "Dariq Whitehead",
     "conference": "West",
@@ -1238,16 +1229,6 @@
     "teamAbbr": "NO",
     "position": "C",
     "number": 6
-  },
-  {
-    "id": "nba:4066796",
-    "name": "DeJon Jarreau",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
-    "position": "G",
-    "number": 77
   },
   {
     "id": "nba:3907497",
@@ -3550,16 +3531,6 @@
     "number": 15
   },
   {
-    "id": "nba:4066636",
-    "name": "Markelle Fultz",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 20
-  },
-  {
     "id": "nba:4277848",
     "name": "Marvin Bagley III",
     "conference": "West",
@@ -4870,6 +4841,16 @@
     "number": 12
   },
   {
+    "id": "nba:4700873",
+    "name": "Toby Okani",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
+    "position": "F",
+    "number": 5
+  },
+  {
     "id": "nba:4397882",
     "name": "Tolu Smith",
     "conference": "East",
@@ -5058,16 +5039,6 @@
     "teamAbbr": "MEM",
     "position": "G",
     "number": 2
-  },
-  {
-    "id": "nba:4431914",
-    "name": "Tyler Burton",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
-    "position": "F",
-    "number": 5
   },
   {
     "id": "nba:4395725",
