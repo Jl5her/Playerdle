@@ -5123,6 +5123,16 @@
     "number": 33
   },
   {
+    "id": "nfl:4243457",
+    "name": "DeAngelo Malone",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "LB",
+    "number": 51
+  },
+  {
     "id": "nfl:2980080",
     "name": "Deatrich Wise Jr.",
     "conference": "NFC",
@@ -7225,16 +7235,6 @@
     "number": 62
   },
   {
-    "id": "nfl:12460",
-    "name": "Graham Gano",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "PK",
-    "number": 9
-  },
-  {
     "id": "nfl:4426335",
     "name": "Graham Mertz",
     "conference": "AFC",
@@ -8235,16 +8235,6 @@
     "teamAbbr": "KC",
     "position": "S",
     "number": 21
-  },
-  {
-    "id": "nfl:4581750",
-    "name": "Jaden Smith",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Tampa Bay Buccaneers",
-    "teamAbbr": "TB",
-    "position": "WR",
-    "number": 80
   },
   {
     "id": "nfl:4242975",
