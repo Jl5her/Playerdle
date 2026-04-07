@@ -3317,7 +3317,7 @@
     "team": "Winnipeg Jets",
     "teamAbbr": "WPG",
     "position": "RW",
-    "number": 63
+    "number": 27
   },
   {
     "id": "nhl:3114985",
@@ -3538,16 +3538,6 @@
     "teamAbbr": "MTL",
     "position": "G",
     "number": 32
-  },
-  {
-    "id": "nhl:5104158",
-    "name": "Jacob Gaucher",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 78
   },
   {
     "id": "nhl:5452",
@@ -4478,6 +4468,16 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 48
+  },
+  {
+    "id": "nhl:3097115",
+    "name": "Jordan Oesterle",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 82
   },
   {
     "id": "nhl:4588190",
@@ -6180,16 +6180,6 @@
     "number": 11
   },
   {
-    "id": "nhl:5080170",
-    "name": "Nathan Gaucher",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Anaheim Ducks",
-    "teamAbbr": "ANA",
-    "position": "C",
-    "number": 41
-  },
-  {
     "id": "nhl:3041969",
     "name": "Nathan MacKinnon",
     "conference": "West",
@@ -7527,7 +7517,7 @@
     "team": "Buffalo Sabres",
     "teamAbbr": "BUF",
     "position": "C",
-    "number": 39
+    "number": 10
   },
   {
     "id": "nhl:4697441",
