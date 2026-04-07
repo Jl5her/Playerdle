@@ -504,24 +504,6 @@
     "ops": 0.761
   },
   {
-    "id": "mlb:4872692",
-    "name": "Carson Williams",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SS",
-    "number": 7,
-    "league": "AL",
-    "gp": 32,
-    "pa": 106,
-    "avg": 0.172,
-    "hr": 5,
-    "rbi": 12,
-    "sb": 2,
-    "ops": 0.573
-  },
-  {
     "id": "mlb:4301949",
     "name": "Casey Schmitt",
     "conference": "NL",
@@ -1204,6 +1186,24 @@
     "rbi": 91,
     "sb": 1,
     "ops": 0.843
+  },
+  {
+    "id": "mlb:39706",
+    "name": "Isaac Paredes",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "3B",
+    "number": 15,
+    "league": "AL",
+    "gp": 102,
+    "pa": 438,
+    "avg": 0.254,
+    "hr": 20,
+    "rbi": 53,
+    "sb": 0,
+    "ops": 0.809
   },
   {
     "id": "mlb:33572",
@@ -2304,24 +2304,6 @@
     "ops": 0.661
   },
   {
-    "id": "mlb:4314013",
-    "name": "Nick Loftin",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "LF",
-    "number": 12,
-    "league": "AL",
-    "gp": 67,
-    "pa": 188,
-    "avg": 0.208,
-    "hr": 4,
-    "rbi": 20,
-    "sb": 1,
-    "ops": 0.635
-  },
-  {
     "id": "mlb:41219",
     "name": "Nico Hoerner",
     "conference": "NL",
@@ -2959,7 +2941,7 @@
     "team": "New York Mets",
     "teamAbbr": "NYM",
     "position": "CF",
-    "number": 15,
+    "number": 28,
     "league": "NL",
     "gp": 113,
     "pa": 341,
