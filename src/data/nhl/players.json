@@ -1970,6 +1970,16 @@
     "number": 83
   },
   {
+    "id": "nhl:5080155",
+    "name": "Conor Geekie",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 14
+  },
+  {
     "id": "nhl:3149827",
     "name": "Conor Sheary",
     "conference": "East",
@@ -2508,6 +2518,16 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 2
+  },
+  {
+    "id": "nhl:5188491",
+    "name": "Dylan Duke",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 53
   },
   {
     "id": "nhl:4697705",
@@ -3728,6 +3748,16 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 6
+  },
+  {
+    "id": "nhl:4565247",
+    "name": "Jakob Pelletier",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 11
   },
   {
     "id": "nhl:4697686",
@@ -5270,6 +5300,16 @@
     "number": 41
   },
   {
+    "id": "nhl:5302558",
+    "name": "Luke Haymes",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 43
+  },
+  {
     "id": "nhl:4874719",
     "name": "Luke Hughes",
     "conference": "East",
@@ -6100,14 +6140,14 @@
     "number": 93
   },
   {
-    "id": "nhl:4419646",
-    "name": "Mitchell Chaffee",
+    "id": "nhl:4587862",
+    "name": "Mitchell Gibson",
     "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "RW",
-    "number": 41
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 78
   },
   {
     "id": "nhl:4316970",
@@ -6247,7 +6287,7 @@
     "team": "New Jersey Devils",
     "teamAbbr": "NJ",
     "position": "C",
-    "number": 77
+    "number": 72
   },
   {
     "id": "nhl:4781550",
@@ -7798,6 +7838,16 @@
     "teamAbbr": "FLA",
     "position": "G",
     "number": 72
+  },
+  {
+    "id": "nhl:5188366",
+    "name": "Sergei Murashov",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "G",
+    "number": 1
   },
   {
     "id": "nhl:4697396",
