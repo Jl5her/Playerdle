@@ -162,24 +162,6 @@
     "ops": 0.774
   },
   {
-    "id": "mlb:36928",
-    "name": "Austin Hays",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "LF",
-    "number": 21,
-    "league": "AL",
-    "gp": 103,
-    "pa": 416,
-    "avg": 0.266,
-    "hr": 15,
-    "rbi": 64,
-    "sb": 7,
-    "ops": 0.768
-  },
-  {
     "id": "mlb:32168",
     "name": "Austin Hedges",
     "conference": "AL",
@@ -1006,24 +988,6 @@
     "rbi": 14,
     "sb": 0,
     "ops": 0.617
-  },
-  {
-    "id": "mlb:40344",
-    "name": "Gabriel Arias",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "SS",
-    "number": 13,
-    "league": "AL",
-    "gp": 129,
-    "pa": 471,
-    "avg": 0.22,
-    "hr": 11,
-    "rbi": 54,
-    "sb": 8,
-    "ops": 0.638
   },
   {
     "id": "mlb:42464",
@@ -2878,6 +2842,24 @@
     "rbi": 52,
     "sb": 1,
     "ops": 0.681
+  },
+  {
+    "id": "mlb:43030",
+    "name": "Tyler Fitzgerald",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "2B",
+    "number": 48,
+    "league": "AL",
+    "gp": 72,
+    "pa": 243,
+    "avg": 0.217,
+    "hr": 4,
+    "rbi": 14,
+    "sb": 9,
+    "ops": 0.606
   },
   {
     "id": "mlb:40958",

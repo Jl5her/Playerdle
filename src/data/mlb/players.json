@@ -77,17 +77,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4997589",
-    "name": "Addison Barger",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "3B",
-    "number": 47,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42178",
     "name": "Adley Rutschman",
     "conference": "AL",
@@ -273,17 +262,6 @@
     "position": "3B",
     "number": 14,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5132192",
-    "name": "Andre Granillo",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 79,
-    "league": "NL"
   },
   {
     "id": "mlb:4109034",
@@ -503,17 +481,6 @@
     "teamAbbr": "BOS",
     "position": "RP",
     "number": 44,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:36928",
-    "name": "Austin Hays",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "LF",
-    "number": 21,
     "league": "AL"
   },
   {
@@ -878,17 +845,6 @@
     "position": "SP",
     "number": 53,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4414339",
-    "name": "Brandon Young",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "SP",
-    "number": 63,
-    "league": "AL"
   },
   {
     "id": "mlb:5197093",
@@ -1395,17 +1351,6 @@
     "position": "C",
     "number": 75,
     "league": "AL"
-  },
-  {
-    "id": "mlb:30280",
-    "name": "Carlos Santana",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "1B",
-    "number": 41,
-    "league": "NL"
   },
   {
     "id": "mlb:4298378",
@@ -2398,6 +2343,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917924",
+    "name": "Dustin Harris",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "LF",
+    "number": 37,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40937",
     "name": "Dustin May",
     "conference": "NL",
@@ -2868,17 +2824,6 @@
     "teamAbbr": "SEA",
     "position": "RP",
     "number": 55,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:40344",
-    "name": "Gabriel Arias",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "SS",
-    "number": 13,
     "league": "AL"
   },
   {
@@ -4125,6 +4070,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40855",
+    "name": "Joel Kuhnel",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 47,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40021",
     "name": "Joel Payamps",
     "conference": "NL",
@@ -4554,17 +4510,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42615",
-    "name": "Josh Fleming",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RP",
-    "number": 26,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42437",
     "name": "Josh Jung",
     "conference": "AL",
@@ -4629,6 +4574,17 @@
     "position": "RP",
     "number": 34,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5116859",
+    "name": "Juan Brito",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "SS",
+    "number": 34,
+    "league": "AL"
   },
   {
     "id": "mlb:5185107",
@@ -4992,17 +4948,6 @@
     "position": "SP",
     "number": 80,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4221113",
-    "name": "Kyle Backhus",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 19,
-    "league": "NL"
   },
   {
     "id": "mlb:4311625",
@@ -5508,6 +5453,17 @@
     "teamAbbr": "NYM",
     "position": "RP",
     "number": 30,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41313",
+    "name": "Luken Baker",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "1B",
+    "number": 21,
     "league": "NL"
   },
   {
@@ -6314,6 +6270,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41006",
+    "name": "Nick Raquet",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 72,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4683379",
     "name": "Nick Yorke",
     "conference": "NL",
@@ -6410,6 +6377,17 @@
     "teamAbbr": "PIT",
     "position": "CF",
     "number": 15,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4630789",
+    "name": "Orion Kerkering",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 50,
     "league": "NL"
   },
   {
@@ -6512,6 +6490,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:31313",
+    "name": "Patrick Corbin",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 46,
+    "league": "AL"
+  },
+  {
     "id": "mlb:32776",
     "name": "Paul Blackburn",
     "conference": "AL",
@@ -6553,6 +6542,17 @@
     "teamAbbr": "PIT",
     "position": "SP",
     "number": 30,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4313208",
+    "name": "Paxton Schultz",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 75,
     "league": "NL"
   },
   {
@@ -7972,6 +7972,17 @@
     "teamAbbr": "TEX",
     "position": "RP",
     "number": 13,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:43030",
+    "name": "Tyler Fitzgerald",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "2B",
+    "number": 48,
     "league": "AL"
   },
   {
