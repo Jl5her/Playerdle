@@ -1010,6 +1010,16 @@
     "number": 4
   },
   {
+    "id": "nhl:5149213",
+    "name": "Bradly Nadeau",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "LW",
+    "number": 29
+  },
+  {
     "id": "nhl:5291937",
     "name": "Brady Martin",
     "conference": "West",
@@ -1498,16 +1508,6 @@
     "teamAbbr": "FLA",
     "position": "C",
     "number": 23
-  },
-  {
-    "id": "nhl:5216868",
-    "name": "Carter Yakemchuk",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 58
   },
   {
     "id": "nhl:5262",
@@ -2520,16 +2520,6 @@
     "number": 2
   },
   {
-    "id": "nhl:5188491",
-    "name": "Dylan Duke",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "LW",
-    "number": 53
-  },
-  {
     "id": "nhl:4697705",
     "name": "Dylan Garand",
     "conference": "East",
@@ -3260,6 +3250,16 @@
     "number": 95
   },
   {
+    "id": "nhl:5229146",
+    "name": "Ilya Protas",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 62
+  },
+  {
     "id": "nhl:4697784",
     "name": "Ilya Solovyov",
     "conference": "East",
@@ -3778,6 +3778,16 @@
     "teamAbbr": "CAR",
     "position": "D",
     "number": 5
+  },
+  {
+    "id": "nhl:5275337",
+    "name": "James Hagens",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "C",
+    "number": 44
   },
   {
     "id": "nhl:4588749",
@@ -5260,6 +5270,16 @@
     "number": 23
   },
   {
+    "id": "nhl:5188478",
+    "name": "Ludvig Jansson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
+    "number": 54
+  },
+  {
     "id": "nhl:4588165",
     "name": "Lukas Dostal",
     "conference": "West",
@@ -5298,16 +5318,6 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 41
-  },
-  {
-    "id": "nhl:5302558",
-    "name": "Luke Haymes",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 43
   },
   {
     "id": "nhl:4874719",
@@ -6107,6 +6117,16 @@
     "team": "Dallas Stars",
     "teamAbbr": "DAL",
     "position": "RW",
+    "number": 96
+  },
+  {
+    "id": "nhl:5209557",
+    "name": "Mikulas Hovorka",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
     "number": 96
   },
   {
@@ -7970,6 +7990,16 @@
     "number": 17
   },
   {
+    "id": "nhl:4393595",
+    "name": "Skyler Brind'Amour",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "C",
+    "number": 76
+  },
+  {
     "id": "nhl:4565234",
     "name": "Spencer Knight",
     "conference": "West",
@@ -8898,16 +8928,6 @@
     "teamAbbr": "TOR",
     "position": "RW",
     "number": 88
-  },
-  {
-    "id": "nhl:4697767",
-    "name": "William Villeneuve",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "D",
-    "number": 76
   },
   {
     "id": "nhl:4874740",
