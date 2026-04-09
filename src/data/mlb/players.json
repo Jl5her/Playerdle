@@ -1881,6 +1881,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:35440",
+    "name": "Connor Joe",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RF",
+    "number": 9,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4417606",
     "name": "Connor Norby",
     "conference": "NL",
@@ -2329,17 +2340,6 @@
     "teamAbbr": "LAA",
     "position": "RP",
     "number": 13,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42584",
-    "name": "Drew Rasmussen",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SP",
-    "number": 57,
     "league": "AL"
   },
   {
@@ -3960,6 +3960,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41452",
+    "name": "Jesse Scholtens",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:39667",
     "name": "Jesus Luzardo",
     "conference": "NL",
@@ -4477,17 +4488,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:35268",
-    "name": "Jose Trevino",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "C",
-    "number": 35,
-    "league": "NL"
-  },
-  {
     "id": "mlb:35759",
     "name": "Jose Urquidy",
     "conference": "NL",
@@ -4673,17 +4673,6 @@
     "position": "RP",
     "number": 61,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4917925",
-    "name": "Justin Slaten",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RP",
-    "number": 63,
-    "league": "AL"
   },
   {
     "id": "mlb:4307467",
@@ -6457,6 +6446,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:39136",
+    "name": "P.J. Higgins",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "C",
+    "number": 65,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41223",
     "name": "Parker Meadows",
     "conference": "AL",
@@ -6752,17 +6752,6 @@
     "position": "SP",
     "number": 48,
     "league": "AL"
-  },
-  {
-    "id": "mlb:33860",
-    "name": "Reynaldo Lopez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SP",
-    "number": 40,
-    "league": "NL"
   },
   {
     "id": "mlb:4758873",
@@ -7367,17 +7356,6 @@
     "teamAbbr": "TB",
     "position": "SP",
     "number": 18,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5201814",
-    "name": "Shane Smith",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "SP",
-    "number": 64,
     "league": "AL"
   },
   {
@@ -8085,6 +8063,28 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4630588",
+    "name": "Tyler Samaniego",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 78,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5201509",
+    "name": "Tyler Schweitzer",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 62,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4686066",
     "name": "Tyler Soderstrom",
     "conference": "AL",
@@ -8159,17 +8159,6 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 37,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:35042",
-    "name": "Victor Robles",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RF",
-    "number": 10,
     "league": "AL"
   },
   {
