@@ -324,24 +324,6 @@
     "ops": 0.574
   },
   {
-    "id": "mlb:40926",
-    "name": "Brent Rooker",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RF",
-    "number": 25,
-    "league": "AL",
-    "gp": 162,
-    "pa": 699,
-    "avg": 0.262,
-    "hr": 30,
-    "rbi": 89,
-    "sb": 6,
-    "ops": 0.814
-  },
-  {
     "id": "mlb:42462",
     "name": "Brenton Doyle",
     "conference": "NL",
@@ -1294,24 +1276,6 @@
     "rbi": 53,
     "sb": 1,
     "ops": 0.687
-  },
-  {
-    "id": "mlb:40719",
-    "name": "Jake Meyers",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "CF",
-    "number": 6,
-    "league": "AL",
-    "gp": 104,
-    "pa": 381,
-    "avg": 0.292,
-    "hr": 3,
-    "rbi": 24,
-    "sb": 16,
-    "ops": 0.727
   },
   {
     "id": "mlb:39900",
@@ -2610,6 +2574,24 @@
     "ops": 0.575
   },
   {
+    "id": "mlb:4142424",
+    "name": "Seiya Suzuki",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RF",
+    "number": 27,
+    "league": "NL",
+    "gp": 151,
+    "pa": 651,
+    "avg": 0.245,
+    "hr": 32,
+    "rbi": 103,
+    "sb": 5,
+    "ops": 0.804
+  },
+  {
     "id": "mlb:42598",
     "name": "Shea Langeliers",
     "conference": "AL",
@@ -3112,5 +3094,23 @@
     "rbi": 62,
     "sb": 26,
     "ops": 0.793
+  },
+  {
+    "id": "mlb:4414531",
+    "name": "Zack Gelof",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "2B",
+    "number": 20,
+    "league": "AL",
+    "gp": 30,
+    "pa": 101,
+    "avg": 0.174,
+    "hr": 2,
+    "rbi": 7,
+    "sb": 1,
+    "ops": 0.502
   }
 ]
