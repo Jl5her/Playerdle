@@ -5300,16 +5300,6 @@
     "number": 1
   },
   {
-    "id": "nhl:4697400",
-    "name": "Lukas Reichel",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Boston Bruins",
-    "teamAbbr": "BOS",
-    "position": "LW",
-    "number": 75
-  },
-  {
     "id": "nhl:4697446",
     "name": "Luke Evangelista",
     "conference": "West",
@@ -6050,6 +6040,16 @@
     "number": 27
   },
   {
+    "id": "nhl:5302578",
+    "name": "Michal Postava",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "G",
+    "number": 35
+  },
+  {
     "id": "nhl:2562637",
     "name": "Mika Zibanejad",
     "conference": "East",
@@ -6448,6 +6448,16 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 14
+  },
+  {
+    "id": "nhl:4697683",
+    "name": "Nico Daws",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "G",
+    "number": 50
   },
   {
     "id": "nhl:4233555",
@@ -7158,16 +7168,6 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 94
-  },
-  {
-    "id": "nhl:4565259",
-    "name": "Pyotr Kochetkov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "G",
-    "number": 52
   },
   {
     "id": "nhl:4320548",
@@ -8368,6 +8368,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 77
+  },
+  {
+    "id": "nhl:5103595",
+    "name": "Topias Vilen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 38
   },
   {
     "id": "nhl:5073",
