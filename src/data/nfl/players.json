@@ -1198,6 +1198,16 @@
     "number": 81
   },
   {
+    "id": "nfl:3123938",
+    "name": "Avonte Maddox",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "CB",
+    "number": 29
+  },
+  {
     "id": "nfl:4685596",
     "name": "Azareye'h Thomas",
     "conference": "AFC",
@@ -4349,16 +4359,6 @@
     "number": 38
   },
   {
-    "id": "nfl:4575348",
-    "name": "Da'Quan Felton",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 9
-  },
-  {
     "id": "nfl:3126352",
     "name": "Da'Shawn Hand",
     "conference": "NFC",
@@ -5914,11 +5914,12 @@
     "id": "nfl:4428850",
     "name": "Dontayvion Wicks",
     "conference": "NFC",
-    "division": "NFC North",
-    "team": "Green Bay Packers",
-    "teamAbbr": "GB",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
     "position": "WR",
-    "number": 13
+    "number": 13,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:3843769",
@@ -7547,6 +7548,16 @@
     "teamAbbr": "IND",
     "position": "S",
     "number": 30
+  },
+  {
+    "id": "nfl:4045305",
+    "name": "Ian Thomas",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "TE",
+    "number": 80
   },
   {
     "id": "nfl:4427132",
@@ -11468,16 +11479,6 @@
     "number": 20
   },
   {
-    "id": "nfl:3127304",
-    "name": "Kaleb McGary",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "OT",
-    "number": 76
-  },
-  {
     "id": "nfl:4429121",
     "name": "Kalel Mullings",
     "conference": "AFC",
@@ -12878,6 +12879,16 @@
     "number": 85
   },
   {
+    "id": "nfl:2576736",
+    "name": "Lucas Patrick",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "G",
+    "number": 62
+  },
+  {
     "id": "nfl:4686906",
     "name": "Lukas Van Ness",
     "conference": "NFC",
@@ -13504,9 +13515,9 @@
     "id": "nfl:4248899",
     "name": "Marte Mapu",
     "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
     "position": "LB",
     "number": 15
   },
@@ -13650,16 +13661,6 @@
     "teamAbbr": "DEN",
     "position": "DE",
     "number": 91
-  },
-  {
-    "id": "nfl:4568986",
-    "name": "Matt Lee",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cincinnati Bengals",
-    "teamAbbr": "CIN",
-    "position": "C",
-    "number": 65
   },
   {
     "id": "nfl:4422336",
@@ -15687,6 +15688,16 @@
     "teamAbbr": "CLE",
     "position": "RB",
     "number": 35
+  },
+  {
+    "id": "nfl:2575453",
+    "name": "Rakeem Nunez-Roches",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Tampa Bay Buccaneers",
+    "teamAbbr": "TB",
+    "position": "DT",
+    "number": 56
   },
   {
     "id": "nfl:4428917",
@@ -17760,16 +17771,6 @@
     "teamAbbr": "ARI",
     "position": "TE",
     "number": 87
-  },
-  {
-    "id": "nfl:4692055",
-    "name": "TJ Moore",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "CB",
-    "number": 30
   },
   {
     "id": "nfl:3126997",
