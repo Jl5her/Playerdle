@@ -657,7 +657,7 @@
     "team": "Chicago Blackhawks",
     "teamAbbr": "CHI",
     "position": "C",
-    "number": 15
+    "number": 16
   },
   {
     "id": "nhl:4697395",
@@ -888,6 +888,16 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 17
+  },
+  {
+    "id": "nhl:4270546",
+    "name": "Ben Jones",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 39
   },
   {
     "id": "nhl:5291947",
@@ -1308,16 +1318,6 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 2
-  },
-  {
-    "id": "nhl:4997092",
-    "name": "Brian Halonen",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
-    "position": "LW",
-    "number": 48
   },
   {
     "id": "nhl:3899979",
@@ -1767,7 +1767,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "LW",
-    "number": 23
+    "number": 29
   },
   {
     "id": "nhl:4845286",
@@ -2958,6 +2958,16 @@
     "teamAbbr": "NSH",
     "position": "C",
     "number": 40
+  },
+  {
+    "id": "nhl:5149249",
+    "name": "Felix Unger Sorum",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "RW",
+    "number": 36
   },
   {
     "id": "nhl:4233643",
@@ -5130,16 +5140,6 @@
     "number": 67
   },
   {
-    "id": "nhl:5149245",
-    "name": "Lenni Hameenaho",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
-    "position": "RW",
-    "number": 29
-  },
-  {
     "id": "nhl:5149153",
     "name": "Leo Carlsson",
     "conference": "West",
@@ -5507,7 +5507,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "D",
-    "number": 51
+    "number": 4
   },
   {
     "id": "nhl:4233884",
@@ -6397,7 +6397,7 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "LW",
-    "number": 17
+    "number": 71
   },
   {
     "id": "nhl:3025608",
@@ -6508,6 +6508,16 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 78
+  },
+  {
+    "id": "nhl:3115014",
+    "name": "Nicolas Aube-Kubel",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "RW",
+    "number": 16
   },
   {
     "id": "nhl:5193",
@@ -7208,6 +7218,16 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 94
+  },
+  {
+    "id": "nhl:4565259",
+    "name": "Pyotr Kochetkov",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "G",
+    "number": 52
   },
   {
     "id": "nhl:4320548",
@@ -8567,7 +8587,7 @@
     "team": "New York Rangers",
     "teamAbbr": "NYR",
     "position": "LW",
-    "number": 12
+    "number": 24
   },
   {
     "id": "nhl:3042056",
@@ -8780,6 +8800,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5275403",
+    "name": "Viking Gustafsson Nyberg",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 6
+  },
+  {
     "id": "nhl:3120307",
     "name": "Viktor Arvidsson",
     "conference": "East",
@@ -8867,7 +8897,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "C",
-    "number": 18
+    "number": 24
   },
   {
     "id": "nhl:3114996",
