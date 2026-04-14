@@ -990,24 +990,6 @@
     "ops": 0.786
   },
   {
-    "id": "mlb:32078",
-    "name": "George Springer",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RF",
-    "number": 4,
-    "league": "AL",
-    "gp": 140,
-    "pa": 586,
-    "avg": 0.309,
-    "hr": 32,
-    "rbi": 84,
-    "sb": 18,
-    "ops": 0.959
-  },
-  {
     "id": "mlb:30583",
     "name": "Giancarlo Stanton",
     "conference": "AL",
@@ -1368,24 +1350,6 @@
     "ops": 0.775
   },
   {
-    "id": "mlb:41273",
-    "name": "Jeremy Pena",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SS",
-    "number": 3,
-    "league": "AL",
-    "gp": 125,
-    "pa": 543,
-    "avg": 0.304,
-    "hr": 17,
-    "rbi": 62,
-    "sb": 20,
-    "ops": 0.84
-  },
-  {
     "id": "mlb:40854",
     "name": "Jo Adell",
     "conference": "AL",
@@ -1672,24 +1636,6 @@
     "rbi": 11,
     "sb": 4,
     "ops": 0.518
-  },
-  {
-    "id": "mlb:41684",
-    "name": "Lenyn Sosa",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "2B",
-    "number": 50,
-    "league": "AL",
-    "gp": 140,
-    "pa": 544,
-    "avg": 0.264,
-    "hr": 22,
-    "rbi": 75,
-    "sb": 2,
-    "ops": 0.727
   },
   {
     "id": "mlb:42047",
@@ -2232,24 +2178,6 @@
     "ops": 0.739
   },
   {
-    "id": "mlb:41307",
-    "name": "Noelvi Marte",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "OF",
-    "number": 4,
-    "league": "NL",
-    "gp": 90,
-    "pa": 360,
-    "avg": 0.263,
-    "hr": 14,
-    "rbi": 51,
-    "sb": 10,
-    "ops": 0.748
-  },
-  {
     "id": "mlb:31261",
     "name": "Nolan Arenado",
     "conference": "NL",
@@ -2502,24 +2430,6 @@
     "ops": 0.752
   },
   {
-    "id": "mlb:34940",
-    "name": "Ryan Mountcastle",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "1B",
-    "number": 6,
-    "league": "AL",
-    "gp": 89,
-    "pa": 357,
-    "avg": 0.25,
-    "hr": 7,
-    "rbi": 35,
-    "sb": 3,
-    "ops": 0.653
-  },
-  {
     "id": "mlb:31127",
     "name": "Salvador Perez",
     "conference": "AL",
@@ -2718,6 +2628,24 @@
     "ops": 0.62
   },
   {
+    "id": "mlb:31208",
+    "name": "Tommy Pham",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "LF",
+    "number": 39,
+    "league": "NL",
+    "gp": 120,
+    "pa": 449,
+    "avg": 0.245,
+    "hr": 10,
+    "rbi": 52,
+    "sb": 5,
+    "ops": 0.7
+  },
+  {
     "id": "mlb:29951",
     "name": "Travis d'Arnaud",
     "conference": "AL",
@@ -2826,24 +2754,6 @@
     "ops": 0.715
   },
   {
-    "id": "mlb:34168",
-    "name": "Tyler O'Neill",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RF",
-    "number": 9,
-    "league": "AL",
-    "gp": 54,
-    "pa": 209,
-    "avg": 0.199,
-    "hr": 9,
-    "rbi": 26,
-    "sb": 4,
-    "ops": 0.684
-  },
-  {
     "id": "mlb:34975",
     "name": "Tyler Stephenson",
     "conference": "NL",
@@ -2896,6 +2806,24 @@
     "rbi": 84,
     "sb": 6,
     "ops": 0.848
+  },
+  {
+    "id": "mlb:38682",
+    "name": "Weston Wilson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "LF",
+    "number": 32,
+    "league": "AL",
+    "gp": 52,
+    "pa": 125,
+    "avg": 0.198,
+    "hr": 5,
+    "rbi": 17,
+    "sb": 2,
+    "ops": 0.652
   },
   {
     "id": "mlb:38309",
