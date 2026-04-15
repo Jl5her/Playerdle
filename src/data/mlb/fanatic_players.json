@@ -972,24 +972,6 @@
     "ops": 0.617
   },
   {
-    "id": "mlb:42464",
-    "name": "Gabriel Moreno",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "C",
-    "number": 14,
-    "league": "NL",
-    "gp": 83,
-    "pa": 309,
-    "avg": 0.285,
-    "hr": 9,
-    "rbi": 40,
-    "sb": 2,
-    "ops": 0.786
-  },
-  {
     "id": "mlb:30583",
     "name": "Giancarlo Stanton",
     "conference": "AL",
@@ -1636,6 +1618,24 @@
     "rbi": 11,
     "sb": 4,
     "ops": 0.518
+  },
+  {
+    "id": "mlb:41684",
+    "name": "Lenyn Sosa",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "2B",
+    "number": 50,
+    "league": "AL",
+    "gp": 140,
+    "pa": 544,
+    "avg": 0.264,
+    "hr": 22,
+    "rbi": 75,
+    "sb": 2,
+    "ops": 0.727
   },
   {
     "id": "mlb:42047",
@@ -2376,24 +2376,6 @@
     "ops": 0.748
   },
   {
-    "id": "mlb:33411",
-    "name": "Rob Refsnyder",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RF",
-    "number": 30,
-    "league": "AL",
-    "gp": 70,
-    "pa": 209,
-    "avg": 0.269,
-    "hr": 9,
-    "rbi": 30,
-    "sb": 3,
-    "ops": 0.838
-  },
-  {
     "id": "mlb:36185",
     "name": "Ronald Acuna Jr.",
     "conference": "NL",
@@ -2716,24 +2698,6 @@
     "rbi": 52,
     "sb": 1,
     "ops": 0.681
-  },
-  {
-    "id": "mlb:43030",
-    "name": "Tyler Fitzgerald",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "2B",
-    "number": 48,
-    "league": "AL",
-    "gp": 72,
-    "pa": 243,
-    "avg": 0.217,
-    "hr": 4,
-    "rbi": 14,
-    "sb": 9,
-    "ops": 0.606
   },
   {
     "id": "mlb:40958",
