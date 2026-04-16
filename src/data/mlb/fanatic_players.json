@@ -1008,24 +1008,6 @@
     "ops": 0.745
   },
   {
-    "id": "mlb:35062",
-    "name": "Harrison Bader",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "LF",
-    "number": 9,
-    "league": "NL",
-    "gp": 146,
-    "pa": 501,
-    "avg": 0.277,
-    "hr": 17,
-    "rbi": 54,
-    "sb": 11,
-    "ops": 0.796
-  },
-  {
     "id": "mlb:39642",
     "name": "Heliot Ramos",
     "conference": "NL",
@@ -1438,24 +1420,6 @@
     "rbi": 41,
     "sb": 10,
     "ops": 0.584
-  },
-  {
-    "id": "mlb:32558",
-    "name": "Jorge Soler",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RF",
-    "number": 12,
-    "league": "AL",
-    "gp": 82,
-    "pa": 315,
-    "avg": 0.215,
-    "hr": 12,
-    "rbi": 34,
-    "sb": 0,
-    "ops": 0.68
   },
   {
     "id": "mlb:31662",
@@ -2202,7 +2166,7 @@
     "division": "East",
     "team": "Philadelphia Phillies",
     "teamAbbr": "PHI",
-    "position": "LF",
+    "position": "OF",
     "number": 4,
     "league": "NL",
     "gp": 62,
