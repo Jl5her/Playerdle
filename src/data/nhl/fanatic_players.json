@@ -40,7 +40,7 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 54,
-    "gp": 64,
+    "gp": 65,
     "goals": 4,
     "assists": 10,
     "points": 14,
@@ -72,7 +72,7 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 19,
-    "gp": 81,
+    "gp": 82,
     "goals": 24,
     "assists": 35,
     "points": 59,
@@ -136,11 +136,11 @@
     "teamAbbr": "CGY",
     "position": "RW",
     "number": 43,
-    "gp": 77,
+    "gp": 78,
     "goals": 6,
     "assists": 12,
     "points": 18,
-    "sog": 77,
+    "sog": 79,
     "toiPerGame": 10.6
   },
   {
@@ -168,11 +168,11 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 17,
-    "gp": 68,
+    "gp": 69,
     "goals": 5,
     "assists": 16,
     "points": 21,
-    "sog": 68,
+    "sog": 70,
     "toiPerGame": 15
   },
   {
@@ -184,11 +184,11 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 3,
-    "gp": 81,
+    "gp": 82,
     "goals": 4,
     "assists": 12,
     "points": 16,
-    "sog": 119,
+    "sog": 122,
     "toiPerGame": 20.9
   },
   {
@@ -216,11 +216,11 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 9,
-    "gp": 79,
-    "goals": 35,
+    "gp": 80,
+    "goals": 36,
     "assists": 37,
-    "points": 72,
-    "sog": 219,
+    "points": 73,
+    "sog": 224,
     "toiPerGame": 19.3
   },
   {
@@ -280,12 +280,12 @@
     "teamAbbr": "ANA",
     "position": "LW",
     "number": 17,
-    "gp": 80,
+    "gp": 81,
     "goals": 14,
     "assists": 18,
     "points": 32,
-    "sog": 143,
-    "toiPerGame": 16.6
+    "sog": 145,
+    "toiPerGame": 16.7
   },
   {
     "id": "nhl:4697725",
@@ -296,11 +296,11 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 14,
-    "gp": 80,
-    "goals": 20,
-    "assists": 21,
-    "points": 41,
-    "sog": 204,
+    "gp": 81,
+    "goals": 21,
+    "assists": 22,
+    "points": 43,
+    "sog": 207,
     "toiPerGame": 18.3
   },
   {
@@ -312,12 +312,12 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 15,
-    "gp": 41,
+    "gp": 42,
     "goals": 13,
     "assists": 12,
     "points": 25,
-    "sog": 60,
-    "toiPerGame": 14.4
+    "sog": 61,
+    "toiPerGame": 14.5
   },
   {
     "id": "nhl:3101",
@@ -328,11 +328,11 @@
     "teamAbbr": "WSH",
     "position": "LW",
     "number": 8,
-    "gp": 81,
+    "gp": 82,
     "goals": 32,
-    "assists": 31,
-    "points": 63,
-    "sog": 240,
+    "assists": 32,
+    "points": 64,
+    "sog": 244,
     "toiPerGame": 17.4
   },
   {
@@ -424,12 +424,12 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 15,
-    "gp": 32,
-    "goals": 6,
+    "gp": 33,
+    "goals": 7,
     "assists": 6,
-    "points": 12,
-    "sog": 25,
-    "toiPerGame": 12.6
+    "points": 13,
+    "sog": 28,
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:5188393",
@@ -440,12 +440,12 @@
     "teamAbbr": "CAR",
     "position": "D",
     "number": 21,
-    "gp": 80,
+    "gp": 81,
     "goals": 11,
-    "assists": 21,
-    "points": 32,
+    "assists": 22,
+    "points": 33,
     "sog": 122,
-    "toiPerGame": 18.1
+    "toiPerGame": 18.2
   },
   {
     "id": "nhl:5620",
@@ -504,12 +504,12 @@
     "teamAbbr": "MTL",
     "position": "LW",
     "number": 85,
-    "gp": 50,
+    "gp": 51,
     "goals": 8,
-    "assists": 12,
-    "points": 20,
+    "assists": 13,
+    "points": 21,
     "sog": 74,
-    "toiPerGame": 13.6
+    "toiPerGame": 13.7
   },
   {
     "id": "nhl:4392454",
@@ -520,11 +520,11 @@
     "teamAbbr": "STL",
     "position": "RW",
     "number": 13,
-    "gp": 63,
+    "gp": 64,
     "goals": 4,
-    "assists": 6,
-    "points": 10,
-    "sog": 66,
+    "assists": 7,
+    "points": 11,
+    "sog": 67,
     "toiPerGame": 11.9
   },
   {
@@ -552,12 +552,12 @@
     "teamAbbr": "WSH",
     "position": "C",
     "number": 21,
-    "gp": 75,
+    "gp": 76,
     "goals": 25,
     "assists": 27,
     "points": 52,
-    "sog": 157,
-    "toiPerGame": 18.3
+    "sog": 159,
+    "toiPerGame": 18.2
   },
   {
     "id": "nhl:5793",
@@ -568,11 +568,11 @@
     "teamAbbr": "NYI",
     "position": "LW",
     "number": 27,
-    "gp": 81,
+    "gp": 82,
     "goals": 19,
     "assists": 23,
     "points": 42,
-    "sog": 196,
+    "sog": 199,
     "toiPerGame": 15.6
   },
   {
@@ -648,11 +648,11 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 26,
-    "gp": 76,
+    "gp": 77,
     "goals": 5,
     "assists": 9,
     "points": 14,
-    "sog": 81,
+    "sog": 82,
     "toiPerGame": 19.4
   },
   {
@@ -664,11 +664,11 @@
     "teamAbbr": "WSH",
     "position": "LW",
     "number": 72,
-    "gp": 81,
-    "goals": 14,
+    "gp": 82,
+    "goals": 15,
     "assists": 13,
-    "points": 27,
-    "sog": 152,
+    "points": 28,
+    "sog": 155,
     "toiPerGame": 15.8
   },
   {
@@ -712,11 +712,11 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 39,
-    "gp": 80,
-    "goals": 32,
-    "assists": 30,
-    "points": 62,
-    "sog": 149,
+    "gp": 81,
+    "goals": 33,
+    "assists": 31,
+    "points": 64,
+    "sog": 152,
     "toiPerGame": 15.2
   },
   {
@@ -744,11 +744,11 @@
     "teamAbbr": "LA",
     "position": "C",
     "number": 11,
-    "gp": 65,
+    "gp": 66,
     "goals": 12,
-    "assists": 25,
-    "points": 37,
-    "sog": 97,
+    "assists": 26,
+    "points": 38,
+    "sog": 98,
     "toiPerGame": 19.1
   },
   {
@@ -760,12 +760,12 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 72,
-    "gp": 64,
+    "gp": 65,
     "goals": 1,
-    "assists": 2,
-    "points": 3,
-    "sog": 38,
-    "toiPerGame": 11.3
+    "assists": 3,
+    "points": 4,
+    "sog": 40,
+    "toiPerGame": 11.4
   },
   {
     "id": "nhl:4915855",
@@ -808,12 +808,12 @@
     "teamAbbr": "LA",
     "position": "LW",
     "number": 10,
-    "gp": 76,
+    "gp": 77,
     "goals": 28,
-    "assists": 55,
-    "points": 83,
-    "sog": 221,
-    "toiPerGame": 20.8
+    "assists": 56,
+    "points": 84,
+    "sog": 222,
+    "toiPerGame": 20.9
   },
   {
     "id": "nhl:5209793",
@@ -840,12 +840,12 @@
     "teamAbbr": "COL",
     "position": "LW",
     "number": 62,
-    "gp": 68,
-    "goals": 20,
+    "gp": 69,
+    "goals": 21,
     "assists": 27,
-    "points": 47,
-    "sog": 148,
-    "toiPerGame": 18.4
+    "points": 48,
+    "sog": 151,
+    "toiPerGame": 18.5
   },
   {
     "id": "nhl:5206648",
@@ -936,11 +936,11 @@
     "teamAbbr": "ANA",
     "position": "RW",
     "number": 45,
-    "gp": 80,
+    "gp": 81,
     "goals": 23,
     "assists": 37,
     "points": 60,
-    "sog": 194,
+    "sog": 196,
     "toiPerGame": 17.5
   },
   {
@@ -1016,12 +1016,12 @@
     "teamAbbr": "CGY",
     "position": "LW",
     "number": 20,
-    "gp": 67,
-    "goals": 19,
+    "gp": 68,
+    "goals": 20,
     "assists": 15,
-    "points": 34,
-    "sog": 172,
-    "toiPerGame": 17.4
+    "points": 35,
+    "sog": 176,
+    "toiPerGame": 17.3
   },
   {
     "id": "nhl:4316983",
@@ -1048,11 +1048,11 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 14,
-    "gp": 67,
-    "goals": 30,
+    "gp": 68,
+    "goals": 31,
     "assists": 26,
-    "points": 56,
-    "sog": 224,
+    "points": 57,
+    "sog": 226,
     "toiPerGame": 20.8
   },
   {
@@ -1064,12 +1064,12 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 10,
-    "gp": 67,
+    "gp": 68,
     "goals": 15,
     "assists": 15,
     "points": 30,
-    "sog": 102,
-    "toiPerGame": 15.1
+    "sog": 104,
+    "toiPerGame": 15.2
   },
   {
     "id": "nhl:5048894",
@@ -1084,7 +1084,7 @@
     "goals": 29,
     "assists": 17,
     "points": 46,
-    "sog": 177,
+    "sog": 178,
     "toiPerGame": 15.9
   },
   {
@@ -1096,11 +1096,11 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 38,
-    "gp": 66,
-    "goals": 12,
+    "gp": 67,
+    "goals": 13,
     "assists": 25,
-    "points": 37,
-    "sog": 128,
+    "points": 38,
+    "sog": 132,
     "toiPerGame": 16.1
   },
   {
@@ -1128,12 +1128,12 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 93,
-    "gp": 23,
+    "gp": 24,
     "goals": 3,
     "assists": 3,
     "points": 6,
     "sog": 25,
-    "toiPerGame": 10.5
+    "toiPerGame": 10.7
   },
   {
     "id": "nhl:3852",
@@ -1224,11 +1224,11 @@
     "teamAbbr": "WSH",
     "position": "RW",
     "number": 22,
-    "gp": 81,
+    "gp": 82,
     "goals": 4,
     "assists": 5,
     "points": 9,
-    "sog": 63,
+    "sog": 64,
     "toiPerGame": 11.1
   },
   {
@@ -1288,11 +1288,11 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 92,
-    "gp": 80,
+    "gp": 81,
     "goals": 8,
     "assists": 32,
     "points": 40,
-    "sog": 156,
+    "sog": 159,
     "toiPerGame": 19.8
   },
   {
@@ -1320,12 +1320,12 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 94,
-    "gp": 37,
+    "gp": 38,
     "goals": 1,
     "assists": 6,
     "points": 7,
     "sog": 28,
-    "toiPerGame": 13.7
+    "toiPerGame": 13.8
   },
   {
     "id": "nhl:3151187",
@@ -1352,12 +1352,12 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 10,
-    "gp": 79,
+    "gp": 80,
     "goals": 18,
     "assists": 21,
     "points": 39,
-    "sog": 118,
-    "toiPerGame": 16.7
+    "sog": 119,
+    "toiPerGame": 16.8
   },
   {
     "id": "nhl:5614",
@@ -1368,12 +1368,12 @@
     "teamAbbr": "MTL",
     "position": "RW",
     "number": 11,
-    "gp": 76,
-    "goals": 6,
+    "gp": 77,
+    "goals": 7,
     "assists": 16,
-    "points": 22,
-    "sog": 120,
-    "toiPerGame": 12.4
+    "points": 23,
+    "sog": 121,
+    "toiPerGame": 12.3
   },
   {
     "id": "nhl:2554903",
@@ -1384,11 +1384,11 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 5,
-    "gp": 81,
+    "gp": 82,
     "goals": 3,
     "assists": 12,
     "points": 15,
-    "sog": 53,
+    "sog": 55,
     "toiPerGame": 18
   },
   {
@@ -1400,7 +1400,7 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 84,
-    "gp": 80,
+    "gp": 81,
     "goals": 12,
     "assists": 22,
     "points": 34,
@@ -1432,10 +1432,10 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 27,
-    "gp": 81,
+    "gp": 82,
     "goals": 1,
-    "assists": 10,
-    "points": 11,
+    "assists": 11,
+    "points": 12,
     "sog": 93,
     "toiPerGame": 18.9
   },
@@ -1464,7 +1464,7 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 2,
-    "gp": 80,
+    "gp": 81,
     "goals": 2,
     "assists": 15,
     "points": 17,
@@ -1480,12 +1480,12 @@
     "teamAbbr": "VAN",
     "position": "RW",
     "number": 6,
-    "gp": 73,
+    "gp": 74,
     "goals": 22,
-    "assists": 25,
-    "points": 47,
-    "sog": 163,
-    "toiPerGame": 19
+    "assists": 26,
+    "points": 48,
+    "sog": 165,
+    "toiPerGame": 19.1
   },
   {
     "id": "nhl:4697449",
@@ -1560,11 +1560,11 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 8,
-    "gp": 73,
+    "gp": 74,
     "goals": 20,
-    "assists": 55,
-    "points": 75,
-    "sog": 192,
+    "assists": 58,
+    "points": 78,
+    "sog": 196,
     "toiPerGame": 24.9
   },
   {
@@ -1592,12 +1592,12 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 64,
-    "gp": 64,
+    "gp": 65,
     "goals": 13,
     "assists": 17,
     "points": 30,
-    "sog": 77,
-    "toiPerGame": 13.4
+    "sog": 79,
+    "toiPerGame": 13.5
   },
   {
     "id": "nhl:5495",
@@ -1608,11 +1608,11 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 17,
-    "gp": 80,
+    "gp": 81,
     "goals": 4,
     "assists": 25,
     "points": 29,
-    "sog": 89,
+    "sog": 90,
     "toiPerGame": 21.1
   },
   {
@@ -1624,11 +1624,11 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 4,
-    "gp": 75,
+    "gp": 76,
     "goals": 5,
     "assists": 7,
     "points": 12,
-    "sog": 60,
+    "sog": 62,
     "toiPerGame": 16.5
   },
   {
@@ -1656,11 +1656,11 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 53,
-    "gp": 80,
+    "gp": 81,
     "goals": 10,
     "assists": 8,
     "points": 18,
-    "sog": 79,
+    "sog": 80,
     "toiPerGame": 11.8
   },
   {
@@ -1720,11 +1720,11 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 3,
-    "gp": 81,
+    "gp": 82,
     "goals": 20,
     "assists": 38,
     "points": 58,
-    "sog": 142,
+    "sog": 144,
     "toiPerGame": 18.1
   },
   {
@@ -1736,12 +1736,12 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 73,
-    "gp": 68,
+    "gp": 69,
     "goals": 11,
     "assists": 50,
     "points": 61,
     "sog": 111,
-    "toiPerGame": 24.5
+    "toiPerGame": 24.4
   },
   {
     "id": "nhl:5833",
@@ -1800,11 +1800,11 @@
     "teamAbbr": "UTA",
     "position": "RW",
     "number": 9,
-    "gp": 80,
+    "gp": 81,
     "goals": 26,
-    "assists": 59,
-    "points": 85,
-    "sog": 222,
+    "assists": 60,
+    "points": 86,
+    "sog": 224,
     "toiPerGame": 19.1
   },
   {
@@ -1816,11 +1816,11 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 5,
-    "gp": 80,
+    "gp": 81,
     "goals": 1,
     "assists": 8,
     "points": 9,
-    "sog": 58,
+    "sog": 59,
     "toiPerGame": 17.6
   },
   {
@@ -1832,11 +1832,11 @@
     "teamAbbr": "NJ",
     "position": "C",
     "number": 12,
-    "gp": 69,
+    "gp": 70,
     "goals": 19,
     "assists": 7,
     "points": 26,
-    "sog": 103,
+    "sog": 105,
     "toiPerGame": 13.6
   },
   {
@@ -1848,12 +1848,12 @@
     "teamAbbr": "MTL",
     "position": "RW",
     "number": 13,
-    "gp": 80,
+    "gp": 81,
     "goals": 51,
     "assists": 37,
     "points": 88,
-    "sog": 248,
-    "toiPerGame": 18.1
+    "sog": 258,
+    "toiPerGame": 18.2
   },
   {
     "id": "nhl:4419679",
@@ -1864,7 +1864,7 @@
     "teamAbbr": "WPG",
     "position": "LW",
     "number": 45,
-    "gp": 64,
+    "gp": 65,
     "goals": 7,
     "assists": 9,
     "points": 16,
@@ -1880,11 +1880,11 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 91,
-    "gp": 66,
+    "gp": 67,
     "goals": 12,
     "assists": 20,
     "points": 32,
-    "sog": 133,
+    "sog": 134,
     "toiPerGame": 15.6
   },
   {
@@ -1912,7 +1912,7 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 4,
-    "gp": 80,
+    "gp": 81,
     "goals": 8,
     "assists": 25,
     "points": 33,
@@ -1992,12 +1992,12 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 55,
-    "gp": 75,
+    "gp": 76,
     "goals": 4,
     "assists": 14,
     "points": 18,
-    "sog": 102,
-    "toiPerGame": 22.2
+    "sog": 103,
+    "toiPerGame": 22.3
   },
   {
     "id": "nhl:2993474",
@@ -2040,11 +2040,11 @@
     "teamAbbr": "NJ",
     "position": "RW",
     "number": 16,
-    "gp": 74,
+    "gp": 75,
     "goals": 18,
     "assists": 25,
     "points": 43,
-    "sog": 115,
+    "sog": 116,
     "toiPerGame": 17.6
   },
   {
@@ -2056,12 +2056,12 @@
     "teamAbbr": "PIT",
     "position": "D",
     "number": 75,
-    "gp": 49,
+    "gp": 50,
     "goals": 2,
     "assists": 4,
     "points": 6,
-    "sog": 34,
-    "toiPerGame": 16.7
+    "sog": 35,
+    "toiPerGame": 16.8
   },
   {
     "id": "nhl:4588004",
@@ -2104,7 +2104,7 @@
     "teamAbbr": "WSH",
     "position": "C",
     "number": 24,
-    "gp": 77,
+    "gp": 78,
     "goals": 14,
     "assists": 32,
     "points": 46,
@@ -2136,12 +2136,12 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 47,
-    "gp": 73,
+    "gp": 74,
     "goals": 12,
     "assists": 13,
     "points": 25,
-    "sog": 108,
-    "toiPerGame": 14.3
+    "sog": 110,
+    "toiPerGame": 14.4
   },
   {
     "id": "nhl:3939718",
@@ -2152,12 +2152,12 @@
     "teamAbbr": "CBJ",
     "position": "RW",
     "number": 83,
-    "gp": 70,
+    "gp": 71,
     "goals": 12,
     "assists": 21,
     "points": 33,
     "sog": 137,
-    "toiPerGame": 17.3
+    "toiPerGame": 17.2
   },
   {
     "id": "nhl:3149827",
@@ -2216,11 +2216,11 @@
     "teamAbbr": "ANA",
     "position": "LW",
     "number": 61,
-    "gp": 74,
+    "gp": 75,
     "goals": 40,
-    "assists": 27,
-    "points": 67,
-    "sog": 276,
+    "assists": 28,
+    "points": 68,
+    "sog": 280,
     "toiPerGame": 17.2
   },
   {
@@ -2232,12 +2232,12 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 48,
-    "gp": 31,
+    "gp": 32,
     "goals": 0,
     "assists": 6,
     "points": 6,
     "sog": 19,
-    "toiPerGame": 12.2
+    "toiPerGame": 12.4
   },
   {
     "id": "nhl:4588638",
@@ -2264,12 +2264,12 @@
     "teamAbbr": "STL",
     "position": "RW",
     "number": 54,
-    "gp": 69,
+    "gp": 70,
     "goals": 12,
     "assists": 9,
     "points": 21,
-    "sog": 88,
-    "toiPerGame": 14.4
+    "sog": 90,
+    "toiPerGame": 14.3
   },
   {
     "id": "nhl:3068087",
@@ -2296,11 +2296,11 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 22,
-    "gp": 72,
-    "goals": 11,
+    "gp": 73,
+    "goals": 12,
     "assists": 15,
-    "points": 26,
-    "sog": 76,
+    "points": 27,
+    "sog": 80,
     "toiPerGame": 13.3
   },
   {
@@ -2312,12 +2312,12 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 15,
-    "gp": 73,
+    "gp": 74,
     "goals": 5,
     "assists": 6,
     "points": 11,
-    "sog": 67,
-    "toiPerGame": 16.5
+    "sog": 68,
+    "toiPerGame": 16.6
   },
   {
     "id": "nhl:3151741",
@@ -2328,11 +2328,11 @@
     "teamAbbr": "CBJ",
     "position": "LW",
     "number": 43,
-    "gp": 45,
+    "gp": 46,
     "goals": 6,
-    "assists": 5,
-    "points": 11,
-    "sog": 43,
+    "assists": 6,
+    "points": 12,
+    "sog": 44,
     "toiPerGame": 11.3
   },
   {
@@ -2392,12 +2392,12 @@
     "teamAbbr": "BOS",
     "position": "RW",
     "number": 88,
-    "gp": 76,
+    "gp": 77,
     "goals": 29,
-    "assists": 70,
-    "points": 99,
-    "sog": 258,
-    "toiPerGame": 20.7
+    "assists": 71,
+    "points": 100,
+    "sog": 261,
+    "toiPerGame": 20.6
   },
   {
     "id": "nhl:3792",
@@ -2440,12 +2440,12 @@
     "teamAbbr": "NJ",
     "position": "C",
     "number": 91,
-    "gp": 81,
+    "gp": 82,
     "goals": 20,
     "assists": 22,
     "points": 42,
-    "sog": 156,
-    "toiPerGame": 18.3
+    "sog": 158,
+    "toiPerGame": 18.2
   },
   {
     "id": "nhl:5103825",
@@ -2488,11 +2488,11 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 5,
-    "gp": 74,
+    "gp": 75,
     "goals": 13,
     "assists": 18,
     "points": 31,
-    "sog": 87,
+    "sog": 88,
     "toiPerGame": 19.2
   },
   {
@@ -2504,12 +2504,12 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 52,
-    "gp": 42,
+    "gp": 43,
     "goals": 5,
     "assists": 12,
     "points": 17,
     "sog": 43,
-    "toiPerGame": 13.3
+    "toiPerGame": 13.4
   },
   {
     "id": "nhl:3096249",
@@ -2600,12 +2600,12 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 7,
-    "gp": 76,
+    "gp": 77,
     "goals": 12,
     "assists": 26,
     "points": 38,
-    "sog": 199,
-    "toiPerGame": 21.6
+    "sog": 202,
+    "toiPerGame": 21.5
   },
   {
     "id": "nhl:4271734",
@@ -2632,11 +2632,11 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 8,
-    "gp": 70,
+    "gp": 71,
     "goals": 5,
-    "assists": 17,
-    "points": 22,
-    "sog": 98,
+    "assists": 18,
+    "points": 23,
+    "sog": 100,
     "toiPerGame": 23.1
   },
   {
@@ -2648,7 +2648,7 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 14,
-    "gp": 59,
+    "gp": 60,
     "goals": 2,
     "assists": 13,
     "points": 15,
@@ -2664,11 +2664,11 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 18,
-    "gp": 80,
+    "gp": 81,
     "goals": 17,
     "assists": 12,
     "points": 29,
-    "sog": 134,
+    "sog": 136,
     "toiPerGame": 14.6
   },
   {
@@ -2696,11 +2696,11 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 2,
-    "gp": 80,
+    "gp": 81,
     "goals": 3,
     "assists": 16,
     "points": 19,
-    "sog": 74,
+    "sog": 75,
     "toiPerGame": 21.5
   },
   {
@@ -2712,11 +2712,11 @@
     "teamAbbr": "UTA",
     "position": "RW",
     "number": 11,
-    "gp": 78,
+    "gp": 79,
     "goals": 40,
-    "assists": 32,
-    "points": 72,
-    "sog": 241,
+    "assists": 33,
+    "points": 73,
+    "sog": 242,
     "toiPerGame": 17.4
   },
   {
@@ -2728,11 +2728,11 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 81,
-    "gp": 57,
-    "goals": 20,
-    "assists": 26,
-    "points": 46,
-    "sog": 155,
+    "gp": 58,
+    "goals": 22,
+    "assists": 27,
+    "points": 49,
+    "sog": 160,
     "toiPerGame": 18.3
   },
   {
@@ -2760,12 +2760,12 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 54,
-    "gp": 64,
+    "gp": 65,
     "goals": 1,
     "assists": 13,
     "points": 14,
     "sog": 83,
-    "toiPerGame": 21.8
+    "toiPerGame": 21.9
   },
   {
     "id": "nhl:3899933",
@@ -2776,12 +2776,12 @@
     "teamAbbr": "WSH",
     "position": "C",
     "number": 17,
-    "gp": 79,
+    "gp": 80,
     "goals": 19,
     "assists": 39,
     "points": 58,
-    "sog": 141,
-    "toiPerGame": 18.1
+    "sog": 143,
+    "toiPerGame": 18
   },
   {
     "id": "nhl:5149211",
@@ -2872,7 +2872,7 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 28,
-    "gp": 68,
+    "gp": 69,
     "goals": 17,
     "assists": 31,
     "points": 48,
@@ -2888,11 +2888,11 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 40,
-    "gp": 72,
+    "gp": 73,
     "goals": 15,
-    "assists": 34,
-    "points": 49,
-    "sog": 130,
+    "assists": 36,
+    "points": 51,
+    "sog": 131,
     "toiPerGame": 19
   },
   {
@@ -2920,11 +2920,11 @@
     "teamAbbr": "PIT",
     "position": "LW",
     "number": 25,
-    "gp": 58,
-    "goals": 6,
+    "gp": 59,
+    "goals": 7,
     "assists": 6,
-    "points": 12,
-    "sog": 68,
+    "points": 13,
+    "sog": 69,
     "toiPerGame": 11.1
   },
   {
@@ -2936,12 +2936,12 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 36,
-    "gp": 60,
+    "gp": 61,
     "goals": 2,
     "assists": 11,
     "points": 13,
-    "sog": 35,
-    "toiPerGame": 15.2
+    "sog": 36,
+    "toiPerGame": 15.3
   },
   {
     "id": "nhl:4697447",
@@ -2952,11 +2952,11 @@
     "teamAbbr": "NYI",
     "position": "LW",
     "number": 51,
-    "gp": 81,
+    "gp": 82,
     "goals": 22,
     "assists": 9,
     "points": 31,
-    "sog": 172,
+    "sog": 174,
     "toiPerGame": 16.6
   },
   {
@@ -2984,11 +2984,11 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 50,
-    "gp": 66,
+    "gp": 67,
     "goals": 12,
     "assists": 6,
     "points": 18,
-    "sog": 81,
+    "sog": 84,
     "toiPerGame": 11.4
   },
   {
@@ -3016,11 +3016,11 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 44,
-    "gp": 36,
+    "gp": 37,
     "goals": 1,
     "assists": 2,
     "points": 3,
-    "sog": 33,
+    "sog": 34,
     "toiPerGame": 17.8
   },
   {
@@ -3160,12 +3160,12 @@
     "teamAbbr": "NJ",
     "position": "LW",
     "number": 33,
-    "gp": 23,
+    "gp": 24,
     "goals": 1,
     "assists": 0,
     "points": 1,
-    "sog": 19,
-    "toiPerGame": 10.6
+    "sog": 20,
+    "toiPerGame": 10.7
   },
   {
     "id": "nhl:4587837",
@@ -3224,11 +3224,11 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 17,
-    "gp": 80,
+    "gp": 81,
     "goals": 8,
-    "assists": 40,
-    "points": 48,
-    "sog": 135,
+    "assists": 41,
+    "points": 49,
+    "sog": 136,
     "toiPerGame": 25
   },
   {
@@ -3256,12 +3256,12 @@
     "teamAbbr": "ANA",
     "position": "RW",
     "number": 77,
-    "gp": 49,
+    "gp": 50,
     "goals": 5,
     "assists": 4,
     "points": 9,
-    "sog": 78,
-    "toiPerGame": 11.9
+    "sog": 79,
+    "toiPerGame": 11.8
   },
   {
     "id": "nhl:5080207",
@@ -3272,12 +3272,12 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 93,
-    "gp": 81,
+    "gp": 82,
     "goals": 17,
-    "assists": 17,
-    "points": 34,
+    "assists": 18,
+    "points": 35,
     "sog": 117,
-    "toiPerGame": 15.5
+    "toiPerGame": 15.6
   },
   {
     "id": "nhl:3149649",
@@ -3304,11 +3304,11 @@
     "teamAbbr": "COL",
     "position": "LW",
     "number": 92,
-    "gp": 59,
-    "goals": 13,
+    "gp": 60,
+    "goals": 14,
     "assists": 21,
-    "points": 34,
-    "sog": 127,
+    "points": 35,
+    "sog": 132,
     "toiPerGame": 16.4
   },
   {
@@ -3320,11 +3320,11 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 13,
-    "gp": 80,
+    "gp": 81,
     "goals": 30,
-    "assists": 37,
-    "points": 67,
-    "sog": 149,
+    "assists": 39,
+    "points": 69,
+    "sog": 150,
     "toiPerGame": 18.8
   },
   {
@@ -3352,7 +3352,7 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 19,
-    "gp": 65,
+    "gp": 66,
     "goals": 1,
     "assists": 2,
     "points": 3,
@@ -3400,11 +3400,11 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 27,
-    "gp": 66,
+    "gp": 67,
     "goals": 5,
-    "assists": 20,
-    "points": 25,
-    "sog": 99,
+    "assists": 21,
+    "points": 26,
+    "sog": 100,
     "toiPerGame": 21.6
   },
   {
@@ -3448,12 +3448,12 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 48,
-    "gp": 32,
+    "gp": 33,
     "goals": 2,
     "assists": 5,
     "points": 7,
     "sog": 32,
-    "toiPerGame": 15.8
+    "toiPerGame": 16
   },
   {
     "id": "nhl:4991",
@@ -3464,11 +3464,11 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 28,
-    "gp": 80,
+    "gp": 81,
     "goals": 3,
     "assists": 20,
     "points": 23,
-    "sog": 61,
+    "sog": 62,
     "toiPerGame": 18.3
   },
   {
@@ -3480,11 +3480,11 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 3,
-    "gp": 65,
+    "gp": 66,
     "goals": 4,
     "assists": 8,
     "points": 12,
-    "sog": 65,
+    "sog": 66,
     "toiPerGame": 13.8
   },
   {
@@ -3544,12 +3544,12 @@
     "teamAbbr": "PIT",
     "position": "D",
     "number": 7,
-    "gp": 29,
+    "gp": 30,
     "goals": 1,
     "assists": 7,
     "points": 8,
-    "sog": 21,
-    "toiPerGame": 12.7
+    "sog": 23,
+    "toiPerGame": 12.8
   },
   {
     "id": "nhl:5080179",
@@ -3576,12 +3576,12 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 21,
-    "gp": 67,
+    "gp": 68,
     "goals": 4,
     "assists": 8,
     "points": 12,
     "sog": 53,
-    "toiPerGame": 12.3
+    "toiPerGame": 12.4
   },
   {
     "id": "nhl:4874731",
@@ -3592,11 +3592,11 @@
     "teamAbbr": "WPG",
     "position": "RW",
     "number": 27,
-    "gp": 35,
-    "goals": 5,
+    "gp": 36,
+    "goals": 6,
     "assists": 4,
-    "points": 9,
-    "sog": 32,
+    "points": 10,
+    "sog": 33,
     "toiPerGame": 11.4
   },
   {
@@ -3624,12 +3624,12 @@
     "teamAbbr": "MTL",
     "position": "RW",
     "number": 93,
-    "gp": 81,
+    "gp": 82,
     "goals": 19,
     "assists": 43,
     "points": 62,
-    "sog": 126,
-    "toiPerGame": 15.4
+    "sog": 127,
+    "toiPerGame": 15.5
   },
   {
     "id": "nhl:3899939",
@@ -3640,11 +3640,11 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 9,
-    "gp": 81,
+    "gp": 82,
     "goals": 9,
     "assists": 22,
     "points": 31,
-    "sog": 154,
+    "sog": 158,
     "toiPerGame": 24.8
   },
   {
@@ -3720,11 +3720,11 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 18,
-    "gp": 80,
+    "gp": 81,
     "goals": 10,
     "assists": 17,
     "points": 27,
-    "sog": 95,
+    "sog": 97,
     "toiPerGame": 14.5
   },
   {
@@ -3752,11 +3752,11 @@
     "teamAbbr": "NJ",
     "position": "C",
     "number": 86,
-    "gp": 60,
+    "gp": 61,
     "goals": 27,
     "assists": 50,
     "points": 77,
-    "sog": 227,
+    "sog": 229,
     "toiPerGame": 21.3
   },
   {
@@ -3808,6 +3808,22 @@
     "toiPerGame": 15.8
   },
   {
+    "id": "nhl:4755690",
+    "name": "Jack St. Ivany",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 3,
+    "gp": 20,
+    "goals": 0,
+    "assists": 7,
+    "points": 7,
+    "sog": 17,
+    "toiPerGame": 16.3
+  },
+  {
     "id": "nhl:5103645",
     "name": "Jackson Blake",
     "conference": "East",
@@ -3816,12 +3832,12 @@
     "teamAbbr": "CAR",
     "position": "RW",
     "number": 53,
-    "gp": 80,
+    "gp": 81,
     "goals": 22,
     "assists": 31,
     "points": 53,
-    "sog": 170,
-    "toiPerGame": 16.6
+    "sog": 174,
+    "toiPerGame": 16.5
   },
   {
     "id": "nhl:4565262",
@@ -3832,11 +3848,11 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 2,
-    "gp": 80,
+    "gp": 81,
     "goals": 9,
-    "assists": 47,
-    "points": 56,
-    "sog": 147,
+    "assists": 48,
+    "points": 57,
+    "sog": 150,
     "toiPerGame": 24.2
   },
   {
@@ -3864,12 +3880,12 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 78,
-    "gp": 49,
+    "gp": 50,
     "goals": 2,
     "assists": 6,
     "points": 8,
-    "sog": 21,
-    "toiPerGame": 10.7
+    "sog": 22,
+    "toiPerGame": 10.9
   },
   {
     "id": "nhl:4997056",
@@ -3896,12 +3912,12 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 65,
-    "gp": 79,
+    "gp": 80,
     "goals": 10,
     "assists": 24,
     "points": 34,
-    "sog": 164,
-    "toiPerGame": 22.9
+    "sog": 166,
+    "toiPerGame": 22.8
   },
   {
     "id": "nhl:5835",
@@ -3928,12 +3944,12 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 2,
-    "gp": 39,
+    "gp": 40,
     "goals": 0,
     "assists": 3,
     "points": 3,
-    "sog": 25,
-    "toiPerGame": 10
+    "sog": 26,
+    "toiPerGame": 10.1
   },
   {
     "id": "nhl:3900240",
@@ -3944,11 +3960,11 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 74,
-    "gp": 79,
-    "goals": 21,
+    "gp": 80,
+    "goals": 23,
     "assists": 19,
-    "points": 40,
-    "sog": 211,
+    "points": 42,
+    "sog": 217,
     "toiPerGame": 16.9
   },
   {
@@ -3960,12 +3976,12 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 71,
-    "gp": 67,
-    "goals": 11,
+    "gp": 68,
+    "goals": 12,
     "assists": 12,
-    "points": 23,
-    "sog": 73,
-    "toiPerGame": 15.4
+    "points": 24,
+    "sog": 76,
+    "toiPerGame": 15.3
   },
   {
     "id": "nhl:3042083",
@@ -4008,12 +4024,12 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 63,
-    "gp": 67,
+    "gp": 68,
     "goals": 15,
-    "assists": 19,
-    "points": 34,
-    "sog": 83,
-    "toiPerGame": 15.3
+    "assists": 21,
+    "points": 36,
+    "sog": 84,
+    "toiPerGame": 15.2
   },
   {
     "id": "nhl:4697386",
@@ -4056,12 +4072,12 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 6,
-    "gp": 79,
-    "goals": 25,
+    "gp": 80,
+    "goals": 26,
     "assists": 34,
-    "points": 59,
-    "sog": 220,
-    "toiPerGame": 23.4
+    "points": 60,
+    "sog": 221,
+    "toiPerGame": 23.3
   },
   {
     "id": "nhl:4063449",
@@ -4200,12 +4216,12 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 53,
-    "gp": 21,
+    "gp": 22,
     "goals": 0,
     "assists": 4,
     "points": 4,
-    "sog": 30,
-    "toiPerGame": 11.4
+    "sog": 32,
+    "toiPerGame": 11.5
   },
   {
     "id": "nhl:3042062",
@@ -4264,11 +4280,11 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 47,
-    "gp": 58,
+    "gp": 59,
     "goals": 2,
     "assists": 10,
     "points": 12,
-    "sog": 25,
+    "sog": 26,
     "toiPerGame": 14
   },
   {
@@ -4280,7 +4296,7 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 44,
-    "gp": 73,
+    "gp": 74,
     "goals": 17,
     "assists": 18,
     "points": 35,
@@ -4296,12 +4312,12 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 2,
-    "gp": 66,
+    "gp": 67,
     "goals": 0,
     "assists": 9,
     "points": 9,
-    "sog": 53,
-    "toiPerGame": 14.7
+    "sog": 54,
+    "toiPerGame": 14.8
   },
   {
     "id": "nhl:4588188",
@@ -4312,7 +4328,7 @@
     "teamAbbr": "ANA",
     "position": "LW",
     "number": 28,
-    "gp": 43,
+    "gp": 44,
     "goals": 3,
     "assists": 6,
     "points": 9,
@@ -4360,7 +4376,7 @@
     "teamAbbr": "NJ",
     "position": "LW",
     "number": 63,
-    "gp": 81,
+    "gp": 82,
     "goals": 22,
     "assists": 49,
     "points": 71,
@@ -4376,12 +4392,12 @@
     "teamAbbr": "CAR",
     "position": "C",
     "number": 82,
-    "gp": 41,
+    "gp": 42,
     "goals": 2,
     "assists": 7,
     "points": 9,
-    "sog": 41,
-    "toiPerGame": 11.2
+    "sog": 42,
+    "toiPerGame": 11.3
   },
   {
     "id": "nhl:5080171",
@@ -4392,11 +4408,11 @@
     "teamAbbr": "STL",
     "position": "RW",
     "number": 21,
-    "gp": 68,
-    "goals": 19,
-    "assists": 27,
-    "points": 46,
-    "sog": 164,
+    "gp": 69,
+    "goals": 21,
+    "assists": 29,
+    "points": 50,
+    "sog": 167,
     "toiPerGame": 16.7
   },
   {
@@ -4408,11 +4424,11 @@
     "teamAbbr": "UTA",
     "position": "RW",
     "number": 77,
-    "gp": 80,
-    "goals": 24,
+    "gp": 81,
+    "goals": 25,
     "assists": 21,
-    "points": 45,
-    "sog": 152,
+    "points": 46,
+    "sog": 156,
     "toiPerGame": 15.9
   },
   {
@@ -4424,10 +4440,10 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 90,
-    "gp": 60,
+    "gp": 61,
     "goals": 2,
-    "assists": 2,
-    "points": 4,
+    "assists": 3,
+    "points": 5,
     "sog": 52,
     "toiPerGame": 12.1
   },
@@ -4440,11 +4456,11 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 40,
-    "gp": 65,
+    "gp": 66,
     "goals": 13,
     "assists": 12,
     "points": 25,
-    "sog": 87,
+    "sog": 91,
     "toiPerGame": 14.1
   },
   {
@@ -4456,11 +4472,11 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 6,
-    "gp": 80,
+    "gp": 81,
     "goals": 2,
     "assists": 21,
     "points": 23,
-    "sog": 99,
+    "sog": 101,
     "toiPerGame": 18.5
   },
   {
@@ -4488,11 +4504,11 @@
     "teamAbbr": "CGY",
     "position": "LW",
     "number": 86,
-    "gp": 80,
+    "gp": 81,
     "goals": 19,
     "assists": 18,
     "points": 37,
-    "sog": 134,
+    "sog": 137,
     "toiPerGame": 16.9
   },
   {
@@ -4520,28 +4536,12 @@
     "teamAbbr": "COL",
     "position": "LW",
     "number": 94,
-    "gp": 49,
+    "gp": 50,
     "goals": 3,
     "assists": 6,
     "points": 9,
-    "sog": 43,
+    "sog": 44,
     "toiPerGame": 10.3
-  },
-  {
-    "id": "nhl:5104231",
-    "name": "Joel Nystrom",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "D",
-    "number": 64,
-    "gp": 37,
-    "goals": 1,
-    "assists": 8,
-    "points": 9,
-    "sog": 43,
-    "toiPerGame": 15.2
   },
   {
     "id": "nhl:4565251",
@@ -4568,11 +4568,11 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 74,
-    "gp": 69,
+    "gp": 70,
     "goals": 14,
     "assists": 44,
     "points": 58,
-    "sog": 152,
+    "sog": 153,
     "toiPerGame": 23.2
   },
   {
@@ -4600,7 +4600,7 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 6,
-    "gp": 78,
+    "gp": 79,
     "goals": 4,
     "assists": 31,
     "points": 35,
@@ -4632,12 +4632,12 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 8,
-    "gp": 33,
+    "gp": 34,
     "goals": 0,
     "assists": 8,
     "points": 8,
-    "sog": 29,
-    "toiPerGame": 17.8
+    "sog": 30,
+    "toiPerGame": 17.9
   },
   {
     "id": "nhl:2562600",
@@ -4648,11 +4648,11 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 25,
-    "gp": 61,
+    "gp": 62,
     "goals": 4,
     "assists": 14,
     "points": 18,
-    "sog": 75,
+    "sog": 76,
     "toiPerGame": 20.3
   },
   {
@@ -4664,11 +4664,11 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 71,
-    "gp": 81,
+    "gp": 82,
     "goals": 0,
     "assists": 16,
     "points": 16,
-    "sog": 58,
+    "sog": 60,
     "toiPerGame": 19.5
   },
   {
@@ -4696,11 +4696,11 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 45,
-    "gp": 60,
+    "gp": 61,
     "goals": 3,
     "assists": 10,
     "points": 13,
-    "sog": 45,
+    "sog": 47,
     "toiPerGame": 16.7
   },
   {
@@ -4712,11 +4712,11 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 92,
-    "gp": 63,
+    "gp": 64,
     "goals": 4,
-    "assists": 19,
-    "points": 23,
-    "sog": 83,
+    "assists": 20,
+    "points": 24,
+    "sog": 86,
     "toiPerGame": 16.9
   },
   {
@@ -4760,7 +4760,7 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 19,
-    "gp": 80,
+    "gp": 81,
     "goals": 11,
     "assists": 18,
     "points": 29,
@@ -4824,11 +4824,11 @@
     "teamAbbr": "STL",
     "position": "RW",
     "number": 25,
-    "gp": 70,
+    "gp": 71,
     "goals": 18,
-    "assists": 26,
-    "points": 44,
-    "sog": 169,
+    "assists": 27,
+    "points": 45,
+    "sog": 171,
     "toiPerGame": 15.8
   },
   {
@@ -4840,11 +4840,11 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 48,
-    "gp": 76,
+    "gp": 77,
     "goals": 12,
     "assists": 17,
     "points": 29,
-    "sog": 108,
+    "sog": 109,
     "toiPerGame": 14.8
   },
   {
@@ -4936,11 +4936,11 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 44,
-    "gp": 75,
+    "gp": 76,
     "goals": 14,
     "assists": 41,
     "points": 55,
-    "sog": 143,
+    "sog": 145,
     "toiPerGame": 24.8
   },
   {
@@ -4968,11 +4968,11 @@
     "teamAbbr": "MTL",
     "position": "LW",
     "number": 20,
-    "gp": 81,
+    "gp": 82,
     "goals": 30,
     "assists": 43,
     "points": 73,
-    "sog": 178,
+    "sog": 180,
     "toiPerGame": 18.5
   },
   {
@@ -5000,12 +5000,12 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 16,
-    "gp": 63,
+    "gp": 64,
     "goals": 17,
     "assists": 17,
     "points": 34,
-    "sog": 103,
-    "toiPerGame": 12.6
+    "sog": 104,
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:5746",
@@ -5048,7 +5048,7 @@
     "teamAbbr": "WSH",
     "position": "RW",
     "number": 34,
-    "gp": 77,
+    "gp": 78,
     "goals": 15,
     "assists": 20,
     "points": 35,
@@ -5112,11 +5112,11 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 21,
-    "gp": 38,
+    "gp": 39,
     "goals": 2,
-    "assists": 8,
-    "points": 10,
-    "sog": 36,
+    "assists": 9,
+    "points": 11,
+    "sog": 39,
     "toiPerGame": 19.5
   },
   {
@@ -5128,11 +5128,11 @@
     "teamAbbr": "UTA",
     "position": "RW",
     "number": 56,
-    "gp": 57,
+    "gp": 58,
     "goals": 12,
     "assists": 10,
     "points": 22,
-    "sog": 56,
+    "sog": 59,
     "toiPerGame": 11.8
   },
   {
@@ -5176,12 +5176,12 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 91,
-    "gp": 75,
+    "gp": 76,
     "goals": 7,
     "assists": 15,
     "points": 22,
-    "sog": 113,
-    "toiPerGame": 13.3
+    "sog": 114,
+    "toiPerGame": 13.2
   },
   {
     "id": "nhl:4378686",
@@ -5224,12 +5224,12 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 13,
-    "gp": 27,
+    "gp": 28,
     "goals": 4,
-    "assists": 2,
-    "points": 6,
-    "sog": 43,
-    "toiPerGame": 12.4
+    "assists": 4,
+    "points": 8,
+    "sog": 45,
+    "toiPerGame": 12.5
   },
   {
     "id": "nhl:3904191",
@@ -5240,7 +5240,7 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 82,
-    "gp": 78,
+    "gp": 79,
     "goals": 4,
     "assists": 14,
     "points": 18,
@@ -5272,7 +5272,7 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 77,
-    "gp": 36,
+    "gp": 37,
     "goals": 8,
     "assists": 7,
     "points": 15,
@@ -5304,11 +5304,11 @@
     "teamAbbr": "CBJ",
     "position": "RW",
     "number": 86,
-    "gp": 75,
+    "gp": 76,
     "goals": 27,
     "assists": 40,
     "points": 67,
-    "sog": 214,
+    "sog": 218,
     "toiPerGame": 18.9
   },
   {
@@ -5352,11 +5352,11 @@
     "teamAbbr": "WPG",
     "position": "LW",
     "number": 81,
-    "gp": 80,
-    "goals": 38,
-    "assists": 52,
-    "points": 90,
-    "sog": 261,
+    "gp": 81,
+    "goals": 39,
+    "assists": 53,
+    "points": 92,
+    "sog": 267,
     "toiPerGame": 21.6
   },
   {
@@ -5416,7 +5416,7 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 48,
-    "gp": 81,
+    "gp": 82,
     "goals": 12,
     "assists": 66,
     "points": 78,
@@ -5448,11 +5448,11 @@
     "teamAbbr": "UTA",
     "position": "LW",
     "number": 67,
-    "gp": 79,
+    "gp": 80,
     "goals": 23,
     "assists": 20,
     "points": 43,
-    "sog": 138,
+    "sog": 139,
     "toiPerGame": 16.6
   },
   {
@@ -5464,12 +5464,12 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 91,
-    "gp": 68,
+    "gp": 69,
     "goals": 29,
     "assists": 37,
     "points": 66,
-    "sog": 180,
-    "toiPerGame": 19.1
+    "sog": 186,
+    "toiPerGame": 19.2
   },
   {
     "id": "nhl:3114727",
@@ -5496,12 +5496,12 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 92,
-    "gp": 67,
+    "gp": 68,
     "goals": 8,
     "assists": 10,
     "points": 18,
     "sog": 87,
-    "toiPerGame": 13
+    "toiPerGame": 13.1
   },
   {
     "id": "nhl:5080162",
@@ -5528,12 +5528,12 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 94,
-    "gp": 77,
+    "gp": 78,
     "goals": 15,
     "assists": 20,
     "points": 35,
-    "sog": 112,
-    "toiPerGame": 12.4
+    "sog": 114,
+    "toiPerGame": 12.5
   },
   {
     "id": "nhl:5080143",
@@ -5544,11 +5544,11 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 92,
-    "gp": 52,
-    "goals": 23,
-    "assists": 18,
-    "points": 41,
-    "sog": 99,
+    "gp": 53,
+    "goals": 24,
+    "assists": 19,
+    "points": 43,
+    "sog": 102,
     "toiPerGame": 17.4
   },
   {
@@ -5560,12 +5560,12 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 23,
-    "gp": 65,
-    "goals": 3,
-    "assists": 7,
-    "points": 10,
-    "sog": 74,
-    "toiPerGame": 16.6
+    "gp": 66,
+    "goals": 4,
+    "assists": 8,
+    "points": 12,
+    "sog": 78,
+    "toiPerGame": 16.7
   },
   {
     "id": "nhl:4874899",
@@ -5576,12 +5576,12 @@
     "teamAbbr": "CAR",
     "position": "C",
     "number": 22,
-    "gp": 80,
+    "gp": 81,
     "goals": 21,
-    "assists": 22,
-    "points": 43,
-    "sog": 164,
-    "toiPerGame": 15.5
+    "assists": 23,
+    "points": 44,
+    "sog": 166,
+    "toiPerGame": 15.4
   },
   {
     "id": "nhl:4024968",
@@ -5656,7 +5656,7 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 41,
-    "gp": 69,
+    "gp": 70,
     "goals": 2,
     "assists": 7,
     "points": 9,
@@ -5704,12 +5704,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 52,
-    "gp": 77,
+    "gp": 78,
     "goals": 4,
     "assists": 22,
     "points": 26,
     "sog": 153,
-    "toiPerGame": 22.6
+    "toiPerGame": 22.5
   },
   {
     "id": "nhl:4874741",
@@ -5752,7 +5752,7 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 92,
-    "gp": 76,
+    "gp": 77,
     "goals": 15,
     "assists": 18,
     "points": 33,
@@ -5800,11 +5800,11 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 93,
-    "gp": 48,
+    "gp": 49,
     "goals": 12,
-    "assists": 22,
-    "points": 34,
-    "sog": 64,
+    "assists": 23,
+    "points": 35,
+    "sog": 65,
     "toiPerGame": 17.6
   },
   {
@@ -5832,11 +5832,11 @@
     "teamAbbr": "MIN",
     "position": "LW",
     "number": 90,
-    "gp": 74,
+    "gp": 75,
     "goals": 15,
-    "assists": 33,
-    "points": 48,
-    "sog": 103,
+    "assists": 34,
+    "points": 49,
+    "sog": 106,
     "toiPerGame": 15.4
   },
   {
@@ -5848,7 +5848,7 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 29,
-    "gp": 80,
+    "gp": 81,
     "goals": 3,
     "assists": 15,
     "points": 18,
@@ -5880,12 +5880,12 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 77,
-    "gp": 67,
-    "goals": 10,
+    "gp": 68,
+    "goals": 11,
     "assists": 10,
-    "points": 20,
-    "sog": 62,
-    "toiPerGame": 11.1
+    "points": 21,
+    "sog": 63,
+    "toiPerGame": 11.2
   },
   {
     "id": "nhl:4587985",
@@ -5896,11 +5896,11 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 47,
-    "gp": 81,
-    "goals": 10,
+    "gp": 82,
+    "goals": 12,
     "assists": 10,
-    "points": 20,
-    "sog": 96,
+    "points": 22,
+    "sog": 100,
     "toiPerGame": 12.6
   },
   {
@@ -5912,12 +5912,12 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 55,
-    "gp": 80,
-    "goals": 35,
-    "assists": 66,
-    "points": 101,
-    "sog": 173,
-    "toiPerGame": 21.6
+    "gp": 81,
+    "goals": 36,
+    "assists": 67,
+    "points": 103,
+    "sog": 175,
+    "toiPerGame": 21.5
   },
   {
     "id": "nhl:5545",
@@ -5944,11 +5944,11 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 42,
-    "gp": 80,
+    "gp": 81,
     "goals": 5,
     "assists": 22,
     "points": 27,
-    "sog": 72,
+    "sog": 73,
     "toiPerGame": 19.3
   },
   {
@@ -5960,11 +5960,11 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 88,
-    "gp": 77,
+    "gp": 78,
     "goals": 38,
-    "assists": 61,
-    "points": 99,
-    "sog": 200,
+    "assists": 62,
+    "points": 100,
+    "sog": 206,
     "toiPerGame": 21.5
   },
   {
@@ -6008,12 +6008,12 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 6,
-    "gp": 72,
+    "gp": 73,
     "goals": 7,
-    "assists": 18,
-    "points": 25,
-    "sog": 72,
-    "toiPerGame": 16.8
+    "assists": 19,
+    "points": 26,
+    "sog": 73,
+    "toiPerGame": 16.9
   },
   {
     "id": "nhl:4272192",
@@ -6024,11 +6024,11 @@
     "teamAbbr": "CBJ",
     "position": "LW",
     "number": 17,
-    "gp": 67,
+    "gp": 68,
     "goals": 19,
-    "assists": 25,
-    "points": 44,
-    "sog": 116,
+    "assists": 26,
+    "points": 45,
+    "sog": 119,
     "toiPerGame": 17.4
   },
   {
@@ -6040,11 +6040,11 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 23,
-    "gp": 73,
-    "goals": 15,
+    "gp": 74,
+    "goals": 17,
     "assists": 23,
-    "points": 38,
-    "sog": 138,
+    "points": 40,
+    "sog": 143,
     "toiPerGame": 15.3
   },
   {
@@ -6056,12 +6056,12 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 13,
-    "gp": 80,
+    "gp": 81,
     "goals": 19,
-    "assists": 52,
-    "points": 71,
-    "sog": 181,
-    "toiPerGame": 20.7
+    "assists": 53,
+    "points": 72,
+    "sog": 184,
+    "toiPerGame": 20.6
   },
   {
     "id": "nhl:3941965",
@@ -6072,12 +6072,12 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 17,
-    "gp": 49,
+    "gp": 50,
     "goals": 2,
     "assists": 9,
     "points": 11,
-    "sog": 34,
-    "toiPerGame": 12.2
+    "sog": 35,
+    "toiPerGame": 12.1
   },
   {
     "id": "nhl:4064781",
@@ -6184,7 +6184,7 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 3,
-    "gp": 78,
+    "gp": 79,
     "goals": 2,
     "assists": 17,
     "points": 19,
@@ -6200,11 +6200,11 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 51,
-    "gp": 28,
+    "gp": 29,
     "goals": 2,
     "assists": 1,
     "points": 3,
-    "sog": 19,
+    "sog": 20,
     "toiPerGame": 12.5
   },
   {
@@ -6248,11 +6248,11 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 48,
-    "gp": 81,
+    "gp": 82,
     "goals": 23,
     "assists": 36,
     "points": 59,
-    "sog": 217,
+    "sog": 221,
     "toiPerGame": 24.7
   },
   {
@@ -6360,11 +6360,11 @@
     "teamAbbr": "CGY",
     "position": "RW",
     "number": 92,
-    "gp": 35,
+    "gp": 36,
     "goals": 6,
     "assists": 13,
     "points": 19,
-    "sog": 68,
+    "sog": 70,
     "toiPerGame": 15.1
   },
   {
@@ -6376,11 +6376,11 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 39,
-    "gp": 80,
-    "goals": 19,
-    "assists": 29,
-    "points": 48,
-    "sog": 155,
+    "gp": 81,
+    "goals": 20,
+    "assists": 31,
+    "points": 51,
+    "sog": 163,
     "toiPerGame": 14.8
   },
   {
@@ -6488,12 +6488,12 @@
     "teamAbbr": "UTA",
     "position": "LW",
     "number": 53,
-    "gp": 77,
+    "gp": 78,
     "goals": 15,
     "assists": 15,
     "points": 30,
     "sog": 144,
-    "toiPerGame": 12.6
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:4270247",
@@ -6504,11 +6504,11 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 81,
-    "gp": 55,
+    "gp": 56,
     "goals": 8,
     "assists": 10,
     "points": 18,
-    "sog": 106,
+    "sog": 109,
     "toiPerGame": 10.9
   },
   {
@@ -6536,11 +6536,11 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 47,
-    "gp": 78,
+    "gp": 79,
     "goals": 8,
     "assists": 9,
     "points": 17,
-    "sog": 107,
+    "sog": 109,
     "toiPerGame": 14
   },
   {
@@ -6556,7 +6556,7 @@
     "goals": 7,
     "assists": 12,
     "points": 19,
-    "sog": 50,
+    "sog": 51,
     "toiPerGame": 12.8
   },
   {
@@ -6600,11 +6600,11 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 11,
-    "gp": 80,
+    "gp": 81,
     "goals": 17,
-    "assists": 25,
-    "points": 42,
-    "sog": 184,
+    "assists": 26,
+    "points": 43,
+    "sog": 186,
     "toiPerGame": 18
   },
   {
@@ -6616,11 +6616,11 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 64,
-    "gp": 56,
+    "gp": 57,
     "goals": 19,
-    "assists": 18,
-    "points": 37,
-    "sog": 111,
+    "assists": 19,
+    "points": 38,
+    "sog": 114,
     "toiPerGame": 19.2
   },
   {
@@ -6648,12 +6648,12 @@
     "teamAbbr": "CAR",
     "position": "D",
     "number": 6,
-    "gp": 41,
+    "gp": 42,
     "goals": 1,
     "assists": 8,
     "points": 9,
-    "sog": 62,
-    "toiPerGame": 14.8
+    "sog": 63,
+    "toiPerGame": 15
   },
   {
     "id": "nhl:4024868",
@@ -6664,12 +6664,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 98,
-    "gp": 76,
+    "gp": 77,
     "goals": 10,
-    "assists": 48,
-    "points": 58,
-    "sog": 152,
-    "toiPerGame": 24.3
+    "assists": 49,
+    "points": 59,
+    "sog": 158,
+    "toiPerGame": 24.4
   },
   {
     "id": "nhl:3899938",
@@ -6696,12 +6696,12 @@
     "teamAbbr": "CBJ",
     "position": "LW",
     "number": 11,
-    "gp": 53,
+    "gp": 54,
     "goals": 8,
     "assists": 6,
     "points": 14,
-    "sog": 70,
-    "toiPerGame": 11.9
+    "sog": 71,
+    "toiPerGame": 11.8
   },
   {
     "id": "nhl:4233536",
@@ -6760,12 +6760,12 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 16,
-    "gp": 80,
+    "gp": 81,
     "goals": 21,
     "assists": 21,
     "points": 42,
-    "sog": 136,
-    "toiPerGame": 15.4
+    "sog": 138,
+    "toiPerGame": 15.5
   },
   {
     "id": "nhl:4268466",
@@ -6776,11 +6776,11 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 39,
-    "gp": 80,
-    "goals": 38,
+    "gp": 81,
+    "goals": 39,
     "assists": 29,
-    "points": 67,
-    "sog": 179,
+    "points": 68,
+    "sog": 181,
     "toiPerGame": 17.4
   },
   {
@@ -6824,12 +6824,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 88,
-    "gp": 80,
+    "gp": 81,
     "goals": 5,
-    "assists": 16,
-    "points": 21,
-    "sog": 83,
-    "toiPerGame": 19.8
+    "assists": 17,
+    "points": 22,
+    "sog": 84,
+    "toiPerGame": 19.7
   },
   {
     "id": "nhl:3041969",
@@ -6840,11 +6840,11 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 29,
-    "gp": 79,
-    "goals": 52,
+    "gp": 80,
+    "goals": 53,
     "assists": 74,
-    "points": 126,
-    "sog": 346,
+    "points": 127,
+    "sog": 350,
     "toiPerGame": 22.3
   },
   {
@@ -6856,7 +6856,7 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 26,
-    "gp": 44,
+    "gp": 45,
     "goals": 4,
     "assists": 7,
     "points": 11,
@@ -6936,7 +6936,7 @@
     "teamAbbr": "NJ",
     "position": "C",
     "number": 72,
-    "gp": 60,
+    "gp": 61,
     "goals": 6,
     "assists": 3,
     "points": 9,
@@ -6952,12 +6952,12 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 37,
-    "gp": 59,
+    "gp": 60,
     "goals": 7,
     "assists": 16,
     "points": 23,
-    "sog": 66,
-    "toiPerGame": 16.9
+    "sog": 69,
+    "toiPerGame": 16.8
   },
   {
     "id": "nhl:2563027",
@@ -7000,12 +7000,12 @@
     "teamAbbr": "MIN",
     "position": "LW",
     "number": 71,
-    "gp": 53,
+    "gp": 54,
     "goals": 4,
-    "assists": 10,
-    "points": 14,
+    "assists": 11,
+    "points": 15,
     "sog": 49,
-    "toiPerGame": 12.6
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:3025608",
@@ -7080,11 +7080,11 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 8,
-    "gp": 80,
-    "goals": 31,
+    "gp": 81,
+    "goals": 33,
     "assists": 41,
-    "points": 72,
-    "sog": 198,
+    "points": 74,
+    "sog": 206,
     "toiPerGame": 19.7
   },
   {
@@ -7096,12 +7096,12 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 24,
-    "gp": 79,
+    "gp": 80,
     "goals": 4,
     "assists": 6,
     "points": 10,
-    "sog": 93,
-    "toiPerGame": 17.6
+    "sog": 94,
+    "toiPerGame": 17.7
   },
   {
     "id": "nhl:4233594",
@@ -7112,11 +7112,11 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 14,
-    "gp": 81,
+    "gp": 82,
     "goals": 29,
     "assists": 72,
     "points": 101,
-    "sog": 182,
+    "sog": 183,
     "toiPerGame": 20.8
   },
   {
@@ -7128,12 +7128,12 @@
     "teamAbbr": "NJ",
     "position": "C",
     "number": 13,
-    "gp": 81,
+    "gp": 82,
     "goals": 28,
     "assists": 38,
     "points": 66,
     "sog": 211,
-    "toiPerGame": 20.8
+    "toiPerGame": 20.7
   },
   {
     "id": "nhl:4320625",
@@ -7144,7 +7144,7 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 78,
-    "gp": 48,
+    "gp": 49,
     "goals": 5,
     "assists": 6,
     "points": 11,
@@ -7176,7 +7176,7 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 10,
-    "gp": 72,
+    "gp": 73,
     "goals": 8,
     "assists": 17,
     "points": 25,
@@ -7240,11 +7240,11 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 91,
-    "gp": 80,
+    "gp": 81,
     "goals": 2,
     "assists": 20,
     "points": 22,
-    "sog": 104,
+    "sog": 107,
     "toiPerGame": 20.9
   },
   {
@@ -7272,11 +7272,11 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 27,
-    "gp": 81,
-    "goals": 25,
+    "gp": 82,
+    "goals": 26,
     "assists": 45,
-    "points": 70,
-    "sog": 202,
+    "points": 71,
+    "sog": 207,
     "toiPerGame": 16.6
   },
   {
@@ -7304,12 +7304,12 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 21,
-    "gp": 36,
+    "gp": 37,
     "goals": 2,
-    "assists": 2,
-    "points": 4,
-    "sog": 33,
-    "toiPerGame": 11.4
+    "assists": 3,
+    "points": 5,
+    "sog": 35,
+    "toiPerGame": 11.5
   },
   {
     "id": "nhl:4352800",
@@ -7336,12 +7336,12 @@
     "teamAbbr": "WPG",
     "position": "RW",
     "number": 62,
-    "gp": 59,
+    "gp": 60,
     "goals": 8,
     "assists": 11,
     "points": 19,
     "sog": 80,
-    "toiPerGame": 13.8
+    "toiPerGame": 13.7
   },
   {
     "id": "nhl:4419682",
@@ -7352,12 +7352,12 @@
     "teamAbbr": "PHI",
     "position": "LW",
     "number": 27,
-    "gp": 81,
+    "gp": 82,
     "goals": 18,
     "assists": 29,
     "points": 47,
-    "sog": 130,
-    "toiPerGame": 16.2
+    "sog": 132,
+    "toiPerGame": 16.3
   },
   {
     "id": "nhl:4352732",
@@ -7400,12 +7400,12 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 47,
-    "gp": 51,
+    "gp": 52,
     "goals": 1,
     "assists": 9,
     "points": 10,
     "sog": 26,
-    "toiPerGame": 13.7
+    "toiPerGame": 13.8
   },
   {
     "id": "nhl:5188370",
@@ -7448,7 +7448,7 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 55,
-    "gp": 66,
+    "gp": 67,
     "goals": 13,
     "assists": 12,
     "points": 25,
@@ -7512,11 +7512,11 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 91,
-    "gp": 81,
+    "gp": 82,
     "goals": 22,
     "assists": 15,
     "points": 37,
-    "sog": 130,
+    "sog": 131,
     "toiPerGame": 14.5
   },
   {
@@ -7544,12 +7544,12 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 3,
-    "gp": 41,
+    "gp": 42,
     "goals": 2,
     "assists": 13,
     "points": 15,
-    "sog": 31,
-    "toiPerGame": 16.9
+    "sog": 32,
+    "toiPerGame": 17.1
   },
   {
     "id": "nhl:2590389",
@@ -7560,7 +7560,7 @@
     "teamAbbr": "NYI",
     "position": "LW",
     "number": 81,
-    "gp": 79,
+    "gp": 80,
     "goals": 5,
     "assists": 10,
     "points": 15,
@@ -7592,11 +7592,11 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 70,
-    "gp": 51,
-    "goals": 4,
+    "gp": 52,
+    "goals": 5,
     "assists": 12,
-    "points": 16,
-    "sog": 36,
+    "points": 17,
+    "sog": 37,
     "toiPerGame": 13
   },
   {
@@ -7656,11 +7656,11 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 17,
-    "gp": 80,
+    "gp": 81,
     "goals": 20,
     "assists": 14,
     "points": 34,
-    "sog": 100,
+    "sog": 101,
     "toiPerGame": 12.7
   },
   {
@@ -7704,11 +7704,11 @@
     "teamAbbr": "NJ",
     "position": "LW",
     "number": 47,
-    "gp": 78,
+    "gp": 79,
     "goals": 9,
     "assists": 6,
     "points": 15,
-    "sog": 57,
+    "sog": 61,
     "toiPerGame": 10.7
   },
   {
@@ -7720,11 +7720,11 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 89,
-    "gp": 79,
-    "goals": 18,
+    "gp": 80,
+    "goals": 19,
     "assists": 28,
-    "points": 46,
-    "sog": 138,
+    "points": 47,
+    "sog": 140,
     "toiPerGame": 18
   },
   {
@@ -7752,11 +7752,11 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 98,
-    "gp": 71,
+    "gp": 72,
     "goals": 8,
     "assists": 14,
     "points": 22,
-    "sog": 78,
+    "sog": 79,
     "toiPerGame": 18.5
   },
   {
@@ -7768,12 +7768,12 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 18,
-    "gp": 77,
+    "gp": 78,
     "goals": 30,
-    "assists": 34,
-    "points": 64,
+    "assists": 35,
+    "points": 65,
     "sog": 131,
-    "toiPerGame": 17
+    "toiPerGame": 16.9
   },
   {
     "id": "nhl:4915348",
@@ -7816,11 +7816,11 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 6,
-    "gp": 79,
+    "gp": 80,
     "goals": 6,
-    "assists": 26,
-    "points": 32,
-    "sog": 93,
+    "assists": 27,
+    "points": 33,
+    "sog": 96,
     "toiPerGame": 23.4
   },
   {
@@ -7912,7 +7912,7 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 22,
-    "gp": 62,
+    "gp": 63,
     "goals": 13,
     "assists": 15,
     "points": 28,
@@ -7960,11 +7960,11 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 55,
-    "gp": 77,
-    "goals": 22,
-    "assists": 24,
-    "points": 46,
-    "sog": 175,
+    "gp": 78,
+    "goals": 23,
+    "assists": 25,
+    "points": 48,
+    "sog": 178,
     "toiPerGame": 20
   },
   {
@@ -8120,11 +8120,11 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 21,
-    "gp": 20,
-    "goals": 1,
+    "gp": 21,
+    "goals": 2,
     "assists": 3,
-    "points": 4,
-    "sog": 26,
+    "points": 5,
+    "sog": 30,
     "toiPerGame": 11.8
   },
   {
@@ -8136,11 +8136,11 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 18,
-    "gp": 62,
+    "gp": 63,
     "goals": 22,
-    "assists": 37,
-    "points": 59,
-    "sog": 98,
+    "assists": 39,
+    "points": 61,
+    "sog": 99,
     "toiPerGame": 19.1
   },
   {
@@ -8200,7 +8200,7 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 20,
-    "gp": 71,
+    "gp": 72,
     "goals": 9,
     "assists": 15,
     "points": 24,
@@ -8216,12 +8216,12 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 2,
-    "gp": 23,
-    "goals": 2,
+    "gp": 24,
+    "goals": 3,
     "assists": 3,
-    "points": 5,
-    "sog": 36,
-    "toiPerGame": 11.8
+    "points": 6,
+    "sog": 37,
+    "toiPerGame": 12
   },
   {
     "id": "nhl:3115033",
@@ -8248,11 +8248,11 @@
     "teamAbbr": "PIT",
     "position": "D",
     "number": 27,
-    "gp": 21,
+    "gp": 22,
     "goals": 1,
     "assists": 0,
     "points": 1,
-    "sog": 20,
+    "sog": 21,
     "toiPerGame": 15.3
   },
   {
@@ -8296,11 +8296,11 @@
     "teamAbbr": "WSH",
     "position": "RW",
     "number": 9,
-    "gp": 74,
+    "gp": 75,
     "goals": 20,
     "assists": 25,
     "points": 45,
-    "sog": 151,
+    "sog": 153,
     "toiPerGame": 14.4
   },
   {
@@ -8392,11 +8392,11 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 25,
-    "gp": 73,
+    "gp": 74,
     "goals": 11,
-    "assists": 23,
-    "points": 34,
-    "sog": 91,
+    "assists": 24,
+    "points": 35,
+    "sog": 92,
     "toiPerGame": 15
   },
   {
@@ -8424,11 +8424,11 @@
     "teamAbbr": "PIT",
     "position": "D",
     "number": 5,
-    "gp": 79,
+    "gp": 80,
     "goals": 6,
-    "assists": 28,
-    "points": 34,
-    "sog": 71,
+    "assists": 29,
+    "points": 35,
+    "sog": 72,
     "toiPerGame": 18.9
   },
   {
@@ -8536,11 +8536,11 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 70,
-    "gp": 80,
+    "gp": 81,
     "goals": 8,
-    "assists": 31,
-    "points": 39,
-    "sog": 158,
+    "assists": 32,
+    "points": 40,
+    "sog": 160,
     "toiPerGame": 17.6
   },
   {
@@ -8616,12 +8616,12 @@
     "teamAbbr": "LA",
     "position": "C",
     "number": 24,
-    "gp": 62,
+    "gp": 63,
     "goals": 13,
     "assists": 7,
     "points": 20,
-    "sog": 90,
-    "toiPerGame": 14.3
+    "sog": 93,
+    "toiPerGame": 14.4
   },
   {
     "id": "nhl:2563069",
@@ -8632,12 +8632,12 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 24,
-    "gp": 79,
+    "gp": 80,
     "goals": 2,
     "assists": 13,
     "points": 15,
     "sog": 71,
-    "toiPerGame": 16.4
+    "toiPerGame": 16.5
   },
   {
     "id": "nhl:2562601",
@@ -8664,12 +8664,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 50,
-    "gp": 59,
+    "gp": 60,
     "goals": 5,
     "assists": 22,
     "points": 27,
-    "sog": 83,
-    "toiPerGame": 19.4
+    "sog": 84,
+    "toiPerGame": 19.3
   },
   {
     "id": "nhl:2564154",
@@ -8680,11 +8680,11 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 52,
-    "gp": 81,
+    "gp": 82,
     "goals": 6,
-    "assists": 14,
-    "points": 20,
-    "sog": 108,
+    "assists": 16,
+    "points": 22,
+    "sog": 110,
     "toiPerGame": 13.3
   },
   {
@@ -8696,11 +8696,11 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 23,
-    "gp": 77,
+    "gp": 78,
     "goals": 13,
     "assists": 23,
     "points": 36,
-    "sog": 130,
+    "sog": 131,
     "toiPerGame": 17.1
   },
   {
@@ -8824,11 +8824,11 @@
     "teamAbbr": "CAR",
     "position": "D",
     "number": 4,
-    "gp": 54,
+    "gp": 55,
     "goals": 13,
     "assists": 37,
     "points": 50,
-    "sog": 117,
+    "sog": 116,
     "toiPerGame": 19.2
   },
   {
@@ -8904,11 +8904,11 @@
     "teamAbbr": "NYI",
     "position": "RW",
     "number": 92,
-    "gp": 78,
+    "gp": 79,
     "goals": 19,
     "assists": 22,
     "points": 41,
-    "sog": 99,
+    "sog": 100,
     "toiPerGame": 16.7
   },
   {
@@ -8920,12 +8920,12 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 17,
-    "gp": 67,
+    "gp": 68,
     "goals": 11,
     "assists": 15,
     "points": 26,
     "sog": 101,
-    "toiPerGame": 19.6
+    "toiPerGame": 19.7
   },
   {
     "id": "nhl:4393406",
@@ -8988,7 +8988,7 @@
     "goals": 40,
     "assists": 23,
     "points": 63,
-    "sog": 202,
+    "sog": 203,
     "toiPerGame": 17.8
   },
   {
@@ -9016,12 +9016,12 @@
     "teamAbbr": "BOS",
     "position": "LW",
     "number": 84,
-    "gp": 76,
+    "gp": 77,
     "goals": 6,
-    "assists": 15,
-    "points": 21,
-    "sog": 76,
-    "toiPerGame": 12.6
+    "assists": 16,
+    "points": 22,
+    "sog": 78,
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:2976860",
@@ -9080,12 +9080,12 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 53,
-    "gp": 33,
+    "gp": 34,
     "goals": 9,
     "assists": 8,
     "points": 17,
-    "sog": 50,
-    "toiPerGame": 16.4
+    "sog": 51,
+    "toiPerGame": 16.5
   },
   {
     "id": "nhl:2592095",
@@ -9160,12 +9160,12 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 42,
-    "gp": 37,
+    "gp": 38,
     "goals": 2,
     "assists": 3,
     "points": 5,
-    "sog": 32,
-    "toiPerGame": 12.2
+    "sog": 33,
+    "toiPerGame": 12.1
   },
   {
     "id": "nhl:3899978",
@@ -9176,12 +9176,12 @@
     "teamAbbr": "NJ",
     "position": "RW",
     "number": 28,
-    "gp": 76,
+    "gp": 77,
     "goals": 24,
     "assists": 20,
     "points": 44,
     "sog": 269,
-    "toiPerGame": 18.6
+    "toiPerGame": 18.5
   },
   {
     "id": "nhl:4233618",
@@ -9208,12 +9208,12 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 5,
-    "gp": 68,
+    "gp": 69,
     "goals": 5,
-    "assists": 15,
-    "points": 20,
-    "sog": 56,
-    "toiPerGame": 16.9
+    "assists": 16,
+    "points": 21,
+    "sog": 59,
+    "toiPerGame": 17
   },
   {
     "id": "nhl:2970615",
@@ -9224,11 +9224,11 @@
     "teamAbbr": "WSH",
     "position": "RW",
     "number": 43,
-    "gp": 71,
+    "gp": 72,
     "goals": 30,
-    "assists": 31,
-    "points": 61,
-    "sog": 151,
+    "assists": 32,
+    "points": 62,
+    "sog": 153,
     "toiPerGame": 19.5
   },
   {
@@ -9272,11 +9272,11 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 77,
-    "gp": 75,
+    "gp": 76,
     "goals": 5,
     "assists": 30,
     "points": 35,
-    "sog": 147,
+    "sog": 148,
     "toiPerGame": 19.1
   },
   {
@@ -9352,11 +9352,11 @@
     "teamAbbr": "LA",
     "position": "LW",
     "number": 12,
-    "gp": 67,
+    "gp": 68,
     "goals": 13,
-    "assists": 17,
-    "points": 30,
-    "sog": 150,
+    "assists": 18,
+    "points": 31,
+    "sog": 152,
     "toiPerGame": 16.7
   },
   {
@@ -9368,10 +9368,10 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 57,
-    "gp": 67,
+    "gp": 68,
     "goals": 3,
-    "assists": 10,
-    "points": 13,
+    "assists": 11,
+    "points": 14,
     "sog": 44,
     "toiPerGame": 16.2
   },
@@ -9416,11 +9416,11 @@
     "teamAbbr": "ANA",
     "position": "RW",
     "number": 19,
-    "gp": 59,
+    "gp": 60,
     "goals": 18,
     "assists": 38,
     "points": 56,
-    "sog": 155,
+    "sog": 157,
     "toiPerGame": 18.4
   },
   {
@@ -9560,7 +9560,7 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 75,
-    "gp": 67,
+    "gp": 68,
     "goals": 3,
     "assists": 14,
     "points": 17,
@@ -9576,11 +9576,11 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 71,
-    "gp": 28,
+    "gp": 29,
     "goals": 13,
     "assists": 4,
     "points": 17,
-    "sog": 59,
+    "sog": 61,
     "toiPerGame": 17.3
   },
   {
@@ -9656,12 +9656,12 @@
     "teamAbbr": "COL",
     "position": "RW",
     "number": 13,
-    "gp": 70,
+    "gp": 71,
     "goals": 17,
     "assists": 30,
     "points": 47,
-    "sog": 159,
-    "toiPerGame": 17.8
+    "sog": 160,
+    "toiPerGame": 17.7
   },
   {
     "id": "nhl:4565231",
@@ -9720,11 +9720,11 @@
     "teamAbbr": "CGY",
     "position": "LW",
     "number": 95,
-    "gp": 76,
+    "gp": 77,
     "goals": 13,
     "assists": 18,
     "points": 31,
-    "sog": 143,
+    "sog": 146,
     "toiPerGame": 13.6
   },
   {
@@ -9736,11 +9736,11 @@
     "teamAbbr": "BOS",
     "position": "LW",
     "number": 71,
-    "gp": 68,
-    "goals": 24,
+    "gp": 69,
+    "goals": 25,
     "assists": 29,
-    "points": 53,
-    "sog": 173,
+    "points": 54,
+    "sog": 174,
     "toiPerGame": 14.6
   },
   {
@@ -9752,12 +9752,12 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 41,
-    "gp": 38,
+    "gp": 39,
     "goals": 2,
     "assists": 5,
     "points": 7,
-    "sog": 34,
-    "toiPerGame": 12.6
+    "sog": 36,
+    "toiPerGame": 12.7
   },
   {
     "id": "nhl:3904189",
@@ -9772,7 +9772,7 @@
     "goals": 11,
     "assists": 33,
     "points": 44,
-    "sog": 173,
+    "sog": 174,
     "toiPerGame": 21.7
   },
   {
@@ -9848,10 +9848,10 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 91,
-    "gp": 74,
+    "gp": 75,
     "goals": 23,
-    "assists": 23,
-    "points": 46,
+    "assists": 24,
+    "points": 47,
     "sog": 148,
     "toiPerGame": 14.9
   },
@@ -9868,7 +9868,7 @@
     "goals": 14,
     "assists": 20,
     "points": 34,
-    "sog": 117,
+    "sog": 118,
     "toiPerGame": 23.7
   },
   {
@@ -9928,11 +9928,11 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 28,
-    "gp": 69,
+    "gp": 70,
     "goals": 7,
     "assists": 11,
     "points": 18,
-    "sog": 79,
+    "sog": 80,
     "toiPerGame": 10.8
   },
   {
@@ -10008,7 +10008,7 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 13,
-    "gp": 81,
+    "gp": 82,
     "goals": 6,
     "assists": 17,
     "points": 23,
@@ -10056,11 +10056,11 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 17,
-    "gp": 76,
+    "gp": 77,
     "goals": 15,
     "assists": 14,
     "points": 29,
-    "sog": 138,
+    "sog": 141,
     "toiPerGame": 16.1
   },
   {
@@ -10136,11 +10136,11 @@
     "teamAbbr": "CBJ",
     "position": "D",
     "number": 8,
-    "gp": 74,
+    "gp": 75,
     "goals": 22,
     "assists": 59,
     "points": 81,
-    "sog": 257,
+    "sog": 260,
     "toiPerGame": 26.6
   },
   {
@@ -10152,12 +10152,12 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 28,
-    "gp": 76,
+    "gp": 77,
     "goals": 2,
     "assists": 13,
     "points": 15,
     "sog": 65,
-    "toiPerGame": 20.4
+    "toiPerGame": 20.3
   },
   {
     "id": "nhl:4874744",
@@ -10200,12 +10200,12 @@
     "teamAbbr": "CGY",
     "position": "D",
     "number": 19,
-    "gp": 35,
+    "gp": 36,
     "goals": 3,
     "assists": 5,
     "points": 8,
-    "sog": 45,
-    "toiPerGame": 16.9
+    "sog": 47,
+    "toiPerGame": 17
   },
   {
     "id": "nhl:5206642",
@@ -10216,12 +10216,12 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 24,
-    "gp": 74,
-    "goals": 5,
+    "gp": 75,
+    "goals": 6,
     "assists": 20,
-    "points": 25,
-    "sog": 71,
-    "toiPerGame": 19.5
+    "points": 26,
+    "sog": 73,
+    "toiPerGame": 19.6
   },
   {
     "id": "nhl:2968829",
