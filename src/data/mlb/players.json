@@ -1320,6 +1320,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5270117",
+    "name": "Cameron Foster",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41337",
     "name": "Camilo Doval",
     "conference": "AL",
@@ -2233,6 +2244,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5291189",
+    "name": "Didier Fuentes",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SP",
+    "number": 72,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4345620",
     "name": "Dillon Dingler",
     "conference": "AL",
@@ -3109,7 +3131,7 @@
     "team": "Milwaukee Brewers",
     "teamAbbr": "MIL",
     "position": "RF",
-    "number": 40,
+    "number": 14,
     "league": "NL"
   },
   {
@@ -3165,17 +3187,6 @@
     "teamAbbr": "WSH",
     "position": "RP",
     "number": 47,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4297882",
-    "name": "Hayden Harris",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 79,
     "league": "NL"
   },
   {
@@ -3297,6 +3308,17 @@
     "teamAbbr": "LAD",
     "position": "2B",
     "number": 6,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41127",
+    "name": "Ian Hamilton",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RP",
+    "number": 71,
     "league": "NL"
   },
   {
@@ -5698,17 +5720,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42801",
-    "name": "Maverick Handley",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "C",
-    "number": 98,
-    "league": "AL"
-  },
-  {
     "id": "mlb:32685",
     "name": "Max Fried",
     "conference": "AL",
@@ -6344,17 +6355,6 @@
     "teamAbbr": "WSH",
     "position": "RP",
     "number": 64,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5132624",
-    "name": "Osvaldo Bido",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 70,
     "league": "NL"
   },
   {
@@ -7398,7 +7398,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "SP",
+    "position": "DH",
     "number": 17,
     "league": "NL"
   },
