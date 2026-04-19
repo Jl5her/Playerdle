@@ -1620,6 +1620,24 @@
     "ops": 0.629
   },
   {
+    "id": "mlb:36040",
+    "name": "Lourdes Gurriel Jr.",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "LF",
+    "number": 12,
+    "league": "NL",
+    "gp": 129,
+    "pa": 546,
+    "avg": 0.248,
+    "hr": 19,
+    "rbi": 80,
+    "sb": 10,
+    "ops": 0.713
+  },
+  {
     "id": "mlb:4722941",
     "name": "Luis Matos",
     "conference": "NL",
@@ -2158,24 +2176,6 @@
     "rbi": 52,
     "sb": 3,
     "ops": 0.666
-  },
-  {
-    "id": "mlb:5136835",
-    "name": "Otto Kemp",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "OF",
-    "number": 4,
-    "league": "NL",
-    "gp": 62,
-    "pa": 218,
-    "avg": 0.234,
-    "hr": 8,
-    "rbi": 28,
-    "sb": 2,
-    "ops": 0.709
   },
   {
     "id": "mlb:41917",

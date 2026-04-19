@@ -1375,6 +1375,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5123999",
+    "name": "Carlos Rodriguez",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "RP",
+    "number": 27,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4298378",
     "name": "Carmen Mlodzinski",
     "conference": "NL",
@@ -1760,17 +1771,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5127100",
-    "name": "Coleman Crow",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "SP",
-    "number": 57,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33950",
     "name": "Colin Rea",
     "conference": "NL",
@@ -1922,6 +1922,17 @@
     "teamAbbr": "ARI",
     "position": "RF",
     "number": 7,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41029",
+    "name": "Corbin Martin",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 38,
     "league": "NL"
   },
   {
@@ -2552,17 +2563,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42211",
-    "name": "Elvis Alvarado",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 37,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4297897",
     "name": "Emerson Hancock",
     "conference": "AL",
@@ -2758,6 +2758,17 @@
     "teamAbbr": "COL",
     "position": "SS",
     "number": 14,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5015567",
+    "name": "Felix Reyes",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "OF",
+    "number": 29,
     "league": "NL"
   },
   {
@@ -3190,6 +3201,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4009410",
+    "name": "Hayden Senger",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "C",
+    "number": 6,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39642",
     "name": "Heliot Ramos",
     "conference": "NL",
@@ -3429,17 +3451,6 @@
     "teamAbbr": "SEA",
     "position": "SS",
     "number": 3,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3662290",
-    "name": "J.P. France",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SP",
-    "number": 68,
     "league": "AL"
   },
   {
@@ -3993,17 +4004,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41109",
-    "name": "Jhoan Duran",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 59,
-    "league": "NL"
-  },
-  {
     "id": "mlb:36093",
     "name": "Jimmy Herget",
     "conference": "NL",
@@ -4331,17 +4331,6 @@
     "teamAbbr": "ATL",
     "position": "SS",
     "number": 2,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:32525",
-    "name": "Jorge Polanco",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "2B",
-    "number": 11,
     "league": "NL"
   },
   {
@@ -5214,6 +5203,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:36040",
+    "name": "Lourdes Gurriel Jr.",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "LF",
+    "number": 12,
+    "league": "NL"
+  },
+  {
     "id": "mlb:36618",
     "name": "Lucas Erceg",
     "conference": "AL",
@@ -5412,17 +5412,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41313",
-    "name": "Luken Baker",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "1B",
-    "number": 21,
-    "league": "NL"
-  },
-  {
     "id": "mlb:39636",
     "name": "MacKenzie Gore",
     "conference": "AL",
@@ -5530,6 +5519,17 @@
     "teamAbbr": "BOS",
     "position": "LF",
     "number": 7,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5195197",
+    "name": "Mason Barnett",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SP",
+    "number": 63,
     "league": "AL"
   },
   {
@@ -6380,17 +6380,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5136835",
-    "name": "Otto Kemp",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "OF",
-    "number": 4,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41917",
     "name": "Otto Lopez",
     "conference": "NL",
@@ -7172,17 +7161,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5221123",
-    "name": "Sam Aldegheri",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 61,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5207167",
     "name": "Sam Antonacci",
     "conference": "AL",
@@ -7346,6 +7324,17 @@
     "position": "RP",
     "number": 58,
     "league": "AL"
+  },
+  {
+    "id": "mlb:42542",
+    "name": "Seth Johnson",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "SP",
+    "number": 51,
+    "league": "NL"
   },
   {
     "id": "mlb:34873",
@@ -8203,6 +8192,17 @@
     "teamAbbr": "TOR",
     "position": "1B",
     "number": 27,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5197476",
+    "name": "Walbert Urena",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 57,
     "league": "AL"
   },
   {
