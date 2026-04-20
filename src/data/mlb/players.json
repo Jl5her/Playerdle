@@ -1287,17 +1287,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5126205",
-    "name": "Cam Sanders",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5134581",
     "name": "Cam Schlittler",
     "conference": "AL",
@@ -2233,17 +2222,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4989046",
-    "name": "Deyvison De Los Santos",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 63,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5291189",
     "name": "Didier Fuentes",
     "conference": "NL",
@@ -2297,17 +2275,6 @@
     "position": "1B",
     "number": 8,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4414160",
-    "name": "Doug Nikhazy",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "SP",
-    "number": 51,
-    "league": "AL"
   },
   {
     "id": "mlb:4810190",
@@ -2373,6 +2340,17 @@
     "teamAbbr": "TB",
     "position": "SP",
     "number": 57,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4917924",
+    "name": "Dustin Harris",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 37,
     "league": "AL"
   },
   {
@@ -2539,6 +2517,17 @@
     "position": "RF",
     "number": 36,
     "league": "NL"
+  },
+  {
+    "id": "mlb:33594",
+    "name": "Elias Diaz",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "C",
+    "number": 43,
+    "league": "AL"
   },
   {
     "id": "mlb:4917694",
@@ -2835,17 +2824,6 @@
     "teamAbbr": "NYM",
     "position": "SS",
     "number": 12,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:30193",
-    "name": "Freddie Freeman",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "1B",
-    "number": 5,
     "league": "NL"
   },
   {
@@ -3905,6 +3883,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4722919",
+    "name": "Jayden Murray",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 70,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41433",
     "name": "Jazz Chisholm Jr.",
     "conference": "AL",
@@ -4111,17 +4100,6 @@
     "teamAbbr": "CLE",
     "position": "SP",
     "number": 54,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4297976",
-    "name": "Joey Loperfido",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "LF",
-    "number": 10,
     "league": "AL"
   },
   {
@@ -4332,6 +4310,17 @@
     "position": "SS",
     "number": 2,
     "league": "NL"
+  },
+  {
+    "id": "mlb:32558",
+    "name": "Jorge Soler",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "RF",
+    "number": 12,
+    "league": "AL"
   },
   {
     "id": "mlb:31662",
@@ -5027,6 +5016,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42796",
+    "name": "Kyle Stowers",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "LF",
+    "number": 28,
+    "league": "NL"
+  },
+  {
     "id": "mlb:34967",
     "name": "Kyle Tucker",
     "conference": "NL",
@@ -5530,6 +5530,17 @@
     "teamAbbr": "ATH",
     "position": "SP",
     "number": 63,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5099971",
+    "name": "Mason Black",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "SP",
+    "number": 47,
     "league": "AL"
   },
   {
@@ -6050,17 +6061,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4987645",
-    "name": "Mitch Spence",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4683356",
     "name": "Mitchell Parker",
     "conference": "NL",
@@ -6369,6 +6369,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5132624",
+    "name": "Osvaldo Bido",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 46,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42479",
     "name": "Oswald Peraza",
     "conference": "AL",
@@ -6498,17 +6509,6 @@
     "teamAbbr": "PIT",
     "position": "SP",
     "number": 30,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4313208",
-    "name": "Paxton Schultz",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 75,
     "league": "NL"
   },
   {
@@ -7048,6 +7048,17 @@
     "teamAbbr": "SF",
     "position": "RP",
     "number": 74,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5002410",
+    "name": "Ryan Ward",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "LF",
+    "number": 67,
     "league": "NL"
   },
   {
@@ -8096,17 +8107,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4151063",
-    "name": "Tyler Tolbert",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "2B",
-    "number": 2,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4717904",
     "name": "Tyler Wells",
     "conference": "AL",
@@ -8248,6 +8248,17 @@
     "position": "LF",
     "number": 32,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5332991",
+    "name": "Wilber Dotel",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "SP",
+    "number": 66,
+    "league": "NL"
   },
   {
     "id": "mlb:39216",
