@@ -1386,24 +1386,6 @@
     "ops": 0.593
   },
   {
-    "id": "mlb:41171",
-    "name": "Jonathan India",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "2B",
-    "number": 6,
-    "league": "AL",
-    "gp": 136,
-    "pa": 567,
-    "avg": 0.233,
-    "hr": 9,
-    "rbi": 45,
-    "sb": 0,
-    "ops": 0.669
-  },
-  {
     "id": "mlb:4619460",
     "name": "Jordan Beck",
     "conference": "NL",
@@ -2106,24 +2088,6 @@
     "ops": 0.68
   },
   {
-    "id": "mlb:40338",
-    "name": "Nick Allen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SS",
-    "number": 20,
-    "league": "AL",
-    "gp": 135,
-    "pa": 416,
-    "avg": 0.221,
-    "hr": 0,
-    "rbi": 22,
-    "sb": 8,
-    "ops": 0.535
-  },
-  {
     "id": "mlb:31187",
     "name": "Nick Castellanos",
     "conference": "NL",
@@ -2176,6 +2140,24 @@
     "rbi": 30,
     "sb": 0,
     "ops": 0.661
+  },
+  {
+    "id": "mlb:4314013",
+    "name": "Nick Loftin",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "LF",
+    "number": 12,
+    "league": "AL",
+    "gp": 67,
+    "pa": 188,
+    "avg": 0.208,
+    "hr": 4,
+    "rbi": 20,
+    "sb": 1,
+    "ops": 0.635
   },
   {
     "id": "mlb:41219",
