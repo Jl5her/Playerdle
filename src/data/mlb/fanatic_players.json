@@ -594,6 +594,24 @@
     "ops": 0.687
   },
   {
+    "id": "mlb:4662616",
+    "name": "Colby Thomas",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RF",
+    "number": 32,
+    "league": "AL",
+    "gp": 49,
+    "pa": 132,
+    "avg": 0.225,
+    "hr": 6,
+    "rbi": 19,
+    "sb": 2,
+    "ops": 0.684
+  },
+  {
     "id": "mlb:4417606",
     "name": "Connor Norby",
     "conference": "NL",
@@ -754,24 +772,6 @@
     "rbi": 31,
     "sb": 3,
     "ops": 0.797
-  },
-  {
-    "id": "mlb:4918085",
-    "name": "Denzel Clarke",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "CF",
-    "number": 1,
-    "league": "AL",
-    "gp": 47,
-    "pa": 159,
-    "avg": 0.23,
-    "hr": 3,
-    "rbi": 8,
-    "sb": 6,
-    "ops": 0.646
   },
   {
     "id": "mlb:4345620",
@@ -1150,24 +1150,6 @@
     "rbi": 66,
     "sb": 8,
     "ops": 0.837
-  },
-  {
-    "id": "mlb:32177",
-    "name": "J.T. Realmuto",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 10,
-    "league": "NL",
-    "gp": 134,
-    "pa": 550,
-    "avg": 0.257,
-    "hr": 12,
-    "rbi": 52,
-    "sb": 8,
-    "ops": 0.7
   },
   {
     "id": "mlb:4719300",
@@ -2878,24 +2860,6 @@
     "rbi": 87,
     "sb": 12,
     "ops": 0.74
-  },
-  {
-    "id": "mlb:4719324",
-    "name": "Wyatt Langford",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 134,
-    "pa": 573,
-    "avg": 0.241,
-    "hr": 22,
-    "rbi": 62,
-    "sb": 22,
-    "ops": 0.775
   },
   {
     "id": "mlb:31606",
