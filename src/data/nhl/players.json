@@ -1140,16 +1140,6 @@
     "number": 38
   },
   {
-    "id": "nhl:3115036",
-    "name": "Brandon Halverson",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "G",
-    "number": 33
-  },
-  {
     "id": "nhl:3115032",
     "name": "Brandon Montour",
     "conference": "West",
@@ -1538,6 +1528,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 4
+  },
+  {
+    "id": "nhl:5216932",
+    "name": "Carter George",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "G",
+    "number": 40
   },
   {
     "id": "nhl:4064582",
@@ -3218,6 +3218,16 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 27
+  },
+  {
+    "id": "nhl:5302542",
+    "name": "Harrison Meneghin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "G",
+    "number": 1
   },
   {
     "id": "nhl:3150479",
@@ -7208,16 +7218,6 @@
     "teamAbbr": "BUF",
     "position": "C",
     "number": 19
-  },
-  {
-    "id": "nhl:3095330",
-    "name": "Pheonix Copley",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "G",
-    "number": 29
   },
   {
     "id": "nhl:4565229",
