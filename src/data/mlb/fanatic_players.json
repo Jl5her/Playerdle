@@ -1620,24 +1620,6 @@
     "ops": 0.713
   },
   {
-    "id": "mlb:4722941",
-    "name": "Luis Matos",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RF",
-    "number": 21,
-    "league": "NL",
-    "gp": 57,
-    "pa": 184,
-    "avg": 0.221,
-    "hr": 8,
-    "rbi": 22,
-    "sb": 4,
-    "ops": 0.691
-  },
-  {
     "id": "mlb:39631",
     "name": "Luis Robert Jr.",
     "conference": "NL",
@@ -2698,6 +2680,24 @@
     "rbi": 31,
     "sb": 18,
     "ops": 0.715
+  },
+  {
+    "id": "mlb:34168",
+    "name": "Tyler O'Neill",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RF",
+    "number": 9,
+    "league": "AL",
+    "gp": 54,
+    "pa": 209,
+    "avg": 0.199,
+    "hr": 9,
+    "rbi": 26,
+    "sb": 4,
+    "ops": 0.684
   },
   {
     "id": "mlb:34975",
