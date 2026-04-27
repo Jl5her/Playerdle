@@ -126,24 +126,6 @@
     "ops": 0.755
   },
   {
-    "id": "mlb:34947",
-    "name": "Andy Ibanez",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "3B",
-    "number": 77,
-    "league": "AL",
-    "gp": 91,
-    "pa": 193,
-    "avg": 0.239,
-    "hr": 4,
-    "rbi": 21,
-    "sb": 4,
-    "ops": 0.653
-  },
-  {
     "id": "mlb:42468",
     "name": "Andy Pages",
     "conference": "NL",
@@ -304,6 +286,24 @@
     "rbi": 29,
     "sb": 5,
     "ops": 0.574
+  },
+  {
+    "id": "mlb:40926",
+    "name": "Brent Rooker",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RF",
+    "number": 25,
+    "league": "AL",
+    "gp": 162,
+    "pa": 699,
+    "avg": 0.262,
+    "hr": 30,
+    "rbi": 89,
+    "sb": 6,
+    "ops": 0.814
   },
   {
     "id": "mlb:42462",
@@ -1404,6 +1404,24 @@
     "ops": 0.771
   },
   {
+    "id": "mlb:35268",
+    "name": "Jose Trevino",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "C",
+    "number": 35,
+    "league": "NL",
+    "gp": 93,
+    "pa": 302,
+    "avg": 0.238,
+    "hr": 4,
+    "rbi": 22,
+    "sb": 0,
+    "ops": 0.623
+  },
+  {
     "id": "mlb:42437",
     "name": "Josh Jung",
     "conference": "AL",
@@ -1564,24 +1582,6 @@
     "rbi": 75,
     "sb": 2,
     "ops": 0.727
-  },
-  {
-    "id": "mlb:42047",
-    "name": "Logan O'Hoppe",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "C",
-    "number": 14,
-    "league": "AL",
-    "gp": 119,
-    "pa": 451,
-    "avg": 0.213,
-    "hr": 19,
-    "rbi": 43,
-    "sb": 2,
-    "ops": 0.629
   },
   {
     "id": "mlb:36040",
