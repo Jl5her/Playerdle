@@ -1008,6 +1008,24 @@
     "ops": 0.617
   },
   {
+    "id": "mlb:32078",
+    "name": "George Springer",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "DH",
+    "number": 4,
+    "league": "AL",
+    "gp": 140,
+    "pa": 586,
+    "avg": 0.309,
+    "hr": 32,
+    "rbi": 84,
+    "sb": 18,
+    "ops": 0.959
+  },
+  {
     "id": "mlb:33804",
     "name": "Gleyber Torres",
     "conference": "AL",
@@ -1240,24 +1258,6 @@
     "rbi": 17,
     "sb": 0,
     "ops": 0.754
-  },
-  {
-    "id": "mlb:32127",
-    "name": "Javier Baez",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "SS",
-    "number": 28,
-    "league": "AL",
-    "gp": 126,
-    "pa": 437,
-    "avg": 0.257,
-    "hr": 12,
-    "rbi": 57,
-    "sb": 5,
-    "ops": 0.68
   },
   {
     "id": "mlb:5073992",
@@ -2248,24 +2248,6 @@
     "rbi": 44,
     "sb": 3,
     "ops": 0.675
-  },
-  {
-    "id": "mlb:31399",
-    "name": "Randal Grichuk",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "LF",
-    "number": 34,
-    "league": "AL",
-    "gp": 113,
-    "pa": 293,
-    "avg": 0.228,
-    "hr": 9,
-    "rbi": 27,
-    "sb": 0,
-    "ops": 0.674
   },
   {
     "id": "mlb:36488",
