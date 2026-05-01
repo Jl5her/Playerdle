@@ -561,6 +561,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42848",
+    "name": "Austin Warren",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 44,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4683349",
     "name": "Austin Wells",
     "conference": "AL",
@@ -867,17 +878,6 @@
     "position": "C",
     "number": 59,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42431",
-    "name": "Brandon Williamson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "SP",
-    "number": 55,
-    "league": "NL"
   },
   {
     "id": "mlb:37515",
@@ -1408,17 +1408,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:33202",
-    "name": "Carl Edwards Jr.",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "RP",
-    "number": 52,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32653",
     "name": "Carlos Correa",
     "conference": "AL",
@@ -1779,6 +1768,17 @@
     "teamAbbr": "NYY",
     "position": "LF",
     "number": 35,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:41407",
+    "name": "Cody Bolton",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SP",
+    "number": 67,
     "league": "AL"
   },
   {
@@ -2208,17 +2208,6 @@
     "teamAbbr": "MIL",
     "position": "3B",
     "number": 6,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5270578",
-    "name": "David Morgan",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 66,
     "league": "NL"
   },
   {
@@ -2706,6 +2695,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4987650",
+    "name": "Eric Wagaman",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "1B",
+    "number": 39,
+    "league": "NL"
+  },
+  {
     "id": "mlb:33793",
     "name": "Erick Fedde",
     "conference": "AL",
@@ -3033,17 +3033,6 @@
     "teamAbbr": "TOR",
     "position": "DH",
     "number": 4,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:41030",
-    "name": "George Valera",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "LF",
-    "number": 7,
     "league": "AL"
   },
   {
@@ -3892,6 +3881,17 @@
     "position": "RP",
     "number": 40,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41849",
+    "name": "Jason Alexander",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SP",
+    "number": 54,
+    "league": "AL"
   },
   {
     "id": "mlb:42401",
@@ -4939,17 +4939,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4221113",
-    "name": "Kyle Backhus",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 19,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4311625",
     "name": "Kyle Bradish",
     "conference": "AL",
@@ -5376,17 +5365,6 @@
     "teamAbbr": "MIL",
     "position": "3B",
     "number": 13,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:39631",
-    "name": "Luis Robert Jr.",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "CF",
-    "number": 88,
     "league": "NL"
   },
   {
@@ -6149,17 +6127,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42845",
-    "name": "Nate Eaton",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "OF",
-    "number": 18,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4843048",
     "name": "Nathan Church",
     "conference": "NL",
@@ -6355,6 +6322,17 @@
     "teamAbbr": "STL",
     "position": "3B",
     "number": 16,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41461",
+    "name": "Nolan Hoffman",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 47,
     "league": "NL"
   },
   {
@@ -6963,17 +6941,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5002952",
-    "name": "Ryan Fernandez",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
-  },
-  {
     "id": "mlb:39909",
     "name": "Ryan Helsley",
     "conference": "AL",
@@ -7081,17 +7048,6 @@
     "teamAbbr": "NYY",
     "position": "SP",
     "number": 40,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3964917",
-    "name": "Ryan Weiss",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "RP",
-    "number": 51,
     "league": "AL"
   },
   {
@@ -7832,6 +7788,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5185136",
+    "name": "Trevor McDonald",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "SP",
+    "number": 72,
+    "league": "NL"
+  },
+  {
     "id": "mlb:40080",
     "name": "Trevor Megill",
     "conference": "NL",
@@ -7840,6 +7807,17 @@
     "teamAbbr": "MIL",
     "position": "RP",
     "number": 29,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:39912",
+    "name": "Trevor Richards",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 43,
     "league": "NL"
   },
   {
