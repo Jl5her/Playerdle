@@ -126,6 +126,24 @@
     "ops": 0.755
   },
   {
+    "id": "mlb:34947",
+    "name": "Andy Ibanez",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "2B",
+    "number": 77,
+    "league": "NL",
+    "gp": 91,
+    "pa": 193,
+    "avg": 0.239,
+    "hr": 4,
+    "rbi": 21,
+    "sb": 4,
+    "ops": 0.653
+  },
+  {
     "id": "mlb:42468",
     "name": "Andy Pages",
     "conference": "NL",
@@ -900,24 +918,6 @@
     "ops": 0.607
   },
   {
-    "id": "mlb:4987650",
-    "name": "Eric Wagaman",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "1B",
-    "number": 39,
-    "league": "NL",
-    "gp": 140,
-    "pa": 514,
-    "avg": 0.25,
-    "hr": 9,
-    "rbi": 53,
-    "sb": 4,
-    "ops": 0.674
-  },
-  {
     "id": "mlb:41287",
     "name": "Ernie Clement",
     "conference": "AL",
@@ -1024,6 +1024,24 @@
     "rbi": 14,
     "sb": 0,
     "ops": 0.617
+  },
+  {
+    "id": "mlb:42464",
+    "name": "Gabriel Moreno",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "C",
+    "number": 14,
+    "league": "NL",
+    "gp": 83,
+    "pa": 309,
+    "avg": 0.285,
+    "hr": 9,
+    "rbi": 40,
+    "sb": 2,
+    "ops": 0.786
   },
   {
     "id": "mlb:32078",
