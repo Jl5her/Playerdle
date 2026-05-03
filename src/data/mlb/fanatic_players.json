@@ -846,24 +846,6 @@
     "ops": 0.752
   },
   {
-    "id": "mlb:40593",
-    "name": "Dylan Moore",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "CF",
-    "number": 25,
-    "league": "NL",
-    "gp": 106,
-    "pa": 243,
-    "avg": 0.201,
-    "hr": 11,
-    "rbi": 25,
-    "sb": 14,
-    "ops": 0.642
-  },
-  {
     "id": "mlb:33809",
     "name": "Edmundo Sosa",
     "conference": "NL",
@@ -1188,6 +1170,24 @@
     "ops": 0.837
   },
   {
+    "id": "mlb:32177",
+    "name": "J.T. Realmuto",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "C",
+    "number": 10,
+    "league": "NL",
+    "gp": 134,
+    "pa": 550,
+    "avg": 0.257,
+    "hr": 12,
+    "rbi": 52,
+    "sb": 8,
+    "ops": 0.7
+  },
+  {
     "id": "mlb:4719300",
     "name": "Jacob Wilson",
     "conference": "AL",
@@ -1294,6 +1294,24 @@
     "rbi": 17,
     "sb": 0,
     "ops": 0.754
+  },
+  {
+    "id": "mlb:42933",
+    "name": "Jared Triolo",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "SS",
+    "number": 19,
+    "league": "NL",
+    "gp": 107,
+    "pa": 376,
+    "avg": 0.227,
+    "hr": 7,
+    "rbi": 24,
+    "sb": 13,
+    "ops": 0.667
   },
   {
     "id": "mlb:5073992",

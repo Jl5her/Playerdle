@@ -473,17 +473,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5016983",
-    "name": "Anthony Molina",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 61,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5275196",
     "name": "Anthony Nunez",
     "conference": "AL",
@@ -779,17 +768,6 @@
     "position": "RP",
     "number": 72,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4179551",
-    "name": "Brady Basso",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 66,
-    "league": "AL"
   },
   {
     "id": "mlb:4872681",
@@ -1298,17 +1276,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5273591",
-    "name": "Cade Gibson",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 58,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5085743",
     "name": "Cade Povich",
     "conference": "AL",
@@ -1417,6 +1384,17 @@
     "position": "RP",
     "number": 75,
     "league": "AL"
+  },
+  {
+    "id": "mlb:28968",
+    "name": "Carlos Carrasco",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RP",
+    "number": 59,
+    "league": "NL"
   },
   {
     "id": "mlb:32653",
@@ -1727,17 +1705,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36089",
-    "name": "Cionel Perez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 51,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42402",
     "name": "CJ Abrams",
     "conference": "NL",
@@ -1812,17 +1779,6 @@
     "teamAbbr": "KC",
     "position": "SP",
     "number": 55,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3983841",
-    "name": "Cole Sands",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RP",
-    "number": 44,
     "league": "AL"
   },
   {
@@ -2310,6 +2266,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:36049",
+    "name": "Dietrich Enns",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 71,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4345620",
     "name": "Dillon Dingler",
     "conference": "AL",
@@ -2483,17 +2450,6 @@
     "teamAbbr": "ATL",
     "position": "RP",
     "number": 52,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:40593",
-    "name": "Dylan Moore",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "CF",
-    "number": 25,
     "league": "NL"
   },
   {
@@ -2948,6 +2904,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:36429",
+    "name": "Garrett Cleavinger",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 60,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4313442",
     "name": "Garrett Mitchell",
     "conference": "NL",
@@ -3099,6 +3066,17 @@
     "teamAbbr": "STL",
     "position": "RP",
     "number": 44,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4084179",
+    "name": "Graham Ashcraft",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "RP",
+    "number": 23,
     "league": "NL"
   },
   {
@@ -3485,6 +3463,17 @@
     "position": "SP",
     "number": 35,
     "league": "AL"
+  },
+  {
+    "id": "mlb:32177",
+    "name": "J.T. Realmuto",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "C",
+    "number": 10,
+    "league": "NL"
   },
   {
     "id": "mlb:4926296",
@@ -3894,6 +3883,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42933",
+    "name": "Jared Triolo",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "SS",
+    "number": 19,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41150",
     "name": "Jarred Kelenic",
     "conference": "AL",
@@ -4081,6 +4081,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40702",
+    "name": "Jhonny Pereda",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 5,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36093",
     "name": "Jimmy Herget",
     "conference": "NL",
@@ -4222,6 +4233,17 @@
     "position": "RP",
     "number": 47,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5087645",
+    "name": "John Klein",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "SP",
+    "number": 71,
+    "league": "AL"
   },
   {
     "id": "mlb:39949",
@@ -4543,6 +4565,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5266692",
+    "name": "Josh Ekness",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "RP",
+    "number": 95,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42437",
     "name": "Josh Jung",
     "conference": "AL",
@@ -4573,17 +4606,6 @@
     "teamAbbr": "SEA",
     "position": "1B",
     "number": 12,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4151347",
-    "name": "Josh Simpson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 37,
     "league": "AL"
   },
   {
@@ -5390,6 +5412,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5150939",
+    "name": "Luis Morales",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SP",
+    "number": 19,
+    "league": "AL"
+  },
+  {
     "id": "mlb:37237",
     "name": "Luis Rengifo",
     "conference": "NL",
@@ -6193,6 +6226,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4630786",
+    "name": "Nick Davila",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 82,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41674",
     "name": "Nick Fortes",
     "conference": "AL",
@@ -6259,6 +6303,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41006",
+    "name": "Nick Raquet",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 72,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41385",
     "name": "Nick Sandlin",
     "conference": "AL",
@@ -6268,17 +6323,6 @@
     "position": "RP",
     "number": 52,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4683379",
-    "name": "Nick Yorke",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "3B",
-    "number": 38,
-    "league": "NL"
   },
   {
     "id": "mlb:38106",
@@ -6388,6 +6432,17 @@
     "teamAbbr": "PHI",
     "position": "RP",
     "number": 50,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5132036",
+    "name": "Orlando Ribalta",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 64,
     "league": "NL"
   },
   {
@@ -6806,6 +6861,17 @@
     "teamAbbr": "TB",
     "position": "2B",
     "number": 1,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:42440",
+    "name": "Ricky Vanasco",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "RP",
+    "number": 70,
     "league": "AL"
   },
   {
@@ -8030,17 +8096,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4717904",
-    "name": "Tyler Wells",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 68,
-    "league": "AL"
-  },
-  {
     "id": "mlb:32783",
     "name": "Tyrone Taylor",
     "conference": "NL",
@@ -8217,17 +8272,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41606",
-    "name": "Will Vest",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RP",
-    "number": 19,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5132011",
     "name": "Will Warren",
     "conference": "AL",
@@ -8236,17 +8280,6 @@
     "teamAbbr": "NYY",
     "position": "SP",
     "number": 29,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42375",
-    "name": "Will Wilson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "3B",
-    "number": 7,
     "league": "AL"
   },
   {
@@ -8379,17 +8412,6 @@
     "teamAbbr": "LAA",
     "position": "3B",
     "number": 10,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42898",
-    "name": "Yoendrys Gomez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RP",
-    "number": 94,
     "league": "AL"
   },
   {
