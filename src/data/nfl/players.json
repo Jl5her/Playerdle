@@ -580,10 +580,11 @@
     "name": "Ali Gaye",
     "conference": "AFC",
     "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "LB",
-    "number": 99
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "DE",
+    "number": 99,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4595352",
@@ -987,6 +988,16 @@
     "number": 6
   },
   {
+    "id": "nfl:4870805",
+    "name": "Anthony Hill Jr.",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "LB",
+    "number": 53
+  },
+  {
     "id": "nfl:3894856",
     "name": "Anthony Nelson",
     "conference": "NFC",
@@ -1005,6 +1016,16 @@
     "teamAbbr": "IND",
     "position": "QB",
     "number": 5
+  },
+  {
+    "id": "nfl:4685110",
+    "name": "Anthony Smith",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "WR",
+    "number": 83
   },
   {
     "id": "nfl:4709392",
@@ -1631,6 +1652,16 @@
     "number": 95
   },
   {
+    "id": "nfl:4372070",
+    "name": "Ben VanSumeren",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
+    "position": "FB",
+    "number": 43
+  },
+  {
     "id": "nfl:4433959",
     "name": "Ben Yurosek",
     "conference": "NFC",
@@ -1719,16 +1750,6 @@
     "teamAbbr": "BAL",
     "position": "CB",
     "number": 31
-  },
-  {
-    "id": "nfl:3912189",
-    "name": "Bill Murray",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "G",
-    "number": 62
   },
   {
     "id": "nfl:4426401",
@@ -1829,16 +1850,6 @@
     "teamAbbr": "IND",
     "position": "PK",
     "number": 10
-  },
-  {
-    "id": "nfl:4361604",
-    "name": "Blake Watson",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "RB",
-    "number": 32
   },
   {
     "id": "nfl:4362018",
@@ -2897,6 +2908,16 @@
     "number": 8
   },
   {
+    "id": "nfl:4870706",
+    "name": "Caleb Downs",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "S",
+    "number": 18
+  },
+  {
     "id": "nfl:4880297",
     "name": "Caleb Etienne",
     "conference": "NFC",
@@ -3005,16 +3026,6 @@
     "teamAbbr": "DEN",
     "position": "G",
     "number": 76
-  },
-  {
-    "id": "nfl:4240021",
-    "name": "Cam Akers",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
-    "position": "RB",
-    "number": 30
   },
   {
     "id": "nfl:4035861",
@@ -3127,16 +3138,6 @@
     "number": 15
   },
   {
-    "id": "nfl:4431360",
-    "name": "Cam Riley",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "LB",
-    "number": 47
-  },
-  {
     "id": "nfl:4696981",
     "name": "Cam Skattebo",
     "conference": "NFC",
@@ -3175,6 +3176,16 @@
     "teamAbbr": "JAX",
     "position": "S",
     "number": 24
+  },
+  {
+    "id": "nfl:4808759",
+    "name": "Camden Brown",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "WR",
+    "number": 6
   },
   {
     "id": "nfl:4362081",
@@ -3296,6 +3307,16 @@
     "teamAbbr": "NE",
     "position": "CB",
     "number": 7
+  },
+  {
+    "id": "nfl:4871023",
+    "name": "Carnell Tate",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "WR",
+    "number": 14
   },
   {
     "id": "nfl:4430965",
@@ -3567,16 +3588,6 @@
     "teamAbbr": "WSH",
     "position": "DE",
     "number": 90
-  },
-  {
-    "id": "nfl:4240849",
-    "name": "Charles Snowden",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "DE",
-    "number": 49
   },
   {
     "id": "nfl:4368113",
@@ -3869,6 +3880,16 @@
     "teamAbbr": "NYG",
     "position": "TE",
     "number": 85
+  },
+  {
+    "id": "nfl:4820574",
+    "name": "Chris McClellan",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "DT",
+    "number": 55
   },
   {
     "id": "nfl:4044111",
@@ -4245,16 +4266,6 @@
     "number": 53
   },
   {
-    "id": "nfl:4426336",
-    "name": "Clay Webb",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "G",
-    "number": 60
-  },
-  {
     "id": "nfl:4429324",
     "name": "Cobee Bryant",
     "conference": "NFC",
@@ -4425,6 +4436,16 @@
     "number": 85
   },
   {
+    "id": "nfl:4879250",
+    "name": "Cole Payton",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "QB",
+    "number": 10
+  },
+  {
     "id": "nfl:4051001",
     "name": "Cole Strange",
     "conference": "AFC",
@@ -4454,6 +4475,16 @@
     "teamAbbr": "JAX",
     "position": "OT",
     "number": 70
+  },
+  {
+    "id": "nfl:4693345",
+    "name": "Cole Wisniewski",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "S",
+    "number": 21
   },
   {
     "id": "nfl:4578436",
@@ -4707,6 +4738,16 @@
     "number": 86
   },
   {
+    "id": "nfl:5081997",
+    "name": "Cortez Braham Jr.",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "WR",
+    "number": 82
+  },
+  {
     "id": "nfl:4240042",
     "name": "Cory Durden",
     "conference": "AFC",
@@ -4795,6 +4836,16 @@
     "teamAbbr": "DET",
     "position": "CB",
     "number": 4
+  },
+  {
+    "id": "nfl:4682915",
+    "name": "D.J. Withers",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "DT",
+    "number": 59
   },
   {
     "id": "nfl:4259545",
@@ -5147,6 +5198,16 @@
     "teamAbbr": "NYJ",
     "position": "S",
     "number": 6
+  },
+  {
+    "id": "nfl:4685315",
+    "name": "Dani Dennis-Sutton",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "DE",
+    "number": 51
   },
   {
     "id": "nfl:4361516",
@@ -6241,6 +6302,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nfl:4702577",
+    "name": "Devin Moore",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "CB",
+    "number": 29
+  },
+  {
     "id": "nfl:4682652",
     "name": "Devin Neal",
     "conference": "NFC",
@@ -6361,6 +6432,16 @@
     "number": 77
   },
   {
+    "id": "nfl:4581189",
+    "name": "Dillon Wade",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "G",
+    "number": 68
+  },
+  {
     "id": "nfl:3051324",
     "name": "Dion Dawkins",
     "conference": "AFC",
@@ -6369,6 +6450,16 @@
     "teamAbbr": "BUF",
     "position": "OT",
     "number": 73
+  },
+  {
+    "id": "nfl:4697761",
+    "name": "Dion Wilson Jr.",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "DT",
+    "number": 58
   },
   {
     "id": "nfl:4037626",
@@ -6421,6 +6512,16 @@
     "number": 2
   },
   {
+    "id": "nfl:4710711",
+    "name": "DJ Rogers",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "TE",
+    "number": 49
+  },
+  {
     "id": "nfl:4572036",
     "name": "DJ Turner II",
     "conference": "AFC",
@@ -6471,6 +6572,16 @@
     "number": 37
   },
   {
+    "id": "nfl:4685402",
+    "name": "Domani Jackson",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "CB",
+    "number": 20
+  },
+  {
     "id": "nfl:4596439",
     "name": "Dominic Lovett",
     "conference": "NFC",
@@ -6479,6 +6590,16 @@
     "teamAbbr": "DET",
     "position": "WR",
     "number": 19
+  },
+  {
+    "id": "nfl:4430689",
+    "name": "Dominic Richardson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "RB",
+    "number": 43
   },
   {
     "id": "nfl:5092959",
@@ -6589,6 +6710,16 @@
     "teamAbbr": "CHI",
     "position": "CB",
     "number": 27
+  },
+  {
+    "id": "nfl:4427971",
+    "name": "Dontae McMillan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "RB",
+    "number": 36
   },
   {
     "id": "nfl:4428850",
@@ -6812,6 +6943,16 @@
     "number": 41
   },
   {
+    "id": "nfl:4685554",
+    "name": "Drew Shelton",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "OT",
+    "number": 67
+  },
+  {
     "id": "nfl:4431321",
     "name": "Dru Phillips",
     "conference": "NFC",
@@ -6871,6 +7012,16 @@
     "position": "WR",
     "number": 5,
     "numberBackfilled": true
+  },
+  {
+    "id": "nfl:4429248",
+    "name": "Dylan Barrett",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "G",
+    "number": 74
   },
   {
     "id": "nfl:4570898",
@@ -7113,6 +7264,16 @@
     "number": 83
   },
   {
+    "id": "nfl:4431574",
+    "name": "Eli Stowers",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "TE",
+    "number": 87
+  },
+  {
     "id": "nfl:4428098",
     "name": "Elias Neal",
     "conference": "NFC",
@@ -7163,16 +7324,6 @@
     "number": 94
   },
   {
-    "id": "nfl:4241588",
-    "name": "Elijah Cooks",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "WR",
-    "number": 86
-  },
-  {
     "id": "nfl:4039170",
     "name": "Elijah Garcia",
     "conference": "NFC",
@@ -7221,16 +7372,6 @@
     "teamAbbr": "TB",
     "position": "G",
     "number": 79
-  },
-  {
-    "id": "nfl:4241555",
-    "name": "Elijah Mitchell",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "RB",
-    "number": 30
   },
   {
     "id": "nfl:4243328",
@@ -7413,6 +7554,16 @@
     "teamAbbr": "NE",
     "position": "DT",
     "number": 55
+  },
+  {
+    "id": "nfl:4050971",
+    "name": "Eric Johnson II",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "DT",
+    "number": 98
   },
   {
     "id": "nfl:2970716",
@@ -7635,16 +7786,6 @@
     "number": 1
   },
   {
-    "id": "nfl:4569609",
-    "name": "Evan Hull",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "RB",
-    "number": 34
-  },
-  {
     "id": "nfl:4360234",
     "name": "Evan McPherson",
     "conference": "AFC",
@@ -7734,6 +7875,16 @@
     "teamAbbr": "KC",
     "position": "DE",
     "number": 91
+  },
+  {
+    "id": "nfl:4710000",
+    "name": "Fernando Carmona",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "G",
+    "number": 66
   },
   {
     "id": "nfl:4837248",
@@ -8648,16 +8799,6 @@
     "number": 20
   },
   {
-    "id": "nfl:4431345",
-    "name": "Isaiah Raikes",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "DT",
-    "number": 76
-  },
-  {
     "id": "nfl:4044540",
     "name": "Isaiah Rodgers",
     "conference": "NFC",
@@ -8747,6 +8888,16 @@
     "teamAbbr": "MIN",
     "position": "LB",
     "number": 0
+  },
+  {
+    "id": "nfl:4635009",
+    "name": "J. Michael Sturdivant",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "WR",
+    "number": 87
   },
   {
     "id": "nfl:4433970",
@@ -9059,14 +9210,14 @@
     "number": 37
   },
   {
-    "id": "nfl:2517081",
-    "name": "Jack Wilson",
+    "id": "nfl:5081785",
+    "name": "Jackie Marshall",
     "conference": "AFC",
     "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "OT",
-    "number": 76
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "DT",
+    "number": 96
   },
   {
     "id": "nfl:4573699",
@@ -9259,6 +9410,16 @@
     "number": 21
   },
   {
+    "id": "nfl:4683165",
+    "name": "Jaden Nixon",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "RB",
+    "number": 35
+  },
+  {
     "id": "nfl:4374032",
     "name": "Jaden Robinson",
     "conference": "AFC",
@@ -9277,6 +9438,16 @@
     "teamAbbr": "CAR",
     "position": "LB",
     "number": 5
+  },
+  {
+    "id": "nfl:4569661",
+    "name": "Jager Burton",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "C",
+    "number": 52
   },
   {
     "id": "nfl:4361409",
@@ -9328,6 +9499,16 @@
     "teamAbbr": "DET",
     "position": "RB",
     "number": 0
+  },
+  {
+    "id": "nfl:4685266",
+    "name": "Jaishawn Barham",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 55
   },
   {
     "id": "nfl:4362732",
@@ -10043,16 +10224,6 @@
     "number": 49
   },
   {
-    "id": "nfl:4240778",
-    "name": "Jamin Davis",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "LB",
-    "number": 52
-  },
-  {
     "id": "nfl:4430411",
     "name": "Jammie Robinson",
     "conference": "NFC",
@@ -10171,6 +10342,16 @@
     "teamAbbr": "NE",
     "position": "G",
     "number": 58
+  },
+  {
+    "id": "nfl:4877034",
+    "name": "Jaren Kanak",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "TE",
+    "number": 47
   },
   {
     "id": "nfl:4362452",
@@ -10451,6 +10632,16 @@
     "teamAbbr": "DAL",
     "position": "DT",
     "number": 93
+  },
+  {
+    "id": "nfl:4259647",
+    "name": "Jay Tufele",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "DT",
+    "number": 78
   },
   {
     "id": "nfl:4568007",
@@ -11155,6 +11346,16 @@
     "number": 44
   },
   {
+    "id": "nfl:4036507",
+    "name": "Joe Bachie",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "LB",
+    "number": 48
+  },
+  {
     "id": "nfl:3915511",
     "name": "Joe Burrow",
     "conference": "AFC",
@@ -11314,16 +11515,6 @@
     "teamAbbr": "BAL",
     "position": "DT",
     "number": 94
-  },
-  {
-    "id": "nfl:4887705",
-    "name": "John Jiles",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "WR",
-    "number": 83
   },
   {
     "id": "nfl:4567096",
@@ -11758,6 +11949,16 @@
     "number": 31
   },
   {
+    "id": "nfl:4685409",
+    "name": "Jordan Hudson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "WR",
+    "number": 16
+  },
+  {
     "id": "nfl:4261090",
     "name": "Jordan Jackson",
     "conference": "AFC",
@@ -11998,16 +12199,6 @@
     "number": 46
   },
   {
-    "id": "nfl:4430632",
-    "name": "Joseph Vaughn",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "LB",
-    "number": 49
-  },
-  {
     "id": "nfl:3918298",
     "name": "Josh Allen",
     "conference": "AFC",
@@ -12076,6 +12267,16 @@
     "teamAbbr": "LAC",
     "position": "DT",
     "number": 69
+  },
+  {
+    "id": "nfl:4687706",
+    "name": "Josh Gesky",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "G",
+    "number": 76
   },
   {
     "id": "nfl:15151",
@@ -13144,6 +13345,16 @@
     "number": 97
   },
   {
+    "id": "nfl:4870707",
+    "name": "Keldric Faulk",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "DE",
+    "number": 15
+  },
+  {
     "id": "nfl:4428992",
     "name": "Kelee Ringo",
     "conference": "NFC",
@@ -13172,6 +13383,16 @@
     "teamAbbr": "NO",
     "position": "OT",
     "number": 71
+  },
+  {
+    "id": "nfl:4431547",
+    "name": "Kelvin Gilliam Jr.",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "DT",
+    "number": 94
   },
   {
     "id": "nfl:4429012",
@@ -13464,6 +13685,16 @@
     "teamAbbr": "BAL",
     "position": "CB",
     "number": 38
+  },
+  {
+    "id": "nfl:5165139",
+    "name": "Keyshawn James-Newby",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "LB",
+    "number": 50
   },
   {
     "id": "nfl:4027919",
@@ -13976,6 +14207,16 @@
     "number": 23
   },
   {
+    "id": "nfl:4678010",
+    "name": "Kyron Drones",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "QB",
+    "number": 13
+  },
+  {
     "id": "nfl:3116449",
     "name": "L.J. Collier",
     "conference": "NFC",
@@ -14116,6 +14357,16 @@
     "number": 65
   },
   {
+    "id": "nfl:4557348",
+    "name": "Langston Patterson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 47
+  },
+  {
     "id": "nfl:3051889",
     "name": "Laquon Treadwell",
     "conference": "AFC",
@@ -14175,16 +14426,6 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 89
-  },
-  {
-    "id": "nfl:4428368",
-    "name": "Layden Robinson",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "G",
-    "number": 64
   },
   {
     "id": "nfl:4878842",
@@ -14397,6 +14638,16 @@
     "teamAbbr": "NE",
     "position": "OT",
     "number": 72
+  },
+  {
+    "id": "nfl:4870960",
+    "name": "LT Overton",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "DE",
+    "number": 99
   },
   {
     "id": "nfl:4245661",
@@ -14700,6 +14951,16 @@
     "number": 55
   },
   {
+    "id": "nfl:4870795",
+    "name": "Makai Lemon",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "WR",
+    "number": 9
+  },
+  {
     "id": "nfl:4613104",
     "name": "Malachi Corley",
     "conference": "AFC",
@@ -14708,6 +14969,16 @@
     "teamAbbr": "CLE",
     "position": "WR",
     "number": 83
+  },
+  {
+    "id": "nfl:4710067",
+    "name": "Malachi Lawrence",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 57
   },
   {
     "id": "nfl:4692024",
@@ -15070,6 +15341,16 @@
     "number": 83
   },
   {
+    "id": "nfl:5219831",
+    "name": "Markel Bell",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "OT",
+    "number": 72
+  },
+  {
     "id": "nfl:4241921",
     "name": "Markquese Bell",
     "conference": "NFC",
@@ -15138,16 +15419,6 @@
     "teamAbbr": "BAL",
     "position": "CB",
     "number": 28
-  },
-  {
-    "id": "nfl:4566195",
-    "name": "Marshall Lang",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "TE",
-    "number": 84
   },
   {
     "id": "nfl:4429023",
@@ -15500,16 +15771,6 @@
     "number": 58
   },
   {
-    "id": "nfl:4247276",
-    "name": "McClendon Curtis",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "G",
-    "number": 63
-  },
-  {
     "id": "nfl:4692680",
     "name": "McKinnley Jackson",
     "conference": "AFC",
@@ -15588,6 +15849,16 @@
     "teamAbbr": "NYG",
     "position": "LB",
     "number": 41
+  },
+  {
+    "id": "nfl:4432738",
+    "name": "Micah Morris",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "G",
+    "number": 76
   },
   {
     "id": "nfl:4361423",
@@ -15730,6 +16001,16 @@
     "number": 25
   },
   {
+    "id": "nfl:4594749",
+    "name": "Michael Trigg",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "TE",
+    "number": 46
+  },
+  {
     "id": "nfl:4360761",
     "name": "Michael Wilson",
     "conference": "NFC",
@@ -15767,7 +16048,7 @@
     "division": "NFC West",
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
-    "position": "DE",
+    "position": "LB",
     "number": 6
   },
   {
@@ -16273,6 +16554,16 @@
     "number": 45
   },
   {
+    "id": "nfl:4686248",
+    "name": "Nate Boerkircher",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "TE",
+    "number": 87
+  },
+  {
     "id": "nfl:4240542",
     "name": "Nate Hobbs",
     "conference": "NFC",
@@ -16292,16 +16583,6 @@
     "teamAbbr": "LAR",
     "position": "LB",
     "number": 53
-  },
-  {
-    "id": "nfl:4574142",
-    "name": "Nate Lynn",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "DE",
-    "number": 45
   },
   {
     "id": "nfl:4428656",
@@ -16432,6 +16713,16 @@
     "teamAbbr": "CAR",
     "position": "LB",
     "number": 11
+  },
+  {
+    "id": "nfl:4685555",
+    "name": "Nicholas Singleton",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "RB",
+    "number": 32
   },
   {
     "id": "nfl:3115922",
@@ -16818,6 +17109,16 @@
     "number": 92
   },
   {
+    "id": "nfl:4869520",
+    "name": "Octavian Smith Jr.",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "WR",
+    "number": 87
+  },
+  {
     "id": "nfl:4361422",
     "name": "Odafe Oweh",
     "conference": "NFC",
@@ -17078,6 +17379,16 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 13
+  },
+  {
+    "id": "nfl:4596542",
+    "name": "Pat Coogan",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "C",
+    "number": 79
   },
   {
     "id": "nfl:4361411",
@@ -18536,16 +18847,6 @@
     "number": 34
   },
   {
-    "id": "nfl:4027873",
-    "name": "Samori Toure",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "WR",
-    "number": 89
-  },
-  {
     "id": "nfl:3045527",
     "name": "Samson Ebukam",
     "conference": "NFC",
@@ -18877,6 +19178,16 @@
     "number": 95
   },
   {
+    "id": "nfl:4880106",
+    "name": "Shiyazh Pete",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "OT",
+    "number": 75
+  },
+  {
     "id": "nfl:3886601",
     "name": "Shy Tuttle",
     "conference": "NFC",
@@ -18885,6 +19196,16 @@
     "teamAbbr": "WSH",
     "position": "DT",
     "number": 79
+  },
+  {
+    "id": "nfl:4878943",
+    "name": "Sidney Fugar",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "OT",
+    "number": 69
   },
   {
     "id": "nfl:4244826",
@@ -19860,6 +20181,16 @@
     "number": 87
   },
   {
+    "id": "nfl:4684030",
+    "name": "TJ Quinn",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "LB",
+    "number": 40
+  },
+  {
     "id": "nfl:3126997",
     "name": "Tom Kennedy",
     "conference": "NFC",
@@ -19888,6 +20219,16 @@
     "teamAbbr": "NE",
     "position": "QB",
     "number": 16
+  },
+  {
+    "id": "nfl:4689364",
+    "name": "Tommy Dunn Jr.",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "DT",
+    "number": 95
   },
   {
     "id": "nfl:4429560",
@@ -20131,16 +20472,6 @@
     "number": 46
   },
   {
-    "id": "nfl:4427493",
-    "name": "Tre Tomlinson",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "CB",
-    "number": 35
-  },
-  {
     "id": "nfl:4428718",
     "name": "Tre Tucker",
     "conference": "AFC",
@@ -20270,16 +20601,6 @@
     "teamAbbr": "SF",
     "position": "OT",
     "number": 71
-  },
-  {
-    "id": "nfl:4240128",
-    "name": "Trenton Gill",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "P",
-    "number": 32
   },
   {
     "id": "nfl:4430831",
@@ -20480,6 +20801,16 @@
     "teamAbbr": "LAC",
     "position": "OT",
     "number": 79
+  },
+  {
+    "id": "nfl:4869461",
+    "name": "Trey Smack",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "PK",
+    "number": 28
   },
   {
     "id": "nfl:4242459",
@@ -21186,6 +21517,16 @@
     "number": 71
   },
   {
+    "id": "nfl:5344966",
+    "name": "Uar Bernard",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "DT",
+    "number": 93
+  },
+  {
     "id": "nfl:3120358",
     "name": "Uchenna Nwosu",
     "conference": "NFC",
@@ -21285,16 +21626,6 @@
     "teamAbbr": "MIN",
     "position": "G",
     "number": 66
-  },
-  {
-    "id": "nfl:4374148",
-    "name": "Viliami Fehoko Jr.",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "DE",
-    "number": 61
   },
   {
     "id": "nfl:3134362",
