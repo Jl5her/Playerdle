@@ -2630,6 +2630,16 @@
     "number": 32
   },
   {
+    "id": "nhl:4063606",
+    "name": "Dylan Coghlan",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "D",
+    "number": 52
+  },
+  {
     "id": "nhl:4565228",
     "name": "Dylan Cozens",
     "conference": "East",
@@ -3468,6 +3478,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 36
+  },
+  {
+    "id": "nhl:5206898",
+    "name": "Isak Posch",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "G",
+    "number": 35
   },
   {
     "id": "nhl:4874731",
@@ -5468,16 +5488,6 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 1
-  },
-  {
-    "id": "nhl:4697400",
-    "name": "Lukas Reichel",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Boston Bruins",
-    "teamAbbr": "BOS",
-    "position": "LW",
-    "number": 75
   },
   {
     "id": "nhl:4697446",
