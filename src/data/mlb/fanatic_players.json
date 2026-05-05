@@ -36,24 +36,6 @@
     "ops": 0.665
   },
   {
-    "id": "mlb:5132014",
-    "name": "Agustin Ramirez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "C",
-    "number": 50,
-    "league": "NL",
-    "gp": 136,
-    "pa": 585,
-    "avg": 0.231,
-    "hr": 21,
-    "rbi": 67,
-    "sb": 16,
-    "ops": 0.701
-  },
-  {
     "id": "mlb:41169",
     "name": "Alec Bohm",
     "conference": "NL",
@@ -108,6 +90,24 @@
     "ops": 0.7
   },
   {
+    "id": "mlb:42394",
+    "name": "Andrew Vaughn",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "1B",
+    "number": 28,
+    "league": "NL",
+    "gp": 64,
+    "pa": 254,
+    "avg": 0.308,
+    "hr": 9,
+    "rbi": 46,
+    "sb": 0,
+    "ops": 0.869
+  },
+  {
     "id": "mlb:36950",
     "name": "Andruw Monasterio",
     "conference": "AL",
@@ -160,24 +160,6 @@
     "rbi": 86,
     "sb": 14,
     "ops": 0.774
-  },
-  {
-    "id": "mlb:36928",
-    "name": "Austin Hays",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "LF",
-    "number": 21,
-    "league": "AL",
-    "gp": 103,
-    "pa": 416,
-    "avg": 0.266,
-    "hr": 15,
-    "rbi": 64,
-    "sb": 7,
-    "ops": 0.768
   },
   {
     "id": "mlb:32168",
@@ -1186,6 +1168,24 @@
     "rbi": 52,
     "sb": 8,
     "ops": 0.7
+  },
+  {
+    "id": "mlb:4917869",
+    "name": "Jackson Chourio",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "CF",
+    "number": 11,
+    "league": "NL",
+    "gp": 131,
+    "pa": 589,
+    "avg": 0.27,
+    "hr": 21,
+    "rbi": 78,
+    "sb": 21,
+    "ops": 0.77
   },
   {
     "id": "mlb:4719300",
@@ -2286,6 +2286,24 @@
     "ops": 0.675
   },
   {
+    "id": "mlb:31399",
+    "name": "Randal Grichuk",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "LF",
+    "number": 34,
+    "league": "AL",
+    "gp": 113,
+    "pa": 293,
+    "avg": 0.228,
+    "hr": 9,
+    "rbi": 27,
+    "sb": 0,
+    "ops": 0.674
+  },
+  {
     "id": "mlb:36488",
     "name": "Randy Arozarena",
     "conference": "AL",
@@ -2412,6 +2430,24 @@
     "ops": 0.575
   },
   {
+    "id": "mlb:33557",
+    "name": "Sean Murphy",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "C",
+    "number": 12,
+    "league": "NL",
+    "gp": 94,
+    "pa": 337,
+    "avg": 0.199,
+    "hr": 16,
+    "rbi": 45,
+    "sb": 0,
+    "ops": 0.709
+  },
+  {
     "id": "mlb:4142424",
     "name": "Seiya Suzuki",
     "conference": "NL",
@@ -2428,24 +2464,6 @@
     "rbi": 103,
     "sb": 5,
     "ops": 0.804
-  },
-  {
-    "id": "mlb:42598",
-    "name": "Shea Langeliers",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "C",
-    "number": 23,
-    "league": "AL",
-    "gp": 123,
-    "pa": 523,
-    "avg": 0.277,
-    "hr": 31,
-    "rbi": 72,
-    "sb": 7,
-    "ops": 0.861
   },
   {
     "id": "mlb:4722857",
@@ -2536,24 +2554,6 @@
     "rbi": 89,
     "sb": 5,
     "ops": 0.738
-  },
-  {
-    "id": "mlb:4999876",
-    "name": "Thomas Saggese",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "LF",
-    "number": 25,
-    "league": "NL",
-    "gp": 82,
-    "pa": 295,
-    "avg": 0.258,
-    "hr": 2,
-    "rbi": 25,
-    "sb": 3,
-    "ops": 0.641
   },
   {
     "id": "mlb:4345192",
