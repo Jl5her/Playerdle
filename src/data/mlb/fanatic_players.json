@@ -2070,6 +2070,24 @@
     "ops": 0.68
   },
   {
+    "id": "mlb:40338",
+    "name": "Nick Allen",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SS",
+    "number": 20,
+    "league": "AL",
+    "gp": 135,
+    "pa": 416,
+    "avg": 0.221,
+    "hr": 0,
+    "rbi": 22,
+    "sb": 8,
+    "ops": 0.535
+  },
+  {
     "id": "mlb:31187",
     "name": "Nick Castellanos",
     "conference": "NL",
@@ -2266,24 +2284,6 @@
     "rbi": 30,
     "sb": 3,
     "ops": 0.812
-  },
-  {
-    "id": "mlb:40610",
-    "name": "Ramon Urias",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "3B",
-    "number": 29,
-    "league": "NL",
-    "gp": 112,
-    "pa": 391,
-    "avg": 0.241,
-    "hr": 11,
-    "rbi": 44,
-    "sb": 3,
-    "ops": 0.675
   },
   {
     "id": "mlb:31399",
@@ -2554,6 +2554,24 @@
     "rbi": 89,
     "sb": 5,
     "ops": 0.738
+  },
+  {
+    "id": "mlb:4999876",
+    "name": "Thomas Saggese",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "LF",
+    "number": 25,
+    "league": "NL",
+    "gp": 82,
+    "pa": 295,
+    "avg": 0.258,
+    "hr": 2,
+    "rbi": 25,
+    "sb": 3,
+    "ops": 0.641
   },
   {
     "id": "mlb:4345192",
@@ -2844,24 +2862,6 @@
     "ops": 0.72
   },
   {
-    "id": "mlb:4781491",
-    "name": "Yainer Diaz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "C",
-    "number": 21,
-    "league": "AL",
-    "gp": 143,
-    "pa": 567,
-    "avg": 0.256,
-    "hr": 20,
-    "rbi": 70,
-    "sb": 1,
-    "ops": 0.701
-  },
-  {
     "id": "mlb:33481",
     "name": "Yandy Diaz",
     "conference": "AL",
@@ -2896,6 +2896,24 @@
     "rbi": 19,
     "sb": 0,
     "ops": 0.637
+  },
+  {
+    "id": "mlb:5137883",
+    "name": "Zach Dezenzo",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 9,
+    "league": "AL",
+    "gp": 34,
+    "pa": 109,
+    "avg": 0.245,
+    "hr": 2,
+    "rbi": 10,
+    "sb": 1,
+    "ops": 0.688
   },
   {
     "id": "mlb:4666100",
