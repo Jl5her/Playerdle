@@ -20,6 +20,7 @@ type RouteScreen = "menu" | "daily" | "arcade" | "help"
 
 interface DailyRouteState {
   guideMode?: GuideMode
+  showStats?: boolean
 }
 
 interface AppShellProps {
@@ -42,8 +43,9 @@ function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: 
   if (screen === "menu") {
     return prefix || "/"
   }
-  if (screen === "daily" && variantId === FANATIC_VARIANT_ID) {
-    return `${prefix}/${FANATIC_VARIANT_ID}`
+  if (variantId === FANATIC_VARIANT_ID) {
+    if (screen === "daily") return `${prefix}/${FANATIC_VARIANT_ID}`
+    if (screen === "arcade") return `${prefix}/arcade/${FANATIC_VARIANT_ID}`
   }
   return `${prefix}/${screen}`
 }
@@ -61,19 +63,34 @@ function getGuideModeFromState(state: unknown): GuideMode | undefined {
   return undefined
 }
 
+function getShowStatsFromState(state: unknown): boolean {
+  if (!state || typeof state !== "object") return false
+  return (state as DailyRouteState).showStats === true
+}
+
 function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const location = useLocation()
   const navigate = useNavigate()
   const sportMeta = getSportMetaById(sportId)
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
-  const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
+  const initialShowStats = screen === "daily" && getShowStatsFromState(location.state)
+  const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>(
+    initialShowStats
+      ? {
+          mode: "daily",
+          showStatsOnly: true,
+          includeShareButton: false,
+          variantId,
+        }
+      : { mode: "daily" },
+  )
   const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
   const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>(
-    initialGuideMode ? "guide" : "none",
+    initialGuideMode ? "guide" : initialShowStats ? "stats" : "none",
   )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
-  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help">(
+  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
     screen === "help" ? "help" : "menu",
   )
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
@@ -202,6 +219,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
+    if (target === "all-stats" && screen === "menu") {
+      setMenuSection("stats")
+      return
+    }
+
     if (target === "help" && screen === "menu") {
       navigate(buildPath(sportId, "help"))
       setMenuSection("help")
@@ -221,7 +243,14 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
     if (target === "arcade") {
       setGameKey(k => k + 1)
-      navigate(buildPath(sportId, "arcade"))
+      navigate(buildPath(sportId, "arcade", nextVariantId))
+      return
+    }
+
+    if (target === "stats") {
+      navigate(buildPath(sportId, "daily", nextVariantId), {
+        state: { showStats: true } as DailyRouteState,
+      })
       return
     }
   }
@@ -233,7 +262,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
-    if (menuSection === "about") {
+    if (menuSection === "about" || menuSection === "stats") {
       setMenuSection("menu")
       return
     }
@@ -420,6 +449,15 @@ function App() {
         }
       />
       <Route
+        path="/arcade/fanatic"
+        element={
+          <SportRoute
+            screen="arcade"
+            variantId={FANATIC_VARIANT_ID}
+          />
+        }
+      />
+      <Route
         path="/:sport"
         element={<SportRoute screen="menu" />}
       />
@@ -440,6 +478,15 @@ function App() {
         element={
           <SportRoute
             screen="daily"
+            variantId={FANATIC_VARIANT_ID}
+          />
+        }
+      />
+      <Route
+        path="/:sport/arcade/fanatic"
+        element={
+          <SportRoute
+            screen="arcade"
             variantId={FANATIC_VARIANT_ID}
           />
         }

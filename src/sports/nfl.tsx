@@ -33,7 +33,7 @@ const nflConfig: SportConfig = {
   id: "nfl",
   slug: "",
   displayName: "NFL",
-  subtitle: "Guess the NFL player in 6 tries",
+  subtitle: "Top NFL skill-position players",
   teams,
   players: playersData,
   answerPool: playersData.filter(player => answerPoolIdSet.has(player.id)),
@@ -92,7 +92,7 @@ const nflConfig: SportConfig = {
     {
       id: "fanatic",
       label: "Fanatic",
-      subtitle: "Half-PPR fantasy stats (RB/WR/TE only)",
+      subtitle: "Top NFL pass catchers",
       players: fanaticPlayersData,
       answerPool: fanaticPlayersData.filter(player => fanaticAnswerPoolIdSet.has(player.id)),
       columns: [

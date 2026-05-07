@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button, GuessGrid, GuessInput, Popup } from "@/components"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
@@ -74,10 +74,13 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   const [dateKey] = useState<string>(getTodayKeyInEasternTime)
   const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport, variantId))
   const [latestIndex, setLatestIndex] = useState(-1)
+  const [showPositionPopup, setShowPositionPopup] = useState(false)
+  const positionLockedShownRef = useRef(false)
 
   const won = !!(answer && guesses.some(g => g.id === answer.id))
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
+  const isFanatic = variantId === "fanatic"
 
   const guessedIds = new Set(guesses.map(g => g.id))
 
@@ -118,11 +121,26 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     }
     const newWon = !!(answer && newGuesses.some(g => g.id === answer.id))
     const newLost = !newWon && newGuesses.length >= MAX_GUESSES
+
+    if (
+      isFanatic &&
+      !newWon &&
+      !positionLockedShownRef.current &&
+      answer &&
+      player.position !== undefined &&
+      player.position === answer.position
+    ) {
+      positionLockedShownRef.current = true
+      setShowPositionPopup(true)
+    }
+
     if (newWon || newLost) {
       if (mode === "daily") {
         saveGameResult(sport.id, newWon, newGuesses.length, variantId)
       }
-      openResultsModal(newGuesses, newWon, newLost)
+      if (newWon) {
+        openResultsModal(newGuesses, newWon, newLost)
+      }
     }
   }
 
@@ -132,6 +150,8 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     setAnswer(newPlayer)
     setGuesses([])
     setLatestIndex(-1)
+    positionLockedShownRef.current = false
+    setShowPositionPopup(false)
   }
 
   return (
@@ -140,8 +160,26 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
         visible={gameOver && !!answer}
         message={answer?.name ?? ""}
       />
+      <Popup
+        visible={showPositionPopup}
+        message={
+          answer?.position ? `Position locked: ${String(answer.position)}` : ""
+        }
+        durationMs={2500}
+      />
       {gameOver && answer && (
-        <div className="bg-secondary-50 dark:bg-secondary-900 px-4 py-3 text-center shrink-0 border-b-2 border-secondary-300 dark:border-secondary-700">
+        <div
+          className={`px-4 py-3 text-center shrink-0 border-b-2 ${
+            lost
+              ? "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
+              : "bg-secondary-50 dark:bg-secondary-900 border-secondary-300 dark:border-secondary-700"
+          }`}
+        >
+          {lost && (
+            <div className="text-base font-black tracking-widest text-error-500 dark:text-error-400 uppercase mb-1">
+              Game Over
+            </div>
+          )}
           <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
           <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
             {String(answer.name)}
@@ -150,7 +188,13 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
             {String(answer.team ?? "")} &middot; {String(answer.position ?? "")} &middot; #
             {String(answer.number ?? "")}
           </div>
-          <div className="text-sm text-success-500 dark:text-success-400 mt-2 font-medium">
+          <div
+            className={`text-sm mt-2 font-medium ${
+              won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400"
+            }`}
+          >
             {won ? `Guessed in ${guesses.length}/6` : "Better luck tomorrow!"}
           </div>
         </div>

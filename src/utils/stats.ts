@@ -134,3 +134,9 @@ export function hasBeatTodaysDaily(sportId: string, variantId?: string): boolean
   const todayResult = history.find(r => r.date === today)
   return todayResult?.won ?? false
 }
+
+export function hasPlayedTodaysDaily(sportId: string, variantId?: string): boolean {
+  const today = getTodayEasternDateKey()
+  const history = getGameHistory(sportId, variantId)
+  return history.some(r => r.date === today)
+}

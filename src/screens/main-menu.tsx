@@ -1,17 +1,19 @@
 import {
   faBaseball,
   faBasketball,
+  faChartColumn,
   faFootball,
   faHockeyPuck,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { AllStatsContent } from "@/modals/all-stats-content"
 import { GameGuideContent } from "@/modals/game-guide-content"
 import AboutSection from "@/screens/about-section"
 import type { SportConfig, SportInfo } from "@/sports"
-import { hasBeatTodaysDaily } from "@/utils/stats"
+import { hasPlayedTodaysDaily } from "@/utils/stats"
 
-export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats"
+export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats" | "all-stats"
 
 export interface NavigationOptions {
   variantId?: string
@@ -20,16 +22,13 @@ export interface NavigationOptions {
 interface Props {
   onNavigate: (screen: Screen, options?: NavigationOptions) => void
   sport: SportInfo | SportConfig
-  section: "menu" | "about" | "help"
+  section: "menu" | "about" | "help" | "stats"
   onCloseAbout: () => void
   guideSport?: SportConfig | null
 }
 
 export default function MainMenu({ onNavigate, sport, section, onCloseAbout, guideSport }: Props) {
   const variants = "variants" in sport ? (sport.variants ?? []) : []
-  const dailyBeaten =
-    hasBeatTodaysDaily(sport.id) ||
-    variants.some(variant => hasBeatTodaysDaily(sport.id, variant.id))
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -49,26 +48,26 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
     return faBasketball
   }
 
-  const menuItems: {
-    label: string
-    screen: Screen
-    requireDaily?: boolean
+  type VariantRow = {
+    variantLabel: string
     variantId?: string
-  }[] = [
+    played: boolean
+    isPrimary: boolean
+  }
+
+  const variantRows: VariantRow[] = [
     {
-      label: "Daily",
-      screen: "daily",
+      variantLabel: "Daily",
+      variantId: undefined,
+      played: hasPlayedTodaysDaily(sport.id, undefined),
+      isPrimary: true,
     },
     ...variants.map(variant => ({
-      label: variant.label,
-      screen: "daily" as Screen,
+      variantLabel: variant.label,
       variantId: variant.id,
+      played: hasPlayedTodaysDaily(sport.id, variant.id),
+      isPrimary: false,
     })),
-    {
-      label: "Arcade",
-      screen: "arcade",
-    },
-    { label: "About", screen: "about" },
   ]
 
   return (
@@ -104,31 +103,54 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
         >
           <div className="w-full max-w-xs mx-auto mt-auto mb-2">
             <div className="flex flex-col gap-3">
-              {menuItems.map(item => {
-                const isLocked = item.requireDaily && !dailyBeaten
-                const isPrimaryAction =
-                  item.label === "Daily" && item.screen === "daily" && !item.variantId
+              {variantRows.map(row => {
+                const targetScreen: Screen = row.played ? "arcade" : "daily"
+                const buttonLabel = row.played ? `Arcade · ${row.variantLabel}` : row.variantLabel
 
-                const buttonClasses = isLocked
-                  ? "border-none bg-primary-300 dark:bg-primary-800 text-primary-700 dark:text-primary-400 cursor-not-allowed opacity-70"
-                  : isPrimaryAction
-                    ? "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
-                    : "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                const buttonClasses = row.isPrimary
+                  ? "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
+                  : "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
 
                 return (
-                  <button
-                    key={`${item.screen}:${item.variantId ?? "classic"}`}
-                    className={`mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors ${buttonClasses}`}
-                    onClick={() =>
-                      !isLocked && onNavigate(item.screen, { variantId: item.variantId })
-                    }
-                    disabled={isLocked}
+                  <div
+                    key={`row:${row.variantId ?? "classic"}`}
+                    className="flex items-center justify-center gap-2"
                   >
-                    {isLocked && "🔒 "}
-                    {item.label}
-                  </button>
+                    <button
+                      className={`w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors ${buttonClasses}`}
+                      onClick={() => onNavigate(targetScreen, { variantId: row.variantId })}
+                    >
+                      {buttonLabel}
+                    </button>
+                    {row.played && (
+                      <button
+                        type="button"
+                        className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                        aria-label={`${row.variantLabel} stats`}
+                        title={`${row.variantLabel} stats`}
+                        onClick={() => onNavigate("stats", { variantId: row.variantId })}
+                      >
+                        <FontAwesomeIcon
+                          icon={faChartColumn}
+                          className="text-lg"
+                        />
+                      </button>
+                    )}
+                  </div>
                 )
               })}
+              <button
+                className="mt-3 mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                onClick={() => onNavigate("all-stats")}
+              >
+                Stats
+              </button>
+              <button
+                className="mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                onClick={() => onNavigate("about")}
+              >
+                About
+              </button>
             </div>
             <p className="mt-4 text-xs text-primary-600 dark:text-primary-300 text-center">
               {dateStr}
@@ -142,6 +164,32 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
             sport={sport}
             onClose={onCloseAbout}
           />
+        </div>
+        <div
+          className={`crossfade-panel absolute inset-0 ${section === "stats" ? "crossfade-active" : "crossfade-inactive"}`}
+        >
+          <div className="w-full max-w-sm mx-auto h-full flex flex-col">
+            <div className="flex items-center justify-between">
+              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
+                Statistics
+              </h2>
+              <button
+                type="button"
+                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                aria-label="Close stats"
+                onClick={onCloseAbout}
+              >
+                <FontAwesomeIcon
+                  icon={faXmark}
+                  className="text-2xl"
+                />
+              </button>
+            </div>
+            <AllStatsContent
+              sport={sport}
+              className="-mt-1 flex-1 overflow-auto pb-2"
+            />
+          </div>
         </div>
         <div
           className={`crossfade-panel absolute inset-0 ${section === "help" ? "crossfade-active" : "crossfade-inactive"}`}

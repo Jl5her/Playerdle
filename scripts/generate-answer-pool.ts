@@ -10,7 +10,7 @@ const fantasyConfig = {
     QB: 35,
     RB: 75,
     WR: 75,
-    TE: 50,
+    TE: 30,
     // "K": 15,
     // "DL": 15,
     // "LB": 5,
