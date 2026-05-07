@@ -1,24 +1,4 @@
-import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import type { SportConfig } from "@/sports"
-
-const UP_ARROW = "↑"
-const DOWN_ARROW = "↓"
-
-function GuideArrowGlyph({ arrow }: { arrow: string }) {
-  const isUp = arrow === UP_ARROW
-  const isDown = arrow === DOWN_ARROW
-  if (!isUp && !isDown) {
-    return <span className="text-base font-black leading-none">{arrow}</span>
-  }
-  return (
-    <FontAwesomeIcon
-      icon={isUp ? faCaretUp : faCaretDown}
-      className="text-lg leading-none drop-shadow-[0_1px_0_rgba(0,0,0,0.45)]"
-      aria-label={isUp ? "higher" : "lower"}
-    />
-  )
-}
 
 export type GuideMode = "onboarding" | "manual"
 
@@ -73,43 +53,24 @@ export function GameGuideContent({ sport, mode, className }: GameGuideContentPro
             ))}
           </div>
           <div className="flex gap-1 justify-center">
-            {sport.columns.map(column => {
-              const arrow = column.example.arrow
-              const showUp = arrow === UP_ARROW
-              const showDown = arrow === DOWN_ARROW
-              const showOther = !!arrow && !showUp && !showDown
-              return (
-                <div
-                  key={column.id}
-                  className={`grid-cell-size relative flex items-center justify-center font-bold leading-tight p-1 rounded-md cursor-default text-primary-50 ${getExampleBg(column.example.status)}`}
-                >
-                  {showUp && (
-                    <span className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none pointer-events-none">
-                      <GuideArrowGlyph arrow={UP_ARROW} />
-                    </span>
-                  )}
-                  {column.renderValue ? (
-                    <div className="relative z-10 text-center leading-tight">
-                      {column.renderValue(column.example.value)}
-                    </div>
-                  ) : (
-                    <span className="relative z-10 grid-cell-text text-center">
-                      {column.example.value}
-                    </span>
-                  )}
-                  {showDown && (
-                    <span className="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none pointer-events-none">
-                      <GuideArrowGlyph arrow={DOWN_ARROW} />
-                    </span>
-                  )}
-                  {showOther && arrow && (
-                    <span className="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none pointer-events-none">
-                      <GuideArrowGlyph arrow={arrow} />
-                    </span>
-                  )}
-                </div>
-              )
-            })}
+            {sport.columns.map(column => (
+              <div
+                key={column.id}
+                className={`grid-cell-size flex items-center justify-center font-bold leading-tight p-1 rounded-md cursor-default text-primary-50 ${getExampleBg(column.example.status)}`}
+              >
+                {column.renderValue ? (
+                  <div className="relative z-10 text-center leading-tight">
+                    {column.renderValue(column.example.value)}
+                    {column.example.arrow ? ` ${column.example.arrow}` : ""}
+                  </div>
+                ) : (
+                  <span className="grid-cell-text text-center relative z-10">
+                    {column.example.value}
+                    {column.example.arrow ? ` ${column.example.arrow}` : ""}
+                  </span>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
