@@ -1044,6 +1044,24 @@
     "ops": 0.512
   },
   {
+    "id": "mlb:42455",
+    "name": "Heriberto Hernandez",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "LF",
+    "number": 13,
+    "league": "NL",
+    "gp": 87,
+    "pa": 294,
+    "avg": 0.266,
+    "hr": 10,
+    "rbi": 45,
+    "sb": 1,
+    "ops": 0.784
+  },
+  {
     "id": "mlb:4416591",
     "name": "Hunter Goodman",
     "conference": "NL",
@@ -2428,6 +2446,24 @@
     "rbi": 103,
     "sb": 5,
     "ops": 0.804
+  },
+  {
+    "id": "mlb:42598",
+    "name": "Shea Langeliers",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "C",
+    "number": 23,
+    "league": "AL",
+    "gp": 123,
+    "pa": 523,
+    "avg": 0.277,
+    "hr": 31,
+    "rbi": 72,
+    "sb": 7,
+    "ops": 0.861
   },
   {
     "id": "mlb:4722857",

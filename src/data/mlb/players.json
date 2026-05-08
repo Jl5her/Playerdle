@@ -572,17 +572,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:35314",
-    "name": "Austin Wynns",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "C",
-    "number": 29,
-    "league": "AL"
-  },
-  {
     "id": "mlb:3107919",
     "name": "Bailey Ober",
     "conference": "AL",
@@ -1375,6 +1364,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5126205",
+    "name": "Cam Sanders",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "RP",
+    "number": 64,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5134581",
     "name": "Cam Schlittler",
     "conference": "AL",
@@ -1980,17 +1980,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41029",
-    "name": "Corbin Martin",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 38,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32691",
     "name": "Corey Seager",
     "conference": "AL",
@@ -2198,17 +2187,6 @@
     "position": "LF",
     "number": 36,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4917850",
-    "name": "Dax Fulton",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "SP",
-    "number": 90,
-    "league": "NL"
   },
   {
     "id": "mlb:4917889",
@@ -2904,6 +2882,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4208302",
+    "name": "Gavin Hollowell",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 46,
+    "league": "NL"
+  },
+  {
     "id": "mlb:40700",
     "name": "Gavin Sheets",
     "conference": "NL",
@@ -2989,17 +2978,6 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 23,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4622931",
-    "name": "Graham Pauley",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 21,
     "league": "NL"
   },
   {
@@ -3154,6 +3132,17 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 32,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:42455",
+    "name": "Heriberto Hernandez",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "LF",
+    "number": 13,
     "league": "NL"
   },
   {
@@ -4158,17 +4147,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5087645",
-    "name": "John Klein",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "SP",
-    "number": 71,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39949",
     "name": "John Schreiber",
     "conference": "AL",
@@ -4276,17 +4254,6 @@
     "teamAbbr": "CHW",
     "position": "RP",
     "number": 44,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5132121",
-    "name": "Jordan Leasure",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RP",
-    "number": 49,
     "league": "AL"
   },
   {
@@ -5313,17 +5280,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:40521",
-    "name": "Luis Campusano",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "C",
-    "number": 12,
-    "league": "NL"
-  },
-  {
     "id": "mlb:35124",
     "name": "Luis Castillo",
     "conference": "AL",
@@ -5915,6 +5871,17 @@
     "teamAbbr": "KC",
     "position": "SP",
     "number": 52,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5132012",
+    "name": "Mickey Gasper",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "C",
+    "number": 30,
     "league": "AL"
   },
   {
@@ -6853,6 +6820,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40577",
+    "name": "Rodolfo Duran",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "C",
+    "number": 48,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5134638",
     "name": "Roki Sasaki",
     "conference": "NL",
@@ -6862,17 +6840,6 @@
     "position": "SP",
     "number": 11,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5080767",
-    "name": "Roman Anthony",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "LF",
-    "number": 19,
-    "league": "AL"
   },
   {
     "id": "mlb:4228723",
@@ -7304,6 +7271,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42598",
+    "name": "Shea Langeliers",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "C",
+    "number": 23,
+    "league": "AL"
+  },
+  {
     "id": "mlb:39832",
     "name": "Shohei Ohtani",
     "conference": "NL",
@@ -7434,6 +7412,17 @@
     "position": "RF",
     "number": 0,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4008691",
+    "name": "Stephen Jones",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "RP",
+    "number": 93,
+    "league": "NL"
   },
   {
     "id": "mlb:41996",
@@ -7786,6 +7775,17 @@
     "position": "RP",
     "number": 29,
     "league": "NL"
+  },
+  {
+    "id": "mlb:39912",
+    "name": "Trevor Richards",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 43,
+    "league": "AL"
   },
   {
     "id": "mlb:32150",
