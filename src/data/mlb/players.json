@@ -1419,6 +1419,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:33696",
+    "name": "Carlos Rodon",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "SP",
+    "number": 55,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4298378",
     "name": "Carmen Mlodzinski",
     "conference": "NL",
@@ -2376,6 +2387,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4414123",
+    "name": "Dylan Smith",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 66,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917824",
     "name": "Edgar Quero",
     "conference": "AL",
@@ -2783,6 +2805,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4424290",
+    "name": "Gage Workman",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "3B",
+    "number": 99,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36429",
     "name": "Garrett Cleavinger",
     "conference": "AL",
@@ -2990,17 +3023,6 @@
     "position": "RP",
     "number": 57,
     "league": "AL"
-  },
-  {
-    "id": "mlb:39682",
-    "name": "Gregory Santos",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
   },
   {
     "id": "mlb:39804",
@@ -4246,6 +4268,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5125654",
+    "name": "Jose Espada",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 70,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5265417",
     "name": "Jose Fermin",
     "conference": "AL",
@@ -4686,34 +4719,23 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5296012",
+    "name": "Kendry Rojas",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "SP",
+    "number": 60,
+    "league": "AL"
+  },
+  {
     "id": "mlb:29630",
     "name": "Kenley Jansen",
     "conference": "AL",
     "division": "Central",
     "team": "Detroit Tigers",
     "teamAbbr": "DET",
-    "position": "RP",
-    "number": 74,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42714",
-    "name": "Kerry Carpenter",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RF",
-    "number": 30,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4717832",
-    "name": "Kervin Castro",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
     "position": "RP",
     "number": 74,
     "league": "AL"
@@ -4793,17 +4815,6 @@
     "teamAbbr": "MIN",
     "position": "1B",
     "number": 2,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4348166",
-    "name": "Kody Funderburk",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RP",
-    "number": 57,
     "league": "AL"
   },
   {
@@ -5145,17 +5156,6 @@
     "teamAbbr": "HOU",
     "position": "RP",
     "number": 64,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:35844",
-    "name": "Lou Trivino",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 58,
     "league": "AL"
   },
   {
@@ -6391,17 +6391,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4927620",
-    "name": "Paul Gervase",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 65,
-    "league": "NL"
-  },
-  {
     "id": "mlb:31027",
     "name": "Paul Goldschmidt",
     "conference": "AL",
@@ -6941,17 +6930,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5000950",
-    "name": "Ryan Walker",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 74,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5125911",
     "name": "Ryan Watson",
     "conference": "AL",
@@ -7082,6 +7060,17 @@
     "position": "LF",
     "number": 0,
     "league": "AL"
+  },
+  {
+    "id": "mlb:41225",
+    "name": "Sam Hentges",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 31,
+    "league": "NL"
   },
   {
     "id": "mlb:34928",
@@ -8314,6 +8303,17 @@
     "position": "RF",
     "number": 52,
     "league": "AL"
+  },
+  {
+    "id": "mlb:40436",
+    "name": "Wyatt Mills",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 58,
+    "league": "NL"
   },
   {
     "id": "mlb:31606",
