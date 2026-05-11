@@ -22,11 +22,9 @@ export default function GuessGrid({
 
   useEffect(() => {
     if (latestIndex < 0) return
-    // Scroll the next empty row into view, or the last guess if grid is full
-    const scrollTarget = latestIndex + 1 < maxGuesses ? latestIndex + 1 : latestIndex
-    const el = rowRefs.current[scrollTarget]
+    const el = rowRefs.current[latestIndex]
     el?.scrollIntoView({ behavior: "smooth", block: "nearest" })
-  }, [latestIndex, maxGuesses])
+  }, [latestIndex])
 
   const hasBackfilledGuess = guesses.some(g => g.numberBackfilled)
 
