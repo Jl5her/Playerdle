@@ -51,14 +51,14 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
   return (
     <div className={`group grid-cell-size relative ${containerClass}`}>
       {renderedValue !== undefined ? (
-        <div className="relative z-10 text-center leading-tight">
+        <div className="relative z-10 grid-cell-text text-center leading-tight">
           {revealed ? renderedValue : null}
-          {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
+          {revealed && arrow && <span className="ml-1 grid-cell-text">{arrow}</span>}
         </div>
       ) : (
         <span className="relative z-10 grid-cell-text text-center wrap-break-words">
           {revealed ? value : ""}
-          {revealed && arrow && <span className="ml-1 text-sm">{arrow}</span>}
+          {revealed && arrow && <span className="ml-1 grid-cell-text">{arrow}</span>}
         </span>
       )}
       {showTooltip && (

@@ -54,7 +54,7 @@ const mlbConfig: SportConfig = {
           if (parts.length < 2) return value
           return (
             <div className="flex flex-col items-center justify-center">
-              <span className="grid-cell-top-text text-center leading-tight">{parts[0]}</span>
+              <span className="grid-cell-text text-center leading-tight">{parts[0]}</span>
               <span className="grid-cell-text text-center leading-tight">
                 {parts.slice(1).join(" ")}
               </span>
@@ -64,7 +64,7 @@ const mlbConfig: SportConfig = {
 
         return (
           <div className="flex flex-col items-center justify-center">
-            <span className="grid-cell-top-text text-center leading-tight">{league}</span>
+            <span className="grid-cell-text text-center leading-tight">{league}</span>
             <span className="grid-cell-text text-center leading-tight">{division}</span>
           </div>
         )
