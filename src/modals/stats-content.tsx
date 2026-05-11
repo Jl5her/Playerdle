@@ -78,6 +78,15 @@ export function StatsContent({
     if (!player) return
     const shareText = generateShareText(guesses, player, won, sport)
 
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ text: shareText })
+        return
+      } catch (err) {
+        if (err instanceof DOMException && err.name === "AbortError") return
+      }
+    }
+
     try {
       await navigator.clipboard.writeText(shareText)
       setCopied(true)
@@ -96,23 +105,27 @@ export function StatsContent({
     }
     lastConfettiKeyRef.current = confettiKey
 
-    const duration = 3000
+    const duration = 1500
     const end = Date.now() + duration
     const colors = getTeamColors(sport, player)
 
     function frame() {
       confetti({
-        particleCount: 3,
+        particleCount: 10,
         angle: 60,
-        spread: 55,
+        spread: 75,
+        startVelocity: 60,
+        gravity: 1.2,
         origin: { x: 0, y: 0 },
         colors: colors,
         zIndex: 2000,
       })
       confetti({
-        particleCount: 3,
+        particleCount: 10,
         angle: 120,
-        spread: 55,
+        spread: 75,
+        startVelocity: 60,
+        gravity: 1.2,
         origin: { x: 1, y: 0 },
         colors: colors,
         zIndex: 2000,
@@ -138,37 +151,19 @@ export function StatsContent({
         </>
       ) : player ? (
         <>
-          {won ? (
-            <>
-              <div className="text-5xl mb-2">&#127942;</div>
-              <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
-                {String(player.name)}
-              </div>
-              <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
-                {String(player.number ?? "")}
-              </div>
-              <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
-                Guessed in {guessCount}/6
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">
-                The answer was
-              </div>
-              <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
-                {String(player.name)}
-              </div>
-              <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
-                {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
-                {String(player.number ?? "")}
-              </div>
-              <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
-                Better luck tomorrow!
-              </div>
-            </>
-          )}
+          <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">
+            The answer was
+          </div>
+          <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
+            {String(player.name)}
+          </div>
+          <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+            {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
+            {String(player.number ?? "")}
+          </div>
+          <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
+            {won ? `Guessed in ${guessCount}/6` : "Better luck tomorrow!"}
+          </div>
         </>
       ) : null}
 
