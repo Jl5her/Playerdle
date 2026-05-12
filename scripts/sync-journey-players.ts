@@ -128,6 +128,38 @@ async function fetchAthleteProfile(espnId: string): Promise<AthleteProfile | nul
   }
 }
 
+// Recursively walk an ESPN JSON response and collect every team.displayName
+// encountered. Works regardless of which nested structure the stats endpoint
+// returns for a given player.
+function extractTeamNames(obj: unknown, out: Set<string>): void {
+  if (!obj || typeof obj !== "object") return
+  if (Array.isArray(obj)) {
+    for (const item of obj) extractTeamNames(item, out)
+    return
+  }
+  const record = obj as Record<string, unknown>
+  if (record.team && typeof record.team === "object") {
+    const t = record.team as Record<string, unknown>
+    if (typeof t.displayName === "string") out.add(normalizeTeamName(t.displayName))
+  }
+  for (const v of Object.values(record)) extractTeamNames(v, out)
+}
+
+// Fetch the player's season-by-season stats from ESPN and return the set of
+// teams they have stats entries for. Returns null when the endpoint has no
+// data (retired players with no ESPN stats, or a network error).
+async function fetchCareerTeams(espnId: string): Promise<Set<string> | null> {
+  const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/athletes/${espnId}/stats`
+  try {
+    const data = await fetchJson<unknown>(url)
+    const teams = new Set<string>()
+    extractTeamNames(data, teams)
+    return teams.size > 0 ? teams : null
+  } catch {
+    return null
+  }
+}
+
 // ---------------------------------------------------------------------------
 // File generation
 // ---------------------------------------------------------------------------
@@ -239,6 +271,7 @@ async function main() {
   let idsAlreadyCached = 0
   let teamsAdded = 0
   let dupsRemoved = 0
+  let historyWarnings = 0
   const warnings: string[] = []
 
   for (let i = 0; i < players.length; i++) {
@@ -323,6 +356,26 @@ async function main() {
     }
     // No currentTeam → player is retired or a free agent; leave teams[] as-is.
 
+    // ── 7. Cross-check every team[] entry against ESPN career stats ──────────
+    // Flags teams the player signed with but never accumulated stats for
+    // (cut in preseason, spent entirely on IR, bad data entry, etc.).
+    await sleep(300)
+    const careerTeams = await fetchCareerTeams(p.espnId)
+
+    if (careerTeams) {
+      for (const team of p.teams) {
+        // Skip teams already flagged as unrecognized in step 5.
+        if (!validTeamNames.has(team)) continue
+        if (!careerTeams.has(team)) {
+          historyWarnings++
+          warnings.push(
+            `${p.name}: "${team}" absent from ESPN career stats — signed but may not have played (verify and remove if inaccurate)`,
+          )
+          process.stdout.write(` [history:no stats "${team}"]`)
+        }
+      }
+    }
+
     console.log()
     await sleep(200)
   }
@@ -333,6 +386,7 @@ async function main() {
   console.log(`ESPN IDs already cached  : ${idsAlreadyCached}`)
   console.log(`Teams added              : ${teamsAdded}`)
   console.log(`Consecutive dups removed : ${dupsRemoved}`)
+  console.log(`Career stats mismatches  : ${historyWarnings}`)
   console.log(`Warnings (manual review) : ${warnings.length}`)
 
   if (warnings.length > 0) {
