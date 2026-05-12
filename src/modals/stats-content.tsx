@@ -31,6 +31,7 @@ function generateShareText(
   answer: Player,
   won: boolean,
   sport: SportConfig,
+  variantId?: string,
 ): string {
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
@@ -53,6 +54,11 @@ function generateShareText(
       })
       .join("")}\n`
   }
+
+  const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
+  const path = variantId === "fanatic" ? "/fanatic" : "/daily"
+  const origin = typeof window !== "undefined" ? window.location.origin : ""
+  text += `\n${origin}${prefix}${path}`
 
   return text.trim()
 }
@@ -110,7 +116,7 @@ export function StatsContent({
 
   function handleShare() {
     if (!player) return
-    const shareText = generateShareText(guesses, player, won, sport)
+    const shareText = generateShareText(guesses, player, won, sport, variantId)
     const shareData: ShareData = { title: "Playerdle", text: shareText }
 
     const canUseShare =

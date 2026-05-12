@@ -393,8 +393,19 @@ function buildShareText(
     timeZone: "America/New_York",
   }).format(new Date())
   const url =
-    typeof window !== "undefined" ? `${window.location.origin}/palette` : "/palette"
-  return `Statehue #${puzzle.index} (${dateStr}) — ${score}\n${url}`
+    typeof window !== "undefined"
+      ? `${window.location.origin}/palette/states/daily`
+      : "/palette/states/daily"
+
+  const answerName = puzzle.state.name.toLowerCase()
+  const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
+    const guess = guesses[i]
+    if (!guess) return "⬜"
+    if (guess.toLowerCase() === answerName) return "🟩"
+    return "🟥"
+  }).join("")
+
+  return `Statehue #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
 }
 
 function ResultsPanel({

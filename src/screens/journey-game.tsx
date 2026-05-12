@@ -369,8 +369,22 @@ function buildShareText(
     timeZone: "America/New_York",
   }).format(new Date())
   const url =
-    typeof window !== "undefined" ? `${window.location.origin}/palette/journey` : "/palette/journey"
-  return `Journey #${puzzle.index} (${dateStr}) — ${score}\n${url}`
+    typeof window !== "undefined"
+      ? `${window.location.origin}/palette/journey/daily`
+      : "/palette/journey/daily"
+
+  const answerName = puzzle.player.name.toLowerCase()
+  const targetPos = puzzle.player.position
+  const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
+    const guess = guesses[i]
+    if (!guess) return "⬜"
+    if (guess.toLowerCase() === answerName) return "🟩"
+    const pos = autocompletePool.find(p => p.name.toLowerCase() === guess.toLowerCase())?.position
+    if (pos === targetPos) return "🟨"
+    return "🟥"
+  }).join("")
+
+  return `Journey #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
 }
 
 function ResultsPanel({
