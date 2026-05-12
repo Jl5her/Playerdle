@@ -13,7 +13,15 @@ import AboutSection from "@/screens/about-section"
 import type { SportConfig, SportInfo } from "@/sports"
 import { hasPlayedTodaysDaily } from "@/utils/stats"
 
-export type Screen = "menu" | "daily" | "arcade" | "help" | "about" | "stats" | "all-stats"
+export type Screen =
+  | "menu"
+  | "daily"
+  | "arcade"
+  | "help"
+  | "about"
+  | "stats"
+  | "all-stats"
+  | "calendar"
 
 export interface NavigationOptions {
   variantId?: string
@@ -101,12 +109,10 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
         <div
           className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <div className="w-full max-w-xs mx-auto mt-auto mb-2">
-            <div className="flex flex-col gap-3">
+          <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-center">
+            <div className="flex flex-col gap-3 w-full">
               {variantRows.map(row => {
                 const targetScreen: Screen = row.played ? "arcade" : "daily"
-                const buttonLabel = row.played ? `Arcade · ${row.variantLabel}` : row.variantLabel
-
                 const buttonClasses = row.isPrimary
                   ? "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
                   : "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
@@ -114,18 +120,27 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
                 return (
                   <div
                     key={`row:${row.variantId ?? "classic"}`}
-                    className="flex items-center justify-center gap-2"
+                    className="min-w-44 mx-auto flex items-center gap-2"
                   >
                     <button
-                      className={`w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors ${buttonClasses}`}
+                      className={`flex-1 px-4 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${buttonClasses}`}
                       onClick={() => onNavigate(targetScreen, { variantId: row.variantId })}
                     >
-                      {buttonLabel}
+                      {row.played ? (
+                        <span className="flex flex-col items-center leading-tight">
+                          <span className="text-base">Arcade</span>
+                          <span className="text-[10px] font-medium opacity-75 -mt-0.5">
+                            {row.variantLabel}
+                          </span>
+                        </span>
+                      ) : (
+                        row.variantLabel
+                      )}
                     </button>
                     {row.played && (
                       <button
                         type="button"
-                        className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                        className="w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
                         aria-label={`${row.variantLabel} stats`}
                         title={`${row.variantLabel} stats`}
                         onClick={() => onNavigate("stats", { variantId: row.variantId })}
@@ -152,10 +167,10 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
                 About
               </button>
             </div>
-            <p className="mt-4 text-xs text-primary-600 dark:text-primary-300 text-center">
-              {dateStr}
-            </p>
           </div>
+          <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
+            {dateStr}
+          </p>
         </div>
         <div
           className={`crossfade-panel absolute inset-0 ${section === "about" ? "crossfade-active" : "crossfade-inactive"}`}

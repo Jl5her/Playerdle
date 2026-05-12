@@ -11,6 +11,9 @@ import type { NavigationOptions, Screen } from "@/screens/main-menu"
 import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/sports"
 
 const Game = lazy(() => import("@/screens/game"))
+const ColorsShell = lazy(() => import("@/screens/colors-shell"))
+const ColorsCalendar = lazy(() => import("@/screens/colors-calendar"))
+const PlayerCalendar = lazy(() => import("@/screens/player-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -63,31 +66,16 @@ function getGuideModeFromState(state: unknown): GuideMode | undefined {
   return undefined
 }
 
-function getShowStatsFromState(state: unknown): boolean {
-  if (!state || typeof state !== "object") return false
-  return (state as DailyRouteState).showStats === true
-}
-
 function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const location = useLocation()
   const navigate = useNavigate()
   const sportMeta = getSportMetaById(sportId)
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
-  const initialShowStats = screen === "daily" && getShowStatsFromState(location.state)
-  const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>(
-    initialShowStats
-      ? {
-          mode: "daily",
-          showStatsOnly: true,
-          includeShareButton: false,
-          variantId,
-        }
-      : { mode: "daily" },
-  )
+  const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
   const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>(
-    initialGuideMode ? "guide" : initialShowStats ? "stats" : "none",
+    initialGuideMode ? "guide" : "none",
   )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
   const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
@@ -253,6 +241,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       })
       return
     }
+
+    if (target === "calendar") {
+      const prefix = sportId === "nfl" ? "" : `/${sportId}`
+      navigate(`${prefix}/calendar`)
+      return
+    }
   }
 
   function handleAboutBack() {
@@ -387,6 +381,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <LeagueFooter
           currentSportId={sportId}
           onSelectSport={handleSelectSport}
+          onSelectColors={() => navigate("/colors")}
         />
       )}
     </>
@@ -489,6 +484,54 @@ function App() {
             screen="arcade"
             variantId={FANATIC_VARIANT_ID}
           />
+        }
+      />
+      <Route
+        path="/colors"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsShell screen="menu" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/colors/daily"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsShell screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/colors/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsShell screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/colors/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PlayerCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/:sport/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PlayerCalendar />
+          </Suspense>
         }
       />
       <Route

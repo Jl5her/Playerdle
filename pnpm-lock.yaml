@@ -45,6 +45,9 @@ importers:
       '@biomejs/biome':
         specifier: ^2.3.15
         version: 2.3.15
+      '@svg-maps/usa':
+        specifier: ^2.0.0
+        version: 2.0.0
       '@types/canvas-confetti':
         specifier: ^1.9.0
         version: 1.9.0
@@ -550,6 +553,9 @@ packages:
     resolution: {integrity: sha512-Zv7v6q6aV+VslnpwzqKAmrk5JdVkLUzok2208ZXGipjb+msxBr/fJPZyeEXiFgH7k62Ak0SLIfxQRZQvTuf7rQ==}
     cpu: [x64]
     os: [win32]
+
+  '@svg-maps/usa@2.0.0':
+    resolution: {integrity: sha512-UnuPkScA4ITCOzVd722IsI/YoKauR7Di9Qcetuj1nEbobUbe8K7RVKslYP8UO3N2g2EUAz8QFvKNiMFtUG6GfQ==}
 
   '@tailwindcss/node@4.1.18':
     resolution: {integrity: sha512-DoR7U1P7iYhw16qJ49fgXUlry1t4CpXeErJHnQ44JgTSKMaZUdf17cfn5mHchfJ4KRBZRFA/Coo+MUF5+gOaCQ==}
@@ -1425,6 +1431,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.57.0':
     optional: true
+
+  '@svg-maps/usa@2.0.0': {}
 
   '@tailwindcss/node@4.1.18':
     dependencies:

@@ -68,6 +68,7 @@ function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: strin
 }
 
 export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props) {
+  const [activeMode, setActiveMode] = useState<GameMode>(mode)
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
   )
@@ -98,10 +99,20 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   }, [sport.players, sport.answerPool])
 
   useEffect(() => {
-    if (mode === "daily" && gameOver) {
+    if (activeMode === "daily" && gameOver) {
       saveGameResult(sport.id, won, guesses.length, variantId)
     }
-  }, [mode, gameOver, won, guesses.length, sport.id, variantId])
+  }, [activeMode, gameOver, won, guesses.length, sport.id, variantId])
+
+  const autoOpenedRef = useRef(false)
+  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only auto-open
+  useEffect(() => {
+    if (autoOpenedRef.current) return
+    if (gameOver && answer) {
+      autoOpenedRef.current = true
+      openResultsModal(guesses, won, lost)
+    }
+  }, [])
 
   function openResultsModal(nextGuesses: Player[], nextWon: boolean, nextLost: boolean) {
     if (!answer) return
@@ -111,10 +122,10 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
       won: nextWon,
       lost: nextLost,
       guessCount: nextGuesses.length,
-      onPlayAgain: mode === "arcade" ? handlePlayAgain : undefined,
-      mode,
+      onPlayAgain: handlePlayAgain,
+      mode: activeMode,
       guesses: nextGuesses,
-      includeShareButton: mode === "daily",
+      includeShareButton: activeMode === "daily",
       variantId,
     })
   }
@@ -124,7 +135,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     const newGuesses = [...guesses, player]
     setGuesses(newGuesses)
     setLatestIndex(newGuesses.length - 1)
-    if (mode === "daily") {
+    if (activeMode === "daily") {
       saveState(
         sport.id,
         dateKey,
@@ -148,7 +159,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     }
 
     if (newWon || newLost) {
-      if (mode === "daily") {
+      if (activeMode === "daily") {
         saveGameResult(sport.id, newWon, newGuesses.length, variantId)
       }
       if (newWon) {
@@ -165,6 +176,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     setLatestIndex(-1)
     positionLockedShownRef.current = false
     setShowPositionPopup(false)
+    setActiveMode("arcade")
   }
 
   return (
