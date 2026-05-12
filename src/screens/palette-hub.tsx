@@ -57,7 +57,7 @@ export default function PaletteHub() {
               />
             </div>
             <h1 className="fa5-title text-4xl font-black tracking-wide text-primary-700 dark:text-primary-50 sport-title-text-glitch">
-              GEO GAMES
+              STATEHUE
             </h1>
             <p className="text-base sm:text-lg font-semibold text-primary-700 dark:text-primary-200 mt-2 sport-title-text-glitch">
               Pick a daily puzzle.
@@ -77,16 +77,7 @@ export default function PaletteHub() {
                       className="flex-1 px-4 py-2 rounded-full text-base font-bold transition-colors border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200 whitespace-nowrap"
                       onClick={() => play(row.slug, row.played ? "arcade" : "daily")}
                     >
-                      {row.played ? (
-                        <span className="flex flex-col items-center leading-tight">
-                          <span className="text-base">Arcade</span>
-                          <span className="text-[10px] font-medium opacity-75 -mt-0.5">
-                            {row.label}
-                          </span>
-                        </span>
-                      ) : (
-                        row.label
-                      )}
+                      {row.played ? "Arcade" : "Daily"}
                     </button>
                     {row.played && (
                       <button

@@ -77,8 +77,8 @@ export default function LeagueFooter({
         })}
         <button
           type="button"
-          title="Geo Games"
-          aria-label="Switch to Geo Games"
+          title="Statehue"
+          aria-label="Switch to Statehue"
           className={`w-10 h-10 rounded-full transition-colors inline-flex items-center justify-center ${
             colorsActive
               ? "cursor-default bg-primary-700/10 text-primary-700 ring-1 ring-primary-500/20 dark:bg-primary-200/12 dark:text-primary-100 dark:ring-primary-300/22"

@@ -124,7 +124,9 @@ export default function MainMenu({
         <div
           className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-center">
+          <div
+            className={`w-full max-w-xs mx-auto flex-1 flex flex-col items-center ${sport.id === "nfl" ? "justify-end pb-4" : "justify-center"}`}
+          >
             <div className="flex flex-col gap-3 w-full">
               {variantRows.map(row => {
                 const targetScreen: Screen = row.played ? "arcade" : "daily"
