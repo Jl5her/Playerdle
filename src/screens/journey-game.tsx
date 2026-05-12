@@ -163,10 +163,11 @@ function LadderRow({
 interface GuessSlotsProps {
   guesses: string[]
   answerName: string
+  targetPosition: string
   maxGuesses: number
 }
 
-function GuessSlots({ guesses, answerName, maxGuesses }: GuessSlotsProps) {
+function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSlotsProps) {
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
 
@@ -181,20 +182,31 @@ function GuessSlots({ guesses, answerName, maxGuesses }: GuessSlotsProps) {
       {Array.from({ length: maxGuesses }).map((_, i) => {
         const guess = guesses[i]
         const isCorrect = guess?.toLowerCase() === answerName.toLowerCase()
+        const position = guess
+          ? autocompletePool.find(p => p.name.toLowerCase() === guess.toLowerCase())?.position
+          : undefined
+        const positionMatches = !!position && position === targetPosition
+        const tone = !guess
+          ? "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600"
+          : isCorrect
+            ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
+            : positionMatches
+              ? "bg-warning-500/20 border-warning-500/60 text-warning-600 dark:text-warning-300"
+              : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
         return (
           <div
             key={i}
             ref={el => {
               slotRefs.current[i] = el
             }}
-            className={`w-full max-w-xs px-3 py-2 rounded-lg border-2 text-center uppercase font-bold tracking-wider text-sm transition-colors ${guess
-                ? isCorrect
-                  ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
-                  : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
-                : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600"
-              }`}
+            className={`relative w-full max-w-xs px-3 py-2 rounded-lg border-2 uppercase font-bold tracking-wider text-sm transition-colors ${tone}`}
           >
-            {guess ?? "—"}
+            <span className="block text-center">{guess ?? "—"}</span>
+            {position && (
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70">
+                {position}
+              </span>
+            )}
           </div>
         )
       })}
@@ -684,6 +696,15 @@ export default function JourneyGame({ mode }: Props) {
     [guesses],
   )
 
+  const positionRevealed = useMemo(() => {
+    if (gameOver) return true
+    const targetPos = puzzle.player.position
+    return guesses.some(g => {
+      const match = autocompletePool.find(p => p.name.toLowerCase() === g.toLowerCase())
+      return match?.position === targetPos
+    })
+  }, [guesses, puzzle.player.position, gameOver])
+
   function handleGuess(name: string) {
     if (gameOver) return
     if (usedGuessesLower.has(name.toLowerCase())) return
@@ -718,7 +739,7 @@ export default function JourneyGame({ mode }: Props) {
           <div className="max-w-sm mx-auto px-3 py-4 flex flex-col gap-3">
             <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 p-8 mt-6 mx-8">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <PositionDiamond position={puzzle.player.position} />
+                <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
               </div>
               <div className="flex flex-col">
                 <LadderRow
@@ -747,6 +768,7 @@ export default function JourneyGame({ mode }: Props) {
               <GuessSlots
                 guesses={guesses}
                 answerName={answerName}
+                targetPosition={puzzle.player.position}
                 maxGuesses={MAX_GUESSES}
               />
             </div>

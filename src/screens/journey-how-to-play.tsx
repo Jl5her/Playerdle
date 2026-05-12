@@ -104,6 +104,31 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
           <li>Start: college + first team's diamonds are visible.</li>
           <li>For each wrong answer, the next-newer team's diamonds light up.</li>
           <li>The player's current team is the last to be revealed.</li>
+          <li>
+            The position at the top of the ladder is hidden as{" "}
+            <span className="font-semibold">?</span> until you guess a player with the matching
+            position group.
+          </li>
+        </ul>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="text-base font-semibold text-primary-700 dark:text-primary-50 mb-2">
+          Guess colors
+        </h3>
+        <ul className="text-sm text-primary-500 dark:text-primary-200 leading-relaxed space-y-1 list-disc pl-5">
+          <li>
+            <span className="font-semibold text-success-500 dark:text-success-400">Green</span> —
+            correct player.
+          </li>
+          <li>
+            <span className="font-semibold text-warning-600 dark:text-warning-300">Yellow</span> —
+            wrong player, but the same position group as the answer.
+          </li>
+          <li>
+            <span className="font-semibold text-error-500 dark:text-error-400">Red</span> — wrong
+            player and wrong position group.
+          </li>
         </ul>
       </div>
 
