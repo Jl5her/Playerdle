@@ -88,17 +88,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4997589",
-    "name": "Addison Barger",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RF",
-    "number": 47,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42178",
     "name": "Adley Rutschman",
     "conference": "AL",
@@ -228,17 +217,6 @@
     "teamAbbr": "LAD",
     "position": "LF",
     "number": 12,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4727589",
-    "name": "Alex Freeland",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "2B",
-    "number": 76,
     "league": "NL"
   },
   {
@@ -2244,6 +2222,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5132247",
+    "name": "Domingo Gonzalez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "SP",
+    "number": 46,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4345621",
     "name": "Dominic Canzone",
     "conference": "AL",
@@ -2475,17 +2464,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:39963",
-    "name": "Eli White",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "CF",
-    "number": 36,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33594",
     "name": "Elias Diaz",
     "conference": "AL",
@@ -2561,17 +2539,6 @@
     "position": "C",
     "number": 18,
     "league": "NL"
-  },
-  {
-    "id": "mlb:39915",
-    "name": "Eric Lauer",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "SP",
-    "number": 56,
-    "league": "AL"
   },
   {
     "id": "mlb:4299966",
@@ -3080,6 +3047,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4089862",
+    "name": "Ha-Seong Kim",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SS",
+    "number": 7,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5124113",
     "name": "Hao-Yu Lee",
     "conference": "AL",
@@ -3089,6 +3067,17 @@
     "position": "3B",
     "number": 50,
     "league": "AL"
+  },
+  {
+    "id": "mlb:35062",
+    "name": "Harrison Bader",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "CF",
+    "number": 9,
+    "league": "NL"
   },
   {
     "id": "mlb:39642",
@@ -4312,17 +4301,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5119607",
-    "name": "Jose Ferrer",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 45,
-    "league": "AL"
-  },
-  {
     "id": "mlb:32106",
     "name": "Jose Quintana",
     "conference": "NL",
@@ -4452,6 +4430,17 @@
     "teamAbbr": "SEA",
     "position": "RP",
     "number": 37,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4917841",
+    "name": "Josh Walker",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 61,
     "league": "AL"
   },
   {
@@ -5134,17 +5123,6 @@
     "teamAbbr": "MIL",
     "position": "SP",
     "number": 43,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4981312",
-    "name": "Logan Porter",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "C",
-    "number": 13,
     "league": "NL"
   },
   {
@@ -5981,6 +5959,17 @@
     "teamAbbr": "CHC",
     "position": "C",
     "number": 25,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:33039",
+    "name": "Mookie Betts",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SS",
+    "number": 50,
     "league": "NL"
   },
   {
@@ -7821,17 +7810,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4867802",
-    "name": "Trey Gibson",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "SP",
-    "number": 43,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4949041",
     "name": "Trey Yesavage",
     "conference": "AL",
@@ -7841,6 +7819,17 @@
     "position": "SP",
     "number": 39,
     "league": "AL"
+  },
+  {
+    "id": "mlb:41309",
+    "name": "Tristan Beck",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 43,
+    "league": "NL"
   },
   {
     "id": "mlb:39918",
@@ -8349,6 +8338,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4411979",
+    "name": "Yariel Rodriguez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 29,
+    "league": "AL"
+  },
+  {
     "id": "mlb:35536",
     "name": "Yennier Cano",
     "conference": "AL",
@@ -8402,6 +8402,17 @@
     "position": "C",
     "number": 63,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4917684",
+    "name": "Yohendrick Pinango",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 24,
+    "league": "AL"
   },
   {
     "id": "mlb:36018",

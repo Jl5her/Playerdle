@@ -828,24 +828,6 @@
     "ops": 0.777
   },
   {
-    "id": "mlb:39963",
-    "name": "Eli White",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "CF",
-    "number": 36,
-    "league": "NL",
-    "gp": 105,
-    "pa": 271,
-    "avg": 0.234,
-    "hr": 10,
-    "rbi": 35,
-    "sb": 10,
-    "ops": 0.677
-  },
-  {
     "id": "mlb:33594",
     "name": "Elias Diaz",
     "conference": "AL",
@@ -1006,6 +988,24 @@
     "rbi": 84,
     "sb": 18,
     "ops": 0.959
+  },
+  {
+    "id": "mlb:35062",
+    "name": "Harrison Bader",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "CF",
+    "number": 9,
+    "league": "NL",
+    "gp": 146,
+    "pa": 501,
+    "avg": 0.277,
+    "hr": 17,
+    "rbi": 54,
+    "sb": 11,
+    "ops": 0.796
   },
   {
     "id": "mlb:39642",
@@ -2032,6 +2032,24 @@
     "rbi": 30,
     "sb": 3,
     "ops": 0.639
+  },
+  {
+    "id": "mlb:33039",
+    "name": "Mookie Betts",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SS",
+    "number": 50,
+    "league": "NL",
+    "gp": 150,
+    "pa": 663,
+    "avg": 0.258,
+    "hr": 20,
+    "rbi": 82,
+    "sb": 8,
+    "ops": 0.732
   },
   {
     "id": "mlb:39105",
