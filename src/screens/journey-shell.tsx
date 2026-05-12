@@ -9,24 +9,24 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { LeagueFooter } from "@/components"
 import { type SportId } from "@/sports"
-import { hasPlayedColorsDailyToday } from "@/utils/colors-daily"
-import ColorsCalendar from "./colors-calendar"
-import ColorsGame, { type ColorsGameMode } from "./colors-game"
-import ColorsHowToPlay from "./colors-how-to-play"
-import ColorsMenu from "./colors-menu"
-import ColorsStatsOverlay from "./colors-stats-overlay"
+import { hasPlayedJourneyDailyToday } from "@/utils/journey-daily"
+import JourneyCalendar from "./journey-calendar"
+import JourneyGame, { type JourneyGameMode } from "./journey-game"
+import JourneyHowToPlay from "./journey-how-to-play"
+import JourneyMenu from "./journey-menu"
+import JourneyStatsOverlay from "./journey-stats-overlay"
 
 interface Props {
   screen: "menu" | "daily" | "arcade"
 }
 
 type GameOverlay = "none" | "guide" | "stats" | "calendar"
-const TUTORIAL_SEEN_KEY = "statehue-tutorial-seen"
+const TUTORIAL_SEEN_KEY = "journey-tutorial-seen"
 
-export default function ColorsShell({ screen }: Props) {
+export default function JourneyShell({ screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
-  const playedToday = hasPlayedColorsDailyToday()
+  const playedToday = hasPlayedJourneyDailyToday()
   const initialShowStats = Boolean(
     (location.state as { showStats?: boolean } | null)?.showStats,
   )
@@ -34,7 +34,7 @@ export default function ColorsShell({ screen }: Props) {
   const [isOnboarding, setIsOnboarding] = useState(false)
 
   useEffect(() => {
-    document.title = "Statehue"
+    document.title = "Journey"
   }, [])
 
   useEffect(() => {
@@ -82,11 +82,11 @@ export default function ColorsShell({ screen }: Props) {
     return (
       <>
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
-          <ColorsMenu
-            onPlayDaily={() => navigate("/colors/states/daily")}
-            onPlayArcade={() => navigate("/colors/states/arcade")}
+          <JourneyMenu
+            onPlayDaily={() => navigate("/colors/journey/daily")}
+            onPlayArcade={() => navigate("/colors/journey/arcade")}
             onShowStats={() =>
-              navigate("/colors/states/daily", { state: { showStats: true } })
+              navigate("/colors/journey/daily", { state: { showStats: true } })
             }
             playedToday={playedToday}
           />
@@ -101,7 +101,7 @@ export default function ColorsShell({ screen }: Props) {
     )
   }
 
-  const mode: ColorsGameMode = screen === "arcade" ? "arcade" : "daily"
+  const mode: JourneyGameMode = screen === "arcade" ? "arcade" : "daily"
   const isGuideOpen = overlay === "guide"
   const isStatsOpen = overlay === "stats"
 
@@ -121,7 +121,7 @@ export default function ColorsShell({ screen }: Props) {
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          Statehue
+          Journey
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           {mode === "daily" ? "Daily puzzle" : "Arcade"}
@@ -161,7 +161,7 @@ export default function ColorsShell({ screen }: Props) {
         <div
           className={`crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden ${overlay === "none" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <ColorsGame
+          <JourneyGame
             key={mode}
             mode={mode}
           />
@@ -186,7 +186,7 @@ export default function ColorsShell({ screen }: Props) {
                 />
               </button>
             </div>
-            <ColorsHowToPlay
+            <JourneyHowToPlay
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
               onOpenCalendar={() => setOverlay("calendar")}
             />
@@ -212,13 +212,13 @@ export default function ColorsShell({ screen }: Props) {
                 />
               </button>
             </div>
-            <ColorsStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
+            <JourneyStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
           </div>
         </div>
         <div
           className={`crossfade-panel absolute inset-0 overflow-hidden ${overlay === "calendar" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <ColorsCalendar onClose={() => setOverlay("none")} />
+          <JourneyCalendar onClose={() => setOverlay("none")} />
         </div>
       </div>
     </div>

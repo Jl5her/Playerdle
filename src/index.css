@@ -82,7 +82,7 @@
   --color-warning-800: #735212;
   --color-warning-900: #5e4310;
 
-  --animate-cell-flip: cellReveal 0.4s ease-in-out both;
+  --animate-cell-flip: cellReveal 0.7s ease-in-out both;
 }
 
 @keyframes cellReveal {
@@ -221,6 +221,35 @@ body,
   pointer-events: none;
 }
 
+/* 2D card-flip animation for revealing the next team rung in Journey.
+   Each face is a rotated square (diamond). Front scales X 1→0; back scales
+   X 0→1 with a 300ms delay — produces a clean flip without 3D quirks. */
+.flip-diamond {
+  position: relative;
+  display: inline-block;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+.flip-diamond-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  border: 1px solid;
+  transform: rotate(45deg) scaleX(1);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.6, 1);
+}
+.flip-diamond .flip-diamond-back {
+  transform: rotate(45deg) scaleX(0);
+  transition-delay: 300ms;
+}
+.flip-diamond.revealed .flip-diamond-front {
+  transform: rotate(45deg) scaleX(0);
+}
+.flip-diamond.revealed .flip-diamond-back {
+  transform: rotate(45deg) scaleX(1);
+  transition-delay: 300ms;
+}
+
 .sport-title-icon-glitch {
   animation: sportTitleIconGlitch 320ms steps(2, end) both;
 }
@@ -298,6 +327,10 @@ body,
   }
 
   .slide-up-panel {
+    transition: none;
+  }
+
+  .flip-diamond-inner {
     transition: none;
   }
 

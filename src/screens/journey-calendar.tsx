@@ -2,32 +2,19 @@ import {
   faAngleLeft,
   faChevronLeft,
   faChevronRight,
+  faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useMemo, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useMemo, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import {
-  getSportMetaById,
-  loadSportConfig,
-  type Player,
-  resolveSportConfig,
-  type SportConfig,
-  type SportId,
-} from "@/sports"
-import { getDailyPlayer } from "@/utils/daily"
-import { type GameResult, getGameHistory } from "@/utils/stats"
-
-const PLAYER_EPOCH = new Date(2024, 0, 1)
-
-function getSportIdFromParam(sport?: string): SportId | null {
-  if (!sport) return "nfl"
-  const normalized = sport.toLowerCase()
-  if (normalized === "mlb") return "mlb"
-  if (normalized === "nhl") return "nhl"
-  if (normalized === "nba") return "nba"
-  if (normalized === "nfl") return "nfl"
-  return null
-}
+  getJourneyHistory,
+  getJourneyPuzzleByDateKey,
+  JOURNEY_EPOCH_DATE_KEY,
+  type JourneyPuzzle,
+  type JourneyResult,
+} from "@/utils/journey-daily"
+import { getTodayKeyInEasternTime } from "@/utils/daily"
 
 function formatDateKey(d: Date): string {
   const y = d.getFullYear()
@@ -35,6 +22,13 @@ function formatDateKey(d: Date): string {
   const day = String(d.getDate()).padStart(2, "0")
   return `${y}-${m}-${day}`
 }
+
+function parseDateKey(key: string): Date {
+  const [y, m, d] = key.split("-").map(Number)
+  return new Date(y, m - 1, d)
+}
+
+const EPOCH = parseDateKey(JOURNEY_EPOCH_DATE_KEY)
 
 function buildMonthGrid(year: number, monthIndex: number): Array<Date | null> {
   const first = new Date(year, monthIndex, 1)
@@ -47,27 +41,37 @@ function buildMonthGrid(year: number, monthIndex: number): Array<Date | null> {
   return cells
 }
 
-interface DayDetailProps {
-  sport: SportConfig
-  player: Player
-  result?: GameResult
-}
-
-function DayDetail({ sport, player, result }: DayDetailProps) {
+function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: JourneyResult }) {
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
       <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
-        {sport.displayName}
-        {sport.activeVariantLabel ? ` · ${sport.activeVariantLabel}` : " · Daily"}
+        #{puzzle.index} · {puzzle.dateKey}
       </div>
       <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
-        {String(player.name)}
+        {puzzle.player.name}
       </div>
-      <div className="text-sm text-primary-500 dark:text-primary-200 mt-1 uppercase">
-        {String(player.team ?? "")}
-        {player.position ? ` · ${String(player.position)}` : ""}
-        {player.number ? ` · #${String(player.number)}` : ""}
+      <div className="text-xs text-primary-500 dark:text-primary-200 uppercase tracking-wider mt-1">
+        {puzzle.player.position} · {puzzle.player.college}
       </div>
+
+      <ol className="mt-3 space-y-1 text-xs">
+        {puzzle.player.teams.map((team, i) => (
+          <li
+            key={`${team}-${i}`}
+            className="flex items-center gap-2 text-primary-900 dark:text-primary-50"
+          >
+            <span className="w-5 text-right text-primary-500 dark:text-primary-200">
+              {i + 1}.
+            </span>
+            <span>{team}</span>
+            {i === puzzle.player.teams.length - 1 && (
+              <span className="ml-1 px-1 rounded text-[9px] tracking-wider font-bold border border-current opacity-60">
+                CURRENT
+              </span>
+            )}
+          </li>
+        ))}
+      </ol>
 
       {result && (
         <div
@@ -77,58 +81,32 @@ function DayDetail({ sport, player, result }: DayDetailProps) {
               : "text-error-500 dark:text-error-400"
           }`}
         >
-          {result.won ? `You guessed in ${result.guesses}/6` : "You missed this one"}
+          {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
         </div>
       )}
     </div>
   )
 }
 
-interface PlayerCalendarProps {
-  variantId?: string
+interface Props {
+  onClose?: () => void
 }
 
-export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) {
+export default function JourneyCalendar({ onClose }: Props = {}) {
   const navigate = useNavigate()
-  const { sport: sportParam } = useParams<{ sport?: string }>()
-  const sportId = getSportIdFromParam(sportParam) ?? "nfl"
-  const sportMeta = getSportMetaById(sportId)
-  const [sport, setSport] = useState<SportConfig | null>(null)
-  const today = new Date()
+  const today = parseDateKey(getTodayKeyInEasternTime())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
 
-  useEffect(() => {
-    let mounted = true
-    loadSportConfig(sportId).then(cfg => {
-      if (mounted) setSport(variantId ? resolveSportConfig(cfg, variantId) : cfg)
-    })
-    return () => {
-      mounted = false
-    }
-  }, [sportId, variantId])
-
   const history = useMemo(() => {
-    const map = new Map<string, GameResult>()
-    for (const r of getGameHistory(sportId, variantId)) map.set(r.date, r)
+    const map = new Map<string, JourneyResult>()
+    for (const r of getJourneyHistory()) map.set(r.date, r)
     return map
-  }, [sportId, variantId])
+  }, [])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
-
-  const selectedDate = useMemo(() => {
-    const [y, m, d] = selected.split("-").map(Number)
-    return new Date(y, m - 1, d)
-  }, [selected])
-
-  const selectedPlayer = useMemo(() => {
-    if (!sport) return null
-    try {
-      return getDailyPlayer(sport, selectedDate)
-    } catch {
-      return null
-    }
-  }, [sport, selectedDate])
+  const selectedPuzzle = useMemo(() => getJourneyPuzzleByDateKey(selected), [selected])
+  const selectedResult = history.get(selected)
 
   function goPrevMonth() {
     setView(v => {
@@ -148,25 +126,23 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
     year: "numeric",
   })
 
-  const menuPath = sportId === "nfl" ? "/" : `/${sportId}`
-
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
         <button
-          onClick={() => navigate(menuPath)}
-          aria-label="Back to menu"
-          title="Back"
+          onClick={() => (onClose ? onClose() : navigate("/colors"))}
+          aria-label={onClose ? "Close calendar" : "Back to menu"}
+          title={onClose ? "Close" : "Back"}
           className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
         >
           <FontAwesomeIcon
-            icon={faAngleLeft}
+            icon={onClose ? faXmark : faAngleLeft}
             className="text-[1.7rem]"
             aria-hidden="true"
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          {sportMeta.displayName} Archive
+          Journey Archive
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           Past daily puzzles
@@ -208,25 +184,18 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
               if (!cell) return <div key={i} />
               const key = formatDateKey(cell)
               const isFuture = cell.getTime() > today.getTime()
-              const isBeforeEpoch = cell.getTime() < PLAYER_EPOCH.getTime()
+              const isBeforeEpoch = cell.getTime() < EPOCH.getTime()
               const disabled = isFuture || isBeforeEpoch
               const isSelected = key === selected
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
-              let cellPosition: string | undefined
-              if (!disabled && sport) {
-                try {
-                  const p = getDailyPlayer(sport, cell)
-                  cellPosition = p.position ? String(p.position) : undefined
-                } catch {}
-              }
               return (
                 <button
                   key={key}
                   type="button"
                   disabled={disabled}
                   onClick={() => setSelected(key)}
-                  className={`relative overflow-hidden aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors ${
+                  className={`aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors ${
                     disabled
                       ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
                       : isSelected
@@ -236,24 +205,10 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                           : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60"
                   }`}
                 >
-                  {cellPosition && (
-                    <span
-                      aria-hidden="true"
-                      className={`absolute inset-0 flex items-center justify-center font-black tracking-tight pointer-events-none select-none ${
-                        cellPosition.length > 2 ? "text-base" : "text-xl"
-                      } ${
-                        isSelected
-                          ? "text-primary-200 dark:text-primary-700"
-                          : "text-primary-300 dark:text-primary-700"
-                      }`}
-                    >
-                      {cellPosition}
-                    </span>
-                  )}
-                  <span className="relative z-10">{cell.getDate()}</span>
+                  <span>{cell.getDate()}</span>
                   {result && !disabled && (
                     <span
-                      className={`relative z-10 w-1.5 h-1.5 rounded-full ${
+                      className={`w-1.5 h-1.5 rounded-full ${
                         result.won
                           ? "bg-success-500 dark:bg-success-400"
                           : "bg-error-500 dark:bg-error-400"
@@ -266,18 +221,10 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
             })}
           </div>
 
-          {sport && selectedPlayer && (
-            <DayDetail
-              sport={sport}
-              player={selectedPlayer}
-              result={history.get(selected)}
-            />
-          )}
-          {!sport && (
-            <div className="mt-4 text-center text-sm text-primary-500 dark:text-primary-200">
-              Loading…
-            </div>
-          )}
+          <DayDetail
+            puzzle={selectedPuzzle}
+            result={selectedResult}
+          />
         </div>
       </div>
     </div>

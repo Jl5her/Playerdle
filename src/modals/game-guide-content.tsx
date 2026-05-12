@@ -6,9 +6,16 @@ interface GameGuideContentProps {
   sport: SportConfig
   mode: GuideMode
   className?: string
+  onOpenCalendar?: () => void
 }
 
-export function GameGuideContent({ sport, mode, className }: GameGuideContentProps) {
+export function GameGuideContent({
+  sport,
+  mode,
+  className,
+  onOpenCalendar,
+}: GameGuideContentProps) {
+  const isLocal = import.meta.env.DEV
   const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
     column => column.evaluator.type === "comparison" && column.evaluator.closeWithin !== undefined,
@@ -130,6 +137,21 @@ export function GameGuideContent({ sport, mode, className }: GameGuideContentPro
           </p>
         )}
       </div>
+
+      {isLocal && onOpenCalendar && (
+        <div className="mt-6 pt-4 border-t border-primary-300 dark:border-primary-700 text-center">
+          <button
+            type="button"
+            className="px-6 py-2.5 text-sm font-bold border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 rounded-full cursor-pointer hover:border-primary-600 dark:hover:border-primary-300 transition-colors uppercase"
+            onClick={onOpenCalendar}
+          >
+            Open Calendar
+          </button>
+          <div className="mt-2 text-[10px] text-primary-400 dark:text-primary-600 uppercase tracking-wider">
+            Local only
+          </div>
+        </div>
+      )}
     </div>
   )
 }

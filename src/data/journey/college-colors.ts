@@ -1,0 +1,49 @@
+// 3-color brand palettes for colleges referenced by the Journey answer pool.
+// Used to render diamond rows for the college rung of the career ladder.
+
+export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
+  Alabama: ["#9E1B32", "#FFFFFF", "#000000"],
+  Arizona: ["#CC0033", "#003366", "#FFFFFF"],
+  Buffalo: ["#005BBB", "#FFFFFF", "#000000"],
+  California: ["#003262", "#FDB515", "#FFFFFF"],
+  "Central Michigan": ["#6A0032", "#FFC82D", "#FFFFFF"],
+  Clemson: ["#F66733", "#522D80", "#FFFFFF"],
+  Delaware: ["#00539F", "#FFD200", "#FFFFFF"],
+  "Florida State": ["#782F40", "#CEB888", "#FFFFFF"],
+  "Fresno State": ["#C41230", "#002F65", "#FFFFFF"],
+  Harvard: ["#A51C30", "#FFFFFF", "#000000"],
+  Houston: ["#C8102E", "#FFFFFF", "#76777B"],
+  Louisville: ["#AD0000", "#000000", "#FFFFFF"],
+  LSU: ["#461D7C", "#FDD023", "#FFFFFF"],
+  Maryland: ["#E03A3E", "#FFD520", "#000000"],
+  "Miami (FL)": ["#F47321", "#005030", "#FFFFFF"],
+  "Michigan State": ["#18453B", "#FFFFFF", "#000000"],
+  "Minnesota State": ["#3D0066", "#FFCC00", "#FFFFFF"],
+  "North Carolina": ["#4B9CD3", "#13294B", "#FFFFFF"],
+  "North Dakota State": ["#FFB81C", "#006646", "#FFFFFF"],
+  "Notre Dame": ["#0C2340", "#C99700", "#AE9142"],
+  "Ohio State": ["#BB0000", "#666666", "#FFFFFF"],
+  Oklahoma: ["#841617", "#FDF9D8", "#FFFFFF"],
+  Oregon: ["#154733", "#FEE123", "#FFFFFF"],
+  "Oregon State": ["#DC4405", "#000000", "#FFFFFF"],
+  "Penn State": ["#041E42", "#FFFFFF", "#5C5C5C"],
+  Pittsburgh: ["#003594", "#FFB81C", "#FFFFFF"],
+  Rutgers: ["#CC0033", "#000000", "#FFFFFF"],
+  SMU: ["#0033A0", "#C8102E", "#FFFFFF"],
+  "South Alabama": ["#00205B", "#BF0D3E", "#FFFFFF"],
+  "South Carolina": ["#73000A", "#000000", "#FFFFFF"],
+  Stanford: ["#8C1515", "#FFFFFF", "#2E2D29"],
+  Syracuse: ["#F76900", "#000E54", "#FFFFFF"],
+  TCU: ["#4D1979", "#000000", "#FFFFFF"],
+  "Texas A&M": ["#500000", "#FFFFFF", "#B0B0B0"],
+  Toledo: ["#15397F", "#FFD200", "#FFFFFF"],
+  UCF: ["#000000", "#FFCC00", "#FFFFFF"],
+  USC: ["#990000", "#FFCC00", "#FFFFFF"],
+  Washington: ["#4B2E83", "#B7A57A", "#FFFFFF"],
+  "West Virginia": ["#002855", "#EAAA00", "#FFFFFF"],
+  Wisconsin: ["#C5050C", "#FFFFFF", "#9B0000"],
+}
+
+export function getCollegePalette(college: string): [string, string, string] | undefined {
+  return COLLEGE_PALETTES[college]
+}

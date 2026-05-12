@@ -14,6 +14,9 @@ const Game = lazy(() => import("@/screens/game"))
 const ColorsShell = lazy(() => import("@/screens/colors-shell"))
 const ColorsCalendar = lazy(() => import("@/screens/colors-calendar"))
 const PlayerCalendar = lazy(() => import("@/screens/player-calendar"))
+const PaletteHub = lazy(() => import("@/screens/palette-hub"))
+const JourneyShell = lazy(() => import("@/screens/journey-shell"))
+const JourneyCalendar = lazy(() => import("@/screens/journey-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -330,6 +333,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                         sport={activeSport}
                         mode={gameGuideMode}
                         className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                        onOpenCalendar={() => {
+                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
+                          const variantPath =
+                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
+                          navigate(`${prefix}${variantPath}/calendar`)
+                        }}
                       />
                     </div>
                   </div>
@@ -486,16 +495,22 @@ function App() {
           />
         }
       />
+      {/* Palette hub at /colors lists both mini-games. */}
       <Route
         path="/colors"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell screen="menu" />
+            <PaletteHub />
           </Suspense>
         }
       />
+      {/* Statehue lives under /colors/states. Menu route folds into the hub. */}
       <Route
-        path="/colors/daily"
+        path="/colors/states"
+        element={<Navigate to="/colors" replace />}
+      />
+      <Route
+        path="/colors/states/daily"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="daily" />
@@ -503,7 +518,7 @@ function App() {
         }
       />
       <Route
-        path="/colors/arcade"
+        path="/colors/states/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="arcade" />
@@ -511,10 +526,52 @@ function App() {
         }
       />
       <Route
-        path="/colors/calendar"
+        path="/colors/states/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsCalendar />
+          </Suspense>
+        }
+      />
+      {/* Legacy aliases for bookmarks. */}
+      <Route
+        path="/colors/daily"
+        element={<Navigate to="/colors/states/daily" replace />}
+      />
+      <Route
+        path="/colors/arcade"
+        element={<Navigate to="/colors/states/arcade" replace />}
+      />
+      <Route
+        path="/colors/calendar"
+        element={<Navigate to="/colors/states/calendar" replace />}
+      />
+      {/* Journey menu route folds into the hub. */}
+      <Route
+        path="/colors/journey"
+        element={<Navigate to="/colors" replace />}
+      />
+      <Route
+        path="/colors/journey/daily"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <JourneyShell screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/colors/journey/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <JourneyShell screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/colors/journey/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <JourneyCalendar />
           </Suspense>
         }
       />
@@ -527,10 +584,26 @@ function App() {
         }
       />
       <Route
+        path="/fanatic/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+          </Suspense>
+        }
+      />
+      <Route
         path="/:sport/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PlayerCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/:sport/fanatic/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
           </Suspense>
         }
       />
