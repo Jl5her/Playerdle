@@ -10,6 +10,7 @@ export interface JourneyPlayer {
   position: string
   college: string
   teams: string[] // chronological: oldest stint first, current/last team last
+  espnId?: string // ESPN athlete ID for direct API lookups
 }
 
 export const JOURNEY_PLAYERS: JourneyPlayer[] = [
@@ -587,13 +588,6 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Western Michigan",
     teams: ["Tennessee Titans", "New York Jets", "Tennessee Titans"],
-  },
-  {
-    id: "journey:michael-thomas",
-    name: "Michael Thomas",
-    position: "WR",
-    college: "Ohio State",
-    teams: ["New Orleans Saints", "Los Angeles Chargers", "Pittsburgh Steelers"],
   },
 
   // Running Backs

@@ -29,7 +29,9 @@
     "scrape:nfl": "pnpm run scrape:rosters -- --sport=nfl && pnpm run generate:answer-pool && pnpm run scrape:nfl:fanatic",
     "scrape:nhl": "pnpm run scrape:rosters -- --sport=nhl && pnpm run generate:answer-pool:nhl && pnpm run scrape:nhl:fanatic",
     "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba && pnpm run scrape:nba:fanatic",
-    "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb && pnpm run generate:answer-pool:mlb && pnpm run scrape:mlb:fanatic"
+    "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb && pnpm run generate:answer-pool:mlb && pnpm run scrape:mlb:fanatic",
+    "sync:journey": "tsx scripts/sync-journey-players.ts",
+    "generate:journey-pool": "tsx scripts/generate-journey-answer-pool.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.4",

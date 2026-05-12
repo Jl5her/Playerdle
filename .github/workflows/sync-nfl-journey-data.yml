@@ -1,0 +1,53 @@
+name: Sync NFL Journey Data
+
+# Runs 10 minutes after the main NFL roster sync so the active players.json
+# is already up-to-date when we do the ESPN ID lookups.
+on:
+  schedule:
+    - cron: "10 7 * 9-12,1-2 *" # daily during season (Sept–Feb)
+    - cron: "10 7 * 3-8 1" # weekly on Mondays during offseason (Mar–Aug)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: journey-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Sync journey player data with ESPN
+        run: pnpm run sync:journey
+
+      - name: Commit and push updates
+        run: |
+          if [ -n "$(git status --porcelain -- "src/data/journey")" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/data/journey
+            git commit -m "chore(data): sync nfl journey player data via espn"
+            git push
+          else
+            echo "No journey data changes detected"
+          fi
