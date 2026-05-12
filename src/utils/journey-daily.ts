@@ -1,5 +1,6 @@
-import { ELIGIBLE_JOURNEY_PLAYERS, type JourneyPlayer } from "@/data/journey/players"
+import { ELIGIBLE_JOURNEY_PLAYERS, getJourneyPlayerById, type JourneyPlayer } from "@/data/journey/players"
 import { getTodayKeyInEasternTime } from "@/utils/daily"
+import JOURNEY_ANSWER_POOL from "@/data/journey/answer_pool.json"
 
 const MAX_GUESSES = 5
 
@@ -34,8 +35,12 @@ function previousDateKey(dateKey: string): string | undefined {
   return `${yy}-${mm}-${dd}`
 }
 
+// Select from the append-only answer pool so adding/removing players from
+// ELIGIBLE_JOURNEY_PLAYERS doesn't shift any existing date → player mappings.
+// Pool entries are never reordered; new players are only ever appended.
 function pickByIndex(seed: number): JourneyPlayer {
-  return ELIGIBLE_JOURNEY_PLAYERS[seed % ELIGIBLE_JOURNEY_PLAYERS.length]
+  const id = JOURNEY_ANSWER_POOL[seed % JOURNEY_ANSWER_POOL.length]
+  return getJourneyPlayerById(id) ?? ELIGIBLE_JOURNEY_PLAYERS[seed % ELIGIBLE_JOURNEY_PLAYERS.length]
 }
 
 const playerForDateCache = new Map<string, JourneyPlayer>()
