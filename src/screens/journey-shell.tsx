@@ -91,7 +91,7 @@ export default function JourneyShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/geo")}
+          onSelectColors={() => navigate("/statehue")}
         />
       </>
     )

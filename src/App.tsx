@@ -401,7 +401,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <LeagueFooter
           currentSportId={sportId}
           onSelectSport={handleSelectSport}
-          onSelectColors={() => navigate("/geo")}
+          onSelectColors={() => navigate("/statehue")}
         />
       )}
     </>
@@ -506,9 +506,9 @@ function App() {
           />
         }
       />
-      {/* Geo hub at /geo lists both mini-games. /palette redirects for backwards compatibility. */}
+      {/* Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. */}
       <Route
-        path="/geo"
+        path="/statehue"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PaletteHub />
@@ -516,24 +516,24 @@ function App() {
         }
       />
       <Route
+        path="/geo"
+        element={
+          <Navigate
+            to="/statehue"
+            replace
+          />
+        }
+      />
+      <Route
         path="/palette"
         element={
           <Navigate
-            to="/geo"
+            to="/statehue"
             replace
           />
         }
       />
-      {/* Statehue lives under /statehue. Old /palette/states/* redirects for backwards compatibility. */}
-      <Route
-        path="/statehue"
-        element={
-          <Navigate
-            to="/geo"
-            replace
-          />
-        }
-      />
+      {/* Statehue game routes live under /statehue/*. Old /palette/states/* redirects for backwards compatibility. */}
       <Route
         path="/statehue/daily"
         element={
@@ -562,7 +562,7 @@ function App() {
         path="/palette/states"
         element={
           <Navigate
-            to="/geo"
+            to="/statehue"
             replace
           />
         }

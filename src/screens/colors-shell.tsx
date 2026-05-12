@@ -52,7 +52,7 @@ export default function ColorsShell({ screen }: Props) {
   }
 
   function goToMenu() {
-    navigate("/geo")
+    navigate("/statehue")
   }
 
   function closeGuide() {
@@ -91,7 +91,7 @@ export default function ColorsShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/geo")}
+          onSelectColors={() => navigate("/statehue")}
         />
       </>
     )

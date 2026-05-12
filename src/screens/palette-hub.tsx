@@ -106,7 +106,7 @@ export default function PaletteHub() {
         currentSportId="nfl"
         onSelectSport={handleSelectSport}
         colorsActive
-        onSelectColors={() => navigate("/geo")}
+        onSelectColors={() => navigate("/statehue")}
       />
     </>
   )
