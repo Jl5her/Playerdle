@@ -1,4 +1,4 @@
-// Curated NFL players (active or retired in the last ~5 years) who have
+// Curated NFL players (active or retired in the last ~10 years) who have
 // played for at least 3 NFL teams. Team names match the CURRENT franchise
 // display name in src/data/nfl/teams.json (so color lookups resolve), even
 // when the player's stint predates a rebrand (e.g., Oakland → Las Vegas,
@@ -212,6 +212,77 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Washington Commanders",
     ],
   },
+  {
+    id: "journey:jacoby-brissett",
+    name: "Jacoby Brissett",
+    position: "QB",
+    college: "North Carolina State",
+    teams: [
+      "New England Patriots",
+      "Indianapolis Colts",
+      "Miami Dolphins",
+      "Cleveland Browns",
+      "Washington Commanders",
+      "New England Patriots",
+      "Arizona Cardinals",
+    ],
+  },
+  {
+    id: "journey:tyrod-taylor",
+    name: "Tyrod Taylor",
+    position: "QB",
+    college: "Virginia Tech",
+    teams: [
+      "Baltimore Ravens",
+      "Buffalo Bills",
+      "Cleveland Browns",
+      "Los Angeles Chargers",
+      "Houston Texans",
+      "New York Giants",
+      "New York Jets",
+    ],
+  },
+  {
+    id: "journey:jimmy-garoppolo",
+    name: "Jimmy Garoppolo",
+    position: "QB",
+    college: "Eastern Illinois",
+    teams: ["New England Patriots", "San Francisco 49ers", "Las Vegas Raiders", "Los Angeles Rams"],
+  },
+  {
+    id: "journey:drew-lock",
+    name: "Drew Lock",
+    position: "QB",
+    college: "Missouri",
+    teams: ["Denver Broncos", "Seattle Seahawks", "New York Giants"],
+  },
+  {
+    id: "journey:gardner-minshew-ii",
+    name: "Gardner Minshew II",
+    position: "QB",
+    college: "Washington State",
+    teams: [
+      "Jacksonville Jaguars",
+      "Philadelphia Eagles",
+      "Indianapolis Colts",
+      "Las Vegas Raiders",
+      "Kansas City Chiefs",
+    ],
+  },
+  {
+    id: "journey:jarrett-stidham",
+    name: "Jarrett Stidham",
+    position: "QB",
+    college: "Auburn",
+    teams: ["New England Patriots", "Las Vegas Raiders", "Denver Broncos"],
+  },
+  {
+    id: "journey:cooper-rush",
+    name: "Cooper Rush",
+    position: "QB",
+    college: "Central Michigan",
+    teams: ["Dallas Cowboys", "New York Giants", "Dallas Cowboys", "Baltimore Ravens"],
+  },
 
   // Wide Receivers
   {
@@ -276,6 +347,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Rams",
       "Houston Texans",
       "Dallas Cowboys",
+      "New Orleans Saints",
     ],
   },
   {
@@ -409,6 +481,120 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "California",
     teams: ["Los Angeles Chargers", "Chicago Bears", "Las Vegas Raiders"],
   },
+  {
+    id: "journey:mohamed-sanu",
+    name: "Mohamed Sanu",
+    position: "WR",
+    college: "Rutgers",
+    teams: [
+      "Cincinnati Bengals",
+      "Atlanta Falcons",
+      "New England Patriots",
+      "San Francisco 49ers",
+      "Detroit Lions",
+    ],
+  },
+  {
+    id: "journey:julio-jones",
+    name: "Julio Jones",
+    position: "WR",
+    college: "Alabama",
+    teams: [
+      "Atlanta Falcons",
+      "Tennessee Titans",
+      "Tampa Bay Buccaneers",
+      "Philadelphia Eagles",
+    ],
+  },
+  {
+    id: "journey:juju-smith-schuster",
+    name: "JuJu Smith-Schuster",
+    position: "WR",
+    college: "USC",
+    teams: [
+      "Pittsburgh Steelers",
+      "Kansas City Chiefs",
+      "New England Patriots",
+      "Kansas City Chiefs",
+    ],
+  },
+  {
+    id: "journey:nelson-agholor",
+    name: "Nelson Agholor",
+    position: "WR",
+    college: "USC",
+    teams: [
+      "Philadelphia Eagles",
+      "Las Vegas Raiders",
+      "New England Patriots",
+      "Baltimore Ravens",
+    ],
+  },
+  {
+    id: "journey:randall-cobb",
+    name: "Randall Cobb",
+    position: "WR",
+    college: "Kentucky",
+    teams: ["Green Bay Packers", "Dallas Cowboys", "Houston Texans", "Green Bay Packers", "New York Jets"],
+  },
+  {
+    id: "journey:kenny-golladay",
+    name: "Kenny Golladay",
+    position: "WR",
+    college: "Northern Illinois",
+    teams: ["Detroit Lions", "New York Giants", "Philadelphia Eagles"],
+  },
+  {
+    id: "journey:mecole-hardman",
+    name: "Mecole Hardman Jr.",
+    position: "WR",
+    college: "Georgia",
+    teams: ["Kansas City Chiefs", "New York Jets", "Kansas City Chiefs", "Green Bay Packers"],
+  },
+  {
+    id: "journey:dj-chark",
+    name: "DJ Chark Jr.",
+    position: "WR",
+    college: "LSU",
+    teams: ["Jacksonville Jaguars", "Detroit Lions", "Carolina Panthers", "Los Angeles Chargers"],
+  },
+  {
+    id: "journey:noah-brown",
+    name: "Noah Brown",
+    position: "WR",
+    college: "Ohio State",
+    teams: ["Dallas Cowboys", "Houston Texans", "Washington Commanders"],
+  },
+  {
+    id: "journey:deandre-carter",
+    name: "DeAndre Carter",
+    position: "WR",
+    college: "Sacramento State",
+    teams: [
+      "Baltimore Ravens",
+      "Las Vegas Raiders",
+      "New England Patriots",
+      "San Francisco 49ers",
+      "Washington Commanders",
+      "Los Angeles Chargers",
+      "Chicago Bears",
+      "Cleveland Browns",
+    ],
+  },
+  {
+    id: "journey:corey-davis",
+    name: "Corey Davis",
+    position: "WR",
+    college: "Western Michigan",
+    teams: ["Tennessee Titans", "New York Jets", "Tennessee Titans"],
+  },
+  {
+    id: "journey:michael-thomas",
+    name: "Michael Thomas",
+    position: "WR",
+    college: "Ohio State",
+    teams: ["New Orleans Saints", "Los Angeles Chargers", "Pittsburgh Steelers"],
+  },
 
   // Running Backs
   {
@@ -510,6 +696,106 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Buffalo Bills",
     ],
   },
+  {
+    id: "journey:ezekiel-elliott",
+    name: "Ezekiel Elliott",
+    position: "RB",
+    college: "Ohio State",
+    teams: ["Dallas Cowboys", "New England Patriots", "Dallas Cowboys", "Los Angeles Chargers"],
+  },
+  {
+    id: "journey:dalvin-cook",
+    name: "Dalvin Cook",
+    position: "RB",
+    college: "Florida State",
+    teams: ["Minnesota Vikings", "New York Jets", "Baltimore Ravens", "Dallas Cowboys"],
+  },
+  {
+    id: "journey:cordarrelle-patterson",
+    name: "Cordarrelle Patterson",
+    position: "RB",
+    college: "Tennessee",
+    teams: [
+      "Minnesota Vikings",
+      "Las Vegas Raiders",
+      "New England Patriots",
+      "Chicago Bears",
+      "Atlanta Falcons",
+      "Pittsburgh Steelers",
+    ],
+  },
+  {
+    id: "journey:jamaal-williams",
+    name: "Jamaal Williams",
+    position: "RB",
+    college: "BYU",
+    teams: ["Green Bay Packers", "Detroit Lions", "New Orleans Saints"],
+  },
+  {
+    id: "journey:miles-sanders",
+    name: "Miles Sanders",
+    position: "RB",
+    college: "Penn State",
+    teams: ["Philadelphia Eagles", "Carolina Panthers", "Dallas Cowboys"],
+  },
+  {
+    id: "journey:alexander-mattison",
+    name: "Alexander Mattison",
+    position: "RB",
+    college: "Boise State",
+    teams: ["Minnesota Vikings", "Las Vegas Raiders", "Miami Dolphins"],
+  },
+  {
+    id: "journey:raheem-mostert",
+    name: "Raheem Mostert",
+    position: "RB",
+    college: "Purdue",
+    teams: [
+      "Philadelphia Eagles",
+      "Miami Dolphins",
+      "Baltimore Ravens",
+      "Cleveland Browns",
+      "Chicago Bears",
+      "San Francisco 49ers",
+      "Miami Dolphins",
+      "Las Vegas Raiders",
+    ],
+  },
+  {
+    id: "journey:leonard-fournette",
+    name: "Leonard Fournette",
+    position: "RB",
+    college: "LSU",
+    teams: ["Jacksonville Jaguars", "Tampa Bay Buccaneers", "Buffalo Bills"],
+  },
+  {
+    id: "journey:samaje-perine",
+    name: "Samaje Perine",
+    position: "RB",
+    college: "Oklahoma",
+    teams: ["Washington Commanders", "Cincinnati Bengals", "Denver Broncos", "Kansas City Chiefs"],
+  },
+  {
+    id: "journey:sony-michel",
+    name: "Sony Michel",
+    position: "RB",
+    college: "Georgia",
+    teams: ["New England Patriots", "Los Angeles Rams", "Miami Dolphins", "Los Angeles Chargers"],
+  },
+  {
+    id: "journey:donta-foreman",
+    name: "D'Onta Foreman",
+    position: "RB",
+    college: "Texas",
+    teams: [
+      "Houston Texans",
+      "Indianapolis Colts",
+      "Tennessee Titans",
+      "Carolina Panthers",
+      "Chicago Bears",
+      "Cleveland Browns",
+    ],
+  },
 
   // Tight Ends
   {
@@ -576,17 +862,59 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     ],
   },
   {
-    id: "journey:mohamed-sanu",
-    name: "Mohamed Sanu",
-    position: "WR",
-    college: "Rutgers",
+    id: "journey:hayden-hurst",
+    name: "Hayden Hurst",
+    position: "TE",
+    college: "South Carolina",
     teams: [
-      "Cincinnati Bengals",
+      "Baltimore Ravens",
       "Atlanta Falcons",
-      "New England Patriots",
-      "San Francisco 49ers",
-      "Miami Dolphins",
+      "Cincinnati Bengals",
+      "Carolina Panthers",
+      "Los Angeles Chargers",
     ],
+  },
+  {
+    id: "journey:mike-gesicki",
+    name: "Mike Gesicki",
+    position: "TE",
+    college: "Penn State",
+    teams: ["Miami Dolphins", "New England Patriots", "Cincinnati Bengals"],
+  },
+  {
+    id: "journey:jonnu-smith",
+    name: "Jonnu Smith",
+    position: "TE",
+    college: "Florida International",
+    teams: ["Tennessee Titans", "New England Patriots", "Atlanta Falcons", "Miami Dolphins", "Pittsburgh Steelers"],
+  },
+  {
+    id: "journey:hunter-henry",
+    name: "Hunter Henry",
+    position: "TE",
+    college: "Arkansas",
+    teams: ["Los Angeles Chargers", "New England Patriots", "Las Vegas Raiders"],
+  },
+  {
+    id: "journey:evan-engram",
+    name: "Evan Engram",
+    position: "TE",
+    college: "Ole Miss",
+    teams: ["New York Giants", "Jacksonville Jaguars", "Denver Broncos"],
+  },
+  {
+    id: "journey:robert-tonyan",
+    name: "Robert Tonyan",
+    position: "TE",
+    college: "Indiana State",
+    teams: ["Green Bay Packers", "Chicago Bears", "Minnesota Vikings", "Kansas City Chiefs"],
+  },
+  {
+    id: "journey:noah-fant",
+    name: "Noah Fant",
+    position: "TE",
+    college: "Iowa",
+    teams: ["Denver Broncos", "Seattle Seahawks", "Cincinnati Bengals"],
   },
 
   // Defensive players
@@ -706,24 +1034,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Las Vegas Raiders",
     ],
   },
-  {
-    id: "journey:hayden-hurst",
-    name: "Hayden Hurst",
-    position: "TE",
-    college: "South Carolina",
-    teams: [
-      "Baltimore Ravens",
-      "Atlanta Falcons",
-      "Cincinnati Bengals",
-      "Carolina Panthers",
-      "Los Angeles Chargers",
-    ],
-  },
 ]
 
-// Only offensive skill positions are eligible — mirrors the player Playerdle
-// answer pool. Defensive players in JOURNEY_PLAYERS stay defined for possible
-// future use but never become daily answers.
 export const ELIGIBLE_POSITIONS: ReadonlyArray<string> = ["QB", "WR", "RB", "TE"]
 const eligibleSet = new Set(ELIGIBLE_POSITIONS)
 
