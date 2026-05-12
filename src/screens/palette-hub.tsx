@@ -31,16 +31,14 @@ export default function PaletteHub() {
   }
 
   function play(slug: GameSlug, mode: "daily" | "arcade") {
-    navigate(`/colors/${slug}/${mode}`)
+    navigate(`/palette/${slug}/${mode}`)
   }
 
   function openStats(slug: GameSlug) {
-    // Journey: skip the stats overlay so the full results panel auto-opens.
-    if (slug === "journey") {
-      navigate(`/colors/${slug}/daily`)
-      return
-    }
-    navigate(`/colors/${slug}/daily`, { state: { showStats: true } })
+    // Both games auto-open the in-game slide-up Results panel when the daily
+    // is already over — clicking the stats button on the hub navigates there
+    // so the user can close the panel to inspect the game-over board.
+    navigate(`/palette/${slug}/daily`)
   }
 
   const today = new Date()
@@ -122,7 +120,7 @@ export default function PaletteHub() {
         currentSportId="nfl"
         onSelectSport={handleSelectSport}
         colorsActive
-        onSelectColors={() => navigate("/colors")}
+        onSelectColors={() => navigate("/palette")}
       />
     </>
   )

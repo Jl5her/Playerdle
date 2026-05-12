@@ -5,8 +5,9 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useMemo, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { ScrollHint } from "@/components"
 import {
   getJourneyHistory,
   getJourneyPuzzleByDateKey,
@@ -94,6 +95,7 @@ interface Props {
 
 export default function JourneyCalendar({ onClose }: Props = {}) {
   const navigate = useNavigate()
+  const scrollRef = useRef<HTMLDivElement>(null)
   const today = parseDateKey(getTodayKeyInEasternTime())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
@@ -130,7 +132,7 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
         <button
-          onClick={() => (onClose ? onClose() : navigate("/colors"))}
+          onClick={() => (onClose ? onClose() : navigate("/palette"))}
           aria-label={onClose ? "Close calendar" : "Back to menu"}
           title={onClose ? "Close" : "Back"}
           className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
@@ -149,7 +151,10 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
         </p>
       </header>
 
-      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
+      <div
+        ref={scrollRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+      >
         <div className="max-w-md mx-auto px-3 py-4">
           <div className="flex items-center justify-between mb-3">
             <button
@@ -227,6 +232,7 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
           />
         </div>
       </div>
+      <ScrollHint scrollRef={scrollRef} />
     </div>
   )
 }

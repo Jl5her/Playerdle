@@ -54,7 +54,7 @@ export default function JourneyShell({ screen }: Props) {
   }
 
   function goToMenu() {
-    navigate("/colors")
+    navigate("/palette")
   }
 
   function closeGuide() {
@@ -83,10 +83,10 @@ export default function JourneyShell({ screen }: Props) {
       <>
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
           <JourneyMenu
-            onPlayDaily={() => navigate("/colors/journey/daily")}
-            onPlayArcade={() => navigate("/colors/journey/arcade")}
+            onPlayDaily={() => navigate("/palette/journey/daily")}
+            onPlayArcade={() => navigate("/palette/journey/arcade")}
             onShowStats={() =>
-              navigate("/colors/journey/daily", { state: { showStats: true } })
+              navigate("/palette/journey/daily", { state: { showStats: true } })
             }
             playedToday={playedToday}
           />
@@ -95,7 +95,7 @@ export default function JourneyShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/colors")}
+          onSelectColors={() => navigate("/palette")}
         />
       </>
     )

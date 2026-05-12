@@ -186,7 +186,7 @@ export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
         <button
-          onClick={() => (onClose ? onClose() : navigate("/colors"))}
+          onClick={() => (onClose ? onClose() : navigate("/palette"))}
           aria-label={onClose ? "Close calendar" : "Back to menu"}
           title={onClose ? "Close" : "Back"}
           className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"

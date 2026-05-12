@@ -189,18 +189,26 @@ export function StatsContent({
         </>
       ) : player ? (
         <>
-          <div className="text-sm text-primary-500 dark:text-primary-200 mb-2 uppercase">
+          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
             The answer was
           </div>
           <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
             {String(player.name)}
           </div>
-          <div className="text-sm text-primary-500 dark:text-primary-200 mt-2 uppercase">
+          <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 uppercase">
             {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
             {String(player.number ?? "")}
           </div>
-          <div className="text-base text-success-500 dark:text-success-400 font-bold mt-3 uppercase">
-            {won ? `Guessed in ${guessCount}/6` : "Better luck tomorrow!"}
+          <div
+            className={`text-base font-bold mt-3 uppercase ${
+              won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400"
+            }`}
+          >
+            {won
+              ? `You got it in ${guessCount} ${guessCount === 1 ? "guess" : "guesses"}`
+              : "Better luck tomorrow!"}
           </div>
         </>
       ) : null}

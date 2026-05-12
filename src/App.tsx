@@ -188,9 +188,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       ...config,
       onPlayAgain: config.onPlayAgain
         ? () => {
-            config.onPlayAgain?.()
-            handleCloseStatsModal()
-          }
+          config.onPlayAgain?.()
+          handleCloseStatsModal()
+        }
         : undefined,
     })
     setActiveGameOverlay("stats")
@@ -299,7 +299,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
               {screen === "daily" && activeSport && (
                 <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
                   <div
-                    className={`crossfade-panel h-full min-h-0 overflow-hidden ${activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive"}`}
+                    className={`crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden ${activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive"}`}
                   >
                     <Game
                       key="daily"
@@ -390,7 +390,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <LeagueFooter
           currentSportId={sportId}
           onSelectSport={handleSelectSport}
-          onSelectColors={() => navigate("/colors")}
+          onSelectColors={() => navigate("/palette")}
         />
       )}
     </>
@@ -495,22 +495,22 @@ function App() {
           />
         }
       />
-      {/* Palette hub at /colors lists both mini-games. */}
+      {/* Palette hub at /palette lists both mini-games. */}
       <Route
-        path="/colors"
+        path="/palette"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PaletteHub />
           </Suspense>
         }
       />
-      {/* Statehue lives under /colors/states. Menu route folds into the hub. */}
+      {/* Statehue lives under /palette/states. Menu route folds into the hub. */}
       <Route
-        path="/colors/states"
-        element={<Navigate to="/colors" replace />}
+        path="/palette/states"
+        element={<Navigate to="/palette" replace />}
       />
       <Route
-        path="/colors/states/daily"
+        path="/palette/states/daily"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="daily" />
@@ -518,7 +518,7 @@ function App() {
         }
       />
       <Route
-        path="/colors/states/arcade"
+        path="/palette/states/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="arcade" />
@@ -526,33 +526,20 @@ function App() {
         }
       />
       <Route
-        path="/colors/states/calendar"
+        path="/palette/states/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsCalendar />
           </Suspense>
         }
       />
-      {/* Legacy aliases for bookmarks. */}
-      <Route
-        path="/colors/daily"
-        element={<Navigate to="/colors/states/daily" replace />}
-      />
-      <Route
-        path="/colors/arcade"
-        element={<Navigate to="/colors/states/arcade" replace />}
-      />
-      <Route
-        path="/colors/calendar"
-        element={<Navigate to="/colors/states/calendar" replace />}
-      />
       {/* Journey menu route folds into the hub. */}
       <Route
-        path="/colors/journey"
-        element={<Navigate to="/colors" replace />}
+        path="/palette/journey"
+        element={<Navigate to="/palette" replace />}
       />
       <Route
-        path="/colors/journey/daily"
+        path="/palette/journey/daily"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyShell screen="daily" />
@@ -560,7 +547,7 @@ function App() {
         }
       />
       <Route
-        path="/colors/journey/arcade"
+        path="/palette/journey/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyShell screen="arcade" />
@@ -568,7 +555,7 @@ function App() {
         }
       />
       <Route
-        path="/colors/journey/calendar"
+        path="/palette/journey/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyCalendar />

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Button, GuessGrid, GuessInput, Popup } from "@/components"
+import { Button, GuessGrid, GuessInput, Popup, ScrollHint } from "@/components"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
@@ -105,6 +105,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   }, [activeMode, gameOver, won, guesses.length, sport.id, variantId])
 
   const autoOpenedRef = useRef(false)
+  const gridScrollRef = useRef<HTMLDivElement>(null)
   // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only auto-open
   useEffect(() => {
     if (autoOpenedRef.current) return
@@ -194,39 +195,46 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
       />
       {gameOver && answer && (
         <div
-          className={`px-4 py-3 text-center shrink-0 border-b-2 ${
-            lost
-              ? "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
-              : "bg-secondary-50 dark:bg-secondary-900 border-secondary-300 dark:border-secondary-700"
+          className={`shrink-0 px-4 py-3 text-center border-b-2 ${
+            won
+              ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
+              : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
           }`}
         >
-          {lost && (
-            <div className="text-base font-black tracking-widest text-error-500 dark:text-error-400 uppercase mb-1">
-              Game Over
-            </div>
-          )}
-          <div className="text-xs text-primary-500 dark:text-primary-200 mb-1">The answer was</div>
-          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
-            {String(answer.name)}
-          </div>
-          <div className="text-sm text-primary-500 dark:text-primary-200 mt-0.5 uppercase">
-            {String(answer.team ?? "")} &middot; {String(answer.position ?? "")} &middot; #
-            {String(answer.number ?? "")}
-          </div>
           <div
-            className={`text-sm mt-2 font-medium ${
+            className={`text-base font-black tracking-widest uppercase mb-1 ${
               won
                 ? "text-success-500 dark:text-success-400"
                 : "text-error-500 dark:text-error-400"
             }`}
           >
-            {won ? `Guessed in ${guesses.length}/6` : "Better luck tomorrow!"}
+            {won ? "Correct" : "Game Over"}
+          </div>
+          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
+            The answer was
+          </div>
+          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
+            {String(answer.name)}
+          </div>
+          <div
+            className={`text-sm mt-2 font-medium uppercase ${
+              won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400"
+            }`}
+          >
+            {won
+              ? `You got it in ${guesses.length} ${guesses.length === 1 ? "guess" : "guesses"}`
+              : "Better luck tomorrow!"}
           </div>
         </div>
       )}
       {answer && (
         <div className="flex-1 min-h-0 flex flex-col">
-          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none">
+          <div
+            ref={gridScrollRef}
+            className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
+          >
             <GuessGrid
               guesses={guesses}
               answer={answer}
@@ -235,12 +243,15 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
               columns={sport.columns}
             />
           </div>
-          <GuessInput
-            onGuess={handleGuess}
-            guessedIds={guessedIds}
-            disabled={gameOver}
-            players={guessablePlayers}
-          />
+          <ScrollHint scrollRef={gridScrollRef} />
+          {!gameOver && (
+            <GuessInput
+              onGuess={handleGuess}
+              guessedIds={guessedIds}
+              disabled={gameOver}
+              players={guessablePlayers}
+            />
+          )}
         </div>
       )}
       {gameOver && (

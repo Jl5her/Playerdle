@@ -54,7 +54,7 @@ export default function ColorsShell({ screen }: Props) {
   }
 
   function goToMenu() {
-    navigate("/colors")
+    navigate("/palette")
   }
 
   function closeGuide() {
@@ -83,10 +83,10 @@ export default function ColorsShell({ screen }: Props) {
       <>
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
           <ColorsMenu
-            onPlayDaily={() => navigate("/colors/states/daily")}
-            onPlayArcade={() => navigate("/colors/states/arcade")}
+            onPlayDaily={() => navigate("/palette/states/daily")}
+            onPlayArcade={() => navigate("/palette/states/arcade")}
             onShowStats={() =>
-              navigate("/colors/states/daily", { state: { showStats: true } })
+              navigate("/palette/states/daily", { state: { showStats: true } })
             }
             playedToday={playedToday}
           />
@@ -95,7 +95,7 @@ export default function ColorsShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/colors")}
+          onSelectColors={() => navigate("/palette")}
         />
       </>
     )
