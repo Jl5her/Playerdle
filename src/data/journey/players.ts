@@ -589,13 +589,6 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Western Michigan",
     teams: ["Tennessee Titans", "New York Jets", "Tennessee Titans"],
   },
-  {
-    id: "journey:michael-thomas",
-    name: "Michael Thomas",
-    position: "WR",
-    college: "Ohio State",
-    teams: ["New Orleans Saints", "Los Angeles Chargers", "Pittsburgh Steelers"],
-  },
 
   // Running Backs
   {
