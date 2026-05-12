@@ -394,8 +394,8 @@ function buildShareText(
   }).format(new Date())
   const url =
     typeof window !== "undefined"
-      ? `${window.location.origin}/palette/states/daily`
-      : "/palette/states/daily"
+      ? `${window.location.origin}/statehue/daily`
+      : "/statehue/daily"
 
   const answerName = puzzle.state.name.toLowerCase()
   const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {

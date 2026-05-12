@@ -27,9 +27,7 @@ export default function ColorsShell({ screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
   const playedToday = hasPlayedColorsDailyToday()
-  const initialShowStats = Boolean(
-    (location.state as { showStats?: boolean } | null)?.showStats,
-  )
+  const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
   const [isOnboarding, setIsOnboarding] = useState(false)
 
@@ -54,7 +52,7 @@ export default function ColorsShell({ screen }: Props) {
   }
 
   function goToMenu() {
-    navigate("/palette")
+    navigate("/geo")
   }
 
   function closeGuide() {
@@ -83,11 +81,9 @@ export default function ColorsShell({ screen }: Props) {
       <>
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
           <ColorsMenu
-            onPlayDaily={() => navigate("/palette/states/daily")}
-            onPlayArcade={() => navigate("/palette/states/arcade")}
-            onShowStats={() =>
-              navigate("/palette/states/daily", { state: { showStats: true } })
-            }
+            onPlayDaily={() => navigate("/statehue/daily")}
+            onPlayArcade={() => navigate("/statehue/arcade")}
+            onShowStats={() => navigate("/statehue/daily", { state: { showStats: true } })}
             playedToday={playedToday}
           />
         </div>
@@ -95,7 +91,7 @@ export default function ColorsShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/palette")}
+          onSelectColors={() => navigate("/geo")}
         />
       </>
     )

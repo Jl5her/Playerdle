@@ -27,15 +27,30 @@ export interface NavigationOptions {
   variantId?: string
 }
 
+export interface ExtraGame {
+  label: string
+  played: boolean
+  onPlayDaily: () => void
+  onShowStats: () => void
+}
+
 interface Props {
   onNavigate: (screen: Screen, options?: NavigationOptions) => void
   sport: SportInfo | SportConfig
   section: "menu" | "about" | "help" | "stats"
   onCloseAbout: () => void
   guideSport?: SportConfig | null
+  extraGames?: ExtraGame[]
 }
 
-export default function MainMenu({ onNavigate, sport, section, onCloseAbout, guideSport }: Props) {
+export default function MainMenu({
+  onNavigate,
+  sport,
+  section,
+  onCloseAbout,
+  guideSport,
+  extraGames,
+}: Props) {
   const variants = "variants" in sport ? (sport.variants ?? []) : []
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
@@ -154,6 +169,33 @@ export default function MainMenu({ onNavigate, sport, section, onCloseAbout, gui
                   </div>
                 )
               })}
+              {extraGames?.map(game => (
+                <div
+                  key={game.label}
+                  className="min-w-44 mx-auto flex items-center gap-2"
+                >
+                  <button
+                    className="flex-1 px-4 py-2 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300 whitespace-nowrap"
+                    onClick={game.onPlayDaily}
+                  >
+                    {game.label}
+                  </button>
+                  {game.played && (
+                    <button
+                      type="button"
+                      className="w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                      aria-label={`${game.label} stats`}
+                      title={`${game.label} stats`}
+                      onClick={game.onShowStats}
+                    >
+                      <FontAwesomeIcon
+                        icon={faChartColumn}
+                        className="text-lg"
+                      />
+                    </button>
+                  )}
+                </div>
+              ))}
               <button
                 className="mt-3 mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
                 onClick={() => onNavigate("all-stats")}

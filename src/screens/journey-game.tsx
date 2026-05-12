@@ -370,8 +370,8 @@ function buildShareText(
   }).format(new Date())
   const url =
     typeof window !== "undefined"
-      ? `${window.location.origin}/palette/journey/daily`
-      : "/palette/journey/daily"
+      ? `${window.location.origin}/journeyman/daily`
+      : "/journeyman/daily"
 
   const answerName = puzzle.player.name.toLowerCase()
   const targetPos = puzzle.player.position

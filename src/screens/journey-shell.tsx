@@ -27,14 +27,12 @@ export default function JourneyShell({ screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
   const playedToday = hasPlayedJourneyDailyToday()
-  const initialShowStats = Boolean(
-    (location.state as { showStats?: boolean } | null)?.showStats,
-  )
+  const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
   const [isOnboarding, setIsOnboarding] = useState(false)
 
   useEffect(() => {
-    document.title = "Journey"
+    document.title = "Journeyman"
   }, [])
 
   useEffect(() => {
@@ -54,7 +52,7 @@ export default function JourneyShell({ screen }: Props) {
   }
 
   function goToMenu() {
-    navigate("/palette")
+    navigate("/")
   }
 
   function closeGuide() {
@@ -83,11 +81,9 @@ export default function JourneyShell({ screen }: Props) {
       <>
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
           <JourneyMenu
-            onPlayDaily={() => navigate("/palette/journey/daily")}
-            onPlayArcade={() => navigate("/palette/journey/arcade")}
-            onShowStats={() =>
-              navigate("/palette/journey/daily", { state: { showStats: true } })
-            }
+            onPlayDaily={() => navigate("/journeyman/daily")}
+            onPlayArcade={() => navigate("/journeyman/arcade")}
+            onShowStats={() => navigate("/journeyman/daily", { state: { showStats: true } })}
             playedToday={playedToday}
           />
         </div>
@@ -95,7 +91,7 @@ export default function JourneyShell({ screen }: Props) {
           currentSportId="nfl"
           onSelectSport={handleSelectSport}
           colorsActive
-          onSelectColors={() => navigate("/palette")}
+          onSelectColors={() => navigate("/geo")}
         />
       </>
     )
@@ -121,7 +117,7 @@ export default function JourneyShell({ screen }: Props) {
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          Journey
+          Journeyman
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           {mode === "daily" ? "Daily puzzle" : "Arcade"}

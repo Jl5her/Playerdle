@@ -1,4 +1,4 @@
-import { faChartColumn, faPalette } from "@fortawesome/free-solid-svg-icons"
+import { faChartColumn, faMap } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useNavigate } from "react-router-dom"
 import { LeagueFooter } from "@/components"
@@ -6,7 +6,7 @@ import { type SportId } from "@/sports"
 import { hasPlayedColorsDailyToday } from "@/utils/colors-daily"
 import { hasPlayedJourneyDailyToday } from "@/utils/journey-daily"
 
-type GameSlug = "states" | "journey"
+type GameSlug = "statehue" | "journeyman"
 
 interface GameRow {
   slug: GameSlug
@@ -18,8 +18,8 @@ export default function PaletteHub() {
   const navigate = useNavigate()
 
   const rows: GameRow[] = [
-    { slug: "states", label: "Statehue", played: hasPlayedColorsDailyToday() },
-    { slug: "journey", label: "Journey", played: hasPlayedJourneyDailyToday() },
+    { slug: "statehue", label: "Statehue", played: hasPlayedColorsDailyToday() },
+    { slug: "journeyman", label: "Journeyman", played: hasPlayedJourneyDailyToday() },
   ]
 
   function handleSelectSport(sportId: SportId) {
@@ -31,14 +31,11 @@ export default function PaletteHub() {
   }
 
   function play(slug: GameSlug, mode: "daily" | "arcade") {
-    navigate(`/palette/${slug}/${mode}`)
+    navigate(`/${slug}/${mode}`)
   }
 
   function openStats(slug: GameSlug) {
-    // Both games auto-open the in-game slide-up Results panel when the daily
-    // is already over — clicking the stats button on the hub navigates there
-    // so the user can close the panel to inspect the game-over board.
-    navigate(`/palette/${slug}/daily`)
+    navigate(`/${slug}/daily`)
   }
 
   const today = new Date()
@@ -56,13 +53,13 @@ export default function PaletteHub() {
           <div className="text-center">
             <div className="mb-4 text-primary-700 dark:text-primary-200 sport-title-icon-glitch">
               <FontAwesomeIcon
-                icon={faPalette}
+                icon={faMap}
                 className="text-[3.4rem]"
                 aria-hidden="true"
               />
             </div>
             <h1 className="fa5-title text-4xl font-black tracking-wide text-primary-700 dark:text-primary-50 sport-title-text-glitch">
-              PALETTE
+              GEO GAMES
             </h1>
             <p className="text-base sm:text-lg font-semibold text-primary-700 dark:text-primary-200 mt-2 sport-title-text-glitch">
               Pick a daily puzzle.
@@ -120,7 +117,7 @@ export default function PaletteHub() {
         currentSportId="nfl"
         onSelectSport={handleSelectSport}
         colorsActive
-        onSelectColors={() => navigate("/palette")}
+        onSelectColors={() => navigate("/geo")}
       />
     </>
   )

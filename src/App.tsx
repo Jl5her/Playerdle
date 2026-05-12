@@ -7,8 +7,9 @@ import { GameGuideContent, type GuideMode } from "@/modals/game-guide-content"
 import { StatsContent } from "@/modals/stats-content"
 import { MainMenu } from "@/screens"
 import type { StatsModalConfig } from "@/screens/game"
-import type { NavigationOptions, Screen } from "@/screens/main-menu"
+import type { ExtraGame, NavigationOptions, Screen } from "@/screens/main-menu"
 import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/sports"
+import { hasPlayedJourneyDailyToday } from "@/utils/journey-daily"
 
 const Game = lazy(() => import("@/screens/game"))
 const ColorsShell = lazy(() => import("@/screens/colors-shell"))
@@ -188,9 +189,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       ...config,
       onPlayAgain: config.onPlayAgain
         ? () => {
-          config.onPlayAgain?.()
-          handleCloseStatsModal()
-        }
+            config.onPlayAgain?.()
+            handleCloseStatsModal()
+          }
         : undefined,
     })
     setActiveGameOverlay("stats")
@@ -269,6 +270,15 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   const isMenuView = screen === "menu" || screen === "help"
 
+  const nflExtraGames: ExtraGame[] = [
+    {
+      label: "Journeyman",
+      played: hasPlayedJourneyDailyToday(),
+      onPlayDaily: () => navigate("/journeyman/daily"),
+      onShowStats: () => navigate("/journeyman/daily", { state: { showStats: true } }),
+    },
+  ]
+
   return (
     <>
       {isMenuView && (
@@ -279,6 +289,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             section={menuSection}
             onCloseAbout={handleAboutBack}
             guideSport={activeSport ?? sport}
+            extraGames={sportId === "nfl" ? nflExtraGames : undefined}
           />
         </div>
       )}
@@ -390,7 +401,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <LeagueFooter
           currentSportId={sportId}
           onSelectSport={handleSelectSport}
-          onSelectColors={() => navigate("/palette")}
+          onSelectColors={() => navigate("/geo")}
         />
       )}
     </>
@@ -495,22 +506,36 @@ function App() {
           />
         }
       />
-      {/* Palette hub at /palette lists both mini-games. */}
+      {/* Geo hub at /geo lists both mini-games. /palette redirects for backwards compatibility. */}
       <Route
-        path="/palette"
+        path="/geo"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PaletteHub />
           </Suspense>
         }
       />
-      {/* Statehue lives under /palette/states. Menu route folds into the hub. */}
       <Route
-        path="/palette/states"
-        element={<Navigate to="/palette" replace />}
+        path="/palette"
+        element={
+          <Navigate
+            to="/geo"
+            replace
+          />
+        }
+      />
+      {/* Statehue lives under /statehue. Old /palette/states/* redirects for backwards compatibility. */}
+      <Route
+        path="/statehue"
+        element={
+          <Navigate
+            to="/geo"
+            replace
+          />
+        }
       />
       <Route
-        path="/palette/states/daily"
+        path="/statehue/daily"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="daily" />
@@ -518,7 +543,7 @@ function App() {
         }
       />
       <Route
-        path="/palette/states/arcade"
+        path="/statehue/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsShell screen="arcade" />
@@ -526,20 +551,61 @@ function App() {
         }
       />
       <Route
-        path="/palette/states/calendar"
+        path="/statehue/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsCalendar />
           </Suspense>
         }
       />
-      {/* Journey menu route folds into the hub. */}
       <Route
-        path="/palette/journey"
-        element={<Navigate to="/palette" replace />}
+        path="/palette/states"
+        element={
+          <Navigate
+            to="/geo"
+            replace
+          />
+        }
       />
       <Route
-        path="/palette/journey/daily"
+        path="/palette/states/daily"
+        element={
+          <Navigate
+            to="/statehue/daily"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/palette/states/arcade"
+        element={
+          <Navigate
+            to="/statehue/arcade"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/palette/states/calendar"
+        element={
+          <Navigate
+            to="/statehue/calendar"
+            replace
+          />
+        }
+      />
+      {/* Journeyman lives under /journeyman. Old /palette/journey/* redirects for backwards compatibility. */}
+      <Route
+        path="/journeyman"
+        element={
+          <Navigate
+            to="/"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/journeyman/daily"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyShell screen="daily" />
@@ -547,7 +613,7 @@ function App() {
         }
       />
       <Route
-        path="/palette/journey/arcade"
+        path="/journeyman/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyShell screen="arcade" />
@@ -555,11 +621,47 @@ function App() {
         }
       />
       <Route
-        path="/palette/journey/calendar"
+        path="/journeyman/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <JourneyCalendar />
           </Suspense>
+        }
+      />
+      <Route
+        path="/palette/journey"
+        element={
+          <Navigate
+            to="/"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/palette/journey/daily"
+        element={
+          <Navigate
+            to="/journeyman/daily"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/palette/journey/arcade"
+        element={
+          <Navigate
+            to="/journeyman/arcade"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/palette/journey/calendar"
+        element={
+          <Navigate
+            to="/journeyman/calendar"
+            replace
+          />
         }
       />
       <Route

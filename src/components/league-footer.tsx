@@ -3,7 +3,7 @@ import {
   faBasketball,
   faFootball,
   faHockeyPuck,
-  faPalette,
+  faMap,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getAllSportMeta, type SportId } from "@/sports"
@@ -77,8 +77,8 @@ export default function LeagueFooter({
         })}
         <button
           type="button"
-          title="Colors"
-          aria-label="Switch to Colors"
+          title="Geo Games"
+          aria-label="Switch to Geo Games"
           className={`w-10 h-10 rounded-full transition-colors inline-flex items-center justify-center ${
             colorsActive
               ? "cursor-default bg-primary-700/10 text-primary-700 ring-1 ring-primary-500/20 dark:bg-primary-200/12 dark:text-primary-100 dark:ring-primary-300/22"
@@ -87,7 +87,7 @@ export default function LeagueFooter({
           onClick={() => onSelectColors?.()}
         >
           <FontAwesomeIcon
-            icon={faPalette}
+            icon={faMap}
             className="text-[1.35rem]"
           />
         </button>
