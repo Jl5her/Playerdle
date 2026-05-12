@@ -20,7 +20,7 @@ export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
   Georgia: ["#BA0C2F", "#000000", "#FFFFFF"],
   Harvard: ["#A51C30", "#FFFFFF", "#000000"],
   Houston: ["#C8102E", "#FFFFFF", "#76777B"],
-  Indiana State: ["#0033A0", "#FFFFFF", "#000000"],
+  "Indiana State": ["#0033A0", "#FFFFFF", "#000000"],
   Iowa: ["#000000", "#FFCD00", "#FFFFFF"],
   Kentucky: ["#0033A0", "#FFFFFF", "#000000"],
   Louisville: ["#AD0000", "#000000", "#FFFFFF"],
