@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom"
 import { LeagueFooter } from "@/components"
 import { type SportId } from "@/sports"
 import { hasPlayedColorsDailyToday } from "@/utils/colors-daily"
-import { hasPlayedJourneyDailyToday } from "@/utils/journey-daily"
 
-type GameSlug = "statehue" | "journeyman"
+type GameSlug = "statehue"
 
 interface GameRow {
   slug: GameSlug
@@ -19,7 +18,6 @@ export default function PaletteHub() {
 
   const rows: GameRow[] = [
     { slug: "statehue", label: "Statehue", played: hasPlayedColorsDailyToday() },
-    { slug: "journeyman", label: "Journeyman", played: hasPlayedJourneyDailyToday() },
   ]
 
   function handleSelectSport(sportId: SportId) {
