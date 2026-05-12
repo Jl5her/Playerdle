@@ -384,7 +384,7 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Journey #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  return `Journeyman #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
 }
 
 function ResultsPanel({
