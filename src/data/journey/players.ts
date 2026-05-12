@@ -10,6 +10,7 @@ export interface JourneyPlayer {
   position: string
   college: string
   teams: string[] // chronological: oldest stint first, current/last team last
+  espnId?: string // ESPN athlete ID for direct API lookups
 }
 
 export const JOURNEY_PLAYERS: JourneyPlayer[] = [
