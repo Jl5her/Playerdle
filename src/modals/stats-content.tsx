@@ -1,5 +1,6 @@
 import confetti from "canvas-confetti"
 import { useEffect, useRef, useState } from "react"
+import { Popup } from "@/components"
 import type { GameMode } from "@/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/sports"
 import { calculateStats } from "@/utils/stats"
@@ -74,26 +75,58 @@ export function StatsContent({
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
-  async function handleShare() {
-    if (!player) return
-    const shareText = generateShareText(guesses, player, won, sport)
+  function showCopiedPill() {
+    setCopied(true)
+    setTimeout(() => setCopied(false), 3000)
+  }
 
-    if (typeof navigator.share === "function") {
-      try {
-        await navigator.share({ text: shareText })
-        return
-      } catch (err) {
-        if (err instanceof DOMException && err.name === "AbortError") return
-      }
+  function copyToClipboard(text: string) {
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(text)
+        .then(showCopiedPill)
+        .catch(() => legacyCopyToClipboard(text))
+      return
     }
+    legacyCopyToClipboard(text)
+  }
 
+  function legacyCopyToClipboard(text: string) {
     try {
-      await navigator.clipboard.writeText(shareText)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      const textarea = document.createElement("textarea")
+      textarea.value = text
+      textarea.setAttribute("readonly", "")
+      textarea.style.position = "fixed"
+      textarea.style.opacity = "0"
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand("copy")
+      document.body.removeChild(textarea)
+      showCopiedPill()
     } catch (err) {
       console.error("Failed to copy:", err)
     }
+  }
+
+  function handleShare() {
+    if (!player) return
+    const shareText = generateShareText(guesses, player, won, sport)
+    const shareData: ShareData = { title: "Playerdle", text: shareText }
+
+    const canUseShare =
+      typeof navigator.share === "function" &&
+      (typeof navigator.canShare !== "function" || navigator.canShare(shareData))
+
+    if (canUseShare) {
+      navigator.share(shareData).catch(err => {
+        if (err instanceof DOMException && err.name === "AbortError") return
+        console.warn("Web Share failed, falling back to clipboard:", err)
+        copyToClipboard(shareText)
+      })
+      return
+    }
+
+    copyToClipboard(shareText)
   }
 
   useEffect(() => {
@@ -143,6 +176,11 @@ export function StatsContent({
 
   return (
     <div className="text-center px-6 py-8">
+      <Popup
+        visible={copied}
+        message="Copied to clipboard!"
+        durationMs={3000}
+      />
       {mode === "daily" ? (
         <>
           <h2 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-4 mt-0 uppercase text-left">

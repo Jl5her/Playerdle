@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { Button, GuessGrid, GuessInput, Popup } from "@/components"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
@@ -83,6 +83,19 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   const isFanatic = variantId === "fanatic"
 
   const guessedIds = new Set(guesses.map(g => g.id))
+
+  const guessablePlayers = useMemo(() => {
+    const allowedPositions = new Set<string>()
+    for (const p of sport.answerPool) {
+      if (p.position !== undefined && p.position !== null) {
+        allowedPositions.add(String(p.position))
+      }
+    }
+    if (allowedPositions.size === 0) return sport.players
+    return sport.players.filter(
+      p => p.position !== undefined && p.position !== null && allowedPositions.has(String(p.position)),
+    )
+  }, [sport.players, sport.answerPool])
 
   useEffect(() => {
     if (mode === "daily" && gameOver) {
@@ -214,7 +227,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
             onGuess={handleGuess}
             guessedIds={guessedIds}
             disabled={gameOver}
-            players={sport.players}
+            players={guessablePlayers}
           />
         </div>
       )}
