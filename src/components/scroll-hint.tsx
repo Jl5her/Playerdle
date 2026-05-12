@@ -18,11 +18,38 @@ export default function ScrollHint({ scrollRef }: Props) {
     const el = scrollRef.current
     if (!el) return
 
+    function isOnScreen(): boolean {
+      if (!el) return false
+      // checkVisibility catches opacity:0 / visibility:hidden / display:none on
+      // any ancestor — e.g. a crossfade-inactive panel covering this scroller.
+      type ElWithCheck = HTMLElement & {
+        checkVisibility?: (opts?: {
+          checkOpacity?: boolean
+          checkVisibilityCSS?: boolean
+        }) => boolean
+      }
+      const elWithCheck = el as ElWithCheck
+      if (typeof elWithCheck.checkVisibility === "function") {
+        if (
+          !elWithCheck.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })
+        ) {
+          return false
+        }
+      } else if (!el.offsetParent && getComputedStyle(el).position !== "fixed") {
+        return false
+      }
+      // Catches transform-translated off-screen panels (slide-up-inactive).
+      const rect = el.getBoundingClientRect()
+      if (rect.width === 0 || rect.height === 0) return false
+      if (rect.bottom <= 0 || rect.top >= window.innerHeight) return false
+      return true
+    }
+
     function update() {
       if (!el) return
       const hasOverflow = el.scrollHeight > el.clientHeight + 4
       const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 12
-      const visible = hasOverflow && !atBottom
+      const visible = hasOverflow && !atBottom && isOnScreen()
       if (!visible) {
         setState(s => (s.visible ? { ...s, visible: false } : s))
         return
@@ -34,6 +61,11 @@ export default function ScrollHint({ scrollRef }: Props) {
     update()
     el.addEventListener("scroll", update, { passive: true })
     window.addEventListener("resize", update)
+    // Catches ancestor class/style flips (e.g. crossfade-active toggling) that
+    // change the scroller's visibility without firing scroll/resize.
+    document.addEventListener("transitionrun", update, true)
+    document.addEventListener("transitionend", update, true)
+    document.addEventListener("transitioncancel", update, true)
     const ro = new ResizeObserver(update)
     ro.observe(el)
     const mo = new MutationObserver(update)
@@ -42,6 +74,9 @@ export default function ScrollHint({ scrollRef }: Props) {
     return () => {
       el.removeEventListener("scroll", update)
       window.removeEventListener("resize", update)
+      document.removeEventListener("transitionrun", update, true)
+      document.removeEventListener("transitionend", update, true)
+      document.removeEventListener("transitioncancel", update, true)
       ro.disconnect()
       mo.disconnect()
     }
