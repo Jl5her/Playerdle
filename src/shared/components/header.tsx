@@ -1,6 +1,6 @@
 import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import type { SportInfo } from "@/sports"
+import type { SportInfo } from "@/games/playerdle/sports"
 
 interface Props {
   onShowTutorial?: () => void

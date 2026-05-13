@@ -2,8 +2,8 @@ import type { ReactNode } from "react"
 import Button from "./button"
 import Popup from "./popup"
 import ResultsSlidePanel from "./results-slide-panel"
-import { useAutoResults } from "@/hooks/use-auto-results"
-import { useResultsKeyboard } from "@/hooks/use-results-keyboard"
+import { useAutoResults } from "@/shared/hooks/use-auto-results"
+import { useResultsKeyboard } from "@/shared/hooks/use-results-keyboard"
 
 interface ResultsApi {
   onClose: () => void

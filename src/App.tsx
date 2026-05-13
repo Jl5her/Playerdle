@@ -2,22 +2,22 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
-import { Header, LeagueFooter } from "@/components"
-import { GameGuideContent, type GuideMode } from "@/modals/game-guide-content"
-import { StatsContent } from "@/modals/stats-content"
-import { MainMenu } from "@/screens"
-import type { StatsModalConfig } from "@/screens/game"
-import type { ExtraGame, NavigationOptions, Screen } from "@/screens/main-menu"
-import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/sports"
-import { hasPlayedJourneyDailyToday } from "@/utils/journey-daily"
+import { Header, LeagueFooter } from "@/shared/components"
+import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
+import { StatsContent } from "@/games/playerdle/modals/stats-content"
+import { MainMenu } from "@/games/playerdle/screens"
+import type { StatsModalConfig } from "@/games/playerdle/screens/game"
+import type { ExtraGame, NavigationOptions, Screen } from "@/games/playerdle/screens/main-menu"
+import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/games/playerdle/sports"
+import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
 
-const Game = lazy(() => import("@/screens/game"))
-const ColorsShell = lazy(() => import("@/screens/colors-shell"))
-const ColorsCalendar = lazy(() => import("@/screens/colors-calendar"))
-const PlayerCalendar = lazy(() => import("@/screens/player-calendar"))
-const PaletteHub = lazy(() => import("@/screens/palette-hub"))
-const JourneyShell = lazy(() => import("@/screens/journey-shell"))
-const JourneyCalendar = lazy(() => import("@/screens/journey-calendar"))
+const Game = lazy(() => import("@/games/playerdle/screens/game"))
+const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
+const ColorsCalendar = lazy(() => import("@/games/statehue/screens/colors-calendar"))
+const PlayerCalendar = lazy(() => import("@/games/playerdle/screens/player-calendar"))
+const PaletteHub = lazy(() => import("@/games/statehue/screens/palette-hub"))
+const JourneyShell = lazy(() => import("@/games/journeyman/screens/journey-shell"))
+const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"

@@ -19,7 +19,7 @@ const ROOT = resolve(__dirname, "..")
 async function main() {
   const poolPath = resolve(ROOT, "src/data/journey/answer_pool.json")
 
-  const { ELIGIBLE_JOURNEY_PLAYERS } = await import("../src/data/journey/players.ts")
+  const { ELIGIBLE_JOURNEY_PLAYERS } = await import("../src/games/journeyman/data/journey/players.ts")
   const currentPool: string[] = JSON.parse(readFileSync(poolPath, "utf-8"))
 
   const inPool = new Set(currentPool)

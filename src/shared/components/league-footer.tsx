@@ -6,7 +6,7 @@ import {
   faMap,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { getAllSportMeta, type SportId } from "@/sports"
+import { getAllSportMeta, type SportId } from "@/games/playerdle/sports"
 
 interface Props {
   currentSportId: SportId

@@ -1,4 +1,4 @@
-import { getAllSportMeta, loadSportConfig, validateAllSportConfigs } from "../src/sports"
+import { getAllSportMeta, loadSportConfig, validateAllSportConfigs } from "../src/games/playerdle/sports"
 
 async function main() {
   const sports = await Promise.all(getAllSportMeta().map(meta => loadSportConfig(meta.id)))
