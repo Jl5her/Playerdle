@@ -405,7 +405,7 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Journeyman (${dateStr}) — ${score}\n${rank}\n${emojiRow}\n${url}`
+  return `Journeyman (${dateStr}) — ${score}\n${rank}\n${emojiRow}\n\n${url}`
 }
 
 function ResultsPanel({
