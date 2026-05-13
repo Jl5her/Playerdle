@@ -107,9 +107,7 @@ function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: 
             <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
               {team.league}
             </div>
-            <div className="text-primary-900 dark:text-primary-50 font-semibold">
-              {team.name}
-            </div>
+            <div className="text-primary-900 dark:text-primary-50 font-semibold">{team.name}</div>
           </div>
         )}
       </div>
@@ -603,10 +601,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
     }
   }, [gameOver, activeMode, stats, variant])
 
-  const confettiColors = useMemo(
-    () => puzzle.teams.flatMap(t => t.colors),
-    [puzzle.teams],
-  )
+  const confettiColors = useMemo(() => puzzle.teams.flatMap(t => t.colors), [puzzle.teams])
   useWinConfetti({
     won,
     colors: confettiColors,
@@ -662,7 +657,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
                   {answerShape && (
                     <svg
                       viewBox={answerShape.viewBox}
-                      className="w-8 h-8 text-primary-900 dark:text-primary-50"
+                      className="w-8 h-8"
                       fill="currentColor"
                       stroke="currentColor"
                       strokeWidth={1}

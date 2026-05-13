@@ -14,23 +14,33 @@ export default function ResultBanner({
   guessCount,
   lossMessage = "Better luck tomorrow!",
 }: Props) {
+  const statusColor = won
+    ? "text-success-500 dark:text-success-400"
+    : "text-error-500 dark:text-error-400"
+
+  const answerColor = won
+    ? "text-success-800 dark:text-success-300"
+    : "text-primary-900 dark:text-primary-50"
+
   return (
     <div
       className={clsx(
-        "shrink-0 px-4 py-4 text-center mt-1",
-        won ? "bg-success-600 dark:bg-success-700" : "bg-error-600 dark:bg-error-700",
+        "shrink-0 px-4 py-4 text-center border-y-2 mt-1",
+        won
+          ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
+          : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60",
       )}
     >
-      <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+      <div className={clsx("text-xs font-bold uppercase tracking-[0.2em]", statusColor)}>
         {won ? "Correct" : "Game Over"}
       </div>
-      <div className="text-[11px] font-medium uppercase tracking-wider text-white/60 mt-2">
+      <div className="text-[11px] font-medium uppercase tracking-wider text-primary-500 dark:text-primary-200 opacity-70 mt-2">
         The answer was
       </div>
-      <div className="text-3xl font-black uppercase tracking-tight text-white mt-1">
+      <div className={clsx("text-3xl font-black uppercase tracking-tight mt-1", answerColor)}>
         {answer}
       </div>
-      <div className="text-sm font-medium uppercase mt-3 text-white/80">
+      <div className={clsx("text-sm font-medium uppercase mt-3", statusColor)}>
         {won
           ? `You got it in ${guessCount} ${guessCount === 1 ? "guess" : "guesses"}`
           : lossMessage}
