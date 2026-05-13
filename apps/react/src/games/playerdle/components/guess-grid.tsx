@@ -9,6 +9,7 @@ interface GuessGridProps {
   maxGuesses: number
   latestIndex: number
   columns: SportColumn[]
+  hideAnswer?: boolean
 }
 
 export default function GuessGrid({
@@ -17,6 +18,7 @@ export default function GuessGrid({
   maxGuesses,
   latestIndex,
   columns,
+  hideAnswer = false,
 }: Readonly<GuessGridProps>) {
   const rowRefs = useRef<(HTMLDivElement | null)[]>([])
   const isCompactLayout = columns.length > 5
@@ -55,6 +57,7 @@ export default function GuessGrid({
             ref={el => {
               rowRefs.current[i] = el
             }}
+            className={clsx(hideAnswer && guesses[i].id === answer.id && "blur-sm select-none")}
           >
             <GuessRow
               result={{ guess: guesses[i], answer }}

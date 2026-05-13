@@ -175,9 +175,10 @@ interface GuessSlotsProps {
   answerName: string
   targetPosition: string
   maxGuesses: number
+  hideAnswer?: boolean
 }
 
-function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSlotsProps) {
+function GuessSlots({ guesses, answerName, targetPosition, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
 
@@ -214,9 +215,9 @@ function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSl
               tone,
             )}
           >
-            <span className="block text-center">{guess ?? "—"}</span>
+            <span className={clsx("block text-center", hideAnswer && isCorrect && "blur-sm select-none")}>{guess ?? "—"}</span>
             {position && (
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70">
+              <span className={clsx("absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70", hideAnswer && isCorrect && "blur-sm select-none")}>
                 {position}
               </span>
             )}
@@ -685,6 +686,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
               answerName={answerName}
               targetPosition={puzzle.player.position}
               maxGuesses={MAX_GUESSES}
+              hideAnswer={hideAnswer}
             />
           </div>
         </div>

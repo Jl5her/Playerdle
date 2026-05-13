@@ -120,6 +120,7 @@ interface GuessSlotsProps {
   guesses: string[]
   answer: ColorsState
   maxGuesses: number
+  hideAnswer?: boolean
 }
 
 function StateBadge({ code, dim }: { code: string; dim?: boolean }) {
@@ -184,7 +185,7 @@ function CompassArrow({ fromCode, toCode }: { fromCode: string; toCode: string }
   )
 }
 
-function GuessSlots({ guesses, answer, maxGuesses }: GuessSlotsProps) {
+function GuessSlots({ guesses, answer, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
   const answerCode = answer.id
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
@@ -220,7 +221,7 @@ function GuessSlots({ guesses, answer, maxGuesses }: GuessSlotsProps) {
               code={code ?? "??"}
               dim={!guess}
             />
-            <span className="flex-1 text-center">{guess ?? "—"}</span>
+            <span className={clsx("flex-1 text-center", hideAnswer && isCorrect && "blur-sm select-none")}>{guess ?? "—"}</span>
             {guess && !isCorrect && code ? (
               <CompassArrow
                 fromCode={code}
@@ -692,6 +693,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
               guesses={guesses}
               answer={puzzle.state}
               maxGuesses={MAX_GUESSES}
+              hideAnswer={hideAnswer}
             />
           </div>
         </div>

@@ -83,6 +83,7 @@ export default function Game({ mode, sport, variantId }: Props) {
   const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport, variantId))
   const [latestIndex, setLatestIndex] = useState(-1)
   const [showPositionPopup, setShowPositionPopup] = useState(false)
+  const [hideAnswer, setHideAnswer] = useState(false)
   const positionLockedShownRef = useRef(false)
 
   const won = !!(answer && guesses.some(g => g.id === answer.id))
@@ -210,6 +211,8 @@ export default function Game({ mode, sport, variantId }: Props) {
           won={won}
           answer={String(answer.name)}
           guessCount={guesses.length}
+          hideAnswer={hideAnswer}
+          onToggleHide={() => setHideAnswer(h => !h)}
         />
       )}
       {answer && (
@@ -224,6 +227,7 @@ export default function Game({ mode, sport, variantId }: Props) {
               maxGuesses={MAX_GUESSES}
               latestIndex={latestIndex}
               columns={sport.columns}
+              hideAnswer={hideAnswer}
             />
           </div>
           <ScrollHint scrollRef={gridScrollRef} />
