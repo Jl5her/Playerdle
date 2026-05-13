@@ -15,6 +15,7 @@ dist-ssr
 # Build tool caches
 .turbo
 .vite
+.expo
 
 # Editor directories and files
 .vscode/*

@@ -17,6 +17,17 @@ export function hashString(str: string): number {
   return mix32(h >>> 0)
 }
 
+export function pickRandom<T>(
+  items: readonly T[],
+  getId: (item: T) => string,
+  excludeId?: string,
+): T {
+  const pool = excludeId ? items.filter(item => getId(item) !== excludeId) : items
+  const source = pool.length > 0 ? pool : items
+  if (source.length === 0) throw new Error("pickRandom: empty pool")
+  return source[Math.floor(Math.random() * source.length)]!
+}
+
 export function minHashPick<T>(
   items: readonly T[],
   getId: (item: T) => string,

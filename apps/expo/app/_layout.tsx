@@ -1,4 +1,4 @@
-import "@/global.css"
+import "../src/global.css"
 import { Stack } from "expo-router"
 import { StatusBar } from "expo-status-bar"
 
@@ -15,6 +15,7 @@ export default function RootLayout() {
       >
         <Stack.Screen name="index" options={{ title: "Playerdle" }} />
         <Stack.Screen name="daily" options={{ title: "Daily" }} />
+        <Stack.Screen name="arcade" options={{ title: "Arcade" }} />
       </Stack>
     </>
   )
