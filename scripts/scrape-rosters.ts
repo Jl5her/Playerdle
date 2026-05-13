@@ -243,7 +243,7 @@ function dedupePlayers(players: GeneratedPlayer[]): GeneratedPlayer[] {
 
 async function buildSportData(target: TargetSport, testMode: boolean) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const outputDir = resolve(__dirname, "..", "src", "data", target)
+  const outputDir = resolve(__dirname, "..", "packages", "data", "src", "playerdle", target)
   mkdirSync(outputDir, { recursive: true })
 
   console.log(`\nBuilding ${target.toUpperCase()} data...`)

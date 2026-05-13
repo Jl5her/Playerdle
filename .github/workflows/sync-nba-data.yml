@@ -15,4 +15,4 @@ jobs:
     with:
       league: nba
       scrape_command: pnpm run scrape:nba
-      data_path: src/data/nba
+      data_path: packages/data/src/playerdle/nba

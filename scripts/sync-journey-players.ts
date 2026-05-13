@@ -10,6 +10,7 @@ import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
+const DATA_ROOT = resolve(ROOT, "packages/data/src")
 
 interface SyncPlayer {
   id: string
@@ -21,7 +22,7 @@ interface SyncPlayer {
 }
 
 // Maps historical/relocated franchise names to current canonical display names
-// used in src/data/nfl/teams.json.
+// used in packages/data/src/playerdle/nfl/teams.json.
 const TEAM_NAME_MAP: Record<string, string> = {
   "Washington Redskins": "Washington Commanders",
   "Washington Football Team": "Washington Commanders",
@@ -50,7 +51,7 @@ async function sleep(ms: number): Promise<void> {
 // Build a name → espnId map from the current NFL players.json (active rosters).
 // IDs in players.json are formatted as "nfl:XXXXXXX".
 function buildRosterNameMap(): Map<string, string> {
-  const path = resolve(ROOT, "src/data/nfl/players.json")
+  const path = resolve(DATA_ROOT, "playerdle/nfl/players.json")
   const players = JSON.parse(readFileSync(path, "utf-8")) as Array<{ id: string; name: string }>
   const map = new Map<string, string>()
   for (const p of players) {
@@ -208,7 +209,7 @@ function generatePlayersTs(players: SyncPlayer[]): string {
 
   return `// Curated NFL players (active or retired in the last ~10 years) who have
 // played for at least 3 NFL teams. Team names match the CURRENT franchise
-// display name in src/data/nfl/teams.json (so color lookups resolve), even
+// display name in packages/data/src/playerdle/nfl/teams.json (so color lookups resolve), even
 // when the player's stint predates a rebrand (e.g., Oakland → Las Vegas,
 // Redskins → Commanders, St. Louis Rams → Los Angeles Rams).
 
@@ -255,11 +256,11 @@ async function main() {
   console.log("Syncing NFL journey player data with ESPN...\n")
 
   // Dynamically import current players (tsx resolves TypeScript at runtime).
-  const mod = await import("../src/data/journey/players.ts")
+  const mod = await import("../packages/data/src/journeyman/players.ts")
   const players: SyncPlayer[] = (mod.JOURNEY_PLAYERS as SyncPlayer[]).map(p => ({ ...p }))
 
   const teamsJson = JSON.parse(
-    readFileSync(resolve(ROOT, "src/data/nfl/teams.json"), "utf-8"),
+    readFileSync(resolve(DATA_ROOT, "playerdle/nfl/teams.json"), "utf-8"),
   ) as Array<{ name: string }>
   const validTeamNames = new Set(teamsJson.map(t => t.name))
 
@@ -395,7 +396,7 @@ async function main() {
   }
 
   // ── Regenerate players.ts ──────────────────────────────────────────────────
-  const outPath = resolve(ROOT, "src/data/journey/players.ts")
+  const outPath = resolve(DATA_ROOT, "journeyman/players.ts")
   writeFileSync(outPath, generatePlayersTs(players), "utf-8")
   console.log(`\nWrote ${players.length} players to ${outPath}`)
 

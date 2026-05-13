@@ -15,4 +15,4 @@ jobs:
     with:
       league: nhl
       scrape_command: pnpm run scrape:nhl
-      data_path: src/data/nhl
+      data_path: packages/data/src/playerdle/nhl

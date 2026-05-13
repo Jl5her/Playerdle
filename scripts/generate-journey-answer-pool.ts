@@ -2,7 +2,7 @@
 
 // Append-only pool manager for the journey daily puzzle.
 //
-// Run this manually after adding new players to src/data/journey/players.ts.
+// Run this manually after adding new players to packages/data/src/journeyman/players.ts.
 // It never reorders or removes existing entries — only appends newly eligible
 // player IDs — so no existing date → player mappings ever change.
 //
@@ -15,11 +15,12 @@ import { fileURLToPath } from "node:url"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
+const DATA_ROOT = resolve(ROOT, "packages/data/src")
 
 async function main() {
-  const poolPath = resolve(ROOT, "src/data/journey/answer_pool.json")
+  const poolPath = resolve(DATA_ROOT, "journeyman/answer_pool.json")
 
-  const { ELIGIBLE_JOURNEY_PLAYERS } = await import("../src/data/journey/players.ts")
+  const { ELIGIBLE_JOURNEY_PLAYERS } = await import("../packages/data/src/journeyman/players.ts")
   const currentPool: string[] = JSON.parse(readFileSync(poolPath, "utf-8"))
 
   const inPool = new Set(currentPool)

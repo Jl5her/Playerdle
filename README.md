@@ -11,9 +11,14 @@ Currently, two official plugins are available:
 
 This project is configured for Cloudflare Pages native builds.
 
-- Build command: `pnpm build` (or `pnpm run build:pages`)
-- Build output directory: `dist`
+- Build command: `pnpm build` (root delegates to `pnpm --filter playerdle-react build`)
+- Build output directory: `apps/react/dist`
+- Root directory: repository root (leave blank in the Cloudflare Pages dashboard)
 - Build cache: enabled in the Cloudflare Pages dashboard
+
+> ⚠️ If you migrated this project to the monorepo layout, update the
+> "Build output directory" in `Workers & Pages -> <project> -> Settings -> Build`
+> from `dist` to `apps/react/dist`.
 
 ### Cache behavior
 

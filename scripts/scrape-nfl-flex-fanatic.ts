@@ -202,13 +202,13 @@ async function fetchPositionRows(position: FlexPosition): Promise<FantasyProsFle
 
 function loadNflPlayers(): NflPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "src", "data", "nfl", "players.json")
+  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "players.json")
   return JSON.parse(readFileSync(playersPath, "utf-8")) as NflPlayer[]
 }
 
 function loadClassicAnswerPoolIds(): Set<string> {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const answerPoolPath = resolve(__dirname, "..", "src", "data", "nfl", "answer_pool.json")
+  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "answer_pool.json")
   return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
 }
 
@@ -280,8 +280,8 @@ function buildCuratedAnswerPool(
 
 function writeData(players: FanaticFlexPlayer[], answerPoolIds: string[]) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "src", "data", "nfl", "fanatic_players.json")
-  const answerPoolPath = resolve(__dirname, "..", "src", "data", "nfl", "fanatic_answer_pool.json")
+  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "fanatic_players.json")
+  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "fanatic_answer_pool.json")
 
   writeFileSync(playersPath, `${JSON.stringify(players, null, 2)}\n`, "utf-8")
   writeFileSync(answerPoolPath, `${JSON.stringify(answerPoolIds, null, 2)}\n`, "utf-8")
