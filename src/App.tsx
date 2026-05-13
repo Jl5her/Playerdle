@@ -1,14 +1,22 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faMap, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
-import { Header, LeagueFooter } from "@/shared/components"
+import { LeagueFooter, type FooterTab } from "@/shared/components"
+import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import { MainMenu } from "@/games/playerdle/screens"
 import type { StatsModalConfig } from "@/games/playerdle/screens/game"
 import type { ExtraGame, NavigationOptions, Screen } from "@/games/playerdle/screens/main-menu"
-import { getSportMetaById, loadSportConfig, resolveSportConfig, type SportConfig } from "@/games/playerdle/sports"
+import {
+  getAllSportMeta,
+  getSportIcon,
+  getSportMetaById,
+  loadSportConfig,
+  resolveSportConfig,
+  type SportConfig,
+} from "@/games/playerdle/sports"
 import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -385,9 +393,22 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       )}
       {isMenuView && (
         <LeagueFooter
-          currentSportId={sportId}
-          onSelectSport={handleSelectSport}
-          onSelectColors={() => navigate("/statehue")}
+          tabs={[
+            ...getAllSportMeta().map<FooterTab>(sport => ({
+              id: sport.id,
+              icon: getSportIcon(sport.id),
+              label: sport.displayName,
+              active: sport.id === sportId,
+              onSelect: () => handleSelectSport(sport.id),
+            })),
+            {
+              id: "statehue",
+              icon: faMap,
+              label: "Statehue",
+              active: false,
+              onSelect: () => navigate("/statehue"),
+            },
+          ]}
         />
       )}
     </>

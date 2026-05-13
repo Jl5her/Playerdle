@@ -10,9 +10,9 @@ import {
   ShareButton,
 } from "@/shared/components"
 import nflPlayers from "@/games/playerdle/data/nfl/players.json"
-import { getCollegePalette } from "@/games/journeyman/data/journey/college-colors"
-import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@/games/journeyman/data/journey/players"
-import { getNflTeamPalette } from "@/games/journeyman/data/journey/team-colors"
+import { getCollegePalette } from "@/games/journeyman/data/college-colors"
+import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@/games/journeyman/data/players"
+import { getNflTeamPalette } from "@/games/journeyman/data/team-colors"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import {
   getArcadeJourneyPuzzle,

@@ -1,101 +1,20 @@
-import { faMap, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faMap } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { LeagueFooter } from "@/shared/components"
+import {
+  AboutFooter,
+  type FooterTab,
+  GameModeButton,
+  LeagueFooter,
+  MenuLinkButton,
+  MenuOverlay,
+} from "@/shared/components"
 import ColorsStatsOverlay from "@/games/statehue/screens/colors-stats-overlay"
-import { type SportId } from "@/games/playerdle/sports"
+import { getAllSportMeta, getSportIcon, type SportId } from "@/games/playerdle/sports"
 import { hasPlayedColorsDailyToday } from "@/games/statehue/utils/colors-daily"
 
 type Section = "menu" | "about" | "stats"
-
-function PaletteAbout({ onClose }: { onClose: () => void }) {
-  const commitShortSha = __BUILD_COMMIT_SHORT_SHA__
-  const commitUrl = __BUILD_COMMIT_URL__
-  const repoUrl = "https://github.com/Jl5her/Playerdle"
-  const footerLinkClasses =
-    "inline-flex items-center underline decoration-primary-500 underline-offset-4 text-primary-700 dark:text-primary-100 md:hover:text-primary-900 dark:md:hover:text-primary-50 md:hover:translate-y-[-1px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/80 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-50 dark:focus-visible:ring-offset-primary-900 rounded-sm transition-all duration-150"
-
-  return (
-    <div className="w-full max-w-sm mx-auto h-full flex flex-col">
-      <div className="flex items-center justify-between">
-        <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-          About
-        </h2>
-        <button
-          type="button"
-          className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-          aria-label="Close About"
-          onClick={onClose}
-        >
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-2xl"
-          />
-        </button>
-      </div>
-      <div className="-mt-1 flex-1 overflow-auto pb-2 flex flex-col">
-        <div>
-          <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-3">
-            <strong>Statehue</strong> is a daily geography puzzle: guess the state from the team
-            colors of its pro and college sports teams.
-          </p>
-          <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
-            Each wrong guess reveals an additional team's colors. You have five guesses.
-          </p>
-          <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
-            Part of the Playerdle family. Inspired by Wordle and other guessing games.
-          </p>
-        </div>
-
-        <div className="mt-auto pt-6 text-center">
-          <p className="text-xs uppercase tracking-wide font-semibold text-primary-500 dark:text-primary-300">
-            Author
-          </p>
-          <p className="mt-1 text-sm">
-            <a
-              className={footerLinkClasses}
-              href="https://jackp.me"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Jack Pfeiffer
-            </a>
-          </p>
-
-          <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary-500 dark:text-primary-300">
-            Commit
-          </p>
-          <p className="mt-1 text-sm">
-            {commitShortSha ? (
-              commitUrl ? (
-                <a
-                  href={commitUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={footerLinkClasses}
-                >
-                  {commitShortSha}
-                </a>
-              ) : (
-                <a
-                  href={repoUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={footerLinkClasses}
-                >
-                  {commitShortSha}
-                </a>
-              )
-            ) : (
-              <span className="text-primary-500 dark:text-primary-300">Unavailable</span>
-            )}
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
 
 export default function PaletteHub() {
   const navigate = useNavigate()
@@ -121,10 +40,6 @@ export default function PaletteHub() {
     day: "numeric",
     year: "numeric",
   })
-
-  const playedButtonClasses = playedToday
-    ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
-    : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
 
   return (
     <>
@@ -152,32 +67,20 @@ export default function PaletteHub() {
             >
               <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
                 <div className="flex flex-col gap-3 w-full">
-                  <button
-                    type="button"
-                    className={`mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${playedButtonClasses}`}
+                  <GameModeButton
+                    label="Statehue"
+                    played={playedToday}
                     onClick={() => navigate("/statehue/daily")}
-                  >
-                    <span className="flex flex-col items-center justify-center leading-tight min-h-8">
-                      <span className="text-base">Statehue</span>
-                      {playedToday && (
-                        <span className="text-[10px] font-medium opacity-75 -mt-0.5">
-                          Completed
-                        </span>
-                      )}
-                    </span>
-                  </button>
-                  <button
-                    className="mt-3 mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                  />
+                  <MenuLinkButton
+                    label="Stats"
                     onClick={() => setSection("stats")}
-                  >
-                    Stats
-                  </button>
-                  <button
-                    className="mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                    className="mt-3"
+                  />
+                  <MenuLinkButton
+                    label="About"
                     onClick={() => setSection("about")}
-                  >
-                    About
-                  </button>
+                  />
                 </div>
               </div>
               <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
@@ -185,43 +88,56 @@ export default function PaletteHub() {
               </p>
             </div>
 
-            <div
-              className={`crossfade-panel absolute inset-0 ${section === "stats" ? "crossfade-active" : "crossfade-inactive"}`}
+            <MenuOverlay
+              open={section === "stats"}
+              title="Statistics"
+              onClose={goBack}
             >
-              <div className="w-full max-w-sm mx-auto h-full flex flex-col">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                    Statistics
-                  </h2>
-                  <button
-                    type="button"
-                    className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                    aria-label="Close stats"
-                    onClick={goBack}
-                  >
-                    <FontAwesomeIcon
-                      icon={faXmark}
-                      className="text-2xl"
-                    />
-                  </button>
-                </div>
-                <ColorsStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
-              </div>
-            </div>
+              <ColorsStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
+            </MenuOverlay>
 
-            <div
-              className={`crossfade-panel absolute inset-0 ${section === "about" ? "crossfade-active" : "crossfade-inactive"}`}
+            <MenuOverlay
+              open={section === "about"}
+              title="About"
+              onClose={goBack}
+              closeAriaLabel="Close About"
             >
-              <PaletteAbout onClose={goBack} />
-            </div>
+              <div className="-mt-1 flex-1 overflow-auto pb-2 flex flex-col">
+                <div>
+                  <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-3">
+                    <strong>Statehue</strong> is a daily geography puzzle: guess the state from the
+                    team colors of its pro and college sports teams.
+                  </p>
+                  <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
+                    Each wrong guess reveals an additional team's colors. You have five guesses.
+                  </p>
+                  <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
+                    Part of the Playerdle family. Inspired by Wordle and other guessing games.
+                  </p>
+                </div>
+                <AboutFooter />
+              </div>
+            </MenuOverlay>
           </div>
         </div>
       </div>
       <LeagueFooter
-        currentSportId="nfl"
-        onSelectSport={handleSelectSport}
-        colorsActive
-        onSelectColors={() => navigate("/statehue")}
+        tabs={[
+          ...getAllSportMeta().map<FooterTab>(sport => ({
+            id: sport.id,
+            icon: getSportIcon(sport.id),
+            label: sport.displayName,
+            active: false,
+            onSelect: () => handleSelectSport(sport.id),
+          })),
+          {
+            id: "statehue",
+            icon: faMap,
+            label: "Statehue",
+            active: true,
+            onSelect: () => navigate("/statehue"),
+          },
+        ]}
       />
     </>
   )

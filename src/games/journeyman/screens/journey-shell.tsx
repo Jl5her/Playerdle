@@ -7,17 +7,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { LeagueFooter } from "@/shared/components"
-import { type SportId } from "@/games/playerdle/sports"
-import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
 import JourneyHowToPlay from "./journey-how-to-play"
-import JourneyMenu from "./journey-menu"
 import JourneyStatsOverlay from "./journey-stats-overlay"
 
 interface Props {
-  screen: "menu" | "daily" | "arcade"
+  screen: "daily" | "arcade"
 }
 
 type GameOverlay = "none" | "guide" | "stats" | "calendar"
@@ -26,7 +22,6 @@ const TUTORIAL_SEEN_KEY = "journey-tutorial-seen"
 export default function JourneyShell({ screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
-  const playedToday = hasPlayedJourneyDailyToday()
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
   const [isOnboarding, setIsOnboarding] = useState(false)
@@ -42,14 +37,6 @@ export default function JourneyShell({ screen }: Props) {
     setIsOnboarding(true)
     setOverlay("guide")
   }, [screen, initialShowStats])
-
-  function handleSelectSport(sportId: SportId) {
-    if (sportId === "nfl") {
-      navigate("/")
-      return
-    }
-    navigate(`/${sportId}`)
-  }
 
   function goToMenu() {
     navigate("/")
@@ -74,27 +61,6 @@ export default function JourneyShell({ screen }: Props) {
 
   function closeStats() {
     setOverlay("none")
-  }
-
-  if (screen === "menu") {
-    return (
-      <>
-        <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
-          <JourneyMenu
-            onPlayDaily={() => navigate("/journeyman/daily")}
-            onPlayArcade={() => navigate("/journeyman/arcade")}
-            onShowStats={() => navigate("/journeyman/daily", { state: { showStats: true } })}
-            playedToday={playedToday}
-          />
-        </div>
-        <LeagueFooter
-          currentSportId="nfl"
-          onSelectSport={handleSelectSport}
-          colorsActive
-          onSelectColors={() => navigate("/statehue")}
-        />
-      </>
-    )
   }
 
   const mode: JourneyGameMode = screen === "arcade" ? "arcade" : "daily"

@@ -7,17 +7,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { LeagueFooter } from "@/shared/components"
-import { type SportId } from "@/games/playerdle/sports"
-import { hasPlayedColorsDailyToday } from "@/games/statehue/utils/colors-daily"
 import ColorsCalendar from "./colors-calendar"
 import ColorsGame, { type ColorsGameMode } from "./colors-game"
 import ColorsHowToPlay from "./colors-how-to-play"
-import ColorsMenu from "./colors-menu"
 import ColorsStatsOverlay from "./colors-stats-overlay"
 
 interface Props {
-  screen: "menu" | "daily" | "arcade"
+  screen: "daily" | "arcade"
 }
 
 type GameOverlay = "none" | "guide" | "stats" | "calendar"
@@ -26,7 +22,6 @@ const TUTORIAL_SEEN_KEY = "statehue-tutorial-seen"
 export default function ColorsShell({ screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
-  const playedToday = hasPlayedColorsDailyToday()
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
   const [isOnboarding, setIsOnboarding] = useState(false)
@@ -42,14 +37,6 @@ export default function ColorsShell({ screen }: Props) {
     setIsOnboarding(true)
     setOverlay("guide")
   }, [screen, initialShowStats])
-
-  function handleSelectSport(sportId: SportId) {
-    if (sportId === "nfl") {
-      navigate("/")
-      return
-    }
-    navigate(`/${sportId}`)
-  }
 
   function goToMenu() {
     navigate("/statehue")
@@ -74,27 +61,6 @@ export default function ColorsShell({ screen }: Props) {
 
   function closeStats() {
     setOverlay("none")
-  }
-
-  if (screen === "menu") {
-    return (
-      <>
-        <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
-          <ColorsMenu
-            onPlayDaily={() => navigate("/statehue/daily")}
-            onPlayArcade={() => navigate("/statehue/arcade")}
-            onShowStats={() => navigate("/statehue/daily", { state: { showStats: true } })}
-            playedToday={playedToday}
-          />
-        </div>
-        <LeagueFooter
-          currentSportId="nfl"
-          onSelectSport={handleSelectSport}
-          colorsActive
-          onSelectColors={() => navigate("/statehue")}
-        />
-      </>
-    )
   }
 
   const mode: ColorsGameMode = screen === "arcade" ? "arcade" : "daily"

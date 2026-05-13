@@ -11,10 +11,10 @@ import {
   ScrollHint,
   ShareButton,
 } from "@/shared/components"
-import { ALL_STATES, getStateByName, type USState } from "@/games/statehue/data/colors/all-states"
-import { bearingDeg } from "@/games/statehue/data/colors/state-geo"
-import { type ColorsState, type ColorsTeam } from "@/games/statehue/data/colors/states"
-import { STATE_PATHS } from "@/games/statehue/data/colors/state-paths"
+import { ALL_STATES, getStateByName, type USState } from "@/games/statehue/data/all-states"
+import { bearingDeg } from "@/games/statehue/data/state-geo"
+import { type ColorsState, type ColorsTeam } from "@/games/statehue/data/states"
+import { STATE_PATHS } from "@/games/statehue/data/state-paths"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import {
   calculateColorsStats,

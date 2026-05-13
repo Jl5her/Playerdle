@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { STATE_PATHS } from "@/games/statehue/data/colors/state-paths"
+import { STATE_PATHS } from "@/games/statehue/data/state-paths"
 import {
   COLORS_EPOCH_DATE_KEY,
   type ColorsPuzzle,

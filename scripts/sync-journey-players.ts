@@ -255,7 +255,7 @@ async function main() {
   console.log("Syncing NFL journey player data with ESPN...\n")
 
   // Dynamically import current players (tsx resolves TypeScript at runtime).
-  const mod = await import("../src/games/journeyman/data/journey/players.ts")
+  const mod = await import("../src/games/journeyman/data/players.ts")
   const players: SyncPlayer[] = (mod.JOURNEY_PLAYERS as SyncPlayer[]).map(p => ({ ...p }))
 
   const teamsJson = JSON.parse(

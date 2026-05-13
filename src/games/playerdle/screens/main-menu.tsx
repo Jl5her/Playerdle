@@ -3,9 +3,9 @@ import {
   faBasketball,
   faFootball,
   faHockeyPuck,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { GameModeButton, MenuLinkButton, MenuOverlay } from "@/shared/components"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideContent } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
@@ -75,7 +75,6 @@ export default function MainMenu({
     variantLabel: string
     variantId?: string
     played: boolean
-    isPrimary: boolean
   }
 
   const variantRows: VariantRow[] = [
@@ -83,13 +82,11 @@ export default function MainMenu({
       variantLabel: "Playerdle",
       variantId: undefined,
       played: hasPlayedTodaysDaily(sport.id, undefined),
-      isPrimary: true,
     },
     ...variants.map(variant => ({
       variantLabel: variant.label,
       variantId: variant.id,
       played: hasPlayedTodaysDaily(sport.id, variant.id),
-      isPrimary: false,
     })),
   ]
 
@@ -125,134 +122,68 @@ export default function MainMenu({
           className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
         >
           <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
-
             <div className="flex flex-col gap-3 w-full">
-              {variantRows.map(row => {
-                const buttonClasses = row.played
-                  ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
-                  : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
-
-                return (
-                  <button
-                    key={`row:${row.variantId ?? "classic"}`}
-                    className={`mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${buttonClasses}`}
-                    onClick={() => onNavigate("daily", { variantId: row.variantId })}
-                  >
-                    <span className="flex flex-col items-center justify-center leading-tight min-h-8">
-                      <span className="text-base">{row.variantLabel}</span>
-                      {row.played && (
-                        <span className="text-[10px] font-medium opacity-75 -mt-0.5">
-                          Completed
-                        </span>
-                      )}
-                    </span>
-                  </button>
-                )
-              })}
-              {extraGames?.map(game => {
-                const extraButtonClasses = game.played
-                  ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
-                  : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
-                return (
-                  <button
-                    key={game.label}
-                    className={`mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${extraButtonClasses}`}
-                    onClick={game.onPlayDaily}
-                  >
-                    <span className="flex flex-col items-center justify-center leading-tight min-h-8">
-                      <span className="text-base">{game.label}</span>
-                      {game.played && (
-                        <span className="text-[10px] font-medium opacity-75 -mt-0.5">
-                          Completed
-                        </span>
-                      )}
-                    </span>
-                  </button>
-                )
-              })}
-              <button
-                className="mt-3 mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+              {variantRows.map(row => (
+                <GameModeButton
+                  key={`row:${row.variantId ?? "classic"}`}
+                  label={row.variantLabel}
+                  played={row.played}
+                  onClick={() => onNavigate("daily", { variantId: row.variantId })}
+                />
+              ))}
+              {extraGames?.map(game => (
+                <GameModeButton
+                  key={game.label}
+                  label={game.label}
+                  played={game.played}
+                  onClick={game.onPlayDaily}
+                />
+              ))}
+              <MenuLinkButton
+                label="Stats"
                 onClick={() => onNavigate("all-stats")}
-              >
-                Stats
-              </button>
-              <button
-                className="mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                className="mt-3"
+              />
+              <MenuLinkButton
+                label="About"
                 onClick={() => onNavigate("about")}
-              >
-                About
-              </button>
+              />
             </div>
           </div>
           <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
             {dateStr}
           </p>
         </div>
-        <div
-          className={`crossfade-panel absolute inset-0 ${section === "about" ? "crossfade-active" : "crossfade-inactive"}`}
+        <AboutSection
+          open={section === "about"}
+          sport={sport}
+          onClose={onCloseAbout}
+        />
+        <MenuOverlay
+          open={section === "stats"}
+          title="Statistics"
+          onClose={onCloseAbout}
         >
-          <AboutSection
+          <AllStatsContent
             sport={sport}
-            onClose={onCloseAbout}
+            className="-mt-1 flex-1 overflow-auto pb-2"
           />
-        </div>
-        <div
-          className={`crossfade-panel absolute inset-0 ${section === "stats" ? "crossfade-active" : "crossfade-inactive"}`}
+        </MenuOverlay>
+        <MenuOverlay
+          open={section === "help"}
+          title="How to Play"
+          onClose={onCloseAbout}
         >
-          <div className="w-full max-w-sm mx-auto h-full flex flex-col">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                Statistics
-              </h2>
-              <button
-                type="button"
-                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                aria-label="Close stats"
-                onClick={onCloseAbout}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl"
-                />
-              </button>
-            </div>
-            <AllStatsContent
-              sport={sport}
+          {guideSport ? (
+            <GameGuideContent
+              sport={guideSport}
+              mode="manual"
               className="-mt-1 flex-1 overflow-auto pb-2"
             />
-          </div>
-        </div>
-        <div
-          className={`crossfade-panel absolute inset-0 ${section === "help" ? "crossfade-active" : "crossfade-inactive"}`}
-        >
-          <div className="w-full max-w-sm mx-auto h-full flex flex-col">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                How to Play
-              </h2>
-              <button
-                type="button"
-                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                aria-label="Close guide"
-                onClick={onCloseAbout}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl"
-                />
-              </button>
-            </div>
-            {guideSport ? (
-              <GameGuideContent
-                sport={guideSport}
-                mode="manual"
-                className="-mt-1 flex-1 overflow-auto pb-2"
-              />
-            ) : (
-              <div className="-mt-1 flex-1" />
-            )}
-          </div>
-        </div>
+          ) : (
+            <div className="-mt-1 flex-1" />
+          )}
+        </MenuOverlay>
       </div>
     </div>
   )
