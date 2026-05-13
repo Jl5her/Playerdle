@@ -624,7 +624,6 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
     <DailyGameShell
       gameOver={gameOver}
       popupMessage={puzzle.player.name}
-      popupVariant={won ? "success" : "default"}
       onPlayAgain={handlePlayAgain}
       renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
