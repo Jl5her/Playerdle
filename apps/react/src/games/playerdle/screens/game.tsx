@@ -178,6 +178,7 @@ export default function Game({ mode, sport, variantId }: Props) {
     <DailyGameShell
       gameOver={gameOver}
       popupMessage={answer?.name}
+      popupVariant={won ? "success" : "default"}
       onPlayAgain={handlePlayAgain}
       renderResults={({ onPlayAgain }) => (
         <div className="flex-1 min-h-0 overflow-auto px-4">
