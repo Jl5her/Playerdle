@@ -403,12 +403,12 @@ interface ResultsPanelProps {
   onPlayAgain: () => void
 }
 
-const SPORTS_RANKS: Record<number, string> = {
-  1: "All-Star ⭐",
-  2: "Starter 🏆",
-  3: "Role Player 🏅",
-  4: "Bench 🪑",
-  5: "Cut ✂️",
+const SPORTS_TOWN_RANKS: Record<number, string> = {
+  1: "Titletown 🏆",
+  2: "Loyal Faithful 💪",
+  3: "Casual Fan 🎡",
+  4: "Fair Weather ☀️",
+  5: "Bandwagon 🚌",
 }
 
 function buildShareText(
@@ -419,7 +419,7 @@ function buildShareText(
   url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
-  const rank = won ? (SPORTS_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
+  const rank = won ? (SPORTS_TOWN_RANKS[guesses.length] ?? "Casual Fan 🎡") : "No Shows 🙈"
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
