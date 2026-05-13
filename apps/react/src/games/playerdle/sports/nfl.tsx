@@ -33,7 +33,7 @@ const nflConfig: SportConfig = {
   id: "nfl",
   slug: "",
   displayName: "NFL",
-  subtitle: "Top NFL skill-position players",
+  subtitle: "Can you name the NFL player in 6?",
   teams,
   players: playersData,
   answerPool: playersData.filter(player => answerPoolIdSet.has(player.id)),

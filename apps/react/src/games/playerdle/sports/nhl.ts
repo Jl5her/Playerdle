@@ -36,7 +36,7 @@ const nhlConfig: SportConfig = {
   id: "nhl",
   slug: "nhl",
   displayName: "NHL",
-  subtitle: "Guess the NHL player in 6 tries",
+  subtitle: "Can you name the NHL player in 6?",
   teams,
   players: normalizedPlayers,
   answerPool: normalizedPlayers.filter(player => answerPoolIdSet.has(player.id)),

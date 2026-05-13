@@ -29,7 +29,7 @@ const mlbConfig: SportConfig = {
   id: "mlb",
   slug: "mlb",
   displayName: "MLB",
-  subtitle: "Guess the MLB player in 6 tries",
+  subtitle: "Can you name the MLB player in 6?",
   teams,
   players: playersData,
   answerPool: playersData.filter(player => answerPoolIdSet.has(player.id)),
