@@ -1,1 +1,6 @@
-onlyBuiltDependencies: ["esbuild", "puppeteer"]
+packages:
+  - "apps/*"
+
+onlyBuiltDependencies:
+  - esbuild
+  - puppeteer

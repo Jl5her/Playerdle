@@ -38,14 +38,14 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Sync journey player data with ESPN
-        run: pnpm run sync:journey
+        run: pnpm --filter playerdle-react run sync:journey
 
       - name: Commit and push updates
         run: |
-          if [ -n "$(git status --porcelain -- "src/data/journey")" ]; then
+          if [ -n "$(git status --porcelain -- "apps/react/src/games/journeyman/data")" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add src/data/journey
+            git add apps/react/src/games/journeyman/data
             git commit -m "chore(data): sync nfl journey player data via espn"
             git push
           else
