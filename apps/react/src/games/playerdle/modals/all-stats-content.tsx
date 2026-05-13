@@ -22,7 +22,7 @@ function VariantStatsBlock({
   label: string
 }) {
   const stats = calculateStats(sportId, variantId)
-  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
+  const maxGuessCount = Math.max(...Object.values<number>(stats.guessDistribution), 1)
 
   return (
     <section className="mb-6 last:mb-0">

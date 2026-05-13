@@ -68,7 +68,7 @@ export function StatsContent({
   const [hideAnswer, setHideAnswer] = useState(false)
   const { share, copied } = useClipboardShare()
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
-  const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
+  const maxGuessCount = stats ? Math.max(...Object.values<number>(stats.guessDistribution), 1) : 1
 
   async function handleShare() {
     if (!player) return
