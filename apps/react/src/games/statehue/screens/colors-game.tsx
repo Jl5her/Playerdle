@@ -91,64 +91,69 @@ function Diamond({ color }: { color: string }) {
   )
 }
 
-function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
-  const [swatchOpen, setSwatchOpen] = useState(false)
+function DiamondWithPreview({ color }: { color: string }) {
+  const [open, setOpen] = useState(false)
   const closeTimer = useRef<number>(0)
-  const swatchRef = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!swatchOpen) return
+    if (!open) return
     function onOutside(e: PointerEvent) {
-      if (!swatchRef.current?.contains(e.target as Node)) setSwatchOpen(false)
+      if (!ref.current?.contains(e.target as Node)) setOpen(false)
     }
     document.addEventListener("pointerdown", onOutside)
     return () => document.removeEventListener("pointerdown", onOutside)
-  }, [swatchOpen])
+  }, [open])
 
   useEffect(() => () => window.clearTimeout(closeTimer.current), [])
 
-  function showSwatch() {
+  function show() {
     window.clearTimeout(closeTimer.current)
-    setSwatchOpen(true)
+    setOpen(true)
   }
-  function hideSwatch() {
-    closeTimer.current = window.setTimeout(() => setSwatchOpen(false), 80)
+  function hide() {
+    closeTimer.current = window.setTimeout(() => setOpen(false), 80)
   }
 
   return (
+    <div
+      ref={ref}
+      className="relative cursor-pointer select-none"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onPointerUp={e => {
+        if (e.pointerType === "touch") setOpen(v => !v)
+      }}
+    >
+      <Diamond color={color} />
+      {open && (
+        <div
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-xl shadow-xl p-5"
+          onMouseEnter={show}
+          onMouseLeave={hide}
+        >
+          <span
+            aria-hidden="true"
+            className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md"
+            style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
+
+function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
+  return (
     <div className="flex items-center justify-center">
       <div className="flex items-center gap-6 px-3 py-3">
-        <div
-          ref={swatchRef}
-          className="relative flex items-center gap-5 shrink-0 cursor-pointer select-none"
-          onMouseEnter={showSwatch}
-          onMouseLeave={hideSwatch}
-          onPointerUp={e => {
-            if (e.pointerType === "touch") setSwatchOpen(v => !v)
-          }}
-        >
+        <div className="flex items-center gap-5 shrink-0">
           {team.colors.map((color, i) => (
-            <Diamond
+            <DiamondWithPreview
               key={`${color}-${i}`}
               color={color}
             />
           ))}
-          {swatchOpen && (
-            <div
-              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-2xl shadow-xl px-5 py-5 flex items-center gap-5 whitespace-nowrap"
-              onMouseEnter={showSwatch}
-              onMouseLeave={hideSwatch}
-            >
-              {team.colors.map((color, i) => (
-                <span
-                  key={i}
-                  aria-hidden="true"
-                  className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md shrink-0"
-                  style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
-                />
-              ))}
-            </div>
-          )}
         </div>
         {revealName && (
           <div className="text-xs min-w-32 text-left">
