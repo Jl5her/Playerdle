@@ -98,6 +98,12 @@ function injectOgTags(html: string, config: OgConfig): string {
 
 const ASSET_EXT = /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|json|webmanifest|txt|xml|map)$/
 
+function isCrawler(ua: string): boolean {
+  return /bot|crawler|spider|preview|slack|discord|telegram|whatsapp|facebookexternal|twitterbot|linkedinbot|applebot/i.test(
+    ua,
+  )
+}
+
 export async function onRequest(context: {
   request: Request
   next(): Promise<Response>
@@ -113,6 +119,12 @@ export async function onRequest(context: {
 
   // No custom config for this path — serve as-is
   if (!config) {
+    return context.next()
+  }
+
+  // Skip expensive body parsing for non-crawler requests
+  const ua = context.request.headers.get("user-agent") ?? ""
+  if (!isCrawler(ua)) {
     return context.next()
   }
 
