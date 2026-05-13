@@ -31,7 +31,7 @@ export default function ResultBanner({
   return (
     <div
       className={clsx(
-        "shrink-0 px-4 py-2 text-center border-y-2 mt-1",
+        "shrink-0 px-4 py-2 text-center border-y-2 -mt-0.5",
         won
           ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
           : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60",
