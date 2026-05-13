@@ -419,7 +419,7 @@ function buildShareText(
   url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
-  const rank = won ? (SPORTS_TOWN_RANKS[guesses.length] ?? "Casual Fan 🎡") : "No Shows 🙈"
+  const _rank = won ? (SPORTS_TOWN_RANKS[guesses.length] ?? "Casual Fan 🎡") : "No Shows 🙈"
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",

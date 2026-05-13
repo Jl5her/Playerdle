@@ -43,7 +43,7 @@ function generateShareText(
     5: "Long Shot 🎲",
     6: "Camp Body ⛺",
   }
-  const rank = won ? (SCOUTING_RANKS[guesses.length] ?? "Raw Talent 💎") : "Waived 📤"
+  const _rank = won ? (SCOUTING_RANKS[guesses.length] ?? "Raw Talent 💎") : "Waived 📤"
 
   const variantLabel = sport.activeVariantLabel ? ` ${sport.activeVariantLabel}` : ""
   let text = `Playerdle ${sport.displayName}${variantLabel} (${dateStr}) — ${result}\n\n`

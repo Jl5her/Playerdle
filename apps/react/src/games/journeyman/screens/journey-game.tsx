@@ -392,7 +392,7 @@ function buildShareText(
     4: "Bench 🪑",
     5: "Cut ✂️",
   }
-  const rank = won ? (PLAYER_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
+  const _rank = won ? (PLAYER_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
 
   const answerName = puzzle.player.name.toLowerCase()
   const targetPos = puzzle.player.position
