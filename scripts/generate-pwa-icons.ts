@@ -33,6 +33,12 @@ async function main() {
   const favPng = await sharp(favSvg).resize(32, 32).png().toBuffer()
   writeFileSync(resolve(publicDir, "favicon-32.png"), favPng)
   console.log(`  favicon-32.png (32x32)`)
+
+  // 1200x630 Open Graph banner
+  const ogSvg = readFileSync(resolve(publicDir, "og-image.svg"))
+  const ogPng = await sharp(ogSvg).resize(1200, 630).png().toBuffer()
+  writeFileSync(resolve(publicDir, "og-image.png"), ogPng)
+  console.log(`  og-image.png (1200x630)`)
 }
 
 main().catch(err => {

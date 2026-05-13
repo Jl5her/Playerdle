@@ -1,5 +1,6 @@
 import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 import type { GameMode } from "@/games/playerdle/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/games/playerdle/sports"
 import { calculateStats } from "@/games/playerdle/utils/stats"
@@ -23,6 +24,7 @@ function generateShareText(
   answer: Player,
   won: boolean,
   sport: SportConfig,
+  url: string,
   variantId?: string,
 ): string {
   const dateStr = new Intl.DateTimeFormat("en-US", {
@@ -46,12 +48,7 @@ function generateShareText(
       .join("")}\n`
   }
 
-  const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
-  const path = variantId === "fanatic" ? "/fanatic" : "/daily"
-  const origin = typeof window !== "undefined" ? window.location.origin : ""
-  text += `\n${origin}${prefix}${path}`
-
-  return text.trim()
+  return `${text}\n${url}`.trim()
 }
 
 export function StatsContent({
@@ -71,9 +68,13 @@ export function StatsContent({
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
-  function handleShare() {
+  async function handleShare() {
     if (!player) return
-    share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, variantId) })
+    const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
+    const path = variantId === "fanatic" ? "/fanatic" : "/daily"
+    const rawUrl = `${window.location.origin}${prefix}${path}`
+    const url = await shortenUrl(rawUrl)
+    share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, url, variantId) })
   }
 
   if (!showStatsOnly && !won && !lost) return null

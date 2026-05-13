@@ -24,6 +24,7 @@ import {
 } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
@@ -375,6 +376,7 @@ function buildShareText(
   guesses: string[],
   won: boolean,
   maxGuesses: number,
+  url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
@@ -382,10 +384,6 @@ function buildShareText(
     day: "numeric",
     year: "numeric",
   }).format(new Date())
-  const url =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/journeyman/daily`
-      : "/journeyman/daily"
 
   const answerName = puzzle.player.name.toLowerCase()
   const targetPos = puzzle.player.position
@@ -415,8 +413,10 @@ function ResultsPanel({
   const resultsScrollRef = useRef<HTMLDivElement>(null)
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
-  function handleShare() {
-    share({ title: "Journey", text: buildShareText(puzzle, guesses, won, maxGuesses) })
+  async function handleShare() {
+    const rawUrl = `${window.location.origin}/journeyman/daily`
+    const url = await shortenUrl(rawUrl)
+    share({ title: "Journeyman", text: buildShareText(puzzle, guesses, won, maxGuesses, url) })
   }
 
   return (
