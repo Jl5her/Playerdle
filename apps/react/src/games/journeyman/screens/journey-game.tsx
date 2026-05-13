@@ -150,7 +150,7 @@ function LadderRow({
   showName?: boolean
 }) {
   const [swatchOpen, setSwatchOpen] = useState(false)
-  const closeTimer = useRef<ReturnType<typeof setTimeout>>()
+  const closeTimer = useRef<number>(0)
   const swatchRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -162,15 +162,15 @@ function LadderRow({
     return () => document.removeEventListener("pointerdown", onOutside)
   }, [swatchOpen])
 
-  useEffect(() => () => clearTimeout(closeTimer.current), [])
+  useEffect(() => () => window.clearTimeout(closeTimer.current), [])
 
   function showSwatch() {
     if (!revealed) return
-    clearTimeout(closeTimer.current)
+    window.clearTimeout(closeTimer.current)
     setSwatchOpen(true)
   }
   function hideSwatch() {
-    closeTimer.current = setTimeout(() => setSwatchOpen(false), 80)
+    closeTimer.current = window.setTimeout(() => setSwatchOpen(false), 80)
   }
 
   return (

@@ -93,7 +93,7 @@ function Diamond({ color }: { color: string }) {
 
 function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
   const [swatchOpen, setSwatchOpen] = useState(false)
-  const closeTimer = useRef<ReturnType<typeof setTimeout>>()
+  const closeTimer = useRef<number>(0)
   const swatchRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -105,14 +105,14 @@ function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: 
     return () => document.removeEventListener("pointerdown", onOutside)
   }, [swatchOpen])
 
-  useEffect(() => () => clearTimeout(closeTimer.current), [])
+  useEffect(() => () => window.clearTimeout(closeTimer.current), [])
 
   function showSwatch() {
-    clearTimeout(closeTimer.current)
+    window.clearTimeout(closeTimer.current)
     setSwatchOpen(true)
   }
   function hideSwatch() {
-    closeTimer.current = setTimeout(() => setSwatchOpen(false), 80)
+    closeTimer.current = window.setTimeout(() => setSwatchOpen(false), 80)
   }
 
   return (
