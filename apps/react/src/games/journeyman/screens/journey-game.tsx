@@ -385,6 +385,15 @@ function buildShareText(
     year: "numeric",
   }).format(new Date())
 
+  const PLAYER_RANKS: Record<number, string> = {
+    1: "All-Star ⭐",
+    2: "Starter 🏆",
+    3: "Role Player 🏅",
+    4: "Bench 🪑",
+    5: "Cut ✂️",
+  }
+  const rank = won ? (PLAYER_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
+
   const answerName = puzzle.player.name.toLowerCase()
   const targetPos = puzzle.player.position
   const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
@@ -396,7 +405,7 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Journeyman #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  return `Journeyman (${dateStr}) — ${score}\n${rank}\n${emojiRow}\n${url}`
 }
 
 function ResultsPanel({

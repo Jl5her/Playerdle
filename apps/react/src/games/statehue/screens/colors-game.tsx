@@ -427,7 +427,7 @@ function buildShareText(
   }).format(new Date())
 
   const title = puzzle.variant === "collegiate" ? "Collegiate Statehue" : "Statehue"
-  return `${title} #${puzzle.index} (${dateStr})\n${rank} (${score})\n${url}`
+  return `${title} (${dateStr}) — ${score}\n${rank}\n${url}`
 }
 
 function ResultsPanel({

@@ -1,9 +1,9 @@
-import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
-import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
-import { shortenUrl } from "@/shared/utils/shorten-url"
 import type { GameMode } from "@/games/playerdle/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/games/playerdle/sports"
 import { calculateStats } from "@/games/playerdle/utils/stats"
+import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
+import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 
 export interface StatsContentProps {
   player?: Player
@@ -33,9 +33,18 @@ function generateShareText(
     year: "numeric",
   }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
+  const PLAYER_RANKS: Record<number, string> = {
+    1: "All-Star ⭐",
+    2: "Starter 🏆",
+    3: "Role Player 🏅",
+    4: "Bench 🪑",
+    5: "Practice Squad 📋",
+    6: "Cut ✂️",
+  }
+  const rank = won ? (PLAYER_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
 
   const variantLabel = sport.activeVariantLabel ? ` ${sport.activeVariantLabel}` : ""
-  let text = `Playerdle ${sport.displayName}${variantLabel} ${dateStr} ${result}\n\n`
+  let text = `Playerdle ${sport.displayName}${variantLabel} (${dateStr}) — ${result}\n${rank}\n\n`
 
   for (const guess of guesses) {
     text += `${sport.columns
@@ -74,7 +83,10 @@ export function StatsContent({
     const path = variantId === "fanatic" ? "/fanatic" : "/daily"
     const rawUrl = `${window.location.origin}${prefix}${path}`
     const url = await shortenUrl(rawUrl)
-    share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, url, variantId) })
+    share({
+      title: "Playerdle",
+      text: generateShareText(guesses, player, won, sport, url, variantId),
+    })
   }
 
   if (!showStatsOnly && !won && !lost) return null
@@ -106,9 +118,7 @@ export function StatsContent({
           </div>
           <div
             className={`text-base font-bold mt-3 uppercase ${
-              won
-                ? "text-success-500 dark:text-success-400"
-                : "text-error-500 dark:text-error-400"
+              won ? "text-success-500 dark:text-success-400" : "text-error-500 dark:text-error-400"
             }`}
           >
             {won
