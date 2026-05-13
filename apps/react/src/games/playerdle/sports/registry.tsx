@@ -5,25 +5,25 @@ const SPORT_META: Record<SportId, SportInfo> = {
     id: "nfl",
     slug: "",
     displayName: "NFL",
-    subtitle: "Can you name the NFL player in 6?",
+    subtitle: "Can you name the NFL player in 6 tries?",
   },
   mlb: {
     id: "mlb",
     slug: "mlb",
     displayName: "MLB",
-    subtitle: "Can you name the MLB player in 6?",
+    subtitle: "Can you name the MLB player in 6 tries?",
   },
   nhl: {
     id: "nhl",
     slug: "nhl",
     displayName: "NHL",
-    subtitle: "Can you name the NHL player in 6?",
+    subtitle: "Can you name the NHL player in 6 tries?",
   },
   nba: {
     id: "nba",
     slug: "nba",
     displayName: "NBA",
-    subtitle: "Can you name the NBA player in 6?",
+    subtitle: "Can you name the NBA player in 6 tries?",
   },
 }
 

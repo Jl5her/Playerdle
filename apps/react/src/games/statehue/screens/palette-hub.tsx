@@ -59,7 +59,7 @@ export default function PaletteHub() {
               STATEHUE
             </h1>
             <p className="text-base sm:text-lg font-semibold text-primary-700 dark:text-primary-200 mt-2 sport-title-text-glitch">
-              Can you name the state by its team colors in 5?
+              Can you name the state by its team colors in 5 tries?
             </p>
           </div>
 
