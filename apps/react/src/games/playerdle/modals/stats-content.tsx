@@ -25,7 +25,6 @@ function generateShareText(
   won: boolean,
   sport: SportConfig,
   url: string,
-  variantId?: string,
 ): string {
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
@@ -85,7 +84,7 @@ export function StatsContent({
     const url = await shortenUrl(rawUrl)
     share({
       title: "Playerdle",
-      text: generateShareText(guesses, player, won, sport, url, variantId),
+      text: generateShareText(guesses, player, won, sport, url),
     })
   }
 
