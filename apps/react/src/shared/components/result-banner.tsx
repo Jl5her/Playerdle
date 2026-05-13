@@ -31,22 +31,19 @@ export default function ResultBanner({
   return (
     <div
       className={clsx(
-        "shrink-0 px-4 py-4 text-center border-y-2 mt-1",
+        "shrink-0 px-4 py-2 text-center border-y-2 mt-1",
         won
           ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
           : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60",
       )}
     >
-      <div className={clsx("text-xs font-bold uppercase tracking-[0.2em]", statusColor)}>
+      <div className={clsx("text-[10px] font-bold uppercase tracking-[0.2em]", statusColor)}>
         {won ? "Correct" : "Game Over"}
       </div>
-      <div className="text-[11px] font-medium uppercase tracking-wider text-primary-500 dark:text-primary-200 opacity-70 mt-2">
-        The answer was
-      </div>
-      <div className="flex items-center justify-center gap-2 mt-1">
+      <div className="flex items-center justify-center gap-2 mt-0.5">
         <div
           className={clsx(
-            "text-3xl font-black uppercase tracking-tight transition-[filter]",
+            "text-xl font-black uppercase tracking-tight transition-[filter]",
             answerColor,
             hideAnswer && "blur-sm select-none",
           )}
@@ -62,12 +59,12 @@ export default function ResultBanner({
           >
             <FontAwesomeIcon
               icon={hideAnswer ? faEye : faEyeSlash}
-              className="text-sm"
+              className="text-xs"
             />
           </button>
         )}
       </div>
-      <div className={clsx("text-sm font-medium uppercase mt-3", statusColor)}>
+      <div className={clsx("text-xs font-medium uppercase mt-1", statusColor)}>
         {won
           ? `You got it in ${guessCount} ${guessCount === 1 ? "guess" : "guesses"}`
           : lossMessage}
