@@ -127,6 +127,11 @@ body,
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+  /* Push content below the dynamic island / status bar when running as a PWA.
+     env(safe-area-inset-top) returns 0 in a normal browser tab, so this is a
+     no-op there; iOS standalone PWAs return the actual island height. */
+  padding-top: env(safe-area-inset-top);
+  box-sizing: border-box;
 }
 
 .guess-input-shell {

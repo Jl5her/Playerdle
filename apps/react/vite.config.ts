@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react"
 import { execSync } from "child_process"
 import path from "path"
 import { defineConfig } from "vite"
+import { VitePWA } from "vite-plugin-pwa"
 
 function getGitCommitSha(): string | null {
   const envSha = process.env.GITHUB_SHA || process.env.VERCEL_GIT_COMMIT_SHA
@@ -25,7 +26,41 @@ const buildCommitUrl =
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: "autoUpdate",
+      includeAssets: ["favicon-32.png", "apple-touch-icon.png", "icon.svg"],
+      manifest: {
+        name: "Playerdle",
+        short_name: "Playerdle",
+        description: "Daily player guessing puzzles for NFL, NBA, MLB, NHL, and more.",
+        theme_color: "#1a1a1a",
+        background_color: "#18263c",
+        display: "standalone",
+        orientation: "portrait",
+        start_url: "/",
+        scope: "/",
+        icons: [
+          { src: "icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "icon-512.png", sizes: "512x512", type: "image/png" },
+          { src: "icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+        ],
+      },
+      workbox: {
+        globPatterns: ["**/*.{js,css,html,svg,png,woff2,ttf,json}"],
+        // Index of dynamically-imported sport data chunks can be large; raise
+        // the cache size cap so the whole offline shell makes it in.
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        navigateFallback: "/index.html",
+        cleanupOutdatedCaches: true,
+      },
+      devOptions: {
+        enabled: false,
+      },
+    }),
+  ],
   define: {
     __BUILD_COMMIT_SHA__: JSON.stringify(buildCommitSha),
     __BUILD_COMMIT_SHORT_SHA__: JSON.stringify(buildCommitShortSha),

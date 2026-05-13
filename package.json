@@ -31,13 +31,15 @@
     "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba && pnpm run scrape:nba:fanatic",
     "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb && pnpm run generate:answer-pool:mlb && pnpm run scrape:mlb:fanatic",
     "sync:journey": "tsx scripts/sync-journey-players.ts",
-    "generate:journey-pool": "tsx scripts/generate-journey-answer-pool.ts"
+    "generate:journey-pool": "tsx scripts/generate-journey-answer-pool.ts",
+    "generate:pwa-icons": "tsx scripts/generate-pwa-icons.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.15",
     "@svg-maps/usa": "^2.0.0",
     "@types/node": "^24.10.1",
     "cheerio": "^1.2.0",
+    "sharp": "^0.34.5",
     "tsx": "^4.21.0",
     "turbo": "^2.5.0",
     "typescript": "~5.9.3"

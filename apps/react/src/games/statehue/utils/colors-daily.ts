@@ -1,54 +1,38 @@
 import { COLORS_STATES, type ColorsState, type ColorsTeam } from "@playerdle/data/statehue/states"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { hashString, minHashPickN } from "@/shared/utils/daily-select"
+import { getDateKey, getTodayKey } from "@/shared/utils/time"
 
 const TEAMS_PER_PUZZLE = 3
 
-function hashString(str: string): number {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i)
-    hash = (hash << 5) - hash + char
-    hash |= 0
+// Weighted virtual replicas: each state contributes `teams.length` entries so
+// states with more teams remain more likely to win the daily — matching the
+// previous `seed % totalWeight` behavior, but order-independent.
+interface StateReplica {
+  state: ColorsState
+  key: string
+}
+const STATE_REPLICAS: StateReplica[] = COLORS_STATES.flatMap(state =>
+  state.teams.map((_, r) => ({ state, key: `${state.id}:${r}` })),
+)
+
+function rankStatesByHash(dateKey: string): ColorsState[] {
+  const scored = STATE_REPLICAS.map(r => ({
+    state: r.state,
+    key: r.key,
+    hash: hashString(`colors-state:${dateKey}:${r.key}`),
+  })).sort((a, b) => (a.hash !== b.hash ? a.hash - b.hash : a.key < b.key ? -1 : 1))
+  const seen = new Set<string>()
+  const order: ColorsState[] = []
+  for (const s of scored) {
+    if (seen.has(s.state.id)) continue
+    seen.add(s.state.id)
+    order.push(s.state)
   }
-  return mix32(hash >>> 0)
+  return order
 }
 
-// MurmurHash3 fmix32 finalizer — gives the avalanche effect that the
-// polynomial hash above lacks. Without this, sequential date strings cluster
-// into the same modulo buckets and some states never get picked.
-function mix32(h: number): number {
-  let x = h >>> 0
-  x ^= x >>> 16
-  x = Math.imul(x, 0x85ebca6b) >>> 0
-  x ^= x >>> 13
-  x = Math.imul(x, 0xc2b2ae35) >>> 0
-  x ^= x >>> 16
-  return x >>> 0
-}
-
-function seededShuffle<T>(items: T[], seed: number): T[] {
-  const result = [...items]
-  let state = seed || 1
-  for (let i = result.length - 1; i > 0; i--) {
-    state = (state * 1664525 + 1013904223) >>> 0
-    const j = state % (i + 1)
-    ;[result[i], result[j]] = [result[j], result[i]]
-  }
-  return result
-}
-
-function pickTeamsForState(state: ColorsState, seed: number): ColorsTeam[] {
-  return seededShuffle(state.teams, seed).slice(0, TEAMS_PER_PUZZLE)
-}
-
-function pickWeightedState(seed: number): ColorsState {
-  const totalWeight = COLORS_STATES.reduce((sum, s) => sum + s.teams.length, 0)
-  let target = seed % totalWeight
-  for (const state of COLORS_STATES) {
-    if (target < state.teams.length) return state
-    target -= state.teams.length
-  }
-  return COLORS_STATES[0]
+function pickTeamsForState(state: ColorsState, dateKey: string): ColorsTeam[] {
+  return minHashPickN(state.teams, t => t.name, `colors-teams:${dateKey}:${state.id}`, TEAMS_PER_PUZZLE)
 }
 
 function previousDateKey(dateKey: string): string | undefined {
@@ -68,19 +52,14 @@ function pickWeightedStateForDate(dateKey: string): ColorsState {
   const cached = stateForDateCache.get(dateKey)
   if (cached) return cached
 
-  const primary = pickWeightedState(hashString(`colors-state:${dateKey}`))
+  const ranked = rankStatesByHash(dateKey)
+  let result = ranked[0]
   const yesterday = previousDateKey(dateKey)
-  let result = primary
   if (yesterday && yesterday >= COLORS_EPOCH_DATE_KEY) {
     const yesterdayActual = pickWeightedStateForDate(yesterday)
-    if (primary.id === yesterdayActual.id) {
-      for (let r = 1; r <= 5; r++) {
-        const alt = pickWeightedState(hashString(`colors-state:${dateKey}:r${r}`))
-        if (alt.id !== yesterdayActual.id) {
-          result = alt
-          break
-        }
-      }
+    if (result.id === yesterdayActual.id) {
+      const alt = ranked.find(s => s.id !== yesterdayActual.id)
+      if (alt) result = alt
     }
   }
 
@@ -119,16 +98,15 @@ function daysSinceEpoch(dateKey: string): number {
 }
 
 export function getDailyColorsPuzzle(date?: Date): ColorsPuzzle {
-  const dateKey = date ? formatDate(date) : getTodayKeyInEasternTime()
+  const dateKey = date ? getDateKey(date) : getTodayKey()
   return getColorsPuzzleByDateKey(dateKey)
 }
 
 export function getColorsPuzzleByDateKey(dateKey: string): ColorsPuzzle {
   const state = pickWeightedStateForDate(dateKey)
-  const teamHash = hashString(`colors-teams:${dateKey}:${state.id}`)
   return {
     state,
-    teams: pickTeamsForState(state, teamHash),
+    teams: pickTeamsForState(state, dateKey),
     dateKey,
     index: daysSinceEpoch(dateKey) + 1,
   }
@@ -136,29 +114,22 @@ export function getColorsPuzzleByDateKey(dateKey: string): ColorsPuzzle {
 
 export function getArcadeColorsPuzzle(excludeStateId?: string): ColorsPuzzle {
   const state = pickWeightedStateRandom(excludeStateId)
-  const seed = Math.floor(Math.random() * 1_000_000_000) + 1
-  return { state, teams: pickTeamsForState(state, seed), dateKey: "arcade", index: 0 }
+  // Arcade randomization: use a random non-date "seed" so successive arcade
+  // puzzles vary even within the same state.
+  const arcadeSeed = `arcade:${Math.random().toString(36).slice(2)}`
+  return { state, teams: pickTeamsForState(state, arcadeSeed), dateKey: "arcade", index: 0 }
 }
 
-function formatDate(date: Date): string {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/New_York",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  })
-  return formatter.format(date)
-}
 
 const COLORS_PLAYED_KEY = "playerdle-colors-played-day"
 const COLORS_HISTORY_KEY = "playerdle-colors-history:v1"
 
 export function markColorsDailyPlayed() {
-  localStorage.setItem(COLORS_PLAYED_KEY, getTodayKeyInEasternTime())
+  localStorage.setItem(COLORS_PLAYED_KEY, getTodayKey())
 }
 
 export function hasPlayedColorsDailyToday(): boolean {
-  return localStorage.getItem(COLORS_PLAYED_KEY) === getTodayKeyInEasternTime()
+  return localStorage.getItem(COLORS_PLAYED_KEY) === getTodayKey()
 }
 
 export interface ColorsResult {

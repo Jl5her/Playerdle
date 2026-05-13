@@ -1,8 +1,5 @@
-const EASTERN_TIME_ZONE = "America/New_York"
-
-export function getDateKeyInEasternTime(date: Date): string {
+export function getDateKey(date: Date): string {
   const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: EASTERN_TIME_ZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
@@ -11,9 +8,14 @@ export function getDateKeyInEasternTime(date: Date): string {
 }
 
 export function getTodayKey(): string {
-  return getDateKeyInEasternTime(new Date())
+  return getDateKey(new Date())
 }
 
-export function getTodayKeyInEasternTime(): string {
-  return getTodayKey()
+export function formatLongDate(date: Date = new Date()): string {
+  return new Intl.DateTimeFormat("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  }).format(date)
 }

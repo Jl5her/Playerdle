@@ -1,8 +1,9 @@
 import { faMap, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
-import { LeagueFooter, type FooterTab } from "@/shared/components"
+import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -17,7 +18,7 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
+import { type FooterTab, LeagueFooter, PWAUpdateToast } from "@/shared/components"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -306,7 +307,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
               {screen === "daily" && activeSport && (
                 <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
                   <div
-                    className={`crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden ${activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive"}`}
+                    className={clsx(
+                      "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+                      activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive",
+                    )}
                   >
                     <Game
                       key="daily"
@@ -316,7 +320,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                     />
                   </div>
                   <div
-                    className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0 ${isGuideOpen ? "crossfade-active" : "crossfade-inactive"}`}
+                    className={clsx(
+                      "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0",
+                      isGuideOpen ? "crossfade-active" : "crossfade-inactive",
+                    )}
                   >
                     <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
                       <div className="flex items-center justify-between pt-3">
@@ -349,7 +356,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                     </div>
                   </div>
                   <div
-                    className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden ${isStatsOpen ? "crossfade-active" : "crossfade-inactive"}`}
+                    className={clsx(
+                      "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden",
+                      isStatsOpen ? "crossfade-active" : "crossfade-inactive",
+                    )}
                   >
                     <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
                       <div className="flex items-center justify-between pt-3">
@@ -444,6 +454,8 @@ function SportRoute({ screen, variantId }: SportRouteProps) {
 
 function App() {
   return (
+    <>
+    <PWAUpdateToast />
     <Routes>
       <Route
         path="/"
@@ -713,6 +725,7 @@ function App() {
         }
       />
     </Routes>
+    </>
   )
 }
 

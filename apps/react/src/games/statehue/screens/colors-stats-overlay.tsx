@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import { calculateColorsStats } from "@/games/statehue/utils/colors-daily"
 
 interface Props {
@@ -9,7 +10,7 @@ export default function ColorsStatsOverlay({ className }: Props) {
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (
-    <div className={`text-center px-6 py-6 ${className ?? ""}`}>
+    <div className={clsx("text-center px-6 py-6", className)}>
       <div className="grid grid-cols-4 gap-2 mb-6">
         <Stat
           value={stats.played}
@@ -48,11 +49,12 @@ export default function ColorsStatsOverlay({ className }: Props) {
               </div>
               <div className="flex-1">
                 <div
-                  className={`min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end ${
+                  className={clsx(
+                    "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
                     has
                       ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
-                      : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300"
-                  }`}
+                      : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
+                  )}
                   style={{ width: barWidth }}
                 >
                   {count}

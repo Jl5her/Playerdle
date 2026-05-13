@@ -1,5 +1,11 @@
+import clsx from "clsx"
 import type { ReactNode } from "react"
-import { evaluateColumn, type EvaluatedCell, type Player, type SportColumn } from "@/games/playerdle/sports"
+import {
+  type EvaluatedCell,
+  evaluateColumn,
+  type Player,
+  type SportColumn,
+} from "@/games/playerdle/sports"
 import Tile from "./tile"
 
 interface GuessResult {
@@ -102,7 +108,7 @@ function buildComparisonTooltip(
 function buildTooltip(column: SportColumn, evaluated: EvaluatedCell): ReactNode {
   const label = <strong className="font-bold">{column.label}</strong>
   const value = (
-    <em className={`italic font-bold ${statusColorClass(evaluated.status)}`}>
+    <em className={clsx("italic font-bold", statusColorClass(evaluated.status))}>
       {evaluated.value || "—"}
     </em>
   )

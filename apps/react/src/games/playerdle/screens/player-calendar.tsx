@@ -1,9 +1,6 @@
-import {
-  faAngleLeft,
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import {
@@ -226,26 +223,27 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                   type="button"
                   disabled={disabled}
                   onClick={() => setSelected(key)}
-                  className={`relative overflow-hidden aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors ${
+                  className={clsx(
+                    "relative overflow-hidden aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors",
                     disabled
                       ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
                       : isSelected
                         ? "bg-primary-700 text-primary-50 dark:bg-primary-200 dark:text-primary-900"
                         : isToday
                           ? "border-2 border-primary-700/40 dark:border-primary-200/40 text-primary-900 dark:text-primary-50"
-                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60"
-                  }`}
+                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60",
+                  )}
                 >
                   {cellPosition && (
                     <span
                       aria-hidden="true"
-                      className={`absolute inset-0 flex items-center justify-center font-black tracking-tight pointer-events-none select-none ${
-                        cellPosition.length > 2 ? "text-base" : "text-xl"
-                      } ${
+                      className={clsx(
+                        "absolute inset-0 flex items-center justify-center font-black tracking-tight pointer-events-none select-none",
+                        cellPosition.length > 2 ? "text-base" : "text-xl",
                         isSelected
                           ? "text-primary-200 dark:text-primary-700"
-                          : "text-primary-300 dark:text-primary-700"
-                      }`}
+                          : "text-primary-300 dark:text-primary-700",
+                      )}
                     >
                       {cellPosition}
                     </span>
@@ -253,11 +251,12 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                   <span className="relative z-10">{cell.getDate()}</span>
                   {result && !disabled && (
                     <span
-                      className={`relative z-10 w-1.5 h-1.5 rounded-full ${
+                      className={clsx(
+                        "relative z-10 w-1.5 h-1.5 rounded-full",
                         result.won
                           ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400"
-                      }`}
+                          : "bg-error-500 dark:bg-error-400",
+                      )}
                       aria-hidden="true"
                     />
                   )}

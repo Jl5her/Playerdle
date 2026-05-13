@@ -1,26 +1,16 @@
 import type { GameResult, Stats } from "@playerdle/types"
+import { getTodayKey } from "@/shared/utils/time"
 
 export type { GameResult, Stats }
 
 const STATS_KEY_PREFIX = "playerdle-stats"
-const EASTERN_TIME_ZONE = "America/New_York"
 
 function getStatsKey(sportId: string, variantId?: string): string {
   return `${STATS_KEY_PREFIX}:${sportId}:${variantId ?? "classic"}`
 }
 
-function getTodayEasternDateKey(): string {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: EASTERN_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  })
-  return formatter.format(new Date())
-}
-
 export function saveGameResult(sportId: string, won: boolean, guesses: number, variantId?: string) {
-  const today = getTodayEasternDateKey()
+  const today = getTodayKey()
   const result: GameResult = { date: today, won, guesses }
 
   const history = getGameHistory(sportId, variantId)
@@ -119,14 +109,14 @@ export function calculateStats(sportId: string, variantId?: string): Stats {
 }
 
 export function hasBeatTodaysDaily(sportId: string, variantId?: string): boolean {
-  const today = getTodayEasternDateKey()
+  const today = getTodayKey()
   const history = getGameHistory(sportId, variantId)
   const todayResult = history.find(r => r.date === today)
   return todayResult?.won ?? false
 }
 
 export function hasPlayedTodaysDaily(sportId: string, variantId?: string): boolean {
-  const today = getTodayEasternDateKey()
+  const today = getTodayKey()
   const history = getGameHistory(sportId, variantId)
   return history.some(r => r.date === today)
 }

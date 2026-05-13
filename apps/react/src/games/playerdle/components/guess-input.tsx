@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import type { Player } from "@/games/playerdle/sports"
@@ -199,7 +200,12 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
             {filtered.map((player, i) => (
               <button
                 key={`${player.id}-${i}`}
-                className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${i === highlightIndex ? "bg-primary-100 dark:bg-primary-800" : "hover:bg-primary-50 dark:hover:bg-primary-900"}`}
+                className={clsx(
+                  "flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50",
+                  i === highlightIndex
+                    ? "bg-primary-100 dark:bg-primary-800"
+                    : "hover:bg-primary-50 dark:hover:bg-primary-900",
+                )}
                 onPointerDown={e => {
                   e.preventDefault()
                   selectPlayer(player)

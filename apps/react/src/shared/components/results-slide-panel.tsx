@@ -1,5 +1,6 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import type { ReactNode } from "react"
 
 interface Props {
@@ -12,7 +13,10 @@ interface Props {
 export default function ResultsSlidePanel({ open, onClose, title = "Results", children }: Props) {
   return (
     <div
-      className={`slide-up-panel absolute inset-0 flex flex-col bg-primary-50 dark:bg-primary-900 ${open ? "slide-up-active" : "slide-up-inactive"}`}
+      className={clsx(
+        "slide-up-panel absolute inset-0 flex flex-col bg-primary-50 dark:bg-primary-900",
+        open ? "slide-up-active" : "slide-up-inactive",
+      )}
     >
       <div className="w-full max-w-2xl mx-auto px-4 flex items-center justify-between pt-3">
         <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">

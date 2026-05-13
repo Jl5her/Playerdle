@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import type { SportConfig } from "@/games/playerdle/sports"
 
 export type GuideMode = "onboarding" | "manual"
@@ -47,7 +48,7 @@ export function GameGuideContent({
           Example
         </h3>
         <div
-          className={`flex flex-col items-center ${isCompactLayout ? "guess-grid-compact" : ""}`}
+          className={clsx("flex flex-col items-center", isCompactLayout && "guess-grid-compact")}
         >
           <div className="flex gap-1 justify-center mb-1">
             {sport.columns.map(column => (
@@ -63,7 +64,10 @@ export function GameGuideContent({
             {sport.columns.map(column => (
               <div
                 key={column.id}
-                className={`grid-cell-size flex items-center justify-center font-bold leading-tight p-1 rounded-md cursor-default text-primary-50 ${getExampleBg(column.example.status)}`}
+                className={clsx(
+                  "grid-cell-size flex items-center justify-center font-bold leading-tight p-1 rounded-md cursor-default text-primary-50",
+                  getExampleBg(column.example.status),
+                )}
               >
                 {column.renderValue ? (
                   <div className="relative z-10 text-center leading-tight">

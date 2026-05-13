@@ -1,9 +1,10 @@
+import clsx from "clsx"
 import type { ReactNode } from "react"
+import { useAutoResults } from "@/shared/hooks/use-auto-results"
+import { useResultsKeyboard } from "@/shared/hooks/use-results-keyboard"
 import Button from "./button"
 import Popup from "./popup"
 import ResultsSlidePanel from "./results-slide-panel"
-import { useAutoResults } from "@/shared/hooks/use-auto-results"
-import { useResultsKeyboard } from "@/shared/hooks/use-results-keyboard"
 
 interface ResultsApi {
   onClose: () => void
@@ -49,14 +50,17 @@ export default function DailyGameShell({
       )}
 
       <div
-        className={`crossfade-panel h-full min-h-0 overflow-hidden flex flex-col ${showResults ? "crossfade-inactive" : "crossfade-active"}`}
+        className={clsx(
+          "crossfade-panel h-full min-h-0 overflow-hidden flex flex-col",
+          showResults ? "crossfade-inactive" : "crossfade-active",
+        )}
       >
         {children}
         {gameOver && (
           <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             <Button
               onClick={openResults}
-              variant="secondary"
+              variant="primary"
             >
               See Results
             </Button>

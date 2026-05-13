@@ -7,7 +7,7 @@ export default function ShareButton({ onClick, copied }: Props) {
   return (
     <button
       type="button"
-      className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-accent-500 dark:bg-accent-400 border-none rounded cursor-pointer flex items-center gap-2 hover:opacity-90 transition-opacity"
+      className="px-6 py-2.5 text-sm font-bold text-primary-700 dark:text-primary-50 bg-primary-200 dark:bg-primary-800 border-none rounded cursor-pointer flex items-center gap-2 uppercase hover:bg-primary-300 dark:hover:bg-primary-700 transition-colors"
       title="Share results"
       onClick={onClick}
     >

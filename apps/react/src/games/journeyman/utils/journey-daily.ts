@@ -1,28 +1,9 @@
 import { ELIGIBLE_JOURNEY_PLAYERS, getJourneyPlayerById, type JourneyPlayer } from "@playerdle/data/journeyman/players"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { hashString } from "@/shared/utils/daily-select"
+import { getDateKey, getTodayKey } from "@/shared/utils/time"
 import JOURNEY_ANSWER_POOL from "@playerdle/data/journeyman/answer_pool.json"
 
 const MAX_GUESSES = 5
-
-function hashString(str: string): number {
-  let h = 0
-  for (let i = 0; i < str.length; i++) {
-    const c = str.charCodeAt(i)
-    h = (h << 5) - h + c
-    h |= 0
-  }
-  return mix32(h >>> 0)
-}
-
-function mix32(h: number): number {
-  let x = h >>> 0
-  x ^= x >>> 16
-  x = Math.imul(x, 0x85ebca6b) >>> 0
-  x ^= x >>> 13
-  x = Math.imul(x, 0xc2b2ae35) >>> 0
-  x ^= x >>> 16
-  return x >>> 0
-}
 
 function previousDateKey(dateKey: string): string | undefined {
   const [y, m, d] = dateKey.split("-").map(Number)
@@ -35,12 +16,29 @@ function previousDateKey(dateKey: string): string | undefined {
   return `${yy}-${mm}-${dd}`
 }
 
-// Select from the append-only answer pool so adding/removing players from
-// ELIGIBLE_JOURNEY_PLAYERS doesn't shift any existing date → player mappings.
-// Pool entries are never reordered; new players are only ever appended.
-function pickByIndex(seed: number): JourneyPlayer {
-  const id = JOURNEY_ANSWER_POOL[seed % JOURNEY_ANSWER_POOL.length]
-  return getJourneyPlayerById(id) ?? ELIGIBLE_JOURNEY_PLAYERS[seed % ELIGIBLE_JOURNEY_PLAYERS.length]
+// Candidate set: resolved JourneyPlayers from the answer pool. Built once.
+// The min-hash selection below is independent of array order, so additions or
+// reorderings of JOURNEY_ANSWER_POOL never shift the date → player mapping for
+// any other id — only the dates where the changed id was previously the min.
+const DAILY_CANDIDATES: JourneyPlayer[] = (() => {
+  const seen = new Set<string>()
+  const out: JourneyPlayer[] = []
+  for (const id of JOURNEY_ANSWER_POOL) {
+    if (seen.has(id)) continue
+    const player = getJourneyPlayerById(id)
+    if (player) {
+      out.push(player)
+      seen.add(id)
+    }
+  }
+  if (out.length === 0) return [...ELIGIBLE_JOURNEY_PLAYERS]
+  return out
+})()
+
+function rankPlayersByHash(dateKey: string): JourneyPlayer[] {
+  return DAILY_CANDIDATES.map(p => ({ p, h: hashString(`journey-player:${dateKey}:${p.id}`) }))
+    .sort((a, b) => (a.h !== b.h ? a.h - b.h : a.p.id < b.p.id ? -1 : 1))
+    .map(x => x.p)
 }
 
 const playerForDateCache = new Map<string, JourneyPlayer>()
@@ -53,21 +51,15 @@ function pickPlayerForDate(dateKey: string): JourneyPlayer {
   const cached = playerForDateCache.get(dateKey)
   if (cached) return cached
 
-  const primary = pickByIndex(hashString(`journey-player:${dateKey}`))
-  let result = primary
+  const ranked = rankPlayersByHash(dateKey)
+  let result = ranked[0]
   const yesterday = previousDateKey(dateKey)
   if (yesterday && yesterday >= JOURNEY_EPOCH_DATE_KEY) {
     const yesterdayPick = pickPlayerForDate(yesterday)
-    // Reroll if same player OR same position as yesterday — avoids back-to-back
-    // QB / WR / RB / TE streaks.
-    if (conflictsWithYesterday(primary, yesterdayPick)) {
-      for (let r = 1; r <= 8; r++) {
-        const alt = pickByIndex(hashString(`journey-player:${dateKey}:r${r}`))
-        if (!conflictsWithYesterday(alt, yesterdayPick)) {
-          result = alt
-          break
-        }
-      }
+    // Avoid back-to-back same player or same position (QB/WR/RB/TE streaks).
+    if (conflictsWithYesterday(result, yesterdayPick)) {
+      const alt = ranked.find(p => !conflictsWithYesterday(p, yesterdayPick))
+      if (alt) result = alt
     }
   }
   playerForDateCache.set(dateKey, result)
@@ -84,15 +76,6 @@ function daysSinceEpoch(dateKey: string): number {
   return Math.floor((target - epoch) / 86_400_000)
 }
 
-function formatDate(date: Date): string {
-  const formatter = new Intl.DateTimeFormat("en-CA", {
-    timeZone: "America/New_York",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  })
-  return formatter.format(date)
-}
 
 export interface JourneyPuzzle {
   player: JourneyPlayer
@@ -101,7 +84,7 @@ export interface JourneyPuzzle {
 }
 
 export function getDailyJourneyPuzzle(date?: Date): JourneyPuzzle {
-  const dateKey = date ? formatDate(date) : getTodayKeyInEasternTime()
+  const dateKey = date ? getDateKey(date) : getTodayKey()
   return getJourneyPuzzleByDateKey(dateKey)
 }
 
@@ -122,11 +105,11 @@ const JOURNEY_PLAYED_KEY = "playerdle-journey-played-day"
 const JOURNEY_HISTORY_KEY = "playerdle-journey-history:v1"
 
 export function markJourneyDailyPlayed() {
-  localStorage.setItem(JOURNEY_PLAYED_KEY, getTodayKeyInEasternTime())
+  localStorage.setItem(JOURNEY_PLAYED_KEY, getTodayKey())
 }
 
 export function hasPlayedJourneyDailyToday(): boolean {
-  return localStorage.getItem(JOURNEY_PLAYED_KEY) === getTodayKeyInEasternTime()
+  return localStorage.getItem(JOURNEY_PLAYED_KEY) === getTodayKey()
 }
 
 export interface JourneyResult {

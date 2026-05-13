@@ -1,5 +1,6 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import type { ReactNode } from "react"
 
 interface Props {
@@ -19,7 +20,10 @@ export default function MenuOverlay({
 }: Props) {
   return (
     <div
-      className={`crossfade-panel absolute inset-0 ${open ? "crossfade-active" : "crossfade-inactive"}`}
+      className={clsx(
+        "crossfade-panel absolute inset-0",
+        open ? "crossfade-active" : "crossfade-inactive",
+      )}
     >
       <div className="w-full max-w-sm mx-auto h-full flex flex-col">
         <div className="flex items-center justify-between">

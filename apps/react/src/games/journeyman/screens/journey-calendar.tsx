@@ -5,9 +5,9 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { useMemo, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { ScrollHint } from "@/shared/components"
 import {
   getJourneyHistory,
   getJourneyPuzzleByDateKey,
@@ -15,7 +15,8 @@ import {
   type JourneyPuzzle,
   type JourneyResult,
 } from "@/games/journeyman/utils/journey-daily"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { ScrollHint } from "@/shared/components"
+import { getTodayKey } from "@/shared/utils/time"
 
 function formatDateKey(d: Date): string {
   const y = d.getFullYear()
@@ -61,9 +62,7 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
             key={`${team}-${i}`}
             className="flex items-center gap-2 text-primary-900 dark:text-primary-50"
           >
-            <span className="w-5 text-right text-primary-500 dark:text-primary-200">
-              {i + 1}.
-            </span>
+            <span className="w-5 text-right text-primary-500 dark:text-primary-200">{i + 1}.</span>
             <span>{team}</span>
             {i === puzzle.player.teams.length - 1 && (
               <span className="ml-1 px-1 rounded text-[9px] tracking-wider font-bold border border-current opacity-60">
@@ -76,11 +75,12 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
 
       {result && (
         <div
-          className={`mt-3 text-sm font-bold uppercase tracking-wider ${
+          className={clsx(
+            "mt-3 text-sm font-bold uppercase tracking-wider",
             result.won
               ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
+              : "text-error-500 dark:text-error-400",
+          )}
         >
           {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
         </div>
@@ -96,7 +96,7 @@ interface Props {
 export default function JourneyCalendar({ onClose }: Props = {}) {
   const navigate = useNavigate()
   const scrollRef = useRef<HTMLDivElement>(null)
-  const today = parseDateKey(getTodayKeyInEasternTime())
+  const today = parseDateKey(getTodayKey())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
 
@@ -200,24 +200,26 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
                   type="button"
                   disabled={disabled}
                   onClick={() => setSelected(key)}
-                  className={`aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors ${
+                  className={clsx(
+                    "aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors",
                     disabled
                       ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
                       : isSelected
                         ? "bg-primary-700 text-primary-50 dark:bg-primary-200 dark:text-primary-900"
                         : isToday
                           ? "border-2 border-primary-700/40 dark:border-primary-200/40 text-primary-900 dark:text-primary-50"
-                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60"
-                  }`}
+                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60",
+                  )}
                 >
                   <span>{cell.getDate()}</span>
                   {result && !disabled && (
                     <span
-                      className={`w-1.5 h-1.5 rounded-full ${
+                      className={clsx(
+                        "w-1.5 h-1.5 rounded-full",
                         result.won
                           ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400"
-                      }`}
+                          : "bg-error-500 dark:bg-error-400",
+                      )}
                       aria-hidden="true"
                     />
                   )}

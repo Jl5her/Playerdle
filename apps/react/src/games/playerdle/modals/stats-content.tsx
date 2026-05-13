@@ -1,5 +1,3 @@
-import confetti from "canvas-confetti"
-import { useEffect, useRef } from "react"
 import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import type { GameMode } from "@/games/playerdle/screens/game"
@@ -20,13 +18,6 @@ export interface StatsContentProps {
   variantId?: string
 }
 
-function getTeamColors(sport: SportConfig, player: Player): [string, string] {
-  const teamValue = String(player.team ?? "")
-  const teamAbbrValue = String(player.teamAbbr ?? "")
-  const team = sport.teams.find(t => t.name === teamValue || t.abbr === teamAbbrValue)
-  return team?.colors ?? ["#538d4e", "#b59f3b"]
-}
-
 function generateShareText(
   guesses: Player[],
   answer: Player,
@@ -38,7 +29,6 @@ function generateShareText(
     month: "numeric",
     day: "numeric",
     year: "numeric",
-    timeZone: "America/New_York",
   }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
 
@@ -78,7 +68,6 @@ export function StatsContent({
   variantId,
 }: StatsContentProps) {
   const { share, copied } = useClipboardShare()
-  const lastConfettiKeyRef = useRef<string | null>(null)
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
@@ -86,49 +75,6 @@ export function StatsContent({
     if (!player) return
     share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, variantId) })
   }
-
-  useEffect(() => {
-    if (!won || !player) return
-
-    const confettiKey = `${sport.id}:${player.id}:${guessCount}`
-    if (lastConfettiKeyRef.current === confettiKey) {
-      return
-    }
-    lastConfettiKeyRef.current = confettiKey
-
-    const duration = 1500
-    const end = Date.now() + duration
-    const colors = getTeamColors(sport, player)
-
-    function frame() {
-      confetti({
-        particleCount: 10,
-        angle: 60,
-        spread: 75,
-        startVelocity: 60,
-        gravity: 1.2,
-        origin: { x: 0, y: 0 },
-        colors: colors,
-        zIndex: 2000,
-      })
-      confetti({
-        particleCount: 10,
-        angle: 120,
-        spread: 75,
-        startVelocity: 60,
-        gravity: 1.2,
-        origin: { x: 1, y: 0 },
-        colors: colors,
-        zIndex: 2000,
-      })
-
-      if (Date.now() < end) {
-        requestAnimationFrame(frame)
-      }
-    }
-
-    frame()
-  }, [won, player, guessCount, sport.id])
 
   if (!showStatsOnly && !won && !lost) return null
 

@@ -5,9 +5,10 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { STATE_PATHS } from "@playerdle/data/statehue/state-paths"
+import clsx from "clsx"
 import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { STATE_PATHS } from "@playerdle/data/statehue/state-paths"
 import {
   COLORS_EPOCH_DATE_KEY,
   type ColorsPuzzle,
@@ -15,7 +16,7 @@ import {
   getColorsHistory,
   getColorsPuzzleByDateKey,
 } from "@/games/statehue/utils/colors-daily"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { getTodayKey } from "@/shared/utils/time"
 
 function shadeHex(hex: string, amount: number): string {
   const clean = hex.replace("#", "")
@@ -34,7 +35,7 @@ function Diamond({ color, size = 5 }: { color: string; size?: number }) {
   const dim = `${size * 0.25}rem`
   return (
     <span
-      className="inline-block rotate-45 rounded-[2px]"
+      className="inline-block rotate-45 rounded-xs"
       style={{
         width: dim,
         height: dim,
@@ -121,9 +122,7 @@ function DayDetail({ puzzle, result }: DayDetailProps) {
               <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
                 {team.league}
               </div>
-              <div className="text-primary-900 dark:text-primary-50 font-semibold">
-                {team.name}
-              </div>
+              <div className="text-primary-900 dark:text-primary-50 font-semibold">{team.name}</div>
             </div>
           </div>
         ))}
@@ -131,11 +130,12 @@ function DayDetail({ puzzle, result }: DayDetailProps) {
 
       {result && (
         <div
-          className={`mt-3 text-sm font-bold uppercase tracking-wider ${
+          className={clsx(
+            "mt-3 text-sm font-bold uppercase tracking-wider",
             result.won
               ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
+              : "text-error-500 dark:text-error-400",
+          )}
         >
           {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
         </div>
@@ -150,7 +150,7 @@ interface ColorsCalendarProps {
 
 export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
   const navigate = useNavigate()
-  const today = parseDateKey(getTodayKeyInEasternTime())
+  const today = parseDateKey(getTodayKey())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
 
@@ -253,24 +253,26 @@ export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
                   type="button"
                   disabled={disabled}
                   onClick={() => setSelected(key)}
-                  className={`relative overflow-hidden aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors ${
+                  className={clsx(
+                    "relative overflow-hidden aspect-square rounded-md text-sm font-semibold inline-flex flex-col items-center justify-center gap-0.5 transition-colors",
                     disabled
                       ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
                       : isSelected
                         ? "bg-primary-700 text-primary-50 dark:bg-primary-200 dark:text-primary-900"
                         : isToday
                           ? "border-2 border-primary-700/40 dark:border-primary-200/40 text-primary-900 dark:text-primary-50"
-                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60"
-                  }`}
+                          : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60",
+                  )}
                 >
                   {cellShape && (
                     <svg
                       viewBox={cellShape.viewBox}
-                      className={`absolute inset-1 w-[calc(100%-0.5rem)] h-[calc(100%-0.5rem)] opacity-50 pointer-events-none ${
+                      className={clsx(
+                        "absolute inset-1 w-[calc(100%-0.5rem)] h-[calc(100%-0.5rem)] opacity-50 pointer-events-none",
                         isSelected
                           ? "text-primary-200 dark:text-primary-700"
-                          : "text-primary-600 dark:text-primary-300"
-                      }`}
+                          : "text-primary-600 dark:text-primary-300",
+                      )}
                       fill="currentColor"
                       stroke="currentColor"
                       strokeWidth={1}
@@ -283,11 +285,12 @@ export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
                   <span className="relative z-10">{cell.getDate()}</span>
                   {result && !disabled && (
                     <span
-                      className={`relative z-10 w-1.5 h-1.5 rounded-full ${
+                      className={clsx(
+                        "relative z-10 w-1.5 h-1.5 rounded-full",
                         result.won
                           ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400"
-                      }`}
+                          : "bg-error-500 dark:bg-error-400",
+                      )}
                       aria-hidden="true"
                     />
                   )}

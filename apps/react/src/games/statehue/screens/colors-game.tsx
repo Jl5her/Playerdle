@@ -1,8 +1,21 @@
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import confetti from "canvas-confetti"
+import { ALL_STATES, getStateByName, type USState } from "@playerdle/data/statehue/all-states"
+import { bearingDeg } from "@playerdle/data/statehue/state-geo"
+import { STATE_PATHS } from "@playerdle/data/statehue/state-paths"
+import { type ColorsState, type ColorsTeam } from "@playerdle/data/statehue/states"
+import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
+import {
+  type ColorsPuzzle,
+  type ColorsStats,
+  calculateColorsStats,
+  getArcadeColorsPuzzle,
+  getDailyColorsPuzzle,
+  markColorsDailyPlayed,
+  saveColorsResult,
+} from "@/games/statehue/utils/colors-daily"
 import {
   DailyGameShell,
   PlayAgainButton,
@@ -11,21 +24,9 @@ import {
   ScrollHint,
   ShareButton,
 } from "@/shared/components"
-import { ALL_STATES, getStateByName, type USState } from "@playerdle/data/statehue/all-states"
-import { bearingDeg } from "@playerdle/data/statehue/state-geo"
-import { type ColorsState, type ColorsTeam } from "@playerdle/data/statehue/states"
-import { STATE_PATHS } from "@playerdle/data/statehue/state-paths"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
-import {
-  calculateColorsStats,
-  type ColorsPuzzle,
-  type ColorsStats,
-  getArcadeColorsPuzzle,
-  getDailyColorsPuzzle,
-  markColorsDailyPlayed,
-  saveColorsResult,
-} from "@/games/statehue/utils/colors-daily"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
 const STORAGE_KEY = "playerdle-colors-state:v1"
@@ -34,6 +35,7 @@ export type ColorsGameMode = "daily" | "arcade"
 
 interface Props {
   mode: ColorsGameMode
+  onModeChange?: (mode: ColorsGameMode) => void
 }
 
 interface SavedState {
@@ -81,16 +83,28 @@ function Diamond({ color }: { color: string }) {
   )
 }
 
-function TeamRow({ team }: { team: ColorsTeam }) {
+function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex items-center gap-5 px-3 py-3">
-        {team.colors.map((color, i) => (
-          <Diamond
-            key={`${color}-${i}`}
-            color={color}
-          />
-        ))}
+      <div className="flex items-center gap-6 px-3 py-3">
+        <div className="flex items-center gap-5 shrink-0">
+          {team.colors.map((color, i) => (
+            <Diamond
+              key={`${color}-${i}`}
+              color={color}
+            />
+          ))}
+        </div>
+        {revealName && (
+          <div className="text-xs min-w-32 text-left">
+            <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
+              {team.league}
+            </div>
+            <div className="text-primary-900 dark:text-primary-50 font-semibold">
+              {team.name}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -107,9 +121,10 @@ function StateBadge({ code, dim }: { code: string; dim?: boolean }) {
   return (
     <span
       aria-hidden="true"
-      className={`inline-flex items-center justify-center w-8 h-8 shrink-0 ${
-        dim ? "text-primary-300 dark:text-primary-700" : "text-current"
-      }`}
+      className={clsx(
+        "inline-flex items-center justify-center w-8 h-8 shrink-0",
+        dim ? "text-primary-300 dark:text-primary-700" : "text-current",
+      )}
     >
       {shape ? (
         <svg
@@ -136,13 +151,7 @@ function getStateCodeByName(name?: string): string | undefined {
   return getStateByName(name)?.id
 }
 
-function CompassArrow({
-  fromCode,
-  toCode,
-}: {
-  fromCode: string
-  toCode: string
-}) {
+function CompassArrow({ fromCode, toCode }: { fromCode: string; toCode: string }) {
   const bearing = bearingDeg(fromCode, toCode)
   if (bearing === undefined) {
     return (
@@ -192,13 +201,14 @@ function GuessSlots({ guesses, answer, maxGuesses }: GuessSlotsProps) {
             ref={el => {
               slotRefs.current[i] = el
             }}
-            className={`w-full max-w-xs px-3 py-2 rounded-lg border-2 flex items-center gap-3 uppercase font-bold tracking-wider text-sm transition-colors ${
+            className={clsx(
+              "w-full max-w-xs px-3 py-2 rounded-lg border-2 flex items-center gap-3 uppercase font-bold tracking-wider text-sm transition-colors",
               guess
                 ? isCorrect
                   ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
                   : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
-                : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600"
-            }`}
+                : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600",
+            )}
           >
             <StateBadge
               code={code ?? "??"}
@@ -302,7 +312,7 @@ function StateInput({ onGuess, disabled, usedGuesses }: StateInputProps) {
   if (disabled) return null
 
   return (
-    <div className="shrink-0 mx-3 mb-3 bg-primary-50 dark:bg-primary-900">
+    <div className="shrink-0 mx-3 mb-3 pb-[max(0rem,env(safe-area-inset-bottom))] bg-primary-50 dark:bg-primary-900">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
@@ -333,11 +343,12 @@ function StateInput({ onGuess, disabled, usedGuesses }: StateInputProps) {
               return (
                 <button
                   key={state.id}
-                  className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${
+                  className={clsx(
+                    "flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50",
                     i === highlightIndex
                       ? "bg-primary-100 dark:bg-primary-800"
-                      : "hover:bg-primary-50 dark:hover:bg-primary-900"
-                  }`}
+                      : "hover:bg-primary-50 dark:hover:bg-primary-900",
+                  )}
                   onPointerDown={e => {
                     e.preventDefault()
                     handleSelect(state)
@@ -379,7 +390,6 @@ interface ResultsPanelProps {
   puzzle: ColorsPuzzle
   guesses: string[]
   won: boolean
-  lost: boolean
   maxGuesses: number
   mode: ColorsGameMode
   stats: ColorsStats | null
@@ -398,12 +408,9 @@ function buildShareText(
     month: "numeric",
     day: "numeric",
     year: "numeric",
-    timeZone: "America/New_York",
   }).format(new Date())
   const url =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/statehue/daily`
-      : "/statehue/daily"
+    typeof window !== "undefined" ? `${window.location.origin}/statehue/daily` : "/statehue/daily"
 
   const answerName = puzzle.state.name.toLowerCase()
   const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
@@ -420,7 +427,6 @@ function ResultsPanel({
   puzzle,
   guesses,
   won,
-  lost,
   maxGuesses,
   mode,
   stats,
@@ -428,7 +434,6 @@ function ResultsPanel({
   onPlayAgain,
 }: ResultsPanelProps) {
   const { share, copied } = useClipboardShare()
-  const shape = STATE_PATHS[puzzle.state.id]
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
   const resultsScrollRef = useRef<HTMLDivElement>(null)
 
@@ -444,62 +449,12 @@ function ResultsPanel({
         durationMs={3000}
       />
 
-      <ResultBanner
-        won={won}
-        guessCount={guesses.length}
-        answer={
-          <span className="inline-flex items-center justify-center gap-3">
-            {shape && (
-              <svg
-                viewBox={shape.viewBox}
-                className="w-8 h-8 text-primary-700 dark:text-primary-200"
-                fill="currentColor"
-                stroke="currentColor"
-                strokeWidth={1}
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d={shape.d} />
-              </svg>
-            )}
-            {puzzle.state.name}
-          </span>
-        }
-      />
-
       <div
         ref={resultsScrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
-
-        <div className="mt-5 flex flex-col gap-3 items-center">
-          {puzzle.teams.map((team, i) => (
-            <div
-              key={`${team.name}-${i}`}
-              className="flex items-center gap-6"
-            >
-              <div className="flex items-center gap-5 shrink-0 px-1 py-1">
-                {team.colors.map((color, j) => (
-                  <Diamond
-                    key={`${color}-${j}`}
-                    color={color}
-                  />
-                ))}
-              </div>
-              <div className="text-xs min-w-[10rem] text-left">
-                <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
-                  {team.league}
-                </div>
-                <div className="text-primary-900 dark:text-primary-50 font-semibold">
-                  {team.name}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         {mode === "daily" && stats && (
-          <div className="mt-6">
+          <div className="mt-4">
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
               Statistics
             </h3>
@@ -560,11 +515,12 @@ function ResultsPanel({
                   </div>
                   <div className="flex-1">
                     <div
-                      className={`min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end ${
+                      className={clsx(
+                        "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
                         has
                           ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
-                          : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300"
-                      }`}
+                          : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
+                      )}
                       style={{ width: barWidth }}
                     >
                       {count}
@@ -590,16 +546,14 @@ function ResultsPanel({
             }}
           />
         </div>
-
-        {!won && !lost && null}
       </div>
       <ScrollHint scrollRef={resultsScrollRef} />
     </div>
   )
 }
 
-export default function ColorsGame({ mode }: Props) {
-  const [dateKey] = useState<string>(getTodayKeyInEasternTime)
+export default function ColorsGame({ mode, onModeChange }: Props) {
+  const [dateKey] = useState<string>(getTodayKey)
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() =>
     mode === "daily" ? getDailyColorsPuzzle() : getArcadeColorsPuzzle(),
@@ -611,9 +565,7 @@ export default function ColorsGame({ mode }: Props) {
   const won = guesses.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
-  const wrongCount = guesses.filter(
-    g => g.toLowerCase() !== puzzle.state.name.toLowerCase(),
-  ).length
+  const wrongCount = guesses.filter(g => g.toLowerCase() !== puzzle.state.name.toLowerCase()).length
   // Hint cadence: start with 1 team's colors, +1 per wrong guess, up to 3.
   const visibleTeamCount = gameOver
     ? puzzle.teams.length
@@ -641,54 +593,18 @@ export default function ColorsGame({ mode }: Props) {
     }
   }, [gameOver, activeMode, stats])
 
-  const confettiKeyRef = useRef<string | null>(null)
-  useEffect(() => {
-    if (!won) return
-    const key = `${puzzle.dateKey}:${puzzle.state.id}:${guesses.length}`
-    if (confettiKeyRef.current === key) return
-    confettiKeyRef.current = key
-
-    const colors = puzzle.teams.flatMap(t => t.colors)
-    const duration = 2500
-    const end = Date.now() + duration
-    function frame() {
-      confetti({
-        particleCount: 18,
-        angle: 60,
-        spread: 85,
-        startVelocity: 65,
-        gravity: 1.1,
-        origin: { x: 0, y: 0 },
-        colors,
-        zIndex: 2000,
-      })
-      confetti({
-        particleCount: 18,
-        angle: 120,
-        spread: 85,
-        startVelocity: 65,
-        gravity: 1.1,
-        origin: { x: 1, y: 0 },
-        colors,
-        zIndex: 2000,
-      })
-      if (Date.now() < end) requestAnimationFrame(frame)
-    }
-    confetti({
-      particleCount: 140,
-      spread: 100,
-      startVelocity: 55,
-      origin: { x: 0.5, y: 0.3 },
-      colors,
-      zIndex: 2000,
-    })
-    frame()
-  }, [won, puzzle, guesses.length])
-
-  const usedGuessesLower = useMemo(
-    () => new Set(guesses.map(g => g.toLowerCase())),
-    [guesses],
+  const confettiColors = useMemo(
+    () => puzzle.teams.flatMap(t => t.colors),
+    [puzzle.teams],
   )
+  useWinConfetti({
+    won,
+    colors: confettiColors,
+    dedupKey: `${puzzle.dateKey}:${puzzle.state.id}:${guesses.length}`,
+    duration: 2500,
+  })
+
+  const usedGuessesLower = useMemo(() => new Set(guesses.map(g => g.toLowerCase())), [guesses])
 
   function handleGuess(stateName: string) {
     if (gameOver) return
@@ -703,7 +619,7 @@ export default function ColorsGame({ mode }: Props) {
     setPuzzle(fresh)
     setGuesses([])
     setActiveMode("arcade")
-    confettiKeyRef.current = null
+    onModeChange?.("arcade")
   }
 
   return (
@@ -716,7 +632,6 @@ export default function ColorsGame({ mode }: Props) {
           puzzle={puzzle}
           guesses={guesses}
           won={won}
-          lost={lost}
           maxGuesses={MAX_GUESSES}
           mode={activeMode}
           stats={stats}
@@ -725,6 +640,34 @@ export default function ColorsGame({ mode }: Props) {
         />
       )}
     >
+      {gameOver &&
+        (() => {
+          const answerShape = STATE_PATHS[puzzle.state.id]
+          return (
+            <ResultBanner
+              won={won}
+              guessCount={guesses.length}
+              answer={
+                <span className="inline-flex items-center justify-center gap-3">
+                  {answerShape && (
+                    <svg
+                      viewBox={answerShape.viewBox}
+                      className="w-8 h-8 text-primary-900 dark:text-primary-50"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      strokeWidth={1}
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d={answerShape.d} />
+                    </svg>
+                  )}
+                  {puzzle.state.name}
+                </span>
+              }
+            />
+          )
+        })()}
       <div
         ref={gameScrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
@@ -735,6 +678,7 @@ export default function ColorsGame({ mode }: Props) {
               <TeamRow
                 key={`${team.name}-${i}`}
                 team={team}
+                revealName={gameOver}
               />
             ))}
           </div>

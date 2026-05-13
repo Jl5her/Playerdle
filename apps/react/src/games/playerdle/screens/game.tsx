@@ -1,11 +1,16 @@
 import type { GameMode } from "@playerdle/types"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
-import { DailyGameShell, Popup, ScrollHint } from "@/shared/components"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import type { Player, SportConfig } from "@/games/playerdle/sports"
-import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/games/playerdle/utils/daily"
+import {
+  getDailyPlayer,
+  getRandomArcadePlayer,
+  getTodayKey,
+} from "@/games/playerdle/utils/daily"
 import { saveGameResult } from "@/games/playerdle/utils/stats"
+import { DailyGameShell, Popup, ResultBanner, ScrollHint } from "@/shared/components"
+import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 
 const MAX_GUESSES = 6
 
@@ -63,7 +68,7 @@ function restoreGuesses(players: Player[], ids: string[]): Player[] {
 
 function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: string): Player[] {
   if (mode === "daily") {
-    const savedIds = loadState(sport.id, getTodayKeyInEasternTime(), variantId)
+    const savedIds = loadState(sport.id, getTodayKey(), variantId)
     return savedIds.length > 0 ? restoreGuesses(sport.players, savedIds) : []
   }
   return []
@@ -74,7 +79,7 @@ export default function Game({ mode, sport, variantId }: Props) {
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
   )
-  const [dateKey] = useState<string>(getTodayKeyInEasternTime)
+  const [dateKey] = useState<string>(getTodayKey)
   const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport, variantId))
   const [latestIndex, setLatestIndex] = useState(-1)
   const [showPositionPopup, setShowPositionPopup] = useState(false)
@@ -87,6 +92,20 @@ export default function Game({ mode, sport, variantId }: Props) {
 
   const guessedIds = new Set(guesses.map(g => g.id))
 
+  const confettiColors = useMemo(() => {
+    if (!answer) return []
+    const teamValue = String(answer.team ?? "")
+    const teamAbbrValue = String(answer.teamAbbr ?? "")
+    const team = sport.teams.find(t => t.name === teamValue || t.abbr === teamAbbrValue)
+    return team?.colors ?? ["#538d4e", "#b59f3b"]
+  }, [answer, sport.teams])
+
+  useWinConfetti({
+    won,
+    colors: confettiColors,
+    dedupKey: answer ? `${sport.id}:${answer.id}:${guesses.length}` : null,
+  })
+
   const guessablePlayers = useMemo(() => {
     const allowedPositions = new Set<string>()
     for (const p of sport.answerPool) {
@@ -96,7 +115,8 @@ export default function Game({ mode, sport, variantId }: Props) {
     }
     if (allowedPositions.size === 0) return sport.players
     return sport.players.filter(
-      p => p.position !== undefined && p.position !== null && allowedPositions.has(String(p.position)),
+      p =>
+        p.position !== undefined && p.position !== null && allowedPositions.has(String(p.position)),
     )
   }, [sport.players, sport.answerPool])
 
@@ -182,46 +202,15 @@ export default function Game({ mode, sport, variantId }: Props) {
     >
       <Popup
         visible={showPositionPopup}
-        message={
-          answer?.position ? `Position locked: ${String(answer.position)}` : ""
-        }
+        message={answer?.position ? `Position locked: ${String(answer.position)}` : ""}
         durationMs={2500}
       />
       {gameOver && answer && (
-        <div
-          className={`shrink-0 px-4 py-3 text-center border-b-2 ${
-            won
-              ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
-              : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
-          }`}
-        >
-          <div
-            className={`text-base font-black tracking-widest uppercase mb-1 ${
-              won
-                ? "text-success-500 dark:text-success-400"
-                : "text-error-500 dark:text-error-400"
-            }`}
-          >
-            {won ? "Correct" : "Game Over"}
-          </div>
-          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
-            The answer was
-          </div>
-          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
-            {String(answer.name)}
-          </div>
-          <div
-            className={`text-sm mt-2 font-medium uppercase ${
-              won
-                ? "text-success-500 dark:text-success-400"
-                : "text-error-500 dark:text-error-400"
-            }`}
-          >
-            {won
-              ? `You got it in ${guesses.length} ${guesses.length === 1 ? "guess" : "guesses"}`
-              : "Better luck tomorrow!"}
-          </div>
-        </div>
+        <ResultBanner
+          won={won}
+          answer={String(answer.name)}
+          guessCount={guesses.length}
+        />
       )}
       {answer && (
         <div className="flex-1 min-h-0 flex flex-col">

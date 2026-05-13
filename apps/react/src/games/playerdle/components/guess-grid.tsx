@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import { useEffect, useRef } from "react"
 import { GuessRow } from "@/games/playerdle/components"
 import type { Player, SportColumn } from "@/games/playerdle/sports"
@@ -30,10 +31,13 @@ export default function GuessGrid({
 
   return (
     <div
-      className={`guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1 ${isCompactLayout ? "guess-grid-compact" : ""}`}
+      className={clsx(
+        "guess-grid-shell flex flex-col items-center gap-1 px-2 pt-1 pb-1",
+        isCompactLayout ? "guess-grid-compact" : "",
+      )}
     >
       {/* Column headers */}
-      <div className="guess-grid-header sticky top-0 z-10 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
+      <div className="guess-grid-header sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
         {columns.map(column => (
           <div
             key={column.id}

@@ -1,7 +1,11 @@
 import { faMap } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { getAllSportMeta, getSportIcon, type SportId } from "@/games/playerdle/sports"
+import ColorsStatsOverlay from "@/games/statehue/screens/colors-stats-overlay"
+import { hasPlayedColorsDailyToday } from "@/games/statehue/utils/colors-daily"
 import {
   AboutFooter,
   type FooterTab,
@@ -10,9 +14,6 @@ import {
   MenuLinkButton,
   MenuOverlay,
 } from "@/shared/components"
-import ColorsStatsOverlay from "@/games/statehue/screens/colors-stats-overlay"
-import { getAllSportMeta, getSportIcon, type SportId } from "@/games/playerdle/sports"
-import { hasPlayedColorsDailyToday } from "@/games/statehue/utils/colors-daily"
 
 type Section = "menu" | "about" | "stats"
 
@@ -63,7 +64,10 @@ export default function PaletteHub() {
 
           <div className="w-full flex-1 mt-6 relative overflow-hidden">
             <div
-              className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
+              className={clsx(
+                "crossfade-panel h-full flex flex-col",
+                section === "menu" ? "crossfade-active" : "crossfade-inactive",
+              )}
             >
               <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
                 <div className="flex flex-col gap-3 w-full">

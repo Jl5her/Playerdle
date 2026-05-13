@@ -5,8 +5,10 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
 import JourneyHowToPlay from "./journey-how-to-play"
@@ -27,7 +29,7 @@ export default function JourneyShell({ screen }: Props) {
   const [isOnboarding, setIsOnboarding] = useState(false)
 
   useEffect(() => {
-    document.title = "Journeyman"
+    document.title = "Playerdle Journeyman"
   }, [])
 
   useEffect(() => {
@@ -64,6 +66,11 @@ export default function JourneyShell({ screen }: Props) {
   }
 
   const mode: JourneyGameMode = screen === "arcade" ? "arcade" : "daily"
+  const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
+  useEffect(() => {
+    setActiveMode(mode)
+  }, [mode])
+  const subtitle = activeMode === "arcade" ? "Arcade mode" : formatLongDate()
   const isGuideOpen = overlay === "guide"
   const isStatsOpen = overlay === "stats"
 
@@ -86,7 +93,7 @@ export default function JourneyShell({ screen }: Props) {
           Journeyman
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
-          {mode === "daily" ? "Daily puzzle" : "Arcade"}
+          {subtitle}
         </p>
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
           {overlay === "none" && (
@@ -121,15 +128,22 @@ export default function JourneyShell({ screen }: Props) {
       </header>
       <div className="flex flex-1 min-h-0 overflow-hidden relative">
         <div
-          className={`crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden ${overlay === "none" ? "crossfade-active" : "crossfade-inactive"}`}
+          className={clsx(
+            "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+            overlay === "none" ? "crossfade-active" : "crossfade-inactive",
+          )}
         >
           <JourneyGame
             key={mode}
             mode={mode}
+            onModeChange={setActiveMode}
           />
         </div>
         <div
-          className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0 ${isGuideOpen ? "crossfade-active" : "crossfade-inactive"}`}
+          className={clsx(
+            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0",
+            isGuideOpen ? "crossfade-active" : "crossfade-inactive",
+          )}
         >
           <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -155,7 +169,10 @@ export default function JourneyShell({ screen }: Props) {
           </div>
         </div>
         <div
-          className={`crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden ${isStatsOpen ? "crossfade-active" : "crossfade-inactive"}`}
+          className={clsx(
+            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden",
+            isStatsOpen ? "crossfade-active" : "crossfade-inactive",
+          )}
         >
           <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -178,7 +195,10 @@ export default function JourneyShell({ screen }: Props) {
           </div>
         </div>
         <div
-          className={`crossfade-panel absolute inset-0 overflow-hidden ${overlay === "calendar" ? "crossfade-active" : "crossfade-inactive"}`}
+          className={clsx(
+            "crossfade-panel absolute inset-0 overflow-hidden",
+            overlay === "calendar" ? "crossfade-active" : "crossfade-inactive",
+          )}
         >
           <JourneyCalendar onClose={() => setOverlay("none")} />
         </div>

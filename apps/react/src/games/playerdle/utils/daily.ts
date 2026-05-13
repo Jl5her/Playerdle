@@ -1,17 +1,8 @@
 import type { Player, SportConfig } from "@/games/playerdle/sports"
-import { getDateKeyInEasternTime } from "@/shared/utils/time"
+import { minHashPick } from "@/shared/utils/daily-select"
+import { getDateKey } from "@/shared/utils/time"
 
 export type ArcadeDifficulty = "easy" | "medium" | "hard"
-
-function hashString(str: string): number {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i)
-    hash = (hash << 5) - hash + char
-    hash |= 0
-  }
-  return Math.abs(hash)
-}
 
 function getEligiblePlayersForSport(sport: SportConfig): Player[] {
   return sport.answerPool
@@ -23,11 +14,9 @@ export function getDailyPlayer(sport: SportConfig, date?: Date): Player {
     throw new Error(`No eligible players available for ${sport.id}`)
   }
   const targetDate = date || new Date()
-  const dateStr = getDateKeyInEasternTime(targetDate)
+  const dateStr = getDateKey(targetDate)
   const variantSeed = sport.activeVariantId ?? "classic"
-  const hash = hashString(`${sport.id}:${variantSeed}:${dateStr}`)
-  const shuffledIndex = (hash * 2654435761) % eligiblePlayers.length
-  return eligiblePlayers[shuffledIndex]
+  return minHashPick(eligiblePlayers, p => p.id, `${sport.id}:${variantSeed}:${dateStr}`)
 }
 
 export function getRandomArcadePlayer(sport: SportConfig, excludeId?: string): Player {
@@ -38,4 +27,4 @@ export function getRandomArcadePlayer(sport: SportConfig, excludeId?: string): P
   )
 }
 
-export { getTodayKey, getTodayKeyInEasternTime } from "@/shared/utils/time"
+export { getTodayKey } from "@/shared/utils/time"

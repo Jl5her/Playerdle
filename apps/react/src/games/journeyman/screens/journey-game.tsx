@@ -1,6 +1,19 @@
-import confetti from "canvas-confetti"
+import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
+import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@playerdle/data/journeyman/players"
+import { getNflTeamPalette } from "@playerdle/data/journeyman/team-colors"
+import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
+import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
+import {
+  calculateJourneyStats,
+  getArcadeJourneyPuzzle,
+  getDailyJourneyPuzzle,
+  type JourneyPuzzle,
+  type JourneyStats,
+  markJourneyDailyPlayed,
+  saveJourneyResult,
+} from "@/games/journeyman/utils/journey-daily"
 import {
   DailyGameShell,
   PlayAgainButton,
@@ -9,19 +22,9 @@ import {
   ScrollHint,
   ShareButton,
 } from "@/shared/components"
-import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
-import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
-import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@playerdle/data/journeyman/players"
-import { getNflTeamPalette } from "@playerdle/data/journeyman/team-colors"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
-import {
-  getArcadeJourneyPuzzle,
-  getDailyJourneyPuzzle,
-  type JourneyPuzzle,
-  markJourneyDailyPlayed,
-  saveJourneyResult,
-} from "@/games/journeyman/utils/journey-daily"
-import { getTodayKeyInEasternTime } from "@/shared/utils/time"
+import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
 const STORAGE_KEY = "playerdle-journey-state:v1"
@@ -30,6 +33,7 @@ export type JourneyGameMode = "daily" | "arcade"
 
 interface Props {
   mode: JourneyGameMode
+  onModeChange?: (mode: JourneyGameMode) => void
 }
 
 interface SavedState {
@@ -118,7 +122,7 @@ function FlipDiamond({
   }
   return (
     <span
-      className={`flip-diamond ${revealed ? "revealed" : ""}`}
+      className={clsx("flip-diamond", revealed ? "revealed" : "")}
       aria-hidden="true"
     >
       <span
@@ -165,7 +169,6 @@ function LadderRow({
   )
 }
 
-
 interface GuessSlotsProps {
   guesses: string[]
   answerName: string
@@ -205,7 +208,10 @@ function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSl
             ref={el => {
               slotRefs.current[i] = el
             }}
-            className={`relative w-full max-w-xs px-3 py-2 rounded-lg border-2 uppercase font-bold tracking-wider text-sm transition-colors ${tone}`}
+            className={clsx(
+              "relative w-full max-w-xs px-3 py-2 rounded-lg border-2 uppercase font-bold tracking-wider text-sm transition-colors",
+              tone,
+            )}
           >
             <span className="block text-center">{guess ?? "—"}</span>
             {position && (
@@ -299,7 +305,7 @@ function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
   if (disabled) return null
 
   return (
-    <div className="shrink-0 mx-3 mb-3 bg-primary-50 dark:bg-primary-900">
+    <div className="shrink-0 mx-3 mb-3 pb-[max(0rem,env(safe-area-inset-bottom))] bg-primary-50 dark:bg-primary-900">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
@@ -328,10 +334,12 @@ function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
             {filtered.map((option, i) => (
               <button
                 key={option.name}
-                className={`flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50 ${i === highlightIndex
+                className={clsx(
+                  "flex justify-between items-center w-full px-3 py-2 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50",
+                  i === highlightIndex
                     ? "bg-primary-100 dark:bg-primary-800"
-                    : "hover:bg-primary-50 dark:hover:bg-primary-900"
-                  }`}
+                    : "hover:bg-primary-50 dark:hover:bg-primary-900",
+                )}
                 onPointerDown={e => {
                   e.preventDefault()
                   handleSelect(option)
@@ -357,6 +365,7 @@ interface ResultsPanelProps {
   won: boolean
   maxGuesses: number
   mode: JourneyGameMode
+  stats: JourneyStats | null
   onClose: () => void
   onPlayAgain: () => void
 }
@@ -372,7 +381,6 @@ function buildShareText(
     month: "numeric",
     day: "numeric",
     year: "numeric",
-    timeZone: "America/New_York",
   }).format(new Date())
   const url =
     typeof window !== "undefined"
@@ -399,11 +407,13 @@ function ResultsPanel({
   won,
   maxGuesses,
   mode,
+  stats,
   onClose,
   onPlayAgain,
 }: ResultsPanelProps) {
   const { share, copied } = useClipboardShare()
-  const ladderScrollRef = useRef<HTMLDivElement>(null)
+  const resultsScrollRef = useRef<HTMLDivElement>(null)
+  const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   function handleShare() {
     share({ title: "Journey", text: buildShareText(puzzle, guesses, won, maxGuesses) })
@@ -417,98 +427,111 @@ function ResultsPanel({
         durationMs={3000}
       />
 
-      <ResultBanner
-        won={won}
-        guessCount={guesses.length}
-        answer={puzzle.player.name}
-      />
-
       <div
-        ref={ladderScrollRef}
-        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 mt-4"
+        ref={resultsScrollRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
-        <div className="flex flex-col gap-2 max-w-sm mx-auto pb-4">
-          {won ? (
-            (() => {
-              const usedTeams = Math.min(guesses.length, puzzle.player.teams.length)
-              const collegePalette: [string, string, string] =
-                getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
+        {mode === "daily" && stats && (
+          <div className="mt-4">
+            <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
+              Statistics
+            </h3>
+            <div className="grid grid-cols-4 gap-2 mb-6">
+              <div className="text-center">
+                <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                  {stats.played}
+                </div>
+                <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 font-light">
+                  Played
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                  {stats.winPercentage}
+                </div>
+                <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 font-light">
+                  Win %
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                  {stats.currentStreak}
+                </div>
+                <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-tight font-light">
+                  Current
+                  <br />
+                  Streak
+                </div>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                  {stats.maxStreak}
+                </div>
+                <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 leading-tight font-light">
+                  Max
+                  <br />
+                  Streak
+                </div>
+              </div>
+            </div>
+
+            <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
+              Guess Distribution
+            </h3>
+            {[1, 2, 3, 4, 5].map(num => {
+              const count = stats.guessDistribution[num] || 0
+              const has = count > 0
+              const scaledWidth = maxBar > 0 ? (count / maxBar) * 100 : 0
+              const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
               return (
-                <>
-                  <div className="w-fit mx-auto flex flex-col rounded-xl border-2 border-primary-300 dark:border-primary-700">
-                    <LadderRow
-                      name={puzzle.player.college}
-                      palette={collegePalette}
-                      revealed
-                      showName
-                    />
-                    {puzzle.player.teams.slice(0, usedTeams).map((team, i) => (
-                      <LadderRow
-                        key={`${team}-${i}`}
-                        name={team}
-                        palette={getPaletteOrFallback(team)}
-                        revealed
-                        showName
-                      />
-                    ))}
+                <div
+                  key={num}
+                  className="flex items-center mb-1 gap-2"
+                >
+                  <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
+                    {num}
                   </div>
-                  {puzzle.player.teams.slice(usedTeams).map((team, i) => (
-                    <LadderRow
-                      key={`${team}-after-${i}`}
-                      name={team}
-                      palette={getPaletteOrFallback(team)}
-                      revealed
-                      showName
-                    />
-                  ))}
-                </>
+                  <div className="flex-1">
+                    <div
+                      className={clsx(
+                        "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
+                        has
+                          ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                          : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
+                      )}
+                      style={{ width: barWidth }}
+                    >
+                      {count}
+                    </div>
+                  </div>
+                </div>
               )
-            })()
-          ) : (
-            <>
-              <LadderRow
-                name={puzzle.player.college}
-                palette={
-                  getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
-                }
-                revealed
-                showName
-              />
-              {puzzle.player.teams.map((team, i) => (
-                <LadderRow
-                  key={`${team}-${i}`}
-                  name={team}
-                  palette={getPaletteOrFallback(team)}
-                  revealed
-                  showName
-                />
-              ))}
-            </>
+            })}
+          </div>
+        )}
+
+        <div className="flex gap-3 justify-center mt-6 flex-wrap">
+          {mode === "daily" && (
+            <ShareButton
+              copied={copied}
+              onClick={handleShare}
+            />
           )}
+          <PlayAgainButton
+            onClick={() => {
+              onPlayAgain()
+              onClose()
+            }}
+          />
         </div>
       </div>
-      <ScrollHint scrollRef={ladderScrollRef} />
-
-      <div className="shrink-0 w-full max-w-2xl mx-auto px-4 flex gap-3 justify-center mt-4 pt-3 flex-wrap border-t border-primary-200 dark:border-primary-800">
-        {mode === "daily" && (
-          <ShareButton
-            copied={copied}
-            onClick={handleShare}
-          />
-        )}
-        <PlayAgainButton
-          onClick={() => {
-            onPlayAgain()
-            onClose()
-          }}
-        />
-      </div>
+      <ScrollHint scrollRef={resultsScrollRef} />
     </div>
   )
 }
 
-export default function JourneyGame({ mode }: Props) {
-  const [dateKey] = useState<string>(getTodayKeyInEasternTime)
+export default function JourneyGame({ mode, onModeChange }: Props) {
+  const [dateKey] = useState<string>(getTodayKey)
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() =>
     mode === "daily" ? getDailyJourneyPuzzle() : getArcadeJourneyPuzzle(),
@@ -531,11 +554,17 @@ export default function JourneyGame({ mode }: Props) {
   const visibleTeamsCount = gameOver
     ? puzzle.player.teams.length
     : Math.min(
-      1 + Math.ceil(((puzzle.player.teams.length - 1) * Math.min(wrongCount, REVEAL_STEPS)) / REVEAL_STEPS),
-      puzzle.player.teams.length,
-    )
+        1 +
+          Math.ceil(
+            ((puzzle.player.teams.length - 1) * Math.min(wrongCount, REVEAL_STEPS)) / REVEAL_STEPS,
+          ),
+        puzzle.player.teams.length,
+      )
 
   const gameScrollRef = useRef<HTMLDivElement>(null)
+  const [stats, setStats] = useState<JourneyStats | null>(() =>
+    gameOver && activeMode === "daily" ? calculateJourneyStats() : null,
+  )
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
@@ -544,46 +573,27 @@ export default function JourneyGame({ mode }: Props) {
     }
   }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length])
 
-  const confettiKeyRef = useRef<string | null>(null)
   useEffect(() => {
-    if (!won) return
-    const key = `${puzzle.dateKey}:${puzzle.player.id}:${guesses.length}`
-    if (confettiKeyRef.current === key) return
-    confettiKeyRef.current = key
-
-    const colors = puzzle.player.teams.flatMap(t => getPaletteOrFallback(t))
-    const duration = 1500
-    const end = Date.now() + duration
-    function frame() {
-      confetti({
-        particleCount: 10,
-        angle: 60,
-        spread: 75,
-        startVelocity: 60,
-        gravity: 1.2,
-        origin: { x: 0, y: 0 },
-        colors,
-        zIndex: 2000,
-      })
-      confetti({
-        particleCount: 10,
-        angle: 120,
-        spread: 75,
-        startVelocity: 60,
-        gravity: 1.2,
-        origin: { x: 1, y: 0 },
-        colors,
-        zIndex: 2000,
-      })
-      if (Date.now() < end) requestAnimationFrame(frame)
+    if (!gameOver) {
+      setStats(null)
+      return
     }
-    frame()
-  }, [won, puzzle, guesses.length])
+    if (activeMode === "daily" && stats === null) {
+      setStats(calculateJourneyStats())
+    }
+  }, [gameOver, activeMode, stats])
 
-  const usedGuessesLower = useMemo(
-    () => new Set(guesses.map(g => g.toLowerCase())),
-    [guesses],
+  const confettiColors = useMemo(
+    () => puzzle.player.teams.flatMap(t => getPaletteOrFallback(t)),
+    [puzzle.player.teams],
   )
+  useWinConfetti({
+    won,
+    colors: confettiColors,
+    dedupKey: `${puzzle.dateKey}:${puzzle.player.id}:${guesses.length}`,
+  })
+
+  const usedGuessesLower = useMemo(() => new Set(guesses.map(g => g.toLowerCase())), [guesses])
 
   const positionRevealed = useMemo(() => {
     if (gameOver) return true
@@ -607,7 +617,7 @@ export default function JourneyGame({ mode }: Props) {
     setPuzzle(fresh)
     setGuesses([])
     setActiveMode("arcade")
-    confettiKeyRef.current = null
+    onModeChange?.("arcade")
   }
 
   return (
@@ -622,17 +632,25 @@ export default function JourneyGame({ mode }: Props) {
           won={won}
           maxGuesses={MAX_GUESSES}
           mode={activeMode}
+          stats={stats}
           onClose={onClose}
           onPlayAgain={onPlayAgain}
         />
       )}
     >
+      {gameOver && (
+        <ResultBanner
+          won={won}
+          guessCount={guesses.length}
+          answer={puzzle.player.name}
+        />
+      )}
       <div
         ref={gameScrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
       >
         <div className="max-w-sm mx-auto px-3 py-4 flex flex-col gap-3">
-          <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 p-8 mt-6 mx-8">
+          <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 pt-8 px-8 pb-3 mt-6 mx-8">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
             </div>
@@ -640,13 +658,10 @@ export default function JourneyGame({ mode }: Props) {
               <LadderRow
                 name={puzzle.player.college}
                 palette={
-                  getCollegePalette(puzzle.player.college) ?? [
-                    "#888888",
-                    "#bbbbbb",
-                    "#dddddd",
-                  ]
+                  getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
                 }
                 revealed
+                showName={gameOver}
               />
               {puzzle.player.teams.map((team, i) => (
                 <LadderRow
@@ -654,6 +669,7 @@ export default function JourneyGame({ mode }: Props) {
                   name={team}
                   palette={getPaletteOrFallback(team)}
                   revealed={i < visibleTeamsCount}
+                  showName={gameOver && i < visibleTeamsCount}
                 />
               ))}
             </div>
