@@ -14,6 +14,7 @@ interface ResultsApi {
 interface Props {
   gameOver: boolean
   popupMessage?: string
+  popupVariant?: "default" | "success"
   onPlayAgain?: () => void
   renderResults?: (api: ResultsApi) => ReactNode
   children: ReactNode
@@ -22,6 +23,7 @@ interface Props {
 export default function DailyGameShell({
   gameOver,
   popupMessage,
+  popupVariant = "default",
   onPlayAgain,
   renderResults,
   children,
@@ -46,6 +48,7 @@ export default function DailyGameShell({
         <Popup
           visible={gameOver && !showResults && !!popupMessage}
           message={popupMessage}
+          variant={popupVariant}
         />
       )}
 
