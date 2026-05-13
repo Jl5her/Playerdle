@@ -574,6 +574,8 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
     mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
   )
 
+  const [hideAnswer, setHideAnswer] = useState(false)
+
   const won = guesses.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
@@ -656,6 +658,8 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
             <ResultBanner
               won={won}
               guessCount={guesses.length}
+              hideAnswer={hideAnswer}
+              onToggleHide={() => setHideAnswer(h => !h)}
               answer={
                 <span className="inline-flex items-center justify-center gap-3">
                   {answerShape && (
@@ -687,7 +691,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
               <TeamRow
                 key={`${team.name}-${i}`}
                 team={team}
-                revealName={gameOver}
+                revealName={gameOver && !hideAnswer}
               />
             ))}
           </div>

@@ -559,6 +559,8 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
   // spread across the first 3 wrong guesses so the full ladder is exposed by
   // the time the player makes their 4th guess. Each step reveals 1–3 teams
   // depending on how many they've played for.
+  const [hideAnswer, setHideAnswer] = useState(false)
+
   const REVEAL_STEPS = MAX_GUESSES - 2 // 3 reveal steps before the final guess
   const visibleTeamsCount = gameOver
     ? puzzle.player.teams.length
@@ -652,6 +654,8 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
           won={won}
           guessCount={guesses.length}
           answer={puzzle.player.name}
+          hideAnswer={hideAnswer}
+          onToggleHide={() => setHideAnswer(h => !h)}
         />
       )}
       <div
@@ -670,7 +674,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
                   getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
                 }
                 revealed
-                showName={gameOver}
+                showName={gameOver && !hideAnswer}
               />
               {puzzle.player.teams.map((team, i) => (
                 <LadderRow
@@ -678,7 +682,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
                   name={team}
                   palette={getPaletteOrFallback(team)}
                   revealed={i < visibleTeamsCount}
-                  showName={gameOver && i < visibleTeamsCount}
+                  showName={gameOver && !hideAnswer && i < visibleTeamsCount}
                 />
               ))}
             </div>

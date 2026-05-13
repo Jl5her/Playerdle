@@ -1,3 +1,5 @@
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import type { ReactNode } from "react"
 
@@ -6,6 +8,8 @@ interface Props {
   answer: ReactNode
   guessCount: number
   lossMessage?: string
+  hideAnswer?: boolean
+  onToggleHide?: () => void
 }
 
 export default function ResultBanner({
@@ -13,6 +17,8 @@ export default function ResultBanner({
   answer,
   guessCount,
   lossMessage = "Better luck tomorrow!",
+  hideAnswer = false,
+  onToggleHide,
 }: Props) {
   const statusColor = won
     ? "text-success-500 dark:text-success-400"
@@ -37,8 +43,29 @@ export default function ResultBanner({
       <div className="text-[11px] font-medium uppercase tracking-wider text-primary-500 dark:text-primary-200 opacity-70 mt-2">
         The answer was
       </div>
-      <div className={clsx("text-3xl font-black uppercase tracking-tight mt-1", answerColor)}>
-        {answer}
+      <div className="flex items-center justify-center gap-2 mt-1">
+        <div
+          className={clsx(
+            "text-3xl font-black uppercase tracking-tight transition-[filter]",
+            answerColor,
+            hideAnswer && "blur-sm select-none",
+          )}
+        >
+          {answer}
+        </div>
+        {onToggleHide && (
+          <button
+            type="button"
+            onClick={onToggleHide}
+            aria-label={hideAnswer ? "Show answer" : "Hide answer"}
+            className="text-primary-400 hover:text-primary-600 dark:hover:text-primary-200 transition-colors shrink-0"
+          >
+            <FontAwesomeIcon
+              icon={hideAnswer ? faEye : faEyeSlash}
+              className="text-sm"
+            />
+          </button>
+        )}
       </div>
       <div className={clsx("text-sm font-medium uppercase mt-3", statusColor)}>
         {won

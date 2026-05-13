@@ -1,3 +1,6 @@
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 import type { GameMode } from "@/games/playerdle/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/games/playerdle/sports"
 import { calculateStats } from "@/games/playerdle/utils/stats"
@@ -72,6 +75,7 @@ export function StatsContent({
   includeShareButton = false,
   variantId,
 }: StatsContentProps) {
+  const [hideAnswer, setHideAnswer] = useState(false)
   const { share, copied } = useClipboardShare()
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
@@ -105,13 +109,30 @@ export function StatsContent({
         </>
       ) : player ? (
         <>
-          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
-            The answer was
+          <div className="flex items-center justify-center gap-2">
+            <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
+              The answer was
+            </div>
+            <button
+              type="button"
+              onClick={() => setHideAnswer(h => !h)}
+              aria-label={hideAnswer ? "Show answer" : "Hide answer"}
+              className="text-primary-400 hover:text-primary-600 dark:hover:text-primary-200 transition-colors"
+            >
+              <FontAwesomeIcon
+                icon={hideAnswer ? faEye : faEyeSlash}
+                className="text-xs"
+              />
+            </button>
           </div>
-          <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
+          <div
+            className={`text-2xl font-black text-primary-900 dark:text-primary-50 uppercase transition-[filter] ${hideAnswer ? "blur-sm select-none" : ""}`}
+          >
             {String(player.name)}
           </div>
-          <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 uppercase">
+          <div
+            className={`text-xs text-primary-500 dark:text-primary-200 mt-1 uppercase transition-[filter] ${hideAnswer ? "blur-sm select-none" : ""}`}
+          >
             {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
             {String(player.number ?? "")}
           </div>
