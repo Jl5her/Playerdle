@@ -1,0 +1,68 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@layer theme {
+  @theme {
+    --color-primary-50: #f2f6fb;
+    --color-primary-100: #e5ecf6;
+    --color-primary-200: #cedaeb;
+    --color-primary-300: #b0c3de;
+    --color-primary-400: #8fa9cf;
+    --color-primary-500: #6b89b8;
+    --color-primary-600: #4f6d99;
+    --color-primary-700: #395177;
+    --color-primary-800: #273a57;
+    --color-primary-900: #18263c;
+
+    --color-neutral-50: #f6f8fc;
+    --color-neutral-100: #edf2f8;
+    --color-neutral-200: #dde5f0;
+    --color-neutral-300: #c2cfe0;
+    --color-neutral-400: #9eafc6;
+    --color-neutral-500: #7e92af;
+    --color-neutral-600: #647997;
+    --color-neutral-700: #4a5f7f;
+    --color-neutral-800: #334866;
+    --color-neutral-900: #22344e;
+
+    --color-accent-50: #fff6e9;
+    --color-accent-100: #ffe9c8;
+    --color-accent-200: #ffd6a0;
+    --color-accent-300: #ffbf72;
+    --color-accent-400: #f4a646;
+    --color-accent-500: #e58e1f;
+    --color-accent-600: #c97719;
+    --color-accent-700: #a86416;
+    --color-accent-800: #874f15;
+    --color-accent-900: #6c3f13;
+
+    --color-success-50: #ecf8f1;
+    --color-success-500: #2f8f5b;
+    --color-success-600: #24744a;
+    --color-success-700: #1c5a3a;
+
+    --color-error-50: #fdf1f1;
+    --color-error-500: #c45151;
+    --color-error-600: #a43e3e;
+    --color-error-700: #863333;
+
+    --color-warning-300: #f8cc66;
+    --color-warning-400: #e8b338;
+    --color-warning-500: #d09a1a;
+  }
+}
+
+@media android {
+  :root {
+    --font-mono: monospace;
+    --font-sans: normal;
+  }
+}
+
+@media ios {
+  :root {
+    --font-mono: ui-monospace;
+    --font-sans: system-ui;
+  }
+}

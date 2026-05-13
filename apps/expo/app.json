@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Playerdle",
+    "slug": "playerdle",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "scheme": "playerdle",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.playerdle.app"
+    },
+    "android": {
+      "package": "com.playerdle.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-system-ui"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    }
+  }
+}

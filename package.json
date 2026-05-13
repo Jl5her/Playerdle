@@ -43,5 +43,10 @@
     "tsx": "^4.21.0",
     "turbo": "^2.5.0",
     "typescript": "~5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "lightningcss": "1.30.1"
+    }
   }
 }
