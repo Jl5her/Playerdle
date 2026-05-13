@@ -590,13 +590,18 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
     if (activeMode === "daily" && gameOver) {
       markColorsDailyPlayed(variant)
       saveColorsResult(puzzle.dateKey, won, guesses.length, variant)
-      setStats(calculateColorsStats(variant))
     }
   }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length, variant])
 
   useEffect(() => {
-    if (!gameOver) setStats(null)
-  }, [gameOver])
+    if (!gameOver) {
+      setStats(null)
+      return
+    }
+    if (activeMode === "daily" && stats === null) {
+      setStats(calculateColorsStats(variant))
+    }
+  }, [gameOver, activeMode, stats, variant])
 
   const confettiColors = useMemo(
     () => puzzle.teams.flatMap(t => t.colors),
