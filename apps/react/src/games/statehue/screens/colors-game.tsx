@@ -403,14 +403,6 @@ interface ResultsPanelProps {
   onPlayAgain: () => void
 }
 
-const SPORTS_TOWN_RANKS: Record<number, string> = {
-  1: "Titletown 🏆",
-  2: "Loyal Faithful 💪",
-  3: "Casual Fan 🎡",
-  4: "Fair Weather ☀️",
-  5: "Bandwagon 🚌",
-}
-
 function buildShareText(
   puzzle: ColorsPuzzle,
   guesses: string[],
@@ -419,7 +411,6 @@ function buildShareText(
   url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
-  const _rank = won ? (SPORTS_TOWN_RANKS[guesses.length] ?? "Casual Fan 🎡") : "No Shows 🙈"
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",

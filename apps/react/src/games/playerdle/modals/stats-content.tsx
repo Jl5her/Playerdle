@@ -35,16 +35,6 @@ function generateShareText(
     year: "numeric",
   }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
-  const SCOUTING_RANKS: Record<number, string> = {
-    1: "Elite Prospect 🎯",
-    2: "High Upside 📈",
-    3: "Raw Talent 💎",
-    4: "Needs Development 🛠️",
-    5: "Long Shot 🎲",
-    6: "Camp Body ⛺",
-  }
-  const _rank = won ? (SCOUTING_RANKS[guesses.length] ?? "Raw Talent 💎") : "Waived 📤"
-
   const variantLabel = sport.activeVariantLabel ? ` ${sport.activeVariantLabel}` : ""
   let text = `Playerdle ${sport.displayName}${variantLabel} (${dateStr}) — ${result}\n\n`
 
