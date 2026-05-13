@@ -636,7 +636,6 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
     <DailyGameShell
       gameOver={gameOver}
       popupMessage={puzzle.state.name}
-      popupVariant={won ? "success" : "default"}
       onPlayAgain={handlePlayAgain}
       renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
