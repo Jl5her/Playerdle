@@ -24,6 +24,7 @@ import {
 } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
@@ -137,6 +138,71 @@ function FlipDiamond({
   )
 }
 
+function FlipDiamondWithPreview({
+  color,
+  revealed,
+  delayMs,
+}: {
+  color: string
+  revealed: boolean
+  delayMs: number
+}) {
+  const [open, setOpen] = useState(false)
+  const closeTimer = useRef<number>(0)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    function onOutside(e: PointerEvent) {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener("pointerdown", onOutside)
+    return () => document.removeEventListener("pointerdown", onOutside)
+  }, [open])
+
+  useEffect(() => () => window.clearTimeout(closeTimer.current), [])
+
+  function show() {
+    if (!revealed) return
+    window.clearTimeout(closeTimer.current)
+    setOpen(true)
+  }
+  function hide() {
+    closeTimer.current = window.setTimeout(() => setOpen(false), 80)
+  }
+
+  return (
+    <div
+      ref={ref}
+      className={clsx("relative", revealed && "cursor-pointer select-none")}
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onPointerUp={e => {
+        if (e.pointerType === "touch" && revealed) setOpen(v => !v)
+      }}
+    >
+      <FlipDiamond
+        color={color}
+        revealed={revealed}
+        delayMs={delayMs}
+      />
+      {open && (
+        <div
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-xl shadow-xl p-5"
+          onMouseEnter={show}
+          onMouseLeave={hide}
+        >
+          <span
+            aria-hidden="true"
+            className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md"
+            style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
+
 function LadderRow({
   name,
   palette,
@@ -157,7 +223,7 @@ function LadderRow({
       )}
       <div className="flex items-center justify-center gap-5">
         {palette.map((c, i) => (
-          <FlipDiamond
+          <FlipDiamondWithPreview
             key={`${c}-${i}`}
             color={c}
             revealed={revealed}
@@ -174,9 +240,10 @@ interface GuessSlotsProps {
   answerName: string
   targetPosition: string
   maxGuesses: number
+  hideAnswer?: boolean
 }
 
-function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSlotsProps) {
+function GuessSlots({ guesses, answerName, targetPosition, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
 
@@ -213,9 +280,9 @@ function GuessSlots({ guesses, answerName, targetPosition, maxGuesses }: GuessSl
               tone,
             )}
           >
-            <span className="block text-center">{guess ?? "—"}</span>
+            <span className={clsx("block text-center transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>{guess ?? "—"}</span>
             {position && (
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70">
+              <span className={clsx("absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70 transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>
                 {position}
               </span>
             )}
@@ -375,6 +442,7 @@ function buildShareText(
   guesses: string[],
   won: boolean,
   maxGuesses: number,
+  url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
@@ -382,10 +450,6 @@ function buildShareText(
     day: "numeric",
     year: "numeric",
   }).format(new Date())
-  const url =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/journeyman/daily`
-      : "/journeyman/daily"
 
   const answerName = puzzle.player.name.toLowerCase()
   const targetPos = puzzle.player.position
@@ -398,7 +462,7 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Journeyman #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  return `Journeyman (${dateStr}) — ${score}\n${emojiRow}\n\n${url}`
 }
 
 function ResultsPanel({
@@ -415,8 +479,10 @@ function ResultsPanel({
   const resultsScrollRef = useRef<HTMLDivElement>(null)
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
-  function handleShare() {
-    share({ title: "Journey", text: buildShareText(puzzle, guesses, won, maxGuesses) })
+  async function handleShare() {
+    const rawUrl = `${window.location.origin}/journeyman/daily`
+    const url = await shortenUrl(rawUrl)
+    share({ title: "Journeyman", text: buildShareText(puzzle, guesses, won, maxGuesses, url) })
   }
 
   return (
@@ -550,6 +616,8 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
   // spread across the first 3 wrong guesses so the full ladder is exposed by
   // the time the player makes their 4th guess. Each step reveals 1–3 teams
   // depending on how many they've played for.
+  const [hideAnswer, setHideAnswer] = useState(false)
+
   const REVEAL_STEPS = MAX_GUESSES - 2 // 3 reveal steps before the final guess
   const visibleTeamsCount = gameOver
     ? puzzle.player.teams.length
@@ -643,6 +711,8 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
           won={won}
           guessCount={guesses.length}
           answer={puzzle.player.name}
+          hideAnswer={hideAnswer}
+          onToggleHide={() => setHideAnswer(h => !h)}
         />
       )}
       <div
@@ -661,7 +731,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
                   getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
                 }
                 revealed
-                showName={gameOver}
+                showName={gameOver && !hideAnswer}
               />
               {puzzle.player.teams.map((team, i) => (
                 <LadderRow
@@ -669,7 +739,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
                   name={team}
                   palette={getPaletteOrFallback(team)}
                   revealed={i < visibleTeamsCount}
-                  showName={gameOver && i < visibleTeamsCount}
+                  showName={gameOver && !hideAnswer && i < visibleTeamsCount}
                 />
               ))}
             </div>
@@ -681,6 +751,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
               answerName={answerName}
               targetPosition={puzzle.player.position}
               maxGuesses={MAX_GUESSES}
+              hideAnswer={hideAnswer}
             />
           </div>
         </div>

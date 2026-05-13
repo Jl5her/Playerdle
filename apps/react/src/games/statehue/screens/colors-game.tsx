@@ -27,6 +27,7 @@ import {
 } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
@@ -90,13 +91,65 @@ function Diamond({ color }: { color: string }) {
   )
 }
 
+function DiamondWithPreview({ color }: { color: string }) {
+  const [open, setOpen] = useState(false)
+  const closeTimer = useRef<number>(0)
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!open) return
+    function onOutside(e: PointerEvent) {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener("pointerdown", onOutside)
+    return () => document.removeEventListener("pointerdown", onOutside)
+  }, [open])
+
+  useEffect(() => () => window.clearTimeout(closeTimer.current), [])
+
+  function show() {
+    window.clearTimeout(closeTimer.current)
+    setOpen(true)
+  }
+  function hide() {
+    closeTimer.current = window.setTimeout(() => setOpen(false), 80)
+  }
+
+  return (
+    <div
+      ref={ref}
+      className="relative cursor-pointer select-none"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onPointerUp={e => {
+        if (e.pointerType === "touch") setOpen(v => !v)
+      }}
+    >
+      <Diamond color={color} />
+      {open && (
+        <div
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-xl shadow-xl p-5"
+          onMouseEnter={show}
+          onMouseLeave={hide}
+        >
+          <span
+            aria-hidden="true"
+            className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md"
+            style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
+
 function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
   return (
     <div className="flex items-center justify-center">
       <div className="flex items-center gap-6 px-3 py-3">
         <div className="flex items-center gap-5 shrink-0">
           {team.colors.map((color, i) => (
-            <Diamond
+            <DiamondWithPreview
               key={`${color}-${i}`}
               color={color}
             />
@@ -119,6 +172,7 @@ interface GuessSlotsProps {
   guesses: string[]
   answer: ColorsState
   maxGuesses: number
+  hideAnswer?: boolean
 }
 
 function StateBadge({ code, dim }: { code: string; dim?: boolean }) {
@@ -183,7 +237,7 @@ function CompassArrow({ fromCode, toCode }: { fromCode: string; toCode: string }
   )
 }
 
-function GuessSlots({ guesses, answer, maxGuesses }: GuessSlotsProps) {
+function GuessSlots({ guesses, answer, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
   const answerCode = answer.id
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
@@ -213,6 +267,7 @@ function GuessSlots({ guesses, answer, maxGuesses }: GuessSlotsProps) {
                   ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
                   : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
                 : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600",
+              hideAnswer && isCorrect && "blur select-none opacity-40 transition-[filter,opacity] duration-200",
             )}
           >
             <StateBadge
@@ -407,6 +462,7 @@ function buildShareText(
   guesses: string[],
   won: boolean,
   maxGuesses: number,
+  url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
@@ -414,19 +470,9 @@ function buildShareText(
     day: "numeric",
     year: "numeric",
   }).format(new Date())
-  const path = puzzle.variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily"
-  const url = typeof window !== "undefined" ? `${window.location.origin}${path}` : path
-
-  const answerName = puzzle.state.name.toLowerCase()
-  const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
-    const guess = guesses[i]
-    if (!guess) return "⬜"
-    if (guess.toLowerCase() === answerName) return "🟩"
-    return "🟥"
-  }).join("")
 
   const title = puzzle.variant === "collegiate" ? "Collegiate Statehue" : "Statehue"
-  return `${title} #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  return `${title} (${dateStr}) — ${score}\n\n${url}`
 }
 
 function ResultsPanel({
@@ -443,8 +489,11 @@ function ResultsPanel({
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
   const resultsScrollRef = useRef<HTMLDivElement>(null)
 
-  function handleShare() {
-    share({ title: "Statehue", text: buildShareText(puzzle, guesses, won, maxGuesses) })
+  async function handleShare() {
+    const path = puzzle.variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily"
+    const rawUrl = `${window.location.origin}${path}`
+    const url = await shortenUrl(rawUrl)
+    share({ title: "Statehue", text: buildShareText(puzzle, guesses, won, maxGuesses, url) })
   }
 
   return (
@@ -570,6 +619,8 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
     mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
   )
 
+  const [hideAnswer, setHideAnswer] = useState(false)
+
   const won = guesses.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
@@ -652,6 +703,8 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
             <ResultBanner
               won={won}
               guessCount={guesses.length}
+              hideAnswer={hideAnswer}
+              onToggleHide={() => setHideAnswer(h => !h)}
               answer={
                 <span className="inline-flex items-center justify-center gap-3">
                   {answerShape && (
@@ -683,7 +736,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
               <TeamRow
                 key={`${team.name}-${i}`}
                 team={team}
-                revealName={gameOver}
+                revealName={gameOver && !hideAnswer}
               />
             ))}
           </div>
@@ -693,6 +746,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
               guesses={guesses}
               answer={puzzle.state}
               maxGuesses={MAX_GUESSES}
+              hideAnswer={hideAnswer}
             />
           </div>
         </div>

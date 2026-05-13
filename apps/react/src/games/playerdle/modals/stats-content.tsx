@@ -1,8 +1,12 @@
-import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
-import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { useState } from "react"
 import type { GameMode } from "@/games/playerdle/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/games/playerdle/sports"
 import { calculateStats } from "@/games/playerdle/utils/stats"
+import { PlayAgainButton, Popup, ShareButton } from "@/shared/components"
+import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
+import { shortenUrl } from "@/shared/utils/shorten-url"
 
 export interface StatsContentProps {
   player?: Player
@@ -23,7 +27,7 @@ function generateShareText(
   answer: Player,
   won: boolean,
   sport: SportConfig,
-  variantId?: string,
+  url: string,
 ): string {
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
@@ -31,9 +35,8 @@ function generateShareText(
     year: "numeric",
   }).format(new Date())
   const result = won ? `${guesses.length}/6` : "X/6"
-
   const variantLabel = sport.activeVariantLabel ? ` ${sport.activeVariantLabel}` : ""
-  let text = `Playerdle ${sport.displayName}${variantLabel} ${dateStr} ${result}\n\n`
+  let text = `Playerdle ${sport.displayName}${variantLabel} (${dateStr}) — ${result}\n\n`
 
   for (const guess of guesses) {
     text += `${sport.columns
@@ -46,12 +49,7 @@ function generateShareText(
       .join("")}\n`
   }
 
-  const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
-  const path = variantId === "fanatic" ? "/fanatic" : "/daily"
-  const origin = typeof window !== "undefined" ? window.location.origin : ""
-  text += `\n${origin}${prefix}${path}`
-
-  return text.trim()
+  return `${text}\n${url}`.trim()
 }
 
 export function StatsContent({
@@ -67,13 +65,21 @@ export function StatsContent({
   includeShareButton = false,
   variantId,
 }: StatsContentProps) {
+  const [hideAnswer, setHideAnswer] = useState(false)
   const { share, copied } = useClipboardShare()
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
-  const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
+  const maxGuessCount = stats ? Math.max(...Object.values<number>(stats.guessDistribution), 1) : 1
 
-  function handleShare() {
+  async function handleShare() {
     if (!player) return
-    share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, variantId) })
+    const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
+    const path = variantId === "fanatic" ? "/fanatic" : "/daily"
+    const rawUrl = `${window.location.origin}${prefix}${path}`
+    const url = await shortenUrl(rawUrl)
+    share({
+      title: "Playerdle",
+      text: generateShareText(guesses, player, won, sport, url),
+    })
   }
 
   if (!showStatsOnly && !won && !lost) return null
@@ -93,21 +99,36 @@ export function StatsContent({
         </>
       ) : player ? (
         <>
-          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
-            The answer was
+          <div className="flex items-center justify-center gap-2">
+            <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
+              The answer was
+            </div>
+            <button
+              type="button"
+              onClick={() => setHideAnswer(h => !h)}
+              aria-label={hideAnswer ? "Show answer" : "Hide answer"}
+              className="text-primary-400 hover:text-primary-600 dark:hover:text-primary-200 transition-colors"
+            >
+              <FontAwesomeIcon
+                icon={hideAnswer ? faEye : faEyeSlash}
+                className="text-xs"
+              />
+            </button>
           </div>
-          <div className="text-2xl font-black text-primary-900 dark:text-primary-50 uppercase">
+          <div
+            className={`text-2xl font-black text-primary-900 dark:text-primary-50 uppercase transition-[filter] ${hideAnswer ? "blur-sm select-none" : ""}`}
+          >
             {String(player.name)}
           </div>
-          <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 uppercase">
+          <div
+            className={`text-xs text-primary-500 dark:text-primary-200 mt-1 uppercase transition-[filter] ${hideAnswer ? "blur-sm select-none" : ""}`}
+          >
             {String(player.team ?? "")} &middot; {String(player.position ?? "")} &middot; #
             {String(player.number ?? "")}
           </div>
           <div
             className={`text-base font-bold mt-3 uppercase ${
-              won
-                ? "text-success-500 dark:text-success-400"
-                : "text-error-500 dark:text-error-400"
+              won ? "text-success-500 dark:text-success-400" : "text-error-500 dark:text-error-400"
             }`}
           >
             {won
