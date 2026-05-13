@@ -1,8 +1,8 @@
-import nbaAnswerPoolIds from "../data/nba/answer_pool.json"
-import nbaFanaticAnswerPoolIds from "../data/nba/fanatic_answer_pool.json"
-import nbaFanaticPlayers from "../data/nba/fanatic_players.json"
-import nbaPlayers from "../data/nba/players.json"
-import nbaTeams from "../data/nba/teams.json"
+import nbaAnswerPoolIds from "@playerdle/data/playerdle/nba/answer_pool.json"
+import nbaFanaticAnswerPoolIds from "@playerdle/data/playerdle/nba/fanatic_answer_pool.json"
+import nbaFanaticPlayers from "@playerdle/data/playerdle/nba/fanatic_players.json"
+import nbaPlayers from "@playerdle/data/playerdle/nba/players.json"
+import nbaTeams from "@playerdle/data/playerdle/nba/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedTeam {

@@ -171,7 +171,7 @@ async function main() {
   tsLines.push("}")
   tsLines.push("")
 
-  const outPath = resolve(process.cwd(), "src/data/colors/state-paths.ts")
+  const outPath = resolve(process.cwd(), "packages/data/src/statehue/state-paths.ts")
   writeFileSync(outPath, tsLines.join("\n"))
   console.log(`wrote ${outPath} (${Object.keys(out).length} states)`)
 }

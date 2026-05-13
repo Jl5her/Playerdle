@@ -1,19 +1,9 @@
+import type { GameResult, Stats } from "@playerdle/types"
+
+export type { GameResult, Stats }
+
 const STATS_KEY_PREFIX = "playerdle-stats"
 const EASTERN_TIME_ZONE = "America/New_York"
-
-export interface GameResult {
-  date: string
-  won: boolean
-  guesses: number
-}
-
-export interface Stats {
-  played: number
-  winPercentage: number
-  currentStreak: number
-  maxStreak: number
-  guessDistribution: Record<number, number>
-}
 
 function getStatsKey(sportId: string, variantId?: string): string {
   return `${STATS_KEY_PREFIX}:${sportId}:${variantId ?? "classic"}`

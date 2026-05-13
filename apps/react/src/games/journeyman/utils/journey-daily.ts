@@ -1,6 +1,6 @@
-import { ELIGIBLE_JOURNEY_PLAYERS, getJourneyPlayerById, type JourneyPlayer } from "@/games/journeyman/data/players"
+import { ELIGIBLE_JOURNEY_PLAYERS, getJourneyPlayerById, type JourneyPlayer } from "@playerdle/data/journeyman/players"
 import { getTodayKeyInEasternTime } from "@/shared/utils/time"
-import JOURNEY_ANSWER_POOL from "@/games/journeyman/data/answer_pool.json"
+import JOURNEY_ANSWER_POOL from "@playerdle/data/journeyman/answer_pool.json"
 
 const MAX_GUESSES = 5
 

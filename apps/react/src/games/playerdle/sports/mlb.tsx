@@ -1,8 +1,8 @@
-import mlbAnswerPoolIds from "../data/mlb/answer_pool.json"
-import mlbFanaticAnswerPoolIds from "../data/mlb/fanatic_answer_pool.json"
-import mlbFanaticPlayers from "../data/mlb/fanatic_players.json"
-import mlbPlayers from "../data/mlb/players.json"
-import mlbTeams from "../data/mlb/teams.json"
+import mlbAnswerPoolIds from "@playerdle/data/playerdle/mlb/answer_pool.json"
+import mlbFanaticAnswerPoolIds from "@playerdle/data/playerdle/mlb/fanatic_answer_pool.json"
+import mlbFanaticPlayers from "@playerdle/data/playerdle/mlb/fanatic_players.json"
+import mlbPlayers from "@playerdle/data/playerdle/mlb/players.json"
+import mlbTeams from "@playerdle/data/playerdle/mlb/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedTeam {

@@ -14,5 +14,5 @@ jobs:
     uses: ./.github/workflows/sync-league-data.yml
     with:
       league: mlb
-      scrape_command: pnpm --filter playerdle-react run scrape:mlb
-      data_path: apps/react/src/games/playerdle/data/mlb
+      scrape_command: pnpm run scrape:mlb
+      data_path: packages/data/src/playerdle/mlb

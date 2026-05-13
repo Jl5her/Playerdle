@@ -1,8 +1,8 @@
-import nhlAnswerPoolIds from "../data/nhl/answer_pool.json"
-import nhlFanaticAnswerPoolIds from "../data/nhl/fanatic_answer_pool.json"
-import nhlFanaticPlayers from "../data/nhl/fanatic_players.json"
-import nhlPlayers from "../data/nhl/players.json"
-import nhlTeams from "../data/nhl/teams.json"
+import nhlAnswerPoolIds from "@playerdle/data/playerdle/nhl/answer_pool.json"
+import nhlFanaticAnswerPoolIds from "@playerdle/data/playerdle/nhl/fanatic_answer_pool.json"
+import nhlFanaticPlayers from "@playerdle/data/playerdle/nhl/fanatic_players.json"
+import nhlPlayers from "@playerdle/data/playerdle/nhl/players.json"
+import nhlTeams from "@playerdle/data/playerdle/nhl/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedTeam {

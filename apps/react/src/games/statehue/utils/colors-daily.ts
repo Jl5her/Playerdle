@@ -1,4 +1,4 @@
-import { COLORS_STATES, type ColorsState, type ColorsTeam } from "@/games/statehue/data/states"
+import { COLORS_STATES, type ColorsState, type ColorsTeam } from "@playerdle/data/statehue/states"
 import { getTodayKeyInEasternTime } from "@/shared/utils/time"
 
 const TEAMS_PER_PUZZLE = 3

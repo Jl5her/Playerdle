@@ -1,8 +1,8 @@
-import nflAnswerPoolIds from "../data/nfl/answer_pool.json"
-import nflFanaticAnswerPoolIds from "../data/nfl/fanatic_answer_pool.json"
-import nflFanaticPlayers from "../data/nfl/fanatic_players.json"
-import nflPlayers from "../data/nfl/players.json"
-import nflTeams from "../data/nfl/teams.json"
+import nflAnswerPoolIds from "@playerdle/data/playerdle/nfl/answer_pool.json"
+import nflFanaticAnswerPoolIds from "@playerdle/data/playerdle/nfl/fanatic_answer_pool.json"
+import nflFanaticPlayers from "@playerdle/data/playerdle/nfl/fanatic_players.json"
+import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
+import nflTeams from "@playerdle/data/playerdle/nfl/teams.json"
 import type { Player, SportConfig, SportTeam } from "./types"
 
 interface GeneratedNFLTeam {

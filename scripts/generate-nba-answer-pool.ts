@@ -33,7 +33,7 @@ function normalizeName(name: string): string {
 
 function loadNbaPlayers(): NBAPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "src", "data", "nba", "players.json")
+  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nba", "players.json")
   return JSON.parse(readFileSync(playersPath, "utf-8")) as NBAPlayer[]
 }
 
@@ -144,7 +144,7 @@ function buildNbaAnswerPoolIds(
 
 function writeAnswerPool(ids: string[]) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const outputPath = resolve(__dirname, "..", "src", "data", "nba", "answer_pool.json")
+  const outputPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nba", "answer_pool.json")
   writeFileSync(outputPath, `${JSON.stringify(ids, null, 2)}\n`, "utf-8")
   console.log(`Saved ${ids.length} NBA answer pool IDs to ${outputPath}`)
 }

@@ -1,3 +1,4 @@
+import type { GameMode } from "@playerdle/types"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
 import { DailyGameShell, Popup, ScrollHint } from "@/shared/components"
@@ -8,7 +9,7 @@ import { saveGameResult } from "@/games/playerdle/utils/stats"
 
 const MAX_GUESSES = 6
 
-export type GameMode = "daily" | "arcade"
+export type { GameMode }
 
 export interface StatsModalConfig {
   player?: Player
