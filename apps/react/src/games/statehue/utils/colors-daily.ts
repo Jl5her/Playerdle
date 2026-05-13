@@ -1,26 +1,46 @@
+import { COLLEGIATE_STATES } from "@playerdle/data/statehue/collegiate-states"
 import { COLORS_STATES, type ColorsState, type ColorsTeam } from "@playerdle/data/statehue/states"
 import { hashString, minHashPickN } from "@/shared/utils/daily-select"
 import { getDateKey, getTodayKey } from "@/shared/utils/time"
 
 const TEAMS_PER_PUZZLE = 3
 
-// Weighted virtual replicas: each state contributes `teams.length` entries so
-// states with more teams remain more likely to win the daily — matching the
-// previous `seed % totalWeight` behavior, but order-independent.
+export type ColorsVariant = "pro" | "collegiate"
+
+function datasetFor(variant: ColorsVariant): ColorsState[] {
+  return variant === "collegiate" ? COLLEGIATE_STATES : COLORS_STATES
+}
+
+function variantSeedSuffix(variant: ColorsVariant): string {
+  return variant === "collegiate" ? ":collegiate" : ""
+}
+
 interface StateReplica {
   state: ColorsState
   key: string
 }
-const STATE_REPLICAS: StateReplica[] = COLORS_STATES.flatMap(state =>
-  state.teams.map((_, r) => ({ state, key: `${state.id}:${r}` })),
-)
 
-function rankStatesByHash(dateKey: string): ColorsState[] {
-  const scored = STATE_REPLICAS.map(r => ({
-    state: r.state,
-    key: r.key,
-    hash: hashString(`colors-state:${dateKey}:${r.key}`),
-  })).sort((a, b) => (a.hash !== b.hash ? a.hash - b.hash : a.key < b.key ? -1 : 1))
+const REPLICA_CACHE = new Map<ColorsVariant, StateReplica[]>()
+
+function getReplicas(variant: ColorsVariant): StateReplica[] {
+  const cached = REPLICA_CACHE.get(variant)
+  if (cached) return cached
+  const replicas = datasetFor(variant).flatMap(state =>
+    state.teams.map((_, r) => ({ state, key: `${state.id}:${r}` })),
+  )
+  REPLICA_CACHE.set(variant, replicas)
+  return replicas
+}
+
+function rankStatesByHash(dateKey: string, variant: ColorsVariant): ColorsState[] {
+  const seed = variantSeedSuffix(variant)
+  const scored = getReplicas(variant)
+    .map(r => ({
+      state: r.state,
+      key: r.key,
+      hash: hashString(`colors-state${seed}:${dateKey}:${r.key}`),
+    }))
+    .sort((a, b) => (a.hash !== b.hash ? a.hash - b.hash : a.key < b.key ? -1 : 1))
   const seen = new Set<string>()
   const order: ColorsState[] = []
   for (const s of scored) {
@@ -31,8 +51,18 @@ function rankStatesByHash(dateKey: string): ColorsState[] {
   return order
 }
 
-function pickTeamsForState(state: ColorsState, dateKey: string): ColorsTeam[] {
-  return minHashPickN(state.teams, t => t.name, `colors-teams:${dateKey}:${state.id}`, TEAMS_PER_PUZZLE)
+function pickTeamsForState(
+  state: ColorsState,
+  dateKey: string,
+  variant: ColorsVariant,
+): ColorsTeam[] {
+  const seed = variantSeedSuffix(variant)
+  return minHashPickN(
+    state.teams,
+    t => t.name,
+    `colors-teams${seed}:${dateKey}:${state.id}`,
+    TEAMS_PER_PUZZLE,
+  )
 }
 
 function previousDateKey(dateKey: string): string | undefined {
@@ -46,38 +76,41 @@ function previousDateKey(dateKey: string): string | undefined {
   return `${yy}-${mm}-${dd}`
 }
 
-const stateForDateCache = new Map<string, ColorsState>()
+const STATE_FOR_DATE_CACHE = new Map<string, ColorsState>()
 
-function pickWeightedStateForDate(dateKey: string): ColorsState {
-  const cached = stateForDateCache.get(dateKey)
+function pickWeightedStateForDate(dateKey: string, variant: ColorsVariant): ColorsState {
+  const cacheKey = `${variant}:${dateKey}`
+  const cached = STATE_FOR_DATE_CACHE.get(cacheKey)
   if (cached) return cached
 
-  const ranked = rankStatesByHash(dateKey)
+  const ranked = rankStatesByHash(dateKey, variant)
   let result = ranked[0]
   const yesterday = previousDateKey(dateKey)
   if (yesterday && yesterday >= COLORS_EPOCH_DATE_KEY) {
-    const yesterdayActual = pickWeightedStateForDate(yesterday)
+    const yesterdayActual = pickWeightedStateForDate(yesterday, variant)
     if (result.id === yesterdayActual.id) {
       const alt = ranked.find(s => s.id !== yesterdayActual.id)
       if (alt) result = alt
     }
   }
 
-  stateForDateCache.set(dateKey, result)
+  STATE_FOR_DATE_CACHE.set(cacheKey, result)
   return result
 }
 
-function pickWeightedStateRandom(excludeStateId?: string): ColorsState {
-  const pool = excludeStateId
-    ? COLORS_STATES.filter(s => s.id !== excludeStateId)
-    : COLORS_STATES
+function pickWeightedStateRandom(
+  variant: ColorsVariant,
+  excludeStateId?: string,
+): ColorsState {
+  const all = datasetFor(variant)
+  const pool = excludeStateId ? all.filter(s => s.id !== excludeStateId) : all
   const totalWeight = pool.reduce((sum, s) => sum + s.teams.length, 0)
   let target = Math.random() * totalWeight
   for (const state of pool) {
     if (target < state.teams.length) return state
     target -= state.teams.length
   }
-  return pool[0] ?? COLORS_STATES[0]
+  return pool[0] ?? all[0]
 }
 
 export interface ColorsPuzzle {
@@ -85,6 +118,7 @@ export interface ColorsPuzzle {
   teams: ColorsTeam[]
   dateKey: string
   index: number
+  variant: ColorsVariant
 }
 
 export const COLORS_EPOCH_DATE_KEY = "2025-01-01"
@@ -97,39 +131,61 @@ function daysSinceEpoch(dateKey: string): number {
   return Math.floor((target - epoch) / 86_400_000)
 }
 
-export function getDailyColorsPuzzle(date?: Date): ColorsPuzzle {
+export function getDailyColorsPuzzle(
+  date?: Date,
+  variant: ColorsVariant = "pro",
+): ColorsPuzzle {
   const dateKey = date ? getDateKey(date) : getTodayKey()
-  return getColorsPuzzleByDateKey(dateKey)
+  return getColorsPuzzleByDateKey(dateKey, variant)
 }
 
-export function getColorsPuzzleByDateKey(dateKey: string): ColorsPuzzle {
-  const state = pickWeightedStateForDate(dateKey)
+export function getColorsPuzzleByDateKey(
+  dateKey: string,
+  variant: ColorsVariant = "pro",
+): ColorsPuzzle {
+  const state = pickWeightedStateForDate(dateKey, variant)
   return {
     state,
-    teams: pickTeamsForState(state, dateKey),
+    teams: pickTeamsForState(state, dateKey, variant),
     dateKey,
     index: daysSinceEpoch(dateKey) + 1,
+    variant,
   }
 }
 
-export function getArcadeColorsPuzzle(excludeStateId?: string): ColorsPuzzle {
-  const state = pickWeightedStateRandom(excludeStateId)
-  // Arcade randomization: use a random non-date "seed" so successive arcade
-  // puzzles vary even within the same state.
+export function getArcadeColorsPuzzle(
+  excludeStateId?: string,
+  variant: ColorsVariant = "pro",
+): ColorsPuzzle {
+  const state = pickWeightedStateRandom(variant, excludeStateId)
   const arcadeSeed = `arcade:${Math.random().toString(36).slice(2)}`
-  return { state, teams: pickTeamsForState(state, arcadeSeed), dateKey: "arcade", index: 0 }
+  return {
+    state,
+    teams: pickTeamsForState(state, arcadeSeed, variant),
+    dateKey: "arcade",
+    index: 0,
+    variant,
+  }
 }
 
-
-const COLORS_PLAYED_KEY = "playerdle-colors-played-day"
-const COLORS_HISTORY_KEY = "playerdle-colors-history:v1"
-
-export function markColorsDailyPlayed() {
-  localStorage.setItem(COLORS_PLAYED_KEY, getTodayKey())
+function playedKey(variant: ColorsVariant): string {
+  return variant === "collegiate"
+    ? "playerdle-colors-collegiate-played-day"
+    : "playerdle-colors-played-day"
 }
 
-export function hasPlayedColorsDailyToday(): boolean {
-  return localStorage.getItem(COLORS_PLAYED_KEY) === getTodayKey()
+function historyKey(variant: ColorsVariant): string {
+  return variant === "collegiate"
+    ? "playerdle-colors-collegiate-history:v1"
+    : "playerdle-colors-history:v1"
+}
+
+export function markColorsDailyPlayed(variant: ColorsVariant = "pro") {
+  localStorage.setItem(playedKey(variant), getTodayKey())
+}
+
+export function hasPlayedColorsDailyToday(variant: ColorsVariant = "pro"): boolean {
+  return localStorage.getItem(playedKey(variant)) === getTodayKey()
 }
 
 export interface ColorsResult {
@@ -138,9 +194,9 @@ export interface ColorsResult {
   guesses: number
 }
 
-export function getColorsHistory(): ColorsResult[] {
+export function getColorsHistory(variant: ColorsVariant = "pro"): ColorsResult[] {
   try {
-    const raw = localStorage.getItem(COLORS_HISTORY_KEY)
+    const raw = localStorage.getItem(historyKey(variant))
     if (!raw) return []
     return JSON.parse(raw) as ColorsResult[]
   } catch {
@@ -148,17 +204,25 @@ export function getColorsHistory(): ColorsResult[] {
   }
 }
 
-export function saveColorsResult(date: string, won: boolean, guesses: number) {
-  const history = getColorsHistory()
+export function saveColorsResult(
+  date: string,
+  won: boolean,
+  guesses: number,
+  variant: ColorsVariant = "pro",
+) {
+  const history = getColorsHistory(variant)
   const idx = history.findIndex(r => r.date === date)
   const result: ColorsResult = { date, won, guesses }
   if (idx >= 0) history[idx] = result
   else history.push(result)
-  localStorage.setItem(COLORS_HISTORY_KEY, JSON.stringify(history))
+  localStorage.setItem(historyKey(variant), JSON.stringify(history))
 }
 
-export function getColorsResultForDate(date: string): ColorsResult | undefined {
-  return getColorsHistory().find(r => r.date === date)
+export function getColorsResultForDate(
+  date: string,
+  variant: ColorsVariant = "pro",
+): ColorsResult | undefined {
+  return getColorsHistory(variant).find(r => r.date === date)
 }
 
 export interface ColorsStats {
@@ -171,8 +235,8 @@ export interface ColorsStats {
 
 const MAX_COLORS_GUESSES = 5
 
-export function calculateColorsStats(): ColorsStats {
-  const history = getColorsHistory()
+export function calculateColorsStats(variant: ColorsVariant = "pro"): ColorsStats {
+  const history = getColorsHistory(variant)
   if (history.length === 0) {
     return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {} }
   }

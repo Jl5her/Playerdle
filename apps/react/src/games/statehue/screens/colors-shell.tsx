@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
+import { Overlay } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import ColorsCalendar from "./colors-calendar"
 import ColorsGame, { type ColorsGameMode } from "./colors-game"
@@ -16,12 +18,16 @@ import ColorsStatsOverlay from "./colors-stats-overlay"
 
 interface Props {
   screen: "daily" | "arcade"
+  variant?: ColorsVariant
 }
 
 type GameOverlay = "none" | "guide" | "stats" | "calendar"
-const TUTORIAL_SEEN_KEY = "statehue-tutorial-seen"
 
-export default function ColorsShell({ screen }: Props) {
+function tutorialSeenKey(variant: ColorsVariant): string {
+  return variant === "collegiate" ? "statehue-collegiate-tutorial-seen" : "statehue-tutorial-seen"
+}
+
+export default function ColorsShell({ screen, variant = "pro" }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
@@ -35,7 +41,7 @@ export default function ColorsShell({ screen }: Props) {
   useEffect(() => {
     if (screen !== "daily") return
     if (initialShowStats) return
-    if (localStorage.getItem(TUTORIAL_SEEN_KEY)) return
+    if (localStorage.getItem(tutorialSeenKey(variant))) return
     setIsOnboarding(true)
     setOverlay("guide")
   }, [screen, initialShowStats])
@@ -46,7 +52,7 @@ export default function ColorsShell({ screen }: Props) {
 
   function closeGuide() {
     if (isOnboarding) {
-      localStorage.setItem(TUTORIAL_SEEN_KEY, "true")
+      localStorage.setItem(tutorialSeenKey(variant), "true")
       setIsOnboarding(false)
     }
     setOverlay("none")
@@ -90,7 +96,7 @@ export default function ColorsShell({ screen }: Props) {
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          Statehue
+          {variant === "collegiate" ? "Collegiate" : "Statehue"}
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           {subtitle}
@@ -134,16 +140,16 @@ export default function ColorsShell({ screen }: Props) {
           )}
         >
           <ColorsGame
-            key={mode}
+            key={`${variant}:${mode}`}
             mode={mode}
+            variant={variant}
             onModeChange={setActiveMode}
           />
         </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0",
-            isGuideOpen ? "crossfade-active" : "crossfade-inactive",
-          )}
+        <Overlay
+          open={isGuideOpen}
+          onClose={closeGuide}
+          className="px-4 pb-4 overflow-hidden flex min-h-0"
         >
           <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -164,15 +170,15 @@ export default function ColorsShell({ screen }: Props) {
             </div>
             <ColorsHowToPlay
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+              variant={variant}
               onOpenCalendar={() => setOverlay("calendar")}
             />
           </div>
-        </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden",
-            isStatsOpen ? "crossfade-active" : "crossfade-inactive",
-          )}
+        </Overlay>
+        <Overlay
+          open={isStatsOpen}
+          onClose={closeStats}
+          className="px-4 pb-4 overflow-hidden"
         >
           <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -191,17 +197,22 @@ export default function ColorsShell({ screen }: Props) {
                 />
               </button>
             </div>
-            <ColorsStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
+            <ColorsStatsOverlay
+              variant={variant}
+              className="-mt-1 flex-1 overflow-auto pb-2"
+            />
           </div>
-        </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 overflow-hidden",
-            overlay === "calendar" ? "crossfade-active" : "crossfade-inactive",
-          )}
+        </Overlay>
+        <Overlay
+          open={overlay === "calendar"}
+          onClose={() => setOverlay("none")}
+          className="overflow-hidden"
         >
-          <ColorsCalendar onClose={() => setOverlay("none")} />
-        </div>
+          <ColorsCalendar
+            variant={variant}
+            onClose={() => setOverlay("none")}
+          />
+        </Overlay>
       </div>
     </div>
   )

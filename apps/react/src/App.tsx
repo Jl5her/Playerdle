@@ -18,7 +18,7 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, PWAUpdateToast } from "@/shared/components"
+import { type FooterTab, LeagueFooter, Overlay, PWAUpdateToast } from "@/shared/components"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -319,11 +319,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       variantId={activeVariantId}
                     />
                   </div>
-                  <div
-                    className={clsx(
-                      "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0",
-                      isGuideOpen ? "crossfade-active" : "crossfade-inactive",
-                    )}
+                  <Overlay
+                    open={isGuideOpen}
+                    onClose={handleCloseTutorial}
+                    className="px-4 pb-4 overflow-hidden flex min-h-0"
                   >
                     <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
                       <div className="flex items-center justify-between pt-3">
@@ -354,12 +353,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                         }}
                       />
                     </div>
-                  </div>
-                  <div
-                    className={clsx(
-                      "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden",
-                      isStatsOpen ? "crossfade-active" : "crossfade-inactive",
-                    )}
+                  </Overlay>
+                  <Overlay
+                    open={isStatsOpen}
+                    onClose={handleCloseStatsModal}
+                    className="px-4 pb-4 overflow-hidden"
                   >
                     <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
                       <div className="flex items-center justify-between pt-3">
@@ -386,7 +384,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                         />
                       </div>
                     </div>
-                  </div>
+                  </Overlay>
                 </div>
               )}
               {screen === "arcade" && activeSport && (
@@ -574,6 +572,36 @@ function App() {
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <ColorsCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/statehue/collegiate"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsShell
+              screen="daily"
+              variant="collegiate"
+            />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/statehue/collegiate/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsShell
+              screen="arcade"
+              variant="collegiate"
+            />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/statehue/collegiate/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <ColorsCalendar variant="collegiate" />
           </Suspense>
         }
       />

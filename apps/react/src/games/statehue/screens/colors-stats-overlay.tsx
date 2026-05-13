@@ -1,12 +1,16 @@
 import clsx from "clsx"
-import { calculateColorsStats } from "@/games/statehue/utils/colors-daily"
+import {
+  type ColorsVariant,
+  calculateColorsStats,
+} from "@/games/statehue/utils/colors-daily"
 
 interface Props {
   className?: string
+  variant?: ColorsVariant
 }
 
-export default function ColorsStatsOverlay({ className }: Props) {
-  const stats = calculateColorsStats()
+export default function ColorsStatsOverlay({ className, variant = "pro" }: Props) {
+  const stats = calculateColorsStats(variant)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (

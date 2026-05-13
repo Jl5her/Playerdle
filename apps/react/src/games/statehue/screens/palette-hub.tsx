@@ -21,6 +21,7 @@ export default function PaletteHub() {
   const navigate = useNavigate()
   const [section, setSection] = useState<Section>("menu")
   const playedToday = hasPlayedColorsDailyToday()
+  const playedCollegiateToday = hasPlayedColorsDailyToday("collegiate")
 
   function handleSelectSport(sportId: SportId) {
     if (sportId === "nfl") {
@@ -75,6 +76,11 @@ export default function PaletteHub() {
                     label="Statehue"
                     played={playedToday}
                     onClick={() => navigate("/statehue/daily")}
+                  />
+                  <GameModeButton
+                    label="Collegiate"
+                    played={playedCollegiateToday}
+                    onClick={() => navigate("/statehue/collegiate")}
                   />
                   <MenuLinkButton
                     label="Stats"

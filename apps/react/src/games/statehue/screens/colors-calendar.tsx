@@ -13,6 +13,7 @@ import {
   COLORS_EPOCH_DATE_KEY,
   type ColorsPuzzle,
   type ColorsResult,
+  type ColorsVariant,
   getColorsHistory,
   getColorsPuzzleByDateKey,
 } from "@/games/statehue/utils/colors-daily"
@@ -146,9 +147,13 @@ function DayDetail({ puzzle, result }: DayDetailProps) {
 
 interface ColorsCalendarProps {
   onClose?: () => void
+  variant?: ColorsVariant
 }
 
-export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
+export default function ColorsCalendar({
+  onClose,
+  variant = "pro",
+}: ColorsCalendarProps = {}) {
   const navigate = useNavigate()
   const today = parseDateKey(getTodayKey())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
@@ -156,12 +161,15 @@ export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
 
   const history = useMemo(() => {
     const map = new Map<string, ColorsResult>()
-    for (const r of getColorsHistory()) map.set(r.date, r)
+    for (const r of getColorsHistory(variant)) map.set(r.date, r)
     return map
-  }, [])
+  }, [variant])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
-  const selectedPuzzle = useMemo(() => getColorsPuzzleByDateKey(selected), [selected])
+  const selectedPuzzle = useMemo(
+    () => getColorsPuzzleByDateKey(selected, variant),
+    [selected, variant],
+  )
   const selectedResult = history.get(selected)
 
   function goPrevMonth() {
@@ -245,7 +253,7 @@ export default function ColorsCalendar({ onClose }: ColorsCalendarProps = {}) {
               const isSelected = key === selected
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
-              const cellPuzzle = !disabled ? getColorsPuzzleByDateKey(key) : null
+              const cellPuzzle = !disabled ? getColorsPuzzleByDateKey(key, variant) : null
               const cellShape = cellPuzzle ? STATE_PATHS[cellPuzzle.state.id] : undefined
               return (
                 <button

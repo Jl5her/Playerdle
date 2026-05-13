@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import { Overlay } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
@@ -139,11 +140,10 @@ export default function JourneyShell({ screen }: Props) {
             onModeChange={setActiveMode}
           />
         </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden flex min-h-0",
-            isGuideOpen ? "crossfade-active" : "crossfade-inactive",
-          )}
+        <Overlay
+          open={isGuideOpen}
+          onClose={closeGuide}
+          className="px-4 pb-4 overflow-hidden flex min-h-0"
         >
           <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -167,12 +167,11 @@ export default function JourneyShell({ screen }: Props) {
               onOpenCalendar={() => setOverlay("calendar")}
             />
           </div>
-        </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 px-4 pb-4 overflow-hidden",
-            isStatsOpen ? "crossfade-active" : "crossfade-inactive",
-          )}
+        </Overlay>
+        <Overlay
+          open={isStatsOpen}
+          onClose={closeStats}
+          className="px-4 pb-4 overflow-hidden"
         >
           <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
             <div className="flex items-center justify-between pt-3">
@@ -193,15 +192,14 @@ export default function JourneyShell({ screen }: Props) {
             </div>
             <JourneyStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
           </div>
-        </div>
-        <div
-          className={clsx(
-            "crossfade-panel absolute inset-0 overflow-hidden",
-            overlay === "calendar" ? "crossfade-active" : "crossfade-inactive",
-          )}
+        </Overlay>
+        <Overlay
+          open={overlay === "calendar"}
+          onClose={() => setOverlay("none")}
+          className="overflow-hidden"
         >
           <JourneyCalendar onClose={() => setOverlay("none")} />
-        </div>
+        </Overlay>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 export interface ColorsTeam {
   name: string
-  league: "NFL" | "MLB" | "NBA" | "NHL"
+  // Pro: NFL/MLB/NBA/NHL. Collegiate: conference name (SEC, Big Ten, ACC, etc.).
+  league: string
   colors: [string, string, string]
 }
 

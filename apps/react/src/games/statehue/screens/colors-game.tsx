@@ -10,6 +10,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import {
   type ColorsPuzzle,
   type ColorsStats,
+  type ColorsVariant,
   calculateColorsStats,
   getArcadeColorsPuzzle,
   getDailyColorsPuzzle,
@@ -29,12 +30,18 @@ import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
-const STORAGE_KEY = "playerdle-colors-state:v1"
+
+function storageKeyFor(variant: ColorsVariant): string {
+  return variant === "collegiate"
+    ? "playerdle-colors-collegiate-state:v1"
+    : "playerdle-colors-state:v1"
+}
 
 export type ColorsGameMode = "daily" | "arcade"
 
 interface Props {
   mode: ColorsGameMode
+  variant?: ColorsVariant
   onModeChange?: (mode: ColorsGameMode) => void
 }
 
@@ -43,9 +50,9 @@ interface SavedState {
   guesses: string[]
 }
 
-function loadDailyGuesses(dateKey: string): string[] {
+function loadDailyGuesses(dateKey: string, variant: ColorsVariant): string[] {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(storageKeyFor(variant))
     if (!raw) return []
     const parsed = JSON.parse(raw) as SavedState
     if (parsed.dateKey !== dateKey) return []
@@ -55,9 +62,9 @@ function loadDailyGuesses(dateKey: string): string[] {
   }
 }
 
-function saveDailyGuesses(dateKey: string, guesses: string[]) {
+function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVariant) {
   const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+  localStorage.setItem(storageKeyFor(variant), JSON.stringify(state))
 }
 
 function shadeHex(hex: string, amount: number): string {
@@ -409,8 +416,8 @@ function buildShareText(
     day: "numeric",
     year: "numeric",
   }).format(new Date())
-  const url =
-    typeof window !== "undefined" ? `${window.location.origin}/statehue/daily` : "/statehue/daily"
+  const path = puzzle.variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily"
+  const url = typeof window !== "undefined" ? `${window.location.origin}${path}` : path
 
   const answerName = puzzle.state.name.toLowerCase()
   const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
@@ -420,7 +427,8 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Statehue #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  const title = puzzle.variant === "collegiate" ? "Collegiate Statehue" : "Statehue"
+  return `${title} #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
 }
 
 function ResultsPanel({
@@ -552,14 +560,16 @@ function ResultsPanel({
   )
 }
 
-export default function ColorsGame({ mode, onModeChange }: Props) {
+export default function ColorsGame({ mode, variant = "pro", onModeChange }: Props) {
   const [dateKey] = useState<string>(getTodayKey)
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() =>
-    mode === "daily" ? getDailyColorsPuzzle() : getArcadeColorsPuzzle(),
+    mode === "daily"
+      ? getDailyColorsPuzzle(undefined, variant)
+      : getArcadeColorsPuzzle(undefined, variant),
   )
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(dateKey) : [],
+    mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
   )
 
   const won = guesses.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
@@ -573,25 +583,20 @@ export default function ColorsGame({ mode, onModeChange }: Props) {
 
   const gameScrollRef = useRef<HTMLDivElement>(null)
   const [stats, setStats] = useState<ColorsStats | null>(() =>
-    gameOver && activeMode === "daily" ? calculateColorsStats() : null,
+    gameOver && activeMode === "daily" ? calculateColorsStats(variant) : null,
   )
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markColorsDailyPlayed()
-      saveColorsResult(puzzle.dateKey, won, guesses.length)
+      markColorsDailyPlayed(variant)
+      saveColorsResult(puzzle.dateKey, won, guesses.length, variant)
+      setStats(calculateColorsStats(variant))
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length, variant])
 
   useEffect(() => {
-    if (!gameOver) {
-      setStats(null)
-      return
-    }
-    if (activeMode === "daily" && stats === null) {
-      setStats(calculateColorsStats())
-    }
-  }, [gameOver, activeMode, stats])
+    if (!gameOver) setStats(null)
+  }, [gameOver])
 
   const confettiColors = useMemo(
     () => puzzle.teams.flatMap(t => t.colors),
@@ -611,11 +616,11 @@ export default function ColorsGame({ mode, onModeChange }: Props) {
     if (usedGuessesLower.has(stateName.toLowerCase())) return
     const next = [...guesses, stateName]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(dateKey, next)
+    if (activeMode === "daily") saveDailyGuesses(dateKey, next, variant)
   }
 
   function handlePlayAgain() {
-    const fresh = getArcadeColorsPuzzle(puzzle.state.id)
+    const fresh = getArcadeColorsPuzzle(puzzle.state.id, variant)
     setPuzzle(fresh)
     setGuesses([])
     setActiveMode("arcade")
