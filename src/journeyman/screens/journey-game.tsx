@@ -1,13 +1,19 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import confetti from "canvas-confetti"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Button, Popup, ScrollHint } from "@/components"
+import {
+  DailyGameShell,
+  PlayAgainButton,
+  Popup,
+  ResultBanner,
+  ScrollHint,
+  ShareButton,
+} from "@/components"
 import nflPlayers from "@/data/nfl/players.json"
 import { getCollegePalette } from "@/data/journey/college-colors"
 import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@/data/journey/players"
 import { getNflTeamPalette } from "@/data/journey/team-colors"
+import { useClipboardShare } from "@/hooks/use-clipboard-share"
 import {
   getArcadeJourneyPuzzle,
   getDailyJourneyPuzzle,
@@ -396,57 +402,11 @@ function ResultsPanel({
   onClose,
   onPlayAgain,
 }: ResultsPanelProps) {
-  const [copied, setCopied] = useState(false)
+  const { share, copied } = useClipboardShare()
   const ladderScrollRef = useRef<HTMLDivElement>(null)
 
-  function showCopiedPill() {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 3000)
-  }
-
-  function legacyCopyText(text: string) {
-    try {
-      const textarea = document.createElement("textarea")
-      textarea.value = text
-      textarea.setAttribute("readonly", "")
-      textarea.style.position = "fixed"
-      textarea.style.opacity = "0"
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand("copy")
-      document.body.removeChild(textarea)
-      showCopiedPill()
-    } catch (err) {
-      console.error("Failed to copy:", err)
-    }
-  }
-
-  function copyText(text: string) {
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard
-        .writeText(text)
-        .then(showCopiedPill)
-        .catch(() => legacyCopyText(text))
-      return
-    }
-    legacyCopyText(text)
-  }
-
   function handleShare() {
-    const text = buildShareText(puzzle, guesses, won, maxGuesses)
-    const share: ShareData = { title: "Journey", text }
-    const canUseShare =
-      typeof navigator !== "undefined" &&
-      typeof navigator.share === "function" &&
-      (typeof navigator.canShare !== "function" || navigator.canShare(share))
-    if (canUseShare) {
-      navigator.share(share).catch(err => {
-        if (err instanceof DOMException && err.name === "AbortError") return
-        copyText(text)
-      })
-      return
-    }
-    copyText(text)
+    share({ title: "Journey", text: buildShareText(puzzle, guesses, won, maxGuesses) })
   }
 
   return (
@@ -456,57 +416,12 @@ function ResultsPanel({
         message="Copied to clipboard!"
         durationMs={3000}
       />
-      <div className="w-full max-w-2xl mx-auto px-4 flex items-center justify-between pt-3">
-        <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-          Results
-        </h2>
-        <button
-          type="button"
-          className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-          aria-label="Close results"
-          onClick={onClose}
-        >
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-2xl"
-          />
-        </button>
-      </div>
 
-      <div
-        className={`shrink-0 px-4 py-3 text-center border-y-2 mt-1 ${
-          won
-            ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
-            : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
-        }`}
-      >
-        <div
-          className={`text-base font-black tracking-widest uppercase mb-1 ${
-            won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
-        >
-          {won ? "Correct" : "Game Over"}
-        </div>
-        <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
-          The answer was
-        </div>
-        <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
-          {puzzle.player.name}
-        </div>
-        <div
-          className={`text-sm mt-2 font-medium uppercase ${
-            won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
-        >
-          {won
-            ? `You got it in ${guesses.length} ${guesses.length === 1 ? "guess" : "guesses"}`
-            : "Better luck tomorrow!"}
-        </div>
-      </div>
+      <ResultBanner
+        won={won}
+        guessCount={guesses.length}
+        answer={puzzle.player.name}
+      />
 
       <div
         ref={ladderScrollRef}
@@ -576,43 +491,17 @@ function ResultsPanel({
 
       <div className="shrink-0 w-full max-w-2xl mx-auto px-4 flex gap-3 justify-center mt-4 pt-3 flex-wrap border-t border-primary-200 dark:border-primary-800">
         {mode === "daily" && (
-          <button
-            type="button"
-            className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-accent-500 dark:bg-accent-400 border-none rounded cursor-pointer flex items-center gap-2 hover:opacity-90 transition-opacity"
+          <ShareButton
+            copied={copied}
             onClick={handleShare}
-          >
-            <svg
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-              <polyline points="16 6 12 2 8 6" />
-              <line
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="15"
-              />
-            </svg>
-            {copied ? "Copied!" : "Share"}
-          </button>
+          />
         )}
-        <button
-          type="button"
-          className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-success-500 dark:bg-success-400 border-none rounded cursor-pointer uppercase hover:opacity-90 transition-opacity"
+        <PlayAgainButton
           onClick={() => {
             onPlayAgain()
             onClose()
           }}
-        >
-          Play Again
-        </button>
+        />
       </div>
     </div>
   )
@@ -646,8 +535,6 @@ export default function JourneyGame({ mode }: Props) {
       puzzle.player.teams.length,
     )
 
-  const wasGameOverAtMountRef = useRef(gameOver)
-  const [showResults, setShowResults] = useState(wasGameOverAtMountRef.current)
   const gameScrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -656,18 +543,6 @@ export default function JourneyGame({ mode }: Props) {
       saveJourneyResult(puzzle.dateKey, won, guesses.length)
     }
   }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length])
-
-  useEffect(() => {
-    if (!gameOver) {
-      setShowResults(false)
-      return
-    }
-    if (wasGameOverAtMountRef.current) return
-    if (won) {
-      const t = setTimeout(() => setShowResults(true), 1400)
-      return () => clearTimeout(t)
-    }
-  }, [gameOver, won, activeMode])
 
   const confettiKeyRef = useRef<string | null>(null)
   useEffect(() => {
@@ -733,94 +608,74 @@ export default function JourneyGame({ mode }: Props) {
     setGuesses([])
     setActiveMode("arcade")
     confettiKeyRef.current = null
-    wasGameOverAtMountRef.current = false
   }
 
   return (
-    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden relative">
-      <Popup
-        visible={gameOver && !showResults}
-        message={puzzle.player.name}
-      />
-
-      <div
-        className={`crossfade-panel h-full min-h-0 overflow-hidden flex flex-col ${showResults ? "crossfade-inactive" : "crossfade-active"}`}
-      >
-        <div
-          ref={gameScrollRef}
-          className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
-        >
-          <div className="max-w-sm mx-auto px-3 py-4 flex flex-col gap-3">
-            <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 p-8 mt-6 mx-8">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
-              </div>
-              <div className="flex flex-col">
-                <LadderRow
-                  name={puzzle.player.college}
-                  palette={
-                    getCollegePalette(puzzle.player.college) ?? [
-                      "#888888",
-                      "#bbbbbb",
-                      "#dddddd",
-                    ]
-                  }
-                  revealed
-                />
-                {puzzle.player.teams.map((team, i) => (
-                  <LadderRow
-                    key={`${team}-${i}`}
-                    name={team}
-                    palette={getPaletteOrFallback(team)}
-                    revealed={i < visibleTeamsCount}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-2">
-              <GuessSlots
-                guesses={guesses}
-                answerName={answerName}
-                targetPosition={puzzle.player.position}
-                maxGuesses={MAX_GUESSES}
-              />
-            </div>
-          </div>
-        </div>
-        <ScrollHint scrollRef={gameScrollRef} />
-
-        <PlayerInput
-          onGuess={handleGuess}
-          disabled={gameOver}
-          usedGuesses={usedGuessesLower}
-        />
-
-        {gameOver && (
-          <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-            <Button
-              onClick={() => setShowResults(true)}
-              variant="secondary"
-            >
-              See Results
-            </Button>
-          </div>
-        )}
-      </div>
-
-      <div
-        className={`slide-up-panel absolute inset-0 flex flex-col bg-primary-50 dark:bg-primary-900 ${showResults ? "slide-up-active" : "slide-up-inactive"}`}
-      >
+    <DailyGameShell
+      gameOver={gameOver}
+      popupMessage={puzzle.player.name}
+      onPlayAgain={handlePlayAgain}
+      renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
           puzzle={puzzle}
           guesses={guesses}
           won={won}
           maxGuesses={MAX_GUESSES}
           mode={activeMode}
-          onClose={() => setShowResults(false)}
-          onPlayAgain={handlePlayAgain}
+          onClose={onClose}
+          onPlayAgain={onPlayAgain}
         />
+      )}
+    >
+      <div
+        ref={gameScrollRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
+      >
+        <div className="max-w-sm mx-auto px-3 py-4 flex flex-col gap-3">
+          <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 p-8 mt-6 mx-8">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
+            </div>
+            <div className="flex flex-col">
+              <LadderRow
+                name={puzzle.player.college}
+                palette={
+                  getCollegePalette(puzzle.player.college) ?? [
+                    "#888888",
+                    "#bbbbbb",
+                    "#dddddd",
+                  ]
+                }
+                revealed
+              />
+              {puzzle.player.teams.map((team, i) => (
+                <LadderRow
+                  key={`${team}-${i}`}
+                  name={team}
+                  palette={getPaletteOrFallback(team)}
+                  revealed={i < visibleTeamsCount}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-2">
+            <GuessSlots
+              guesses={guesses}
+              answerName={answerName}
+              targetPosition={puzzle.player.position}
+              maxGuesses={MAX_GUESSES}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+      <ScrollHint scrollRef={gameScrollRef} />
+
+      <PlayerInput
+        onGuess={handleGuess}
+        disabled={gameOver}
+        usedGuesses={usedGuessesLower}
+      />
+    </DailyGameShell>
   )
 }

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Button, GuessGrid, GuessInput, Popup, ScrollHint } from "@/components"
+import { DailyGameShell, GuessGrid, GuessInput, Popup, ScrollHint } from "@/components"
+import { StatsContent } from "@/modals/stats-content"
 import type { Player, SportConfig } from "@/sports"
 import { getDailyPlayer, getRandomArcadePlayer, getTodayKeyInEasternTime } from "@/utils/daily"
 import { saveGameResult } from "@/utils/stats"
@@ -25,7 +26,6 @@ interface Props {
   mode: GameMode
   sport: SportConfig
   variantId?: string
-  onOpenStatsModal: (config: StatsModalConfig) => void
 }
 
 interface SavedState {
@@ -67,7 +67,7 @@ function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: strin
   return []
 }
 
-export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props) {
+export default function Game({ mode, sport, variantId }: Props) {
   const [activeMode, setActiveMode] = useState<GameMode>(mode)
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
@@ -104,32 +104,7 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
     }
   }, [activeMode, gameOver, won, guesses.length, sport.id, variantId])
 
-  const autoOpenedRef = useRef(false)
   const gridScrollRef = useRef<HTMLDivElement>(null)
-  // biome-ignore lint/correctness/useExhaustiveDependencies: mount-only auto-open
-  useEffect(() => {
-    if (autoOpenedRef.current) return
-    if (gameOver && answer) {
-      autoOpenedRef.current = true
-      openResultsModal(guesses, won, lost)
-    }
-  }, [])
-
-  function openResultsModal(nextGuesses: Player[], nextWon: boolean, nextLost: boolean) {
-    if (!answer) return
-
-    onOpenStatsModal({
-      player: answer,
-      won: nextWon,
-      lost: nextLost,
-      guessCount: nextGuesses.length,
-      onPlayAgain: handlePlayAgain,
-      mode: activeMode,
-      guesses: nextGuesses,
-      includeShareButton: activeMode === "daily",
-      variantId,
-    })
-  }
 
   function handleGuess(player: Player) {
     if (gameOver || guessedIds.has(player.id)) return
@@ -163,9 +138,6 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
       if (activeMode === "daily") {
         saveGameResult(sport.id, newWon, newGuesses.length, variantId)
       }
-      if (newWon) {
-        openResultsModal(newGuesses, newWon, newLost)
-      }
     }
   }
 
@@ -181,11 +153,31 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
   }
 
   return (
-    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden relative">
-      <Popup
-        visible={gameOver && !!answer}
-        message={answer?.name ?? ""}
-      />
+    <DailyGameShell
+      gameOver={gameOver}
+      popupMessage={answer?.name}
+      onPlayAgain={handlePlayAgain}
+      renderResults={({ onPlayAgain }) => (
+        <div className="flex-1 min-h-0 overflow-auto px-4">
+          <div className="w-full max-w-2xl mx-auto">
+            {answer && (
+              <StatsContent
+                player={answer}
+                won={won}
+                lost={lost}
+                guessCount={guesses.length}
+                onPlayAgain={onPlayAgain}
+                mode={activeMode}
+                guesses={guesses}
+                sport={sport}
+                includeShareButton={activeMode === "daily"}
+                variantId={variantId}
+              />
+            )}
+          </div>
+        </div>
+      )}
+    >
       <Popup
         visible={showPositionPopup}
         message={
@@ -254,16 +246,6 @@ export default function Game({ mode, sport, variantId, onOpenStatsModal }: Props
           )}
         </div>
       )}
-      {gameOver && (
-        <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-          <Button
-            onClick={() => openResultsModal(guesses, won, lost)}
-            variant="secondary"
-          >
-            See Results
-          </Button>
-        </div>
-      )}
-    </div>
+    </DailyGameShell>
   )
 }

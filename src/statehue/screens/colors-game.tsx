@@ -1,13 +1,21 @@
-import { faLocationArrow, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import confetti from "canvas-confetti"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { Button, Popup, ScrollHint } from "@/components"
+import {
+  DailyGameShell,
+  PlayAgainButton,
+  Popup,
+  ResultBanner,
+  ScrollHint,
+  ShareButton,
+} from "@/components"
 import { ALL_STATES, getStateByName, type USState } from "@/data/colors/all-states"
 import { bearingDeg } from "@/data/colors/state-geo"
 import { type ColorsState, type ColorsTeam } from "@/data/colors/states"
 import { STATE_PATHS } from "@/data/colors/state-paths"
+import { useClipboardShare } from "@/hooks/use-clipboard-share"
 import {
   calculateColorsStats,
   type ColorsPuzzle,
@@ -419,59 +427,13 @@ function ResultsPanel({
   onClose,
   onPlayAgain,
 }: ResultsPanelProps) {
-  const [copied, setCopied] = useState(false)
+  const { share, copied } = useClipboardShare()
   const shape = STATE_PATHS[puzzle.state.id]
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
   const resultsScrollRef = useRef<HTMLDivElement>(null)
 
   function handleShare() {
-    const text = buildShareText(puzzle, guesses, won, maxGuesses)
-    const share: ShareData = { title: "Statehue", text }
-    const canUseShare =
-      typeof navigator !== "undefined" &&
-      typeof navigator.share === "function" &&
-      (typeof navigator.canShare !== "function" || navigator.canShare(share))
-    if (canUseShare) {
-      navigator.share(share).catch(err => {
-        if (err instanceof DOMException && err.name === "AbortError") return
-        copyText(text)
-      })
-      return
-    }
-    copyText(text)
-  }
-
-  function showCopiedPill() {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 3000)
-  }
-
-  function legacyCopyText(text: string) {
-    try {
-      const textarea = document.createElement("textarea")
-      textarea.value = text
-      textarea.setAttribute("readonly", "")
-      textarea.style.position = "fixed"
-      textarea.style.opacity = "0"
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand("copy")
-      document.body.removeChild(textarea)
-      showCopiedPill()
-    } catch (err) {
-      console.error("Failed to copy:", err)
-    }
-  }
-
-  function copyText(text: string) {
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard
-        .writeText(text)
-        .then(showCopiedPill)
-        .catch(() => legacyCopyText(text))
-      return
-    }
-    legacyCopyText(text)
+    share({ title: "Statehue", text: buildShareText(puzzle, guesses, won, maxGuesses) })
   }
 
   return (
@@ -481,72 +443,29 @@ function ResultsPanel({
         message="Copied to clipboard!"
         durationMs={3000}
       />
-      <div className="w-full max-w-2xl mx-auto px-4 flex items-center justify-between pt-3">
-        <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-          Results
-        </h2>
-        <button
-          type="button"
-          className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-          aria-label="Close results"
-          onClick={onClose}
-        >
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-2xl"
-          />
-        </button>
-      </div>
 
-      <div
-        className={`shrink-0 px-4 py-3 text-center border-y-2 mt-1 ${
-          won
-            ? "bg-success-500/15 dark:bg-success-500/20 border-success-500/60 dark:border-success-400/60"
-            : "bg-error-500/15 dark:bg-error-500/25 border-error-500/60 dark:border-error-400/60"
-        }`}
-      >
-        <div
-          className={`text-base font-black tracking-widest uppercase mb-1 ${
-            won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
-        >
-          {won ? "Correct" : "Game Over"}
-        </div>
-        <div className="text-xs text-primary-500 dark:text-primary-200 uppercase">
-          The answer was
-        </div>
-        <div className="flex items-center justify-center gap-3">
-          {shape && (
-            <svg
-              viewBox={shape.viewBox}
-              className="w-8 h-8 text-primary-700 dark:text-primary-200"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth={1}
-              strokeLinejoin="round"
-              aria-hidden="true"
-            >
-              <path d={shape.d} />
-            </svg>
-          )}
-          <div className="text-xl font-bold text-primary-900 dark:text-primary-50 uppercase">
+      <ResultBanner
+        won={won}
+        guessCount={guesses.length}
+        answer={
+          <span className="inline-flex items-center justify-center gap-3">
+            {shape && (
+              <svg
+                viewBox={shape.viewBox}
+                className="w-8 h-8 text-primary-700 dark:text-primary-200"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth={1}
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d={shape.d} />
+              </svg>
+            )}
             {puzzle.state.name}
-          </div>
-        </div>
-        <div
-          className={`text-sm mt-2 font-medium uppercase ${
-            won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
-        >
-          {won
-            ? `You got it in ${guesses.length} ${guesses.length === 1 ? "guess" : "guesses"}`
-            : "Better luck tomorrow!"}
-        </div>
-      </div>
+          </span>
+        }
+      />
 
       <div
         ref={resultsScrollRef}
@@ -659,43 +578,17 @@ function ResultsPanel({
 
         <div className="flex gap-3 justify-center mt-6 flex-wrap">
           {mode === "daily" && (
-            <button
-              type="button"
-              className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-accent-500 dark:bg-accent-400 border-none rounded cursor-pointer flex items-center gap-2 hover:opacity-90 transition-opacity"
+            <ShareButton
+              copied={copied}
               onClick={handleShare}
-            >
-              <svg
-                className="w-4 h-4"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                <polyline points="16 6 12 2 8 6" />
-                <line
-                  x1="12"
-                  y1="2"
-                  x2="12"
-                  y2="15"
-                />
-              </svg>
-              {copied ? "Copied!" : "Share"}
-            </button>
+            />
           )}
-          <button
-            type="button"
-            className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-success-500 dark:bg-success-400 border-none rounded cursor-pointer uppercase hover:opacity-90 transition-opacity"
+          <PlayAgainButton
             onClick={() => {
               onPlayAgain()
               onClose()
             }}
-          >
-            Play Again
-          </button>
+          />
         </div>
 
         {!won && !lost && null}
@@ -726,11 +619,9 @@ export default function ColorsGame({ mode }: Props) {
     ? puzzle.teams.length
     : Math.min(1 + wrongCount, puzzle.teams.length)
 
-  const wasGameOverAtMountRef = useRef(gameOver)
-  const [showResults, setShowResults] = useState(wasGameOverAtMountRef.current)
   const gameScrollRef = useRef<HTMLDivElement>(null)
   const [stats, setStats] = useState<ColorsStats | null>(() =>
-    wasGameOverAtMountRef.current && activeMode === "daily" ? calculateColorsStats() : null,
+    gameOver && activeMode === "daily" ? calculateColorsStats() : null,
   )
 
   useEffect(() => {
@@ -742,16 +633,13 @@ export default function ColorsGame({ mode }: Props) {
 
   useEffect(() => {
     if (!gameOver) {
-      setShowResults(false)
+      setStats(null)
       return
     }
-    if (wasGameOverAtMountRef.current) return
-    setStats(activeMode === "daily" ? calculateColorsStats() : null)
-    if (won) {
-      const t = setTimeout(() => setShowResults(true), 1400)
-      return () => clearTimeout(t)
+    if (activeMode === "daily" && stats === null) {
+      setStats(calculateColorsStats())
     }
-  }, [gameOver, won, activeMode])
+  }, [gameOver, activeMode, stats])
 
   const confettiKeyRef = useRef<string | null>(null)
   useEffect(() => {
@@ -816,65 +704,14 @@ export default function ColorsGame({ mode }: Props) {
     setGuesses([])
     setActiveMode("arcade")
     confettiKeyRef.current = null
-    wasGameOverAtMountRef.current = false
   }
 
   return (
-    <div className="flex-1 min-h-0 flex flex-col bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50 overflow-hidden relative">
-      <Popup
-        visible={gameOver && !showResults}
-        message={puzzle.state.name}
-      />
-
-      <div
-        className={`crossfade-panel h-full min-h-0 overflow-hidden flex flex-col ${showResults ? "crossfade-inactive" : "crossfade-active"}`}
-      >
-        <div
-          ref={gameScrollRef}
-          className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
-        >
-          <div className="max-w-md mx-auto px-3 py-4 flex flex-col gap-3">
-            <div className="rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 py-2">
-              {puzzle.teams.slice(0, visibleTeamCount).map((team, i) => (
-                <TeamRow
-                  key={`${team.name}-${i}`}
-                  team={team}
-                />
-              ))}
-            </div>
-
-            <div className="mt-2">
-              <GuessSlots
-                guesses={guesses}
-                answer={puzzle.state}
-                maxGuesses={MAX_GUESSES}
-              />
-            </div>
-          </div>
-        </div>
-        <ScrollHint scrollRef={gameScrollRef} />
-
-        <StateInput
-          onGuess={handleGuess}
-          disabled={gameOver}
-          usedGuesses={usedGuessesLower}
-        />
-
-        {gameOver && (
-          <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-            <Button
-              onClick={() => setShowResults(true)}
-              variant="secondary"
-            >
-              See Results
-            </Button>
-          </div>
-        )}
-      </div>
-
-      <div
-        className={`slide-up-panel absolute inset-0 flex flex-col bg-primary-50 dark:bg-primary-900 ${showResults ? "slide-up-active" : "slide-up-inactive"}`}
-      >
+    <DailyGameShell
+      gameOver={gameOver}
+      popupMessage={puzzle.state.name}
+      onPlayAgain={handlePlayAgain}
+      renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
           puzzle={puzzle}
           guesses={guesses}
@@ -883,10 +720,41 @@ export default function ColorsGame({ mode }: Props) {
           maxGuesses={MAX_GUESSES}
           mode={activeMode}
           stats={stats}
-          onClose={() => setShowResults(false)}
-          onPlayAgain={handlePlayAgain}
+          onClose={onClose}
+          onPlayAgain={onPlayAgain}
         />
+      )}
+    >
+      <div
+        ref={gameScrollRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
+      >
+        <div className="max-w-md mx-auto px-3 py-4 flex flex-col gap-3">
+          <div className="rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 py-2">
+            {puzzle.teams.slice(0, visibleTeamCount).map((team, i) => (
+              <TeamRow
+                key={`${team.name}-${i}`}
+                team={team}
+              />
+            ))}
+          </div>
+
+          <div className="mt-2">
+            <GuessSlots
+              guesses={guesses}
+              answer={puzzle.state}
+              maxGuesses={MAX_GUESSES}
+            />
+          </div>
+        </div>
       </div>
-    </div>
+      <ScrollHint scrollRef={gameScrollRef} />
+
+      <StateInput
+        onGuess={handleGuess}
+        disabled={gameOver}
+        usedGuesses={usedGuessesLower}
+      />
+    </DailyGameShell>
   )
 }

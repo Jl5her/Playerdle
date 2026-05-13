@@ -1,6 +1,7 @@
 import confetti from "canvas-confetti"
-import { useEffect, useRef, useState } from "react"
-import { Popup } from "@/components"
+import { useEffect, useRef } from "react"
+import { PlayAgainButton, Popup, ShareButton } from "@/components"
+import { useClipboardShare } from "@/hooks/use-clipboard-share"
 import type { GameMode } from "@/screens/game"
 import { evaluateColumn, type Player, type SportConfig } from "@/sports"
 import { calculateStats } from "@/utils/stats"
@@ -76,63 +77,14 @@ export function StatsContent({
   includeShareButton = false,
   variantId,
 }: StatsContentProps) {
-  const [copied, setCopied] = useState(false)
+  const { share, copied } = useClipboardShare()
   const lastConfettiKeyRef = useRef<string | null>(null)
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
   const maxGuessCount = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
-  function showCopiedPill() {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 3000)
-  }
-
-  function copyToClipboard(text: string) {
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard
-        .writeText(text)
-        .then(showCopiedPill)
-        .catch(() => legacyCopyToClipboard(text))
-      return
-    }
-    legacyCopyToClipboard(text)
-  }
-
-  function legacyCopyToClipboard(text: string) {
-    try {
-      const textarea = document.createElement("textarea")
-      textarea.value = text
-      textarea.setAttribute("readonly", "")
-      textarea.style.position = "fixed"
-      textarea.style.opacity = "0"
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand("copy")
-      document.body.removeChild(textarea)
-      showCopiedPill()
-    } catch (err) {
-      console.error("Failed to copy:", err)
-    }
-  }
-
   function handleShare() {
     if (!player) return
-    const shareText = generateShareText(guesses, player, won, sport, variantId)
-    const shareData: ShareData = { title: "Playerdle", text: shareText }
-
-    const canUseShare =
-      typeof navigator.share === "function" &&
-      (typeof navigator.canShare !== "function" || navigator.canShare(shareData))
-
-    if (canUseShare) {
-      navigator.share(shareData).catch(err => {
-        if (err instanceof DOMException && err.name === "AbortError") return
-        console.warn("Web Share failed, falling back to clipboard:", err)
-        copyToClipboard(shareText)
-      })
-      return
-    }
-
-    copyToClipboard(shareText)
+    share({ title: "Playerdle", text: generateShareText(guesses, player, won, sport, variantId) })
   }
 
   useEffect(() => {
@@ -181,7 +133,7 @@ export function StatsContent({
   if (!showStatsOnly && !won && !lost) return null
 
   return (
-    <div className="text-center px-6 py-8">
+    <div className="text-center py-6">
       <Popup
         visible={copied}
         message="Copied to clipboard!"
@@ -299,39 +251,12 @@ export function StatsContent({
 
       <div className="flex gap-3 justify-center mt-6">
         {mode === "daily" && includeShareButton && player && (
-          <button
-            className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-accent-500 dark:bg-accent-400 border-none rounded cursor-pointer flex items-center gap-2 hover:opacity-90 transition-opacity"
+          <ShareButton
+            copied={copied}
             onClick={handleShare}
-          >
-            <svg
-              className="w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-              <polyline points="16 6 12 2 8 6"></polyline>
-              <line
-                x1="12"
-                y1="2"
-                x2="12"
-                y2="15"
-              ></line>
-            </svg>
-            {copied ? "Copied!" : "Share"}
-          </button>
+          />
         )}
-        {onPlayAgain && (
-          <button
-            className="px-6 py-2.5 text-sm font-bold text-primary-50 dark:text-primary-900 bg-success-500 dark:bg-success-400 border-none rounded cursor-pointer uppercase hover:opacity-90 transition-opacity"
-            onClick={onPlayAgain}
-          >
-            Play Again
-          </button>
-        )}
+        {onPlayAgain && <PlayAgainButton onClick={onPlayAgain} />}
       </div>
     </div>
   )

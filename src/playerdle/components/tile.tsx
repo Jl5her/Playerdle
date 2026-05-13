@@ -22,7 +22,7 @@ export default function Tile({ cell, animate, delayIndex = 0 }: Props) {
 
   useEffect(() => {
     if (!animate) return
-    const revealAt = (delayIndex * 0.1 + 0.2) * 1000
+    const revealAt = (delayIndex * 0.07 + 0.15) * 1000
     const timer = setTimeout(() => setRevealed(true), revealAt)
     return () => clearTimeout(timer)
   }, [animate, delayIndex])

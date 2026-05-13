@@ -184,19 +184,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     setActiveGameOverlay("none")
   }
 
-  function handleOpenStatsModal(config: StatsModalConfig) {
-    setStatsModalConfig({
-      ...config,
-      onPlayAgain: config.onPlayAgain
-        ? () => {
-            config.onPlayAgain?.()
-            handleCloseStatsModal()
-          }
-        : undefined,
-    })
-    setActiveGameOverlay("stats")
-  }
-
   function handleCloseStatsModal() {
     if (!isStatsOpen) {
       return
@@ -275,6 +262,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       label: "Journeyman",
       played: hasPlayedJourneyDailyToday(),
       onPlayDaily: () => navigate("/journeyman/daily"),
+      onPlayArcade: () => navigate("/journeyman/arcade"),
       onShowStats: () => navigate("/journeyman/daily", { state: { showStats: true } }),
     },
   ]
@@ -317,7 +305,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       mode="daily"
                       sport={activeSport}
                       variantId={activeVariantId}
-                      onOpenStatsModal={handleOpenStatsModal}
                     />
                   </div>
                   <div
@@ -390,7 +377,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                   mode="arcade"
                   sport={activeSport}
                   variantId={activeVariantId}
-                  onOpenStatsModal={handleOpenStatsModal}
                 />
               )}
             </Suspense>

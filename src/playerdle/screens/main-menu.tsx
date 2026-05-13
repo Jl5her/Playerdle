@@ -1,7 +1,6 @@
 import {
   faBaseball,
   faBasketball,
-  faChartColumn,
   faFootball,
   faHockeyPuck,
   faXmark,
@@ -31,6 +30,7 @@ export interface ExtraGame {
   label: string
   played: boolean
   onPlayDaily: () => void
+  onPlayArcade: () => void
   onShowStats: () => void
 }
 
@@ -80,7 +80,7 @@ export default function MainMenu({
 
   const variantRows: VariantRow[] = [
     {
-      variantLabel: "Daily",
+      variantLabel: "Playerdle",
       variantId: undefined,
       played: hasPlayedTodaysDaily(sport.id, undefined),
       isPrimary: true,
@@ -124,80 +124,52 @@ export default function MainMenu({
         <div
           className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <div
-            className={`w-full max-w-xs mx-auto flex-1 flex flex-col items-center ${sport.id === "nfl" ? "justify-end pb-4" : "justify-center"}`}
-          >
+          <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
+
             <div className="flex flex-col gap-3 w-full">
               {variantRows.map(row => {
-                const targetScreen: Screen = row.played ? "arcade" : "daily"
-                const buttonClasses = row.isPrimary
-                  ? "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
-                  : "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                const buttonClasses = row.played
+                  ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                  : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
 
                 return (
-                  <div
+                  <button
                     key={`row:${row.variantId ?? "classic"}`}
-                    className="min-w-44 mx-auto flex items-center gap-2"
+                    className={`mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${buttonClasses}`}
+                    onClick={() => onNavigate("daily", { variantId: row.variantId })}
                   >
-                    <button
-                      className={`flex-1 px-4 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${buttonClasses}`}
-                      onClick={() => onNavigate(targetScreen, { variantId: row.variantId })}
-                    >
-                      {row.played ? (
-                        <span className="flex flex-col items-center leading-tight">
-                          <span className="text-base">Arcade</span>
-                          <span className="text-[10px] font-medium opacity-75 -mt-0.5">
-                            {row.variantLabel}
-                          </span>
+                    <span className="flex flex-col items-center justify-center leading-tight min-h-8">
+                      <span className="text-base">{row.variantLabel}</span>
+                      {row.played && (
+                        <span className="text-[10px] font-medium opacity-75 -mt-0.5">
+                          Completed
                         </span>
-                      ) : (
-                        row.variantLabel
                       )}
-                    </button>
-                    {row.played && (
-                      <button
-                        type="button"
-                        className="w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                        aria-label={`${row.variantLabel} stats`}
-                        title={`${row.variantLabel} stats`}
-                        onClick={() => onNavigate("stats", { variantId: row.variantId })}
-                      >
-                        <FontAwesomeIcon
-                          icon={faChartColumn}
-                          className="text-lg"
-                        />
-                      </button>
-                    )}
-                  </div>
+                    </span>
+                  </button>
                 )
               })}
-              {extraGames?.map(game => (
-                <div
-                  key={game.label}
-                  className="min-w-44 mx-auto flex items-center gap-2"
-                >
+              {extraGames?.map(game => {
+                const extraButtonClasses = game.played
+                  ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
+                  : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
+                return (
                   <button
-                    className="flex-1 px-4 py-2 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300 whitespace-nowrap"
+                    key={game.label}
+                    className={`mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap ${extraButtonClasses}`}
                     onClick={game.onPlayDaily}
                   >
-                    {game.label}
+                    <span className="flex flex-col items-center justify-center leading-tight min-h-8">
+                      <span className="text-base">{game.label}</span>
+                      {game.played && (
+                        <span className="text-[10px] font-medium opacity-75 -mt-0.5">
+                          Completed
+                        </span>
+                      )}
+                    </span>
                   </button>
-                  {game.played && (
-                    <button
-                      type="button"
-                      className="w-10 h-10 shrink-0 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                      aria-label={`${game.label} stats`}
-                      title={`${game.label} stats`}
-                      onClick={game.onShowStats}
-                    >
-                      <FontAwesomeIcon
-                        icon={faChartColumn}
-                        className="text-lg"
-                      />
-                    </button>
-                  )}
-                </div>
-              ))}
+                )
+              })}
               <button
                 className="mt-3 mx-auto w-fit min-w-44 px-6 py-3 rounded-full text-base font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
                 onClick={() => onNavigate("all-stats")}
