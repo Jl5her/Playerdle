@@ -6,8 +6,9 @@
     "conference": "East",
     "division": "Southeast",
     "colors": [
-      "#c8102e",
-      "#fdb927"
+      "#e03a3e",
+      "#c1d32f",
+      "#26282a"
     ]
   },
   {
@@ -17,7 +18,8 @@
     "conference": "East",
     "division": "Atlantic",
     "colors": [
-      "#008348",
+      "#007a33",
+      "#ba9653",
       "#ffffff"
     ]
   },
@@ -29,7 +31,8 @@
     "division": "Atlantic",
     "colors": [
       "#000000",
-      "#ffffff"
+      "#ffffff",
+      "#777d84"
     ]
   },
   {
@@ -39,8 +42,9 @@
     "conference": "East",
     "division": "Southeast",
     "colors": [
-      "#008ca8",
-      "#1d1060"
+      "#1d1160",
+      "#00788c",
+      "#a1a1a4"
     ]
   },
   {
@@ -51,7 +55,8 @@
     "division": "Central",
     "colors": [
       "#ce1141",
-      "#000000"
+      "#000000",
+      "#ffffff"
     ]
   },
   {
@@ -62,7 +67,8 @@
     "division": "Central",
     "colors": [
       "#860038",
-      "#bc945c"
+      "#041e42",
+      "#fdbb30"
     ]
   },
   {
@@ -72,8 +78,9 @@
     "conference": "West",
     "division": "Southwest",
     "colors": [
-      "#0064b1",
-      "#bbc4ca"
+      "#00538c",
+      "#002b5e",
+      "#b8c4ca"
     ]
   },
   {
@@ -84,7 +91,8 @@
     "division": "Northwest",
     "colors": [
       "#0e2240",
-      "#fec524"
+      "#fec524",
+      "#8b2131"
     ]
   },
   {
@@ -94,8 +102,9 @@
     "conference": "East",
     "division": "Central",
     "colors": [
-      "#1d428a",
-      "#c8102e"
+      "#c8102e",
+      "#1d42ba",
+      "#ffffff"
     ]
   },
   {
@@ -105,8 +114,9 @@
     "conference": "West",
     "division": "Pacific",
     "colors": [
-      "#fdb927",
-      "#1d428a"
+      "#1d428a",
+      "#ffc72c",
+      "#ffffff"
     ]
   },
   {
@@ -117,7 +127,8 @@
     "division": "Southwest",
     "colors": [
       "#ce1141",
-      "#000000"
+      "#000000",
+      "#c4ced4"
     ]
   },
   {
@@ -127,8 +138,9 @@
     "conference": "East",
     "division": "Central",
     "colors": [
-      "#0c2340",
-      "#ffd520"
+      "#002d62",
+      "#fdbb30",
+      "#bec0c2"
     ]
   },
   {
@@ -138,8 +150,9 @@
     "conference": "West",
     "division": "Pacific",
     "colors": [
-      "#12173f",
-      "#c8102e"
+      "#c8102e",
+      "#1d428a",
+      "#ffffff"
     ]
   },
   {
@@ -150,7 +163,8 @@
     "division": "Pacific",
     "colors": [
       "#552583",
-      "#fdb927"
+      "#fdb927",
+      "#ffffff"
     ]
   },
   {
@@ -161,7 +175,8 @@
     "division": "Southwest",
     "colors": [
       "#5d76a9",
-      "#12173f"
+      "#12173f",
+      "#f5b112"
     ]
   },
   {
@@ -172,6 +187,7 @@
     "division": "Southeast",
     "colors": [
       "#98002e",
+      "#f9a01b",
       "#000000"
     ]
   },
@@ -183,7 +199,8 @@
     "division": "Central",
     "colors": [
       "#00471b",
-      "#eee1c6"
+      "#eee1c6",
+      "#0077c5"
     ]
   },
   {
@@ -193,8 +210,9 @@
     "conference": "West",
     "division": "Northwest",
     "colors": [
-      "#266092",
-      "#79bc43"
+      "#0c2340",
+      "#236192",
+      "#9ea2a2"
     ]
   },
   {
@@ -204,8 +222,9 @@
     "conference": "West",
     "division": "Southwest",
     "colors": [
-      "#0a2240",
-      "#b4975a"
+      "#0c2340",
+      "#c8102e",
+      "#85714d"
     ]
   },
   {
@@ -215,8 +234,9 @@
     "conference": "East",
     "division": "Atlantic",
     "colors": [
-      "#1d428a",
-      "#f58426"
+      "#006bb6",
+      "#f58426",
+      "#bec0c2"
     ]
   },
   {
@@ -227,7 +247,8 @@
     "division": "Northwest",
     "colors": [
       "#007ac1",
-      "#ef3b24"
+      "#ef3b24",
+      "#fdbb30"
     ]
   },
   {
@@ -237,8 +258,9 @@
     "conference": "East",
     "division": "Southeast",
     "colors": [
-      "#0150b5",
-      "#9ca0a3"
+      "#0077c0",
+      "#c4ced4",
+      "#000000"
     ]
   },
   {
@@ -248,8 +270,9 @@
     "conference": "East",
     "division": "Atlantic",
     "colors": [
-      "#1d428a",
-      "#e01234"
+      "#006bb6",
+      "#ed174c",
+      "#002b5c"
     ]
   },
   {
@@ -259,8 +282,9 @@
     "conference": "West",
     "division": "Pacific",
     "colors": [
-      "#29127a",
-      "#e56020"
+      "#1d1160",
+      "#e56020",
+      "#f9ad1b"
     ]
   },
   {
@@ -271,7 +295,8 @@
     "division": "Northwest",
     "colors": [
       "#e03a3e",
-      "#000000"
+      "#000000",
+      "#bac3c9"
     ]
   },
   {
@@ -282,7 +307,8 @@
     "division": "Pacific",
     "colors": [
       "#5a2d81",
-      "#6a7a82"
+      "#63727a",
+      "#000000"
     ]
   },
   {
@@ -292,8 +318,9 @@
     "conference": "West",
     "division": "Southwest",
     "colors": [
+      "#c4ced4",
       "#000000",
-      "#c4ced4"
+      "#ffffff"
     ]
   },
   {
@@ -303,8 +330,9 @@
     "conference": "East",
     "division": "Atlantic",
     "colors": [
-      "#d91244",
-      "#000000"
+      "#ce1141",
+      "#000000",
+      "#a1a1a4"
     ]
   },
   {
@@ -314,8 +342,9 @@
     "conference": "West",
     "division": "Northwest",
     "colors": [
-      "#4e008e",
-      "#79a3dc"
+      "#00471b",
+      "#f9a01b",
+      "#000000"
     ]
   },
   {
@@ -325,8 +354,9 @@
     "conference": "East",
     "division": "Southeast",
     "colors": [
+      "#002b5c",
       "#e31837",
-      "#002b5c"
+      "#c4ced4"
     ]
   }
 ]

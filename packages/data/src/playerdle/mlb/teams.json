@@ -6,7 +6,8 @@
     "conference": "NL",
     "division": "West",
     "colors": [
-      "#aa182c",
+      "#a71930",
+      "#e3d4ad",
       "#000000"
     ]
   },
@@ -18,7 +19,8 @@
     "division": "West",
     "colors": [
       "#003831",
-      "#efb21e"
+      "#efb21e",
+      "#ffffff"
     ]
   },
   {
@@ -28,8 +30,9 @@
     "conference": "NL",
     "division": "East",
     "colors": [
-      "#0c2340",
-      "#ba0c2f"
+      "#ce1141",
+      "#13274f",
+      "#eaaa00"
     ]
   },
   {
@@ -40,7 +43,8 @@
     "division": "East",
     "colors": [
       "#df4601",
-      "#000000"
+      "#000000",
+      "#ffffff"
     ]
   },
   {
@@ -50,8 +54,9 @@
     "conference": "AL",
     "division": "East",
     "colors": [
-      "#0d2b56",
-      "#bd3039"
+      "#bd3039",
+      "#0c2340",
+      "#ffffff"
     ]
   },
   {
@@ -62,7 +67,8 @@
     "division": "Central",
     "colors": [
       "#0e3386",
-      "#cc3433"
+      "#cc3433",
+      "#ffffff"
     ]
   },
   {
@@ -72,8 +78,9 @@
     "conference": "AL",
     "division": "Central",
     "colors": [
-      "#000000",
-      "#c4ced4"
+      "#27251f",
+      "#c4ced4",
+      "#ffffff"
     ]
   },
   {
@@ -84,6 +91,7 @@
     "division": "Central",
     "colors": [
       "#c6011f",
+      "#000000",
       "#ffffff"
     ]
   },
@@ -94,8 +102,9 @@
     "conference": "AL",
     "division": "Central",
     "colors": [
-      "#002b5c",
-      "#e31937"
+      "#00385d",
+      "#e50022",
+      "#ffffff"
     ]
   },
   {
@@ -106,6 +115,7 @@
     "division": "West",
     "colors": [
       "#33006f",
+      "#c4ced4",
       "#000000"
     ]
   },
@@ -116,8 +126,9 @@
     "conference": "AL",
     "division": "Central",
     "colors": [
-      "#0a2240",
-      "#ff4713"
+      "#0c2340",
+      "#fa4616",
+      "#ffffff"
     ]
   },
   {
@@ -128,7 +139,8 @@
     "division": "West",
     "colors": [
       "#002d62",
-      "#eb6e1f"
+      "#eb6e1f",
+      "#f4911e"
     ]
   },
   {
@@ -139,7 +151,8 @@
     "division": "Central",
     "colors": [
       "#004687",
-      "#7ab2dd"
+      "#bd9b60",
+      "#ffffff"
     ]
   },
   {
@@ -150,6 +163,7 @@
     "division": "West",
     "colors": [
       "#ba0021",
+      "#003263",
       "#c4ced4"
     ]
   },
@@ -161,6 +175,7 @@
     "division": "West",
     "colors": [
       "#005a9c",
+      "#ef3e42",
       "#ffffff"
     ]
   },
@@ -172,6 +187,7 @@
     "division": "East",
     "colors": [
       "#00a3e0",
+      "#ef3340",
       "#000000"
     ]
   },
@@ -182,8 +198,9 @@
     "conference": "NL",
     "division": "Central",
     "colors": [
-      "#13294b",
-      "#ffc72c"
+      "#12284b",
+      "#ffc52f",
+      "#ffffff"
     ]
   },
   {
@@ -193,8 +210,9 @@
     "conference": "AL",
     "division": "Central",
     "colors": [
-      "#031f40",
-      "#e20e32"
+      "#002b5c",
+      "#d31145",
+      "#b9975b"
     ]
   },
   {
@@ -205,7 +223,8 @@
     "division": "East",
     "colors": [
       "#002d72",
-      "#ff5910"
+      "#ff5910",
+      "#ffffff"
     ]
   },
   {
@@ -215,8 +234,9 @@
     "conference": "AL",
     "division": "East",
     "colors": [
-      "#132448",
-      "#c4ced4"
+      "#0c2340",
+      "#c4ced4",
+      "#ffffff"
     ]
   },
   {
@@ -227,7 +247,8 @@
     "division": "East",
     "colors": [
       "#e81828",
-      "#003278"
+      "#002d72",
+      "#ffffff"
     ]
   },
   {
@@ -237,8 +258,9 @@
     "conference": "NL",
     "division": "Central",
     "colors": [
+      "#fdb827",
       "#000000",
-      "#fdb827"
+      "#ffffff"
     ]
   },
   {
@@ -249,7 +271,8 @@
     "division": "West",
     "colors": [
       "#2f241d",
-      "#ffc425"
+      "#ffc425",
+      "#ffffff"
     ]
   },
   {
@@ -259,8 +282,9 @@
     "conference": "NL",
     "division": "West",
     "colors": [
-      "#000000",
-      "#fd5a1e"
+      "#fd5a1e",
+      "#27251f",
+      "#efd19f"
     ]
   },
   {
@@ -270,8 +294,9 @@
     "conference": "AL",
     "division": "West",
     "colors": [
+      "#0c2c56",
       "#005c5c",
-      "#0c2c56"
+      "#c4ced4"
     ]
   },
   {
@@ -281,8 +306,9 @@
     "conference": "NL",
     "division": "Central",
     "colors": [
-      "#be0a14",
-      "#001541"
+      "#c41e3a",
+      "#0c2340",
+      "#fedb00"
     ]
   },
   {
@@ -293,7 +319,8 @@
     "division": "East",
     "colors": [
       "#092c5c",
-      "#8fbce6"
+      "#8fbce6",
+      "#f5d130"
     ]
   },
   {
@@ -304,7 +331,8 @@
     "division": "West",
     "colors": [
       "#003278",
-      "#c0111f"
+      "#c0111f",
+      "#ffffff"
     ]
   },
   {
@@ -315,7 +343,8 @@
     "division": "East",
     "colors": [
       "#134a8e",
-      "#6cace5"
+      "#1d2d5c",
+      "#e8291c"
     ]
   },
   {
@@ -326,7 +355,8 @@
     "division": "East",
     "colors": [
       "#ab0003",
-      "#11225b"
+      "#14225a",
+      "#ffffff"
     ]
   }
 ]
