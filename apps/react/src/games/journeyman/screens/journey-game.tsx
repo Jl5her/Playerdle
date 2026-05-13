@@ -215,9 +215,9 @@ function GuessSlots({ guesses, answerName, targetPosition, maxGuesses, hideAnswe
               tone,
             )}
           >
-            <span className={clsx("block text-center", hideAnswer && isCorrect && "blur-sm select-none")}>{guess ?? "—"}</span>
+            <span className={clsx("block text-center transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>{guess ?? "—"}</span>
             {position && (
-              <span className={clsx("absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70", hideAnswer && isCorrect && "blur-sm select-none")}>
+              <span className={clsx("absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70 transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>
                 {position}
               </span>
             )}

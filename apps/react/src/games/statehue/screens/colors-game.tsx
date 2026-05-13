@@ -215,13 +215,14 @@ function GuessSlots({ guesses, answer, maxGuesses, hideAnswer = false }: GuessSl
                   ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
                   : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
                 : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600",
+              hideAnswer && isCorrect && "blur select-none opacity-40 transition-[filter,opacity] duration-200",
             )}
           >
             <StateBadge
               code={code ?? "??"}
               dim={!guess}
             />
-            <span className={clsx("flex-1 text-center", hideAnswer && isCorrect && "blur-sm select-none")}>{guess ?? "—"}</span>
+            <span className="flex-1 text-center">{guess ?? "—"}</span>
             {guess && !isCorrect && code ? (
               <CompassArrow
                 fromCode={code}

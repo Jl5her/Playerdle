@@ -43,9 +43,9 @@ export default function ResultBanner({
       <div className="flex items-center justify-center gap-2 mt-0.5">
         <div
           className={clsx(
-            "text-xl font-black uppercase tracking-tight transition-[filter]",
+            "text-xl font-black uppercase tracking-tight transition-[filter,opacity] duration-200",
             answerColor,
-            hideAnswer && "blur-sm select-none",
+            hideAnswer && "blur select-none opacity-40",
           )}
         >
           {answer}
