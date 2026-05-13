@@ -403,6 +403,14 @@ interface ResultsPanelProps {
   onPlayAgain: () => void
 }
 
+const SPORTS_RANKS: Record<number, string> = {
+  1: "All-Star ⭐",
+  2: "Starter 🏆",
+  3: "Role Player 🏅",
+  4: "Bench 🪑",
+  5: "Cut ✂️",
+}
+
 function buildShareText(
   puzzle: ColorsPuzzle,
   guesses: string[],
@@ -411,22 +419,15 @@ function buildShareText(
   url: string,
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
+  const rank = won ? (SPORTS_RANKS[guesses.length] ?? "Role Player 🏅") : "Free Agent 💸"
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
     year: "numeric",
   }).format(new Date())
 
-  const answerName = puzzle.state.name.toLowerCase()
-  const emojiRow = Array.from({ length: maxGuesses }, (_, i) => {
-    const guess = guesses[i]
-    if (!guess) return "⬜"
-    if (guess.toLowerCase() === answerName) return "🟩"
-    return "🟥"
-  }).join("")
-
   const title = puzzle.variant === "collegiate" ? "Collegiate Statehue" : "Statehue"
-  return `${title} #${puzzle.index} (${dateStr}) — ${score}\n${emojiRow}\n${url}`
+  return `${title} #${puzzle.index} (${dateStr})\n${rank} (${score})\n${url}`
 }
 
 function ResultsPanel({
