@@ -149,6 +149,30 @@ function LadderRow({
   revealed: boolean
   showName?: boolean
 }) {
+  const [swatchOpen, setSwatchOpen] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>()
+  const swatchRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!swatchOpen) return
+    function onOutside(e: PointerEvent) {
+      if (!swatchRef.current?.contains(e.target as Node)) setSwatchOpen(false)
+    }
+    document.addEventListener("pointerdown", onOutside)
+    return () => document.removeEventListener("pointerdown", onOutside)
+  }, [swatchOpen])
+
+  useEffect(() => () => clearTimeout(closeTimer.current), [])
+
+  function showSwatch() {
+    if (!revealed) return
+    clearTimeout(closeTimer.current)
+    setSwatchOpen(true)
+  }
+  function hideSwatch() {
+    closeTimer.current = setTimeout(() => setSwatchOpen(false), 80)
+  }
+
   return (
     <div className="flex flex-col items-center gap-3 px-4 py-3">
       {showName && (
@@ -156,7 +180,18 @@ function LadderRow({
           {name}
         </span>
       )}
-      <div className="flex items-center justify-center gap-5">
+      <div
+        ref={swatchRef}
+        className={clsx(
+          "relative flex items-center justify-center gap-5",
+          revealed && "cursor-pointer select-none",
+        )}
+        onMouseEnter={showSwatch}
+        onMouseLeave={hideSwatch}
+        onPointerUp={e => {
+          if (e.pointerType === "touch" && revealed) setSwatchOpen(v => !v)
+        }}
+      >
         {palette.map((c, i) => (
           <FlipDiamond
             key={`${c}-${i}`}
@@ -165,6 +200,22 @@ function LadderRow({
             delayMs={i * 180}
           />
         ))}
+        {swatchOpen && (
+          <div
+            className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-2xl shadow-xl px-5 py-5 flex items-center gap-5 whitespace-nowrap"
+            onMouseEnter={showSwatch}
+            onMouseLeave={hideSwatch}
+          >
+            {palette.map((c, i) => (
+              <span
+                key={i}
+                aria-hidden="true"
+                className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md shrink-0"
+                style={{ backgroundColor: c, border: `2px solid ${shadeHex(c, -0.25)}` }}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   )

@@ -92,16 +92,63 @@ function Diamond({ color }: { color: string }) {
 }
 
 function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
+  const [swatchOpen, setSwatchOpen] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>()
+  const swatchRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!swatchOpen) return
+    function onOutside(e: PointerEvent) {
+      if (!swatchRef.current?.contains(e.target as Node)) setSwatchOpen(false)
+    }
+    document.addEventListener("pointerdown", onOutside)
+    return () => document.removeEventListener("pointerdown", onOutside)
+  }, [swatchOpen])
+
+  useEffect(() => () => clearTimeout(closeTimer.current), [])
+
+  function showSwatch() {
+    clearTimeout(closeTimer.current)
+    setSwatchOpen(true)
+  }
+  function hideSwatch() {
+    closeTimer.current = setTimeout(() => setSwatchOpen(false), 80)
+  }
+
   return (
     <div className="flex items-center justify-center">
       <div className="flex items-center gap-6 px-3 py-3">
-        <div className="flex items-center gap-5 shrink-0">
+        <div
+          ref={swatchRef}
+          className="relative flex items-center gap-5 shrink-0 cursor-pointer select-none"
+          onMouseEnter={showSwatch}
+          onMouseLeave={hideSwatch}
+          onPointerUp={e => {
+            if (e.pointerType === "touch") setSwatchOpen(v => !v)
+          }}
+        >
           {team.colors.map((color, i) => (
             <Diamond
               key={`${color}-${i}`}
               color={color}
             />
           ))}
+          {swatchOpen && (
+            <div
+              className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-2xl shadow-xl px-5 py-5 flex items-center gap-5 whitespace-nowrap"
+              onMouseEnter={showSwatch}
+              onMouseLeave={hideSwatch}
+            >
+              {team.colors.map((color, i) => (
+                <span
+                  key={i}
+                  aria-hidden="true"
+                  className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md shrink-0"
+                  style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+                />
+              ))}
+            </div>
+          )}
         </div>
         {revealName && (
           <div className="text-xs min-w-32 text-left">
