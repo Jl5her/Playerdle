@@ -31,8 +31,18 @@ function shadeHex(hex: string, amount: number): string {
   return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
 }
 
+function diamondBorder(hex: string): string {
+  const clean = hex.replace("#", "")
+  if (clean.length !== 6) return shadeHex(hex, -0.25)
+  const r = parseInt(clean.slice(0, 2), 16) / 255
+  const g = parseInt(clean.slice(2, 4), 16) / 255
+  const b = parseInt(clean.slice(4, 6), 16) / 255
+  const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
+  return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
+}
+
 function Diamond({ color, size = 5 }: { color: string; size?: number }) {
-  const border = shadeHex(color, -0.25)
+  const border = diamondBorder(color)
   const dim = `${size * 0.25}rem`
   return (
     <span

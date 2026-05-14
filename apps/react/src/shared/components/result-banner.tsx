@@ -7,6 +7,9 @@ interface Props {
   won: boolean
   answer: ReactNode
   guessCount: number
+  team?: string
+  position?: string
+  number?: string
   lossMessage?: string
   hideAnswer?: boolean
   onToggleHide?: () => void
@@ -16,6 +19,9 @@ export default function ResultBanner({
   won,
   answer,
   guessCount,
+  team,
+  position,
+  number,
   lossMessage = "Better luck tomorrow!",
   hideAnswer = false,
   onToggleHide,
@@ -55,6 +61,16 @@ export default function ResultBanner({
           {answer}
         </div>
       </div>
+      {(team || position || number) && (
+        <div
+          className={clsx(
+            "text-[11px] font-medium uppercase tracking-wide mt-0.5 text-primary-500 dark:text-primary-300 transition-[filter,opacity] duration-200",
+            hideAnswer && "blur select-none opacity-40",
+          )}
+        >
+          {[team, position, number ? `#${number}` : undefined].filter(Boolean).join(" · ")}
+        </div>
+      )}
       <div className={clsx("text-xs font-medium uppercase mt-1", statusColor)}>
         {won
           ? `You got it in ${guessCount} ${guessCount === 1 ? "guess" : "guesses"}`
