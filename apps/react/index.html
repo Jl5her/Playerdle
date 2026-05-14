@@ -42,6 +42,9 @@
   class="h-full bg-primary-50 text-primary-900 font-sans overflow-hidden leading-[1.4] dark:bg-primary-900 dark:text-primary-50">
   <div id="root" class="w-full h-full flex flex-col"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <!-- Cloudflare Web Analytics — set VITE_CF_ANALYTICS_TOKEN in your environment -->
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "%VITE_CF_ANALYTICS_TOKEN%"}'></script>
 </body>
 
 </html>
