@@ -113,14 +113,12 @@ function FlipDiamond({
   revealed: boolean
   delayMs: number
 }) {
-  const border = shadeHex(color, -0.25)
-  // Both faces share the same per-diamond stagger delay.
+  const isTransparent = color === "transparent"
+  const border = isTransparent ? "#a0a0a0" : shadeHex(color, -0.25)
   const frontStyle: React.CSSProperties = { transitionDelay: `${delayMs}ms` }
-  const backStyle: React.CSSProperties = {
-    backgroundColor: color,
-    borderColor: border,
-    transitionDelay: `${delayMs + 300}ms`,
-  }
+  const backStyle: React.CSSProperties = isTransparent
+    ? { borderColor: border, transitionDelay: `${delayMs + 300}ms` }
+    : { backgroundColor: color, borderColor: border, transitionDelay: `${delayMs + 300}ms` }
   return (
     <span
       className={clsx("flip-diamond", revealed ? "revealed" : "")}
@@ -131,7 +129,7 @@ function FlipDiamond({
         style={frontStyle}
       />
       <span
-        className="flip-diamond-face flip-diamond-back"
+        className={clsx("flip-diamond-face flip-diamond-back", isTransparent && "diamond-transparent")}
         style={backStyle}
       />
     </span>
@@ -150,6 +148,7 @@ function FlipDiamondWithPreview({
   const [open, setOpen] = useState(false)
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
+  const isTransparent = color === "transparent"
 
   useEffect(() => {
     if (!open) return
@@ -194,8 +193,8 @@ function FlipDiamondWithPreview({
         >
           <span
             aria-hidden="true"
-            className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md"
-            style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+            className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
           />
         </div>
       )}

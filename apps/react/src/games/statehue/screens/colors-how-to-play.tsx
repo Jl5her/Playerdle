@@ -1,5 +1,8 @@
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { getCollegiateTeamPalette } from "@playerdle/data/statehue/collegiate-states"
+import { getProTeamPalette } from "@playerdle/data/statehue/states"
+import clsx from "clsx"
 
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
 
@@ -10,10 +13,11 @@ interface Props {
 }
 
 function MiniDiamond({ color }: { color: string }) {
+  const isTransparent = color === "transparent"
   return (
     <span
-      className="inline-block w-5 h-5 rounded-xs rotate-45"
-      style={{ backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }}
+      className={clsx("inline-block w-5 h-5 rounded-xs rotate-45", isTransparent && "diamond-transparent")}
+      style={isTransparent ? { border: "1px solid rgba(0,0,0,0.25)" } : { backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }}
       aria-hidden="true"
     />
   )
@@ -60,16 +64,16 @@ export default function ColorsHowToPlay({ className, variant = "pro", onOpenCale
           </div>
           {isCollegiate ? (
             <>
-              <ExampleRow colors={["#990000", "#EEEDEB", "#FFFFFF"]} />
-              <ExampleRow colors={["#0C2340", "#C99700", "#AE9142"]} />
+              <ExampleRow colors={getCollegiateTeamPalette("Indiana") ?? ["#990000", "#EEEDEB", "#FFFFFF"]} />
+              <ExampleRow colors={getCollegiateTeamPalette("Notre Dame") ?? ["#0C2340", "#C99700", "#AE9142"]} />
               <div className="mt-2 text-[11px] text-primary-500 dark:text-primary-200 text-center italic">
                 (Indiana and Notre Dame)
               </div>
             </>
           ) : (
             <>
-              <ExampleRow colors={["#552583", "#FDB927", "#FFFFFF"]} />
-              <ExampleRow colors={["#1D428A", "#FFC72C", "#FFFFFF"]} />
+              <ExampleRow colors={getProTeamPalette("Los Angeles Lakers") ?? ["#552583", "#FDB927", "#FFFFFF"]} />
+              <ExampleRow colors={getProTeamPalette("Golden State Warriors") ?? ["#1D428A", "#FFC72C", "#FFFFFF"]} />
               <div className="mt-2 text-[11px] text-primary-500 dark:text-primary-200 text-center italic">
                 (Los Angeles Lakers and Golden State Warriors)
               </div>
