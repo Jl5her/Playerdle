@@ -3,9 +3,10 @@ import { calculateJourneyStats } from "@/games/journeyman/utils/journey-daily"
 
 interface Props {
   className?: string
+  onViewArchive?: () => void
 }
 
-export default function JourneyStatsOverlay({ className }: Props) {
+export default function JourneyStatsOverlay({ className, onViewArchive }: Props) {
   const stats = calculateJourneyStats()
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
@@ -64,6 +65,18 @@ export default function JourneyStatsOverlay({ className }: Props) {
           )
         })}
       </div>
+
+      {onViewArchive && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={onViewArchive}
+            className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
+          >
+            View Archive
+          </button>
+        </div>
+      )}
     </div>
   )
 }

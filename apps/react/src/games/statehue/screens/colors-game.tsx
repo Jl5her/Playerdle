@@ -656,9 +656,9 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange, onBack
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
       markColorsDailyPlayed(variant)
-      saveColorsResult(puzzle.dateKey, won, guesses.length, variant)
+      saveColorsResult(puzzle.dateKey, won, guesses.length, variant, guesses)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length, variant])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant])
 
   useEffect(() => {
     if (!gameOver) {

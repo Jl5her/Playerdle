@@ -85,6 +85,27 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
           {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
         </div>
       )}
+
+      {result?.guessIds && result.guessIds.length > 0 && (
+        <div className="mt-3 flex flex-col gap-1">
+          {result.guessIds.map((name, i) => {
+            const isCorrect = name.toLowerCase() === puzzle.player.name.toLowerCase()
+            return (
+              <div
+                key={i}
+                className={clsx(
+                  "px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
+                  isCorrect
+                    ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
+                    : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
+                )}
+              >
+                {name}
+              </div>
+            )
+          })}
+        </div>
+      )}
     </div>
   )
 }

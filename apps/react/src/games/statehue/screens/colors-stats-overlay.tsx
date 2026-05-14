@@ -7,9 +7,10 @@ import {
 interface Props {
   className?: string
   variant?: ColorsVariant
+  onViewArchive?: () => void
 }
 
-export default function ColorsStatsOverlay({ className, variant = "pro" }: Props) {
+export default function ColorsStatsOverlay({ className, variant = "pro", onViewArchive }: Props) {
   const stats = calculateColorsStats(variant)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
@@ -68,6 +69,18 @@ export default function ColorsStatsOverlay({ className, variant = "pro" }: Props
           )
         })}
       </div>
+
+      {onViewArchive && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={onViewArchive}
+            className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
+          >
+            View Archive
+          </button>
+        </div>
+      )}
     </div>
   )
 }

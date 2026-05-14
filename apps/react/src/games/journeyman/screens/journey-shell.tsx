@@ -190,7 +190,10 @@ export default function JourneyShell({ screen }: Props) {
                 />
               </button>
             </div>
-            <JourneyStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
+            <JourneyStatsOverlay
+              className="-mt-1 flex-1 overflow-auto pb-2"
+              onViewArchive={() => setOverlay("calendar")}
+            />
           </div>
         </Overlay>
         <Overlay

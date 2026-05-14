@@ -652,9 +652,9 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
       markJourneyDailyPlayed()
-      saveJourneyResult(puzzle.dateKey, won, guesses.length)
+      saveJourneyResult(puzzle.dateKey, won, guesses.length, guesses)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses])
 
   useEffect(() => {
     if (!gameOver) {

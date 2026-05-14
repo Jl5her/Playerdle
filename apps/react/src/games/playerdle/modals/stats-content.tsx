@@ -14,6 +14,7 @@ export interface StatsContentProps {
   lost?: boolean
   guessCount?: number
   onPlayAgain?: () => void
+  onViewArchive?: () => void
   mode: GameMode
   guesses?: Player[]
   sport: SportConfig
@@ -58,6 +59,7 @@ export function StatsContent({
   lost = false,
   guessCount = 0,
   onPlayAgain,
+  onViewArchive,
   mode,
   guesses = [],
   sport,
@@ -216,7 +218,7 @@ export function StatsContent({
         </div>
       )}
 
-      <div className="flex gap-3 justify-center mt-6">
+      <div className="flex gap-3 justify-center mt-6 flex-wrap">
         {mode === "daily" && includeShareButton && player && (
           <ShareButton
             copied={copied}
@@ -224,6 +226,15 @@ export function StatsContent({
           />
         )}
         {onPlayAgain && <PlayAgainButton onClick={onPlayAgain} />}
+        {mode === "daily" && onViewArchive && (
+          <button
+            type="button"
+            onClick={onViewArchive}
+            className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
+          >
+            View Archive
+          </button>
+        )}
       </div>
     </div>
   )

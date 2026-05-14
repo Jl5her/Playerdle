@@ -192,6 +192,7 @@ export interface ColorsResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
 }
 
 export function getColorsHistory(variant: ColorsVariant = "pro"): ColorsResult[] {
@@ -209,10 +210,12 @@ export function saveColorsResult(
   won: boolean,
   guesses: number,
   variant: ColorsVariant = "pro",
+  guessIds?: string[],
 ) {
   const history = getColorsHistory(variant)
   const idx = history.findIndex(r => r.date === date)
-  const result: ColorsResult = { date, won, guesses }
+  const existing = idx >= 0 ? history[idx] : undefined
+  const result: ColorsResult = { date, won, guesses, guessIds: guessIds ?? existing?.guessIds }
   if (idx >= 0) history[idx] = result
   else history.push(result)
   localStorage.setItem(historyKey(variant), JSON.stringify(history))

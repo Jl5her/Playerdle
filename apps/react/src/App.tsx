@@ -381,6 +381,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                           {...statsModalConfig}
                           sport={activeSport}
                           variantId={activeVariantId}
+                          onViewArchive={() => {
+                            handleCloseStatsModal()
+                            const prefix = sportId === "nfl" ? "" : `/${sportId}`
+                            const variantPath =
+                              activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
+                            navigate(`${prefix}${variantPath}/calendar`)
+                          }}
                         />
                       </div>
                     </div>

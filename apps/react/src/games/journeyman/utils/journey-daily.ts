@@ -116,6 +116,7 @@ export interface JourneyResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
 }
 
 export function getJourneyHistory(): JourneyResult[] {
@@ -128,10 +129,11 @@ export function getJourneyHistory(): JourneyResult[] {
   }
 }
 
-export function saveJourneyResult(date: string, won: boolean, guesses: number) {
+export function saveJourneyResult(date: string, won: boolean, guesses: number, guessIds?: string[]) {
   const history = getJourneyHistory()
   const idx = history.findIndex(r => r.date === date)
-  const result: JourneyResult = { date, won, guesses }
+  const existing = idx >= 0 ? history[idx] : undefined
+  const result: JourneyResult = { date, won, guesses, guessIds: guessIds ?? existing?.guessIds }
   if (idx >= 0) history[idx] = result
   else history.push(result)
   localStorage.setItem(JOURNEY_HISTORY_KEY, JSON.stringify(history))

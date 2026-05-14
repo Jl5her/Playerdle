@@ -5,6 +5,7 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { getStateByName } from "@playerdle/data/statehue/all-states"
 import { STATE_PATHS } from "@playerdle/data/statehue/state-paths"
 import clsx from "clsx"
 import { useMemo, useState } from "react"
@@ -149,6 +150,44 @@ function DayDetail({ puzzle, result }: DayDetailProps) {
           )}
         >
           {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
+        </div>
+      )}
+
+      {result?.guessIds && result.guessIds.length > 0 && (
+        <div className="mt-3 flex flex-col gap-1">
+          {result.guessIds.map((name, i) => {
+            const isCorrect = name.toLowerCase() === puzzle.state.name.toLowerCase()
+            const code = getStateByName(name)?.id
+            const stateShape = code ? STATE_PATHS[code] : undefined
+            return (
+              <div
+                key={i}
+                className={clsx(
+                  "flex items-center gap-2 px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
+                  isCorrect
+                    ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
+                    : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
+                )}
+              >
+                {stateShape ? (
+                  <svg
+                    viewBox={stateShape.viewBox}
+                    className="w-4 h-4 shrink-0"
+                    fill="currentColor"
+                    stroke="currentColor"
+                    strokeWidth={1}
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d={stateShape.d} />
+                  </svg>
+                ) : (
+                  <span className="w-4 h-4 shrink-0" />
+                )}
+                <span>{name}</span>
+              </div>
+            )
+          })}
         </div>
       )}
     </div>
