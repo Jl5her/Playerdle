@@ -5,6 +5,7 @@ import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
 import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
+import { hexToColorName } from "@/shared/utils/color-name"
 import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
@@ -187,7 +188,7 @@ function FlipDiamondWithPreview({
       />
       {open && (
         <div
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-xl shadow-xl p-5"
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 z-50 bg-primary-50 dark:bg-primary-900 border border-primary-200 dark:border-primary-700 rounded-xl shadow-xl px-5 pt-5 pb-4 flex flex-col items-center gap-3"
           onMouseEnter={show}
           onMouseLeave={hide}
         >
@@ -196,6 +197,11 @@ function FlipDiamondWithPreview({
             className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
             style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
           />
+          {!isTransparent && (
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
+              {hexToColorName(color)}
+            </span>
+          )}
         </div>
       )}
     </div>
