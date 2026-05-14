@@ -10,6 +10,7 @@ export interface GameResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
 }
 
 /** Aggregated stats summary surfaced to the player. */

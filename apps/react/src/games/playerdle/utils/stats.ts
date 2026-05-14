@@ -9,14 +9,25 @@ function getStatsKey(sportId: string, variantId?: string): string {
   return `${STATS_KEY_PREFIX}:${sportId}:${variantId ?? "classic"}`
 }
 
-export function saveGameResult(sportId: string, won: boolean, guesses: number, variantId?: string) {
+export function saveGameResult(
+  sportId: string,
+  won: boolean,
+  guesses: number,
+  variantId?: string,
+  guessIds?: string[],
+) {
   const today = getTodayKey()
-  const result: GameResult = { date: today, won, guesses }
-
   const history = getGameHistory(sportId, variantId)
 
-  // Update or add today's result (only keep one per day)
   const existingIndex = history.findIndex(r => r.date === today)
+  const existing = existingIndex >= 0 ? history[existingIndex] : undefined
+  const result: GameResult = {
+    date: today,
+    won,
+    guesses,
+    guessIds: guessIds ?? existing?.guessIds,
+  }
+
   if (existingIndex >= 0) {
     history[existingIndex] = result
   } else {

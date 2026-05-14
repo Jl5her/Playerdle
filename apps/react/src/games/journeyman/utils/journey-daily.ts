@@ -171,6 +171,7 @@ export interface JourneyResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
 }
 
 export function getJourneyHistory(league: JourneyLeague): JourneyResult[] {
@@ -189,11 +190,13 @@ export function saveJourneyResult(
   date: string,
   won: boolean,
   guesses: number,
+  guessIds?: string[],
 ) {
   migrateLegacyIfNeeded()
   const history = getJourneyHistory(league)
   const idx = history.findIndex(r => r.date === date)
-  const result: JourneyResult = { date, won, guesses }
+  const existing = idx >= 0 ? history[idx] : undefined
+  const result: JourneyResult = { date, won, guesses, guessIds: guessIds ?? existing?.guessIds }
   if (idx >= 0) history[idx] = result
   else history.push(result)
   localStorage.setItem(historyKey(league), JSON.stringify(history))

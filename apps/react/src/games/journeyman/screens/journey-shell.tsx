@@ -222,6 +222,7 @@ export default function JourneyShell({ league, screen }: Props) {
             <JourneyStatsOverlay
               league={league}
               className="-mt-1 flex-1 overflow-auto pb-2"
+              onViewArchive={() => setOverlay("calendar")}
             />
           </div>
         </Overlay>

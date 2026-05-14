@@ -124,9 +124,9 @@ export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      saveGameResult(sport.id, won, guesses.length, variantId)
+      saveGameResult(sport.id, won, guesses.length, variantId, guesses.map(g => g.id))
     }
-  }, [activeMode, gameOver, won, guesses.length, sport.id, variantId])
+  }, [activeMode, gameOver, won, guesses, sport.id, variantId])
 
   const gridScrollRef = useRef<HTMLDivElement>(null)
 
@@ -160,7 +160,7 @@ export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
 
     if (newWon || newLost) {
       if (activeMode === "daily") {
-        saveGameResult(sport.id, newWon, newGuesses.length, variantId)
+        saveGameResult(sport.id, newWon, newGuesses.length, variantId, newGuesses.map(g => g.id))
       }
     }
   }

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { GuessGrid } from "@/games/playerdle/components"
 import {
   getSportMetaById,
   loadSportConfig,
@@ -48,9 +49,10 @@ interface DayDetailProps {
   sport: SportConfig
   player: Player
   result?: GameResult
+  guessedPlayers?: Player[]
 }
 
-function DayDetail({ sport, player, result }: DayDetailProps) {
+function DayDetail({ sport, player, result, guessedPlayers }: DayDetailProps) {
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
       <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
@@ -75,6 +77,18 @@ function DayDetail({ sport, player, result }: DayDetailProps) {
           }`}
         >
           {result.won ? `You guessed in ${result.guesses}/6` : "You missed this one"}
+        </div>
+      )}
+
+      {guessedPlayers && guessedPlayers.length > 0 && (
+        <div className="mt-3 overflow-x-auto">
+          <GuessGrid
+            guesses={guessedPlayers}
+            answer={player}
+            maxGuesses={6}
+            latestIndex={-1}
+            columns={sport.columns}
+          />
         </div>
       )}
     </div>
@@ -265,13 +279,22 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
             })}
           </div>
 
-          {sport && selectedPlayer && (
-            <DayDetail
-              sport={sport}
-              player={selectedPlayer}
-              result={history.get(selected)}
-            />
-          )}
+          {sport && selectedPlayer && (() => {
+            const selectedResult = history.get(selected)
+            const guessedPlayers = selectedResult?.guessIds
+              ? selectedResult.guessIds
+                  .map((id: string) => sport.players.find((p: Player) => p.id === id))
+                  .filter((p: Player | undefined): p is Player => p !== undefined)
+              : undefined
+            return (
+              <DayDetail
+                sport={sport}
+                player={selectedPlayer}
+                result={selectedResult}
+                guessedPlayers={guessedPlayers}
+              />
+            )
+          })()}
           {!sport && (
             <div className="mt-4 text-center text-sm text-primary-500 dark:text-primary-200">
               Loading…

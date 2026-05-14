@@ -205,6 +205,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             <ColorsStatsOverlay
               variant={variant}
               className="-mt-1 flex-1 overflow-auto pb-2"
+              onViewArchive={() => setOverlay("calendar")}
             />
           </div>
         </Overlay>
