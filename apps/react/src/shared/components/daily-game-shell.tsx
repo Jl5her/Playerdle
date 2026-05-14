@@ -15,6 +15,8 @@ interface Props {
   gameOver: boolean
   popupMessage?: string
   onPlayAgain?: () => void
+  onBackToToday?: () => void
+  isArcade?: boolean
   renderResults?: (api: ResultsApi) => ReactNode
   children: ReactNode
 }
@@ -23,10 +25,14 @@ export default function DailyGameShell({
   gameOver,
   popupMessage,
   onPlayAgain,
+  onBackToToday,
+  isArcade = false,
   renderResults,
   children,
 }: Props) {
-  const { showResults, openResults, closeResults, resetForReplay } = useAutoResults(gameOver)
+  const { showResults, openResults, closeResults, resetForReplay } = useAutoResults(
+    isArcade ? false : gameOver,
+  )
 
   function handleReplay() {
     onPlayAgain?.()
@@ -57,23 +63,44 @@ export default function DailyGameShell({
       >
         {children}
         {gameOver && (
-          <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center pb-[max(1.5rem,env(safe-area-inset-bottom))]">
-            <Button
-              onClick={openResults}
-              variant="primary"
-            >
-              See Results
-            </Button>
+          <div className="shrink-0 px-3 py-3 bg-primary-50 dark:bg-primary-900 flex justify-center gap-3 flex-wrap pb-[max(1.5rem,env(safe-area-inset-bottom))]">
+            {isArcade ? (
+              <>
+                <Button
+                  onClick={handleReplay}
+                  variant="accent"
+                >
+                  Play Again
+                </Button>
+                {onBackToToday && (
+                  <Button
+                    onClick={onBackToToday}
+                    variant="primary"
+                  >
+                    Back to Today's
+                  </Button>
+                )}
+              </>
+            ) : (
+              <Button
+                onClick={openResults}
+                variant="primary"
+              >
+                See Results
+              </Button>
+            )}
           </div>
         )}
       </div>
 
-      <ResultsSlidePanel
-        open={showResults}
-        onClose={closeResults}
-      >
-        {renderResults?.({ onClose: closeResults, onPlayAgain: handleReplay })}
-      </ResultsSlidePanel>
+      {!isArcade && (
+        <ResultsSlidePanel
+          open={showResults}
+          onClose={closeResults}
+        >
+          {renderResults?.({ onClose: closeResults, onPlayAgain: handleReplay })}
+        </ResultsSlidePanel>
+      )}
     </div>
   )
 }

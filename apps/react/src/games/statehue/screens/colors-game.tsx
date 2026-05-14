@@ -45,6 +45,7 @@ interface Props {
   mode: ColorsGameMode
   variant?: ColorsVariant
   onModeChange?: (mode: ColorsGameMode) => void
+  onBackToToday?: () => void
 }
 
 interface SavedState {
@@ -624,7 +625,7 @@ function ResultsPanel({
   )
 }
 
-export default function ColorsGame({ mode, variant = "pro", onModeChange }: Props) {
+export default function ColorsGame({ mode, variant = "pro", onModeChange, onBackToToday }: Props) {
   const [dateKey] = useState<string>(getTodayKey)
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() =>
@@ -700,6 +701,8 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange }: Prop
       gameOver={gameOver}
       popupMessage={puzzle.state.name}
       onPlayAgain={handlePlayAgain}
+      onBackToToday={onBackToToday}
+      isArcade={activeMode === "arcade"}
       renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
           puzzle={puzzle}
