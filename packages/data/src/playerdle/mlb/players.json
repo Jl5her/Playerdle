@@ -6,7 +6,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "LF",
+    "position": "CF",
     "number": 9,
     "league": "NL"
   },
@@ -545,7 +545,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "LF",
+    "position": "RF",
     "number": 40,
     "league": "NL"
   },
@@ -633,7 +633,7 @@
     "division": "Central",
     "team": "Cincinnati Reds",
     "teamAbbr": "CIN",
-    "position": "LF",
+    "position": "CF",
     "number": 59,
     "league": "NL"
   },
@@ -732,7 +732,7 @@
     "division": "West",
     "team": "Houston Astros",
     "teamAbbr": "HOU",
-    "position": "2B",
+    "position": "SS",
     "number": 28,
     "league": "AL"
   },
@@ -1067,17 +1067,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42073",
-    "name": "Brooks Kriske",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 48,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4629081",
     "name": "Brooks Lee",
     "conference": "AL",
@@ -1183,7 +1172,7 @@
     "division": "West",
     "team": "San Francisco Giants",
     "teamAbbr": "SF",
-    "position": "1B",
+    "position": "DH",
     "number": 8,
     "league": "NL"
   },
@@ -1208,6 +1197,17 @@
     "position": "RF",
     "number": 29,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4654313",
+    "name": "Bryce Miller",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "SP",
+    "number": 50,
+    "league": "AL"
   },
   {
     "id": "mlb:4307826",
@@ -1425,7 +1425,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "LF",
+    "position": "RF",
     "number": 3,
     "league": "NL"
   },
@@ -1502,7 +1502,7 @@
     "division": "Central",
     "team": "St. Louis Cardinals",
     "teamAbbr": "STL",
-    "position": "2B",
+    "position": "3B",
     "number": 31,
     "league": "NL"
   },
@@ -1617,6 +1617,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:35999",
+    "name": "Chris Paddack",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "SP",
+    "number": 56,
+    "league": "NL"
+  },
+  {
     "id": "mlb:30948",
     "name": "Chris Sale",
     "conference": "NL",
@@ -1678,7 +1689,7 @@
     "division": "Central",
     "team": "Milwaukee Brewers",
     "teamAbbr": "MIL",
-    "position": "LF",
+    "position": "DH",
     "number": 22,
     "league": "NL"
   },
@@ -1689,7 +1700,7 @@
     "division": "East",
     "team": "Miami Marlins",
     "teamAbbr": "MIA",
-    "position": "LF",
+    "position": "DH",
     "number": 5,
     "league": "NL"
   },
@@ -1724,6 +1735,17 @@
     "teamAbbr": "BAL",
     "position": "3B",
     "number": 16,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:42138",
+    "name": "Codi Heuer",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "RP",
+    "number": 50,
     "league": "AL"
   },
   {
@@ -1843,7 +1865,7 @@
     "division": "East",
     "team": "Baltimore Orioles",
     "teamAbbr": "BAL",
-    "position": "RF",
+    "position": "CF",
     "number": 17,
     "league": "AL"
   },
@@ -1865,7 +1887,7 @@
     "division": "West",
     "team": "Seattle Mariners",
     "teamAbbr": "SEA",
-    "position": "1B",
+    "position": "RF",
     "number": 9,
     "league": "AL"
   },
@@ -2310,17 +2332,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:31010",
-    "name": "Drew Pomeranz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 13,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42584",
     "name": "Drew Rasmussen",
     "conference": "AL",
@@ -2352,17 +2363,6 @@
     "position": "SP",
     "number": 3,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4959037",
-    "name": "Dylan Beavers",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RF",
-    "number": 12,
-    "league": "AL"
   },
   {
     "id": "mlb:34943",
@@ -2717,25 +2717,14 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41253",
-    "name": "Francisco Alvarez",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "C",
-    "number": 4,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4719319",
-    "name": "Franco Aleman",
+    "id": "mlb:36581",
+    "name": "Framber Valdez",
     "conference": "AL",
     "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "RP",
-    "number": 55,
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "SP",
+    "number": 59,
     "league": "AL"
   },
   {
@@ -3080,6 +3069,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4009410",
+    "name": "Hayden Senger",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "C",
+    "number": 6,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39642",
     "name": "Heliot Ramos",
     "conference": "NL",
@@ -3416,7 +3416,7 @@
     "division": "Central",
     "team": "Milwaukee Brewers",
     "teamAbbr": "MIL",
-    "position": "CF",
+    "position": "LF",
     "number": 11,
     "league": "NL"
   },
@@ -3889,7 +3889,7 @@
     "division": "East",
     "team": "Toronto Blue Jays",
     "teamAbbr": "TOR",
-    "position": "LF",
+    "position": "RF",
     "number": 12,
     "league": "AL"
   },
@@ -4186,7 +4186,7 @@
     "division": "West",
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
-    "position": "LF",
+    "position": "CF",
     "number": 1,
     "league": "NL"
   },
@@ -4241,7 +4241,7 @@
     "division": "East",
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
-    "position": "LF",
+    "position": "RF",
     "number": 38,
     "league": "NL"
   },
@@ -4274,7 +4274,7 @@
     "division": "West",
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
-    "position": "1B",
+    "position": "DH",
     "number": 11,
     "league": "NL"
   },
@@ -4309,17 +4309,6 @@
     "teamAbbr": "LAA",
     "position": "SP",
     "number": 59,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:40981",
-    "name": "Jose Suarez",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 62,
     "league": "AL"
   },
   {
@@ -4835,7 +4824,7 @@
     "division": "East",
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
-    "position": "3B",
+    "position": "DH",
     "number": 15,
     "league": "NL"
   },
@@ -5401,6 +5390,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5195197",
+    "name": "Mason Barnett",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SP",
+    "number": 63,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4622501",
     "name": "Mason Fluharty",
     "conference": "AL",
@@ -5588,6 +5588,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42801",
+    "name": "Maverick Handley",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "C",
+    "number": 98,
+    "league": "AL"
+  },
+  {
     "id": "mlb:32685",
     "name": "Max Fried",
     "conference": "AL",
@@ -5627,7 +5638,7 @@
     "division": "East",
     "team": "New York Yankees",
     "teamAbbr": "NYY",
-    "position": "3B",
+    "position": "SS",
     "number": 30,
     "league": "AL"
   },
@@ -5924,7 +5935,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "LF",
+    "position": "DH",
     "number": 1,
     "league": "NL"
   },
@@ -6100,7 +6111,7 @@
     "division": "Central",
     "team": "Kansas City Royals",
     "teamAbbr": "KC",
-    "position": "3B",
+    "position": "2B",
     "number": 12,
     "league": "AL"
   },
@@ -6144,7 +6155,7 @@
     "division": "Central",
     "team": "Chicago Cubs",
     "teamAbbr": "CHC",
-    "position": "3B",
+    "position": "2B",
     "number": 5,
     "league": "NL"
   },
@@ -6276,7 +6287,7 @@
     "division": "West",
     "team": "Los Angeles Angels",
     "teamAbbr": "LAA",
-    "position": "2B",
+    "position": "3B",
     "number": 2,
     "league": "AL"
   },
@@ -6446,6 +6457,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42180",
+    "name": "Pete Fairbanks",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "RP",
+    "number": 29,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39898",
     "name": "Peter Lambert",
     "conference": "AL",
@@ -6573,7 +6595,7 @@
     "division": "Central",
     "team": "Chicago White Sox",
     "teamAbbr": "CHW",
-    "position": "LF",
+    "position": "RF",
     "number": 34,
     "league": "AL"
   },
@@ -6630,17 +6652,6 @@
     "teamAbbr": "ATL",
     "position": "SP",
     "number": 40,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4758873",
-    "name": "Rhett Lowder",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "SP",
-    "number": 25,
     "league": "NL"
   },
   {
@@ -6743,17 +6754,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5080753",
-    "name": "Robby Snelling",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "SP",
-    "number": 61,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4148749",
     "name": "Robert Suarez",
     "conference": "NL",
@@ -6828,6 +6828,17 @@
     "teamAbbr": "MIN",
     "position": "C",
     "number": 27,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5007859",
+    "name": "Ryan Johnson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 32,
     "league": "AL"
   },
   {
@@ -7090,7 +7101,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "3B",
+    "position": "2B",
     "number": 21,
     "league": "NL"
   },
@@ -7255,7 +7266,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "DH",
+    "position": "SP",
     "number": 17,
     "league": "NL"
   },
@@ -7332,7 +7343,7 @@
     "division": "East",
     "team": "New York Yankees",
     "teamAbbr": "NYY",
-    "position": "CF",
+    "position": "RF",
     "number": 78,
     "league": "AL"
   },
@@ -7442,7 +7453,7 @@
     "division": "West",
     "team": "San Diego Padres",
     "teamAbbr": "SD",
-    "position": "3B",
+    "position": "2B",
     "number": 24,
     "league": "NL"
   },
@@ -8047,7 +8058,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "RF",
+    "position": "CF",
     "number": 28,
     "league": "NL"
   },
@@ -8102,7 +8113,7 @@
     "division": "East",
     "team": "New York Mets",
     "teamAbbr": "NYM",
-    "position": "3B",
+    "position": "SS",
     "number": 2,
     "league": "NL"
   },
@@ -8476,7 +8487,7 @@
     "division": "West",
     "team": "Houston Astros",
     "teamAbbr": "HOU",
-    "position": "CF",
+    "position": "LF",
     "number": 16,
     "league": "AL"
   },
@@ -8553,7 +8564,7 @@
     "division": "Central",
     "team": "Detroit Tigers",
     "teamAbbr": "DET",
-    "position": "3B",
+    "position": "SS",
     "number": 15,
     "league": "AL"
   },
