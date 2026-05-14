@@ -1,13 +1,18 @@
+import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
+import { getNflTeamPalette } from "@playerdle/data/journeyman/team-colors"
+import clsx from "clsx"
+
 interface Props {
   className?: string
   onOpenCalendar?: () => void
 }
 
 function MiniDiamond({ color }: { color: string }) {
+  const isTransparent = color === "transparent"
   return (
     <span
-      className="inline-block w-5 h-5 rounded-[2px] rotate-45"
-      style={{ backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }}
+      className={clsx("inline-block w-5 h-5 rounded-[2px] rotate-45", isTransparent && "diamond-transparent")}
+      style={isTransparent ? { border: "1px solid rgba(0,0,0,0.25)" } : { backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }}
       aria-hidden="true"
     />
   )
@@ -61,19 +66,19 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
         <div className="mt-3 rounded-lg bg-primary-100/60 dark:bg-primary-800/40 px-3 py-3">
           <div className="grid grid-cols-[auto_auto] items-center gap-x-4 gap-y-1 w-fit mx-auto">
             <ExampleRow
-              colors={["#C5050C", "#FFFFFF", "#9B0000"]}
+              colors={getCollegePalette("Wisconsin") ?? ["#C5050C", "#FFFFFF", "transparent"]}
               label="Wisconsin"
             />
             <ExampleRow
-              colors={["#002244", "#69BE28", "#A5ACAF"]}
+              colors={getNflTeamPalette("Seattle Seahawks") ?? ["#002244", "#69BE28", "#A5ACAF"]}
               label="Seattle Seahawks"
             />
             <ExampleRow
-              colors={["#FB4F14", "#002244", "#FFFFFF"]}
+              colors={getNflTeamPalette("Denver Broncos") ?? ["#FB4F14", "#002244", "#FFFFFF"]}
               label="Denver Broncos"
             />
             <ExampleRow
-              colors={["#FFB612", "#000000", "#C60C30"]}
+              colors={getNflTeamPalette("Pittsburgh Steelers") ?? ["#FFB612", "#000000", "#C60C30"]}
               label="Pittsburgh Steelers"
             />
           </div>

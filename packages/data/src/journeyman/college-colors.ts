@@ -21,7 +21,7 @@ export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
   Harvard: ["#A51C30", "#FFFFFF", "#000000"],
   Houston: ["#C8102E", "#FFFFFF", "#76777B"],
   "Indiana State": ["#0033A0", "#FFFFFF", "#000000"],
-  Iowa: ["#000000", "#FFCD00", "#FFFFFF"],
+  Iowa: ["#000000", "#FFCD00", "transparent"],
   Kentucky: ["#0033A0", "#FFFFFF", "#000000"],
   Louisville: ["#AD0000", "#000000", "#FFFFFF"],
   LSU: ["#461D7C", "#FDD023", "#FFFFFF"],
@@ -41,7 +41,7 @@ export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
   Oklahoma: ["#841617", "#FDF9D8", "#FFFFFF"],
   Oregon: ["#154733", "#FEE123", "#FFFFFF"],
   "Oregon State": ["#DC4405", "#000000", "#FFFFFF"],
-  "Penn State": ["#041E42", "#FFFFFF", "#5C5C5C"],
+  "Penn State": ["#041E42", "#FFFFFF", "transparent"],
   Pittsburgh: ["#003594", "#FFB81C", "#FFFFFF"],
   Purdue: ["#000000", "#CFB991", "#FFFFFF"],
   Rutgers: ["#CC0033", "#000000", "#FFFFFF"],
@@ -49,7 +49,7 @@ export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
   SMU: ["#0033A0", "#C8102E", "#FFFFFF"],
   "South Alabama": ["#00205B", "#BF0D3E", "#FFFFFF"],
   "South Carolina": ["#73000A", "#000000", "#FFFFFF"],
-  Stanford: ["#8C1515", "#FFFFFF", "#2E2D29"],
+  Stanford: ["#8C1515", "#FFFFFF", "transparent"],
   Syracuse: ["#F76900", "#000E54", "#FFFFFF"],
   TCU: ["#4D1979", "#000000", "#FFFFFF"],
   Tennessee: ["#FF8200", "#FFFFFF", "#58595B"],
@@ -64,7 +64,7 @@ export const COLLEGE_PALETTES: Record<string, [string, string, string]> = {
   "Washington State": ["#981E32", "#5E6A71", "#FFFFFF"],
   "West Virginia": ["#002855", "#EAAA00", "#FFFFFF"],
   "Western Michigan": ["#6C4023", "#B5A36A", "#FFFFFF"],
-  Wisconsin: ["#C5050C", "#FFFFFF", "#9B0000"],
+  Wisconsin: ["#C5050C", "#FFFFFF", "transparent"],
 }
 
 export function getCollegePalette(college: string): [string, string, string] | undefined {

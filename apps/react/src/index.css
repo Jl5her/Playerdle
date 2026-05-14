@@ -325,6 +325,16 @@ body,
   }
 }
 
+/* Checkerboard pattern for diamonds with no third brand color */
+.diamond-transparent {
+  background-image: repeating-conic-gradient(#c0c0c0 0% 25%, #efefef 0% 50%);
+  background-size: 8px 8px;
+}
+
+.dark .diamond-transparent {
+  background-image: repeating-conic-gradient(#3a3a3a 0% 25%, #252525 0% 50%);
+}
+
 .grid-cell-width {
   width: clamp(2.5rem, 16vw, 5rem);
 }

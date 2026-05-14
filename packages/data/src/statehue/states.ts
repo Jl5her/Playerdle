@@ -132,7 +132,7 @@ export const COLORS_STATES: ColorsState[] = [
     name: "New York",
     teams: [
       { name: "Buffalo Bills", league: "NFL", colors: ["#00338D", "#C60C30", "#FFFFFF"] },
-      { name: "New York Yankees", league: "MLB", colors: ["#0C2340", "#C4CED4", "#FFFFFF"] },
+      { name: "New York Yankees", league: "MLB", colors: ["#0C2340", "#FFFFFF", "transparent"] },
       { name: "New York Mets", league: "MLB", colors: ["#002D72", "#FF5910", "#FFFFFF"] },
       { name: "New York Knicks", league: "NBA", colors: ["#006BB6", "#F58426", "#BEC0C2"] },
       { name: "Brooklyn Nets", league: "NBA", colors: ["#000000", "#FFFFFF", "#777D84"] },
@@ -224,4 +224,12 @@ export function getColorsStateById(id: string): ColorsState | undefined {
 
 export function getAllColorsStateNames(): string[] {
   return COLORS_STATES.map(state => state.name)
+}
+
+export function getProTeamPalette(teamName: string): [string, string, string] | undefined {
+  for (const state of COLORS_STATES) {
+    const team = state.teams.find(t => t.name === teamName)
+    if (team) return team.colors
+  }
+  return undefined
 }

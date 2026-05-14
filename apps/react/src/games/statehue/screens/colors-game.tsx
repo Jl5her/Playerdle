@@ -81,11 +81,11 @@ function shadeHex(hex: string, amount: number): string {
 }
 
 function Diamond({ color }: { color: string }) {
-  const border = shadeHex(color, -0.25)
+  const isTransparent = color === "transparent"
   return (
     <span
-      className="inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm"
-      style={{ backgroundColor: color, border: `1px solid ${border}` }}
+      className={clsx("inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm", isTransparent && "diamond-transparent")}
+      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: color, border: `1px solid ${shadeHex(color, -0.25)}` }}
       aria-hidden="true"
     />
   )
@@ -95,6 +95,7 @@ function DiamondWithPreview({ color }: { color: string }) {
   const [open, setOpen] = useState(false)
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
+  const isTransparent = color === "transparent"
 
   useEffect(() => {
     if (!open) return
@@ -134,8 +135,8 @@ function DiamondWithPreview({ color }: { color: string }) {
         >
           <span
             aria-hidden="true"
-            className="inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md"
-            style={{ backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+            className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
           />
         </div>
       )}
