@@ -81,12 +81,22 @@ function shadeHex(hex: string, amount: number): string {
   return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
 }
 
+function diamondBorder(hex: string): string {
+  const clean = hex.replace("#", "")
+  if (clean.length !== 6) return shadeHex(hex, -0.25)
+  const r = parseInt(clean.slice(0, 2), 16) / 255
+  const g = parseInt(clean.slice(2, 4), 16) / 255
+  const b = parseInt(clean.slice(4, 6), 16) / 255
+  const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
+  return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
+}
+
 function Diamond({ color }: { color: string }) {
   const isTransparent = color === "transparent"
   return (
     <span
       className={clsx("inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm", isTransparent && "diamond-transparent")}
-      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: color, border: `1px solid ${shadeHex(color, -0.25)}` }}
+      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: color, border: `1px solid ${diamondBorder(color)}` }}
       aria-hidden="true"
     />
   )
@@ -137,7 +147,7 @@ function DiamondWithPreview({ color }: { color: string }) {
           <span
             aria-hidden="true"
             className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${shadeHex(color, -0.25)}` }}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${diamondBorder(color)}` }}
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">

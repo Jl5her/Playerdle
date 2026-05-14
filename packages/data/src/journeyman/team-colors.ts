@@ -16,7 +16,7 @@ export const NFL_TEAM_PALETTES: Record<string, [string, string, string]> = {
   "Detroit Lions": ["#0076B6", "#B0B7BC", "#000000"],
   "Green Bay Packers": ["#203731", "#FFB612", "#FFFFFF"],
   "Houston Texans": ["#03202F", "#A71930", "#FFFFFF"],
-  "Indianapolis Colts": ["#002C5F", "#A2AAAD", "#FFFFFF"],
+  "Indianapolis Colts": ["#002C5F", "#FFFFFF", "#A2AAAD"],
   "Jacksonville Jaguars": ["#006778", "#D7A22A", "#101820"],
   "Kansas City Chiefs": ["#E31837", "#FFB81C", "#FFFFFF"],
   "Las Vegas Raiders": ["#000000", "#A5ACAF", "#FFFFFF"],
