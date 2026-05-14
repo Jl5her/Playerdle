@@ -33,6 +33,7 @@ interface Props {
   mode: GameMode
   sport: SportConfig
   variantId?: string
+  onBackToToday?: () => void
 }
 
 interface SavedState {
@@ -74,7 +75,7 @@ function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: strin
   return []
 }
 
-export default function Game({ mode, sport, variantId }: Props) {
+export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
   const [activeMode, setActiveMode] = useState<GameMode>(mode)
   const [answer, setAnswer] = useState<Player | null>(() =>
     mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
@@ -186,6 +187,8 @@ export default function Game({ mode, sport, variantId }: Props) {
       gameOver={gameOver}
       popupMessage={toastMessage}
       onPlayAgain={handlePlayAgain}
+      onBackToToday={onBackToToday}
+      isArcade={activeMode === "arcade"}
       renderResults={({ onPlayAgain }) => (
         <div className="flex-1 min-h-0 overflow-auto px-4">
           <div className="w-full max-w-2xl mx-auto">

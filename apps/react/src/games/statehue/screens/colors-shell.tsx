@@ -144,6 +144,11 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             mode={mode}
             variant={variant}
             onModeChange={setActiveMode}
+            onBackToToday={
+              screen === "arcade"
+                ? () => navigate(variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily")
+                : undefined
+            }
           />
         </div>
         <Overlay

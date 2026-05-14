@@ -393,6 +393,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                   mode="arcade"
                   sport={activeSport}
                   variantId={activeVariantId}
+                  onBackToToday={() => navigate(buildPath(sportId, "daily", activeVariantId))}
                 />
               )}
             </Suspense>
