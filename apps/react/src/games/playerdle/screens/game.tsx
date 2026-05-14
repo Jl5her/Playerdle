@@ -175,10 +175,16 @@ export default function Game({ mode, sport, variantId }: Props) {
     setActiveMode("arcade")
   }
 
+  const toastMessage = won
+    ? `You got it in ${guesses.length} ${guesses.length === 1 ? "guess" : "guesses"}!`
+    : lost
+      ? "Better luck tomorrow!"
+      : ""
+
   return (
     <DailyGameShell
       gameOver={gameOver}
-      popupMessage={answer?.name}
+      popupMessage={toastMessage}
       onPlayAgain={handlePlayAgain}
       renderResults={({ onPlayAgain }) => (
         <div className="flex-1 min-h-0 overflow-auto px-4">
@@ -211,6 +217,9 @@ export default function Game({ mode, sport, variantId }: Props) {
           won={won}
           answer={String(answer.name)}
           guessCount={guesses.length}
+          team={answer.team != null ? String(answer.team) : undefined}
+          position={answer.position != null ? String(answer.position) : undefined}
+          number={answer.number != null ? String(answer.number) : undefined}
           hideAnswer={hideAnswer}
           onToggleHide={() => setHideAnswer(h => !h)}
         />
