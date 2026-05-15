@@ -664,14 +664,21 @@ export default function JourneyGame({ league, mode, onModeChange }: Props) {
 
   const [hideAnswer, setHideAnswer] = useState(false)
 
+  // Reveal cadence: distribute the player's teams evenly across 4 buckets
+  // (initial + 3 reveal steps before the final guess). For 4 teams this keeps
+  // the old "1 visible at start, +1 per wrong guess" pacing. For 5+ teams the
+  // initial reveal is 2 (or 3 for 9+), so the harder cases get a few teams up
+  // front and each subsequent reveal flips a roughly-equal batch.
   const REVEAL_STEPS = MAX_GUESSES - 2
+  const TOTAL_BUCKETS = REVEAL_STEPS + 1
   const visibleTeamsCount = gameOver
     ? puzzle.player.teams.length
     : Math.min(
-        1 +
-          Math.ceil(
-            ((puzzle.player.teams.length - 1) * Math.min(wrongCount, REVEAL_STEPS)) / REVEAL_STEPS,
-          ),
+        Math.ceil(
+          (puzzle.player.teams.length *
+            (Math.min(wrongCount, REVEAL_STEPS) + 1)) /
+            TOTAL_BUCKETS,
+        ),
         puzzle.player.teams.length,
       )
 
