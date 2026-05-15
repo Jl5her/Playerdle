@@ -22,7 +22,7 @@ interface Props {
   screen: "daily" | "arcade"
 }
 
-type GameOverlay = "none" | "guide" | "stats" | "calendar"
+type GameOverlay = "none" | "guide" | "stats" | "calendar" | "archive-play"
 
 function tutorialSeenKey(league: JourneyLeague): string {
   return `journey-tutorial-seen:${league}`
@@ -49,6 +49,8 @@ export default function JourneyShell({ league, screen }: Props) {
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
+  const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
+  const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [isOnboarding, setIsOnboarding] = useState(false)
 
   useEffect(() => {
@@ -234,7 +236,54 @@ export default function JourneyShell({ league, screen }: Props) {
           <JourneyCalendar
             league={league}
             onClose={() => setOverlay("none")}
+            onPlayArchive={dateKey => {
+              setArchiveDateKey(dateKey)
+              setOverlay("archive-play")
+            }}
+            historyVersion={calendarHistoryVersion}
           />
+        </Overlay>
+        <Overlay
+          open={overlay === "archive-play"}
+          onClose={() => {
+            setOverlay("calendar")
+            setArchiveDateKey(null)
+            setCalendarHistoryVersion(v => v + 1)
+          }}
+          className="overflow-hidden"
+        >
+          {archiveDateKey && (
+            <div className="flex flex-col h-full min-h-0 bg-primary-50 dark:bg-primary-900">
+              <div className="shrink-0 flex items-center gap-2 px-3 py-2 border-b-2 border-primary-300 dark:border-primary-700 bg-primary-100/60 dark:bg-primary-800/60">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOverlay("calendar")
+                    setArchiveDateKey(null)
+                    setCalendarHistoryVersion(v => v + 1)
+                  }}
+                  aria-label="Back to archive"
+                  className="p-2 -ml-1 text-primary-900 dark:text-primary-50 rounded hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                >
+                  <FontAwesomeIcon icon={faAngleLeft} className="text-lg" />
+                </button>
+                <span className="text-[10px] uppercase tracking-wider font-bold text-primary-500 dark:text-primary-200">
+                  Archive ·
+                </span>
+                <span className="text-xs font-bold text-primary-900 dark:text-primary-50">
+                  {archiveDateKey}
+                </span>
+              </div>
+              <div className="flex-1 min-h-0 overflow-hidden">
+                <JourneyGame
+                  key={`archive:${league}:${archiveDateKey}`}
+                  league={league}
+                  mode="daily"
+                  archiveDateKey={archiveDateKey}
+                />
+              </div>
+            </div>
+          )}
         </Overlay>
       </div>
     </div>

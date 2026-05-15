@@ -13,6 +13,7 @@ import {
   type ColorsVariant,
   calculateColorsStats,
   getArcadeColorsPuzzle,
+  getColorsPuzzleByDateKey,
   getDailyColorsPuzzle,
   markColorsDailyPlayed,
   saveColorsResult,
@@ -46,6 +47,11 @@ interface Props {
   variant?: ColorsVariant
   onModeChange?: (mode: ColorsGameMode) => void
   onBackToToday?: () => void
+  /**
+   * When set, plays the daily puzzle for this past date. Result is saved with
+   * an archive flag so it doesn't count toward streaks.
+   */
+  archiveDateKey?: string
 }
 
 interface SavedState {
@@ -625,16 +631,26 @@ function ResultsPanel({
   )
 }
 
-export default function ColorsGame({ mode, variant = "pro", onModeChange, onBackToToday }: Props) {
-  const [dateKey] = useState<string>(getTodayKey)
+export default function ColorsGame({
+  mode,
+  variant = "pro",
+  onModeChange,
+  onBackToToday,
+  archiveDateKey,
+}: Props) {
+  const isArchive = !!archiveDateKey
+  const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
-  const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() =>
-    mode === "daily"
-      ? getDailyColorsPuzzle(undefined, variant)
-      : getArcadeColorsPuzzle(undefined, variant),
-  )
+  const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() => {
+    if (mode === "daily") {
+      return archiveDateKey
+        ? getColorsPuzzleByDateKey(archiveDateKey, variant)
+        : getDailyColorsPuzzle(undefined, variant)
+    }
+    return getArcadeColorsPuzzle(undefined, variant)
+  })
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
+    mode === "daily" && !isArchive ? loadDailyGuesses(dateKey, variant) : [],
   )
 
   const [hideAnswer, setHideAnswer] = useState(false)
@@ -655,10 +671,10 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange, onBack
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markColorsDailyPlayed(variant)
+      if (!isArchive) markColorsDailyPlayed(variant)
       saveColorsResult(puzzle.dateKey, won, guesses.length, variant, guesses)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant, isArchive])
 
   useEffect(() => {
     if (!gameOver) {
@@ -685,7 +701,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange, onBack
     if (usedGuessesLower.has(stateName.toLowerCase())) return
     const next = [...guesses, stateName]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(dateKey, next, variant)
+    if (activeMode === "daily" && !isArchive) saveDailyGuesses(dateKey, next, variant)
   }
 
   function handlePlayAgain() {

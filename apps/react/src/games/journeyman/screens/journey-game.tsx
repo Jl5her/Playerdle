@@ -12,6 +12,7 @@ import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
   getDailyJourneyPuzzle,
+  getJourneyPuzzleByDateKey,
   type JourneyLeague,
   type JourneyPuzzle,
   type JourneyStats,
@@ -40,6 +41,11 @@ interface Props {
   league: JourneyLeague
   mode: JourneyGameMode
   onModeChange?: (mode: JourneyGameMode) => void
+  /**
+   * When set, plays the daily puzzle for this past date. Result is saved with
+   * an archive flag so it doesn't count toward streaks.
+   */
+  archiveDateKey?: string
 }
 
 interface SavedState {
@@ -648,16 +654,22 @@ function ResultsPanel({
   )
 }
 
-export default function JourneyGame({ league, mode, onModeChange }: Props) {
-  const [dateKey] = useState<string>(getTodayKey)
+export default function JourneyGame({ league, mode, onModeChange, archiveDateKey }: Props) {
+  const isArchive = !!archiveDateKey
+  const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const autocompletePool = useMemo(() => buildAutocompletePool(league), [league])
-  const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() =>
-    mode === "daily" ? getDailyJourneyPuzzle(league) : getArcadeJourneyPuzzle(league),
-  )
+  const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() => {
+    if (mode === "daily") {
+      return archiveDateKey
+        ? getJourneyPuzzleByDateKey(league, archiveDateKey)
+        : getDailyJourneyPuzzle(league)
+    }
+    return getArcadeJourneyPuzzle(league)
+  })
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(league, dateKey) : [],
+    mode === "daily" && !isArchive ? loadDailyGuesses(league, dateKey) : [],
   )
 
   const answerName = puzzle.player.name
@@ -693,10 +705,10 @@ export default function JourneyGame({ league, mode, onModeChange }: Props) {
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markJourneyDailyPlayed(league)
+      if (!isArchive) markJourneyDailyPlayed(league)
       saveJourneyResult(league, puzzle.dateKey, won, guesses.length, guesses)
     }
-  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses])
+  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses, isArchive])
 
   useEffect(() => {
     if (!gameOver) {
@@ -739,7 +751,7 @@ export default function JourneyGame({ league, mode, onModeChange }: Props) {
     if (usedGuessesLower.has(name.toLowerCase())) return
     const next = [...guesses, name]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(league, dateKey, next)
+    if (activeMode === "daily" && !isArchive) saveDailyGuesses(league, dateKey, next)
   }
 
   function handlePlayAgain() {

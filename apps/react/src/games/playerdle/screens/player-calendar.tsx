@@ -4,6 +4,7 @@ import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { GuessGrid } from "@/games/playerdle/components"
+import Game from "@/games/playerdle/screens/game"
 import {
   getSportMetaById,
   loadSportConfig,
@@ -50,46 +51,67 @@ interface DayDetailProps {
   player: Player
   result?: GameResult
   guessedPlayers?: Player[]
+  canPlay: boolean
+  onPlay?: () => void
 }
 
-function DayDetail({ sport, player, result, guessedPlayers }: DayDetailProps) {
+function DayDetail({ sport, player, result, guessedPlayers, canPlay, onPlay }: DayDetailProps) {
+  const played = !!result
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
       <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
         {sport.displayName}
         {sport.activeVariantLabel ? ` · ${sport.activeVariantLabel}` : " · Daily"}
       </div>
-      <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
-        {String(player.name)}
-      </div>
-      <div className="text-sm text-primary-500 dark:text-primary-200 mt-1 uppercase">
-        {String(player.team ?? "")}
-        {player.position ? ` · ${String(player.position)}` : ""}
-        {player.number ? ` · #${String(player.number)}` : ""}
-      </div>
 
-      {result && (
-        <div
-          className={`mt-3 text-sm font-bold uppercase tracking-wider ${
-            result.won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400"
-          }`}
-        >
-          {result.won ? `You guessed in ${result.guesses}/6` : "You missed this one"}
-        </div>
-      )}
+      {played ? (
+        <>
+          <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
+            {String(player.name)}
+          </div>
+          <div className="text-sm text-primary-500 dark:text-primary-200 mt-1 uppercase">
+            {String(player.team ?? "")}
+            {player.position ? ` · ${String(player.position)}` : ""}
+            {player.number ? ` · #${String(player.number)}` : ""}
+          </div>
 
-      {guessedPlayers && guessedPlayers.length > 0 && (
-        <div className="mt-3 overflow-x-auto">
-          <GuessGrid
-            guesses={guessedPlayers}
-            answer={player}
-            maxGuesses={6}
-            latestIndex={-1}
-            columns={sport.columns}
-          />
-        </div>
+          <div
+            className={`mt-3 text-sm font-bold uppercase tracking-wider ${
+              result.won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400"
+            }`}
+          >
+            {result.won ? `You guessed in ${result.guesses}/6` : "You missed this one"}
+          </div>
+
+          {guessedPlayers && guessedPlayers.length > 0 && (
+            <div className="mt-3 overflow-x-auto">
+              <GuessGrid
+                guesses={guessedPlayers}
+                answer={player}
+                maxGuesses={6}
+                latestIndex={-1}
+                columns={sport.columns}
+              />
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="text-base font-bold text-primary-700 dark:text-primary-200 mt-1">
+            Not yet played
+          </div>
+          {canPlay && onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="mt-3 w-full px-4 py-2 text-sm font-semibold rounded bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 hover:opacity-90 transition-opacity uppercase tracking-wider"
+            >
+              Play this day
+            </button>
+          )}
+        </>
       )}
     </div>
   )
@@ -108,6 +130,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   const today = new Date()
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
+  const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
 
   useEffect(() => {
     let mounted = true
@@ -119,11 +142,13 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
     }
   }, [sportId, variantId])
 
+  // archiveDateKey in deps so history re-reads localStorage when the player
+  // exits an archive play session (transitions back to null).
   const history = useMemo(() => {
     const map = new Map<string, GameResult>()
     for (const r of getGameHistory(sportId, variantId)) map.set(r.date, r)
     return map
-  }, [sportId, variantId])
+  }, [sportId, variantId, archiveDateKey])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
 
@@ -160,6 +185,38 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   })
 
   const menuPath = sportId === "nfl" ? "/" : `/${sportId}`
+
+  if (archiveDateKey && sport) {
+    return (
+      <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
+        <div className="shrink-0 flex items-center gap-2 px-3 py-2 border-b-2 border-primary-300 dark:border-primary-700 bg-primary-100/60 dark:bg-primary-800/60">
+          <button
+            type="button"
+            onClick={() => setArchiveDateKey(null)}
+            aria-label="Back to archive"
+            className="p-2 -ml-1 text-primary-900 dark:text-primary-50 rounded hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+          >
+            <FontAwesomeIcon icon={faAngleLeft} className="text-lg" />
+          </button>
+          <span className="text-[10px] uppercase tracking-wider font-bold text-primary-500 dark:text-primary-200">
+            Archive ·
+          </span>
+          <span className="text-xs font-bold text-primary-900 dark:text-primary-50">
+            {archiveDateKey}
+          </span>
+        </div>
+        <div className="flex-1 min-h-0 overflow-hidden">
+          <Game
+            key={`archive:${sport.id}:${archiveDateKey}`}
+            mode="daily"
+            sport={sport}
+            variantId={variantId}
+            archiveDateKey={archiveDateKey}
+          />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
@@ -225,7 +282,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
               let cellPosition: string | undefined
-              if (!disabled && sport) {
+              if (!disabled && sport && result) {
                 try {
                   const p = getDailyPlayer(sport, cell)
                   cellPosition = p.position ? String(p.position) : undefined
@@ -266,13 +323,15 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                   {result && !disabled && (
                     <span
                       className={clsx(
-                        "relative z-10 w-1.5 h-1.5 rounded-full",
+                        "relative z-10 min-w-[1rem] px-1 text-[10px] leading-4 font-black rounded",
                         result.won
-                          ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400",
+                          ? "bg-success-500/90 text-primary-50 dark:bg-success-400 dark:text-primary-900"
+                          : "bg-error-500/90 text-primary-50 dark:bg-error-400 dark:text-primary-900",
                       )}
-                      aria-hidden="true"
-                    />
+                      aria-label={result.won ? `Won in ${result.guesses}` : "Lost"}
+                    >
+                      {result.won ? result.guesses : "X"}
+                    </span>
                   )}
                 </button>
               )
@@ -286,12 +345,16 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                   .map((id: string) => sport.players.find((p: Player) => p.id === id))
                   .filter((p: Player | undefined): p is Player => p !== undefined)
               : undefined
+            const selectedIsFuture = selectedDate.getTime() > today.getTime()
+            const selectedIsBeforeEpoch = selectedDate.getTime() < PLAYER_EPOCH.getTime()
             return (
               <DayDetail
                 sport={sport}
                 player={selectedPlayer}
                 result={selectedResult}
                 guessedPlayers={guessedPlayers}
+                canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
+                onPlay={() => setArchiveDateKey(selected)}
               />
             )
           })()}

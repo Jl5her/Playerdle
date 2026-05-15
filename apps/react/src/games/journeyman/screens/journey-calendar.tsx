@@ -45,7 +45,18 @@ function buildMonthGrid(year: number, monthIndex: number): Array<Date | null> {
   return cells
 }
 
-function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: JourneyResult }) {
+function DayDetail({
+  puzzle,
+  result,
+  canPlay,
+  onPlay,
+}: {
+  puzzle: JourneyPuzzle
+  result?: JourneyResult
+  canPlay: boolean
+  onPlay?: () => void
+}) {
+  const played = !!result
   const subtitleParts = [puzzle.player.position]
   if (puzzle.player.college) subtitleParts.push(puzzle.player.college)
   return (
@@ -53,62 +64,82 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
       <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
         #{puzzle.index} · {puzzle.dateKey}
       </div>
-      <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
-        {puzzle.player.name}
-      </div>
-      <div className="text-xs text-primary-500 dark:text-primary-200 uppercase tracking-wider mt-1">
-        {subtitleParts.join(" · ")}
-      </div>
 
-      <ol className="mt-3 space-y-1 text-xs">
-        {puzzle.player.teams.map((team, i) => (
-          <li
-            key={`${team}-${i}`}
-            className="flex items-center gap-2 text-primary-900 dark:text-primary-50"
-          >
-            <span className="w-5 text-right text-primary-500 dark:text-primary-200">{i + 1}.</span>
-            <span>{team}</span>
-            {i === puzzle.player.teams.length - 1 && (
-              <span className="ml-1 px-1 rounded text-[9px] tracking-wider font-bold border border-current opacity-60">
-                CURRENT
-              </span>
-            )}
-          </li>
-        ))}
-      </ol>
+      {played ? (
+        <>
+          <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
+            {puzzle.player.name}
+          </div>
+          <div className="text-xs text-primary-500 dark:text-primary-200 uppercase tracking-wider mt-1">
+            {subtitleParts.join(" · ")}
+          </div>
 
-      {result && (
-        <div
-          className={clsx(
-            "mt-3 text-sm font-bold uppercase tracking-wider",
-            result.won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400",
-          )}
-        >
-          {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
-        </div>
-      )}
-
-      {result?.guessIds && result.guessIds.length > 0 && (
-        <div className="mt-3 flex flex-col gap-1">
-          {result.guessIds.map((name, i) => {
-            const isCorrect = name.toLowerCase() === puzzle.player.name.toLowerCase()
-            return (
-              <div
-                key={i}
-                className={clsx(
-                  "px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
-                  isCorrect
-                    ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
-                    : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
-                )}
+          <ol className="mt-3 space-y-1 text-xs">
+            {puzzle.player.teams.map((team, i) => (
+              <li
+                key={`${team}-${i}`}
+                className="flex items-center gap-2 text-primary-900 dark:text-primary-50"
               >
-                {name}
-              </div>
-            )
-          })}
-        </div>
+                <span className="w-5 text-right text-primary-500 dark:text-primary-200">
+                  {i + 1}.
+                </span>
+                <span>{team}</span>
+                {i === puzzle.player.teams.length - 1 && (
+                  <span className="ml-1 px-1 rounded text-[9px] tracking-wider font-bold border border-current opacity-60">
+                    CURRENT
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+
+          <div
+            className={clsx(
+              "mt-3 text-sm font-bold uppercase tracking-wider",
+              result.won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400",
+            )}
+          >
+            {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
+          </div>
+
+          {result.guessIds && result.guessIds.length > 0 && (
+            <div className="mt-3 flex flex-col gap-1">
+              {result.guessIds.map((name, i) => {
+                const isCorrect = name.toLowerCase() === puzzle.player.name.toLowerCase()
+                return (
+                  <div
+                    key={i}
+                    className={clsx(
+                      "px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
+                      isCorrect
+                        ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
+                        : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
+                    )}
+                  >
+                    {name}
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="text-base font-bold text-primary-700 dark:text-primary-200 mt-1">
+            Not yet played
+          </div>
+          {canPlay && onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="mt-3 w-full px-4 py-2 text-sm font-semibold rounded bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 hover:opacity-90 transition-opacity uppercase tracking-wider"
+            >
+              Play this day
+            </button>
+          )}
+        </>
       )}
     </div>
   )
@@ -117,9 +148,17 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
 interface Props {
   league: JourneyLeague
   onClose?: () => void
+  onPlayArchive?: (dateKey: string) => void
+  /** Bump to force a re-read of saved history (e.g. after an archive play). */
+  historyVersion?: number
 }
 
-export default function JourneyCalendar({ league, onClose }: Props) {
+export default function JourneyCalendar({
+  league,
+  onClose,
+  onPlayArchive,
+  historyVersion = 0,
+}: Props) {
   const navigate = useNavigate()
   const scrollRef = useRef<HTMLDivElement>(null)
   const today = parseDateKey(getTodayKey())
@@ -131,7 +170,7 @@ export default function JourneyCalendar({ league, onClose }: Props) {
     const map = new Map<string, JourneyResult>()
     for (const r of getJourneyHistory(league)) map.set(r.date, r)
     return map
-  }, [league])
+  }, [league, historyVersion])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
   const selectedPuzzle = useMemo(
@@ -139,6 +178,9 @@ export default function JourneyCalendar({ league, onClose }: Props) {
     [league, selected],
   )
   const selectedResult = history.get(selected)
+  const selectedDate = useMemo(() => parseDateKey(selected), [selected])
+  const selectedIsFuture = selectedDate.getTime() > today.getTime()
+  const selectedIsBeforeEpoch = selectedDate.getTime() < EPOCH.getTime()
 
   function goPrevMonth() {
     setView(v => {
@@ -245,13 +287,15 @@ export default function JourneyCalendar({ league, onClose }: Props) {
                   {result && !disabled && (
                     <span
                       className={clsx(
-                        "w-1.5 h-1.5 rounded-full",
+                        "min-w-[1rem] px-1 text-[10px] leading-4 font-black rounded",
                         result.won
-                          ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400",
+                          ? "bg-success-500/90 text-primary-50 dark:bg-success-400 dark:text-primary-900"
+                          : "bg-error-500/90 text-primary-50 dark:bg-error-400 dark:text-primary-900",
                       )}
-                      aria-hidden="true"
-                    />
+                      aria-label={result.won ? `Won in ${result.guesses}` : "Lost"}
+                    >
+                      {result.won ? result.guesses : "X"}
+                    </span>
                   )}
                 </button>
               )
@@ -261,6 +305,8 @@ export default function JourneyCalendar({ league, onClose }: Props) {
           <DayDetail
             puzzle={selectedPuzzle}
             result={selectedResult}
+            canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
+            onPlay={onPlayArchive ? () => onPlayArchive(selected) : undefined}
           />
         </div>
       </div>

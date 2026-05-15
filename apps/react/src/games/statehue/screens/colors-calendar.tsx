@@ -86,109 +86,130 @@ function buildMonthGrid(year: number, monthIndex: number): Array<Date | null> {
 interface DayDetailProps {
   puzzle: ColorsPuzzle
   result?: ColorsResult
+  canPlay: boolean
+  onPlay?: () => void
 }
 
-function DayDetail({ puzzle, result }: DayDetailProps) {
+function DayDetail({ puzzle, result, canPlay, onPlay }: DayDetailProps) {
+  const played = !!result
   const shape = STATE_PATHS[puzzle.state.id]
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
-      <div className="flex items-center justify-between mb-3">
-        <div>
-          <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
-            #{puzzle.index} · {puzzle.dateKey}
-          </div>
-          <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
-            {puzzle.state.name}
-          </div>
-        </div>
-        {shape && (
-          <svg
-            viewBox={shape.viewBox}
-            className="w-10 h-10 text-primary-700 dark:text-primary-200"
-            fill="currentColor"
-            stroke="currentColor"
-            strokeWidth={1}
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d={shape.d} />
-          </svg>
-        )}
+      <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
+        #{puzzle.index} · {puzzle.dateKey}
       </div>
 
-      <div className="flex flex-col gap-2">
-        {puzzle.teams.map((team, i) => (
-          <div
-            key={`${team.name}-${i}`}
-            className="flex items-center gap-3"
-          >
-            <div className="flex items-center gap-2 shrink-0">
-              {team.colors.map((color, j) => (
-                <Diamond
-                  key={`${color}-${j}`}
-                  color={color}
-                />
-              ))}
+      {played ? (
+        <>
+          <div className="flex items-center justify-between mt-1 mb-3">
+            <div className="text-xl font-black uppercase text-primary-900 dark:text-primary-50">
+              {puzzle.state.name}
             </div>
-            <div className="text-xs">
-              <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
-                {team.league}
-              </div>
-              <div className="text-primary-900 dark:text-primary-50 font-semibold">{team.name}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {result && (
-        <div
-          className={clsx(
-            "mt-3 text-sm font-bold uppercase tracking-wider",
-            result.won
-              ? "text-success-500 dark:text-success-400"
-              : "text-error-500 dark:text-error-400",
-          )}
-        >
-          {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
-        </div>
-      )}
-
-      {result?.guessIds && result.guessIds.length > 0 && (
-        <div className="mt-3 flex flex-col gap-1">
-          {result.guessIds.map((name, i) => {
-            const isCorrect = name.toLowerCase() === puzzle.state.name.toLowerCase()
-            const code = getStateByName(name)?.id
-            const stateShape = code ? STATE_PATHS[code] : undefined
-            return (
-              <div
-                key={i}
-                className={clsx(
-                  "flex items-center gap-2 px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
-                  isCorrect
-                    ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
-                    : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
-                )}
+            {shape && (
+              <svg
+                viewBox={shape.viewBox}
+                className="w-10 h-10 text-primary-700 dark:text-primary-200"
+                fill="currentColor"
+                stroke="currentColor"
+                strokeWidth={1}
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
-                {stateShape ? (
-                  <svg
-                    viewBox={stateShape.viewBox}
-                    className="w-4 h-4 shrink-0"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    strokeWidth={1}
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d={stateShape.d} />
-                  </svg>
-                ) : (
-                  <span className="w-4 h-4 shrink-0" />
-                )}
-                <span>{name}</span>
+                <path d={shape.d} />
+              </svg>
+            )}
+          </div>
+
+          <div className="flex flex-col gap-2">
+            {puzzle.teams.map((team, i) => (
+              <div
+                key={`${team.name}-${i}`}
+                className="flex items-center gap-3"
+              >
+                <div className="flex items-center gap-2 shrink-0">
+                  {team.colors.map((color, j) => (
+                    <Diamond
+                      key={`${color}-${j}`}
+                      color={color}
+                    />
+                  ))}
+                </div>
+                <div className="text-xs">
+                  <div className="text-primary-500 dark:text-primary-200 uppercase tracking-wider font-bold">
+                    {team.league}
+                  </div>
+                  <div className="text-primary-900 dark:text-primary-50 font-semibold">
+                    {team.name}
+                  </div>
+                </div>
               </div>
-            )
-          })}
-        </div>
+            ))}
+          </div>
+
+          <div
+            className={clsx(
+              "mt-3 text-sm font-bold uppercase tracking-wider",
+              result.won
+                ? "text-success-500 dark:text-success-400"
+                : "text-error-500 dark:text-error-400",
+            )}
+          >
+            {result.won ? `You guessed in ${result.guesses}/5` : "You missed this one"}
+          </div>
+
+          {result.guessIds && result.guessIds.length > 0 && (
+            <div className="mt-3 flex flex-col gap-1">
+              {result.guessIds.map((name, i) => {
+                const isCorrect = name.toLowerCase() === puzzle.state.name.toLowerCase()
+                const code = getStateByName(name)?.id
+                const stateShape = code ? STATE_PATHS[code] : undefined
+                return (
+                  <div
+                    key={i}
+                    className={clsx(
+                      "flex items-center gap-2 px-2 py-1 rounded border text-xs font-semibold uppercase tracking-wider",
+                      isCorrect
+                        ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
+                        : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400",
+                    )}
+                  >
+                    {stateShape ? (
+                      <svg
+                        viewBox={stateShape.viewBox}
+                        className="w-4 h-4 shrink-0"
+                        fill="currentColor"
+                        stroke="currentColor"
+                        strokeWidth={1}
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d={stateShape.d} />
+                      </svg>
+                    ) : (
+                      <span className="w-4 h-4 shrink-0" />
+                    )}
+                    <span>{name}</span>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="text-base font-bold text-primary-700 dark:text-primary-200 mt-1">
+            Not yet played
+          </div>
+          {canPlay && onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="mt-3 w-full px-4 py-2 text-sm font-semibold rounded bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 hover:opacity-90 transition-opacity uppercase tracking-wider"
+            >
+              Play this day
+            </button>
+          )}
+        </>
       )}
     </div>
   )
@@ -197,11 +218,16 @@ function DayDetail({ puzzle, result }: DayDetailProps) {
 interface ColorsCalendarProps {
   onClose?: () => void
   variant?: ColorsVariant
+  onPlayArchive?: (dateKey: string) => void
+  /** Bump to force a re-read of saved history (e.g. after an archive play). */
+  historyVersion?: number
 }
 
 export default function ColorsCalendar({
   onClose,
   variant = "pro",
+  onPlayArchive,
+  historyVersion = 0,
 }: ColorsCalendarProps = {}) {
   const navigate = useNavigate()
   const today = parseDateKey(getTodayKey())
@@ -212,7 +238,7 @@ export default function ColorsCalendar({
     const map = new Map<string, ColorsResult>()
     for (const r of getColorsHistory(variant)) map.set(r.date, r)
     return map
-  }, [variant])
+  }, [variant, historyVersion])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
   const selectedPuzzle = useMemo(
@@ -220,6 +246,9 @@ export default function ColorsCalendar({
     [selected, variant],
   )
   const selectedResult = history.get(selected)
+  const selectedDate = useMemo(() => parseDateKey(selected), [selected])
+  const selectedIsFuture = selectedDate.getTime() > today.getTime()
+  const selectedIsBeforeEpoch = selectedDate.getTime() < EPOCH.getTime()
 
   function goPrevMonth() {
     setView(v => {
@@ -302,7 +331,8 @@ export default function ColorsCalendar({
               const isSelected = key === selected
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
-              const cellPuzzle = !disabled ? getColorsPuzzleByDateKey(key, variant) : null
+              // Only reveal the state shape on cells the user has actually played.
+              const cellPuzzle = !disabled && result ? getColorsPuzzleByDateKey(key, variant) : null
               const cellShape = cellPuzzle ? STATE_PATHS[cellPuzzle.state.id] : undefined
               return (
                 <button
@@ -343,13 +373,15 @@ export default function ColorsCalendar({
                   {result && !disabled && (
                     <span
                       className={clsx(
-                        "relative z-10 w-1.5 h-1.5 rounded-full",
+                        "relative z-10 min-w-[1rem] px-1 text-[10px] leading-4 font-black rounded",
                         result.won
-                          ? "bg-success-500 dark:bg-success-400"
-                          : "bg-error-500 dark:bg-error-400",
+                          ? "bg-success-500/90 text-primary-50 dark:bg-success-400 dark:text-primary-900"
+                          : "bg-error-500/90 text-primary-50 dark:bg-error-400 dark:text-primary-900",
                       )}
-                      aria-hidden="true"
-                    />
+                      aria-label={result.won ? `Won in ${result.guesses}` : "Lost"}
+                    >
+                      {result.won ? result.guesses : "X"}
+                    </span>
                   )}
                 </button>
               )
@@ -359,6 +391,8 @@ export default function ColorsCalendar({
           <DayDetail
             puzzle={selectedPuzzle}
             result={selectedResult}
+            canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
+            onPlay={onPlayArchive ? () => onPlayArchive(selected) : undefined}
           />
         </div>
       </div>

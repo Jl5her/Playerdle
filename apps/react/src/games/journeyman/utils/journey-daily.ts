@@ -172,6 +172,8 @@ export interface JourneyResult {
   won: boolean
   guesses: number
   guessIds?: string[]
+  /** True when played from the archive after the puzzle's date. Excluded from streak math. */
+  archive?: boolean
 }
 
 export function getJourneyHistory(league: JourneyLeague): JourneyResult[] {
@@ -193,10 +195,17 @@ export function saveJourneyResult(
   guessIds?: string[],
 ) {
   migrateLegacyIfNeeded()
+  const archive = date !== getTodayKey()
   const history = getJourneyHistory(league)
   const idx = history.findIndex(r => r.date === date)
   const existing = idx >= 0 ? history[idx] : undefined
-  const result: JourneyResult = { date, won, guesses, guessIds: guessIds ?? existing?.guessIds }
+  const result: JourneyResult = {
+    date,
+    won,
+    guesses,
+    guessIds: guessIds ?? existing?.guessIds,
+    archive: archive || existing?.archive,
+  }
   if (idx >= 0) history[idx] = result
   else history.push(result)
   localStorage.setItem(historyKey(league), JSON.stringify(history))
@@ -225,9 +234,10 @@ export function calculateJourneyStats(league: JourneyLeague): JourneyStats {
       guessDistribution[r.guesses] += 1
     }
   }
-  const sorted = [...history].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-  )
+  // Archive plays (replayed after the day) don't count toward streaks.
+  const sorted = history
+    .filter(r => !r.archive)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   let currentStreak = 0
   let maxStreak = 0
   let tempStreak = 0
