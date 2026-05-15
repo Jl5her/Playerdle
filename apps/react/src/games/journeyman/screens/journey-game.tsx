@@ -48,11 +48,6 @@ interface Props {
   archiveDateKey?: string
 }
 
-interface SavedState {
-  dateKey: string
-  guesses: string[]
-}
-
 interface PlayerOption {
   name: string
   position: string
@@ -86,25 +81,27 @@ function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
   return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function storageKey(league: JourneyLeague): string {
-  return `${STORAGE_KEY_PREFIX}:${league}`
+function storageKey(league: JourneyLeague, dateKey: string): string {
+  return `${STORAGE_KEY_PREFIX}:${league}:${dateKey}`
 }
 
 function loadDailyGuesses(league: JourneyLeague, dateKey: string): string[] {
   try {
-    const raw = localStorage.getItem(storageKey(league))
+    const raw = localStorage.getItem(storageKey(league, dateKey))
     if (!raw) return []
-    const parsed = JSON.parse(raw) as SavedState
-    if (parsed.dateKey !== dateKey) return []
-    return Array.isArray(parsed.guesses) ? parsed.guesses : []
+    // Per-date storage stores the array directly. Older versions wrapped it
+    // in { dateKey, guesses } — accept either shape so in-flight games from
+    // before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guesses) ? parsed.guesses : []
   } catch {
     return []
   }
 }
 
 function saveDailyGuesses(league: JourneyLeague, dateKey: string, guesses: string[]) {
-  const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(storageKey(league), JSON.stringify(state))
+  localStorage.setItem(storageKey(league, dateKey), JSON.stringify(guesses))
 }
 
 function shadeHex(hex: string, amount: number): string {
@@ -669,7 +666,7 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     return getArcadeJourneyPuzzle(league)
   })
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" && !isArchive ? loadDailyGuesses(league, dateKey) : [],
+    mode === "daily" ? loadDailyGuesses(league, dateKey) : [],
   )
 
   const answerName = puzzle.player.name
@@ -751,7 +748,7 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     if (usedGuessesLower.has(name.toLowerCase())) return
     const next = [...guesses, name]
     setGuesses(next)
-    if (activeMode === "daily" && !isArchive) saveDailyGuesses(league, dateKey, next)
+    if (activeMode === "daily") saveDailyGuesses(league, dateKey, next)
   }
 
   function handlePlayAgain() {

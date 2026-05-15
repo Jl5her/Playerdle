@@ -41,30 +41,27 @@ interface Props {
   archiveDateKey?: string
 }
 
-interface SavedState {
-  dateKey: string
-  guessIds: string[]
-}
-
-function getStorageKey(sportId: string, variantId?: string): string {
-  return `playerdle-state:${sportId}:${variantId ?? "classic"}`
+function getStorageKey(sportId: string, dateKey: string, variantId?: string): string {
+  return `playerdle-state:${sportId}:${variantId ?? "classic"}:${dateKey}`
 }
 
 function loadState(sportId: string, dateKey: string, variantId?: string): string[] {
   try {
-    const raw = localStorage.getItem(getStorageKey(sportId, variantId))
+    const raw = localStorage.getItem(getStorageKey(sportId, dateKey, variantId))
     if (!raw) return []
-    const parsed: SavedState = JSON.parse(raw)
-    if (parsed.dateKey !== dateKey) return []
-    return parsed.guessIds ?? []
+    // Per-date storage stores the array directly. Older versions wrapped
+    // it in { dateKey, guessIds } — accept either shape so in-flight games
+    // from before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guessIds) ? parsed.guessIds : []
   } catch {
     return []
   }
 }
 
 function saveState(sportId: string, dateKey: string, guessIds: string[], variantId?: string) {
-  const state: SavedState = { dateKey, guessIds }
-  localStorage.setItem(getStorageKey(sportId, variantId), JSON.stringify(state))
+  localStorage.setItem(getStorageKey(sportId, dateKey, variantId), JSON.stringify(guessIds))
 }
 
 function restoreGuesses(players: Player[], ids: string[]): Player[] {
@@ -83,18 +80,15 @@ function getInitialGuesses(
   variantId: string | undefined,
   archiveDateKey: string | undefined,
 ): Player[] {
-  // Archive plays start fresh — we don't persist mid-game state to avoid
-  // colliding with today's daily storage.
-  if (archiveDateKey) return []
   if (mode === "daily") {
-    const savedIds = loadState(sport.id, getTodayKey(), variantId)
+    const dateKey = archiveDateKey ?? getTodayKey()
+    const savedIds = loadState(sport.id, dateKey, variantId)
     return savedIds.length > 0 ? restoreGuesses(sport.players, savedIds) : []
   }
   return []
 }
 
 export default function Game({ mode, sport, variantId, onBackToToday, archiveDateKey }: Props) {
-  const isArchive = !!archiveDateKey
   const [activeMode, setActiveMode] = useState<GameMode>(mode)
   const [answer, setAnswer] = useState<Player | null>(() => {
     if (mode === "daily") {
@@ -166,7 +160,7 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
     const newGuesses = [...guesses, player]
     setGuesses(newGuesses)
     setLatestIndex(newGuesses.length - 1)
-    if (activeMode === "daily" && !isArchive) {
+    if (activeMode === "daily") {
       saveState(
         sport.id,
         dateKey,

@@ -34,10 +34,10 @@ import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
 
-function storageKeyFor(variant: ColorsVariant): string {
-  return variant === "collegiate"
-    ? "playerdle-colors-collegiate-state:v1"
-    : "playerdle-colors-state:v1"
+function storageKeyFor(variant: ColorsVariant, dateKey: string): string {
+  const base =
+    variant === "collegiate" ? "playerdle-colors-collegiate-state:v1" : "playerdle-colors-state:v1"
+  return `${base}:${dateKey}`
 }
 
 export type ColorsGameMode = "daily" | "arcade"
@@ -54,26 +54,23 @@ interface Props {
   archiveDateKey?: string
 }
 
-interface SavedState {
-  dateKey: string
-  guesses: string[]
-}
-
 function loadDailyGuesses(dateKey: string, variant: ColorsVariant): string[] {
   try {
-    const raw = localStorage.getItem(storageKeyFor(variant))
+    const raw = localStorage.getItem(storageKeyFor(variant, dateKey))
     if (!raw) return []
-    const parsed = JSON.parse(raw) as SavedState
-    if (parsed.dateKey !== dateKey) return []
-    return parsed.guesses ?? []
+    // Per-date storage stores the array directly. Older versions wrapped it
+    // in { dateKey, guesses } — accept either shape so in-flight games from
+    // before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guesses) ? parsed.guesses : []
   } catch {
     return []
   }
 }
 
 function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVariant) {
-  const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(storageKeyFor(variant), JSON.stringify(state))
+  localStorage.setItem(storageKeyFor(variant, dateKey), JSON.stringify(guesses))
 }
 
 function shadeHex(hex: string, amount: number): string {
@@ -650,7 +647,7 @@ export default function ColorsGame({
     return getArcadeColorsPuzzle(undefined, variant)
   })
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" && !isArchive ? loadDailyGuesses(dateKey, variant) : [],
+    mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
   )
 
   const [hideAnswer, setHideAnswer] = useState(false)
@@ -701,7 +698,7 @@ export default function ColorsGame({
     if (usedGuessesLower.has(stateName.toLowerCase())) return
     const next = [...guesses, stateName]
     setGuesses(next)
-    if (activeMode === "daily" && !isArchive) saveDailyGuesses(dateKey, next, variant)
+    if (activeMode === "daily") saveDailyGuesses(dateKey, next, variant)
   }
 
   function handlePlayAgain() {
