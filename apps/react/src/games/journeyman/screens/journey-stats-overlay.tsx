@@ -1,12 +1,16 @@
 import clsx from "clsx"
-import { calculateJourneyStats } from "@/games/journeyman/utils/journey-daily"
+import {
+  calculateJourneyStats,
+  type JourneyLeague,
+} from "@/games/journeyman/utils/journey-daily"
 
 interface Props {
+  league: JourneyLeague
   className?: string
 }
 
-export default function JourneyStatsOverlay({ className }: Props) {
-  const stats = calculateJourneyStats()
+export default function JourneyStatsOverlay({ league, className }: Props) {
+  const stats = calculateJourneyStats(league)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (

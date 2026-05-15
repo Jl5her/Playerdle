@@ -1,9 +1,18 @@
-import { ELIGIBLE_JOURNEY_PLAYERS, getJourneyPlayerById, type JourneyPlayer } from "@playerdle/data/journeyman/players"
+import {
+  getLeagueJourneyData,
+  isJourneyLeague,
+  type JourneyLeague,
+  type JourneyPlayer,
+} from "@playerdle/data/journeyman/leagues"
 import { hashString } from "@/shared/utils/daily-select"
 import { getDateKey, getTodayKey } from "@/shared/utils/time"
-import JOURNEY_ANSWER_POOL from "@playerdle/data/journeyman/answer_pool.json"
 
 const MAX_GUESSES = 5
+
+export type { JourneyLeague, JourneyPlayer }
+export { isJourneyLeague }
+
+export const JOURNEY_EPOCH_DATE_KEY = "2025-01-01"
 
 function previousDateKey(dateKey: string): string | undefined {
   const [y, m, d] = dateKey.split("-").map(Number)
@@ -16,57 +25,71 @@ function previousDateKey(dateKey: string): string | undefined {
   return `${yy}-${mm}-${dd}`
 }
 
-// Candidate set: resolved JourneyPlayers from the answer pool. Built once.
-// The min-hash selection below is independent of array order, so additions or
-// reorderings of JOURNEY_ANSWER_POOL never shift the date → player mapping for
-// any other id — only the dates where the changed id was previously the min.
-const DAILY_CANDIDATES: JourneyPlayer[] = (() => {
+interface LeagueRuntime {
+  candidates: JourneyPlayer[]
+  byId: Map<string, JourneyPlayer>
+  cache: Map<string, JourneyPlayer>
+}
+
+const runtimes = new Map<JourneyLeague, LeagueRuntime>()
+
+function getRuntime(league: JourneyLeague): LeagueRuntime {
+  const existing = runtimes.get(league)
+  if (existing) return existing
+  const data = getLeagueJourneyData(league)
+  const byId = new Map(data.players.map(p => [p.id, p]))
   const seen = new Set<string>()
-  const out: JourneyPlayer[] = []
-  for (const id of JOURNEY_ANSWER_POOL) {
+  const candidates: JourneyPlayer[] = []
+  for (const id of data.answerPool) {
     if (seen.has(id)) continue
-    const player = getJourneyPlayerById(id)
+    const player = byId.get(id)
     if (player) {
-      out.push(player)
+      candidates.push(player)
       seen.add(id)
     }
   }
-  if (out.length === 0) return [...ELIGIBLE_JOURNEY_PLAYERS]
-  return out
-})()
+  if (candidates.length === 0) {
+    candidates.push(...data.eligiblePlayers)
+  }
+  const runtime: LeagueRuntime = {
+    candidates,
+    byId,
+    cache: new Map(),
+  }
+  runtimes.set(league, runtime)
+  return runtime
+}
 
-function rankPlayersByHash(dateKey: string): JourneyPlayer[] {
-  return DAILY_CANDIDATES.map(p => ({ p, h: hashString(`journey-player:${dateKey}:${p.id}`) }))
+function rankPlayersByHash(league: JourneyLeague, dateKey: string): JourneyPlayer[] {
+  const { candidates } = getRuntime(league)
+  return candidates
+    .map(p => ({ p, h: hashString(`journey-player:${league}:${dateKey}:${p.id}`) }))
     .sort((a, b) => (a.h !== b.h ? a.h - b.h : a.p.id < b.p.id ? -1 : 1))
     .map(x => x.p)
 }
-
-const playerForDateCache = new Map<string, JourneyPlayer>()
 
 function conflictsWithYesterday(candidate: JourneyPlayer, yesterday: JourneyPlayer): boolean {
   return candidate.id === yesterday.id || candidate.position === yesterday.position
 }
 
-function pickPlayerForDate(dateKey: string): JourneyPlayer {
-  const cached = playerForDateCache.get(dateKey)
+function pickPlayerForDate(league: JourneyLeague, dateKey: string): JourneyPlayer {
+  const runtime = getRuntime(league)
+  const cached = runtime.cache.get(dateKey)
   if (cached) return cached
 
-  const ranked = rankPlayersByHash(dateKey)
+  const ranked = rankPlayersByHash(league, dateKey)
   let result = ranked[0]
   const yesterday = previousDateKey(dateKey)
   if (yesterday && yesterday >= JOURNEY_EPOCH_DATE_KEY) {
-    const yesterdayPick = pickPlayerForDate(yesterday)
-    // Avoid back-to-back same player or same position (QB/WR/RB/TE streaks).
+    const yesterdayPick = pickPlayerForDate(league, yesterday)
     if (conflictsWithYesterday(result, yesterdayPick)) {
       const alt = ranked.find(p => !conflictsWithYesterday(p, yesterdayPick))
       if (alt) result = alt
     }
   }
-  playerForDateCache.set(dateKey, result)
+  runtime.cache.set(dateKey, result)
   return result
 }
-
-export const JOURNEY_EPOCH_DATE_KEY = "2025-01-01"
 
 function daysSinceEpoch(dateKey: string): number {
   const [year, month, day] = dateKey.split("-").map(Number)
@@ -76,40 +99,72 @@ function daysSinceEpoch(dateKey: string): number {
   return Math.floor((target - epoch) / 86_400_000)
 }
 
-
 export interface JourneyPuzzle {
   player: JourneyPlayer
   dateKey: string
   index: number
+  league: JourneyLeague
 }
 
-export function getDailyJourneyPuzzle(date?: Date): JourneyPuzzle {
+export function getDailyJourneyPuzzle(league: JourneyLeague, date?: Date): JourneyPuzzle {
   const dateKey = date ? getDateKey(date) : getTodayKey()
-  return getJourneyPuzzleByDateKey(dateKey)
+  return getJourneyPuzzleByDateKey(league, dateKey)
 }
 
-export function getJourneyPuzzleByDateKey(dateKey: string): JourneyPuzzle {
-  const player = pickPlayerForDate(dateKey)
-  return { player, dateKey, index: daysSinceEpoch(dateKey) + 1 }
+export function getJourneyPuzzleByDateKey(league: JourneyLeague, dateKey: string): JourneyPuzzle {
+  const player = pickPlayerForDate(league, dateKey)
+  return { player, dateKey, index: daysSinceEpoch(dateKey) + 1, league }
 }
 
-export function getArcadeJourneyPuzzle(excludeId?: string): JourneyPuzzle {
-  const pool = excludeId ? ELIGIBLE_JOURNEY_PLAYERS.filter(p => p.id !== excludeId) : ELIGIBLE_JOURNEY_PLAYERS
-  const player = pool[Math.floor(Math.random() * pool.length)] ?? ELIGIBLE_JOURNEY_PLAYERS[0]
-  return { player, dateKey: "arcade", index: 0 }
+export function getArcadeJourneyPuzzle(league: JourneyLeague, excludeId?: string): JourneyPuzzle {
+  const data = getLeagueJourneyData(league)
+  const pool = excludeId ? data.eligiblePlayers.filter(p => p.id !== excludeId) : data.eligiblePlayers
+  const player = pool[Math.floor(Math.random() * pool.length)] ?? data.eligiblePlayers[0]
+  return { player, dateKey: "arcade", index: 0, league }
 }
 
-// Daily-played flag + history + stats — mirrors colors-daily.ts
-
-const JOURNEY_PLAYED_KEY = "playerdle-journey-played-day"
-const JOURNEY_HISTORY_KEY = "playerdle-journey-history:v1"
-
-export function markJourneyDailyPlayed() {
-  localStorage.setItem(JOURNEY_PLAYED_KEY, getTodayKey())
+function playedKey(league: JourneyLeague): string {
+  return `playerdle-journey-played-day:${league}`
 }
 
-export function hasPlayedJourneyDailyToday(): boolean {
-  return localStorage.getItem(JOURNEY_PLAYED_KEY) === getTodayKey()
+function historyKey(league: JourneyLeague): string {
+  return `playerdle-journey-history:v1:${league}`
+}
+
+// Legacy localStorage keys (NFL-only era) — read once and migrate so existing
+// NFL streaks/history don't reset when the multi-league storage layout lands.
+const LEGACY_NFL_PLAYED_KEY = "playerdle-journey-played-day"
+const LEGACY_NFL_HISTORY_KEY = "playerdle-journey-history:v1"
+
+let migratedLegacy = false
+function migrateLegacyIfNeeded() {
+  if (migratedLegacy) return
+  migratedLegacy = true
+  if (typeof localStorage === "undefined") return
+  try {
+    const newPlayedKey = playedKey("nfl")
+    if (!localStorage.getItem(newPlayedKey)) {
+      const legacy = localStorage.getItem(LEGACY_NFL_PLAYED_KEY)
+      if (legacy) localStorage.setItem(newPlayedKey, legacy)
+    }
+    const newHistoryKey = historyKey("nfl")
+    if (!localStorage.getItem(newHistoryKey)) {
+      const legacy = localStorage.getItem(LEGACY_NFL_HISTORY_KEY)
+      if (legacy) localStorage.setItem(newHistoryKey, legacy)
+    }
+  } catch {
+    // ignore
+  }
+}
+
+export function markJourneyDailyPlayed(league: JourneyLeague) {
+  migrateLegacyIfNeeded()
+  localStorage.setItem(playedKey(league), getTodayKey())
+}
+
+export function hasPlayedJourneyDailyToday(league: JourneyLeague): boolean {
+  migrateLegacyIfNeeded()
+  return localStorage.getItem(playedKey(league)) === getTodayKey()
 }
 
 export interface JourneyResult {
@@ -118,9 +173,10 @@ export interface JourneyResult {
   guesses: number
 }
 
-export function getJourneyHistory(): JourneyResult[] {
+export function getJourneyHistory(league: JourneyLeague): JourneyResult[] {
+  migrateLegacyIfNeeded()
   try {
-    const raw = localStorage.getItem(JOURNEY_HISTORY_KEY)
+    const raw = localStorage.getItem(historyKey(league))
     if (!raw) return []
     return JSON.parse(raw) as JourneyResult[]
   } catch {
@@ -128,13 +184,19 @@ export function getJourneyHistory(): JourneyResult[] {
   }
 }
 
-export function saveJourneyResult(date: string, won: boolean, guesses: number) {
-  const history = getJourneyHistory()
+export function saveJourneyResult(
+  league: JourneyLeague,
+  date: string,
+  won: boolean,
+  guesses: number,
+) {
+  migrateLegacyIfNeeded()
+  const history = getJourneyHistory(league)
   const idx = history.findIndex(r => r.date === date)
   const result: JourneyResult = { date, won, guesses }
   if (idx >= 0) history[idx] = result
   else history.push(result)
-  localStorage.setItem(JOURNEY_HISTORY_KEY, JSON.stringify(history))
+  localStorage.setItem(historyKey(league), JSON.stringify(history))
 }
 
 export interface JourneyStats {
@@ -145,8 +207,8 @@ export interface JourneyStats {
   guessDistribution: Record<number, number>
 }
 
-export function calculateJourneyStats(): JourneyStats {
-  const history = getJourneyHistory()
+export function calculateJourneyStats(league: JourneyLeague): JourneyStats {
+  const history = getJourneyHistory(league)
   if (history.length === 0) {
     return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {} }
   }

@@ -18,7 +18,7 @@ const ROOT = resolve(__dirname, "..")
 const DATA_ROOT = resolve(ROOT, "packages/data/src")
 
 async function main() {
-  const poolPath = resolve(DATA_ROOT, "journeyman/answer_pool.json")
+  const poolPath = resolve(DATA_ROOT, "journeyman/nfl-answer-pool.json")
 
   const { ELIGIBLE_JOURNEY_PLAYERS } = await import("../packages/data/src/journeyman/players.ts")
   const currentPool: string[] = JSON.parse(readFileSync(poolPath, "utf-8"))
