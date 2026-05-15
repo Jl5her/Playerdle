@@ -56,9 +56,18 @@ interface DayDetailProps {
   guessedPlayers?: Player[]
   canPlay: boolean
   onPlay?: () => void
+  inProgressCount?: number
 }
 
-function DayDetail({ sport, player, result, guessedPlayers, canPlay, onPlay }: DayDetailProps) {
+function DayDetail({
+  sport,
+  player,
+  result,
+  guessedPlayers,
+  canPlay,
+  onPlay,
+  inProgressCount,
+}: DayDetailProps) {
   const played = !!result
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
@@ -98,6 +107,21 @@ function DayDetail({ sport, player, result, guessedPlayers, canPlay, onPlay }: D
                 columns={sport.columns}
               />
             </div>
+          )}
+        </>
+      ) : inProgressCount !== undefined ? (
+        <>
+          <div className="text-base font-bold text-warning-600 dark:text-warning-400 mt-1">
+            In progress · {inProgressCount}/6 guesses
+          </div>
+          {canPlay && onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="mt-3 w-full px-4 py-2 text-sm font-semibold rounded bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 hover:opacity-90 transition-opacity uppercase tracking-wider"
+            >
+              Continue
+            </button>
           )}
         </>
       ) : (
@@ -154,6 +178,30 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
     return map
   }, [sportId, variantId, archiveDateKey])
 
+  // Map of dateKey -> current guess count for any puzzles the player has
+  // started but not finished. Scans localStorage for keys matching the
+  // game's per-date storage prefix (kept in sync with game.tsx).
+  const inProgressDates = useMemo(() => {
+    const counts = new Map<string, number>()
+    if (typeof localStorage === "undefined") return counts
+    const prefix = `playerdle-state:${sportId}:${variantId ?? "classic"}:`
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i)
+      if (!k?.startsWith(prefix)) continue
+      const dateKey = k.slice(prefix.length)
+      try {
+        const raw = localStorage.getItem(k)
+        if (!raw) continue
+        const parsed = JSON.parse(raw)
+        const ids = Array.isArray(parsed) ? parsed : (parsed?.guessIds ?? [])
+        if (Array.isArray(ids) && ids.length > 0) counts.set(dateKey, ids.length)
+      } catch {
+        // ignore malformed entries
+      }
+    }
+    return counts
+  }, [sportId, variantId, archiveDateKey])
+
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
 
   const selectedDate = useMemo(() => {
@@ -187,6 +235,8 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
     month: "long",
     year: "numeric",
   })
+  const isAtCurrentMonth =
+    view.year === today.getFullYear() && view.month === today.getMonth()
 
   const menuPath = sportId === "nfl" ? "/" : `/${sportId}`
 
@@ -290,7 +340,13 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
             <button
               type="button"
               onClick={goNextMonth}
-              className="w-9 h-9 rounded-full inline-flex items-center justify-center text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+              disabled={isAtCurrentMonth}
+              className={clsx(
+                "w-9 h-9 rounded-full inline-flex items-center justify-center transition-colors",
+                isAtCurrentMonth
+                  ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
+                  : "text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80",
+              )}
               aria-label="Next month"
             >
               <FontAwesomeIcon icon={faChevronRight} />
@@ -313,6 +369,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
               const isSelected = key === selected
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
+              const inProgressCount = !result && !disabled ? inProgressDates.get(key) : undefined
               let cellPosition: string | undefined
               if (!disabled && sport && result) {
                 try {
@@ -365,6 +422,14 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                       {result.won ? result.guesses : "X"}
                     </span>
                   )}
+                  {inProgressCount !== undefined && (
+                    <span
+                      className="relative z-10 min-w-[1rem] px-1 text-[10px] leading-4 font-black rounded bg-warning-500/90 text-primary-50 dark:bg-warning-600 dark:text-primary-900"
+                      aria-label={`In progress, ${inProgressCount} guesses`}
+                    >
+                      {inProgressCount}
+                    </span>
+                  )}
                 </button>
               )
             })}
@@ -387,6 +452,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
                 guessedPlayers={guessedPlayers}
                 canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
                 onPlay={() => setArchiveDateKey(selected)}
+                inProgressCount={selectedResult ? undefined : inProgressDates.get(selected)}
               />
             )
           })()}

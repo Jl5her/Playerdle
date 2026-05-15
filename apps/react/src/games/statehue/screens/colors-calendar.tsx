@@ -88,9 +88,10 @@ interface DayDetailProps {
   result?: ColorsResult
   canPlay: boolean
   onPlay?: () => void
+  inProgressCount?: number
 }
 
-function DayDetail({ puzzle, result, canPlay, onPlay }: DayDetailProps) {
+function DayDetail({ puzzle, result, canPlay, onPlay, inProgressCount }: DayDetailProps) {
   const played = !!result
   const shape = STATE_PATHS[puzzle.state.id]
   return (
@@ -195,6 +196,21 @@ function DayDetail({ puzzle, result, canPlay, onPlay }: DayDetailProps) {
             </div>
           )}
         </>
+      ) : inProgressCount !== undefined ? (
+        <>
+          <div className="text-base font-bold text-warning-600 dark:text-warning-400 mt-1">
+            In progress · {inProgressCount}/5 guesses
+          </div>
+          {canPlay && onPlay && (
+            <button
+              type="button"
+              onClick={onPlay}
+              className="mt-3 w-full px-4 py-2 text-sm font-semibold rounded bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 hover:opacity-90 transition-opacity uppercase tracking-wider"
+            >
+              Continue
+            </button>
+          )}
+        </>
       ) : (
         <>
           <div className="text-base font-bold text-primary-700 dark:text-primary-200 mt-1">
@@ -240,6 +256,33 @@ export default function ColorsCalendar({
     return map
   }, [variant, historyVersion])
 
+  // Map of dateKey -> current guess count for any puzzles the player has
+  // started but not finished. Scans localStorage for keys matching the
+  // game's per-date storage prefix (kept in sync with colors-game.tsx).
+  const inProgressDates = useMemo(() => {
+    const counts = new Map<string, number>()
+    if (typeof localStorage === "undefined") return counts
+    const prefix =
+      (variant === "collegiate"
+        ? "playerdle-colors-collegiate-state:v1"
+        : "playerdle-colors-state:v1") + ":"
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i)
+      if (!k?.startsWith(prefix)) continue
+      const dateKey = k.slice(prefix.length)
+      try {
+        const raw = localStorage.getItem(k)
+        if (!raw) continue
+        const parsed = JSON.parse(raw)
+        const guesses = Array.isArray(parsed) ? parsed : (parsed?.guesses ?? [])
+        if (Array.isArray(guesses) && guesses.length > 0) counts.set(dateKey, guesses.length)
+      } catch {
+        // ignore malformed entries
+      }
+    }
+    return counts
+  }, [variant, historyVersion])
+
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
   const selectedPuzzle = useMemo(
     () => getColorsPuzzleByDateKey(selected, variant),
@@ -267,6 +310,8 @@ export default function ColorsCalendar({
     month: "long",
     year: "numeric",
   })
+  const isAtCurrentMonth =
+    view.year === today.getFullYear() && view.month === today.getMonth()
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
@@ -308,7 +353,13 @@ export default function ColorsCalendar({
             <button
               type="button"
               onClick={goNextMonth}
-              className="w-9 h-9 rounded-full inline-flex items-center justify-center text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+              disabled={isAtCurrentMonth}
+              className={clsx(
+                "w-9 h-9 rounded-full inline-flex items-center justify-center transition-colors",
+                isAtCurrentMonth
+                  ? "text-primary-300/50 dark:text-primary-700/50 cursor-not-allowed"
+                  : "text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80",
+              )}
               aria-label="Next month"
             >
               <FontAwesomeIcon icon={faChevronRight} />
@@ -331,6 +382,7 @@ export default function ColorsCalendar({
               const isSelected = key === selected
               const isToday = key === formatDateKey(today)
               const result = history.get(key)
+              const inProgressCount = !result && !disabled ? inProgressDates.get(key) : undefined
               // Only reveal the state shape on cells the user has actually played.
               const cellPuzzle = !disabled && result ? getColorsPuzzleByDateKey(key, variant) : null
               const cellShape = cellPuzzle ? STATE_PATHS[cellPuzzle.state.id] : undefined
@@ -383,6 +435,14 @@ export default function ColorsCalendar({
                       {result.won ? result.guesses : "X"}
                     </span>
                   )}
+                  {inProgressCount !== undefined && (
+                    <span
+                      className="relative z-10 min-w-[1rem] px-1 text-[10px] leading-4 font-black rounded bg-warning-500/90 text-primary-50 dark:bg-warning-600 dark:text-primary-900"
+                      aria-label={`In progress, ${inProgressCount} guesses`}
+                    >
+                      {inProgressCount}
+                    </span>
+                  )}
                 </button>
               )
             })}
@@ -393,6 +453,7 @@ export default function ColorsCalendar({
             result={selectedResult}
             canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
             onPlay={onPlayArchive ? () => onPlayArchive(selected) : undefined}
+            inProgressCount={selectedResult ? undefined : inProgressDates.get(selected)}
           />
         </div>
       </div>
