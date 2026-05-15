@@ -161,7 +161,8 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
           onBack={() => setArchiveDateKey(null)}
           onShowTutorial={archiveGuideOpen ? undefined : () => setArchiveGuideOpen(true)}
         />
-        <div className="flex flex-1 min-h-0 overflow-hidden relative pt-[3.75rem]">
+        <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
+          <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
           <div
             className={clsx(
               "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
@@ -189,6 +190,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
               />
             </div>
           </ResultsSlidePanel>
+          </div>
         </div>
       </div>
     )
@@ -201,7 +203,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   return (
     <ArchiveCalendar
       title={`${sportMeta.displayName} Archive`}
-      onBack={() => navigate(menuPath)}
+      onClose={() => navigate(menuPath)}
       epoch={PLAYER_EPOCH}
       history={history}
       inProgress={inProgressDates}
