@@ -2,6 +2,7 @@ import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import nbaPlayers from "@playerdle/data/playerdle/nba/players.json"
 import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
+import nhlPlayers from "@playerdle/data/playerdle/nhl/players.json"
 import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
@@ -58,6 +59,7 @@ const LEAGUE_PLAYER_SOURCES: Record<
 > = {
   nfl: nflPlayers as Array<{ name: string; position: string }>,
   nba: nbaPlayers as Array<{ name: string; position: string }>,
+  nhl: nhlPlayers as Array<{ name: string; position: string }>,
 }
 
 function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
