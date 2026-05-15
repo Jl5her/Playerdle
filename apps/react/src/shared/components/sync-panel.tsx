@@ -2,15 +2,23 @@ import { faCheck, faCopy, faRotate } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
 import {
-  getOrCreatePassphrase,
+  clearPassphrase,
+  createPassphrase,
+  extendLocalExpiry,
+  getExpiresAt,
+  getPassphrase,
+  isLocallyExpired,
   normalizePassphrase,
   pullFromCloud,
   pushToCloud,
   restoreSyncData,
   setPassphrase,
+  SYNC_TTL_DAYS,
 } from "@/shared/utils/sync"
 
-type Status =
+type PanelView = "no-code" | "checking-expiry" | "expired" | "active"
+
+type ActionStatus =
   | { type: "idle" }
   | { type: "saving" }
   | { type: "save-ok" }
@@ -20,22 +28,69 @@ type Status =
   | { type: "import-ok" }
   | { type: "import-err"; message: string }
 
+function daysLeft(expiresAt: Date): number {
+  return Math.max(0, Math.ceil((expiresAt.getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+}
+
 export default function SyncPanel() {
+  const [view, setView] = useState<PanelView>("no-code")
   const [passphrase, setLocalPassphrase] = useState("")
+  const [expiresAt, setExpiresAt] = useState<Date | null>(null)
   const [copied, setCopied] = useState(false)
   const [importInput, setImportInput] = useState("")
-  const [status, setStatus] = useState<Status>({ type: "idle" })
+  const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
-    setLocalPassphrase(getOrCreatePassphrase())
+    const phrase = getPassphrase()
+    if (!phrase) {
+      setView("no-code")
+      return
+    }
+    setLocalPassphrase(phrase)
+
+    if (!isLocallyExpired()) {
+      setExpiresAt(getExpiresAt())
+      setView("active")
+      return
+    }
+
+    // Local timer says expired — verify with cloud before wiping
+    setView("checking-expiry")
+    pullFromCloud(phrase)
+      .then(() => {
+        // Cloud still has data; another device must have extended the TTL
+        extendLocalExpiry()
+        setExpiresAt(getExpiresAt())
+        setView("active")
+      })
+      .catch(err => {
+        // 404 or network error → treat as expired
+        const is404 = err instanceof Error && err.message.includes("No data found")
+        if (is404) {
+          clearPassphrase()
+          setView("expired")
+        } else {
+          // Network failure — can't confirm; assume still valid to avoid false wipes
+          extendLocalExpiry()
+          setExpiresAt(getExpiresAt())
+          setView("active")
+        }
+      })
   }, [])
+
+  function handleGenerate() {
+    const phrase = createPassphrase()
+    setLocalPassphrase(phrase)
+    setExpiresAt(null)
+    setView("active")
+    setStatus({ type: "idle" })
+  }
 
   const words = passphrase.split("-")
 
   function handleCopy() {
-    const display = words.join(" ")
-    navigator.clipboard.writeText(display).then(() => {
+    navigator.clipboard.writeText(words.join(" ")).then(() => {
       setCopied(true)
       if (copiedTimer.current) clearTimeout(copiedTimer.current)
       copiedTimer.current = setTimeout(() => setCopied(false), 2000)
@@ -46,6 +101,7 @@ export default function SyncPanel() {
     setStatus({ type: "saving" })
     try {
       await pushToCloud(passphrase)
+      setExpiresAt(getExpiresAt())
       setStatus({ type: "save-ok" })
     } catch (e) {
       setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
@@ -84,7 +140,9 @@ export default function SyncPanel() {
       const payload = await pullFromCloud(phrase)
       restoreSyncData(payload)
       setPassphrase(phrase)
+      extendLocalExpiry()
       setLocalPassphrase(phrase)
+      setExpiresAt(getExpiresAt())
       setImportInput("")
       setStatus({ type: "import-ok" })
     } catch {
@@ -92,12 +150,67 @@ export default function SyncPanel() {
     }
   }, [status])
 
-  function reset() {
+  function resetStatus() {
     setStatus({ type: "idle" })
   }
 
   const isLoading = status.type === "saving" || status.type === "importing"
 
+  // ── No code yet ──────────────────────────────────────────────────────────────
+  if (view === "no-code") {
+    return (
+      <div className="flex flex-col gap-4 pt-1">
+        <p className="text-sm text-primary-600 dark:text-primary-300">
+          Sync your game progress across devices without signing in. A 5-word code links your
+          devices. Codes expire {SYNC_TTL_DAYS} days after last use.
+        </p>
+        <button
+          type="button"
+          onClick={handleGenerate}
+          className="self-start px-5 py-2.5 rounded-md font-bold text-sm bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+        >
+          Generate Sync Code
+        </button>
+      </div>
+    )
+  }
+
+  // ── Checking expiry ───────────────────────────────────────────────────────────
+  if (view === "checking-expiry") {
+    return (
+      <div className="flex flex-col gap-3 pt-1">
+        <p className="text-sm text-primary-500 dark:text-primary-400 animate-pulse">
+          Checking sync status…
+        </p>
+      </div>
+    )
+  }
+
+  // ── Expired ───────────────────────────────────────────────────────────────────
+  if (view === "expired") {
+    return (
+      <div className="flex flex-col gap-4 pt-1">
+        <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+          <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+            Your sync code expired
+          </p>
+          <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
+            Cloud data is deleted {SYNC_TTL_DAYS} days after last use. Your progress on this device
+            is untouched.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={handleGenerate}
+          className="self-start px-5 py-2.5 rounded-md font-bold text-sm bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+        >
+          Generate New Code
+        </button>
+      </div>
+    )
+  }
+
+  // ── Active ────────────────────────────────────────────────────────────────────
   return (
     <div className="flex flex-col gap-5 pt-1">
       {/* Your code */}
@@ -115,9 +228,11 @@ export default function SyncPanel() {
             </span>
           ))}
         </div>
-        <p className="text-xs text-primary-500 dark:text-primary-400">
-          Share this code with your other device to sync progress.
-        </p>
+        {expiresAt && (
+          <p className="text-xs text-primary-500 dark:text-primary-400">
+            Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
+          </p>
+        )}
         <div className="flex gap-2 mt-1">
           <button
             type="button"
@@ -142,7 +257,7 @@ export default function SyncPanel() {
         </div>
         {status.type === "save-ok" && (
           <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-            Saved! Your progress is backed up.
+            Saved! Progress backed up for {SYNC_TTL_DAYS} days.
           </p>
         )}
         {status.type === "save-err" && (
@@ -175,7 +290,7 @@ export default function SyncPanel() {
               </button>
               <button
                 type="button"
-                onClick={reset}
+                onClick={resetStatus}
                 className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
               >
                 Cancel
@@ -193,7 +308,7 @@ export default function SyncPanel() {
               value={importInput}
               onChange={e => {
                 setImportInput(e.target.value)
-                if (status.type === "import-err") reset()
+                if (status.type === "import-err") resetStatus()
               }}
               placeholder="hawk wolf bear deer fox"
               className="w-full px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"

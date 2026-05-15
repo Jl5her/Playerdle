@@ -1,0 +1,47 @@
+name: Cleanup Expired Sync Data
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # Daily at midnight UTC
+  workflow_dispatch: # Allow manual runs
+
+jobs:
+  cleanup:
+    name: Delete expired KV keys
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete expired sync keys
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_KV_NAMESPACE_ID: ${{ secrets.CF_KV_NAMESPACE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          # Fetch all keys. Cloudflare returns up to 1000 per page; for a
+          # small app a single page is almost always sufficient.
+          RESPONSE=$(curl -s -X GET \
+            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/keys?limit=1000" \
+            -H "Authorization: Bearer ${CF_API_TOKEN}")
+
+          echo "Keys response received"
+
+          # Extract names of keys whose expiration timestamp is in the past.
+          # .expiration is a Unix timestamp in seconds; jq's now is fractional seconds.
+          EXPIRED=$(echo "$RESPONSE" | jq -r \
+            '.result[] | select(.expiration != null and .expiration < (now | floor)) | .name')
+
+          if [ -z "$EXPIRED" ]; then
+            echo "No expired keys to delete."
+            exit 0
+          fi
+
+          COUNT=0
+          while IFS= read -r KEY; do
+            [ -z "$KEY" ] && continue
+            echo "Deleting: $KEY"
+            curl -s -X DELETE \
+              "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/values/${KEY}" \
+              -H "Authorization: Bearer ${CF_API_TOKEN}" > /dev/null
+            COUNT=$((COUNT + 1))
+          done <<< "$EXPIRED"
+
+          echo "Deleted ${COUNT} expired key(s)."

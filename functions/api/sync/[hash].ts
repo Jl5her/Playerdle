@@ -20,8 +20,8 @@ const CORS = {
   "Access-Control-Allow-Headers": "Content-Type",
 }
 
-const MAX_BYTES = 2_000_000 // 2MB
-const TTL_SECONDS = 60 * 60 * 24 * 365 // 1 year
+const MAX_BYTES = 2_000_000
+const TTL_SECONDS = 7 * 24 * 60 * 60 // 7 days; reset on every read or write
 
 export async function onRequest(context: PagesContext): Promise<Response> {
   const { request, params, env } = context
@@ -44,6 +44,8 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     if (!value) {
       return new Response("Not found", { status: 404, headers: CORS })
     }
+    // Bump TTL so the 7-day window resets on every import
+    await env.SYNC_KV.put(hash, value, { expirationTtl: TTL_SECONDS })
     return new Response(value, {
       headers: { ...CORS, "Content-Type": "application/json" },
     })

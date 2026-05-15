@@ -1,6 +1,9 @@
 import { WORDLIST } from "./wordlist"
 
 const PASSPHRASE_KEY = "playerdle-sync-passphrase"
+const EXPIRES_AT_KEY = "playerdle-sync-expires-at"
+
+export const SYNC_TTL_DAYS = 7
 const PASSPHRASE_WORD_COUNT = 5
 
 const SYNC_KEY_PREFIXES = [
@@ -26,20 +29,58 @@ export function generatePassphrase(): string {
   return words.join("-")
 }
 
-export function getOrCreatePassphrase(): string {
+export function getPassphrase(): string | null {
   try {
-    const stored = localStorage.getItem(PASSPHRASE_KEY)
-    if (stored) return stored
-    const phrase = generatePassphrase()
-    localStorage.setItem(PASSPHRASE_KEY, phrase)
-    return phrase
+    return localStorage.getItem(PASSPHRASE_KEY)
   } catch {
-    return generatePassphrase()
+    return null
   }
+}
+
+export function createPassphrase(): string {
+  const phrase = generatePassphrase()
+  try {
+    localStorage.setItem(PASSPHRASE_KEY, phrase)
+  } catch {
+    // ignore storage errors
+  }
+  return phrase
 }
 
 export function setPassphrase(phrase: string): void {
   localStorage.setItem(PASSPHRASE_KEY, phrase)
+}
+
+export function clearPassphrase(): void {
+  localStorage.removeItem(PASSPHRASE_KEY)
+  localStorage.removeItem(EXPIRES_AT_KEY)
+}
+
+export function getExpiresAt(): Date | null {
+  try {
+    const raw = localStorage.getItem(EXPIRES_AT_KEY)
+    if (!raw) return null
+    const ts = parseInt(raw, 10)
+    if (Number.isNaN(ts)) return null
+    return new Date(ts)
+  } catch {
+    return null
+  }
+}
+
+function storeLocalExpiry(): void {
+  const ms = SYNC_TTL_DAYS * 24 * 60 * 60 * 1000
+  localStorage.setItem(EXPIRES_AT_KEY, String(Date.now() + ms))
+}
+
+export function extendLocalExpiry(): void {
+  storeLocalExpiry()
+}
+
+export function isLocallyExpired(): boolean {
+  const expiresAt = getExpiresAt()
+  if (!expiresAt) return false
+  return expiresAt.getTime() < Date.now()
 }
 
 export async function hashPassphrase(phrase: string): Promise<string> {
@@ -88,6 +129,7 @@ export async function pushToCloud(phrase: string): Promise<void> {
     body: JSON.stringify(payload),
   })
   if (!res.ok) throw new Error("Failed to save to cloud")
+  storeLocalExpiry()
 }
 
 export async function pullFromCloud(phrase: string): Promise<SyncPayload> {
