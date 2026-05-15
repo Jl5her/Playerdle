@@ -24,7 +24,7 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, PWAUpdateToast, ResultsSlidePanel } from "@/shared/components"
+import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -353,52 +353,28 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       />
                     )}
                   </div>
-                  <ResultsSlidePanel
-                    open={panels.isOpen("guide")}
-                    onClose={handleCloseTutorial}
-                    title="How to Play"
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                      <GameGuideContent
-                        sport={activeSport}
-                        mode={gameGuideMode}
-                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                        onOpenCalendar={() => panels.push("calendar")}
-                      />
-                    </div>
-                  </ResultsSlidePanel>
-                  <ResultsSlidePanel
-                    open={panels.isOpen("stats")}
-                    onClose={panels.pop}
-                    title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-                      <StatsContent
-                        {...statsModalConfig}
-                        sport={activeSport}
-                        variantId={activeVariantId}
-                        onViewArchive={() => panels.push("calendar")}
-                      />
-                    </div>
-                  </ResultsSlidePanel>
-                  <ResultsSlidePanel
-                    open={panels.isOpen("archive-guide")}
-                    onClose={panels.pop}
-                    title="How to Play"
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                      <GameGuideContent
-                        sport={activeSport}
-                        mode="manual"
-                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                      />
-                    </div>
-                  </ResultsSlidePanel>
-                  <ResultsSlidePanel
-                    open={panels.isOpen("calendar")}
-                    onClose={panels.pop}
-                    title={`${sportMeta.displayName} Archive`}
-                  >
+                  <Panel open={panels.isOpen("guide")} onClose={handleCloseTutorial} title="How to Play">
+                    <GameGuideContent
+                      sport={activeSport}
+                      mode={gameGuideMode}
+                      onOpenCalendar={() => panels.push("calendar")}
+                    />
+                  </Panel>
+                  <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
+                    <StatsContent
+                      {...statsModalConfig}
+                      sport={activeSport}
+                      variantId={activeVariantId}
+                      onViewArchive={() => panels.push("calendar")}
+                    />
+                  </Panel>
+                  <Panel open={panels.isOpen("archive-guide")} onClose={panels.pop} title="How to Play">
+                    <GameGuideContent
+                      sport={activeSport}
+                      mode="manual"
+                    />
+                  </Panel>
+                  <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={`${sportMeta.displayName} Archive`} layout="full">
                     <Suspense fallback={<div className="flex-1 min-h-0" />}>
                       <PlayerCalendar
                         panel
@@ -407,7 +383,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                         historyVersion={calendarHistoryVersion}
                       />
                     </Suspense>
-                  </ResultsSlidePanel>
+                  </Panel>
                 </div>
               )}
               {screen === "arcade" && activeSport && (

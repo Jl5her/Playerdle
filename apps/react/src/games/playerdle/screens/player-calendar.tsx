@@ -12,7 +12,7 @@ import {
   type SportId,
 } from "@/games/playerdle/sports"
 import { type GameResult, getGameHistory } from "@/games/playerdle/utils/stats"
-import { ArchiveCalendar, ResultsSlidePanel } from "@/shared/components"
+import { ArchiveCalendar, Panel } from "@/shared/components"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate, getTodayKey } from "@/shared/utils/time"
@@ -186,19 +186,9 @@ export default function PlayerCalendar({
                 archiveDateKey={archiveDateKey}
               />
             </div>
-            <ResultsSlidePanel
-              open={archiveGuideOpen}
-              onClose={() => setArchiveGuideOpen(false)}
-              title="How to Play"
-            >
-              <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                <GameGuideContent
-                  sport={sport}
-                  mode="manual"
-                  className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                />
-              </div>
-            </ResultsSlidePanel>
+            <Panel open={archiveGuideOpen} onClose={() => setArchiveGuideOpen(false)} title="How to Play">
+              <GameGuideContent sport={sport} mode="manual" />
+            </Panel>
           </div>
         </div>
       </div>

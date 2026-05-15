@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
-import { ResultsSlidePanel } from "@/shared/components"
+import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
@@ -192,36 +192,19 @@ export default function JourneyShell({ league, screen }: Props) {
               />
             )}
           </div>
-          <ResultsSlidePanel
-            open={panels.isOpen("guide")}
-            onClose={closeGuide}
-            title="How to Play"
-          >
-            <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-              <JourneyHowToPlay
-                league={league}
-                className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                onOpenCalendar={() => panels.push("calendar")}
-              />
-            </div>
-          </ResultsSlidePanel>
-          <ResultsSlidePanel
-            open={panels.isOpen("stats")}
-            onClose={panels.pop}
-            title="Statistics"
-          >
-            <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-              <JourneyStatsOverlay
-                league={league}
-                onViewArchive={() => panels.push("calendar")}
-              />
-            </div>
-          </ResultsSlidePanel>
-          <ResultsSlidePanel
-            open={panels.isOpen("calendar")}
-            onClose={panels.pop}
-            title={`Journeyman ${leagueData.label} Archive`}
-          >
+          <Panel open={panels.isOpen("guide")} onClose={closeGuide} title="How to Play">
+            <JourneyHowToPlay
+              league={league}
+              onOpenCalendar={() => panels.push("calendar")}
+            />
+          </Panel>
+          <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
+            <JourneyStatsOverlay
+              league={league}
+              onViewArchive={() => panels.push("calendar")}
+            />
+          </Panel>
+          <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={`Journeyman ${leagueData.label} Archive`} layout="full">
             <JourneyCalendar
               league={league}
               panel
@@ -232,7 +215,7 @@ export default function JourneyShell({ league, screen }: Props) {
               }}
               historyVersion={calendarHistoryVersion}
             />
-          </ResultsSlidePanel>
+          </Panel>
         </div>
       </div>
     </div>

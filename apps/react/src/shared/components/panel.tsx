@@ -8,10 +8,17 @@ interface Props {
   open: boolean
   onClose: () => void
   title?: string
+  /**
+   * Content layout variant:
+   * - undefined (default): constrained flex column with internal scroll — for How to Play
+   * - "scroll": auto-overflow container — for Stats / Results overlays
+   * - "full": no wrapper, content owns its layout — for Calendar and game results
+   */
+  layout?: "scroll" | "full"
   children: ReactNode
 }
 
-export default function ResultsSlidePanel({ open, onClose, title = "Results", children }: Props) {
+export default function Panel({ open, onClose, title = "Results", layout, children }: Props) {
   useEscapeKey(open, onClose)
   return (
     <div
@@ -37,7 +44,19 @@ export default function ResultsSlidePanel({ open, onClose, title = "Results", ch
           />
         </button>
       </div>
-      {children}
+      {layout === "full" ? (
+        children
+      ) : layout === "scroll" ? (
+        <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+          {children}
+        </div>
+      ) : (
+        <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+          <div className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
+            {children}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

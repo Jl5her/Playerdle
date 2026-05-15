@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
-import { ResultsSlidePanel } from "@/shared/components"
+import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
 import ColorsCalendar from "./colors-calendar"
@@ -180,36 +180,19 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
               />
             )}
           </div>
-          <ResultsSlidePanel
-            open={panels.isOpen("guide")}
-            onClose={closeGuide}
-            title="How to Play"
-          >
-            <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-              <ColorsHowToPlay
-                className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                variant={variant}
-                onOpenCalendar={() => panels.push("calendar")}
-              />
-            </div>
-          </ResultsSlidePanel>
-          <ResultsSlidePanel
-            open={panels.isOpen("stats")}
-            onClose={panels.pop}
-            title="Statistics"
-          >
-            <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-              <ColorsStatsOverlay
-                variant={variant}
-                onViewArchive={() => panels.push("calendar")}
-              />
-            </div>
-          </ResultsSlidePanel>
-          <ResultsSlidePanel
-            open={panels.isOpen("calendar")}
-            onClose={panels.pop}
-            title={calendarTitle}
-          >
+          <Panel open={panels.isOpen("guide")} onClose={closeGuide} title="How to Play">
+            <ColorsHowToPlay
+              variant={variant}
+              onOpenCalendar={() => panels.push("calendar")}
+            />
+          </Panel>
+          <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
+            <ColorsStatsOverlay
+              variant={variant}
+              onViewArchive={() => panels.push("calendar")}
+            />
+          </Panel>
+          <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={calendarTitle} layout="full">
             <ColorsCalendar
               variant={variant}
               panel
@@ -220,7 +203,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
               }}
               historyVersion={calendarHistoryVersion}
             />
-          </ResultsSlidePanel>
+          </Panel>
         </div>
       </div>
     </div>
