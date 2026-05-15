@@ -7,11 +7,12 @@ import { useEffect } from "react"
 // the top of the page unreachable because `body { overflow: hidden }`
 // prevents scrolling back.
 //
-// We also reset document scroll on every focusin: iOS performs its
-// auto-scroll synchronously around focus, before visualViewport.resize fires.
-// Without the reset the user briefly sees the whole document shifted upward
-// and has to pan it back down before the "fixed input + scrollable content"
-// layout kicks in.
+// On focusin we also (a) preemptively apply the last cached keyboard-up
+// height so the layout shrinks _before_ iOS decides whether to auto-scroll
+// the input into view, and (b) snap document scroll back to 0 in case iOS
+// shifted it anyway. The first focus on a session can't be preempted (no
+// cached size yet), but subsequent focuses land in the final layout
+// immediately.
 //
 // Browsers without visualViewport (older Safari, some embedded contexts) fall
 // back to the CSS default 100dvh.
@@ -19,10 +20,20 @@ export function useViewportHeight(): void {
   useEffect(() => {
     if (typeof window === "undefined") return
     const vv = window.visualViewport
+    // Cached keyboard inset (window.innerHeight - visualViewport.height). Set
+    // the first time the keyboard opens; used to preemptively size the layout
+    // on subsequent focuses before iOS auto-scrolls.
+    let cachedKeyboardInset = 0
 
-    function applyHeight() {
+    function setHeight(px: number) {
+      document.documentElement.style.setProperty("--app-height", `${px}px`)
+    }
+
+    function applyFromViewport() {
       if (!vv) return
-      document.documentElement.style.setProperty("--app-height", `${vv.height}px`)
+      setHeight(vv.height)
+      const inset = window.innerHeight - vv.height
+      if (inset > 50) cachedKeyboardInset = inset
     }
 
     function snapDocumentToTop() {
@@ -38,22 +49,28 @@ export function useViewportHeight(): void {
       if (!target) return
       const tag = target.tagName
       if (tag !== "INPUT" && tag !== "TEXTAREA" && !target.isContentEditable) return
-      // iOS schedules the auto-scroll after focus; reset on the next frame
-      // (and once more shortly after to catch the late layout shift).
+      // Preemptive shrink using the cached keyboard size, before iOS has a
+      // chance to auto-scroll. The CSS transition on .app-viewport makes
+      // this animate in sync with the keyboard's own rise.
+      if (cachedKeyboardInset > 0) {
+        setHeight(window.innerHeight - cachedKeyboardInset)
+      }
+      // Reset scroll on the next frame (and once more shortly after) to
+      // catch any iOS-driven document shift that slipped through.
       requestAnimationFrame(() => {
         snapDocumentToTop()
-        applyHeight()
+        applyFromViewport()
       })
       window.setTimeout(snapDocumentToTop, 150)
     }
 
-    applyHeight()
-    vv?.addEventListener("resize", applyHeight)
-    vv?.addEventListener("scroll", applyHeight)
+    applyFromViewport()
+    vv?.addEventListener("resize", applyFromViewport)
+    vv?.addEventListener("scroll", applyFromViewport)
     document.addEventListener("focusin", handleFocusIn)
     return () => {
-      vv?.removeEventListener("resize", applyHeight)
-      vv?.removeEventListener("scroll", applyHeight)
+      vv?.removeEventListener("resize", applyFromViewport)
+      vv?.removeEventListener("scroll", applyFromViewport)
       document.removeEventListener("focusin", handleFocusIn)
       document.documentElement.style.removeProperty("--app-height")
     }

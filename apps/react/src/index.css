@@ -126,8 +126,13 @@ body,
 .app-viewport {
   /* --app-height is driven by useViewportHeight() to follow visualViewport.height,
      so the layout shrinks when the on-screen keyboard slides up. The 100dvh
-     fallback applies for browsers/contexts without visualViewport support. */
+     fallback applies for browsers/contexts without visualViewport support.
+     The transition smooths the moment iOS hands us the keyboard-up height in
+     one resize event while the keyboard itself still takes ~300ms to animate
+     upward — without it the layout snap-shrinks while the keyboard is still
+     rising, exposing the body underneath. */
   height: var(--app-height, 100dvh);
+  transition: height 250ms cubic-bezier(0.32, 0.72, 0, 1);
   overflow: hidden;
   /* Push content below the dynamic island / status bar when running as a PWA.
      env(safe-area-inset-top) returns 0 in a normal browser tab, so this is a
