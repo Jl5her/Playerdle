@@ -652,7 +652,6 @@ function ResultsPanel({
 }
 
 export default function JourneyGame({ league, mode, onModeChange, archiveDateKey }: Props) {
-  const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const autocompletePool = useMemo(() => buildAutocompletePool(league), [league])
@@ -664,8 +663,11 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     }
     return getArcadeJourneyPuzzle(league)
   })
+  // The puzzle's own dateKey is the single source of truth for storage, so
+  // in-progress saves and final-result saves always agree even if the puzzle
+  // factory ever normalizes the input date.
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(league, dateKey) : [],
+    mode === "daily" ? loadDailyGuesses(league, puzzle.dateKey) : [],
   )
 
   const answerName = puzzle.player.name
@@ -751,7 +753,7 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     if (usedGuessesLower.has(name.toLowerCase())) return
     const next = [...guesses, name]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(league, dateKey, next)
+    if (activeMode === "daily") saveDailyGuesses(league, puzzle.dateKey, next)
   }
 
   function handlePlayAgain() {
