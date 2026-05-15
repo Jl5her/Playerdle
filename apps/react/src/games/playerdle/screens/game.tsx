@@ -34,32 +34,34 @@ interface Props {
   sport: SportConfig
   variantId?: string
   onBackToToday?: () => void
+  /**
+   * When set, plays the daily puzzle for this past date. Result is saved with
+   * an archive flag so it doesn't count toward streaks.
+   */
+  archiveDateKey?: string
 }
 
-interface SavedState {
-  dateKey: string
-  guessIds: string[]
-}
-
-function getStorageKey(sportId: string, variantId?: string): string {
-  return `playerdle-state:${sportId}:${variantId ?? "classic"}`
+function getStorageKey(sportId: string, dateKey: string, variantId?: string): string {
+  return `playerdle-state:${sportId}:${variantId ?? "classic"}:${dateKey}`
 }
 
 function loadState(sportId: string, dateKey: string, variantId?: string): string[] {
   try {
-    const raw = localStorage.getItem(getStorageKey(sportId, variantId))
+    const raw = localStorage.getItem(getStorageKey(sportId, dateKey, variantId))
     if (!raw) return []
-    const parsed: SavedState = JSON.parse(raw)
-    if (parsed.dateKey !== dateKey) return []
-    return parsed.guessIds ?? []
+    // Per-date storage stores the array directly. Older versions wrapped
+    // it in { dateKey, guessIds } — accept either shape so in-flight games
+    // from before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guessIds) ? parsed.guessIds : []
   } catch {
     return []
   }
 }
 
 function saveState(sportId: string, dateKey: string, guessIds: string[], variantId?: string) {
-  const state: SavedState = { dateKey, guessIds }
-  localStorage.setItem(getStorageKey(sportId, variantId), JSON.stringify(state))
+  localStorage.setItem(getStorageKey(sportId, dateKey, variantId), JSON.stringify(guessIds))
 }
 
 function restoreGuesses(players: Player[], ids: string[]): Player[] {
@@ -67,21 +69,37 @@ function restoreGuesses(players: Player[], ids: string[]): Player[] {
   return ids.map(id => byId.get(id)).filter(Boolean) as Player[]
 }
 
-function getInitialGuesses(mode: GameMode, sport: SportConfig, variantId?: string): Player[] {
+function parseDateKey(key: string): Date {
+  const [y, m, d] = key.split("-").map(Number)
+  return new Date(y, m - 1, d)
+}
+
+function getInitialGuesses(
+  mode: GameMode,
+  sport: SportConfig,
+  variantId: string | undefined,
+  archiveDateKey: string | undefined,
+): Player[] {
   if (mode === "daily") {
-    const savedIds = loadState(sport.id, getTodayKey(), variantId)
+    const dateKey = archiveDateKey ?? getTodayKey()
+    const savedIds = loadState(sport.id, dateKey, variantId)
     return savedIds.length > 0 ? restoreGuesses(sport.players, savedIds) : []
   }
   return []
 }
 
-export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
+export default function Game({ mode, sport, variantId, onBackToToday, archiveDateKey }: Props) {
   const [activeMode, setActiveMode] = useState<GameMode>(mode)
-  const [answer, setAnswer] = useState<Player | null>(() =>
-    mode === "daily" ? getDailyPlayer(sport) : getRandomArcadePlayer(sport),
+  const [answer, setAnswer] = useState<Player | null>(() => {
+    if (mode === "daily") {
+      return getDailyPlayer(sport, archiveDateKey ? parseDateKey(archiveDateKey) : undefined)
+    }
+    return getRandomArcadePlayer(sport)
+  })
+  const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
+  const [guesses, setGuesses] = useState<Player[]>(() =>
+    getInitialGuesses(mode, sport, variantId, archiveDateKey),
   )
-  const [dateKey] = useState<string>(getTodayKey)
-  const [guesses, setGuesses] = useState<Player[]>(() => getInitialGuesses(mode, sport, variantId))
   const [latestIndex, setLatestIndex] = useState(-1)
   const [showPositionPopup, setShowPositionPopup] = useState(false)
   const [hideAnswer, setHideAnswer] = useState(false)
@@ -124,9 +142,16 @@ export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      saveGameResult(sport.id, won, guesses.length, variantId)
+      saveGameResult(
+        sport.id,
+        won,
+        guesses.length,
+        variantId,
+        guesses.map(g => g.id),
+        dateKey,
+      )
     }
-  }, [activeMode, gameOver, won, guesses.length, sport.id, variantId])
+  }, [activeMode, gameOver, won, guesses, sport.id, variantId, dateKey])
 
   const gridScrollRef = useRef<HTMLDivElement>(null)
 
@@ -160,7 +185,14 @@ export default function Game({ mode, sport, variantId, onBackToToday }: Props) {
 
     if (newWon || newLost) {
       if (activeMode === "daily") {
-        saveGameResult(sport.id, newWon, newGuesses.length, variantId)
+        saveGameResult(
+          sport.id,
+          newWon,
+          newGuesses.length,
+          variantId,
+          newGuesses.map(g => g.id),
+          dateKey,
+        )
       }
     }
   }

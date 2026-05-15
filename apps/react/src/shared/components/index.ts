@@ -1,4 +1,5 @@
 export { default as AboutFooter } from "./about-footer"
+export { default as ArchiveCalendar } from "./archive-calendar"
 export { default as Button } from "./button"
 export { default as DailyGameShell } from "./daily-game-shell"
 export { default as GameModeButton } from "./game-mode-button"

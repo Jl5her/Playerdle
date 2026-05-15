@@ -12,6 +12,7 @@ import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
   getDailyJourneyPuzzle,
+  getJourneyPuzzleByDateKey,
   type JourneyLeague,
   type JourneyPuzzle,
   type JourneyStats,
@@ -40,11 +41,11 @@ interface Props {
   league: JourneyLeague
   mode: JourneyGameMode
   onModeChange?: (mode: JourneyGameMode) => void
-}
-
-interface SavedState {
-  dateKey: string
-  guesses: string[]
+  /**
+   * When set, plays the daily puzzle for this past date. Result is saved with
+   * an archive flag so it doesn't count toward streaks.
+   */
+  archiveDateKey?: string
 }
 
 interface PlayerOption {
@@ -80,25 +81,27 @@ function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
   return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function storageKey(league: JourneyLeague): string {
-  return `${STORAGE_KEY_PREFIX}:${league}`
+function storageKey(league: JourneyLeague, dateKey: string): string {
+  return `${STORAGE_KEY_PREFIX}:${league}:${dateKey}`
 }
 
 function loadDailyGuesses(league: JourneyLeague, dateKey: string): string[] {
   try {
-    const raw = localStorage.getItem(storageKey(league))
+    const raw = localStorage.getItem(storageKey(league, dateKey))
     if (!raw) return []
-    const parsed = JSON.parse(raw) as SavedState
-    if (parsed.dateKey !== dateKey) return []
-    return Array.isArray(parsed.guesses) ? parsed.guesses : []
+    // Per-date storage stores the array directly. Older versions wrapped it
+    // in { dateKey, guesses } — accept either shape so in-flight games from
+    // before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guesses) ? parsed.guesses : []
   } catch {
     return []
   }
 }
 
 function saveDailyGuesses(league: JourneyLeague, dateKey: string, guesses: string[]) {
-  const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(storageKey(league), JSON.stringify(state))
+  localStorage.setItem(storageKey(league, dateKey), JSON.stringify(guesses))
 }
 
 function shadeHex(hex: string, amount: number): string {
@@ -439,7 +442,7 @@ function PlayerInput({ onGuess, disabled, usedGuesses, autocompletePool }: Playe
           enterKeyHint="search"
         />
         {showDropdown && filtered.length > 0 && (
-          <div className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-10 dark:bg-secondary-900 dark:border-primary-700">
+          <div className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-30 dark:bg-secondary-900 dark:border-primary-700">
             {filtered.map((option, i) => (
               <button
                 key={option.name}
@@ -648,16 +651,23 @@ function ResultsPanel({
   )
 }
 
-export default function JourneyGame({ league, mode, onModeChange }: Props) {
-  const [dateKey] = useState<string>(getTodayKey)
+export default function JourneyGame({ league, mode, onModeChange, archiveDateKey }: Props) {
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const autocompletePool = useMemo(() => buildAutocompletePool(league), [league])
-  const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() =>
-    mode === "daily" ? getDailyJourneyPuzzle(league) : getArcadeJourneyPuzzle(league),
-  )
+  const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() => {
+    if (mode === "daily") {
+      return archiveDateKey
+        ? getJourneyPuzzleByDateKey(league, archiveDateKey)
+        : getDailyJourneyPuzzle(league)
+    }
+    return getArcadeJourneyPuzzle(league)
+  })
+  // The puzzle's own dateKey is the single source of truth for storage, so
+  // in-progress saves and final-result saves always agree even if the puzzle
+  // factory ever normalizes the input date.
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(league, dateKey) : [],
+    mode === "daily" ? loadDailyGuesses(league, puzzle.dateKey) : [],
   )
 
   const answerName = puzzle.player.name
@@ -693,10 +703,14 @@ export default function JourneyGame({ league, mode, onModeChange }: Props) {
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markJourneyDailyPlayed(league)
-      saveJourneyResult(league, puzzle.dateKey, won, guesses.length)
+      // Mark today as played only when this puzzle's date IS today, regardless
+      // of how the player got here (via the daily entry point or the archive's
+      // "Play this day" on today). Mirrors the archive-flag logic in
+      // saveJourneyResult so the daily-played marker stays consistent.
+      if (puzzle.dateKey === getTodayKey()) markJourneyDailyPlayed(league)
+      saveJourneyResult(league, puzzle.dateKey, won, guesses.length, guesses)
     }
-  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses.length])
+  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses])
 
   useEffect(() => {
     if (!gameOver) {
@@ -739,7 +753,7 @@ export default function JourneyGame({ league, mode, onModeChange }: Props) {
     if (usedGuessesLower.has(name.toLowerCase())) return
     const next = [...guesses, name]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(league, dateKey, next)
+    if (activeMode === "daily") saveDailyGuesses(league, puzzle.dateKey, next)
   }
 
   function handlePlayAgain() {

@@ -192,6 +192,9 @@ export interface ColorsResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
+  /** True when played from the archive after the puzzle's date. Excluded from streak math. */
+  archive?: boolean
 }
 
 export function getColorsHistory(variant: ColorsVariant = "pro"): ColorsResult[] {
@@ -209,10 +212,19 @@ export function saveColorsResult(
   won: boolean,
   guesses: number,
   variant: ColorsVariant = "pro",
+  guessIds?: string[],
 ) {
+  const archive = date !== getTodayKey()
   const history = getColorsHistory(variant)
   const idx = history.findIndex(r => r.date === date)
-  const result: ColorsResult = { date, won, guesses }
+  const existing = idx >= 0 ? history[idx] : undefined
+  const result: ColorsResult = {
+    date,
+    won,
+    guesses,
+    guessIds: guessIds ?? existing?.guessIds,
+    archive: archive || existing?.archive,
+  }
   if (idx >= 0) history[idx] = result
   else history.push(result)
   localStorage.setItem(historyKey(variant), JSON.stringify(history))
@@ -253,9 +265,10 @@ export function calculateColorsStats(variant: ColorsVariant = "pro"): ColorsStat
     }
   }
 
-  const sorted = [...history].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
-  )
+  // Archive plays (replayed after the day) don't count toward streaks.
+  const sorted = history
+    .filter(r => !r.archive)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
   let currentStreak = 0
   let maxStreak = 0
   let tempStreak = 0

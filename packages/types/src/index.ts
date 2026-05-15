@@ -10,6 +10,9 @@ export interface GameResult {
   date: string
   won: boolean
   guesses: number
+  guessIds?: string[]
+  /** True when played from the archive after the puzzle's date. Excluded from streak math. */
+  archive?: boolean
 }
 
 /** Aggregated stats summary surfaced to the player. */

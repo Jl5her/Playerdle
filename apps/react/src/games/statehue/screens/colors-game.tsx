@@ -13,6 +13,7 @@ import {
   type ColorsVariant,
   calculateColorsStats,
   getArcadeColorsPuzzle,
+  getColorsPuzzleByDateKey,
   getDailyColorsPuzzle,
   markColorsDailyPlayed,
   saveColorsResult,
@@ -33,10 +34,10 @@ import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
 
-function storageKeyFor(variant: ColorsVariant): string {
-  return variant === "collegiate"
-    ? "playerdle-colors-collegiate-state:v1"
-    : "playerdle-colors-state:v1"
+function storageKeyFor(variant: ColorsVariant, dateKey: string): string {
+  const base =
+    variant === "collegiate" ? "playerdle-colors-collegiate-state:v1" : "playerdle-colors-state:v1"
+  return `${base}:${dateKey}`
 }
 
 export type ColorsGameMode = "daily" | "arcade"
@@ -46,28 +47,30 @@ interface Props {
   variant?: ColorsVariant
   onModeChange?: (mode: ColorsGameMode) => void
   onBackToToday?: () => void
-}
-
-interface SavedState {
-  dateKey: string
-  guesses: string[]
+  /**
+   * When set, plays the daily puzzle for this past date. Result is saved with
+   * an archive flag so it doesn't count toward streaks.
+   */
+  archiveDateKey?: string
 }
 
 function loadDailyGuesses(dateKey: string, variant: ColorsVariant): string[] {
   try {
-    const raw = localStorage.getItem(storageKeyFor(variant))
+    const raw = localStorage.getItem(storageKeyFor(variant, dateKey))
     if (!raw) return []
-    const parsed = JSON.parse(raw) as SavedState
-    if (parsed.dateKey !== dateKey) return []
-    return parsed.guesses ?? []
+    // Per-date storage stores the array directly. Older versions wrapped it
+    // in { dateKey, guesses } — accept either shape so in-flight games from
+    // before this layout change keep working.
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) return parsed
+    return Array.isArray(parsed?.guesses) ? parsed.guesses : []
   } catch {
     return []
   }
 }
 
 function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVariant) {
-  const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(storageKeyFor(variant), JSON.stringify(state))
+  localStorage.setItem(storageKeyFor(variant, dateKey), JSON.stringify(guesses))
 }
 
 function shadeHex(hex: string, amount: number): string {
@@ -415,7 +418,7 @@ function StateInput({ onGuess, disabled, usedGuesses }: StateInputProps) {
           enterKeyHint="search"
         />
         {showDropdown && filtered.length > 0 && (
-          <div className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-10 dark:bg-secondary-900 dark:border-primary-700">
+          <div className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-30 dark:bg-secondary-900 dark:border-primary-700">
             {filtered.map((state, i) => {
               const shape = STATE_PATHS[state.id]
               return (
@@ -625,16 +628,27 @@ function ResultsPanel({
   )
 }
 
-export default function ColorsGame({ mode, variant = "pro", onModeChange, onBackToToday }: Props) {
-  const [dateKey] = useState<string>(getTodayKey)
+export default function ColorsGame({
+  mode,
+  variant = "pro",
+  onModeChange,
+  onBackToToday,
+  archiveDateKey,
+}: Props) {
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
-  const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() =>
-    mode === "daily"
-      ? getDailyColorsPuzzle(undefined, variant)
-      : getArcadeColorsPuzzle(undefined, variant),
-  )
+  const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() => {
+    if (mode === "daily") {
+      return archiveDateKey
+        ? getColorsPuzzleByDateKey(archiveDateKey, variant)
+        : getDailyColorsPuzzle(undefined, variant)
+    }
+    return getArcadeColorsPuzzle(undefined, variant)
+  })
+  // The puzzle's own dateKey is the single source of truth for storage, so
+  // in-progress saves and final-result saves always agree even if the puzzle
+  // factory ever normalizes the input date.
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
+    mode === "daily" ? loadDailyGuesses(puzzle.dateKey, variant) : [],
   )
 
   const [hideAnswer, setHideAnswer] = useState(false)
@@ -655,10 +669,14 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange, onBack
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markColorsDailyPlayed(variant)
-      saveColorsResult(puzzle.dateKey, won, guesses.length, variant)
+      // Mark today as played only when this puzzle's date IS today, regardless of
+      // how the player got here (via the daily entry point or the archive's
+      // "Play this day" on today). Mirrors the archive-flag logic in
+      // saveColorsResult so the daily-played marker stays consistent.
+      if (puzzle.dateKey === getTodayKey()) markColorsDailyPlayed(variant)
+      saveColorsResult(puzzle.dateKey, won, guesses.length, variant, guesses)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length, variant])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant])
 
   useEffect(() => {
     if (!gameOver) {
@@ -685,7 +703,7 @@ export default function ColorsGame({ mode, variant = "pro", onModeChange, onBack
     if (usedGuessesLower.has(stateName.toLowerCase())) return
     const next = [...guesses, stateName]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(dateKey, next, variant)
+    if (activeMode === "daily") saveDailyGuesses(puzzle.dateKey, next, variant)
   }
 
   function handlePlayAgain() {
