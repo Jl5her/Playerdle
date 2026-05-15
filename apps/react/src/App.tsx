@@ -96,7 +96,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     initialGuideMode ? "guide" : "none",
   )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
-  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
+  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats" | "sync">(
     screen === "help" ? "help" : "menu",
   )
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
@@ -217,6 +217,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
+    if (target === "sync" && screen === "menu") {
+      setMenuSection("sync")
+      return
+    }
+
     if (target === "help" && screen === "menu") {
       navigate(buildPath(sportId, "help"))
       setMenuSection("help")
@@ -261,7 +266,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
-    if (menuSection === "about" || menuSection === "stats") {
+    if (menuSection === "about" || menuSection === "stats" || menuSection === "sync") {
       setMenuSection("menu")
       return
     }
