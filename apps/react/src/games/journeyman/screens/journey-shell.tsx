@@ -1,16 +1,11 @@
-import {
-  faAngleLeft,
-  faChartSimple,
-  faCircleQuestion,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
-import { Overlay } from "@/shared/components"
+import { Overlay, ResultsSlidePanel } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
@@ -203,64 +198,31 @@ export default function JourneyShell({ league, screen }: Props) {
             />
           )}
         </div>
-        <Overlay
+        <ResultsSlidePanel
           open={isGuideOpen}
           onClose={closeGuide}
-          className="px-4 pb-4 overflow-hidden flex min-h-0"
+          title="How to Play"
         >
-          <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
-            <div className="flex items-center justify-between pt-3">
-              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                How to Play
-              </h2>
-              <button
-                type="button"
-                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                aria-label="Close guide"
-                onClick={closeGuide}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl"
-                />
-              </button>
-            </div>
+          <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
             <JourneyHowToPlay
               league={league}
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
               onOpenCalendar={() => setOverlay("calendar")}
             />
           </div>
-        </Overlay>
-        <Overlay
+        </ResultsSlidePanel>
+        <ResultsSlidePanel
           open={isStatsOpen}
           onClose={closeStats}
-          className="px-4 pb-4 overflow-hidden"
+          title="Statistics"
         >
-          <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
-            <div className="flex items-center justify-between pt-3">
-              <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                Statistics
-              </h2>
-              <button
-                type="button"
-                className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                aria-label="Close stats"
-                onClick={closeStats}
-              >
-                <FontAwesomeIcon
-                  icon={faXmark}
-                  className="text-2xl"
-                />
-              </button>
-            </div>
+          <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
             <JourneyStatsOverlay
               league={league}
-              className="-mt-1 flex-1 overflow-auto pb-2"
               onViewArchive={() => setOverlay("calendar")}
             />
           </div>
-        </Overlay>
+        </ResultsSlidePanel>
         <Overlay
           open={overlay === "calendar"}
           onClose={() => setOverlay("none")}

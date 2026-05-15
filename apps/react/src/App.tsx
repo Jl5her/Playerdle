@@ -1,4 +1,4 @@
-import { faMap, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faMap } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
@@ -22,7 +22,7 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, Overlay, PWAUpdateToast } from "@/shared/components"
+import { type FooterTab, LeagueFooter, PWAUpdateToast, ResultsSlidePanel } from "@/shared/components"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -330,28 +330,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       variantId={activeVariantId}
                     />
                   </div>
-                  <Overlay
+                  <ResultsSlidePanel
                     open={isGuideOpen}
                     onClose={handleCloseTutorial}
-                    className="px-4 pb-4 overflow-hidden flex min-h-0"
+                    title="How to Play"
                   >
-                    <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
-                      <div className="flex items-center justify-between pt-3">
-                        <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                          How to Play
-                        </h2>
-                        <button
-                          type="button"
-                          className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                          aria-label="Close guide"
-                          onClick={handleCloseTutorial}
-                        >
-                          <FontAwesomeIcon
-                            icon={faXmark}
-                            className="text-2xl"
-                          />
-                        </button>
-                      </div>
+                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
                       <GameGuideContent
                         sport={activeSport}
                         mode={gameGuideMode}
@@ -364,45 +348,27 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                         }}
                       />
                     </div>
-                  </Overlay>
-                  <Overlay
+                  </ResultsSlidePanel>
+                  <ResultsSlidePanel
                     open={isStatsOpen}
                     onClose={handleCloseStatsModal}
-                    className="px-4 pb-4 overflow-hidden"
+                    title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
                   >
-                    <div className="w-full max-w-2xl mx-auto h-full flex flex-col">
-                      <div className="flex items-center justify-between pt-3">
-                        <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                          {statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
-                        </h2>
-                        <button
-                          type="button"
-                          className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                          aria-label="Close stats"
-                          onClick={handleCloseStatsModal}
-                        >
-                          <FontAwesomeIcon
-                            icon={faXmark}
-                            className="text-2xl"
-                          />
-                        </button>
-                      </div>
-                      <div className="-mt-1 flex-1 overflow-auto pb-2">
-                        <StatsContent
-                          {...statsModalConfig}
-                          sport={activeSport}
-                          variantId={activeVariantId}
-                          onViewArchive={() => {
-                            handleCloseStatsModal()
-                            const prefix = sportId === "nfl" ? "" : `/${sportId}`
-                            const variantPath =
-                              activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
-                            navigate(`${prefix}${variantPath}/calendar`)
-                          }}
-                        />
-                      </div>
+                    <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+                      <StatsContent
+                        {...statsModalConfig}
+                        sport={activeSport}
+                        variantId={activeVariantId}
+                        onViewArchive={() => {
+                          handleCloseStatsModal()
+                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
+                          const variantPath =
+                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
+                          navigate(`${prefix}${variantPath}/calendar`)
+                        }}
+                      />
                     </div>
-                  </Overlay>
+                  </ResultsSlidePanel>
                 </div>
               )}
               {screen === "arcade" && activeSport && (
