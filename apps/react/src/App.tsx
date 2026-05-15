@@ -2,6 +2,8 @@ import { faMap } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
+import { parseDateKey } from "@/shared/utils/calendar-date"
+import { formatLongDate } from "@/shared/utils/time"
 import {
   hasPlayedJourneyDailyToday,
   isJourneyLeague,
@@ -95,6 +97,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     initialGuideMode ? "guide" : "none",
   )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
+  const [calendarOpen, setCalendarOpen] = useState(false)
+  const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
+  const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
+  const [archiveGuideOpen, setArchiveGuideOpen] = useState(false)
+  const isArchive = !!archiveDateKey
   const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
     screen === "help" ? "help" : "menu",
   )
@@ -205,6 +212,29 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     setActiveGameOverlay("none")
   }
 
+  function handleOpenCalendar() {
+    setCalendarOpen(true)
+  }
+
+  function handleCloseCalendar() {
+    setCalendarOpen(false)
+  }
+
+  function handlePlayArchive(dateKey: string) {
+    setArchiveDateKey(dateKey)
+    setCalendarOpen(false)
+    setActiveGameOverlay("none")
+    setArchiveGuideOpen(false)
+    setCalendarHistoryVersion(v => v + 1)
+  }
+
+  function exitArchive() {
+    setArchiveDateKey(null)
+    setArchiveGuideOpen(false)
+    setCalendarOpen(true)
+    setCalendarHistoryVersion(v => v + 1)
+  }
+
   function handleNavigate(target: Screen, options?: NavigationOptions) {
     if (target === "about" && screen === "menu") {
       setMenuSection("about")
@@ -304,13 +334,20 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={
-              screen === "daily" && activeGameOverlay === "none" ? handleShowTutorial : undefined
+              screen === "daily" && activeGameOverlay === "none" && !calendarOpen
+                ? isArchive
+                  ? () => setArchiveGuideOpen(true)
+                  : handleShowTutorial
+                : undefined
             }
             onShowStats={
-              screen === "daily" && activeGameOverlay === "none" ? handleShowStats : undefined
+              screen === "daily" && activeGameOverlay === "none" && !calendarOpen && !isArchive
+                ? handleShowStats
+                : undefined
             }
-            onBack={goToMenu}
+            onBack={isArchive ? exitArchive : goToMenu}
             sport={activeSport ?? sportMeta}
+            subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
           />
           <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
             <Suspense fallback={<div className="flex-1 min-h-0" />}>
@@ -319,54 +356,87 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                   <div
                     className={clsx(
                       "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                      activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive",
+                      activeGameOverlay !== "none" || calendarOpen || archiveGuideOpen
+                        ? "crossfade-inactive"
+                        : "crossfade-active",
                     )}
                   >
-                    <Game
-                      key="daily"
-                      mode="daily"
-                      sport={activeSport}
-                      variantId={activeVariantId}
-                    />
-                  </div>
-                  <ResultsSlidePanel
-                    open={isGuideOpen}
-                    onClose={handleCloseTutorial}
-                    title="How to Play"
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                      <GameGuideContent
-                        sport={activeSport}
-                        mode={gameGuideMode}
-                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                        onOpenCalendar={() => {
-                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
-                          const variantPath =
-                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
-                          navigate(`${prefix}${variantPath}/calendar`)
-                        }}
-                      />
-                    </div>
-                  </ResultsSlidePanel>
-                  <ResultsSlidePanel
-                    open={isStatsOpen}
-                    onClose={handleCloseStatsModal}
-                    title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-                      <StatsContent
-                        {...statsModalConfig}
+                    {isArchive ? (
+                      <Game
+                        key={`archive:${activeSport.id}:${archiveDateKey}`}
+                        mode="daily"
                         sport={activeSport}
                         variantId={activeVariantId}
-                        onViewArchive={() => {
-                          handleCloseStatsModal()
-                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
-                          const variantPath =
-                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
-                          navigate(`${prefix}${variantPath}/calendar`)
-                        }}
+                        archiveDateKey={archiveDateKey!}
                       />
-                    </div>
+                    ) : (
+                      <Game
+                        key="daily"
+                        mode="daily"
+                        sport={activeSport}
+                        variantId={activeVariantId}
+                      />
+                    )}
+                  </div>
+                  {isArchive ? (
+                    <ResultsSlidePanel
+                      open={archiveGuideOpen}
+                      onClose={() => setArchiveGuideOpen(false)}
+                      title="How to Play"
+                    >
+                      <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+                        <GameGuideContent
+                          sport={activeSport}
+                          mode="manual"
+                          className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                        />
+                      </div>
+                    </ResultsSlidePanel>
+                  ) : (
+                    <>
+                      <ResultsSlidePanel
+                        open={isGuideOpen}
+                        onClose={handleCloseTutorial}
+                        title="How to Play"
+                      >
+                        <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+                          <GameGuideContent
+                            sport={activeSport}
+                            mode={gameGuideMode}
+                            className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                            onOpenCalendar={handleOpenCalendar}
+                          />
+                        </div>
+                      </ResultsSlidePanel>
+                      <ResultsSlidePanel
+                        open={isStatsOpen}
+                        onClose={handleCloseStatsModal}
+                        title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
+                      >
+                        <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+                          <StatsContent
+                            {...statsModalConfig}
+                            sport={activeSport}
+                            variantId={activeVariantId}
+                            onViewArchive={handleOpenCalendar}
+                          />
+                        </div>
+                      </ResultsSlidePanel>
+                    </>
+                  )}
+                  <ResultsSlidePanel
+                    open={calendarOpen}
+                    onClose={handleCloseCalendar}
+                    title={`${sportMeta.displayName} Archive`}
+                  >
+                    <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                      <PlayerCalendar
+                        panel
+                        variantId={activeVariantId}
+                        onPlayArchive={handlePlayArchive}
+                        historyVersion={calendarHistoryVersion}
+                      />
+                    </Suspense>
                   </ResultsSlidePanel>
                 </div>
               )}

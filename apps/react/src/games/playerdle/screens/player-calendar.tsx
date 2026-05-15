@@ -111,9 +111,20 @@ function DayDetail({
 
 interface PlayerCalendarProps {
   variantId?: string
+  /** When true, renders as a panel (no app-viewport shell, no inline archive game). */
+  panel?: boolean
+  /** Called when the user selects a date to play in panel mode. */
+  onPlayArchive?: (dateKey: string) => void
+  /** Bump to force a re-read of history after an archive play. */
+  historyVersion?: number
 }
 
-export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) {
+export default function PlayerCalendar({
+  variantId,
+  panel = false,
+  onPlayArchive,
+  historyVersion = 0,
+}: PlayerCalendarProps = {}) {
   const navigate = useNavigate()
   const { sport: sportParam } = useParams<{ sport?: string }>()
   const sportId = getSportIdFromParam(sportParam) ?? "nfl"
@@ -134,24 +145,22 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
     }
   }, [sportId, variantId])
 
-  // archiveDateKey in deps so history re-reads localStorage when the player
-  // exits an archive play session (transitions back to null).
   const history = useMemo(() => {
     const map = new Map<string, GameResult>()
     for (const r of getGameHistory(sportId, variantId)) map.set(r.date, r)
     return map
-  }, [sportId, variantId, archiveDateKey])
+  }, [sportId, variantId, archiveDateKey, historyVersion])
 
   const inProgressDates = useInProgressDates(
     `playerdle-state:${sportId}:${variantId ?? "classic"}:`,
-    [archiveDateKey],
+    [archiveDateKey, historyVersion],
   )
 
   const selectedDate = useMemo(() => parseDateKey(selected), [selected])
-
   const menuPath = sportId === "nfl" ? "/" : `/${sportId}`
 
-  if (archiveDateKey && sport) {
+  // Non-panel mode: show archive game inline when a date is selected
+  if (!panel && archiveDateKey && sport) {
     const archiveSubtitle = formatLongDate(parseDateKey(archiveDateKey))
     return (
       <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
@@ -163,33 +172,33 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
         />
         <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
           <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
-          <div
-            className={clsx(
-              "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-              archiveGuideOpen ? "crossfade-inactive" : "crossfade-active",
-            )}
-          >
-            <Game
-              key={`archive:${sport.id}:${archiveDateKey}`}
-              mode="daily"
-              sport={sport}
-              variantId={variantId}
-              archiveDateKey={archiveDateKey}
-            />
-          </div>
-          <ResultsSlidePanel
-            open={archiveGuideOpen}
-            onClose={() => setArchiveGuideOpen(false)}
-            title="How to Play"
-          >
-            <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-              <GameGuideContent
+            <div
+              className={clsx(
+                "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+                archiveGuideOpen ? "crossfade-inactive" : "crossfade-active",
+              )}
+            >
+              <Game
+                key={`archive:${sport.id}:${archiveDateKey}`}
+                mode="daily"
                 sport={sport}
-                mode="manual"
-                className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                variantId={variantId}
+                archiveDateKey={archiveDateKey}
               />
             </div>
-          </ResultsSlidePanel>
+            <ResultsSlidePanel
+              open={archiveGuideOpen}
+              onClose={() => setArchiveGuideOpen(false)}
+              title="How to Play"
+            >
+              <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+                <GameGuideContent
+                  sport={sport}
+                  mode="manual"
+                  className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                />
+              </div>
+            </ResultsSlidePanel>
           </div>
         </div>
       </div>
@@ -199,11 +208,21 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   const selectedResult = history.get(selected)
   const selectedIsFuture = selectedDate.getTime() > today.getTime()
   const selectedIsBeforeEpoch = selectedDate.getTime() < PLAYER_EPOCH.getTime()
+  const canPlay = !selectedIsFuture && !selectedIsBeforeEpoch
+
+  function handlePlay() {
+    if (panel && onPlayArchive) {
+      onPlayArchive(selected)
+    } else {
+      setArchiveDateKey(selected)
+    }
+  }
 
   return (
     <ArchiveCalendar
       title={`${sportMeta.displayName} Archive`}
-      onClose={() => navigate(menuPath)}
+      onClose={panel ? undefined : () => navigate(menuPath)}
+      panel={panel}
       epoch={PLAYER_EPOCH}
       history={history}
       inProgress={inProgressDates}
@@ -214,9 +233,9 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
         <DayDetail
           sport={sport}
           result={selectedResult}
-          canPlay={!selectedIsFuture && !selectedIsBeforeEpoch}
-          onPlay={() => setArchiveDateKey(selected)}
-          onViewResults={() => setArchiveDateKey(selected)}
+          canPlay={canPlay}
+          onPlay={handlePlay}
+          onViewResults={handlePlay}
           inProgressCount={selectedResult ? undefined : inProgressDates.get(selected)}
         />
       ) : (
