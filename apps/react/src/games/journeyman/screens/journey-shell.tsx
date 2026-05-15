@@ -127,6 +127,8 @@ export default function JourneyShell({ league, screen }: Props) {
 
   function exitArchive() {
     setArchiveDateKey(null)
+    setGuideOpen(false)
+    setStatsOpen(false)
     setCalendarOpen(true)
     setCalendarHistoryVersion(v => v + 1)
   }
