@@ -157,9 +157,13 @@ body,
      stays anchored at the top of the visible area through keyboard
      animations and any iOS-driven document shifts. Pair with pt-[3.75rem]
      (or var(--game-header-h)) on the sibling content area to reserve space
-     in the flex flow underneath. */
+     in the flex flow underneath.
+     top uses env(safe-area-inset-top) instead of 0 so the bar sits below the
+     Dynamic Island / status bar in PWA standalone mode; the .app-viewport
+     padding-top shifts flow content by the same amount, keeping the two in
+     sync without changing the pt-[3.75rem] spacer. */
   position: absolute;
-  top: 0;
+  top: env(safe-area-inset-top);
   left: 0;
   right: 0;
   z-index: 30;
