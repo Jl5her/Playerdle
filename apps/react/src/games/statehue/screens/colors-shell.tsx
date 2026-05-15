@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
-import { Overlay, ResultsSlidePanel } from "@/shared/components"
+import { ResultsSlidePanel } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import ColorsCalendar from "./colors-calendar"
 import ColorsGame, { type ColorsGameMode } from "./colors-game"
@@ -15,8 +15,6 @@ interface Props {
   screen: "daily" | "arcade"
   variant?: ColorsVariant
 }
-
-type GameOverlay = "none" | "guide" | "stats" | "calendar"
 
 function parseDateKey(key: string): Date {
   const [y, m, d] = key.split("-").map(Number)
@@ -31,7 +29,9 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
-  const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
+  const [guideOpen, setGuideOpen] = useState(false)
+  const [statsOpen, setStatsOpen] = useState(initialShowStats)
+  const [calendarOpen, setCalendarOpen] = useState(false)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [isOnboarding, setIsOnboarding] = useState(false)
@@ -45,7 +45,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     if (initialShowStats) return
     if (localStorage.getItem(tutorialSeenKey(variant))) return
     setIsOnboarding(true)
-    setOverlay("guide")
+    setGuideOpen(true)
   }, [screen, initialShowStats])
 
   function goToMenu() {
@@ -57,21 +57,39 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
       localStorage.setItem(tutorialSeenKey(variant), "true")
       setIsOnboarding(false)
     }
-    setOverlay("none")
+    setGuideOpen(false)
   }
 
   function openStats() {
-    setOverlay("stats")
+    setGuideOpen(false)
+    setStatsOpen(true)
   }
 
   function openGuide() {
     setIsOnboarding(false)
-    setOverlay("guide")
+    setStatsOpen(false)
+    setGuideOpen(true)
   }
 
   function closeStats() {
-    setOverlay("none")
+    setStatsOpen(false)
   }
+
+  function closeCalendar() {
+    setCalendarOpen(false)
+  }
+
+  function openCalendar() {
+    setCalendarOpen(true)
+  }
+
+  function closeAllPanels() {
+    setGuideOpen(false)
+    setStatsOpen(false)
+    setCalendarOpen(false)
+  }
+
+  const anyPanelOpen = guideOpen || statsOpen || calendarOpen
 
   const mode: ColorsGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
@@ -84,12 +102,10 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     : activeMode === "arcade"
       ? "Arcade mode"
       : formatLongDate()
-  const isGuideOpen = overlay === "guide"
-  const isStatsOpen = overlay === "stats"
 
   function exitArchive() {
     setArchiveDateKey(null)
-    setOverlay("calendar")
+    setCalendarOpen(true)
     setCalendarHistoryVersion(v => v + 1)
   }
 
@@ -100,6 +116,8 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
       goToMenu()
     }
   }
+
+  const calendarTitle = variant === "collegiate" ? "Collegiate Archive" : "Statehue Archive"
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
@@ -123,7 +141,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
           {subtitle}
         </p>
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-          {overlay === "none" && (
+          {!anyPanelOpen && (
             <button
               onClick={openStats}
               aria-label="Show stats"
@@ -137,7 +155,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
               />
             </button>
           )}
-          {overlay === "none" && (
+          {!anyPanelOpen && (
             <button
               onClick={openGuide}
               aria-label="Show tutorial"
@@ -157,7 +175,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
         <div
           className={clsx(
             "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-            overlay === "none" ? "crossfade-active" : "crossfade-inactive",
+            anyPanelOpen ? "crossfade-inactive" : "crossfade-active",
           )}
         >
           {isArchive ? (
@@ -185,7 +203,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
           )}
         </div>
         <ResultsSlidePanel
-          open={isGuideOpen}
+          open={guideOpen}
           onClose={closeGuide}
           title="How to Play"
         >
@@ -193,37 +211,37 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             <ColorsHowToPlay
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
               variant={variant}
-              onOpenCalendar={() => setOverlay("calendar")}
+              onOpenCalendar={openCalendar}
             />
           </div>
         </ResultsSlidePanel>
         <ResultsSlidePanel
-          open={isStatsOpen}
+          open={statsOpen}
           onClose={closeStats}
           title="Statistics"
         >
           <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
             <ColorsStatsOverlay
               variant={variant}
-              onViewArchive={() => setOverlay("calendar")}
+              onViewArchive={openCalendar}
             />
           </div>
         </ResultsSlidePanel>
-        <Overlay
-          open={overlay === "calendar"}
-          onClose={() => setOverlay("none")}
-          className="overflow-hidden"
+        <ResultsSlidePanel
+          open={calendarOpen}
+          onClose={closeCalendar}
+          title={calendarTitle}
         >
           <ColorsCalendar
             variant={variant}
-            onClose={() => setOverlay("none")}
+            panel
             onPlayArchive={dateKey => {
               setArchiveDateKey(dateKey)
-              setOverlay("none")
+              closeAllPanels()
             }}
             historyVersion={calendarHistoryVersion}
           />
-        </Overlay>
+        </ResultsSlidePanel>
       </div>
     </div>
   )

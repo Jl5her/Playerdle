@@ -102,6 +102,8 @@ interface ColorsCalendarProps {
   onPlayArchive?: (dateKey: string) => void
   /** Bump to force a re-read of saved history (e.g. after an archive play). */
   historyVersion?: number
+  /** Omit the app-viewport shell; used when hosted inside a ResultsSlidePanel. */
+  panel?: boolean
 }
 
 export default function ColorsCalendar({
@@ -109,6 +111,7 @@ export default function ColorsCalendar({
   variant = "pro",
   onPlayArchive,
   historyVersion = 0,
+  panel = false,
 }: ColorsCalendarProps = {}) {
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
@@ -137,8 +140,9 @@ export default function ColorsCalendar({
   return (
     <ArchiveCalendar
       title="Statehue Archive"
-      onClose={onClose}
-      onBack={onClose ? undefined : () => navigate("/statehue")}
+      onClose={panel ? undefined : onClose}
+      onBack={panel || onClose ? undefined : () => navigate("/statehue")}
+      panel={panel}
       epoch={EPOCH}
       history={history}
       inProgress={inProgressDates}

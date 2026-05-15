@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
-import { Overlay, ResultsSlidePanel } from "@/shared/components"
+import { ResultsSlidePanel } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
@@ -16,8 +16,6 @@ interface Props {
   league: JourneyLeague
   screen: "daily" | "arcade"
 }
-
-type GameOverlay = "none" | "guide" | "stats" | "calendar"
 
 function parseDateKey(key: string): Date {
   const [y, m, d] = key.split("-").map(Number)
@@ -48,7 +46,9 @@ export default function JourneyShell({ league, screen }: Props) {
   const location = useLocation()
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
-  const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
+  const [guideOpen, setGuideOpen] = useState(false)
+  const [statsOpen, setStatsOpen] = useState(initialShowStats)
+  const [calendarOpen, setCalendarOpen] = useState(false)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [isOnboarding, setIsOnboarding] = useState(false)
@@ -63,7 +63,7 @@ export default function JourneyShell({ league, screen }: Props) {
     migrateLegacyTutorialFlagIfNeeded()
     if (localStorage.getItem(tutorialSeenKey(league))) return
     setIsOnboarding(true)
-    setOverlay("guide")
+    setGuideOpen(true)
   }, [screen, initialShowStats, league])
 
   function goToMenu() {
@@ -79,21 +79,39 @@ export default function JourneyShell({ league, screen }: Props) {
       localStorage.setItem(tutorialSeenKey(league), "true")
       setIsOnboarding(false)
     }
-    setOverlay("none")
+    setGuideOpen(false)
   }
 
   function openStats() {
-    setOverlay("stats")
+    setGuideOpen(false)
+    setStatsOpen(true)
   }
 
   function openGuide() {
     setIsOnboarding(false)
-    setOverlay("guide")
+    setStatsOpen(false)
+    setGuideOpen(true)
   }
 
   function closeStats() {
-    setOverlay("none")
+    setStatsOpen(false)
   }
+
+  function closeCalendar() {
+    setCalendarOpen(false)
+  }
+
+  function openCalendar() {
+    setCalendarOpen(true)
+  }
+
+  function closeAllPanels() {
+    setGuideOpen(false)
+    setStatsOpen(false)
+    setCalendarOpen(false)
+  }
+
+  const anyPanelOpen = guideOpen || statsOpen || calendarOpen
 
   const mode: JourneyGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
@@ -106,12 +124,10 @@ export default function JourneyShell({ league, screen }: Props) {
     : activeMode === "arcade"
       ? "Arcade mode"
       : formatLongDate()
-  const isGuideOpen = overlay === "guide"
-  const isStatsOpen = overlay === "stats"
 
   function exitArchive() {
     setArchiveDateKey(null)
-    setOverlay("calendar")
+    setCalendarOpen(true)
     setCalendarHistoryVersion(v => v + 1)
   }
 
@@ -145,7 +161,7 @@ export default function JourneyShell({ league, screen }: Props) {
           {subtitle}
         </p>
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-          {overlay === "none" && (
+          {!anyPanelOpen && (
             <button
               onClick={openStats}
               aria-label="Show stats"
@@ -159,7 +175,7 @@ export default function JourneyShell({ league, screen }: Props) {
               />
             </button>
           )}
-          {overlay === "none" && (
+          {!anyPanelOpen && (
             <button
               onClick={openGuide}
               aria-label="Show tutorial"
@@ -179,7 +195,7 @@ export default function JourneyShell({ league, screen }: Props) {
         <div
           className={clsx(
             "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-            overlay === "none" ? "crossfade-active" : "crossfade-inactive",
+            anyPanelOpen ? "crossfade-inactive" : "crossfade-active",
           )}
         >
           {isArchive ? (
@@ -199,7 +215,7 @@ export default function JourneyShell({ league, screen }: Props) {
           )}
         </div>
         <ResultsSlidePanel
-          open={isGuideOpen}
+          open={guideOpen}
           onClose={closeGuide}
           title="How to Play"
         >
@@ -207,37 +223,37 @@ export default function JourneyShell({ league, screen }: Props) {
             <JourneyHowToPlay
               league={league}
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-              onOpenCalendar={() => setOverlay("calendar")}
+              onOpenCalendar={openCalendar}
             />
           </div>
         </ResultsSlidePanel>
         <ResultsSlidePanel
-          open={isStatsOpen}
+          open={statsOpen}
           onClose={closeStats}
           title="Statistics"
         >
           <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
             <JourneyStatsOverlay
               league={league}
-              onViewArchive={() => setOverlay("calendar")}
+              onViewArchive={openCalendar}
             />
           </div>
         </ResultsSlidePanel>
-        <Overlay
-          open={overlay === "calendar"}
-          onClose={() => setOverlay("none")}
-          className="overflow-hidden"
+        <ResultsSlidePanel
+          open={calendarOpen}
+          onClose={closeCalendar}
+          title={`Journeyman ${leagueData.label} Archive`}
         >
           <JourneyCalendar
             league={league}
-            onClose={() => setOverlay("none")}
+            panel
             onPlayArchive={dateKey => {
               setArchiveDateKey(dateKey)
-              setOverlay("none")
+              closeAllPanels()
             }}
             historyVersion={calendarHistoryVersion}
           />
-        </Overlay>
+        </ResultsSlidePanel>
       </div>
     </div>
   )

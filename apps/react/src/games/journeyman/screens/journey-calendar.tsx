@@ -101,6 +101,8 @@ interface Props {
   onPlayArchive?: (dateKey: string) => void
   /** Bump to force a re-read of saved history (e.g. after an archive play). */
   historyVersion?: number
+  /** Omit the app-viewport shell; used when hosted inside a ResultsSlidePanel. */
+  panel?: boolean
 }
 
 export default function JourneyCalendar({
@@ -108,6 +110,7 @@ export default function JourneyCalendar({
   onClose,
   onPlayArchive,
   historyVersion = 0,
+  panel = false,
 }: Props) {
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
@@ -136,8 +139,9 @@ export default function JourneyCalendar({
   return (
     <ArchiveCalendar
       title={`Journeyman ${leagueData.label} Archive`}
-      onClose={onClose}
-      onBack={onClose ? undefined : () => navigate(league === "nfl" ? "/" : `/${league}`)}
+      onClose={panel ? undefined : onClose}
+      onBack={panel || onClose ? undefined : () => navigate(league === "nfl" ? "/" : `/${league}`)}
+      panel={panel}
       epoch={EPOCH}
       history={history}
       inProgress={inProgressDates}
