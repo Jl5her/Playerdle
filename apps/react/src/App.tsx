@@ -4,6 +4,7 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
 import { parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate } from "@/shared/utils/time"
+import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import {
   hasPlayedJourneyDailyToday,
   isJourneyLeague,
@@ -37,7 +38,7 @@ const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-ca
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
 
-type GameOverlay = "none" | "guide" | "stats"
+type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
 type RouteScreen = "menu" | "daily" | "arcade" | "help"
 
 interface DailyRouteState {
@@ -93,14 +94,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [sport, setSport] = useState<SportConfig | null>(null)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
-  const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>(
-    initialGuideMode ? "guide" : "none",
-  )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
-  const [calendarOpen, setCalendarOpen] = useState(false)
+  const panels = usePanelStack<AppPanel>(
+    initialGuideMode ? "guide" : undefined,
+  )
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
-  const [archiveGuideOpen, setArchiveGuideOpen] = useState(false)
   const isArchive = !!archiveDateKey
   const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
     screen === "help" ? "help" : "menu",
@@ -150,11 +149,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }, [activeSport, sportMeta.displayName])
 
   const isGame = screen === "daily" || screen === "arcade"
-  const isGuideOpen = activeGameOverlay === "guide"
-  const isStatsOpen = activeGameOverlay === "stats"
 
   function handleCloseTutorial() {
-    if (!isGuideOpen) {
+    if (!panels.isOpen("guide")) {
       return
     }
 
@@ -162,26 +159,26 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       localStorage.setItem(getTutorialStorageKey(sportId, activeVariantId), "true")
     }
 
-    setActiveGameOverlay("none")
+    panels.pop()
   }
 
   function handleShowTutorial() {
-    if (screen !== "daily" || activeGameOverlay !== "none") {
+    if (screen !== "daily" || panels.isAnyOpen) {
       return
     }
 
     setGameGuideMode("manual")
-    setActiveGameOverlay("guide")
+    panels.push("guide")
   }
 
   function goToMenu() {
     navigate(buildPath(sportId, "menu"))
     setMenuSection("menu")
-    setActiveGameOverlay("none")
+    panels.clear()
   }
 
   function handleShowStats() {
-    if (screen !== "daily" || isStatsOpen) {
+    if (screen !== "daily" || panels.isOpen("stats")) {
       return
     }
 
@@ -191,7 +188,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       includeShareButton: false,
       variantId: activeVariantId,
     })
-    setActiveGameOverlay("stats")
+    panels.push("stats")
   }
 
   function handleSelectSport(nextSportId: SportConfig["id"]) {
@@ -201,37 +198,19 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
     navigate(buildPath(nextSportId, "menu"))
     setMenuSection("menu")
-    setActiveGameOverlay("none")
-  }
-
-  function handleCloseStatsModal() {
-    if (!isStatsOpen) {
-      return
-    }
-
-    setActiveGameOverlay("none")
-  }
-
-  function handleOpenCalendar() {
-    setCalendarOpen(true)
-  }
-
-  function handleCloseCalendar() {
-    setCalendarOpen(false)
+    panels.clear()
   }
 
   function handlePlayArchive(dateKey: string) {
     setArchiveDateKey(dateKey)
-    setCalendarOpen(false)
-    setActiveGameOverlay("none")
-    setArchiveGuideOpen(false)
+    panels.clear()
     setCalendarHistoryVersion(v => v + 1)
   }
 
   function exitArchive() {
     setArchiveDateKey(null)
-    setArchiveGuideOpen(false)
-    setCalendarOpen(true)
+    panels.clear()
+    panels.push("calendar")
     setCalendarHistoryVersion(v => v + 1)
   }
 
@@ -334,16 +313,14 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={
-              screen === "daily" && activeGameOverlay === "none" && !calendarOpen
+              screen === "daily" && !panels.isAnyOpen
                 ? isArchive
-                  ? () => setArchiveGuideOpen(true)
+                  ? () => panels.push("archive-guide")
                   : handleShowTutorial
                 : undefined
             }
             onShowStats={
-              screen === "daily" && activeGameOverlay === "none" && !calendarOpen && !isArchive
-                ? handleShowStats
-                : undefined
+              screen === "daily" && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
             }
             onBack={isArchive ? exitArchive : goToMenu}
             sport={activeSport ?? sportMeta}
@@ -356,9 +333,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                   <div
                     className={clsx(
                       "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                      activeGameOverlay !== "none" || calendarOpen || archiveGuideOpen
-                        ? "crossfade-inactive"
-                        : "crossfade-active",
+                      panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
                     )}
                   >
                     {isArchive ? (
@@ -378,55 +353,50 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       />
                     )}
                   </div>
-                  {isArchive ? (
-                    <ResultsSlidePanel
-                      open={archiveGuideOpen}
-                      onClose={() => setArchiveGuideOpen(false)}
-                      title="How to Play"
-                    >
-                      <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                        <GameGuideContent
-                          sport={activeSport}
-                          mode="manual"
-                          className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                        />
-                      </div>
-                    </ResultsSlidePanel>
-                  ) : (
-                    <>
-                      <ResultsSlidePanel
-                        open={isGuideOpen}
-                        onClose={handleCloseTutorial}
-                        title="How to Play"
-                      >
-                        <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                          <GameGuideContent
-                            sport={activeSport}
-                            mode={gameGuideMode}
-                            className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                            onOpenCalendar={handleOpenCalendar}
-                          />
-                        </div>
-                      </ResultsSlidePanel>
-                      <ResultsSlidePanel
-                        open={isStatsOpen}
-                        onClose={handleCloseStatsModal}
-                        title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
-                      >
-                        <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-                          <StatsContent
-                            {...statsModalConfig}
-                            sport={activeSport}
-                            variantId={activeVariantId}
-                            onViewArchive={handleOpenCalendar}
-                          />
-                        </div>
-                      </ResultsSlidePanel>
-                    </>
-                  )}
                   <ResultsSlidePanel
-                    open={calendarOpen}
-                    onClose={handleCloseCalendar}
+                    open={panels.isOpen("guide")}
+                    onClose={handleCloseTutorial}
+                    title="How to Play"
+                  >
+                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+                      <GameGuideContent
+                        sport={activeSport}
+                        mode={gameGuideMode}
+                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                        onOpenCalendar={() => panels.push("calendar")}
+                      />
+                    </div>
+                  </ResultsSlidePanel>
+                  <ResultsSlidePanel
+                    open={panels.isOpen("stats")}
+                    onClose={panels.pop}
+                    title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
+                  >
+                    <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+                      <StatsContent
+                        {...statsModalConfig}
+                        sport={activeSport}
+                        variantId={activeVariantId}
+                        onViewArchive={() => panels.push("calendar")}
+                      />
+                    </div>
+                  </ResultsSlidePanel>
+                  <ResultsSlidePanel
+                    open={panels.isOpen("archive-guide")}
+                    onClose={panels.pop}
+                    title="How to Play"
+                  >
+                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+                      <GameGuideContent
+                        sport={activeSport}
+                        mode="manual"
+                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                      />
+                    </div>
+                  </ResultsSlidePanel>
+                  <ResultsSlidePanel
+                    open={panels.isOpen("calendar")}
+                    onClose={panels.pop}
                     title={`${sportMeta.displayName} Archive`}
                   >
                     <Suspense fallback={<div className="flex-1 min-h-0" />}>

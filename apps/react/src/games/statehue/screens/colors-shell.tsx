@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
 import { ResultsSlidePanel } from "@/shared/components"
+import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
 import ColorsCalendar from "./colors-calendar"
 import ColorsGame, { type ColorsGameMode } from "./colors-game"
@@ -25,13 +26,13 @@ function tutorialSeenKey(variant: ColorsVariant): string {
   return variant === "collegiate" ? "statehue-collegiate-tutorial-seen" : "statehue-tutorial-seen"
 }
 
+type ColorsPanel = "guide" | "stats" | "calendar"
+
 export default function ColorsShell({ screen, variant = "pro" }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
-  const [guideOpen, setGuideOpen] = useState(false)
-  const [statsOpen, setStatsOpen] = useState(initialShowStats)
-  const [calendarOpen, setCalendarOpen] = useState(false)
+  const panels = usePanelStack<ColorsPanel>(initialShowStats ? "stats" : undefined)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [isOnboarding, setIsOnboarding] = useState(false)
@@ -45,7 +46,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     if (initialShowStats) return
     if (localStorage.getItem(tutorialSeenKey(variant))) return
     setIsOnboarding(true)
-    setGuideOpen(true)
+    panels.push("guide")
   }, [screen, initialShowStats])
 
   function goToMenu() {
@@ -57,46 +58,21 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
       localStorage.setItem(tutorialSeenKey(variant), "true")
       setIsOnboarding(false)
     }
-    setGuideOpen(false)
-  }
-
-  function openStats() {
-    setGuideOpen(false)
-    setStatsOpen(true)
+    panels.pop()
   }
 
   function openGuide() {
     setIsOnboarding(false)
-    setStatsOpen(false)
-    setGuideOpen(true)
+    panels.push("guide")
   }
 
-  function closeStats() {
-    setStatsOpen(false)
-  }
-
-  function closeCalendar() {
-    setCalendarOpen(false)
-  }
-
-  function openCalendar() {
-    setCalendarOpen(true)
-  }
-
-  function closeAllPanels() {
-    setGuideOpen(false)
-    setStatsOpen(false)
-    setCalendarOpen(false)
-  }
-
-  const anyPanelOpen = guideOpen || statsOpen || calendarOpen
-
+  const isArchive = !!archiveDateKey
   const mode: ColorsGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   useEffect(() => {
     setActiveMode(mode)
   }, [mode])
-  const isArchive = !!archiveDateKey
+
   const subtitle = isArchive
     ? formatLongDate(parseDateKey(archiveDateKey))
     : activeMode === "arcade"
@@ -105,9 +81,8 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
 
   function exitArchive() {
     setArchiveDateKey(null)
-    setGuideOpen(false)
-    setStatsOpen(false)
-    setCalendarOpen(true)
+    panels.clear()
+    panels.push("calendar")
     setCalendarHistoryVersion(v => v + 1)
   }
 
@@ -143,9 +118,9 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
           {subtitle}
         </p>
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-          {!anyPanelOpen && (
+          {!panels.isAnyOpen && (
             <button
-              onClick={openStats}
+              onClick={() => panels.push("stats")}
               aria-label="Show stats"
               title="Stats"
               className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
@@ -157,7 +132,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
               />
             </button>
           )}
-          {!anyPanelOpen && (
+          {!panels.isAnyOpen && (
             <button
               onClick={openGuide}
               aria-label="Show tutorial"
@@ -175,76 +150,77 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
       </header>
       <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
         <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
-        <div
-          className={clsx(
-            "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-            anyPanelOpen ? "crossfade-inactive" : "crossfade-active",
-          )}
-        >
-          {isArchive ? (
-            <ColorsGame
-              key={`archive:${variant}:${archiveDateKey}`}
-              mode="daily"
-              variant={variant}
-              archiveDateKey={archiveDateKey}
-            />
-          ) : (
-            <ColorsGame
-              key={`${variant}:${mode}`}
-              mode={mode}
-              variant={variant}
-              onModeChange={setActiveMode}
-              onBackToToday={
-                screen === "arcade"
-                  ? () =>
-                      navigate(
-                        variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily",
-                      )
-                  : undefined
-              }
-            />
-          )}
-        </div>
-        <ResultsSlidePanel
-          open={guideOpen}
-          onClose={closeGuide}
-          title="How to Play"
-        >
-          <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-            <ColorsHowToPlay
-              className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-              variant={variant}
-              onOpenCalendar={openCalendar}
-            />
+          <div
+            className={clsx(
+              "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+              panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
+            )}
+          >
+            {isArchive ? (
+              <ColorsGame
+                key={`archive:${variant}:${archiveDateKey}`}
+                mode="daily"
+                variant={variant}
+                archiveDateKey={archiveDateKey}
+              />
+            ) : (
+              <ColorsGame
+                key={`${variant}:${mode}`}
+                mode={mode}
+                variant={variant}
+                onModeChange={setActiveMode}
+                onBackToToday={
+                  screen === "arcade"
+                    ? () =>
+                        navigate(
+                          variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily",
+                        )
+                    : undefined
+                }
+              />
+            )}
           </div>
-        </ResultsSlidePanel>
-        <ResultsSlidePanel
-          open={statsOpen}
-          onClose={closeStats}
-          title="Statistics"
-        >
-          <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-            <ColorsStatsOverlay
+          <ResultsSlidePanel
+            open={panels.isOpen("guide")}
+            onClose={closeGuide}
+            title="How to Play"
+          >
+            <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
+              <ColorsHowToPlay
+                className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+                variant={variant}
+                onOpenCalendar={() => panels.push("calendar")}
+              />
+            </div>
+          </ResultsSlidePanel>
+          <ResultsSlidePanel
+            open={panels.isOpen("stats")}
+            onClose={panels.pop}
+            title="Statistics"
+          >
+            <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+              <ColorsStatsOverlay
+                variant={variant}
+                onViewArchive={() => panels.push("calendar")}
+              />
+            </div>
+          </ResultsSlidePanel>
+          <ResultsSlidePanel
+            open={panels.isOpen("calendar")}
+            onClose={panels.pop}
+            title={calendarTitle}
+          >
+            <ColorsCalendar
               variant={variant}
-              onViewArchive={openCalendar}
+              panel
+              onPlayArchive={dateKey => {
+                setArchiveDateKey(dateKey)
+                panels.clear()
+                setCalendarHistoryVersion(v => v + 1)
+              }}
+              historyVersion={calendarHistoryVersion}
             />
-          </div>
-        </ResultsSlidePanel>
-        <ResultsSlidePanel
-          open={calendarOpen}
-          onClose={closeCalendar}
-          title={calendarTitle}
-        >
-          <ColorsCalendar
-            variant={variant}
-            panel
-            onPlayArchive={dateKey => {
-              setArchiveDateKey(dateKey)
-              closeAllPanels()
-            }}
-            historyVersion={calendarHistoryVersion}
-          />
-        </ResultsSlidePanel>
+          </ResultsSlidePanel>
         </div>
       </div>
     </div>
