@@ -124,8 +124,10 @@ body,
 }
 
 .app-viewport {
-  height: 100vh;
-  height: 100dvh;
+  /* --app-height is driven by useViewportHeight() to follow visualViewport.height,
+     so the layout shrinks when the on-screen keyboard slides up. The 100dvh
+     fallback applies for browsers/contexts without visualViewport support. */
+  height: var(--app-height, 100dvh);
   overflow: hidden;
   /* Push content below the dynamic island / status bar when running as a PWA.
      env(safe-area-inset-top) returns 0 in a normal browser tab, so this is a

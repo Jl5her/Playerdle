@@ -23,6 +23,7 @@ import {
   type SportConfig,
 } from "@/games/playerdle/sports"
 import { type FooterTab, LeagueFooter, Overlay, PWAUpdateToast } from "@/shared/components"
+import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -497,6 +498,7 @@ function JourneyCalendarRoute() {
 }
 
 function App() {
+  useViewportHeight()
   return (
     <>
     <PWAUpdateToast />
