@@ -138,6 +138,13 @@ body,
      top of the viewport so it stays visually pinned through keyboard
      transitions instead of riding the flex flow. */
   position: relative;
+  /* iOS shifts visualViewport.offsetTop independently of document.scrollTop
+     when an input is focused; translating the app-viewport down by that
+     offset keeps the absolutely-positioned header anchored to the top of
+     the visible area instead of riding off-screen. Updated by
+     useViewportHeight(). Not in the transition list — should snap, not
+     animate, otherwise the header lags the visual viewport. */
+  transform: translateY(var(--vv-offset-top, 0px));
   /* Push content below the dynamic island / status bar when running as a PWA.
      env(safe-area-inset-top) returns 0 in a normal browser tab, so this is a
      no-op there; iOS standalone PWAs return the actual island height. */

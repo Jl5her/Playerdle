@@ -29,9 +29,20 @@ export function useViewportHeight(): void {
       document.documentElement.style.setProperty("--app-height", `${px}px`)
     }
 
+    function setOffsetTop(px: number) {
+      // .app-viewport reads this as a translateY compensation. iOS PWAs can
+      // shift the visualViewport's offsetTop (independent of document scroll)
+      // when an input is focused, which leaves the absolutely-positioned
+      // .game-header appearing above the visible area until the user pans
+      // back down. Translating the app down by offsetTop keeps the header
+      // and rest of the layout anchored to the visible viewport.
+      document.documentElement.style.setProperty("--vv-offset-top", `${px}px`)
+    }
+
     function applyFromViewport() {
       if (!vv) return
       setHeight(vv.height)
+      setOffsetTop(Math.max(0, vv.offsetTop))
       const inset = window.innerHeight - vv.height
       if (inset > 50) cachedKeyboardInset = inset
     }
@@ -73,6 +84,7 @@ export function useViewportHeight(): void {
       vv?.removeEventListener("scroll", applyFromViewport)
       document.removeEventListener("focusin", handleFocusIn)
       document.documentElement.style.removeProperty("--app-height")
+      document.documentElement.style.removeProperty("--vv-offset-top")
     }
   }, [])
 }
