@@ -77,6 +77,16 @@ const LEAGUE_EXAMPLES: Record<JourneyLeague, LeagueExample> = {
     positions: "G, F, and C",
     caption: "Example: DeMar DeRozan (G) — college on top, then each NBA team oldest to newest.",
   },
+  nhl: {
+    rungs: [
+      { colors: ["#FFB81C", "#000000", "#FFFFFF"], label: "Boston Bruins" },
+      { colors: ["#00205B", "#FFFFFF", "#000000"], label: "Toronto Maple Leafs" },
+      { colors: ["#FCB514", "#000000", "#CFC493"], label: "Pittsburgh Penguins" },
+      { colors: ["#69B3E7", "#010101", "#FFFFFF"], label: "Utah Mammoth" },
+    ],
+    positions: "every position (C, LW, RW, D, G)",
+    caption: "Example: Phil Kessel (RW) — each NHL team oldest to newest.",
+  },
 }
 
 export default function JourneyHowToPlay({ league, className, onOpenCalendar }: Props) {
