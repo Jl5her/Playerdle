@@ -652,7 +652,6 @@ function ResultsPanel({
 }
 
 export default function JourneyGame({ league, mode, onModeChange, archiveDateKey }: Props) {
-  const isArchive = !!archiveDateKey
   const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
@@ -702,10 +701,14 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      if (!isArchive) markJourneyDailyPlayed(league)
+      // Mark today as played only when this puzzle's date IS today, regardless
+      // of how the player got here (via the daily entry point or the archive's
+      // "Play this day" on today). Mirrors the archive-flag logic in
+      // saveJourneyResult so the daily-played marker stays consistent.
+      if (puzzle.dateKey === getTodayKey()) markJourneyDailyPlayed(league)
       saveJourneyResult(league, puzzle.dateKey, won, guesses.length, guesses)
     }
-  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses, isArchive])
+  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses])
 
   useEffect(() => {
     if (!gameOver) {

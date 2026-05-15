@@ -635,7 +635,6 @@ export default function ColorsGame({
   onBackToToday,
   archiveDateKey,
 }: Props) {
-  const isArchive = !!archiveDateKey
   const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() => {
@@ -668,10 +667,14 @@ export default function ColorsGame({
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      if (!isArchive) markColorsDailyPlayed(variant)
+      // Mark today as played only when this puzzle's date IS today, regardless of
+      // how the player got here (via the daily entry point or the archive's
+      // "Play this day" on today). Mirrors the archive-flag logic in
+      // saveColorsResult so the daily-played marker stays consistent.
+      if (puzzle.dateKey === getTodayKey()) markColorsDailyPlayed(variant)
       saveColorsResult(puzzle.dateKey, won, guesses.length, variant, guesses)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant, isArchive])
+  }, [activeMode, gameOver, puzzle.dateKey, won, guesses, variant])
 
   useEffect(() => {
     if (!gameOver) {
