@@ -195,7 +195,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
         {showDropdown && filtered.length > 0 && (
           <div
             ref={dropdownRef}
-            className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-10 dark:bg-secondary-900 dark:border-primary-700"
+            className="absolute bottom-full left-0 right-0 max-h-48 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-30 dark:bg-secondary-900 dark:border-primary-700"
           >
             {filtered.map((player, i) => (
               <button
