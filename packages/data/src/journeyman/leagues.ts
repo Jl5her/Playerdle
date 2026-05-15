@@ -3,10 +3,13 @@ import {
   JOURNEY_PLAYERS as NFL_JOURNEY_PLAYERS,
   type JourneyPlayer,
 } from "./players"
+import { NBA_ELIGIBLE_POSITIONS, NBA_JOURNEY_PLAYERS } from "./nba-players"
 
 import NFL_ANSWER_POOL from "./nfl-answer-pool.json"
+import NBA_ANSWER_POOL from "./nba-answer-pool.json"
 
 import NFL_TEAMS from "../playerdle/nfl/teams.json"
+import NBA_TEAMS from "../playerdle/nba/teams.json"
 
 // Build a teamName → 3-color palette resolver from a playerdle teams.json
 // array. teams.json is the canonical brand-color source for the whole app;
@@ -25,13 +28,14 @@ function buildPaletteLookup(
 }
 
 const getNflTeamPalette = buildPaletteLookup(NFL_TEAMS)
+const getNbaTeamPalette = buildPaletteLookup(NBA_TEAMS)
 
 // JourneyLeague enumerates every league with a registered Journeyman puzzle.
 // Add new leagues here AND register them in the LEAGUES record below; the
 // rest of the app (routing, main-menu tile, autocomplete) wires through the
 // registry automatically.
-export type JourneyLeague = "nfl"
-export const JOURNEY_LEAGUES: ReadonlyArray<JourneyLeague> = ["nfl"]
+export type JourneyLeague = "nfl" | "nba"
+export const JOURNEY_LEAGUES: ReadonlyArray<JourneyLeague> = ["nfl", "nba"]
 
 export interface LeagueJourneyData {
   league: JourneyLeague
@@ -76,6 +80,15 @@ const LEAGUES: Record<JourneyLeague, LeagueJourneyData> = {
     NFL_ELIGIBLE_POSITIONS,
     NFL_ANSWER_POOL,
     getNflTeamPalette,
+    true,
+  ),
+  nba: buildLeague(
+    "nba",
+    "NBA",
+    NBA_JOURNEY_PLAYERS,
+    NBA_ELIGIBLE_POSITIONS,
+    NBA_ANSWER_POOL,
+    getNbaTeamPalette,
     true,
   ),
 }
