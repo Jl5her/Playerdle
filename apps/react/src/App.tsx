@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
-import { hasPlayedJourneyDailyToday } from "@/games/journeyman/utils/journey-daily"
+import {
+  hasPlayedJourneyDailyToday,
+  isJourneyLeague,
+  type JourneyLeague,
+} from "@/games/journeyman/utils/journey-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -266,15 +270,21 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   const isMenuView = screen === "menu" || screen === "help"
 
-  const nflExtraGames: ExtraGame[] = [
-    {
-      label: "Journeyman",
-      played: hasPlayedJourneyDailyToday(),
-      onPlayDaily: () => navigate("/journeyman/daily"),
-      onPlayArcade: () => navigate("/journeyman/arcade"),
-      onShowStats: () => navigate("/journeyman/daily", { state: { showStats: true } }),
-    },
-  ]
+  const journeymanLeague: JourneyLeague | null = isJourneyLeague(sportId) ? sportId : null
+  const extraGames: ExtraGame[] | undefined = journeymanLeague
+    ? [
+        {
+          label: "Journeyman",
+          played: hasPlayedJourneyDailyToday(journeymanLeague),
+          onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
+          onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
+          onShowStats: () =>
+            navigate(`/journeyman/${journeymanLeague}/daily`, {
+              state: { showStats: true },
+            }),
+        },
+      ]
+    : undefined
 
   return (
     <>
@@ -286,7 +296,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             section={menuSection}
             onCloseAbout={handleAboutBack}
             guideSport={activeSport ?? sport}
-            extraGames={sportId === "nfl" ? nflExtraGames : undefined}
+            extraGames={extraGames}
           />
         </div>
       )}
@@ -449,6 +459,41 @@ function SportRoute({ screen, variantId }: SportRouteProps) {
       variantId={variantId}
     />
   )
+}
+
+interface JourneyRouteProps {
+  screen: "daily" | "arcade"
+}
+
+function JourneyRoute({ screen }: JourneyRouteProps) {
+  const { league } = useParams<{ league?: string }>()
+  if (!league || !isJourneyLeague(league)) {
+    return (
+      <Navigate
+        to={`/journeyman/nfl/${screen}`}
+        replace
+      />
+    )
+  }
+  return (
+    <JourneyShell
+      league={league}
+      screen={screen}
+    />
+  )
+}
+
+function JourneyCalendarRoute() {
+  const { league } = useParams<{ league?: string }>()
+  if (!league || !isJourneyLeague(league)) {
+    return (
+      <Navigate
+        to="/journeyman/nfl/calendar"
+        replace
+      />
+    )
+  }
+  return <JourneyCalendar league={league} />
 }
 
 function App() {
@@ -642,7 +687,9 @@ function App() {
           />
         }
       />
-      {/* Journeyman lives under /journeyman. Old /palette/journey/* redirects for backwards compatibility. */}
+      {/* Journeyman lives under /journeyman/:league. Plain /journeyman/* paths
+          default to NFL for backwards compatibility with bookmarks and shared
+          links from the original single-league launch. */}
       <Route
         path="/journeyman"
         element={
@@ -655,24 +702,51 @@ function App() {
       <Route
         path="/journeyman/daily"
         element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyShell screen="daily" />
-          </Suspense>
+          <Navigate
+            to="/journeyman/nfl/daily"
+            replace
+          />
         }
       />
       <Route
         path="/journeyman/arcade"
         element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyShell screen="arcade" />
-          </Suspense>
+          <Navigate
+            to="/journeyman/nfl/arcade"
+            replace
+          />
         }
       />
       <Route
         path="/journeyman/calendar"
         element={
+          <Navigate
+            to="/journeyman/nfl/calendar"
+            replace
+          />
+        }
+      />
+      <Route
+        path="/journeyman/:league/daily"
+        element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyCalendar />
+            <JourneyRoute screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/journeyman/:league/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <JourneyRoute screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/journeyman/:league/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <JourneyCalendarRoute />
           </Suspense>
         }
       />
@@ -689,7 +763,7 @@ function App() {
         path="/palette/journey/daily"
         element={
           <Navigate
-            to="/journeyman/daily"
+            to="/journeyman/nfl/daily"
             replace
           />
         }
@@ -698,7 +772,7 @@ function App() {
         path="/palette/journey/arcade"
         element={
           <Navigate
-            to="/journeyman/arcade"
+            to="/journeyman/nfl/arcade"
             replace
           />
         }
@@ -707,7 +781,7 @@ function App() {
         path="/palette/journey/calendar"
         element={
           <Navigate
-            to="/journeyman/calendar"
+            to="/journeyman/nfl/calendar"
             replace
           />
         }

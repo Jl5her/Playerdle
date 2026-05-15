@@ -1,8 +1,9 @@
-import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
-import { getNflTeamPalette } from "@playerdle/data/journeyman/team-colors"
+import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
+import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 
 interface Props {
+  league: JourneyLeague
   className?: string
   onOpenCalendar?: () => void
 }
@@ -12,7 +13,11 @@ function MiniDiamond({ color }: { color: string }) {
   return (
     <span
       className={clsx("inline-block w-5 h-5 rounded-[2px] rotate-45", isTransparent && "diamond-transparent")}
-      style={isTransparent ? { border: "1px solid rgba(0,0,0,0.25)" } : { backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }}
+      style={
+        isTransparent
+          ? { border: "1px solid rgba(0,0,0,0.25)" }
+          : { backgroundColor: color, border: `1px solid rgba(0,0,0,0.25)` }
+      }
       aria-hidden="true"
     />
   )
@@ -42,12 +47,39 @@ function ExampleRow({
   )
 }
 
-export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
+interface LeagueExample {
+  // Top rung (college or first-team) shown before the team rungs.
+  rungs: Array<{ colors: [string, string, string]; label: string }>
+  positions: string
+  caption: string
+}
+
+// Per-league example diamond ladder shown in the How-to-Play overlay. Add an
+// entry here when registering a new league in journeyman/leagues.ts.
+const LEAGUE_EXAMPLES: Record<JourneyLeague, LeagueExample> = {
+  nfl: {
+    rungs: [
+      { colors: ["#C5050C", "#FFFFFF", "#9B0000"], label: "Wisconsin" },
+      { colors: ["#002244", "#69BE28", "#A5ACAF"], label: "Seattle Seahawks" },
+      { colors: ["#FB4F14", "#002244", "#FFFFFF"], label: "Denver Broncos" },
+      { colors: ["#FFB612", "#000000", "#C60C30"], label: "Pittsburgh Steelers" },
+    ],
+    positions: "QB, WR, RB, and TE",
+    caption: "Example: Russell Wilson (QB) — college on top, then each NFL team oldest to newest.",
+  },
+}
+
+export default function JourneyHowToPlay({ league, className, onOpenCalendar }: Props) {
   const isLocal = import.meta.env.DEV
+  const data = getLeagueJourneyData(league)
+  const example = LEAGUE_EXAMPLES[league]
+  const teamRequirement = `at least 3 ${data.label} teams`
+  const playerType = `${data.label} player`
+
   return (
     <div className={className}>
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
-        Guess the NFL player from the chronological list of teams they've played for. You have 5
+        Guess the {playerType} from the chronological list of teams they've played for. You have 5
         guesses.
       </p>
 
@@ -56,34 +88,36 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
           The clue
         </h3>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-relaxed">
-          The player has played for at least 3 NFL teams. Each team is shown as three colored
-          diamonds — its brand colors — in chronological order, oldest at top. You start with the
-          player's <span className="font-semibold">college</span> and the diamonds for their{" "}
-          <span className="font-semibold">first NFL team</span>. Unrevealed teams show as neutral
-          diamonds that flip to color when revealed.
+          The player has played for {teamRequirement}. Each team is shown as three colored diamonds
+          — its brand colors — in chronological order, oldest at top.
+          {data.hasCollegeRung ? (
+            <>
+              {" "}
+              You start with the player's <span className="font-semibold">college</span> and the
+              diamonds for their <span className="font-semibold">first {data.label} team</span>.
+            </>
+          ) : (
+            <>
+              {" "}
+              You start with the diamonds for their{" "}
+              <span className="font-semibold">first {data.label} team</span>.
+            </>
+          )}{" "}
+          Unrevealed teams show as neutral diamonds that flip to color when revealed.
         </p>
 
         <div className="mt-3 rounded-lg bg-primary-100/60 dark:bg-primary-800/40 px-3 py-3">
           <div className="grid grid-cols-[auto_auto] items-center gap-x-4 gap-y-1 w-fit mx-auto">
-            <ExampleRow
-              colors={getCollegePalette("Wisconsin") ?? ["#C5050C", "#FFFFFF", "transparent"]}
-              label="Wisconsin"
-            />
-            <ExampleRow
-              colors={getNflTeamPalette("Seattle Seahawks") ?? ["#002244", "#69BE28", "#A5ACAF"]}
-              label="Seattle Seahawks"
-            />
-            <ExampleRow
-              colors={getNflTeamPalette("Denver Broncos") ?? ["#FB4F14", "#002244", "#FFFFFF"]}
-              label="Denver Broncos"
-            />
-            <ExampleRow
-              colors={getNflTeamPalette("Pittsburgh Steelers") ?? ["#FFB612", "#000000", "#C60C30"]}
-              label="Pittsburgh Steelers"
-            />
+            {example.rungs.map((rung, i) => (
+              <ExampleRow
+                key={`${rung.label}-${i}`}
+                colors={rung.colors}
+                label={rung.label}
+              />
+            ))}
           </div>
           <p className="mt-3 text-[11px] text-primary-500 dark:text-primary-200 text-center italic">
-            Example: Russell Wilson (QB) — college on top, then each NFL team oldest to newest.
+            {example.caption}
           </p>
         </div>
       </div>
@@ -93,11 +127,10 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
           Who's in the pool
         </h3>
         <p className="text-sm text-primary-500 dark:text-primary-200 leading-relaxed">
-          Daily answers are pulled from a curated pool of NFL players who are{" "}
+          Daily answers are pulled from a curated pool of {data.label} players who are{" "}
           <span className="font-semibold">currently active or retired within the last 5 years</span>{" "}
-          and have played for at least 3 NFL teams. Only{" "}
-          <span className="font-semibold">QB, WR, RB, and TE</span> are eligible — same positions as
-          Playerdle.
+          and have played for {teamRequirement}. Eligible positions:{" "}
+          <span className="font-semibold">{example.positions}</span>.
         </p>
       </div>
 
@@ -106,13 +139,17 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
           Hints unlock as you go
         </h3>
         <ul className="text-sm text-primary-500 dark:text-primary-200 leading-relaxed space-y-1 list-disc pl-5">
-          <li>Start: college + first team's diamonds are visible.</li>
+          {data.hasCollegeRung ? (
+            <li>Start: college + first team's diamonds are visible.</li>
+          ) : (
+            <li>Start: first team's diamonds are visible.</li>
+          )}
           <li>For each wrong answer, the next-newer team's diamonds light up.</li>
           <li>The player's current team is the last to be revealed.</li>
           <li>
             The position at the top of the ladder is hidden as{" "}
             <span className="font-semibold">?</span> until you guess a player with the matching
-            position group.
+            position.
           </li>
         </ul>
       </div>
@@ -128,11 +165,11 @@ export default function JourneyHowToPlay({ className, onOpenCalendar }: Props) {
           </li>
           <li>
             <span className="font-semibold text-warning-600 dark:text-warning-300">Yellow</span> —
-            wrong player, but the same position group as the answer.
+            wrong player, but the same position as the answer.
           </li>
           <li>
             <span className="font-semibold text-error-500 dark:text-error-400">Red</span> — wrong
-            player and wrong position group.
+            player and wrong position.
           </li>
         </ul>
       </div>

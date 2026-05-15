@@ -5,9 +5,11 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { Overlay } from "@/shared/components"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
@@ -16,38 +18,63 @@ import JourneyHowToPlay from "./journey-how-to-play"
 import JourneyStatsOverlay from "./journey-stats-overlay"
 
 interface Props {
+  league: JourneyLeague
   screen: "daily" | "arcade"
 }
 
 type GameOverlay = "none" | "guide" | "stats" | "calendar"
-const TUTORIAL_SEEN_KEY = "journey-tutorial-seen"
 
-export default function JourneyShell({ screen }: Props) {
+function tutorialSeenKey(league: JourneyLeague): string {
+  return `journey-tutorial-seen:${league}`
+}
+
+// One-time migration for the legacy NFL-only tutorial key so existing users
+// don't see onboarding again.
+const LEGACY_NFL_TUTORIAL_KEY = "journey-tutorial-seen"
+function migrateLegacyTutorialFlagIfNeeded() {
+  if (typeof localStorage === "undefined") return
+  try {
+    const newKey = tutorialSeenKey("nfl")
+    if (!localStorage.getItem(newKey) && localStorage.getItem(LEGACY_NFL_TUTORIAL_KEY)) {
+      localStorage.setItem(newKey, "true")
+    }
+  } catch {
+    // ignore
+  }
+}
+
+export default function JourneyShell({ league, screen }: Props) {
   const navigate = useNavigate()
   const location = useLocation()
+  const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
   const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
   const [overlay, setOverlay] = useState<GameOverlay>(initialShowStats ? "stats" : "none")
   const [isOnboarding, setIsOnboarding] = useState(false)
 
   useEffect(() => {
-    document.title = "Playerdle Journeyman"
-  }, [])
+    document.title = `Playerdle Journeyman ${leagueData.label}`
+  }, [leagueData.label])
 
   useEffect(() => {
     if (screen !== "daily") return
     if (initialShowStats) return
-    if (localStorage.getItem(TUTORIAL_SEEN_KEY)) return
+    migrateLegacyTutorialFlagIfNeeded()
+    if (localStorage.getItem(tutorialSeenKey(league))) return
     setIsOnboarding(true)
     setOverlay("guide")
-  }, [screen, initialShowStats])
+  }, [screen, initialShowStats, league])
 
   function goToMenu() {
-    navigate("/")
+    if (league === "nfl") {
+      navigate("/")
+    } else {
+      navigate(`/${league}`)
+    }
   }
 
   function closeGuide() {
     if (isOnboarding) {
-      localStorage.setItem(TUTORIAL_SEEN_KEY, "true")
+      localStorage.setItem(tutorialSeenKey(league), "true")
       setIsOnboarding(false)
     }
     setOverlay("none")
@@ -91,7 +118,7 @@ export default function JourneyShell({ screen }: Props) {
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          Journeyman
+          Journeyman {leagueData.label}
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           {subtitle}
@@ -135,7 +162,8 @@ export default function JourneyShell({ screen }: Props) {
           )}
         >
           <JourneyGame
-            key={mode}
+            key={`${league}:${mode}`}
+            league={league}
             mode={mode}
             onModeChange={setActiveMode}
           />
@@ -163,6 +191,7 @@ export default function JourneyShell({ screen }: Props) {
               </button>
             </div>
             <JourneyHowToPlay
+              league={league}
               className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
               onOpenCalendar={() => setOverlay("calendar")}
             />
@@ -190,7 +219,10 @@ export default function JourneyShell({ screen }: Props) {
                 />
               </button>
             </div>
-            <JourneyStatsOverlay className="-mt-1 flex-1 overflow-auto pb-2" />
+            <JourneyStatsOverlay
+              league={league}
+              className="-mt-1 flex-1 overflow-auto pb-2"
+            />
           </div>
         </Overlay>
         <Overlay
@@ -198,7 +230,10 @@ export default function JourneyShell({ screen }: Props) {
           onClose={() => setOverlay("none")}
           className="overflow-hidden"
         >
-          <JourneyCalendar onClose={() => setOverlay("none")} />
+          <JourneyCalendar
+            league={league}
+            onClose={() => setOverlay("none")}
+          />
         </Overlay>
       </div>
     </div>

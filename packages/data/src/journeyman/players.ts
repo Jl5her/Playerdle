@@ -8,9 +8,15 @@ export interface JourneyPlayer {
   id: string
   name: string
   position: string
-  college: string
+  // For NFL this is the college. For NBA/MLB this is generally the college or
+  // origin. For NHL this is the player's draft origin (junior team or college).
+  // Optional because not every league surfaces a college rung.
+  college?: string
   teams: string[] // chronological: oldest stint first, current/last team last
   espnId?: string // ESPN athlete ID for direct API lookups
+  mlbId?: string // MLB Stats API person ID (statsapi.mlb.com)
+  nbaId?: string // ESPN basketball athlete ID
+  nhlId?: string // NHL API player ID (api-web.nhle.com)
 }
 
 export const JOURNEY_PLAYERS: JourneyPlayer[] = [

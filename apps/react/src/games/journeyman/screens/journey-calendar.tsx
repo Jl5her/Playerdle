@@ -12,9 +12,11 @@ import {
   getJourneyHistory,
   getJourneyPuzzleByDateKey,
   JOURNEY_EPOCH_DATE_KEY,
+  type JourneyLeague,
   type JourneyPuzzle,
   type JourneyResult,
 } from "@/games/journeyman/utils/journey-daily"
+import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import { ScrollHint } from "@/shared/components"
 import { getTodayKey } from "@/shared/utils/time"
 
@@ -44,6 +46,8 @@ function buildMonthGrid(year: number, monthIndex: number): Array<Date | null> {
 }
 
 function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: JourneyResult }) {
+  const subtitleParts = [puzzle.player.position]
+  if (puzzle.player.college) subtitleParts.push(puzzle.player.college)
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
       <div className="text-[10px] uppercase tracking-wider text-primary-500 dark:text-primary-200">
@@ -53,7 +57,7 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
         {puzzle.player.name}
       </div>
       <div className="text-xs text-primary-500 dark:text-primary-200 uppercase tracking-wider mt-1">
-        {puzzle.player.position} · {puzzle.player.college}
+        {subtitleParts.join(" · ")}
       </div>
 
       <ol className="mt-3 space-y-1 text-xs">
@@ -90,24 +94,29 @@ function DayDetail({ puzzle, result }: { puzzle: JourneyPuzzle; result?: Journey
 }
 
 interface Props {
+  league: JourneyLeague
   onClose?: () => void
 }
 
-export default function JourneyCalendar({ onClose }: Props = {}) {
+export default function JourneyCalendar({ league, onClose }: Props) {
   const navigate = useNavigate()
   const scrollRef = useRef<HTMLDivElement>(null)
   const today = parseDateKey(getTodayKey())
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
+  const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
 
   const history = useMemo(() => {
     const map = new Map<string, JourneyResult>()
-    for (const r of getJourneyHistory()) map.set(r.date, r)
+    for (const r of getJourneyHistory(league)) map.set(r.date, r)
     return map
-  }, [])
+  }, [league])
 
   const cells = useMemo(() => buildMonthGrid(view.year, view.month), [view])
-  const selectedPuzzle = useMemo(() => getJourneyPuzzleByDateKey(selected), [selected])
+  const selectedPuzzle = useMemo(
+    () => getJourneyPuzzleByDateKey(league, selected),
+    [league, selected],
+  )
   const selectedResult = history.get(selected)
 
   function goPrevMonth() {
@@ -132,7 +141,7 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
         <button
-          onClick={() => (onClose ? onClose() : navigate("/"))}
+          onClick={() => (onClose ? onClose() : navigate(league === "nfl" ? "/" : `/${league}`))}
           aria-label={onClose ? "Close calendar" : "Back to menu"}
           title={onClose ? "Close" : "Back"}
           className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
@@ -144,7 +153,7 @@ export default function JourneyCalendar({ onClose }: Props = {}) {
           />
         </button>
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          Journeyman Archive
+          Journeyman {leagueData.label} Archive
         </h1>
         <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
           Past daily puzzles

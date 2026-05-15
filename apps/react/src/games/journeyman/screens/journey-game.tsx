@@ -1,6 +1,5 @@
 import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
-import { ELIGIBLE_JOURNEY_PLAYERS, isEligiblePosition } from "@playerdle/data/journeyman/players"
-import { getNflTeamPalette } from "@playerdle/data/journeyman/team-colors"
+import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
 import clsx from "clsx"
 import Fuse from "fuse.js"
@@ -10,6 +9,7 @@ import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
   getDailyJourneyPuzzle,
+  type JourneyLeague,
   type JourneyPuzzle,
   type JourneyStats,
   markJourneyDailyPlayed,
@@ -29,11 +29,12 @@ import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
-const STORAGE_KEY = "playerdle-journey-state:v1"
+const STORAGE_KEY_PREFIX = "playerdle-journey-state:v1"
 
 export type JourneyGameMode = "daily" | "arcade"
 
 interface Props {
+  league: JourneyLeague
   mode: JourneyGameMode
   onModeChange?: (mode: JourneyGameMode) => void
 }
@@ -43,45 +44,56 @@ interface SavedState {
   guesses: string[]
 }
 
-function loadDailyGuesses(dateKey: string): string[] {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw) as SavedState
-    if (parsed.dateKey !== dateKey) return []
-    return parsed.guesses ?? []
-  } catch {
-    return []
-  }
-}
-
-function saveDailyGuesses(dateKey: string, guesses: string[]) {
-  const state: SavedState = { dateKey, guesses }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
-}
-
-function getPaletteOrFallback(teamName: string): [string, string, string] {
-  return getNflTeamPalette(teamName) ?? ["#888888", "#bbbbbb", "#dddddd"]
-}
-
 interface PlayerOption {
   name: string
   position: string
 }
 
-const autocompletePool: PlayerOption[] = (() => {
+// Per-league active-roster autocomplete pool. Add new leagues by adding their
+// playerdle/{league}/players.json import here.
+const LEAGUE_PLAYER_SOURCES: Record<
+  JourneyLeague,
+  Array<{ name: string; position: string }>
+> = {
+  nfl: nflPlayers as Array<{ name: string; position: string }>,
+}
+
+function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
+  const data = getLeagueJourneyData(league)
+  const eligibleSet = new Set(data.eligiblePositions)
   const byName = new Map<string, PlayerOption>()
-  for (const p of nflPlayers as Array<{ name: string; position: string }>) {
-    if (!isEligiblePosition(p.position)) continue
+  for (const p of LEAGUE_PLAYER_SOURCES[league] ?? []) {
+    if (!eligibleSet.has(p.position)) continue
     byName.set(p.name.toLowerCase(), { name: p.name, position: p.position })
   }
-  for (const j of ELIGIBLE_JOURNEY_PLAYERS) {
+  for (const j of data.eligiblePlayers) {
     if (!byName.has(j.name.toLowerCase())) {
       byName.set(j.name.toLowerCase(), { name: j.name, position: j.position })
     }
   }
   return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name))
-})()
+}
+
+function storageKey(league: JourneyLeague): string {
+  return `${STORAGE_KEY_PREFIX}:${league}`
+}
+
+function loadDailyGuesses(league: JourneyLeague, dateKey: string): string[] {
+  try {
+    const raw = localStorage.getItem(storageKey(league))
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as SavedState
+    if (parsed.dateKey !== dateKey) return []
+    return Array.isArray(parsed.guesses) ? parsed.guesses : []
+  } catch {
+    return []
+  }
+}
+
+function saveDailyGuesses(league: JourneyLeague, dateKey: string, guesses: string[]) {
+  const state: SavedState = { dateKey, guesses }
+  localStorage.setItem(storageKey(league), JSON.stringify(state))
+}
 
 function shadeHex(hex: string, amount: number): string {
   const clean = hex.replace("#", "")
@@ -255,10 +267,18 @@ interface GuessSlotsProps {
   answerName: string
   targetPosition: string
   maxGuesses: number
+  autocompletePool: PlayerOption[]
   hideAnswer?: boolean
 }
 
-function GuessSlots({ guesses, answerName, targetPosition, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
+function GuessSlots({
+  guesses,
+  answerName,
+  targetPosition,
+  maxGuesses,
+  autocompletePool,
+  hideAnswer = false,
+}: GuessSlotsProps) {
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
   const latestIndex = guesses.length - 1
 
@@ -312,9 +332,10 @@ interface PlayerInputProps {
   onGuess: (name: string) => void
   disabled: boolean
   usedGuesses: Set<string>
+  autocompletePool: PlayerOption[]
 }
 
-function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
+function PlayerInput({ onGuess, disabled, usedGuesses, autocompletePool }: PlayerInputProps) {
   const [query, setQuery] = useState("")
   const [showDropdown, setShowDropdown] = useState(false)
   const [highlightIndex, setHighlightIndex] = useState(0)
@@ -331,7 +352,7 @@ function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
         threshold: 0.35,
         distance: 50,
       }),
-    [],
+    [autocompletePool],
   )
 
   const trimmed = query.trim()
@@ -360,7 +381,7 @@ function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
       }
     }
     return result.slice(0, 8)
-  }, [trimmed, usedGuesses, fuse])
+  }, [trimmed, usedGuesses, fuse, autocompletePool])
 
   function handleSelect(option: PlayerOption) {
     onGuess(option.name)
@@ -442,22 +463,26 @@ function PlayerInput({ onGuess, disabled, usedGuesses }: PlayerInputProps) {
 }
 
 interface ResultsPanelProps {
+  league: JourneyLeague
   puzzle: JourneyPuzzle
   guesses: string[]
   won: boolean
   maxGuesses: number
   mode: JourneyGameMode
   stats: JourneyStats | null
+  autocompletePool: PlayerOption[]
   onClose: () => void
   onPlayAgain: () => void
 }
 
 function buildShareText(
+  league: JourneyLeague,
   puzzle: JourneyPuzzle,
   guesses: string[],
   won: boolean,
   maxGuesses: number,
   url: string,
+  autocompletePool: PlayerOption[],
 ): string {
   const score = won ? `${guesses.length}/${maxGuesses}` : `X/${maxGuesses}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
@@ -477,16 +502,19 @@ function buildShareText(
     return "🟥"
   }).join("")
 
-  return `Journeyman (${dateStr}) — ${score}\n${emojiRow}\n\n${url}`
+  const label = league.toUpperCase()
+  return `Journeyman ${label} (${dateStr}) — ${score}\n${emojiRow}\n\n${url}`
 }
 
 function ResultsPanel({
+  league,
   puzzle,
   guesses,
   won,
   maxGuesses,
   mode,
   stats,
+  autocompletePool,
   onClose,
   onPlayAgain,
 }: ResultsPanelProps) {
@@ -495,9 +523,12 @@ function ResultsPanel({
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   async function handleShare() {
-    const rawUrl = `${window.location.origin}/journeyman/daily`
+    const rawUrl = `${window.location.origin}/journeyman/${league}/daily`
     const url = await shortenUrl(rawUrl)
-    share({ title: "Journeyman", text: buildShareText(puzzle, guesses, won, maxGuesses, url) })
+    share({
+      title: "Journeyman",
+      text: buildShareText(league, puzzle, guesses, won, maxGuesses, url, autocompletePool),
+    })
   }
 
   return (
@@ -611,14 +642,16 @@ function ResultsPanel({
   )
 }
 
-export default function JourneyGame({ mode, onModeChange }: Props) {
+export default function JourneyGame({ league, mode, onModeChange }: Props) {
   const [dateKey] = useState<string>(getTodayKey)
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
+  const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
+  const autocompletePool = useMemo(() => buildAutocompletePool(league), [league])
   const [puzzle, setPuzzle] = useState<JourneyPuzzle>(() =>
-    mode === "daily" ? getDailyJourneyPuzzle() : getArcadeJourneyPuzzle(),
+    mode === "daily" ? getDailyJourneyPuzzle(league) : getArcadeJourneyPuzzle(league),
   )
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(dateKey) : [],
+    mode === "daily" ? loadDailyGuesses(league, dateKey) : [],
   )
 
   const answerName = puzzle.player.name
@@ -627,13 +660,9 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
   const gameOver = won || lost
   const wrongCount = guesses.filter(g => g.toLowerCase() !== answerName.toLowerCase()).length
 
-  // Reveal cadence: college + first team start visible; remaining teams are
-  // spread across the first 3 wrong guesses so the full ladder is exposed by
-  // the time the player makes their 4th guess. Each step reveals 1–3 teams
-  // depending on how many they've played for.
   const [hideAnswer, setHideAnswer] = useState(false)
 
-  const REVEAL_STEPS = MAX_GUESSES - 2 // 3 reveal steps before the final guess
+  const REVEAL_STEPS = MAX_GUESSES - 2
   const visibleTeamsCount = gameOver
     ? puzzle.player.teams.length
     : Math.min(
@@ -646,15 +675,15 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
 
   const gameScrollRef = useRef<HTMLDivElement>(null)
   const [stats, setStats] = useState<JourneyStats | null>(() =>
-    gameOver && activeMode === "daily" ? calculateJourneyStats() : null,
+    gameOver && activeMode === "daily" ? calculateJourneyStats(league) : null,
   )
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      markJourneyDailyPlayed()
-      saveJourneyResult(puzzle.dateKey, won, guesses.length)
+      markJourneyDailyPlayed(league)
+      saveJourneyResult(league, puzzle.dateKey, won, guesses.length)
     }
-  }, [activeMode, gameOver, puzzle.dateKey, won, guesses.length])
+  }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses.length])
 
   useEffect(() => {
     if (!gameOver) {
@@ -662,13 +691,18 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
       return
     }
     if (activeMode === "daily" && stats === null) {
-      setStats(calculateJourneyStats())
+      setStats(calculateJourneyStats(league))
     }
-  }, [gameOver, activeMode, stats])
+  }, [gameOver, activeMode, stats, league])
+
+  function getPaletteOrFallback(teamName: string): [string, string, string] {
+    return leagueData.getTeamPalette(teamName) ?? ["#888888", "#bbbbbb", "#dddddd"]
+  }
 
   const confettiColors = useMemo(
     () => puzzle.player.teams.flatMap(t => getPaletteOrFallback(t)),
-    [puzzle.player.teams],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [puzzle.player.teams, leagueData],
   )
   useWinConfetti({
     won,
@@ -685,23 +719,28 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
       const match = autocompletePool.find(p => p.name.toLowerCase() === g.toLowerCase())
       return match?.position === targetPos
     })
-  }, [guesses, puzzle.player.position, gameOver])
+  }, [guesses, puzzle.player.position, gameOver, autocompletePool])
 
   function handleGuess(name: string) {
     if (gameOver) return
     if (usedGuessesLower.has(name.toLowerCase())) return
     const next = [...guesses, name]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(dateKey, next)
+    if (activeMode === "daily") saveDailyGuesses(league, dateKey, next)
   }
 
   function handlePlayAgain() {
-    const fresh = getArcadeJourneyPuzzle(puzzle.player.id)
+    const fresh = getArcadeJourneyPuzzle(league, puzzle.player.id)
     setPuzzle(fresh)
     setGuesses([])
     setActiveMode("arcade")
     onModeChange?.("arcade")
   }
+
+  const collegePalette =
+    leagueData.hasCollegeRung && puzzle.player.college
+      ? getCollegePalette(puzzle.player.college)
+      : undefined
 
   return (
     <DailyGameShell
@@ -710,12 +749,14 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
       onPlayAgain={handlePlayAgain}
       renderResults={({ onClose, onPlayAgain }) => (
         <ResultsPanel
+          league={league}
           puzzle={puzzle}
           guesses={guesses}
           won={won}
           maxGuesses={MAX_GUESSES}
           mode={activeMode}
           stats={stats}
+          autocompletePool={autocompletePool}
           onClose={onClose}
           onPlayAgain={onPlayAgain}
         />
@@ -740,14 +781,14 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
               <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
             </div>
             <div className="flex flex-col">
-              <LadderRow
-                name={puzzle.player.college}
-                palette={
-                  getCollegePalette(puzzle.player.college) ?? ["#888888", "#bbbbbb", "#dddddd"]
-                }
-                revealed
-                showName={gameOver && !hideAnswer}
-              />
+              {leagueData.hasCollegeRung && puzzle.player.college && (
+                <LadderRow
+                  name={puzzle.player.college}
+                  palette={collegePalette ?? ["#888888", "#bbbbbb", "#dddddd"]}
+                  revealed
+                  showName={gameOver && !hideAnswer}
+                />
+              )}
               {puzzle.player.teams.map((team, i) => (
                 <LadderRow
                   key={`${team}-${i}`}
@@ -766,6 +807,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
               answerName={answerName}
               targetPosition={puzzle.player.position}
               maxGuesses={MAX_GUESSES}
+              autocompletePool={autocompletePool}
               hideAnswer={hideAnswer}
             />
           </div>
@@ -777,6 +819,7 @@ export default function JourneyGame({ mode, onModeChange }: Props) {
         onGuess={handleGuess}
         disabled={gameOver}
         usedGuesses={usedGuessesLower}
+        autocompletePool={autocompletePool}
       />
     </DailyGameShell>
   )
