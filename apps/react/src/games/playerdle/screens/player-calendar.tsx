@@ -1,5 +1,3 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -14,7 +12,7 @@ import {
   type SportId,
 } from "@/games/playerdle/sports"
 import { type GameResult, getGameHistory } from "@/games/playerdle/utils/stats"
-import { ArchiveCalendar, Overlay } from "@/shared/components"
+import { ArchiveCalendar, ResultsSlidePanel } from "@/shared/components"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate, getTodayKey } from "@/shared/utils/time"
@@ -178,35 +176,19 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
               archiveDateKey={archiveDateKey}
             />
           </div>
-          <Overlay
+          <ResultsSlidePanel
             open={archiveGuideOpen}
             onClose={() => setArchiveGuideOpen(false)}
-            className="px-4 pb-4 overflow-hidden flex min-h-0"
+            title="How to Play"
           >
-            <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
-              <div className="flex items-center justify-between pt-3">
-                <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
-                  How to Play
-                </h2>
-                <button
-                  type="button"
-                  className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                  aria-label="Close guide"
-                  onClick={() => setArchiveGuideOpen(false)}
-                >
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    className="text-2xl"
-                  />
-                </button>
-              </div>
+            <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
               <GameGuideContent
                 sport={sport}
                 mode="manual"
                 className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
               />
             </div>
-          </Overlay>
+          </ResultsSlidePanel>
         </div>
       </div>
     )

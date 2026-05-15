@@ -80,21 +80,28 @@ export default function ArchiveCalendar<R extends CalendarResult>({
     })
   }
 
-  const headerHandler = onClose ?? onBack
-  const headerIcon = onClose ? faXmark : faAngleLeft
-  const headerLabel = onClose ? "Close calendar" : "Back to menu"
-
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
-        {headerHandler && (
+        {onBack && (
           <button
-            onClick={headerHandler}
-            aria-label={headerLabel}
-            title={onClose ? "Close" : "Back"}
+            onClick={onBack}
+            aria-label="Back to menu"
+            title="Back"
             className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
           >
-            <FontAwesomeIcon icon={headerIcon} className="text-[1.7rem]" aria-hidden="true" />
+            <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
+          </button>
+        )}
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close calendar"
+            title="Close (Esc)"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+          >
+            <FontAwesomeIcon icon={faXmark} className="text-2xl" aria-hidden="true" />
           </button>
         )}
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">

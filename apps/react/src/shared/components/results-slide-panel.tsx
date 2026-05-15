@@ -2,6 +2,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import type { ReactNode } from "react"
+import { useEscapeKey } from "@/shared/hooks/use-escape-key"
 
 interface Props {
   open: boolean
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function ResultsSlidePanel({ open, onClose, title = "Results", children }: Props) {
+  useEscapeKey(open, onClose)
   return (
     <div
       className={clsx(
@@ -25,7 +27,7 @@ export default function ResultsSlidePanel({ open, onClose, title = "Results", ch
         <button
           type="button"
           className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-          aria-label="Close results"
+          aria-label={`Close ${title}`}
           title="Close (Esc)"
           onClick={onClose}
         >
