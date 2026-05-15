@@ -7,16 +7,19 @@ interface Props {
   onShowStats?: () => void
   onBack?: () => void
   sport: SportInfo
+  /** Optional override for the small text under the title. Defaults to today's long date. */
+  subtitle?: string
 }
 
-export default function Header({ onShowTutorial, onShowStats, onBack, sport }: Props) {
+export default function Header({ onShowTutorial, onShowStats, onBack, sport, subtitle }: Props) {
   const today = new Date()
-  const dateStr = today.toLocaleDateString("en-US", {
+  const defaultSubtitle = today.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
     year: "numeric",
   })
+  const subtitleText = subtitle ?? defaultSubtitle
 
   return (
     <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
@@ -37,7 +40,7 @@ export default function Header({ onShowTutorial, onShowStats, onBack, sport }: P
       <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
         Playerdle {sport.displayName}
       </h1>
-      <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{dateStr}</p>
+      <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitleText}</p>
       {(onShowTutorial || onShowStats) && (
         <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
           {onShowStats && (

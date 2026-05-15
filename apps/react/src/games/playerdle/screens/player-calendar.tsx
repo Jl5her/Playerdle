@@ -1,9 +1,10 @@
-import { faAngleLeft, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faChevronLeft, faChevronRight, faXmark } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { GuessGrid } from "@/games/playerdle/components"
+import { GuessGrid, Header } from "@/games/playerdle/components"
+import { GameGuideContent } from "@/games/playerdle/modals/game-guide-content"
 import Game from "@/games/playerdle/screens/game"
 import {
   getSportMetaById,
@@ -15,6 +16,8 @@ import {
 } from "@/games/playerdle/sports"
 import { getDailyPlayer } from "@/games/playerdle/utils/daily"
 import { type GameResult, getGameHistory } from "@/games/playerdle/utils/stats"
+import { Overlay } from "@/shared/components"
+import { formatLongDate } from "@/shared/utils/time"
 
 const PLAYER_EPOCH = new Date(2024, 0, 1)
 
@@ -131,6 +134,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   const [view, setView] = useState({ year: today.getFullYear(), month: today.getMonth() })
   const [selected, setSelected] = useState<string>(formatDateKey(today))
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
+  const [archiveGuideOpen, setArchiveGuideOpen] = useState(false)
 
   useEffect(() => {
     let mounted = true
@@ -187,32 +191,60 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
   const menuPath = sportId === "nfl" ? "/" : `/${sportId}`
 
   if (archiveDateKey && sport) {
+    const [ay, am, ad] = archiveDateKey.split("-").map(Number)
+    const archiveSubtitle = formatLongDate(new Date(ay, am - 1, ad))
     return (
       <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
-        <div className="shrink-0 flex items-center gap-2 px-3 py-2 border-b-2 border-primary-300 dark:border-primary-700 bg-primary-100/60 dark:bg-primary-800/60">
-          <button
-            type="button"
-            onClick={() => setArchiveDateKey(null)}
-            aria-label="Back to archive"
-            className="p-2 -ml-1 text-primary-900 dark:text-primary-50 rounded hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+        <Header
+          sport={sportMeta}
+          subtitle={archiveSubtitle}
+          onBack={() => setArchiveDateKey(null)}
+          onShowTutorial={archiveGuideOpen ? undefined : () => setArchiveGuideOpen(true)}
+        />
+        <div className="flex flex-1 min-h-0 overflow-hidden relative pt-[3.75rem]">
+          <div
+            className={clsx(
+              "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+              archiveGuideOpen ? "crossfade-inactive" : "crossfade-active",
+            )}
           >
-            <FontAwesomeIcon icon={faAngleLeft} className="text-lg" />
-          </button>
-          <span className="text-[10px] uppercase tracking-wider font-bold text-primary-500 dark:text-primary-200">
-            Archive ·
-          </span>
-          <span className="text-xs font-bold text-primary-900 dark:text-primary-50">
-            {archiveDateKey}
-          </span>
-        </div>
-        <div className="flex-1 min-h-0 overflow-hidden">
-          <Game
-            key={`archive:${sport.id}:${archiveDateKey}`}
-            mode="daily"
-            sport={sport}
-            variantId={variantId}
-            archiveDateKey={archiveDateKey}
-          />
+            <Game
+              key={`archive:${sport.id}:${archiveDateKey}`}
+              mode="daily"
+              sport={sport}
+              variantId={variantId}
+              archiveDateKey={archiveDateKey}
+            />
+          </div>
+          <Overlay
+            open={archiveGuideOpen}
+            onClose={() => setArchiveGuideOpen(false)}
+            className="px-4 pb-4 overflow-hidden flex min-h-0"
+          >
+            <div className="w-full max-w-2xl mx-auto h-full min-h-0 flex flex-col">
+              <div className="flex items-center justify-between pt-3">
+                <h2 className="text-xl font-black tracking-wider text-primary-700 dark:text-primary-50">
+                  How to Play
+                </h2>
+                <button
+                  type="button"
+                  className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+                  aria-label="Close guide"
+                  onClick={() => setArchiveGuideOpen(false)}
+                >
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className="text-2xl"
+                  />
+                </button>
+              </div>
+              <GameGuideContent
+                sport={sport}
+                mode="manual"
+                className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
+              />
+            </div>
+          </Overlay>
         </div>
       </div>
     )

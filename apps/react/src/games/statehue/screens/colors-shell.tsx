@@ -21,7 +21,12 @@ interface Props {
   variant?: ColorsVariant
 }
 
-type GameOverlay = "none" | "guide" | "stats" | "calendar" | "archive-play"
+type GameOverlay = "none" | "guide" | "stats" | "calendar"
+
+function parseDateKey(key: string): Date {
+  const [y, m, d] = key.split("-").map(Number)
+  return new Date(y, m - 1, d)
+}
 
 function tutorialSeenKey(variant: ColorsVariant): string {
   return variant === "collegiate" ? "statehue-collegiate-tutorial-seen" : "statehue-tutorial-seen"
@@ -78,16 +83,35 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
   useEffect(() => {
     setActiveMode(mode)
   }, [mode])
-  const subtitle = activeMode === "arcade" ? "Arcade mode" : formatLongDate()
+  const isArchive = !!archiveDateKey
+  const subtitle = isArchive
+    ? formatLongDate(parseDateKey(archiveDateKey))
+    : activeMode === "arcade"
+      ? "Arcade mode"
+      : formatLongDate()
   const isGuideOpen = overlay === "guide"
   const isStatsOpen = overlay === "stats"
+
+  function exitArchive() {
+    setArchiveDateKey(null)
+    setOverlay("calendar")
+    setCalendarHistoryVersion(v => v + 1)
+  }
+
+  function handleBack() {
+    if (isArchive) {
+      exitArchive()
+    } else {
+      goToMenu()
+    }
+  }
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
       <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
         <button
-          onClick={goToMenu}
-          aria-label="Back to menu"
+          onClick={handleBack}
+          aria-label={isArchive ? "Back to archive" : "Back to menu"}
           title="Back"
           className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
         >
@@ -141,17 +165,29 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             overlay === "none" ? "crossfade-active" : "crossfade-inactive",
           )}
         >
-          <ColorsGame
-            key={`${variant}:${mode}`}
-            mode={mode}
-            variant={variant}
-            onModeChange={setActiveMode}
-            onBackToToday={
-              screen === "arcade"
-                ? () => navigate(variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily")
-                : undefined
-            }
-          />
+          {isArchive ? (
+            <ColorsGame
+              key={`archive:${variant}:${archiveDateKey}`}
+              mode="daily"
+              variant={variant}
+              archiveDateKey={archiveDateKey}
+            />
+          ) : (
+            <ColorsGame
+              key={`${variant}:${mode}`}
+              mode={mode}
+              variant={variant}
+              onModeChange={setActiveMode}
+              onBackToToday={
+                screen === "arcade"
+                  ? () =>
+                      navigate(
+                        variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily",
+                      )
+                  : undefined
+              }
+            />
+          )}
         </div>
         <Overlay
           open={isGuideOpen}
@@ -221,52 +257,10 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             onClose={() => setOverlay("none")}
             onPlayArchive={dateKey => {
               setArchiveDateKey(dateKey)
-              setOverlay("archive-play")
+              setOverlay("none")
             }}
             historyVersion={calendarHistoryVersion}
           />
-        </Overlay>
-        <Overlay
-          open={overlay === "archive-play"}
-          onClose={() => {
-            setOverlay("calendar")
-            setArchiveDateKey(null)
-            setCalendarHistoryVersion(v => v + 1)
-          }}
-          className="overflow-hidden"
-        >
-          {archiveDateKey && (
-            <div className="flex flex-col h-full min-h-0 bg-primary-50 dark:bg-primary-900">
-              <div className="shrink-0 flex items-center gap-2 px-3 py-2 border-b-2 border-primary-300 dark:border-primary-700 bg-primary-100/60 dark:bg-primary-800/60">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setOverlay("calendar")
-                    setArchiveDateKey(null)
-                    setCalendarHistoryVersion(v => v + 1)
-                  }}
-                  aria-label="Back to archive"
-                  className="p-2 -ml-1 text-primary-900 dark:text-primary-50 rounded hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-                >
-                  <FontAwesomeIcon icon={faAngleLeft} className="text-lg" />
-                </button>
-                <span className="text-[10px] uppercase tracking-wider font-bold text-primary-500 dark:text-primary-200">
-                  Archive ·
-                </span>
-                <span className="text-xs font-bold text-primary-900 dark:text-primary-50">
-                  {archiveDateKey}
-                </span>
-              </div>
-              <div className="flex-1 min-h-0 overflow-hidden">
-                <ColorsGame
-                  key={`archive:${variant}:${archiveDateKey}`}
-                  mode="daily"
-                  variant={variant}
-                  archiveDateKey={archiveDateKey}
-                />
-              </div>
-            </div>
-          )}
         </Overlay>
       </div>
     </div>
