@@ -149,7 +149,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
-      <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
+      <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
         <button
           onClick={() => navigate(menuPath)}
           aria-label="Back to menu"
@@ -170,7 +170,7 @@ export default function PlayerCalendar({ variantId }: PlayerCalendarProps = {}) 
         </p>
       </header>
 
-      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
+      <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden pt-[3.75rem]">
         <div className="max-w-md mx-auto px-3 py-4">
           <div className="flex items-center justify-between mb-3">
             <button

@@ -104,7 +104,7 @@ export default function JourneyShell({ league, screen }: Props) {
 
   return (
     <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
-      <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
+      <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
         <button
           onClick={goToMenu}
           aria-label="Back to menu"
@@ -154,7 +154,7 @@ export default function JourneyShell({ league, screen }: Props) {
           )}
         </div>
       </header>
-      <div className="flex flex-1 min-h-0 overflow-hidden relative">
+      <div className="flex flex-1 min-h-0 overflow-hidden relative pt-[3.75rem]">
         <div
           className={clsx(
             "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",

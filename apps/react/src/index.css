@@ -134,11 +134,28 @@ body,
   height: var(--app-height, 100dvh);
   transition: height 250ms cubic-bezier(0.32, 0.72, 0, 1);
   overflow: hidden;
+  /* Position anchor for .game-header, which is absolutely positioned at the
+     top of the viewport so it stays visually pinned through keyboard
+     transitions instead of riding the flex flow. */
+  position: relative;
   /* Push content below the dynamic island / status bar when running as a PWA.
      env(safe-area-inset-top) returns 0 in a normal browser tab, so this is a
      no-op there; iOS standalone PWAs return the actual island height. */
   padding-top: env(safe-area-inset-top);
   box-sizing: border-box;
+}
+
+.game-header {
+  /* Absolutely positioned within .app-viewport so the back/stats/help bar
+     stays anchored at the top of the visible area through keyboard
+     animations and any iOS-driven document shifts. Pair with pt-[3.75rem]
+     (or var(--game-header-h)) on the sibling content area to reserve space
+     in the flex flow underneath. */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
 }
 
 .guess-input-shell {
