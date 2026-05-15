@@ -3,14 +3,17 @@ import {
   JOURNEY_PLAYERS as NFL_JOURNEY_PLAYERS,
   type JourneyPlayer,
 } from "./players"
+import { MLB_ELIGIBLE_POSITIONS, MLB_JOURNEY_PLAYERS } from "./mlb-players"
 import { NBA_ELIGIBLE_POSITIONS, NBA_JOURNEY_PLAYERS } from "./nba-players"
 import { NHL_ELIGIBLE_POSITIONS, NHL_JOURNEY_PLAYERS } from "./nhl-players"
 
 import NFL_ANSWER_POOL from "./nfl-answer-pool.json"
+import MLB_ANSWER_POOL from "./mlb-answer-pool.json"
 import NBA_ANSWER_POOL from "./nba-answer-pool.json"
 import NHL_ANSWER_POOL from "./nhl-answer-pool.json"
 
 import NFL_TEAMS from "../playerdle/nfl/teams.json"
+import MLB_TEAMS from "../playerdle/mlb/teams.json"
 import NBA_TEAMS from "../playerdle/nba/teams.json"
 import NHL_TEAMS from "../playerdle/nhl/teams.json"
 
@@ -31,6 +34,7 @@ function buildPaletteLookup(
 }
 
 const getNflTeamPalette = buildPaletteLookup(NFL_TEAMS)
+const getMlbTeamPalette = buildPaletteLookup(MLB_TEAMS)
 const getNbaTeamPalette = buildPaletteLookup(NBA_TEAMS)
 const getNhlTeamPalette = buildPaletteLookup(NHL_TEAMS)
 
@@ -38,8 +42,8 @@ const getNhlTeamPalette = buildPaletteLookup(NHL_TEAMS)
 // Add new leagues here AND register them in the LEAGUES record below; the
 // rest of the app (routing, main-menu tile, autocomplete) wires through the
 // registry automatically.
-export type JourneyLeague = "nfl" | "nba" | "nhl"
-export const JOURNEY_LEAGUES: ReadonlyArray<JourneyLeague> = ["nfl", "nba", "nhl"]
+export type JourneyLeague = "nfl" | "mlb" | "nba" | "nhl"
+export const JOURNEY_LEAGUES: ReadonlyArray<JourneyLeague> = ["nfl", "mlb", "nba", "nhl"]
 
 export interface LeagueJourneyData {
   league: JourneyLeague
@@ -85,6 +89,15 @@ const LEAGUES: Record<JourneyLeague, LeagueJourneyData> = {
     NFL_ANSWER_POOL,
     getNflTeamPalette,
     true,
+  ),
+  mlb: buildLeague(
+    "mlb",
+    "MLB",
+    MLB_JOURNEY_PLAYERS,
+    MLB_ELIGIBLE_POSITIONS,
+    MLB_ANSWER_POOL,
+    getMlbTeamPalette,
+    false,
   ),
   nba: buildLeague(
     "nba",

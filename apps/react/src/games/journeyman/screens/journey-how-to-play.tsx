@@ -67,6 +67,16 @@ const LEAGUE_EXAMPLES: Record<JourneyLeague, LeagueExample> = {
     positions: "QB, WR, RB, and TE",
     caption: "Example: Russell Wilson (QB) — college on top, then each NFL team oldest to newest.",
   },
+  mlb: {
+    rungs: [
+      { colors: ["#0C2340", "#FA4616", "#FFFFFF"], label: "Detroit Tigers" },
+      { colors: ["#002D62", "#EB6E1F", "#F4911E"], label: "Houston Astros" },
+      { colors: ["#002D72", "#FF5910", "#FFFFFF"], label: "New York Mets" },
+      { colors: ["#002D62", "#EB6E1F", "#F4911E"], label: "Houston Astros" },
+    ],
+    positions: "every position (SP, RP, IF, OF, C, DH)",
+    caption: "Example: Justin Verlander (SP) — each MLB team oldest to newest.",
+  },
   nba: {
     rungs: [
       { colors: ["#990000", "#FFCC00", "#FFFFFF"], label: "USC" },

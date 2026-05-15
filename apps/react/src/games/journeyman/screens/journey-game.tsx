@@ -1,5 +1,6 @@
 import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
+import mlbPlayers from "@playerdle/data/playerdle/mlb/players.json"
 import nbaPlayers from "@playerdle/data/playerdle/nba/players.json"
 import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
 import nhlPlayers from "@playerdle/data/playerdle/nhl/players.json"
@@ -58,6 +59,7 @@ const LEAGUE_PLAYER_SOURCES: Record<
   Array<{ name: string; position: string }>
 > = {
   nfl: nflPlayers as Array<{ name: string; position: string }>,
+  mlb: mlbPlayers as Array<{ name: string; position: string }>,
   nba: nbaPlayers as Array<{ name: string; position: string }>,
   nhl: nhlPlayers as Array<{ name: string; position: string }>,
 }
