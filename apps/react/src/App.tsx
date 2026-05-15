@@ -23,6 +23,7 @@ import {
   type SportConfig,
 } from "@/games/playerdle/sports"
 import { type FooterTab, LeagueFooter, Overlay, PWAUpdateToast } from "@/shared/components"
+import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -312,7 +313,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             onBack={goToMenu}
             sport={activeSport ?? sportMeta}
           />
-          <div className="flex flex-1 min-h-0 overflow-hidden">
+          <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
             <Suspense fallback={<div className="flex-1 min-h-0" />}>
               {screen === "daily" && activeSport && (
                 <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
@@ -497,6 +498,7 @@ function JourneyCalendarRoute() {
 }
 
 function App() {
+  useViewportHeight()
   return (
     <>
     <PWAUpdateToast />

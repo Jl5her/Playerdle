@@ -31,6 +31,7 @@
     "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba && pnpm run scrape:nba:fanatic",
     "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb && pnpm run generate:answer-pool:mlb && pnpm run scrape:mlb:fanatic",
     "sync:journey": "tsx scripts/sync-journey-players.ts",
+    "sync:journey:nba": "tsx scripts/sync-journey-players-nba.ts",
     "generate:journey-pool": "tsx scripts/generate-journey-answer-pool.ts",
     "generate:pwa-icons": "tsx scripts/generate-pwa-icons.ts"
   },

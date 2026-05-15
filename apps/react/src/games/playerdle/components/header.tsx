@@ -19,7 +19,7 @@ export default function Header({ onShowTutorial, onShowStats, onBack, sport }: P
   })
 
   return (
-    <header className="bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center shrink-0 border-b-2 border-primary-300 dark:border-primary-700 relative">
+    <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
       {onBack && (
         <button
           onClick={onBack}
