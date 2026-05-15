@@ -633,7 +633,7 @@
     "division": "Central",
     "team": "Cincinnati Reds",
     "teamAbbr": "CIN",
-    "position": "CF",
+    "position": "RF",
     "number": 59,
     "league": "NL"
   },
@@ -888,6 +888,17 @@
     "teamAbbr": "PIT",
     "position": "SP",
     "number": 35,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:40971",
+    "name": "Braxton Garrett",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "SP",
+    "number": 20,
     "league": "NL"
   },
   {
@@ -1295,17 +1306,6 @@
     "teamAbbr": "TEX",
     "position": "RP",
     "number": 44,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:41292",
-    "name": "Cal Raleigh",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "C",
-    "number": 29,
     "league": "AL"
   },
   {
@@ -3097,7 +3097,7 @@
     "division": "West",
     "team": "Athletics",
     "teamAbbr": "ATH",
-    "position": "RF",
+    "position": "CF",
     "number": 33,
     "league": "AL"
   },
@@ -3905,15 +3905,15 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36093",
-    "name": "Jimmy Herget",
-    "conference": "NL",
+    "id": "mlb:40702",
+    "name": "Jhonny Pereda",
+    "conference": "AL",
     "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RP",
-    "number": 44,
-    "league": "NL"
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 5,
+    "league": "AL"
   },
   {
     "id": "mlb:42410",
@@ -4279,6 +4279,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5119607",
+    "name": "Jose Ferrer",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 45,
+    "league": "AL"
+  },
+  {
     "id": "mlb:32106",
     "name": "Jose Quintana",
     "conference": "NL",
@@ -4345,17 +4356,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5266692",
-    "name": "Josh Ekness",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 95,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42437",
     "name": "Josh Jung",
     "conference": "AL",
@@ -4386,17 +4386,6 @@
     "teamAbbr": "SEA",
     "position": "1B",
     "number": 12,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4151347",
-    "name": "Josh Simpson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 37,
     "league": "AL"
   },
   {
@@ -5033,7 +5022,7 @@
     "division": "East",
     "team": "Miami Marlins",
     "teamAbbr": "MIA",
-    "position": "2B",
+    "position": "3B",
     "number": 19,
     "league": "NL"
   },
@@ -5553,17 +5542,6 @@
     "position": "SP",
     "number": 61,
     "league": "NL"
-  },
-  {
-    "id": "mlb:42427",
-    "name": "Matt Wallner",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RF",
-    "number": 38,
-    "league": "AL"
   },
   {
     "id": "mlb:41173",
@@ -6237,17 +6215,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5132016",
-    "name": "Omar Martinez",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "C",
-    "number": 66,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39712",
     "name": "Oneil Cruz",
     "conference": "NL",
@@ -6842,6 +6809,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42701",
+    "name": "Ryan Kreidler",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "CF",
+    "number": 5,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33247",
     "name": "Ryan McMahon",
     "conference": "AL",
@@ -7101,7 +7079,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "2B",
+    "position": "3B",
     "number": 21,
     "league": "NL"
   },
@@ -7480,6 +7458,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4415658",
+    "name": "Tanner Gordon",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 29,
+    "league": "NL"
+  },
+  {
     "id": "mlb:35135",
     "name": "Tanner Scott",
     "conference": "NL",
@@ -7687,17 +7676,6 @@
     "position": "RP",
     "number": 64,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4424951",
-    "name": "Travis Adams",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RP",
-    "number": 45,
-    "league": "AL"
   },
   {
     "id": "mlb:5007707",
@@ -8580,14 +8558,14 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5014989",
-    "name": "Zak Kent",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
+    "id": "mlb:4791597",
+    "name": "Zebby Matthews",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "SP",
+    "number": 52,
+    "league": "AL"
   }
 ]
