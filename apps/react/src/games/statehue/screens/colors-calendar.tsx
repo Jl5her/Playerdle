@@ -9,7 +9,7 @@ import {
   getColorsHistory,
   getColorsPuzzleByDateKey,
 } from "@/games/statehue/utils/colors-daily"
-import { ArchiveCalendar } from "@/shared/components"
+import { ArchiveCalendar, Panel } from "@/shared/components"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
@@ -102,8 +102,10 @@ interface ColorsCalendarProps {
   onPlayArchive?: (dateKey: string) => void
   /** Bump to force a re-read of saved history (e.g. after an archive play). */
   historyVersion?: number
-  /** Omit the app-viewport shell; used when hosted inside a ResultsSlidePanel. */
+  /** Omit the app-viewport shell; renders as panel content. */
   panel?: boolean
+  /** Controls Panel visibility when panel=true. */
+  open?: boolean
 }
 
 export default function ColorsCalendar({
@@ -112,6 +114,7 @@ export default function ColorsCalendar({
   onPlayArchive,
   historyVersion = 0,
   panel = false,
+  open,
 }: ColorsCalendarProps = {}) {
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
@@ -137,9 +140,11 @@ export default function ColorsCalendar({
   const selectedIsFuture = selectedDate.getTime() > today.getTime()
   const selectedIsBeforeEpoch = selectedDate.getTime() < EPOCH.getTime()
 
-  return (
+  const calendarTitle = variant === "collegiate" ? "Collegiate Archive" : "Statehue Archive"
+
+  const calendar = (
     <ArchiveCalendar
-      title="Statehue Archive"
+      title={calendarTitle}
       onClose={panel ? undefined : onClose}
       onBack={panel || onClose ? undefined : () => navigate("/statehue")}
       panel={panel}
@@ -159,4 +164,14 @@ export default function ColorsCalendar({
       />
     </ArchiveCalendar>
   )
+
+  if (panel) {
+    return (
+      <Panel open={open ?? false} onClose={onClose ?? (() => {})} title={calendarTitle} layout="full">
+        {calendar}
+      </Panel>
+    )
+  }
+
+  return calendar
 }

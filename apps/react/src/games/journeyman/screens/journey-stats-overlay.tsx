@@ -3,19 +3,22 @@ import {
   calculateJourneyStats,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
+import { Panel } from "@/shared/components"
 
 interface Props {
   league: JourneyLeague
-  className?: string
+  open: boolean
+  onClose: () => void
   onViewArchive?: () => void
 }
 
-export default function JourneyStatsOverlay({ league, className, onViewArchive }: Props) {
+export default function JourneyStatsOverlay({ league, open, onClose, onViewArchive }: Props) {
   const stats = calculateJourneyStats(league)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (
-    <div className={clsx("text-center px-6 py-6", className)}>
+    <Panel open={open} onClose={onClose} title="Statistics" layout="scroll">
+      <div className="text-center px-6 py-6">
       <div className="grid grid-cols-4 gap-2 mb-6">
         <Stat
           value={stats.played}
@@ -81,7 +84,8 @@ export default function JourneyStatsOverlay({ league, className, onViewArchive }
           </button>
         </div>
       )}
-    </div>
+      </div>
+    </Panel>
   )
 }
 

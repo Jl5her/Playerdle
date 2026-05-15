@@ -1,10 +1,12 @@
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
+import { Panel } from "@/shared/components"
 
 interface Props {
   league: JourneyLeague
-  className?: string
+  open: boolean
+  onClose: () => void
   onOpenCalendar?: () => void
 }
 
@@ -99,7 +101,7 @@ const LEAGUE_EXAMPLES: Record<JourneyLeague, LeagueExample> = {
   },
 }
 
-export default function JourneyHowToPlay({ league, className, onOpenCalendar }: Props) {
+export default function JourneyHowToPlay({ league, open, onClose, onOpenCalendar }: Props) {
   const isLocal = import.meta.env.DEV
   const data = getLeagueJourneyData(league)
   const example = LEAGUE_EXAMPLES[league]
@@ -107,7 +109,7 @@ export default function JourneyHowToPlay({ league, className, onOpenCalendar }: 
   const playerType = `${data.label} player`
 
   return (
-    <div className={className}>
+    <Panel open={open} onClose={onClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the {playerType} from the chronological list of teams they've played for. You have 5
         guesses.
@@ -226,6 +228,6 @@ export default function JourneyHowToPlay({ league, className, onOpenCalendar }: 
           </div>
         </div>
       )}
-    </div>
+    </Panel>
   )
 }

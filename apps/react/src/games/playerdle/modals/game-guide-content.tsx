@@ -1,19 +1,22 @@
 import clsx from "clsx"
 import type { SportConfig } from "@/games/playerdle/sports"
+import { Panel } from "@/shared/components"
 
 export type GuideMode = "onboarding" | "manual"
 
 interface GameGuideContentProps {
   sport: SportConfig
   mode: GuideMode
-  className?: string
+  open: boolean
+  onClose: () => void
   onOpenCalendar?: () => void
 }
 
 export function GameGuideContent({
   sport,
   mode,
-  className,
+  open,
+  onClose,
   onOpenCalendar,
 }: GameGuideContentProps) {
   const isLocal = import.meta.env.DEV
@@ -37,7 +40,7 @@ export function GameGuideContent({
   }
 
   return (
-    <div className={className}>
+    <Panel open={open} onClose={onClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the mystery {sport.displayName} player in 6 tries. Each guess reveals clues across the
         columns shown below.
@@ -156,6 +159,6 @@ export function GameGuideContent({
           </div>
         </div>
       )}
-    </div>
+    </Panel>
   )
 }

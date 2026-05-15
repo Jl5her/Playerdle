@@ -3,19 +3,22 @@ import {
   type ColorsVariant,
   calculateColorsStats,
 } from "@/games/statehue/utils/colors-daily"
+import { Panel } from "@/shared/components"
 
 interface Props {
-  className?: string
   variant?: ColorsVariant
+  open: boolean
+  onClose: () => void
   onViewArchive?: () => void
 }
 
-export default function ColorsStatsOverlay({ className, variant = "pro", onViewArchive }: Props) {
+export default function ColorsStatsOverlay({ variant = "pro", open, onClose, onViewArchive }: Props) {
   const stats = calculateColorsStats(variant)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (
-    <div className={clsx("text-center px-6 py-6", className)}>
+    <Panel open={open} onClose={onClose} title="Statistics" layout="scroll">
+      <div className="text-center px-6 py-6">
       <div className="grid grid-cols-4 gap-2 mb-6">
         <Stat
           value={stats.played}
@@ -81,7 +84,8 @@ export default function ColorsStatsOverlay({ className, variant = "pro", onViewA
           </button>
         </div>
       )}
-    </div>
+      </div>
+    </Panel>
   )
 }
 

@@ -5,10 +5,12 @@ import { getProTeamPalette } from "@playerdle/data/statehue/states"
 import clsx from "clsx"
 
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
+import { Panel } from "@/shared/components"
 
 interface Props {
-  className?: string
   variant?: ColorsVariant
+  open: boolean
+  onClose: () => void
   onOpenCalendar?: () => void
 }
 
@@ -36,12 +38,12 @@ function ExampleRow({ colors }: { colors: [string, string, string] }) {
   )
 }
 
-export default function ColorsHowToPlay({ className, variant = "pro", onOpenCalendar }: Props) {
+export default function ColorsHowToPlay({ variant = "pro", open, onClose, onOpenCalendar }: Props) {
   const isLocal = import.meta.env.DEV
   const isCollegiate = variant === "collegiate"
 
   return (
-    <div className={className}>
+    <Panel open={open} onClose={onClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         {isCollegiate
           ? "Guess the U.S. state from the team colors of its D1 college programs. You have 5 guesses."
@@ -125,6 +127,6 @@ export default function ColorsHowToPlay({ className, variant = "pro", onOpenCale
           </div>
         </div>
       )}
-    </div>
+    </Panel>
   )
 }

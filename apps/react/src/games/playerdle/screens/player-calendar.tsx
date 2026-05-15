@@ -113,8 +113,12 @@ interface PlayerCalendarProps {
   variantId?: string
   /** When true, renders as a panel (no app-viewport shell, no inline archive game). */
   panel?: boolean
+  /** Controls Panel visibility when panel=true. */
+  open?: boolean
   /** Called when the user selects a date to play in panel mode. */
   onPlayArchive?: (dateKey: string) => void
+  /** Called to close the panel when panel=true. */
+  onClose?: () => void
   /** Bump to force a re-read of history after an archive play. */
   historyVersion?: number
 }
@@ -122,7 +126,9 @@ interface PlayerCalendarProps {
 export default function PlayerCalendar({
   variantId,
   panel = false,
+  open,
   onPlayArchive,
+  onClose,
   historyVersion = 0,
 }: PlayerCalendarProps = {}) {
   const navigate = useNavigate()
@@ -186,9 +192,12 @@ export default function PlayerCalendar({
                 archiveDateKey={archiveDateKey}
               />
             </div>
-            <Panel open={archiveGuideOpen} onClose={() => setArchiveGuideOpen(false)} title="How to Play">
-              <GameGuideContent sport={sport} mode="manual" />
-            </Panel>
+            <GameGuideContent
+              open={archiveGuideOpen}
+              onClose={() => setArchiveGuideOpen(false)}
+              sport={sport}
+              mode="manual"
+            />
           </div>
         </div>
       </div>
@@ -208,9 +217,11 @@ export default function PlayerCalendar({
     }
   }
 
-  return (
+  const calendarTitle = `${sportMeta.displayName} Archive`
+
+  const calendar = (
     <ArchiveCalendar
-      title={`${sportMeta.displayName} Archive`}
+      title={calendarTitle}
       onClose={panel ? undefined : () => navigate(menuPath)}
       panel={panel}
       epoch={PLAYER_EPOCH}
@@ -235,4 +246,14 @@ export default function PlayerCalendar({
       )}
     </ArchiveCalendar>
   )
+
+  if (panel) {
+    return (
+      <Panel open={open ?? false} onClose={onClose ?? (() => {})} title={calendarTitle} layout="full">
+        {calendar}
+      </Panel>
+    )
+  }
+
+  return calendar
 }

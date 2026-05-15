@@ -5,7 +5,6 @@ import clsx from "clsx"
 import { useEffect, useMemo, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
-import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
 import JourneyCalendar from "./journey-calendar"
@@ -192,30 +191,30 @@ export default function JourneyShell({ league, screen }: Props) {
               />
             )}
           </div>
-          <Panel open={panels.isOpen("guide")} onClose={closeGuide} title="How to Play">
-            <JourneyHowToPlay
-              league={league}
-              onOpenCalendar={() => panels.push("calendar")}
-            />
-          </Panel>
-          <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
-            <JourneyStatsOverlay
-              league={league}
-              onViewArchive={() => panels.push("calendar")}
-            />
-          </Panel>
-          <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={`Journeyman ${leagueData.label} Archive`} layout="full">
-            <JourneyCalendar
-              league={league}
-              panel
-              onPlayArchive={dateKey => {
-                setArchiveDateKey(dateKey)
-                panels.clear()
-                setCalendarHistoryVersion(v => v + 1)
-              }}
-              historyVersion={calendarHistoryVersion}
-            />
-          </Panel>
+          <JourneyHowToPlay
+            open={panels.isOpen("guide")}
+            onClose={closeGuide}
+            league={league}
+            onOpenCalendar={() => panels.push("calendar")}
+          />
+          <JourneyStatsOverlay
+            open={panels.isOpen("stats")}
+            onClose={panels.pop}
+            league={league}
+            onViewArchive={() => panels.push("calendar")}
+          />
+          <JourneyCalendar
+            open={panels.isOpen("calendar")}
+            onClose={panels.pop}
+            league={league}
+            panel
+            onPlayArchive={dateKey => {
+              setArchiveDateKey(dateKey)
+              panels.clear()
+              setCalendarHistoryVersion(v => v + 1)
+            }}
+            historyVersion={calendarHistoryVersion}
+          />
         </div>
       </div>
     </div>

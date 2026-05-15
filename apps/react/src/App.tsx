@@ -353,13 +353,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       />
                     )}
                   </div>
-                  <Panel open={panels.isOpen("guide")} onClose={handleCloseTutorial} title="How to Play">
-                    <GameGuideContent
-                      sport={activeSport}
-                      mode={gameGuideMode}
-                      onOpenCalendar={() => panels.push("calendar")}
-                    />
-                  </Panel>
+                  <GameGuideContent
+                    open={panels.isOpen("guide")}
+                    onClose={handleCloseTutorial}
+                    sport={activeSport}
+                    mode={gameGuideMode}
+                    onOpenCalendar={() => panels.push("calendar")}
+                  />
                   <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
                     <StatsContent
                       {...statsModalConfig}
@@ -368,22 +368,22 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       onViewArchive={() => panels.push("calendar")}
                     />
                   </Panel>
-                  <Panel open={panels.isOpen("archive-guide")} onClose={panels.pop} title="How to Play">
-                    <GameGuideContent
-                      sport={activeSport}
-                      mode="manual"
+                  <GameGuideContent
+                    open={panels.isOpen("archive-guide")}
+                    onClose={panels.pop}
+                    sport={activeSport}
+                    mode="manual"
+                  />
+                  <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                    <PlayerCalendar
+                      open={panels.isOpen("calendar")}
+                      onClose={panels.pop}
+                      panel
+                      variantId={activeVariantId}
+                      onPlayArchive={handlePlayArchive}
+                      historyVersion={calendarHistoryVersion}
                     />
-                  </Panel>
-                  <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={`${sportMeta.displayName} Archive`} layout="full">
-                    <Suspense fallback={<div className="flex-1 min-h-0" />}>
-                      <PlayerCalendar
-                        panel
-                        variantId={activeVariantId}
-                        onPlayArchive={handlePlayArchive}
-                        historyVersion={calendarHistoryVersion}
-                      />
-                    </Suspense>
-                  </Panel>
+                  </Suspense>
                 </div>
               )}
               {screen === "arcade" && activeSport && (

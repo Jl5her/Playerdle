@@ -4,7 +4,6 @@ import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
-import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
 import ColorsCalendar from "./colors-calendar"
@@ -180,30 +179,30 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
               />
             )}
           </div>
-          <Panel open={panels.isOpen("guide")} onClose={closeGuide} title="How to Play">
-            <ColorsHowToPlay
-              variant={variant}
-              onOpenCalendar={() => panels.push("calendar")}
-            />
-          </Panel>
-          <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
-            <ColorsStatsOverlay
-              variant={variant}
-              onViewArchive={() => panels.push("calendar")}
-            />
-          </Panel>
-          <Panel open={panels.isOpen("calendar")} onClose={panels.pop} title={calendarTitle} layout="full">
-            <ColorsCalendar
-              variant={variant}
-              panel
-              onPlayArchive={dateKey => {
-                setArchiveDateKey(dateKey)
-                panels.clear()
-                setCalendarHistoryVersion(v => v + 1)
-              }}
-              historyVersion={calendarHistoryVersion}
-            />
-          </Panel>
+          <ColorsHowToPlay
+            open={panels.isOpen("guide")}
+            onClose={closeGuide}
+            variant={variant}
+            onOpenCalendar={() => panels.push("calendar")}
+          />
+          <ColorsStatsOverlay
+            open={panels.isOpen("stats")}
+            onClose={panels.pop}
+            variant={variant}
+            onViewArchive={() => panels.push("calendar")}
+          />
+          <ColorsCalendar
+            open={panels.isOpen("calendar")}
+            onClose={panels.pop}
+            variant={variant}
+            panel
+            onPlayArchive={dateKey => {
+              setArchiveDateKey(dateKey)
+              panels.clear()
+              setCalendarHistoryVersion(v => v + 1)
+            }}
+            historyVersion={calendarHistoryVersion}
+          />
         </div>
       </div>
     </div>
