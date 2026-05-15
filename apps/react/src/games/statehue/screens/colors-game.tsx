@@ -635,7 +635,6 @@ export default function ColorsGame({
   onBackToToday,
   archiveDateKey,
 }: Props) {
-  const [dateKey] = useState<string>(() => archiveDateKey ?? getTodayKey())
   const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
   const [puzzle, setPuzzle] = useState<ColorsPuzzle>(() => {
     if (mode === "daily") {
@@ -645,8 +644,11 @@ export default function ColorsGame({
     }
     return getArcadeColorsPuzzle(undefined, variant)
   })
+  // The puzzle's own dateKey is the single source of truth for storage, so
+  // in-progress saves and final-result saves always agree even if the puzzle
+  // factory ever normalizes the input date.
   const [guesses, setGuesses] = useState<string[]>(() =>
-    mode === "daily" ? loadDailyGuesses(dateKey, variant) : [],
+    mode === "daily" ? loadDailyGuesses(puzzle.dateKey, variant) : [],
   )
 
   const [hideAnswer, setHideAnswer] = useState(false)
@@ -701,7 +703,7 @@ export default function ColorsGame({
     if (usedGuessesLower.has(stateName.toLowerCase())) return
     const next = [...guesses, stateName]
     setGuesses(next)
-    if (activeMode === "daily") saveDailyGuesses(dateKey, next, variant)
+    if (activeMode === "daily") saveDailyGuesses(puzzle.dateKey, next, variant)
   }
 
   function handlePlayAgain() {
