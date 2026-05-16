@@ -28,6 +28,7 @@ import {
 } from "@/shared/components"
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { TEAM_COLOR_NAME_MAP } from "@playerdle/data/journeyman/leagues"
 import { hexToColorName } from "@/shared/utils/color-name"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
@@ -155,7 +156,7 @@ function DiamondWithPreview({ color }: { color: string }) {
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
-              {hexToColorName(color)}
+              {TEAM_COLOR_NAME_MAP.get(color.toLowerCase()) ?? hexToColorName(color)}
             </span>
           )}
         </div>

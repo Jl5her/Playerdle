@@ -33,10 +33,31 @@ function buildPaletteLookup(
   return name => map.get(name)
 }
 
+function buildColorNameLookup(
+  teams: Array<{ colors?: string[]; colorNames?: string[] }>,
+): Map<string, string> {
+  const map = new Map<string, string>()
+  for (const t of teams) {
+    if (!t.colors || !t.colorNames) continue
+    t.colors.forEach((hex, i) => {
+      const name = t.colorNames![i]
+      if (name) map.set(hex.toLowerCase(), name)
+    })
+  }
+  return map
+}
+
 const getNflTeamPalette = buildPaletteLookup(NFL_TEAMS)
 const getMlbTeamPalette = buildPaletteLookup(MLB_TEAMS)
 const getNbaTeamPalette = buildPaletteLookup(NBA_TEAMS)
 const getNhlTeamPalette = buildPaletteLookup(NHL_TEAMS)
+
+export const TEAM_COLOR_NAME_MAP: Map<string, string> = new Map([
+  ...buildColorNameLookup(NFL_TEAMS),
+  ...buildColorNameLookup(MLB_TEAMS),
+  ...buildColorNameLookup(NBA_TEAMS),
+  ...buildColorNameLookup(NHL_TEAMS),
+])
 
 // JourneyLeague enumerates every league with a registered Journeyman puzzle.
 // Add new leagues here AND register them in the LEAGUES record below; the

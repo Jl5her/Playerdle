@@ -1,5 +1,5 @@
 import { getCollegePalette } from "@playerdle/data/journeyman/college-colors"
-import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
+import { getLeagueJourneyData, TEAM_COLOR_NAME_MAP } from "@playerdle/data/journeyman/leagues"
 import mlbPlayers from "@playerdle/data/playerdle/mlb/players.json"
 import nbaPlayers from "@playerdle/data/playerdle/nba/players.json"
 import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
@@ -230,7 +230,7 @@ function FlipDiamondWithPreview({
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
-              {hexToColorName(color)}
+              {TEAM_COLOR_NAME_MAP.get(color.toLowerCase()) ?? hexToColorName(color)}
             </span>
           )}
         </div>
