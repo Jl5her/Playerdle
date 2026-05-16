@@ -5,27 +5,15 @@ import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
 export type GuideMode = "onboarding" | "manual"
 
-interface GameGuideContentProps {
-  id: string
+interface GameGuideBodyProps {
   sport: SportConfig
   mode: GuideMode
-  tutorialKey?: string
+  className?: string
   onOpenCalendar?: () => void
 }
 
-export function GameGuideContent({
-  id,
-  sport,
-  mode,
-  tutorialKey,
-  onOpenCalendar,
-}: GameGuideContentProps) {
-  const ctx = usePanelContext()
-
-  function handleClose() {
-    if (tutorialKey) localStorage.setItem(tutorialKey, "true")
-    ctx?.pop()
-  }
+/** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
+export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGuideBodyProps) {
   const isLocal = import.meta.env.DEV
   const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
@@ -47,7 +35,7 @@ export function GameGuideContent({
   }
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
+    <div className={className}>
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the mystery {sport.displayName} player in 6 tries. Each guess reveals clues across the
         columns shown below.
@@ -166,6 +154,36 @@ export function GameGuideContent({
           </div>
         </div>
       )}
+    </div>
+  )
+}
+
+interface GameGuideContentProps {
+  id: string
+  sport: SportConfig
+  mode: GuideMode
+  tutorialKey?: string
+  onOpenCalendar?: () => void
+}
+
+/** Self-contained panel — reads open state from PanelStackContext. */
+export function GameGuideContent({
+  id,
+  sport,
+  mode,
+  tutorialKey,
+  onOpenCalendar,
+}: GameGuideContentProps) {
+  const ctx = usePanelContext()
+
+  function handleClose() {
+    if (tutorialKey) localStorage.setItem(tutorialKey, "true")
+    ctx?.pop()
+  }
+
+  return (
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
+      <GameGuideBody sport={sport} mode={mode} onOpenCalendar={onOpenCalendar} />
     </Panel>
   )
 }

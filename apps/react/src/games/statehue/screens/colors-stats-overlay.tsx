@@ -6,37 +6,24 @@ import {
 import { Panel } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
-interface Props {
-  id: string
+interface ColorsStatsBodyProps {
   variant?: ColorsVariant
+  className?: string
   onViewArchive?: () => void
 }
 
-export default function ColorsStatsOverlay({ id, variant = "pro", onViewArchive }: Props) {
-  const ctx = usePanelContext()
+/** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
+export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
   const stats = calculateColorsStats(variant)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={() => ctx?.pop()} title="Statistics" layout="scroll">
-      <div className="text-center px-6 py-6">
+    <div className={clsx("text-center px-6 py-6", className)}>
       <div className="grid grid-cols-4 gap-2 mb-6">
-        <Stat
-          value={stats.played}
-          label="Played"
-        />
-        <Stat
-          value={stats.winPercentage}
-          label="Win %"
-        />
-        <Stat
-          value={stats.currentStreak}
-          label={"Current\nStreak"}
-        />
-        <Stat
-          value={stats.maxStreak}
-          label={"Max\nStreak"}
-        />
+        <Stat value={stats.played} label="Played" />
+        <Stat value={stats.winPercentage} label="Win %" />
+        <Stat value={stats.currentStreak} label={"Current\nStreak"} />
+        <Stat value={stats.maxStreak} label={"Max\nStreak"} />
       </div>
 
       <div className="mt-4 text-left">
@@ -49,10 +36,7 @@ export default function ColorsStatsOverlay({ id, variant = "pro", onViewArchive 
           const scaled = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
           const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaled, 12)}%`
           return (
-            <div
-              key={num}
-              className="flex items-center mb-1 gap-2"
-            >
+            <div key={num} className="flex items-center mb-1 gap-2">
               <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
                 {num}
               </div>
@@ -85,7 +69,23 @@ export default function ColorsStatsOverlay({ id, variant = "pro", onViewArchive 
           </button>
         </div>
       )}
-      </div>
+    </div>
+  )
+}
+
+interface Props {
+  id: string
+  variant?: ColorsVariant
+  onViewArchive?: () => void
+}
+
+/** Self-contained panel — reads open state from PanelStackContext. */
+export default function ColorsStatsOverlay({ id, variant = "pro", onViewArchive }: Props) {
+  const ctx = usePanelContext()
+
+  return (
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={() => ctx?.pop()} title="Statistics" layout="scroll">
+      <ColorsStatsBody variant={variant} onViewArchive={onViewArchive} />
     </Panel>
   )
 }
