@@ -1,7 +1,6 @@
 import {
   faArrowsRotate,
   faCheck,
-  faCopy,
   faRotateRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -59,6 +58,23 @@ export default function SyncPanel() {
   const [confirmingReset, setConfirmingReset] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const resetRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const REGEN_CONFIRM_MS = 3000
+
+  useEffect(() => {
+    if (!confirmingReset) return
+    if (resetRevertTimer.current) clearTimeout(resetRevertTimer.current)
+    resetRevertTimer.current = setTimeout(() => {
+      setConfirmingReset(false)
+    }, REGEN_CONFIRM_MS)
+    return () => {
+      if (resetRevertTimer.current) {
+        clearTimeout(resetRevertTimer.current)
+        resetRevertTimer.current = null
+      }
+    }
+  }, [confirmingReset])
 
   useEffect(() => {
     const phrase = getPassphrase()
@@ -287,73 +303,52 @@ export default function SyncPanel() {
         <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
           Your Sync Code
         </h3>
-        {confirmingReset ? (
-          <div className="flex flex-col gap-3">
-            <p className="text-sm text-primary-700 dark:text-primary-200">
-              This generates a new code. Any data saved to the old code will no longer be
-              accessible. Your progress on this device is untouched.
+        <div className="flex items-center gap-2 flex-wrap">
+          <button
+            type="button"
+            onClick={handleCopy}
+            aria-label="Copy sync code to clipboard"
+            className="rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all px-3 py-1.5 cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
+          >
+            {passphrase}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              if (confirmingReset) {
+                handleResetConfirm()
+              } else {
+                setConfirmingReset(true)
+              }
+            }}
+            aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
+            title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
+            className={`inline-flex items-center gap-1.5 rounded-md font-semibold transition-all duration-200 overflow-hidden ${
+              confirmingReset
+                ? "px-3 py-1.5 text-sm bg-red-600 text-white hover:bg-red-500"
+                : "p-2 text-base text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800"
+            }`}
+          >
+            <FontAwesomeIcon
+              icon={confirmingReset ? faCheck : faRotateRight}
+              className={confirmingReset ? "text-sm" : "text-base"}
+            />
+            {confirmingReset && <span>Confirm</span>}
+          </button>
+        </div>
+        <div className="flex flex-col gap-0.5">
+          {expiresAt && (
+            <p className="text-xs text-primary-500 dark:text-primary-400">
+              Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
             </p>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleResetConfirm}
-                className="px-4 py-2 rounded-md text-sm font-bold bg-red-600 text-white hover:bg-red-500 transition-colors"
-              >
-                Generate New Code
-              </button>
-              <button
-                type="button"
-                onClick={() => setConfirmingReset(false)}
-                className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        ) : (
-          <div className="flex items-center gap-2 flex-wrap">
-            <button
-              type="button"
-              onClick={handleCopy}
-              aria-label="Copy sync code to clipboard"
-              className="rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all px-3 py-1.5 cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
-            >
-              {passphrase}
-            </button>
-            <button
-              type="button"
-              onClick={handleCopy}
-              aria-label="Copy sync code"
-              className="p-2 rounded-md text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
-            >
-              <FontAwesomeIcon icon={copied ? faCheck : faCopy} className="text-base" />
-            </button>
-            <button
-              type="button"
-              onClick={() => setConfirmingReset(true)}
-              aria-label="Generate a new code"
-              title="Generate a new code"
-              className="p-2 rounded-md text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
-            >
-              <FontAwesomeIcon icon={faRotateRight} className="text-base" />
-            </button>
-          </div>
-        )}
-        {!confirmingReset && (
-          <div className="flex flex-col gap-0.5">
-            {expiresAt && (
-              <p className="text-xs text-primary-500 dark:text-primary-400">
-                Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
-              </p>
-            )}
-            {lastSynced && (
-              <p className="text-xs text-primary-500 dark:text-primary-400">
-                Last synced {formatSyncedAt(lastSynced)}
-              </p>
-            )}
-          </div>
-        )}
-        {linked && !confirmingReset && (
+          )}
+          {lastSynced && (
+            <p className="text-xs text-primary-500 dark:text-primary-400">
+              Last synced {formatSyncedAt(lastSynced)}
+            </p>
+          )}
+        </div>
+        {linked && (
           <div className="flex gap-2 mt-1">
             <button
               type="button"

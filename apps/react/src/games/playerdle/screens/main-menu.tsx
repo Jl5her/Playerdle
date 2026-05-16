@@ -191,7 +191,10 @@ export default function MainMenu({
           title="Settings"
           onClose={onCloseAbout}
         >
-          <div className="-mt-1 flex-1 overflow-auto pb-2">
+          <div
+            className="-mt-1 flex-1 overflow-auto pb-32"
+            style={{ scrollPaddingBottom: "8rem" }}
+          >
             <SyncPanel />
           </div>
         </MenuOverlay>
