@@ -7,10 +7,12 @@
     "division": "Southeast",
     "colors": [
       "#c8102e",
-      "#fdb927",
-      "#e03a3e"
+      "#fdb927"
     ],
-    "colorNames": ["Red", "Gold", "Red"]
+    "colorNames": [
+      "Red",
+      "Gold"
+    ]
   },
   {
     "id": "2",
@@ -20,10 +22,12 @@
     "division": "Atlantic",
     "colors": [
       "#008348",
-      "#ffffff",
-      "#007a33"
+      "#ffffff"
     ],
-    "colorNames": ["Green", "White", "Green"]
+    "colorNames": [
+      "Green",
+      "White"
+    ]
   },
   {
     "id": "17",
@@ -33,10 +37,12 @@
     "division": "Atlantic",
     "colors": [
       "#000000",
-      "#ffffff",
-      "#777d84"
+      "#ffffff"
     ],
-    "colorNames": ["Black", "White", "Gray"]
+    "colorNames": [
+      "Black",
+      "White"
+    ]
   },
   {
     "id": "30",
@@ -46,10 +52,12 @@
     "division": "Southeast",
     "colors": [
       "#008ca8",
-      "#1d1060",
-      "#1d1160"
+      "#1d1060"
     ],
-    "colorNames": ["Teal", "Purple", "Purple"]
+    "colorNames": [
+      "Teal",
+      "Navy"
+    ]
   },
   {
     "id": "4",
@@ -59,10 +67,12 @@
     "division": "Central",
     "colors": [
       "#ce1141",
-      "#000000",
-      "#ffffff"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "White"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "5",
@@ -72,10 +82,12 @@
     "division": "Central",
     "colors": [
       "#860038",
-      "#bc945c",
-      "#041e42"
+      "#bc945c"
     ],
-    "colorNames": ["Burgundy", "Gold", "Navy"]
+    "colorNames": [
+      "Burgundy",
+      "Tan"
+    ]
   },
   {
     "id": "6",
@@ -85,10 +97,12 @@
     "division": "Southwest",
     "colors": [
       "#0064b1",
-      "#bbc4ca",
-      "#00538c"
+      "#bbc4ca"
     ],
-    "colorNames": ["Blue", "Silver", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Silver"
+    ]
   },
   {
     "id": "7",
@@ -98,10 +112,12 @@
     "division": "Northwest",
     "colors": [
       "#0e2240",
-      "#fec524",
-      "#8b2131"
+      "#fec524"
     ],
-    "colorNames": ["Navy", "Gold", "Burgundy"]
+    "colorNames": [
+      "Navy",
+      "Gold"
+    ]
   },
   {
     "id": "8",
@@ -111,10 +127,12 @@
     "division": "Central",
     "colors": [
       "#1d428a",
-      "#c8102e",
-      "#1d42ba"
+      "#c8102e"
     ],
-    "colorNames": ["Blue", "Red", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Red"
+    ]
   },
   {
     "id": "9",
@@ -124,10 +142,12 @@
     "division": "Pacific",
     "colors": [
       "#fdb927",
-      "#1d428a",
-      "#ffc72c"
+      "#1d428a"
     ],
-    "colorNames": ["Gold", "Blue", "Gold"]
+    "colorNames": [
+      "Gold",
+      "Dark Blue"
+    ]
   },
   {
     "id": "10",
@@ -137,10 +157,12 @@
     "division": "Southwest",
     "colors": [
       "#ce1141",
-      "#000000",
-      "#c4ced4"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Silver"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "11",
@@ -150,10 +172,12 @@
     "division": "Central",
     "colors": [
       "#0c2340",
-      "#ffd520",
-      "#002d62"
+      "#ffd520"
     ],
-    "colorNames": ["Navy", "Gold", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Gold"
+    ]
   },
   {
     "id": "12",
@@ -163,10 +187,12 @@
     "division": "Pacific",
     "colors": [
       "#12173f",
-      "#c8102e",
-      "#1d428a"
+      "#c8102e"
     ],
-    "colorNames": ["Navy", "Red", "Blue"]
+    "colorNames": [
+      "Navy",
+      "Red"
+    ]
   },
   {
     "id": "13",
@@ -176,10 +202,12 @@
     "division": "Pacific",
     "colors": [
       "#552583",
-      "#fdb927",
-      "#000000"
+      "#fdb927"
     ],
-    "colorNames": ["Purple", "Gold", "Black"]
+    "colorNames": [
+      "Purple",
+      "Gold"
+    ]
   },
   {
     "id": "29",
@@ -189,10 +217,12 @@
     "division": "Southwest",
     "colors": [
       "#5d76a9",
-      "#12173f",
-      "#f5b112"
+      "#12173f"
     ],
-    "colorNames": ["Blue", "Navy", "Gold"]
+    "colorNames": [
+      "Blue",
+      "Navy"
+    ]
   },
   {
     "id": "14",
@@ -202,10 +232,12 @@
     "division": "Southeast",
     "colors": [
       "#98002e",
-      "#000000",
-      "#f9a01b"
+      "#000000"
     ],
-    "colorNames": ["Burgundy", "Black", "Gold"]
+    "colorNames": [
+      "Crimson",
+      "Black"
+    ]
   },
   {
     "id": "15",
@@ -215,10 +247,12 @@
     "division": "Central",
     "colors": [
       "#00471b",
-      "#eee1c6",
-      "#0077c0"
+      "#eee1c6"
     ],
-    "colorNames": ["Forest Green", "Cream", "Blue"]
+    "colorNames": [
+      "Forest Green",
+      "Cream"
+    ]
   },
   {
     "id": "16",
@@ -228,10 +262,12 @@
     "division": "Northwest",
     "colors": [
       "#266092",
-      "#79bc43",
-      "#0c2340"
+      "#79bc43"
     ],
-    "colorNames": ["Blue", "Lime", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Green"
+    ]
   },
   {
     "id": "3",
@@ -241,10 +277,12 @@
     "division": "Southwest",
     "colors": [
       "#0a2240",
-      "#b4975a",
-      "#0c2340"
+      "#b4975a"
     ],
-    "colorNames": ["Navy", "Gold", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Tan"
+    ]
   },
   {
     "id": "18",
@@ -254,10 +292,12 @@
     "division": "Atlantic",
     "colors": [
       "#1d428a",
-      "#f58426",
-      "#006bb6"
+      "#f58426"
     ],
-    "colorNames": ["Blue", "Orange", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Orange"
+    ]
   },
   {
     "id": "25",
@@ -267,10 +307,12 @@
     "division": "Northwest",
     "colors": [
       "#007ac1",
-      "#ef3b24",
-      "#002d62"
+      "#ef3b24"
     ],
-    "colorNames": ["Blue", "Orange", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Orange"
+    ]
   },
   {
     "id": "19",
@@ -280,10 +322,12 @@
     "division": "Southeast",
     "colors": [
       "#0150b5",
-      "#9ca0a3",
-      "#0077c0"
+      "#9ca0a3"
     ],
-    "colorNames": ["Blue", "Silver", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Silver"
+    ]
   },
   {
     "id": "20",
@@ -293,10 +337,12 @@
     "division": "Atlantic",
     "colors": [
       "#1d428a",
-      "#e01234",
-      "#006bb6"
+      "#e01234"
     ],
-    "colorNames": ["Blue", "Red", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Red"
+    ]
   },
   {
     "id": "21",
@@ -306,10 +352,12 @@
     "division": "Pacific",
     "colors": [
       "#29127a",
-      "#e56020",
-      "#1d1160"
+      "#e56020"
     ],
-    "colorNames": ["Purple", "Orange", "Purple"]
+    "colorNames": [
+      "Purple",
+      "Orange"
+    ]
   },
   {
     "id": "22",
@@ -319,10 +367,12 @@
     "division": "Northwest",
     "colors": [
       "#e03a3e",
-      "#000000",
-      "#ffffff"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "White"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "23",
@@ -332,10 +382,12 @@
     "division": "Pacific",
     "colors": [
       "#5a2d81",
-      "#6a7a82",
-      "#63727a"
+      "#6a7a82"
     ],
-    "colorNames": ["Purple", "Gray", "Gray"]
+    "colorNames": [
+      "Purple",
+      "Gray"
+    ]
   },
   {
     "id": "24",
@@ -345,10 +397,12 @@
     "division": "Southwest",
     "colors": [
       "#000000",
-      "#c4ced4",
-      "#ffffff"
+      "#c4ced4"
     ],
-    "colorNames": ["Black", "Silver", "White"]
+    "colorNames": [
+      "Black",
+      "Silver"
+    ]
   },
   {
     "id": "28",
@@ -358,10 +412,12 @@
     "division": "Atlantic",
     "colors": [
       "#d91244",
-      "#000000",
-      "#ce1141"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Red"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "26",
@@ -371,10 +427,12 @@
     "division": "Northwest",
     "colors": [
       "#4e008e",
-      "#79a3dc",
-      "#002b5c"
+      "#79a3dc"
     ],
-    "colorNames": ["Purple", "Blue", "Navy"]
+    "colorNames": [
+      "Purple",
+      "Royal Blue"
+    ]
   },
   {
     "id": "27",
@@ -384,9 +442,11 @@
     "division": "Southeast",
     "colors": [
       "#e31837",
-      "#002b5c",
-      "#c4ced4"
+      "#002b5c"
     ],
-    "colorNames": ["Red", "Navy", "Silver"]
+    "colorNames": [
+      "Red",
+      "Navy"
+    ]
   }
 ]

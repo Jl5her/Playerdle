@@ -7,10 +7,12 @@
     "division": "Pacific Division",
     "colors": [
       "#fc4c02",
-      "#000000",
-      "#f47a38"
+      "#000000"
     ],
-    "colorNames": ["Orange", "Black", "Orange"]
+    "colorNames": [
+      "Orange",
+      "Black"
+    ]
   },
   {
     "id": "1",
@@ -20,10 +22,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#231f20",
-      "#fdb71a",
-      "#ffb81c"
+      "#fdb71a"
     ],
-    "colorNames": ["Black", "Gold", "Gold"]
+    "colorNames": [
+      "Charcoal",
+      "Gold"
+    ]
   },
   {
     "id": "2",
@@ -33,10 +37,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#00468b",
-      "#fdb71a",
-      "#002654"
+      "#fdb71a"
     ],
-    "colorNames": ["Royal Blue", "Gold", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Gold"
+    ]
   },
   {
     "id": "3",
@@ -46,10 +52,12 @@
     "division": "Pacific Division",
     "colors": [
       "#dd1a32",
-      "#000000",
-      "#c8102e"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Red"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "7",
@@ -59,10 +67,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#e30426",
-      "#000000",
-      "#cc0000"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Red"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "4",
@@ -72,10 +82,12 @@
     "division": "Central Division",
     "colors": [
       "#e31937",
-      "#000000",
-      "#cf0a2c"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Red"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "17",
@@ -85,10 +97,12 @@
     "division": "Central Division",
     "colors": [
       "#860038",
-      "#005ea3",
-      "#6f263d"
+      "#005ea3"
     ],
-    "colorNames": ["Burgundy", "Blue", "Burgundy"]
+    "colorNames": [
+      "Burgundy",
+      "Dark Blue"
+    ]
   },
   {
     "id": "29",
@@ -98,10 +112,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#002d62",
-      "#e31937",
-      "#002654"
+      "#e31937"
     ],
-    "colorNames": ["Navy", "Red", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Red"
+    ]
   },
   {
     "id": "9",
@@ -111,10 +127,12 @@
     "division": "Central Division",
     "colors": [
       "#20864c",
-      "#000000",
-      "#006847"
+      "#000000"
     ],
-    "colorNames": ["Green", "Black", "Forest Green"]
+    "colorNames": [
+      "Green",
+      "Black"
+    ]
   },
   {
     "id": "5",
@@ -124,10 +142,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#e30526",
-      "#ffffff",
-      "#ce1126"
+      "#ffffff"
     ],
-    "colorNames": ["Red", "White", "Red"]
+    "colorNames": [
+      "Red",
+      "White"
+    ]
   },
   {
     "id": "6",
@@ -137,10 +157,12 @@
     "division": "Pacific Division",
     "colors": [
       "#00205b",
-      "#ff4c00",
-      "#041e42"
+      "#ff4c00"
     ],
-    "colorNames": ["Navy", "Orange", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Orange"
+    ]
   },
   {
     "id": "26",
@@ -150,10 +172,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#e51937",
-      "#002d62",
-      "#041e42"
+      "#002d62"
     ],
-    "colorNames": ["Red", "Navy", "Navy"]
+    "colorNames": [
+      "Red",
+      "Navy"
+    ]
   },
   {
     "id": "8",
@@ -163,10 +187,12 @@
     "division": "Pacific Division",
     "colors": [
       "#121212",
-      "#a2aaad",
-      "#111111"
+      "#a2aaad"
     ],
-    "colorNames": ["Black", "Silver", "Black"]
+    "colorNames": [
+      "Charcoal",
+      "Silver"
+    ]
   },
   {
     "id": "30",
@@ -176,10 +202,12 @@
     "division": "Central Division",
     "colors": [
       "#124734",
-      "#ae122a",
-      "#154734"
+      "#ae122a"
     ],
-    "colorNames": ["Forest Green", "Red", "Forest Green"]
+    "colorNames": [
+      "Forest Green",
+      "Crimson"
+    ]
   },
   {
     "id": "10",
@@ -189,10 +217,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#c41230",
-      "#013a81",
-      "#af1e2d"
+      "#013a81"
     ],
-    "colorNames": ["Red", "Blue", "Red"]
+    "colorNames": [
+      "Crimson",
+      "Dark Blue"
+    ]
   },
   {
     "id": "27",
@@ -202,10 +232,12 @@
     "division": "Central Division",
     "colors": [
       "#fdba31",
-      "#002d62",
-      "#ffb81c"
+      "#002d62"
     ],
-    "colorNames": ["Gold", "Navy", "Gold"]
+    "colorNames": [
+      "Gold",
+      "Navy"
+    ]
   },
   {
     "id": "11",
@@ -215,10 +247,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#e30b2b",
-      "#000000",
-      "#ce1126"
+      "#000000"
     ],
-    "colorNames": ["Red", "Black", "Red"]
+    "colorNames": [
+      "Red",
+      "Black"
+    ]
   },
   {
     "id": "12",
@@ -228,10 +262,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#00529b",
-      "#f47d31",
-      "#00539b"
+      "#f47d31"
     ],
-    "colorNames": ["Blue", "Orange", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Orange"
+    ]
   },
   {
     "id": "13",
@@ -241,10 +277,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#0056ae",
-      "#e51937",
-      "#0038a8"
+      "#e51937"
     ],
-    "colorNames": ["Blue", "Red", "Blue"]
+    "colorNames": [
+      "Dark Blue",
+      "Red"
+    ]
   },
   {
     "id": "14",
@@ -254,10 +292,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#dd1a32",
-      "#b79257",
-      "#c52032"
+      "#b79257"
     ],
-    "colorNames": ["Red", "Gold", "Red"]
+    "colorNames": [
+      "Red",
+      "Gold"
+    ]
   },
   {
     "id": "15",
@@ -267,10 +307,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#fe5823",
-      "#000000",
-      "#f74902"
+      "#000000"
     ],
-    "colorNames": ["Orange", "Black", "Orange"]
+    "colorNames": [
+      "Orange",
+      "Black"
+    ]
   },
   {
     "id": "16",
@@ -280,10 +322,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#000000",
-      "#fdb71a",
-      "#fcb514"
+      "#fdb71a"
     ],
-    "colorNames": ["Black", "Gold", "Gold"]
+    "colorNames": [
+      "Black",
+      "Gold"
+    ]
   },
   {
     "id": "18",
@@ -293,10 +337,12 @@
     "division": "Pacific Division",
     "colors": [
       "#00788a",
-      "#070707",
-      "#006d75"
+      "#070707"
     ],
-    "colorNames": ["Teal", "Black", "Teal"]
+    "colorNames": [
+      "Teal",
+      "Black"
+    ]
   },
   {
     "id": "124292",
@@ -306,10 +352,12 @@
     "division": "Pacific Division",
     "colors": [
       "#000d33",
-      "#a3dce4",
-      "#001628"
+      "#a3dce4"
     ],
-    "colorNames": ["Navy", "Light Blue", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Teal"
+    ]
   },
   {
     "id": "19",
@@ -319,10 +367,12 @@
     "division": "Central Division",
     "colors": [
       "#0070b9",
-      "#fdb71a",
-      "#002f87"
+      "#fdb71a"
     ],
-    "colorNames": ["Blue", "Gold", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Gold"
+    ]
   },
   {
     "id": "20",
@@ -332,10 +382,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#003e7e",
-      "#ffffff",
-      "#002868"
+      "#ffffff"
     ],
-    "colorNames": ["Navy", "White", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "White"
+    ]
   },
   {
     "id": "21",
@@ -345,10 +397,12 @@
     "division": "Atlantic Division",
     "colors": [
       "#003e7e",
-      "#ffffff",
-      "#00205b"
+      "#ffffff"
     ],
-    "colorNames": ["Navy", "White", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "White"
+    ]
   },
   {
     "id": "129764",
@@ -358,10 +412,12 @@
     "division": "Central Division",
     "colors": [
       "#000000",
-      "#7ab2e1",
-      "#69b3e7"
+      "#7ab2e1"
     ],
-    "colorNames": ["Black", "Light Blue", "Blue"]
+    "colorNames": [
+      "Black",
+      "Royal Blue"
+    ]
   },
   {
     "id": "22",
@@ -371,10 +427,12 @@
     "division": "Pacific Division",
     "colors": [
       "#003e7e",
-      "#008752",
-      "#001f5b"
+      "#008752"
     ],
-    "colorNames": ["Navy", "Green", "Navy"]
+    "colorNames": [
+      "Dark Blue",
+      "Green"
+    ]
   },
   {
     "id": "37",
@@ -384,10 +442,12 @@
     "division": "Pacific Division",
     "colors": [
       "#344043",
-      "#b4975a",
-      "#333f42"
+      "#b4975a"
     ],
-    "colorNames": ["Charcoal", "Gold", "Charcoal"]
+    "colorNames": [
+      "Teal",
+      "Tan"
+    ]
   },
   {
     "id": "23",
@@ -397,10 +457,12 @@
     "division": "Metropolitan Division",
     "colors": [
       "#d71830",
-      "#0b1f41",
-      "#c8102e"
+      "#0b1f41"
     ],
-    "colorNames": ["Red", "Navy", "Red"]
+    "colorNames": [
+      "Red",
+      "Navy"
+    ]
   },
   {
     "id": "28",
@@ -410,9 +472,11 @@
     "division": "Central Division",
     "colors": [
       "#002d62",
-      "#c41230",
-      "#041e42"
+      "#c41230"
     ],
-    "colorNames": ["Navy", "Red", "Navy"]
+    "colorNames": [
+      "Navy",
+      "Crimson"
+    ]
   }
 ]

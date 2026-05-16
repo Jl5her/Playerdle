@@ -92,8 +92,8 @@ export function hexToColorName(hex: string): string {
     // Warm orange-reds (h 8–20°) with moderate saturation are burnt orange, not crimson
     if (h > 8 && h < 20 && s > 0.50 && l > 0.28) return "Orange"
     if (l < 0.42) return "Crimson"
-    // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00)
-    if (s > 0.85 && l > 0.44) return "Orange"
+    // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00) — only h<20 side
+    if (h < 20 && s > 0.85 && l > 0.44) return "Orange"
     return "Red"
   }
 

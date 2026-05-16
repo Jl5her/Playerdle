@@ -1,5 +1,5 @@
 import type { GameMode } from "@playerdle/types"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useMemo, useRef, useState } from "react"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import type { Player, SportConfig } from "@/games/playerdle/sports"
@@ -11,6 +11,7 @@ import {
 import { saveGameResult } from "@/games/playerdle/utils/stats"
 import { DailyGameShell, Popup, ResultBanner, ScrollHint } from "@/shared/components"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
+import { parseDateKey } from "@/shared/utils/calendar-date"
 
 const MAX_GUESSES = 6
 
@@ -69,11 +70,6 @@ function restoreGuesses(players: Player[], ids: string[]): Player[] {
   return ids.map(id => byId.get(id)).filter(Boolean) as Player[]
 }
 
-function parseDateKey(key: string): Date {
-  const [y, m, d] = key.split("-").map(Number)
-  return new Date(y, m - 1, d)
-}
-
 function getInitialGuesses(
   mode: GameMode,
   sport: SportConfig,
@@ -110,7 +106,7 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
   const gameOver = won || lost
   const isFanatic = variantId === "fanatic"
 
-  const guessedIds = new Set(guesses.map(g => g.id))
+  const guessedIds = useMemo(() => new Set(guesses.map(g => g.id)), [guesses])
 
   const confettiColors = useMemo(() => {
     if (!answer) return []
@@ -139,19 +135,6 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
         p.position !== undefined && p.position !== null && allowedPositions.has(String(p.position)),
     )
   }, [sport.players, sport.answerPool])
-
-  useEffect(() => {
-    if (activeMode === "daily" && gameOver) {
-      saveGameResult(
-        sport.id,
-        won,
-        guesses.length,
-        variantId,
-        guesses.map(g => g.id),
-        dateKey,
-      )
-    }
-  }, [activeMode, gameOver, won, guesses, sport.id, variantId, dateKey])
 
   const gridScrollRef = useRef<HTMLDivElement>(null)
 
