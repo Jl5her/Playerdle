@@ -47,7 +47,7 @@ export default function Popup({ visible, message, durationMs = 5000 }: Props) {
   }
 
   return (
-    <div className="absolute top-2 left-1/2 -translate-x-1/2 z-40 pointer-events-none px-3 w-full flex justify-center">
+    <div className="fixed top-2 left-1/2 -translate-x-1/2 z-50 pointer-events-none px-3 w-full flex justify-center">
       <div className="endgame-popup bg-black text-white rounded-xl px-4 py-2 text-sm font-semibold text-center max-w-[min(90vw,30rem)] shadow-lg">
         {message}
       </div>
