@@ -10,10 +10,7 @@ id = "eeef69aa332141d5a3cc57522f30f9fc"
 
 # Preview sync storage — isolated from production.
 # Applies to all preview deployments (branch previews, PRs, staging URLs).
-# To create this namespace:
-#   wrangler kv namespace create PLAYERDLE_SYNC_KV
-# Then replace the id below with the output namespace ID.
 [env.preview]
 [[env.preview.kv_namespaces]]
 binding = "PLAYERDLE_SYNC_KV"
-id = "REPLACE_WITH_PREVIEW_NAMESPACE_ID"
+id = "af833ac4388746b9a41d1dd630057bfc"
