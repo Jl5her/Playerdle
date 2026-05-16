@@ -13,6 +13,7 @@ const SYNC_KEY_PREFIXES = [
   "playerdle-journey-played-day:",
   "playerdle-journey-history:",
   "playerdle-journey-state:",
+  "journey-tutorial-seen:",
 ]
 
 export interface SyncPayload {

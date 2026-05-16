@@ -39,6 +39,7 @@ export default function SyncPanel() {
   const [copied, setCopied] = useState(false)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
+  const [confirmingReset, setConfirmingReset] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
@@ -152,6 +153,16 @@ export default function SyncPanel() {
 
   function resetStatus() {
     setStatus({ type: "idle" })
+  }
+
+  function handleResetConfirm() {
+    clearPassphrase()
+    const phrase = createPassphrase()
+    setLocalPassphrase(phrase)
+    setExpiresAt(null)
+    setImportInput("")
+    setStatus({ type: "idle" })
+    setConfirmingReset(false)
   }
 
   const isLoading = status.type === "saving" || status.type === "importing"
@@ -331,6 +342,47 @@ export default function SyncPanel() {
               After importing you'll share the same sync code as that device.
             </p>
           </>
+        )}
+      </section>
+
+      <hr className="border-primary-200 dark:border-primary-700" />
+
+      {/* Reset */}
+      <section className="flex flex-col gap-2">
+        <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
+          Reset
+        </h3>
+        {confirmingReset ? (
+          <div className="flex flex-col gap-3">
+            <p className="text-sm text-primary-700 dark:text-primary-200">
+              This generates a new code. Any data saved to the old code will no longer be
+              accessible. Your progress on this device is untouched.
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={handleResetConfirm}
+                className="px-4 py-2 rounded-md text-sm font-bold bg-red-600 text-white hover:bg-red-500 transition-colors"
+              >
+                Generate New Code
+              </button>
+              <button
+                type="button"
+                onClick={() => setConfirmingReset(false)}
+                className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setConfirmingReset(true)}
+            className="self-start px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-300 dark:border-primary-600 text-primary-500 dark:text-primary-400 hover:border-primary-400 dark:hover:border-primary-500 transition-colors"
+          >
+            Generate New Code…
+          </button>
         )}
       </section>
     </div>
