@@ -17,7 +17,7 @@ export function hexToColorName(hex: string): string {
   const min = Math.min(r, g, b)
   const l = (max + min) / 2
 
-  if (l < 0.11) return "Black"
+  if (l < 0.07) return "Black"
   if (l > 0.91) return "White"
 
   const s =
@@ -43,6 +43,8 @@ export function hexToColorName(hex: string): string {
   // Red family (0–20° and 340–360°)
   if (h < 20 || h >= 340) {
     if (l < 0.22) return "Maroon"
+    // Warm orange-reds (h 8–20°) with moderate saturation are burnt orange, not crimson
+    if (h > 8 && h < 20 && s > 0.50 && l > 0.28) return "Orange"
     if (l < 0.42) return "Crimson"
     // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00)
     if (s > 0.85 && l > 0.44) return "Orange"
