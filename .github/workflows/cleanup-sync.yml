@@ -48,13 +48,20 @@ jobs:
           fi
 
           COUNT=0
+          FAIL=0
           while IFS= read -r KEY; do
             [ -z "$KEY" ] && continue
-            echo "Deleting: $KEY"
-            curl -s -X DELETE \
+            DEL_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
               "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/values/${KEY}" \
-              -H "Authorization: Bearer ${CF_API_TOKEN}" > /dev/null
-            COUNT=$((COUNT + 1))
+              -H "Authorization: Bearer ${CF_API_TOKEN}")
+            if [ "$DEL_CODE" -eq 200 ]; then
+              echo "Deleted: $KEY"
+              COUNT=$((COUNT + 1))
+            else
+              echo "Failed to delete: $KEY (HTTP ${DEL_CODE})"
+              FAIL=$((FAIL + 1))
+            fi
           done <<< "$EXPIRED"
 
-          echo "Deleted ${COUNT} expired key(s)."
+          echo "Deleted ${COUNT} expired key(s). Failed: ${FAIL}."
+          [ "$FAIL" -eq 0 ] || exit 1
