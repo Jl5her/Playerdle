@@ -231,13 +231,13 @@ export default function PlayerCalendar({
   const selectedIsBeforeEpoch = selectedDate.getTime() < PLAYER_EPOCH.getTime()
   const canPlay = !selectedIsFuture && !selectedIsBeforeEpoch
 
-  function handlePlay() {
-    if (panel && onPlayArchive) {
-      onPlayArchive(selected)
-    } else {
-      setArchiveDateKey(selected)
-    }
-  }
+  // In panel mode, only wire play when the caller provided onPlayArchive;
+  // without it, leave handler undefined so buttons don't render.
+  const playHandler = onPlayArchive
+    ? () => onPlayArchive(selected)
+    : panel
+      ? undefined
+      : () => setArchiveDateKey(selected)
 
   const calendarTitle = `${sportMeta.displayName} Archive`
 
@@ -257,8 +257,8 @@ export default function PlayerCalendar({
           sport={sport}
           result={selectedResult}
           canPlay={canPlay}
-          onPlay={handlePlay}
-          onViewResults={handlePlay}
+          onPlay={playHandler}
+          onViewResults={playHandler}
           inProgressCount={selectedResult ? undefined : inProgressDates.get(selected)}
         />
       ) : (
