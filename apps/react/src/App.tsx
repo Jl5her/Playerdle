@@ -102,9 +102,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const isArchive = !!archiveDateKey
-  const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats" | "sync">(
-    screen === "help" ? "help" : "menu",
-  )
+  const [menuSection, setMenuSection] = useState<
+    "menu" | "about" | "help" | "stats" | "settings"
+  >(screen === "help" ? "help" : "menu")
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
 
   useEffect(() => {
@@ -214,8 +214,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
-    if (target === "sync" && screen === "menu") {
-      setMenuSection("sync")
+    if (target === "settings" && screen === "menu") {
+      setMenuSection("settings")
       return
     }
 
@@ -263,8 +263,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       return
     }
 
-    if (menuSection === "about" || menuSection === "stats" || menuSection === "sync") {
+    if (menuSection === "about" || menuSection === "stats") {
       setMenuSection("menu")
+      return
+    }
+
+    if (menuSection === "settings") {
+      setMenuSection("about")
       return
     }
 

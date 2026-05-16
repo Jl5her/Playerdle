@@ -21,7 +21,7 @@ export type Screen =
   | "stats"
   | "all-stats"
   | "calendar"
-  | "sync"
+  | "settings"
 
 export interface NavigationOptions {
   variantId?: string
@@ -38,7 +38,7 @@ export interface ExtraGame {
 interface Props {
   onNavigate: (screen: Screen, options?: NavigationOptions) => void
   sport: SportInfo | SportConfig
-  section: "menu" | "about" | "help" | "stats" | "sync"
+  section: "menu" | "about" | "help" | "stats" | "settings"
   onCloseAbout: () => void
   guideSport?: SportConfig | null
   extraGames?: ExtraGame[]
@@ -146,10 +146,6 @@ export default function MainMenu({
                 className="mt-3"
               />
               <MenuLinkButton
-                label="Sync"
-                onClick={() => onNavigate("sync")}
-              />
-              <MenuLinkButton
                 label="About"
                 onClick={() => onNavigate("about")}
               />
@@ -163,6 +159,7 @@ export default function MainMenu({
           open={section === "about"}
           sport={sport}
           onClose={onCloseAbout}
+          onOpenSettings={() => onNavigate("settings")}
         />
         <MenuOverlay
           open={section === "stats"}
@@ -190,8 +187,8 @@ export default function MainMenu({
           )}
         </MenuOverlay>
         <MenuOverlay
-          open={section === "sync"}
-          title="Sync Devices"
+          open={section === "settings"}
+          title="Settings"
           onClose={onCloseAbout}
         >
           <div className="-mt-1 flex-1 overflow-auto pb-2">
