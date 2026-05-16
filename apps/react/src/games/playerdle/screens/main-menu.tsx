@@ -5,7 +5,7 @@ import {
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { GameModeButton, MenuLinkButton, MenuOverlay } from "@/shared/components"
+import { GameModeButton, MenuLinkButton, MenuOverlay, SyncPanel } from "@/shared/components"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
@@ -21,6 +21,7 @@ export type Screen =
   | "stats"
   | "all-stats"
   | "calendar"
+  | "sync"
 
 export interface NavigationOptions {
   variantId?: string
@@ -37,7 +38,7 @@ export interface ExtraGame {
 interface Props {
   onNavigate: (screen: Screen, options?: NavigationOptions) => void
   sport: SportInfo | SportConfig
-  section: "menu" | "about" | "help" | "stats"
+  section: "menu" | "about" | "help" | "stats" | "sync"
   onCloseAbout: () => void
   guideSport?: SportConfig | null
   extraGames?: ExtraGame[]
@@ -145,6 +146,10 @@ export default function MainMenu({
                 className="mt-3"
               />
               <MenuLinkButton
+                label="Sync"
+                onClick={() => onNavigate("sync")}
+              />
+              <MenuLinkButton
                 label="About"
                 onClick={() => onNavigate("about")}
               />
@@ -183,6 +188,15 @@ export default function MainMenu({
           ) : (
             <div className="-mt-1 flex-1" />
           )}
+        </MenuOverlay>
+        <MenuOverlay
+          open={section === "sync"}
+          title="Sync Devices"
+          onClose={onCloseAbout}
+        >
+          <div className="-mt-1 flex-1 overflow-auto pb-2">
+            <SyncPanel />
+          </div>
         </MenuOverlay>
       </div>
     </div>

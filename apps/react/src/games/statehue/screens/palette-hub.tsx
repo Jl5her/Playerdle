@@ -13,9 +13,10 @@ import {
   LeagueFooter,
   MenuLinkButton,
   MenuOverlay,
+  SyncPanel,
 } from "@/shared/components"
 
-type Section = "menu" | "about" | "stats"
+type Section = "menu" | "about" | "stats" | "sync"
 
 export default function PaletteHub() {
   const navigate = useNavigate()
@@ -88,6 +89,10 @@ export default function PaletteHub() {
                     className="mt-3"
                   />
                   <MenuLinkButton
+                    label="Sync"
+                    onClick={() => setSection("sync")}
+                  />
+                  <MenuLinkButton
                     label="About"
                     onClick={() => setSection("about")}
                   />
@@ -104,6 +109,16 @@ export default function PaletteHub() {
               onClose={goBack}
             >
               <ColorsStatsBody className="-mt-1 flex-1 overflow-auto pb-2" />
+            </MenuOverlay>
+
+            <MenuOverlay
+              open={section === "sync"}
+              title="Sync Devices"
+              onClose={goBack}
+            >
+              <div className="-mt-1 flex-1 overflow-auto pb-2">
+                <SyncPanel />
+              </div>
             </MenuOverlay>
 
             <MenuOverlay
