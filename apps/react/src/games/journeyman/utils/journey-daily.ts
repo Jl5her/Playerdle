@@ -217,15 +217,24 @@ export interface JourneyStats {
   currentStreak: number
   maxStreak: number
   guessDistribution: Record<number, number>
+  losses: number
 }
 
 export function calculateJourneyStats(league: JourneyLeague): JourneyStats {
   const history = getJourneyHistory(league)
   if (history.length === 0) {
-    return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {} }
+    return {
+      played: 0,
+      winPercentage: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+      guessDistribution: {},
+      losses: 0,
+    }
   }
   const played = history.length
   const wins = history.filter(r => r.won).length
+  const losses = played - wins
   const winPercentage = Math.round((wins / played) * 100)
   const guessDistribution: Record<number, number> = {}
   for (let i = 1; i <= MAX_GUESSES; i++) guessDistribution[i] = 0
@@ -259,5 +268,5 @@ export function calculateJourneyStats(league: JourneyLeague): JourneyStats {
       if (i === sorted.length - 1) currentStreak = 0
     }
   }
-  return { played, winPercentage, currentStreak, maxStreak, guessDistribution }
+  return { played, winPercentage, currentStreak, maxStreak, guessDistribution, losses }
 }

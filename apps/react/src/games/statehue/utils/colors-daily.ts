@@ -243,6 +243,7 @@ export interface ColorsStats {
   currentStreak: number
   maxStreak: number
   guessDistribution: Record<number, number>
+  losses: number
 }
 
 const MAX_COLORS_GUESSES = 5
@@ -250,11 +251,19 @@ const MAX_COLORS_GUESSES = 5
 export function calculateColorsStats(variant: ColorsVariant = "pro"): ColorsStats {
   const history = getColorsHistory(variant)
   if (history.length === 0) {
-    return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {} }
+    return {
+      played: 0,
+      winPercentage: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+      guessDistribution: {},
+      losses: 0,
+    }
   }
 
   const played = history.length
   const wins = history.filter(r => r.won).length
+  const losses = played - wins
   const winPercentage = Math.round((wins / played) * 100)
 
   const guessDistribution: Record<number, number> = {}
@@ -291,5 +300,5 @@ export function calculateColorsStats(variant: ColorsVariant = "pro"): ColorsStat
     }
   }
 
-  return { played, winPercentage, currentStreak, maxStreak, guessDistribution }
+  return { played, winPercentage, currentStreak, maxStreak, guessDistribution, losses }
 }

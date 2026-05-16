@@ -21,8 +21,20 @@ interface StatsTab {
 }
 
 function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number }) {
-  const maxGuessCount = Math.max(...Object.values<number>(stats.guessDistribution), 1)
-  const rows = Array.from({ length: maxGuesses }, (_, i) => i + 1)
+  const maxGuessCount = Math.max(
+    ...Object.values<number>(stats.guessDistribution),
+    stats.losses,
+    1,
+  )
+  const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
+    ...Array.from({ length: maxGuesses }, (_, i) => ({
+      key: String(i + 1),
+      label: String(i + 1),
+      count: stats.guessDistribution[i + 1] || 0,
+      isLoss: false,
+    })),
+    { key: "X", label: "X", count: stats.losses, isLoss: true },
+  ]
 
   return (
     <section>
@@ -35,29 +47,31 @@ function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number })
       <h4 className="text-xs font-semibold text-primary-700 dark:text-primary-200 mb-2 uppercase text-left tracking-wide">
         Guess Distribution
       </h4>
-      {rows.map(guessNum => {
-        const count = stats.guessDistribution[guessNum] || 0
-        const hasValue = count > 0
-        const scaledWidth = (count / maxGuessCount) * 100
-        const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
+      {rows.map(row => {
+        const hasValue = row.count > 0
+        const scaledWidth = (row.count / maxGuessCount) * 100
+        const barWidth = row.count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
+        const filledClass = row.isLoss
+          ? "bg-error-500 dark:bg-error-400 text-primary-50 dark:text-primary-900"
+          : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
         return (
           <div
-            key={guessNum}
+            key={row.key}
             className="flex items-center mb-1 gap-2"
           >
             <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
-              {guessNum}
+              {row.label}
             </div>
             <div className="flex-1">
               <div
                 className={`min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end ${
                   hasValue
-                    ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                    ? filledClass
                     : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300"
                 }`}
                 style={{ width: barWidth }}
               >
-                {count}
+                {row.count}
               </div>
             </div>
           </div>

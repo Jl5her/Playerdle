@@ -15,7 +15,16 @@ interface ColorsStatsBodyProps {
 /** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
 export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
   const stats = calculateColorsStats(variant)
-  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
+  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
+  const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
+    ...[1, 2, 3, 4, 5].map(n => ({
+      key: String(n),
+      label: String(n),
+      count: stats.guessDistribution[n] || 0,
+      isLoss: false,
+    })),
+    { key: "X", label: "X", count: stats.losses, isLoss: true },
+  ]
 
   return (
     <div className={clsx("text-center px-6 py-6", className)}>
@@ -30,27 +39,29 @@ export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: C
         <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
           Guess Distribution
         </h3>
-        {[1, 2, 3, 4, 5].map(num => {
-          const count = stats.guessDistribution[num] || 0
-          const has = count > 0
-          const scaled = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
-          const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaled, 12)}%`
+        {rows.map(row => {
+          const has = row.count > 0
+          const scaled = maxGuessCount > 0 ? (row.count / maxGuessCount) * 100 : 0
+          const barWidth = row.count === 0 ? "2.25rem" : `${Math.max(scaled, 12)}%`
+          const filledClass = row.isLoss
+            ? "bg-error-500 dark:bg-error-400 text-primary-50 dark:text-primary-900"
+            : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
           return (
-            <div key={num} className="flex items-center mb-1 gap-2">
+            <div key={row.key} className="flex items-center mb-1 gap-2">
               <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
-                {num}
+                {row.label}
               </div>
               <div className="flex-1">
                 <div
                   className={clsx(
                     "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
                     has
-                      ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                      ? filledClass
                       : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
                   )}
                   style={{ width: barWidth }}
                 >
-                  {count}
+                  {row.count}
                 </div>
               </div>
             </div>

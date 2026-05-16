@@ -70,7 +70,9 @@ export function StatsContent({
   const [hideAnswer, setHideAnswer] = useState(false)
   const { share, copied } = useClipboardShare()
   const stats = mode === "daily" ? calculateStats(sport.id, variantId) : null
-  const maxGuessCount = stats ? Math.max(...Object.values<number>(stats.guessDistribution), 1) : 1
+  const maxGuessCount = stats
+    ? Math.max(...Object.values<number>(stats.guessDistribution), stats.losses, 1)
+    : 1
 
   async function handleShare() {
     if (!player) return
@@ -185,30 +187,40 @@ export function StatsContent({
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left">
               Guess Distribution
             </h3>
-            {[1, 2, 3, 4, 5, 6].map(guessNum => {
-              const count = stats.guessDistribution[guessNum] || 0
-              const hasValue = count > 0
-              const scaledWidth = maxGuessCount > 0 ? (count / maxGuessCount) * 100 : 0
-              const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
+            {[
+              ...[1, 2, 3, 4, 5, 6].map(n => ({
+                key: String(n),
+                label: String(n),
+                count: stats.guessDistribution[n] || 0,
+                isLoss: false,
+              })),
+              { key: "X", label: "X", count: stats.losses, isLoss: true },
+            ].map(row => {
+              const hasValue = row.count > 0
+              const scaledWidth = maxGuessCount > 0 ? (row.count / maxGuessCount) * 100 : 0
+              const barWidth = row.count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
+              const filledClass = row.isLoss
+                ? "bg-error-500 dark:bg-error-400 text-primary-50 dark:text-primary-900"
+                : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
 
               return (
                 <div
-                  key={guessNum}
+                  key={row.key}
                   className="flex items-center mb-1 gap-2"
                 >
                   <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
-                    {guessNum}
+                    {row.label}
                   </div>
                   <div className="flex-1">
                     <div
                       className={`min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end ${
                         hasValue
-                          ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                          ? filledClass
                           : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300"
                       }`}
                       style={{ width: barWidth }}
                     >
-                      {count}
+                      {row.count}
                     </div>
                   </div>
                 </div>
