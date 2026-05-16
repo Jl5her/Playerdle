@@ -62,11 +62,13 @@ export function calculateStats(sportId: string, variantId?: string): Stats {
       currentStreak: 0,
       maxStreak: 0,
       guessDistribution: {},
+      losses: 0,
     }
   }
 
   const played = history.length
   const wins = history.filter(r => r.won).length
+  const losses = played - wins
   const winPercentage = Math.round((wins / played) * 100)
 
   // Calculate guess distribution
@@ -119,6 +121,7 @@ export function calculateStats(sportId: string, variantId?: string): Stats {
     currentStreak,
     maxStreak,
     guessDistribution,
+    losses,
   }
 }
 

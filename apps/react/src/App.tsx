@@ -300,6 +300,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             onCloseAbout={handleAboutBack}
             guideSport={activeSport ?? sport}
             extraGames={extraGames}
+            journeyLeague={journeymanLeague}
           />
         </div>
       )}

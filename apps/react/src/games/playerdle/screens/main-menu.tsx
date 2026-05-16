@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { GameModeButton, MenuLinkButton, MenuOverlay, SyncPanel } from "@/shared/components"
+import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
@@ -42,6 +43,7 @@ interface Props {
   onCloseAbout: () => void
   guideSport?: SportConfig | null
   extraGames?: ExtraGame[]
+  journeyLeague?: JourneyLeague | null
 }
 
 export default function MainMenu({
@@ -51,6 +53,7 @@ export default function MainMenu({
   onCloseAbout,
   guideSport,
   extraGames,
+  journeyLeague,
 }: Props) {
   const variants = "variants" in sport ? (sport.variants ?? []) : []
   const today = new Date()
@@ -171,7 +174,8 @@ export default function MainMenu({
         >
           <AllStatsContent
             sport={sport}
-            className="-mt-1 flex-1 overflow-auto pb-2"
+            journeyLeague={journeyLeague}
+            className="-mt-1 flex-1 overflow-y-auto overflow-x-hidden pb-2"
           />
         </MenuOverlay>
         <MenuOverlay

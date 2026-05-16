@@ -22,4 +22,6 @@ export interface Stats {
   currentStreak: number
   maxStreak: number
   guessDistribution: Record<number, number>
+  /** Count of games that ended in a loss (the "X" row in the distribution). */
+  losses: number
 }

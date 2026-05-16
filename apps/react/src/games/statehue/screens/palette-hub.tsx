@@ -4,7 +4,7 @@ import clsx from "clsx"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { getAllSportMeta, getSportIcon, type SportId } from "@/games/playerdle/sports"
-import { ColorsStatsBody } from "@/games/statehue/screens/colors-stats-overlay"
+import { ColorsStatsTabbedBody } from "@/games/statehue/screens/colors-stats-overlay"
 import { hasPlayedColorsDailyToday } from "@/games/statehue/utils/colors-daily"
 import {
   AboutFooter,
@@ -108,7 +108,7 @@ export default function PaletteHub() {
               title="Statistics"
               onClose={goBack}
             >
-              <ColorsStatsBody className="-mt-1 flex-1 overflow-auto pb-2" />
+              <ColorsStatsTabbedBody className="-mt-1 flex-1 overflow-y-auto overflow-x-hidden pb-2" />
             </MenuOverlay>
 
             <MenuOverlay

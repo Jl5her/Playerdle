@@ -227,6 +227,93 @@ body,
   pointer-events: none;
 }
 
+@keyframes stats-tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes stats-tab-leave-forward {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-28px) scale(0.98);
+  }
+}
+
+@keyframes stats-tab-enter-forward {
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes stats-tab-leave-backward {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(28px) scale(0.98);
+  }
+}
+
+@keyframes stats-tab-enter-backward {
+  from {
+    opacity: 0;
+    transform: translateX(-28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.stats-tab-fade-in {
+  animation: stats-tab-fade-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stats-tab-leave-forward {
+  animation: stats-tab-leave-forward 180ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.stats-tab-enter-forward {
+  animation: stats-tab-enter-forward 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stats-tab-leave-backward {
+  animation: stats-tab-leave-backward 180ms cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.stats-tab-enter-backward {
+  animation: stats-tab-enter-backward 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stats-tabs-indicator {
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, width;
+}
+
+.stat-bar {
+  transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
 .slide-up-panel {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -357,6 +444,22 @@ body,
 
   .endgame-popup {
     animation: none;
+  }
+
+  .stats-tab-fade-in,
+  .stats-tab-leave-forward,
+  .stats-tab-enter-forward,
+  .stats-tab-leave-backward,
+  .stats-tab-enter-backward {
+    animation: none;
+  }
+
+  .stats-tabs-indicator {
+    transition: none;
+  }
+
+  .stat-bar {
+    transition: none;
   }
 }
 

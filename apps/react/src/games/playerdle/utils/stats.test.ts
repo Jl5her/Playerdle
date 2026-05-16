@@ -29,6 +29,7 @@ describe("calculateStats — empty history", () => {
       currentStreak: 0,
       maxStreak: 0,
       guessDistribution: {},
+      losses: 0,
     })
   })
 })
@@ -58,6 +59,8 @@ describe("calculateStats — guessDistribution", () => {
     expect(stats.guessDistribution[1]).toBe(1)
     expect(stats.guessDistribution[3]).toBe(2)
     expect(stats.guessDistribution[6]).toBe(0)
+    expect(stats.losses).toBe(1)
+    expect(stats.played).toBe(4)
   })
 })
 
