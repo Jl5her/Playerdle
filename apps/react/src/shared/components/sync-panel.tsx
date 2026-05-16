@@ -573,6 +573,8 @@ export default function SyncPanel() {
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{status.message}</p>
         )}
       </section>
+      <hr className="border-primary-200 dark:border-primary-700" />
+      {linkSection}
     </div>
   )
 }
