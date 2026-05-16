@@ -10,13 +10,18 @@ import { useCallback, useEffect, useRef, useState } from "react"
 import MenuLinkButton from "./menu-link-button"
 import Popup from "./popup"
 import {
+  analyzeMerge,
+  applyData,
   clearPassphrase,
+  collectSyncData,
   createPassphrase,
   getLastSynced,
   getPassphrase,
+  type MergeAnalysis,
   normalizePassphrase,
   pullFromCloud,
   pushToCloud,
+  resolveMerge,
   restoreSyncData,
   setPassphrase,
   SYNC_TTL_DAYS,
@@ -41,6 +46,8 @@ type ActionStatus =
   | { type: "import-ok" }
   | { type: "import-err"; message: string }
   | { type: "unlinking" }
+  | { type: "merge-conflict"; analysis: MergeAnalysis; phrase: string }
+  | { type: "resolving-merge" }
 
 function formatSyncedAt(date: Date): string {
   return date.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })
@@ -104,13 +111,32 @@ export default function SyncPanel() {
     setLocalPassphrase(phrase)
     setLastSynced(getLastSynced())
     setView("active")
-    // Refresh device registration and pull the latest count. We discard the
-    // payload here — local data stays canonical until the user explicitly
-    // pushes or imports.
+    // Snapshot local data before the async pull so the comparison is consistent.
+    const localData = collectSyncData().data
     pullFromCloud(phrase)
-      .then(({ devices }) => {
+      .then(({ payload, devices }) => {
         setDeviceCount(devices)
         setLastSynced(getLastSynced())
+        // Analyze local vs remote to detect conflicts or easy merges.
+        const analysis = analyzeMerge(localData, payload.data)
+        if (analysis.hasConflicts) {
+          setStatus({ type: "merge-conflict", analysis, phrase })
+        } else {
+          // No conflicts: apply best-effort merge (picks up any completions from
+          // other devices) and push the unified snapshot back to the cloud.
+          const hasNewData = Object.entries(analysis.easyMerged).some(
+            ([k, v]) => localData[k] !== v,
+          )
+          if (hasNewData) {
+            applyData(analysis.easyMerged)
+            void pushToCloud(phrase)
+              .then(d => {
+                setDeviceCount(d)
+                setLastSynced(getLastSynced())
+              })
+              .catch(() => {})
+          }
+        }
       })
       .catch(err => {
         const is404 = err instanceof Error && err.message.includes("No data found")
@@ -180,7 +206,32 @@ export default function SyncPanel() {
   async function handleSync() {
     setStatus({ type: "saving" })
     try {
-      const devices = await pushToCloud(passphrase)
+      const localData = collectSyncData().data
+      const { payload, devices } = await pullFromCloud(passphrase)
+      setDeviceCount(devices)
+      const analysis = analyzeMerge(localData, payload.data)
+      if (analysis.hasConflicts) {
+        setStatus({ type: "merge-conflict", analysis, phrase: passphrase })
+        return
+      }
+      applyData(analysis.easyMerged)
+      const finalDevices = await pushToCloud(passphrase)
+      setDeviceCount(finalDevices)
+      setLastSynced(getLastSynced())
+      setStatus({ type: "idle" })
+      flashSavedToast()
+    } catch (e) {
+      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+    }
+  }
+
+  async function handleMergeResolve(winner: "local" | "remote") {
+    if (status.type !== "merge-conflict") return
+    const { analysis, phrase } = status
+    setStatus({ type: "resolving-merge" })
+    try {
+      applyData(resolveMerge(analysis, winner))
+      const devices = await pushToCloud(phrase)
       setDeviceCount(devices)
       setLastSynced(getLastSynced())
       setStatus({ type: "idle" })
@@ -256,7 +307,10 @@ export default function SyncPanel() {
   }
 
   const isLoading =
-    status.type === "saving" || status.type === "importing" || status.type === "unlinking"
+    status.type === "saving" ||
+    status.type === "importing" ||
+    status.type === "unlinking" ||
+    status.type === "resolving-merge"
 
   const linkSection = (
     <section className="flex flex-col gap-3">
@@ -481,21 +535,58 @@ export default function SyncPanel() {
             </p>
           )}
         </div>
-        {linked && (
-          <div className="flex justify-center">
+        {status.type === "merge-conflict" ? (
+          <div className="flex flex-col gap-3">
+            <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+              <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+                Devices are out of sync
+              </p>
+              <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
+                We've noticed your devices are out of sync. Would you like to keep your progress on
+                this device or overwrite with what's in the cloud?
+              </p>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              <button
+                type="button"
+                onClick={() => void handleMergeResolve("local")}
+                className="flex-1 px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+              >
+                Keep This Device
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleMergeResolve("remote")}
+                className="flex-1 px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
+              >
+                Keep Cloud
+              </button>
+            </div>
             <button
               type="button"
-              onClick={handleSync}
-              disabled={isLoading}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={resetStatus}
+              className="text-xs text-primary-500 dark:text-primary-400 hover:underline"
             >
-              <FontAwesomeIcon
-                icon={faArrowsRotate}
-                className={`text-sm ${status.type === "saving" ? "animate-spin" : ""}`}
-              />
-              Sync Now
+              Decide later
             </button>
           </div>
+        ) : (
+          linked && (
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => void handleSync()}
+                disabled={isLoading}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowsRotate}
+                  className={`text-sm ${status.type === "saving" || status.type === "resolving-merge" ? "animate-spin" : ""}`}
+                />
+                {status.type === "resolving-merge" ? "Syncing…" : "Sync Now"}
+              </button>
+            </div>
+          )
         )}
         {copyError && (
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{copyError}</p>
