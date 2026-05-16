@@ -13,7 +13,8 @@ interface StatsTabsProps {
   ariaLabel?: string
 }
 
-const FADE_OUT_MS = 120
+const FADE_OUT_MS = 180
+type Direction = "forward" | "backward"
 
 export default function StatsTabs({
   tabs,
@@ -22,6 +23,8 @@ export default function StatsTabs({
 }: StatsTabsProps) {
   const [requestedId, setRequestedId] = useState(tabs[0]?.id)
   const [displayedId, setDisplayedId] = useState(tabs[0]?.id)
+  const [direction, setDirection] = useState<Direction>("forward")
+  const [hasInteracted, setHasInteracted] = useState(false)
   const leaving = requestedId !== displayedId
 
   const tablistRef = useRef<HTMLDivElement | null>(null)
@@ -31,6 +34,15 @@ export default function StatsTabs({
 
   const activeTab = tabs.find(tab => tab.id === requestedId) ?? tabs[0]
   const displayedTab = tabs.find(tab => tab.id === displayedId) ?? tabs[0]
+
+  function selectTab(id: string) {
+    if (id === requestedId) return
+    const fromIdx = tabs.findIndex(tab => tab.id === requestedId)
+    const toIdx = tabs.findIndex(tab => tab.id === id)
+    setDirection(toIdx >= fromIdx ? "forward" : "backward")
+    setHasInteracted(true)
+    setRequestedId(id)
+  }
 
   useEffect(() => {
     if (!leaving) return
@@ -67,6 +79,9 @@ export default function StatsTabs({
     return <div className={className}>{displayedTab.content}</div>
   }
 
+  const enterClass = hasInteracted ? `stats-tab-enter-${direction}` : "stats-tab-fade-in"
+  const leaveClass = `stats-tab-leave-${direction}`
+
   return (
     <div className={className}>
       <div
@@ -86,7 +101,7 @@ export default function StatsTabs({
               type="button"
               role="tab"
               aria-selected={isActive}
-              onClick={() => setRequestedId(tab.id)}
+              onClick={() => selectTab(tab.id)}
               className={clsx(
                 "shrink-0 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors",
                 isActive
@@ -110,12 +125,14 @@ export default function StatsTabs({
           }}
         />
       </div>
-      <div
-        key={`${displayedTab.id}:${leaving ? "out" : "in"}`}
-        role="tabpanel"
-        className={leaving ? "stats-tab-fade-out" : "stats-tab-fade-in"}
-      >
-        {displayedTab.content}
+      <div className="relative overflow-x-hidden">
+        <div
+          key={`${displayedTab.id}:${leaving ? "out" : "in"}`}
+          role="tabpanel"
+          className={leaving ? leaveClass : enterClass}
+        >
+          {displayedTab.content}
+        </div>
       </div>
     </div>
   )
