@@ -54,7 +54,7 @@ function formatSyncedAt(date: Date): string {
 
 const CONFIRM_REVERT_MS = 3000
 
-export default function SyncPanel() {
+export default function SyncPanel({ open = true }: { open?: boolean }) {
   const [view, setView] = useState<PanelView>("no-code")
   const [passphrase, setLocalPassphrase] = useState("")
   const [deviceCount, setDeviceCount] = useState(0)
@@ -85,7 +85,11 @@ export default function SyncPanel() {
     }
   }, [confirmingUnlink])
 
+  // Re-run every time the panel becomes visible so device count and merge
+  // state are always fresh. The overlay never unmounts between opens, so a
+  // plain [] dep would only fire once on app load.
   useEffect(() => {
+    if (!open) return
     const phrase = getPassphrase()
     if (!phrase) {
       setView("no-code")
@@ -94,19 +98,15 @@ export default function SyncPanel() {
     setLocalPassphrase(phrase)
     setLastSynced(getLastSynced())
     setView("active")
-    // Snapshot local data before the async pull so the comparison is consistent.
     const localData = collectSyncData().data
     pullFromCloud(phrase)
       .then(({ payload, devices }) => {
         setDeviceCount(devices)
         setLastSynced(getLastSynced())
-        // Analyze local vs remote to detect conflicts or easy merges.
         const analysis = analyzeMerge(localData, payload.data)
         if (analysis.hasConflicts) {
           setStatus({ type: "merge-conflict", analysis, phrase })
         } else {
-          // No conflicts: apply best-effort merge (picks up any completions from
-          // other devices) and push the unified snapshot back to the cloud.
           const hasNewData = Object.entries(analysis.easyMerged).some(
             ([k, v]) => localData[k] !== v,
           )
@@ -129,7 +129,7 @@ export default function SyncPanel() {
         }
         // Other errors: keep the active view with whatever device count we have.
       })
-  }, [])
+  }, [open])
 
   function flashSavedToast() {
     if (savedTimer.current) clearTimeout(savedTimer.current)

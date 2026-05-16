@@ -56,7 +56,7 @@ export function StatBar({ count, maxCount, label, isLoss = false }: StatBarProps
   const width = animated ? targetWidth : count === 0 ? "2.25rem" : "0%"
 
   const filledClass = isLoss
-    ? "bg-error-500 dark:bg-error-400 text-primary-50 dark:text-primary-900"
+    ? "bg-error-200 dark:bg-error-800 text-error-800 dark:text-error-200"
     : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
 
   return (
