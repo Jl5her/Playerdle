@@ -113,7 +113,7 @@ export default function PaletteHub() {
               onClose={goBack}
             >
               <div className="-mt-1 flex-1 overflow-auto pb-2">
-                <SyncPanel />
+                <SyncPanel open={section === "sync-devices"} />
               </div>
             </MenuOverlay>
 

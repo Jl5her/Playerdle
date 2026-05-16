@@ -199,7 +199,7 @@ export default function MainMenu({
             className="-mt-1 flex-1 overflow-auto pb-32"
             style={{ scrollPaddingBottom: "8rem" }}
           >
-            <SyncPanel />
+            <SyncPanel open={section === "settings"} />
           </div>
         </MenuOverlay>
       </div>
