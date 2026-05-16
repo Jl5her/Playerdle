@@ -104,7 +104,7 @@ export function normalizePassphrase(input: string): string | null {
   const normalized = input.trim().toLowerCase().replace(/\s+/g, "-")
   const parts = normalized.split("-")
   if (parts.length !== PASSPHRASE_WORD_COUNT) return null
-  if (parts.some(p => p.length === 0)) return null
+  if (!parts.every(p => WORDLIST.includes(p))) return null
   return normalized
 }
 
