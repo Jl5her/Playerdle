@@ -2,6 +2,8 @@ import { WORDLIST } from "./wordlist"
 
 const PASSPHRASE_KEY = "playerdle-sync-passphrase"
 const EXPIRES_AT_KEY = "playerdle-sync-expires-at"
+const LINKED_KEY = "playerdle-sync-linked"
+const LAST_SYNCED_KEY = "playerdle-sync-last-synced"
 
 export const SYNC_TTL_DAYS = 7
 const PASSPHRASE_WORD_COUNT = 5
@@ -63,6 +65,44 @@ export function setPassphrase(phrase: string): void {
 export function clearPassphrase(): void {
   localStorage.removeItem(PASSPHRASE_KEY)
   localStorage.removeItem(EXPIRES_AT_KEY)
+  localStorage.removeItem(LINKED_KEY)
+  localStorage.removeItem(LAST_SYNCED_KEY)
+}
+
+export function isLinked(): boolean {
+  try {
+    return localStorage.getItem(LINKED_KEY) === "1"
+  } catch {
+    return false
+  }
+}
+
+export function setLinked(): void {
+  try {
+    localStorage.setItem(LINKED_KEY, "1")
+  } catch {
+    // ignore storage errors
+  }
+}
+
+export function getLastSynced(): Date | null {
+  try {
+    const raw = localStorage.getItem(LAST_SYNCED_KEY)
+    if (!raw) return null
+    const ts = parseInt(raw, 10)
+    if (Number.isNaN(ts)) return null
+    return new Date(ts)
+  } catch {
+    return null
+  }
+}
+
+function storeLastSynced(): void {
+  try {
+    localStorage.setItem(LAST_SYNCED_KEY, String(Date.now()))
+  } catch {
+    // ignore storage errors
+  }
 }
 
 export function getExpiresAt(): Date | null {
@@ -139,6 +179,7 @@ export async function pushToCloud(phrase: string): Promise<void> {
   })
   if (!res.ok) throw new Error("Failed to save to cloud")
   storeLocalExpiry()
+  storeLastSynced()
 }
 
 export async function pullFromCloud(phrase: string): Promise<SyncPayload> {
@@ -146,5 +187,7 @@ export async function pullFromCloud(phrase: string): Promise<SyncPayload> {
   const res = await fetch(`/api/sync/${hash}`)
   if (res.status === 404) throw new Error("No data found for this code")
   if (!res.ok) throw new Error("Failed to fetch from cloud")
-  return res.json() as Promise<SyncPayload>
+  const payload = (await res.json()) as SyncPayload
+  storeLastSynced()
+  return payload
 }

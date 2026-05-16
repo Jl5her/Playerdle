@@ -83,9 +83,9 @@ export const StatsSection: Story = {
   },
 }
 
-export const SyncSection: Story = {
+export const SettingsSection: Story = {
   args: {
-    section: "sync",
+    section: "settings",
     sport: nflInfo,
   },
 }
