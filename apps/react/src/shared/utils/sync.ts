@@ -24,8 +24,16 @@ export interface SyncPayload {
 
 export function generatePassphrase(): string {
   const words: string[] = []
-  for (let i = 0; i < PASSPHRASE_WORD_COUNT; i++) {
-    words.push(WORDLIST[Math.floor(Math.random() * WORDLIST.length)])
+  // Rejection threshold removes modulo bias for non-power-of-2 list sizes.
+  // Rejection rate for 125 entries is ~1e-8, so the loop almost never iterates twice.
+  const limit = Math.floor(0x100000000 / WORDLIST.length) * WORDLIST.length
+  while (words.length < PASSPHRASE_WORD_COUNT) {
+    const buf = new Uint32Array(PASSPHRASE_WORD_COUNT)
+    crypto.getRandomValues(buf)
+    for (const val of buf) {
+      if (words.length >= PASSPHRASE_WORD_COUNT) break
+      if (val < limit) words.push(WORDLIST[val % WORDLIST.length])
+    }
   }
   return words.join("-")
 }
