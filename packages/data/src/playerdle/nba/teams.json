@@ -9,7 +9,8 @@
       "#c8102e",
       "#fdb927",
       "#e03a3e"
-    ]
+    ],
+    "colorNames": ["Red", "Gold", "Red"]
   },
   {
     "id": "2",
@@ -21,7 +22,8 @@
       "#008348",
       "#ffffff",
       "#007a33"
-    ]
+    ],
+    "colorNames": ["Green", "White", "Green"]
   },
   {
     "id": "17",
@@ -33,7 +35,8 @@
       "#000000",
       "#ffffff",
       "#777d84"
-    ]
+    ],
+    "colorNames": ["Black", "White", "Gray"]
   },
   {
     "id": "30",
@@ -45,7 +48,8 @@
       "#008ca8",
       "#1d1060",
       "#1d1160"
-    ]
+    ],
+    "colorNames": ["Teal", "Purple", "Purple"]
   },
   {
     "id": "4",
@@ -57,7 +61,8 @@
       "#ce1141",
       "#000000",
       "#ffffff"
-    ]
+    ],
+    "colorNames": ["Red", "Black", "White"]
   },
   {
     "id": "5",
@@ -69,7 +74,8 @@
       "#860038",
       "#bc945c",
       "#041e42"
-    ]
+    ],
+    "colorNames": ["Burgundy", "Gold", "Navy"]
   },
   {
     "id": "6",
@@ -81,7 +87,8 @@
       "#0064b1",
       "#bbc4ca",
       "#00538c"
-    ]
+    ],
+    "colorNames": ["Blue", "Silver", "Navy"]
   },
   {
     "id": "7",
@@ -93,7 +100,8 @@
       "#0e2240",
       "#fec524",
       "#8b2131"
-    ]
+    ],
+    "colorNames": ["Navy", "Gold", "Burgundy"]
   },
   {
     "id": "8",
@@ -105,7 +113,8 @@
       "#1d428a",
       "#c8102e",
       "#1d42ba"
-    ]
+    ],
+    "colorNames": ["Blue", "Red", "Blue"]
   },
   {
     "id": "9",
@@ -117,7 +126,8 @@
       "#fdb927",
       "#1d428a",
       "#ffc72c"
-    ]
+    ],
+    "colorNames": ["Gold", "Blue", "Gold"]
   },
   {
     "id": "10",
@@ -129,7 +139,8 @@
       "#ce1141",
       "#000000",
       "#c4ced4"
-    ]
+    ],
+    "colorNames": ["Red", "Black", "Silver"]
   },
   {
     "id": "11",
@@ -141,7 +152,8 @@
       "#0c2340",
       "#ffd520",
       "#002d62"
-    ]
+    ],
+    "colorNames": ["Navy", "Gold", "Navy"]
   },
   {
     "id": "12",
@@ -153,7 +165,8 @@
       "#12173f",
       "#c8102e",
       "#1d428a"
-    ]
+    ],
+    "colorNames": ["Navy", "Red", "Blue"]
   },
   {
     "id": "13",
@@ -165,7 +178,8 @@
       "#552583",
       "#fdb927",
       "#000000"
-    ]
+    ],
+    "colorNames": ["Purple", "Gold", "Black"]
   },
   {
     "id": "29",
@@ -177,7 +191,8 @@
       "#5d76a9",
       "#12173f",
       "#f5b112"
-    ]
+    ],
+    "colorNames": ["Blue", "Navy", "Gold"]
   },
   {
     "id": "14",
@@ -189,7 +204,8 @@
       "#98002e",
       "#000000",
       "#f9a01b"
-    ]
+    ],
+    "colorNames": ["Burgundy", "Black", "Gold"]
   },
   {
     "id": "15",
@@ -201,7 +217,8 @@
       "#00471b",
       "#eee1c6",
       "#0077c0"
-    ]
+    ],
+    "colorNames": ["Forest Green", "Cream", "Blue"]
   },
   {
     "id": "16",
@@ -213,7 +230,8 @@
       "#266092",
       "#79bc43",
       "#0c2340"
-    ]
+    ],
+    "colorNames": ["Blue", "Lime", "Navy"]
   },
   {
     "id": "3",
@@ -225,7 +243,8 @@
       "#0a2240",
       "#b4975a",
       "#0c2340"
-    ]
+    ],
+    "colorNames": ["Navy", "Gold", "Navy"]
   },
   {
     "id": "18",
@@ -237,7 +256,8 @@
       "#1d428a",
       "#f58426",
       "#006bb6"
-    ]
+    ],
+    "colorNames": ["Blue", "Orange", "Blue"]
   },
   {
     "id": "25",
@@ -249,7 +269,8 @@
       "#007ac1",
       "#ef3b24",
       "#002d62"
-    ]
+    ],
+    "colorNames": ["Blue", "Orange", "Navy"]
   },
   {
     "id": "19",
@@ -261,7 +282,8 @@
       "#0150b5",
       "#9ca0a3",
       "#0077c0"
-    ]
+    ],
+    "colorNames": ["Blue", "Silver", "Blue"]
   },
   {
     "id": "20",
@@ -273,7 +295,8 @@
       "#1d428a",
       "#e01234",
       "#006bb6"
-    ]
+    ],
+    "colorNames": ["Blue", "Red", "Blue"]
   },
   {
     "id": "21",
@@ -285,7 +308,8 @@
       "#29127a",
       "#e56020",
       "#1d1160"
-    ]
+    ],
+    "colorNames": ["Purple", "Orange", "Purple"]
   },
   {
     "id": "22",
@@ -297,7 +321,8 @@
       "#e03a3e",
       "#000000",
       "#ffffff"
-    ]
+    ],
+    "colorNames": ["Red", "Black", "White"]
   },
   {
     "id": "23",
@@ -309,7 +334,8 @@
       "#5a2d81",
       "#6a7a82",
       "#63727a"
-    ]
+    ],
+    "colorNames": ["Purple", "Gray", "Gray"]
   },
   {
     "id": "24",
@@ -321,7 +347,8 @@
       "#000000",
       "#c4ced4",
       "#ffffff"
-    ]
+    ],
+    "colorNames": ["Black", "Silver", "White"]
   },
   {
     "id": "28",
@@ -333,7 +360,8 @@
       "#d91244",
       "#000000",
       "#ce1141"
-    ]
+    ],
+    "colorNames": ["Red", "Black", "Red"]
   },
   {
     "id": "26",
@@ -345,7 +373,8 @@
       "#4e008e",
       "#79a3dc",
       "#002b5c"
-    ]
+    ],
+    "colorNames": ["Purple", "Blue", "Navy"]
   },
   {
     "id": "27",
@@ -357,6 +386,7 @@
       "#e31837",
       "#002b5c",
       "#c4ced4"
-    ]
+    ],
+    "colorNames": ["Red", "Navy", "Silver"]
   }
 ]
