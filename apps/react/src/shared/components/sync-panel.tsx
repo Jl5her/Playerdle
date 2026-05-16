@@ -5,6 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
+import MenuLinkButton from "./menu-link-button"
 import Popup from "./popup"
 import {
   clearPassphrase,
@@ -209,6 +210,7 @@ export default function SyncPanel() {
       setLastSynced(getLastSynced())
       setLinkedState(true)
       setImportInput("")
+      setView("active")
       setStatus({ type: "import-ok" })
     } catch {
       setStatus({ type: "import-err", message: "Import failed. Please try again." })
@@ -234,24 +236,6 @@ export default function SyncPanel() {
 
   const isLoading = status.type === "saving" || status.type === "importing"
 
-  if (view === "no-code") {
-    return (
-      <div className="flex flex-col gap-4 pt-1">
-        <p className="text-sm text-primary-600 dark:text-primary-300">
-          Sync your game progress across devices without signing in. A 5-word code links your
-          devices. Codes expire {SYNC_TTL_DAYS} days after last use.
-        </p>
-        <button
-          type="button"
-          onClick={handleGenerate}
-          className="self-start px-5 py-2.5 rounded-md font-bold text-sm bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
-        >
-          Generate Sync Code
-        </button>
-      </div>
-    )
-  }
-
   if (view === "checking-expiry") {
     return (
       <div className="flex flex-col gap-3 pt-1">
@@ -262,31 +246,78 @@ export default function SyncPanel() {
     )
   }
 
-  if (view === "expired") {
-    return (
-      <div className="flex flex-col gap-4 pt-1">
-        <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
-          <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
-            Your sync code expired
-          </p>
-          <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
-            Cloud data is deleted {SYNC_TTL_DAYS} days after last use. Your progress on this device
-            is untouched.
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={handleGenerate}
-          className="self-start px-5 py-2.5 rounded-md font-bold text-sm bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
-        >
-          Generate New Code
-        </button>
-      </div>
-    )
-  }
+  const linkSection = (
+    <section className="flex flex-col gap-2">
+      <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
+        Link Another Device
+      </h3>
 
-  return (
-    <div className="flex flex-col gap-5 pt-1 relative">
+      {status.type === "import-confirm" ? (
+        <div className="flex flex-col gap-3">
+          <p className="text-sm text-primary-700 dark:text-primary-200">
+            Found data saved on{" "}
+            <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
+            current progress on this device.
+          </p>
+          <div className="flex gap-2">
+            <button
+              type="button"
+              onClick={handleImportConfirm}
+              className="px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+            >
+              Link & Replace
+            </button>
+            <button
+              type="button"
+              onClick={resetStatus}
+              className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : status.type === "import-ok" ? (
+        <p className="text-sm text-green-600 dark:text-green-400 font-medium">
+          Linked! Your progress has been updated.
+        </p>
+      ) : (
+        <>
+          <div className="flex gap-2 items-stretch">
+            <input
+              type="text"
+              value={importInput}
+              onChange={e => {
+                setImportInput(e.target.value)
+                if (status.type === "import-err") resetStatus()
+              }}
+              placeholder="hawk-wolf-bear-deer-fox"
+              className="flex-1 min-w-0 px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
+              spellCheck={false}
+              autoCapitalize="none"
+              autoCorrect="off"
+            />
+            <button
+              type="button"
+              onClick={handleImportStart}
+              disabled={isLoading || importInput.trim().length === 0}
+              className="shrink-0 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {status.type === "importing" ? "Loading…" : "Link"}
+            </button>
+          </div>
+          {status.type === "import-err" && (
+            <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
+          )}
+          <p className="text-xs text-primary-500 dark:text-primary-400">
+            After linking you'll share the same sync code as that device.
+          </p>
+        </>
+      )}
+    </section>
+  )
+
+  const toasts = (
+    <>
       <Popup
         visible={copied}
         message="Copied to clipboard"
@@ -297,6 +328,59 @@ export default function SyncPanel() {
         message="Saved to cloud"
         durationMs={2000}
       />
+    </>
+  )
+
+  if (view === "no-code") {
+    return (
+      <div className="flex flex-col gap-5 pt-1">
+        {toasts}
+        <section className="flex flex-col gap-4 items-center text-center">
+          <p className="text-sm text-primary-600 dark:text-primary-300">
+            Sync your game progress across devices without signing in. A 5-word code links your
+            devices. Codes expire {SYNC_TTL_DAYS} days after last use.
+          </p>
+          <MenuLinkButton
+            label="Generate Sync Code"
+            onClick={handleGenerate}
+          />
+        </section>
+        <hr className="border-primary-200 dark:border-primary-700" />
+        {linkSection}
+      </div>
+    )
+  }
+
+  if (view === "expired") {
+    return (
+      <div className="flex flex-col gap-5 pt-1">
+        {toasts}
+        <section className="flex flex-col gap-4">
+          <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+            <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+              Your sync code expired
+            </p>
+            <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
+              Cloud data is deleted {SYNC_TTL_DAYS} days after last use. Your progress on this
+              device is untouched.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <MenuLinkButton
+              label="Generate New Code"
+              onClick={handleGenerate}
+            />
+          </div>
+        </section>
+        <hr className="border-primary-200 dark:border-primary-700" />
+        {linkSection}
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col gap-5 pt-1">
+      {toasts}
 
       {/* Your code */}
       <section className="flex flex-col gap-2">
@@ -323,17 +407,17 @@ export default function SyncPanel() {
             }}
             aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
             title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
-            className={`inline-flex items-center gap-1.5 rounded-md font-semibold transition-all duration-200 overflow-hidden ${
+            className={`inline-flex items-center gap-1.5 rounded-md text-sm font-semibold px-3 py-1.5 transition-all duration-200 ${
               confirmingReset
-                ? "px-3 py-1.5 text-sm bg-red-600 text-white hover:bg-red-500"
-                : "p-2 text-base text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800"
+                ? "bg-red-600 text-white hover:bg-red-500"
+                : "text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800"
             }`}
           >
             <FontAwesomeIcon
               icon={confirmingReset ? faCheck : faRotateRight}
-              className={confirmingReset ? "text-sm" : "text-base"}
+              className="text-sm"
             />
-            {confirmingReset && <span>Confirm</span>}
+            <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
           </button>
         </div>
         <div className="flex flex-col gap-0.5">
@@ -374,74 +458,7 @@ export default function SyncPanel() {
 
       <hr className="border-primary-200 dark:border-primary-700" />
 
-      {/* Link */}
-      <section className="flex flex-col gap-2">
-        <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
-          Link Another Device
-        </h3>
-
-        {status.type === "import-confirm" ? (
-          <div className="flex flex-col gap-3">
-            <p className="text-sm text-primary-700 dark:text-primary-200">
-              Found data saved on{" "}
-              <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
-              current progress on this device.
-            </p>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleImportConfirm}
-                className="px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
-              >
-                Link & Replace
-              </button>
-              <button
-                type="button"
-                onClick={resetStatus}
-                className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        ) : status.type === "import-ok" ? (
-          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-            Linked! Your progress has been updated.
-          </p>
-        ) : (
-          <>
-            <div className="flex gap-2 items-stretch">
-              <input
-                type="text"
-                value={importInput}
-                onChange={e => {
-                  setImportInput(e.target.value)
-                  if (status.type === "import-err") resetStatus()
-                }}
-                placeholder="hawk-wolf-bear-deer-fox"
-                className="flex-1 min-w-0 px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
-                spellCheck={false}
-                autoCapitalize="none"
-                autoCorrect="off"
-              />
-              <button
-                type="button"
-                onClick={handleImportStart}
-                disabled={isLoading || importInput.trim().length === 0}
-                className="shrink-0 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {status.type === "importing" ? "Loading…" : "Link"}
-              </button>
-            </div>
-            {status.type === "import-err" && (
-              <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
-            )}
-            <p className="text-xs text-primary-500 dark:text-primary-400">
-              After linking you'll share the same sync code as that device.
-            </p>
-          </>
-        )}
-      </section>
+      {linkSection}
     </div>
   )
 }
