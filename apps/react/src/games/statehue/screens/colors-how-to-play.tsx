@@ -5,9 +5,15 @@ import { getProTeamPalette } from "@playerdle/data/statehue/states"
 import clsx from "clsx"
 
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
+import { Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
+
+export function colorsTutorialSeenKey(variant: ColorsVariant): string {
+  return variant === "collegiate" ? "statehue-collegiate-tutorial-seen" : "statehue-tutorial-seen"
+}
 
 interface Props {
-  className?: string
+  id: string
   variant?: ColorsVariant
   onOpenCalendar?: () => void
 }
@@ -36,12 +42,18 @@ function ExampleRow({ colors }: { colors: [string, string, string] }) {
   )
 }
 
-export default function ColorsHowToPlay({ className, variant = "pro", onOpenCalendar }: Props) {
+export default function ColorsHowToPlay({ id, variant = "pro", onOpenCalendar }: Props) {
+  const ctx = usePanelContext()
   const isLocal = import.meta.env.DEV
   const isCollegiate = variant === "collegiate"
 
+  function handleClose() {
+    localStorage.setItem(colorsTutorialSeenKey(variant), "true")
+    ctx?.pop()
+  }
+
   return (
-    <div className={className}>
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         {isCollegiate
           ? "Guess the U.S. state from the team colors of its D1 college programs. You have 5 guesses."
@@ -125,6 +137,6 @@ export default function ColorsHowToPlay({ className, variant = "pro", onOpenCale
           </div>
         </div>
       )}
-    </div>
+    </Panel>
   )
 }

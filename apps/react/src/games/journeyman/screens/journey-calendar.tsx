@@ -10,7 +10,8 @@ import {
   type JourneyPuzzle,
   type JourneyResult,
 } from "@/games/journeyman/utils/journey-daily"
-import { ArchiveCalendar } from "@/shared/components"
+import { ArchiveCalendar, Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
@@ -101,6 +102,10 @@ interface Props {
   onPlayArchive?: (dateKey: string) => void
   /** Bump to force a re-read of saved history (e.g. after an archive play). */
   historyVersion?: number
+  /** Omit the app-viewport shell; renders as panel content driven by context. */
+  panel?: boolean
+  /** Panel ID in context; required when panel=true. */
+  id?: string
 }
 
 export default function JourneyCalendar({
@@ -108,7 +113,10 @@ export default function JourneyCalendar({
   onClose,
   onPlayArchive,
   historyVersion = 0,
+  panel = false,
+  id,
 }: Props) {
+  const ctx = usePanelContext()
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
   const [selected, setSelected] = useState<string>(formatDateKey(today))
@@ -133,11 +141,12 @@ export default function JourneyCalendar({
   const selectedIsFuture = selectedDate.getTime() > today.getTime()
   const selectedIsBeforeEpoch = selectedDate.getTime() < EPOCH.getTime()
 
-  return (
+  const calendar = (
     <ArchiveCalendar
       title={`Journeyman ${leagueData.label} Archive`}
-      onClose={onClose}
-      onBack={onClose ? undefined : () => navigate(league === "nfl" ? "/" : `/${league}`)}
+      onClose={panel ? undefined : onClose}
+      onBack={panel || onClose ? undefined : () => navigate(league === "nfl" ? "/" : `/${league}`)}
+      panel={panel}
       epoch={EPOCH}
       history={history}
       inProgress={inProgressDates}
@@ -154,4 +163,14 @@ export default function JourneyCalendar({
       />
     </ArchiveCalendar>
   )
+
+  if (panel && ctx && id) {
+    return (
+      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title={`Journeyman ${leagueData.label} Archive`} layout="full">
+        {calendar}
+      </Panel>
+    )
+  }
+
+  return calendar
 }

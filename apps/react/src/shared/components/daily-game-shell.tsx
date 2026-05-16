@@ -4,7 +4,7 @@ import { useAutoResults } from "@/shared/hooks/use-auto-results"
 import { useResultsKeyboard } from "@/shared/hooks/use-results-keyboard"
 import Button from "./button"
 import Popup from "./popup"
-import ResultsSlidePanel from "./results-slide-panel"
+import Panel from "./panel"
 
 interface ResultsApi {
   onClose: () => void
@@ -94,12 +94,13 @@ export default function DailyGameShell({
       </div>
 
       {!isArcade && (
-        <ResultsSlidePanel
+        <Panel
           open={showResults}
           onClose={closeResults}
+          layout="full"
         >
           {renderResults?.({ onClose: closeResults, onPlayAgain: handleReplay })}
-        </ResultsSlidePanel>
+        </Panel>
       )}
     </div>
   )

@@ -1,8 +1,10 @@
 import { faMap } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
+import { parseDateKey } from "@/shared/utils/calendar-date"
+import { formatLongDate } from "@/shared/utils/time"
+import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import {
   hasPlayedJourneyDailyToday,
   isJourneyLeague,
@@ -22,7 +24,8 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, PWAUpdateToast, ResultsSlidePanel } from "@/shared/components"
+import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
+import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -36,7 +39,7 @@ const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-ca
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
 
-type GameOverlay = "none" | "guide" | "stats"
+type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
 type RouteScreen = "menu" | "daily" | "arcade" | "help"
 
 interface DailyRouteState {
@@ -92,10 +95,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [sport, setSport] = useState<SportConfig | null>(null)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
-  const [activeGameOverlay, setActiveGameOverlay] = useState<GameOverlay>(
-    initialGuideMode ? "guide" : "none",
-  )
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
+  const panels = usePanelStack<AppPanel>(
+    initialGuideMode ? "guide" : undefined,
+  )
+  const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
+  const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
+  const isArchive = !!archiveDateKey
   const [menuSection, setMenuSection] = useState<"menu" | "about" | "help" | "stats">(
     screen === "help" ? "help" : "menu",
   )
@@ -144,38 +150,24 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }, [activeSport, sportMeta.displayName])
 
   const isGame = screen === "daily" || screen === "arcade"
-  const isGuideOpen = activeGameOverlay === "guide"
-  const isStatsOpen = activeGameOverlay === "stats"
-
-  function handleCloseTutorial() {
-    if (!isGuideOpen) {
-      return
-    }
-
-    if (gameGuideMode === "onboarding") {
-      localStorage.setItem(getTutorialStorageKey(sportId, activeVariantId), "true")
-    }
-
-    setActiveGameOverlay("none")
-  }
 
   function handleShowTutorial() {
-    if (screen !== "daily" || activeGameOverlay !== "none") {
+    if (screen !== "daily" || panels.isAnyOpen) {
       return
     }
 
     setGameGuideMode("manual")
-    setActiveGameOverlay("guide")
+    panels.push("guide")
   }
 
   function goToMenu() {
     navigate(buildPath(sportId, "menu"))
     setMenuSection("menu")
-    setActiveGameOverlay("none")
+    panels.clear()
   }
 
   function handleShowStats() {
-    if (screen !== "daily" || isStatsOpen) {
+    if (screen !== "daily" || panels.isOpen("stats")) {
       return
     }
 
@@ -185,7 +177,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       includeShareButton: false,
       variantId: activeVariantId,
     })
-    setActiveGameOverlay("stats")
+    panels.push("stats")
   }
 
   function handleSelectSport(nextSportId: SportConfig["id"]) {
@@ -195,15 +187,20 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
     navigate(buildPath(nextSportId, "menu"))
     setMenuSection("menu")
-    setActiveGameOverlay("none")
+    panels.clear()
   }
 
-  function handleCloseStatsModal() {
-    if (!isStatsOpen) {
-      return
-    }
+  function handlePlayArchive(dateKey: string) {
+    setArchiveDateKey(dateKey)
+    panels.clear()
+    setCalendarHistoryVersion(v => v + 1)
+  }
 
-    setActiveGameOverlay("none")
+  function exitArchive() {
+    setArchiveDateKey(null)
+    panels.clear()
+    panels.push("calendar")
+    setCalendarHistoryVersion(v => v + 1)
   }
 
   function handleNavigate(target: Screen, options?: NavigationOptions) {
@@ -302,16 +299,22 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         </div>
       )}
       {isGame && (
+        <PanelStackContext.Provider value={panels}>
         <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={
-              screen === "daily" && activeGameOverlay === "none" ? handleShowTutorial : undefined
+              screen === "daily" && !panels.isAnyOpen
+                ? isArchive
+                  ? () => panels.push("archive-guide")
+                  : handleShowTutorial
+                : undefined
             }
             onShowStats={
-              screen === "daily" && activeGameOverlay === "none" ? handleShowStats : undefined
+              screen === "daily" && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
             }
-            onBack={goToMenu}
+            onBack={isArchive ? exitArchive : goToMenu}
             sport={activeSport ?? sportMeta}
+            subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
           />
           <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
             <Suspense fallback={<div className="flex-1 min-h-0" />}>
@@ -320,55 +323,55 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                   <div
                     className={clsx(
                       "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                      activeGameOverlay === "none" ? "crossfade-active" : "crossfade-inactive",
+                      panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
                     )}
                   >
-                    <Game
-                      key="daily"
-                      mode="daily"
-                      sport={activeSport}
-                      variantId={activeVariantId}
-                    />
-                  </div>
-                  <ResultsSlidePanel
-                    open={isGuideOpen}
-                    onClose={handleCloseTutorial}
-                    title="How to Play"
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-                      <GameGuideContent
-                        sport={activeSport}
-                        mode={gameGuideMode}
-                        className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden"
-                        onOpenCalendar={() => {
-                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
-                          const variantPath =
-                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
-                          navigate(`${prefix}${variantPath}/calendar`)
-                        }}
-                      />
-                    </div>
-                  </ResultsSlidePanel>
-                  <ResultsSlidePanel
-                    open={isStatsOpen}
-                    onClose={handleCloseStatsModal}
-                    title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
-                  >
-                    <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
-                      <StatsContent
-                        {...statsModalConfig}
+                    {isArchive ? (
+                      <Game
+                        key={`archive:${activeSport.id}:${archiveDateKey}`}
+                        mode="daily"
                         sport={activeSport}
                         variantId={activeVariantId}
-                        onViewArchive={() => {
-                          handleCloseStatsModal()
-                          const prefix = sportId === "nfl" ? "" : `/${sportId}`
-                          const variantPath =
-                            activeVariantId === FANATIC_VARIANT_ID ? "/fanatic" : ""
-                          navigate(`${prefix}${variantPath}/calendar`)
-                        }}
+                        archiveDateKey={archiveDateKey!}
                       />
-                    </div>
-                  </ResultsSlidePanel>
+                    ) : (
+                      <Game
+                        key="daily"
+                        mode="daily"
+                        sport={activeSport}
+                        variantId={activeVariantId}
+                      />
+                    )}
+                  </div>
+                  <GameGuideContent
+                    id="guide"
+                    tutorialKey={gameGuideMode === "onboarding" ? getTutorialStorageKey(sportId, activeVariantId) : undefined}
+                    sport={activeSport}
+                    mode={gameGuideMode}
+                    onOpenCalendar={() => panels.push("calendar")}
+                  />
+                  <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
+                    <StatsContent
+                      {...statsModalConfig}
+                      sport={activeSport}
+                      variantId={activeVariantId}
+                      onViewArchive={() => panels.push("calendar")}
+                    />
+                  </Panel>
+                  <GameGuideContent
+                    id="archive-guide"
+                    sport={activeSport}
+                    mode="manual"
+                  />
+                  <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                    <PlayerCalendar
+                      id="calendar"
+                      panel
+                      variantId={activeVariantId}
+                      onPlayArchive={handlePlayArchive}
+                      historyVersion={calendarHistoryVersion}
+                    />
+                  </Suspense>
                 </div>
               )}
               {screen === "arcade" && activeSport && (
@@ -383,6 +386,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             </Suspense>
           </div>
         </div>
+        </PanelStackContext.Provider>
       )}
       {isMenuView && (
         <LeagueFooter

@@ -26,6 +26,9 @@ interface Props<R extends CalendarResult> {
   /** Close-X handler. Used when the calendar is shown inside an overlay. Takes
    *  precedence over `onBack` for the icon. */
   onClose?: () => void
+  /** When true, omits the app-viewport wrapper and game-header so the calendar
+   *  can be hosted inside a ResultsSlidePanel. */
+  panel?: boolean
   /** Earliest date the user can navigate to / play. Cells before this are disabled. */
   epoch: Date
   /** Per-date results keyed by `YYYY-MM-DD`. */
@@ -48,6 +51,7 @@ export default function ArchiveCalendar<R extends CalendarResult>({
   subtitle = "Past daily puzzles",
   onBack,
   onClose,
+  panel = false,
   epoch,
   history,
   inProgress,
@@ -80,39 +84,14 @@ export default function ArchiveCalendar<R extends CalendarResult>({
     })
   }
 
-  return (
-    <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
-      <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
-        {onBack && (
-          <button
-            onClick={onBack}
-            aria-label="Back to menu"
-            title="Back"
-            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
-          >
-            <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
-          </button>
-        )}
-        {onClose && (
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close calendar"
-            title="Close (Esc)"
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
-          >
-            <FontAwesomeIcon icon={faXmark} className="text-2xl" aria-hidden="true" />
-          </button>
-        )}
-        <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-          {title}
-        </h1>
-        <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
-      </header>
-
+  const content = (
+    <>
       <div
         ref={scrollRef}
-        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden pt-[3.75rem]"
+        className={clsx(
+          "flex-1 min-h-0 overflow-y-auto overflow-x-hidden",
+          !panel && "pt-[3.75rem]",
+        )}
       >
         <div className="max-w-md mx-auto px-3 py-4">
           <div className="flex items-center justify-between mb-3">
@@ -211,6 +190,41 @@ export default function ArchiveCalendar<R extends CalendarResult>({
         </div>
       </div>
       <ScrollHint scrollRef={scrollRef} />
+    </>
+  )
+
+  if (panel) return content
+
+  return (
+    <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
+      <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
+        {onBack && (
+          <button
+            onClick={onBack}
+            aria-label="Back to menu"
+            title="Back"
+            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
+          >
+            <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
+          </button>
+        )}
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close calendar"
+            title="Close (Esc)"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
+          >
+            <FontAwesomeIcon icon={faXmark} className="text-2xl" aria-hidden="true" />
+          </button>
+        )}
+        <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
+          {title}
+        </h1>
+        <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
+      </header>
+      {content}
     </div>
   )
 }
