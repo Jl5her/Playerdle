@@ -192,7 +192,7 @@ export default function MainMenu({
         </MenuOverlay>
         <MenuOverlay
           open={section === "settings"}
-          title="Settings"
+          title="Sync Devices"
           onClose={onCloseAbout}
         >
           <div

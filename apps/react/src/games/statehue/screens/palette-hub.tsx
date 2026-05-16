@@ -16,7 +16,7 @@ import {
   SyncPanel,
 } from "@/shared/components"
 
-type Section = "menu" | "about" | "stats" | "sync"
+type Section = "menu" | "about" | "stats" | "sync-devices"
 
 export default function PaletteHub() {
   const navigate = useNavigate()
@@ -89,10 +89,6 @@ export default function PaletteHub() {
                     className="mt-3"
                   />
                   <MenuLinkButton
-                    label="Sync"
-                    onClick={() => setSection("sync")}
-                  />
-                  <MenuLinkButton
                     label="About"
                     onClick={() => setSection("about")}
                   />
@@ -112,7 +108,7 @@ export default function PaletteHub() {
             </MenuOverlay>
 
             <MenuOverlay
-              open={section === "sync"}
+              open={section === "sync-devices"}
               title="Sync Devices"
               onClose={goBack}
             >
@@ -139,6 +135,12 @@ export default function PaletteHub() {
                   <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
                     Part of the Playerdle family. Inspired by Wordle and other guessing games.
                   </p>
+                </div>
+                <div className="mt-6 flex justify-center">
+                  <MenuLinkButton
+                    label="Sync Devices"
+                    onClick={() => setSection("sync-devices")}
+                  />
                 </div>
                 <AboutFooter />
               </div>

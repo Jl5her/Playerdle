@@ -32,7 +32,7 @@ export default function AboutSection({ open, sport, onClose, onOpenSettings }: P
         </div>
         <div className="mt-6 flex justify-center">
           <MenuLinkButton
-            label="Settings"
+            label="Sync Devices"
             onClick={onOpenSettings}
           />
         </div>
