@@ -1,4 +1,50 @@
 /**
+ * If a hex color's HSL lightness is below 0.15 (near-black), boosts it to 0.30
+ * so the hue is visible on screen. Returns the original hex otherwise.
+ */
+export function boostDarkColor(hex: string): string {
+  if (hex === "transparent") return hex
+  const clean = hex.replace("#", "")
+  if (clean.length !== 6) return hex
+
+  const r = parseInt(clean.slice(0, 2), 16) / 255
+  const g = parseInt(clean.slice(2, 4), 16) / 255
+  const b = parseInt(clean.slice(4, 6), 16) / 255
+
+  const max = Math.max(r, g, b)
+  const min = Math.min(r, g, b)
+  const l = (max + min) / 2
+
+  if (l >= 0.15) return hex
+
+  const s = max === min ? 0 : l < 0.5 ? (max - min) / (max + min) : (max - min) / (2 - max - min)
+  let h = 0
+  if (max !== min) {
+    if (max === r) h = (g - b) / (max - min)
+    else if (max === g) h = 2 + (b - r) / (max - min)
+    else h = 4 + (r - g) / (max - min)
+    h = ((h / 6) + 1) % 1
+  }
+
+  const newL = 0.30
+  const q = newL < 0.5 ? newL * (1 + s) : newL + s - newL * s
+  const p = 2 * newL - q
+  function hue2rgb(p: number, q: number, t: number): number {
+    if (t < 0) t += 1
+    if (t > 1) t -= 1
+    if (t < 1 / 6) return p + (q - p) * 6 * t
+    if (t < 1 / 2) return q
+    if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6
+    return p
+  }
+  const nr = s === 0 ? newL : hue2rgb(p, q, h + 1 / 3)
+  const ng = s === 0 ? newL : hue2rgb(p, q, h)
+  const nb = s === 0 ? newL : hue2rgb(p, q, h - 1 / 3)
+  const toHex = (c: number) => Math.round(c * 255).toString(16).padStart(2, "0")
+  return `#${toHex(nr)}${toHex(ng)}${toHex(nb)}`
+}
+
+/**
  * Converts a hex color to a generic English color name.
  * Names are intentionally non-team-specific (e.g. "Navy" not "Midnight Navy")
  * so they describe the color without hinting at a particular team.
@@ -17,7 +63,7 @@ export function hexToColorName(hex: string): string {
   const min = Math.min(r, g, b)
   const l = (max + min) / 2
 
-  if (l < 0.11) return "Black"
+  if (l < 0.07) return "Black"
   if (l > 0.91) return "White"
 
   const s =
@@ -43,9 +89,11 @@ export function hexToColorName(hex: string): string {
   // Red family (0–20° and 340–360°)
   if (h < 20 || h >= 340) {
     if (l < 0.22) return "Maroon"
+    // Warm orange-reds (h 8–20°) with moderate saturation are burnt orange, not crimson
+    if (h > 8 && h < 20 && s > 0.50 && l > 0.28) return "Orange"
     if (l < 0.42) return "Crimson"
-    // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00)
-    if (s > 0.85 && l > 0.44) return "Orange"
+    // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00) — only h<20 side
+    if (h < 20 && s > 0.85 && l > 0.44) return "Orange"
     return "Red"
   }
 
@@ -86,7 +134,7 @@ export function hexToColorName(hex: string): string {
   if (h < 265) {
     if (l < 0.22) return "Navy"
     if (l < 0.38) return "Dark Blue"
-    if (s > 0.55) return "Royal Blue"
+    if (s > 0.55) return "Light Blue"
     return "Blue"
   }
 
@@ -97,6 +145,6 @@ export function hexToColorName(hex: string): string {
   }
 
   // Magenta / Wine (300–340°)
-  if (l < 0.28) return "Burgundy"
+  if (l < 0.28) return "Dark Red"
   return "Magenta"
 }
