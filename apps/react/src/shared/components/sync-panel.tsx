@@ -1,6 +1,7 @@
 import { faCheck, faCopy, faRotate } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
+import Popup from "./popup"
 import {
   clearPassphrase,
   createPassphrase,
@@ -225,15 +226,31 @@ export default function SyncPanel() {
 
   // ── Active ────────────────────────────────────────────────────────────────────
   return (
-    <div className="flex flex-col gap-5 pt-1">
+    <div className="flex flex-col gap-5 pt-1 relative">
+      <Popup
+        visible={copied}
+        message="Copied to clipboard"
+        durationMs={2000}
+      />
       {/* Your code */}
       <section className="flex flex-col gap-2">
         <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
           Your Sync Code
         </h3>
-        <div className="px-3 py-2 rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all">
-          {passphrase}
-        </div>
+        <button
+          type="button"
+          onClick={handleCopy}
+          aria-label="Copy sync code to clipboard"
+          className="flex items-center gap-3 w-full px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-transparent text-primary-800 dark:text-primary-100 hover:border-primary-500 dark:hover:border-primary-400 transition-colors cursor-pointer text-left"
+        >
+          <span className="flex-1 font-mono text-sm font-semibold tracking-wide break-all">
+            {passphrase}
+          </span>
+          <FontAwesomeIcon
+            icon={copied ? faCheck : faCopy}
+            className="text-base text-primary-500 dark:text-primary-300 shrink-0"
+          />
+        </button>
         {expiresAt && (
           <p className="text-xs text-primary-500 dark:text-primary-400">
             Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
@@ -242,17 +259,9 @@ export default function SyncPanel() {
         <div className="flex gap-2 mt-1">
           <button
             type="button"
-            onClick={handleCopy}
-            className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200"
-          >
-            <FontAwesomeIcon icon={copied ? faCheck : faCopy} className="text-sm" />
-            {copied ? "Copied!" : "Copy Code"}
-          </button>
-          <button
-            type="button"
             onClick={handleSave}
             disabled={isLoading}
-            className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <FontAwesomeIcon
               icon={faRotate}
