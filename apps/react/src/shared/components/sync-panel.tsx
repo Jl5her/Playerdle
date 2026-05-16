@@ -292,6 +292,10 @@ export default function SyncPanel() {
   const handleImportConfirm = useCallback(() => {
     if (status.type !== "import-confirm") return
     const { phrase, payload, devices } = status
+    // Revoke the current code when switching to another device's code.
+    if (passphrase && passphrase !== phrase) {
+      void unlinkFromCloud(passphrase).catch(() => {})
+    }
     restoreSyncData(payload)
     setPassphrase(phrase)
     setLocalPassphrase(phrase)
@@ -300,7 +304,7 @@ export default function SyncPanel() {
     setImportInput("")
     setView("active")
     setStatus({ type: "import-ok" })
-  }, [status])
+  }, [status, passphrase])
 
   function resetStatus() {
     setStatus({ type: "idle" })
@@ -322,8 +326,10 @@ export default function SyncPanel() {
         <div className="flex flex-col gap-3">
           <p className="text-sm text-primary-700 dark:text-primary-200">
             Found data saved on{" "}
-            <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
-            current progress on this device.
+            <span className="font-semibold">{status.lastUpdated}</span>.{" "}
+            {passphrase
+              ? "This will switch your sync code and replace your current progress on this device."
+              : "This will replace your current progress on this device."}
           </p>
           <div className="flex gap-2">
             <button
@@ -595,6 +601,8 @@ export default function SyncPanel() {
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{status.message}</p>
         )}
       </section>
+      <hr className="border-primary-200 dark:border-primary-700" />
+      {linkSection}
     </div>
   )
 }
