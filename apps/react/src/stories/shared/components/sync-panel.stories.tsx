@@ -17,22 +17,18 @@ type Story = StoryObj<typeof meta>
 export const NoCode: Story = {
   render: () => {
     localStorage.removeItem("playerdle-sync-passphrase")
-    localStorage.removeItem("playerdle-sync-expires-at")
     return <SyncPanel />
   },
 }
 
 /**
- * A passphrase is seeded in localStorage before render. The component will enter
- * the "checking-expiry" state and settle on "expired" once the cloud check returns
- * a 404 (no real cloud in Storybook).
+ * A passphrase is seeded in localStorage before render. The component will
+ * settle on "expired" once the cloud check returns a 404 (no real cloud in
+ * Storybook).
  */
 export const Expired: Story = {
   render: () => {
     localStorage.setItem("playerdle-sync-passphrase", "hawk-wolf-bear-deer-fox")
-    // Set expiry in the past (Unix ms timestamp) so isLocallyExpired() returns true
-    const pastMs = Date.now() - 1000 * 60 * 60 * 24
-    localStorage.setItem("playerdle-sync-expires-at", String(pastMs))
     return <SyncPanel />
   },
 }

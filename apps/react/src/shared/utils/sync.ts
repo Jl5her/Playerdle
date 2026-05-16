@@ -1,9 +1,8 @@
 import { WORDLIST } from "./wordlist"
 
 const PASSPHRASE_KEY = "playerdle-sync-passphrase"
-const EXPIRES_AT_KEY = "playerdle-sync-expires-at"
-const LINKED_KEY = "playerdle-sync-linked"
 const LAST_SYNCED_KEY = "playerdle-sync-last-synced"
+const DEVICE_ID_KEY = "playerdle-sync-device-id"
 
 export const SYNC_TTL_DAYS = 7
 const PASSPHRASE_WORD_COUNT = 5
@@ -24,6 +23,15 @@ export interface SyncPayload {
   data: Record<string, string>
 }
 
+interface ServerGetResponse {
+  payload: SyncPayload
+  devices: number
+}
+
+interface ServerWriteResponse {
+  devices: number
+}
+
 export function generatePassphrase(): string {
   const words: string[] = []
   // Rejection threshold removes modulo bias for non-power-of-2 list sizes.
@@ -38,6 +46,28 @@ export function generatePassphrase(): string {
     }
   }
   return words.join("-")
+}
+
+function newDeviceId(): string {
+  // Cloudflare KV-friendly opaque id; URL-safe base64 of 16 random bytes.
+  const bytes = new Uint8Array(16)
+  crypto.getRandomValues(bytes)
+  return btoa(String.fromCharCode(...bytes))
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "")
+}
+
+export function getDeviceId(): string {
+  try {
+    const existing = localStorage.getItem(DEVICE_ID_KEY)
+    if (existing && /^[A-Za-z0-9_-]{8,64}$/.test(existing)) return existing
+    const fresh = newDeviceId()
+    localStorage.setItem(DEVICE_ID_KEY, fresh)
+    return fresh
+  } catch {
+    return newDeviceId()
+  }
 }
 
 export function getPassphrase(): string | null {
@@ -64,25 +94,7 @@ export function setPassphrase(phrase: string): void {
 
 export function clearPassphrase(): void {
   localStorage.removeItem(PASSPHRASE_KEY)
-  localStorage.removeItem(EXPIRES_AT_KEY)
-  localStorage.removeItem(LINKED_KEY)
   localStorage.removeItem(LAST_SYNCED_KEY)
-}
-
-export function isLinked(): boolean {
-  try {
-    return localStorage.getItem(LINKED_KEY) === "1"
-  } catch {
-    return false
-  }
-}
-
-export function setLinked(): void {
-  try {
-    localStorage.setItem(LINKED_KEY, "1")
-  } catch {
-    // ignore storage errors
-  }
 }
 
 export function getLastSynced(): Date | null {
@@ -103,33 +115,6 @@ function storeLastSynced(): void {
   } catch {
     // ignore storage errors
   }
-}
-
-export function getExpiresAt(): Date | null {
-  try {
-    const raw = localStorage.getItem(EXPIRES_AT_KEY)
-    if (!raw) return null
-    const ts = parseInt(raw, 10)
-    if (Number.isNaN(ts)) return null
-    return new Date(ts)
-  } catch {
-    return null
-  }
-}
-
-function storeLocalExpiry(): void {
-  const ms = SYNC_TTL_DAYS * 24 * 60 * 60 * 1000
-  localStorage.setItem(EXPIRES_AT_KEY, String(Date.now() + ms))
-}
-
-export function extendLocalExpiry(): void {
-  storeLocalExpiry()
-}
-
-export function isLocallyExpired(): boolean {
-  const expiresAt = getExpiresAt()
-  if (!expiresAt) return false
-  return expiresAt.getTime() < Date.now()
 }
 
 export async function hashPassphrase(phrase: string): Promise<string> {
@@ -169,25 +154,44 @@ export function restoreSyncData(payload: SyncPayload): void {
   }
 }
 
-export async function pushToCloud(phrase: string): Promise<void> {
+function apiUrl(hash: string): string {
+  const deviceId = getDeviceId()
+  return `/api/sync/${hash}?device=${encodeURIComponent(deviceId)}`
+}
+
+export async function pushToCloud(phrase: string): Promise<number> {
   const hash = await hashPassphrase(phrase)
   const payload = collectSyncData()
-  const res = await fetch(`/api/sync/${hash}`, {
+  const res = await fetch(apiUrl(hash), {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   })
   if (!res.ok) throw new Error("Failed to save to cloud")
-  storeLocalExpiry()
+  const body = (await res.json()) as ServerWriteResponse
   storeLastSynced()
+  return body.devices
 }
 
-export async function pullFromCloud(phrase: string): Promise<SyncPayload> {
+export interface PullResult {
+  payload: SyncPayload
+  devices: number
+}
+
+export async function pullFromCloud(phrase: string): Promise<PullResult> {
   const hash = await hashPassphrase(phrase)
-  const res = await fetch(`/api/sync/${hash}`)
+  const res = await fetch(apiUrl(hash))
   if (res.status === 404) throw new Error("No data found for this code")
   if (!res.ok) throw new Error("Failed to fetch from cloud")
-  const payload = (await res.json()) as SyncPayload
+  const body = (await res.json()) as ServerGetResponse
   storeLastSynced()
-  return payload
+  return { payload: body.payload, devices: body.devices }
+}
+
+export async function unlinkFromCloud(phrase: string): Promise<number> {
+  const hash = await hashPassphrase(phrase)
+  const res = await fetch(apiUrl(hash), { method: "DELETE" })
+  if (!res.ok) throw new Error("Failed to unlink")
+  const body = (await res.json()) as ServerWriteResponse
+  return body.devices
 }

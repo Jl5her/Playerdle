@@ -2,6 +2,7 @@ import {
   faArrowsRotate,
   faCheck,
   faCopy,
+  faLinkSlash,
   faRotateRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -11,65 +12,67 @@ import Popup from "./popup"
 import {
   clearPassphrase,
   createPassphrase,
-  extendLocalExpiry,
-  getExpiresAt,
   getLastSynced,
   getPassphrase,
-  isLinked,
-  isLocallyExpired,
   normalizePassphrase,
   pullFromCloud,
   pushToCloud,
   restoreSyncData,
-  setLinked,
   setPassphrase,
   SYNC_TTL_DAYS,
+  type SyncPayload,
+  unlinkFromCloud,
 } from "@/shared/utils/sync"
 
-type PanelView = "no-code" | "checking-expiry" | "expired" | "active"
+type PanelView = "no-code" | "active" | "expired"
 
 type ActionStatus =
   | { type: "idle" }
   | { type: "saving" }
-  | { type: "save-ok" }
   | { type: "save-err"; message: string }
   | { type: "importing" }
-  | { type: "import-confirm"; phrase: string; lastUpdated: string }
+  | {
+      type: "import-confirm"
+      phrase: string
+      lastUpdated: string
+      payload: SyncPayload
+      devices: number
+    }
   | { type: "import-ok" }
   | { type: "import-err"; message: string }
-
-function daysLeft(expiresAt: Date): number {
-  return Math.max(0, Math.ceil((expiresAt.getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
-}
+  | { type: "unlinking" }
 
 function formatSyncedAt(date: Date): string {
   return date.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })
 }
 
+const CONFIRM_REVERT_MS = 3000
+
 export default function SyncPanel() {
   const [view, setView] = useState<PanelView>("no-code")
   const [passphrase, setLocalPassphrase] = useState("")
-  const [expiresAt, setExpiresAt] = useState<Date | null>(null)
+  const [deviceCount, setDeviceCount] = useState(0)
   const [lastSynced, setLastSynced] = useState<Date | null>(null)
-  const [linked, setLinkedState] = useState(false)
   const [copied, setCopied] = useState(false)
   const [savedToast, setSavedToast] = useState(false)
   const [copyError, setCopyError] = useState<string | null>(null)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
   const [confirmingReset, setConfirmingReset] = useState(false)
+  const [confirmingUnlink, setConfirmingUnlink] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const resetRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const unlinkRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const REGEN_CONFIRM_MS = 3000
+  const linked = deviceCount > 1
 
   useEffect(() => {
     if (!confirmingReset) return
     if (resetRevertTimer.current) clearTimeout(resetRevertTimer.current)
     resetRevertTimer.current = setTimeout(() => {
       setConfirmingReset(false)
-    }, REGEN_CONFIRM_MS)
+    }, CONFIRM_REVERT_MS)
     return () => {
       if (resetRevertTimer.current) {
         clearTimeout(resetRevertTimer.current)
@@ -79,39 +82,43 @@ export default function SyncPanel() {
   }, [confirmingReset])
 
   useEffect(() => {
+    if (!confirmingUnlink) return
+    if (unlinkRevertTimer.current) clearTimeout(unlinkRevertTimer.current)
+    unlinkRevertTimer.current = setTimeout(() => {
+      setConfirmingUnlink(false)
+    }, CONFIRM_REVERT_MS)
+    return () => {
+      if (unlinkRevertTimer.current) {
+        clearTimeout(unlinkRevertTimer.current)
+        unlinkRevertTimer.current = null
+      }
+    }
+  }, [confirmingUnlink])
+
+  useEffect(() => {
     const phrase = getPassphrase()
     if (!phrase) {
       setView("no-code")
       return
     }
     setLocalPassphrase(phrase)
-    setLinkedState(isLinked())
     setLastSynced(getLastSynced())
-
-    if (!isLocallyExpired()) {
-      setExpiresAt(getExpiresAt())
-      setView("active")
-      return
-    }
-
-    setView("checking-expiry")
+    setView("active")
+    // Refresh device registration and pull the latest count. We discard the
+    // payload here — local data stays canonical until the user explicitly
+    // pushes or imports.
     pullFromCloud(phrase)
-      .then(() => {
-        extendLocalExpiry()
-        setExpiresAt(getExpiresAt())
+      .then(({ devices }) => {
+        setDeviceCount(devices)
         setLastSynced(getLastSynced())
-        setView("active")
       })
       .catch(err => {
         const is404 = err instanceof Error && err.message.includes("No data found")
         if (is404) {
           clearPassphrase()
           setView("expired")
-        } else {
-          extendLocalExpiry()
-          setExpiresAt(getExpiresAt())
-          setView("active")
         }
+        // Other errors: keep the active view with whatever device count we have.
       })
   }, [])
 
@@ -121,11 +128,11 @@ export default function SyncPanel() {
     savedTimer.current = setTimeout(() => setSavedToast(false), 2000)
   }
 
-  async function autoSaveOnGenerate(phrase: string) {
+  async function autoSaveAfterGenerate(phrase: string) {
     setStatus({ type: "saving" })
     try {
-      await pushToCloud(phrase)
-      setExpiresAt(getExpiresAt())
+      const devices = await pushToCloud(phrase)
+      setDeviceCount(devices)
       setLastSynced(getLastSynced())
       setStatus({ type: "idle" })
       flashSavedToast()
@@ -137,12 +144,23 @@ export default function SyncPanel() {
   function handleGenerate() {
     const phrase = createPassphrase()
     setLocalPassphrase(phrase)
-    setExpiresAt(null)
+    setDeviceCount(0)
     setLastSynced(null)
-    setLinkedState(false)
     setView("active")
     setStatus({ type: "idle" })
-    void autoSaveOnGenerate(phrase)
+    void autoSaveAfterGenerate(phrase)
+  }
+
+  async function handleRegenerateConfirm() {
+    setConfirmingReset(false)
+    const oldPhrase = passphrase
+    // Best-effort: unlink this device from the old code so its device count
+    // drops and the cloud entry can age out. Failures are non-fatal.
+    if (oldPhrase) {
+      void unlinkFromCloud(oldPhrase).catch(() => {})
+    }
+    clearPassphrase()
+    handleGenerate()
   }
 
   function handleCopy() {
@@ -162,14 +180,31 @@ export default function SyncPanel() {
   async function handleSync() {
     setStatus({ type: "saving" })
     try {
-      await pushToCloud(passphrase)
-      setExpiresAt(getExpiresAt())
+      const devices = await pushToCloud(passphrase)
+      setDeviceCount(devices)
       setLastSynced(getLastSynced())
-      setStatus({ type: "save-ok" })
+      setStatus({ type: "idle" })
       flashSavedToast()
     } catch (e) {
       setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
     }
+  }
+
+  async function handleUnlinkConfirm() {
+    setConfirmingUnlink(false)
+    setStatus({ type: "unlinking" })
+    try {
+      await unlinkFromCloud(passphrase)
+    } catch {
+      // If the network call fails we still clear the local code; the cloud
+      // entry will age out on its own once it stops getting refreshed.
+    }
+    clearPassphrase()
+    setLocalPassphrase("")
+    setDeviceCount(0)
+    setLastSynced(null)
+    setStatus({ type: "idle" })
+    setView("no-code")
   }
 
   async function handleImportStart() {
@@ -180,7 +215,7 @@ export default function SyncPanel() {
     }
     setStatus({ type: "importing" })
     try {
-      const payload = await pullFromCloud(normalized)
+      const { payload, devices } = await pullFromCloud(normalized)
       const date = new Date(payload.lastUpdated).toLocaleDateString("en-US", {
         month: "short",
         day: "numeric",
@@ -188,7 +223,13 @@ export default function SyncPanel() {
         hour: "numeric",
         minute: "2-digit",
       })
-      setStatus({ type: "import-confirm", phrase: normalized, lastUpdated: date })
+      setStatus({
+        type: "import-confirm",
+        phrase: normalized,
+        lastUpdated: date,
+        payload,
+        devices,
+      })
     } catch (e) {
       setStatus({
         type: "import-err",
@@ -197,55 +238,25 @@ export default function SyncPanel() {
     }
   }
 
-  const handleImportConfirm = useCallback(async () => {
+  const handleImportConfirm = useCallback(() => {
     if (status.type !== "import-confirm") return
-    const { phrase } = status
-    try {
-      const payload = await pullFromCloud(phrase)
-      restoreSyncData(payload)
-      setPassphrase(phrase)
-      extendLocalExpiry()
-      setLinked()
-      setLocalPassphrase(phrase)
-      setExpiresAt(getExpiresAt())
-      setLastSynced(getLastSynced())
-      setLinkedState(true)
-      setImportInput("")
-      setView("active")
-      setStatus({ type: "import-ok" })
-    } catch {
-      setStatus({ type: "import-err", message: "Import failed. Please try again." })
-    }
+    const { phrase, payload, devices } = status
+    restoreSyncData(payload)
+    setPassphrase(phrase)
+    setLocalPassphrase(phrase)
+    setDeviceCount(devices)
+    setLastSynced(getLastSynced())
+    setImportInput("")
+    setView("active")
+    setStatus({ type: "import-ok" })
   }, [status])
 
   function resetStatus() {
     setStatus({ type: "idle" })
   }
 
-  function handleResetConfirm() {
-    clearPassphrase()
-    const phrase = createPassphrase()
-    setLocalPassphrase(phrase)
-    setExpiresAt(null)
-    setLastSynced(null)
-    setLinkedState(false)
-    setImportInput("")
-    setStatus({ type: "idle" })
-    setConfirmingReset(false)
-    void autoSaveOnGenerate(phrase)
-  }
-
-  const isLoading = status.type === "saving" || status.type === "importing"
-
-  if (view === "checking-expiry") {
-    return (
-      <div className="flex flex-col gap-3 pt-1">
-        <p className="text-sm text-primary-500 dark:text-primary-400 animate-pulse">
-          Checking sync status…
-        </p>
-      </div>
-    )
-  }
+  const isLoading =
+    status.type === "saving" || status.type === "importing" || status.type === "unlinking"
 
   const linkSection = (
     <section className="flex flex-col gap-3">
@@ -277,10 +288,6 @@ export default function SyncPanel() {
             </button>
           </div>
         </div>
-      ) : status.type === "import-ok" ? (
-        <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-          Linked! Your progress has been updated.
-        </p>
       ) : (
         <>
           <div className="flex gap-2 items-stretch">
@@ -339,7 +346,7 @@ export default function SyncPanel() {
         <section className="flex flex-col gap-5 items-center text-center">
           <p className="text-sm text-primary-600 dark:text-primary-300">
             Sync your game progress across devices without signing in. A 5-word code links your
-            devices. Codes expire {SYNC_TTL_DAYS} days after last use.
+            devices. Codes only expire {SYNC_TTL_DAYS} days after the last device unlinks.
           </p>
           <MenuLinkButton
             label="Generate Sync Code"
@@ -362,8 +369,8 @@ export default function SyncPanel() {
               Your sync code expired
             </p>
             <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
-              Cloud data is deleted {SYNC_TTL_DAYS} days after last use. Your progress on this
-              device is untouched.
+              Cloud data is deleted {SYNC_TTL_DAYS} days after the last device unlinks. Your
+              progress on this device is untouched.
             </p>
           </div>
           <div className="flex justify-center">
@@ -407,36 +414,67 @@ export default function SyncPanel() {
           </p>
         </div>
         <div className="flex justify-center">
-          <button
-            type="button"
-            onClick={() => {
-              if (confirmingReset) {
-                handleResetConfirm()
-              } else {
-                setConfirmingReset(true)
+          {linked ? (
+            <button
+              type="button"
+              onClick={() => {
+                if (confirmingUnlink) {
+                  void handleUnlinkConfirm()
+                } else {
+                  setConfirmingUnlink(true)
+                }
+              }}
+              disabled={isLoading && !confirmingUnlink}
+              aria-label={
+                confirmingUnlink ? "Confirm unlink this device" : "Unlink this device from the code"
               }
-            }}
-            aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
-            title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
-            className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
-              confirmingReset
-                ? "bg-red-600 text-white hover:bg-red-500"
-                : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
-            }`}
-          >
-            <FontAwesomeIcon
-              icon={confirmingReset ? faCheck : faRotateRight}
-              className="text-sm"
-            />
-            <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
-          </button>
+              title={confirmingUnlink ? "Tap to confirm" : "Unlink this device"}
+              className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
+                confirmingUnlink
+                  ? "bg-red-600 text-white hover:bg-red-500"
+                  : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
+              } disabled:opacity-50 disabled:cursor-not-allowed`}
+            >
+              <FontAwesomeIcon
+                icon={confirmingUnlink ? faCheck : faLinkSlash}
+                className="text-sm"
+              />
+              <span>{confirmingUnlink ? "Confirm Unlink" : "Unlink"}</span>
+            </button>
+          ) : (
+            <button
+              type="button"
+              onClick={() => {
+                if (confirmingReset) {
+                  void handleRegenerateConfirm()
+                } else {
+                  setConfirmingReset(true)
+                }
+              }}
+              aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
+              title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
+              className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
+                confirmingReset
+                  ? "bg-red-600 text-white hover:bg-red-500"
+                  : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
+              }`}
+            >
+              <FontAwesomeIcon
+                icon={confirmingReset ? faCheck : faRotateRight}
+                className="text-sm"
+              />
+              <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
+            </button>
+          )}
         </div>
         <div className="flex flex-col items-center gap-0.5 mt-1">
-          {expiresAt && (
-            <p className="text-xs text-primary-500 dark:text-primary-400">
-              Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
-            </p>
-          )}
+          <p className="text-xs text-primary-500 dark:text-primary-400">
+            {linked
+              ? `${deviceCount} devices linked`
+              : deviceCount === 1
+                ? "Only this device is linked"
+                : "Not yet saved to cloud"}
+          </p>
           {lastSynced && (
             <p className="text-xs text-primary-500 dark:text-primary-400">
               Last synced {formatSyncedAt(lastSynced)}
@@ -466,10 +504,6 @@ export default function SyncPanel() {
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{status.message}</p>
         )}
       </section>
-
-      <hr className="border-primary-200 dark:border-primary-700" />
-
-      {linkSection}
     </div>
   )
 }
