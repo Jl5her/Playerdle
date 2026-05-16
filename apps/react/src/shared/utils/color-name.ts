@@ -134,7 +134,7 @@ export function hexToColorName(hex: string): string {
   if (h < 265) {
     if (l < 0.22) return "Navy"
     if (l < 0.38) return "Dark Blue"
-    if (s > 0.55) return "Royal Blue"
+    if (s > 0.55) return "Light Blue"
     return "Blue"
   }
 
@@ -145,6 +145,6 @@ export function hexToColorName(hex: string): string {
   }
 
   // Magenta / Wine (300–340°)
-  if (l < 0.28) return "Burgundy"
+  if (l < 0.28) return "Dark Red"
   return "Magenta"
 }
