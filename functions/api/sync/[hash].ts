@@ -4,7 +4,7 @@ interface KVNamespace {
 }
 
 interface Env {
-  SYNC_KV?: KVNamespace
+  PLAYERDLE_SYNC_KV?: KVNamespace
 }
 
 interface PagesContext {
@@ -35,17 +35,17 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     return new Response("Invalid hash", { status: 400, headers: CORS })
   }
 
-  if (!env.SYNC_KV) {
+  if (!env.PLAYERDLE_SYNC_KV) {
     return new Response("Sync storage not configured", { status: 503, headers: CORS })
   }
 
   if (request.method === "GET") {
-    const value = await env.SYNC_KV.get(hash)
+    const value = await env.PLAYERDLE_SYNC_KV.get(hash)
     if (!value) {
       return new Response("Not found", { status: 404, headers: CORS })
     }
     // Bump TTL so the 7-day window resets on every import
-    await env.SYNC_KV.put(hash, value, { expirationTtl: TTL_SECONDS })
+    await env.PLAYERDLE_SYNC_KV.put(hash, value, { expirationTtl: TTL_SECONDS })
     return new Response(value, {
       headers: { ...CORS, "Content-Type": "application/json" },
     })
@@ -61,7 +61,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
     } catch {
       return new Response("Invalid JSON", { status: 400, headers: CORS })
     }
-    await env.SYNC_KV.put(hash, body, { expirationTtl: TTL_SECONDS })
+    await env.PLAYERDLE_SYNC_KV.put(hash, body, { expirationTtl: TTL_SECONDS })
     return new Response("OK", { status: 200, headers: CORS })
   }
 
