@@ -25,6 +25,7 @@ import {
   type SportConfig,
 } from "@/games/playerdle/sports"
 import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
+import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -149,18 +150,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }, [activeSport, sportMeta.displayName])
 
   const isGame = screen === "daily" || screen === "arcade"
-
-  function handleCloseTutorial() {
-    if (!panels.isOpen("guide")) {
-      return
-    }
-
-    if (gameGuideMode === "onboarding") {
-      localStorage.setItem(getTutorialStorageKey(sportId, activeVariantId), "true")
-    }
-
-    panels.pop()
-  }
 
   function handleShowTutorial() {
     if (screen !== "daily" || panels.isAnyOpen) {
@@ -310,6 +299,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         </div>
       )}
       {isGame && (
+        <PanelStackContext.Provider value={panels}>
         <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
           <Header
             onShowTutorial={
@@ -354,8 +344,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                     )}
                   </div>
                   <GameGuideContent
-                    open={panels.isOpen("guide")}
-                    onClose={handleCloseTutorial}
+                    id="guide"
+                    tutorialKey={gameGuideMode === "onboarding" ? getTutorialStorageKey(sportId, activeVariantId) : undefined}
                     sport={activeSport}
                     mode={gameGuideMode}
                     onOpenCalendar={() => panels.push("calendar")}
@@ -369,15 +359,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                     />
                   </Panel>
                   <GameGuideContent
-                    open={panels.isOpen("archive-guide")}
-                    onClose={panels.pop}
+                    id="archive-guide"
                     sport={activeSport}
                     mode="manual"
                   />
                   <Suspense fallback={<div className="flex-1 min-h-0" />}>
                     <PlayerCalendar
-                      open={panels.isOpen("calendar")}
-                      onClose={panels.pop}
+                      id="calendar"
                       panel
                       variantId={activeVariantId}
                       onPlayArchive={handlePlayArchive}
@@ -398,6 +386,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
             </Suspense>
           </div>
         </div>
+        </PanelStackContext.Provider>
       )}
       {isMenuView && (
         <LeagueFooter

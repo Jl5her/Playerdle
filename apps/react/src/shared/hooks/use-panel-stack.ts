@@ -23,8 +23,8 @@ export function usePanelStack<T extends string>(initial?: T) {
     setStack([])
   }, [])
 
-  function isOpen(id: T): boolean {
-    return stack.includes(id)
+  function isOpen(id: string): boolean {
+    return stack.includes(id as T)
   }
 
   return { push, pop, clear, isOpen, isAnyOpen: stack.length > 0, stack }

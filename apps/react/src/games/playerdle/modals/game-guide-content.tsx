@@ -1,24 +1,31 @@
 import clsx from "clsx"
 import type { SportConfig } from "@/games/playerdle/sports"
 import { Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
 export type GuideMode = "onboarding" | "manual"
 
 interface GameGuideContentProps {
+  id: string
   sport: SportConfig
   mode: GuideMode
-  open: boolean
-  onClose: () => void
+  tutorialKey?: string
   onOpenCalendar?: () => void
 }
 
 export function GameGuideContent({
+  id,
   sport,
   mode,
-  open,
-  onClose,
+  tutorialKey,
   onOpenCalendar,
 }: GameGuideContentProps) {
+  const ctx = usePanelContext()
+
+  function handleClose() {
+    if (tutorialKey) localStorage.setItem(tutorialKey, "true")
+    ctx?.pop()
+  }
   const isLocal = import.meta.env.DEV
   const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
@@ -40,7 +47,7 @@ export function GameGuideContent({
   }
 
   return (
-    <Panel open={open} onClose={onClose} title="How to Play">
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the mystery {sport.displayName} player in 6 tries. Each guess reveals clues across the
         columns shown below.

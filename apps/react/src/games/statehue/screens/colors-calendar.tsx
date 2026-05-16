@@ -10,6 +10,7 @@ import {
   getColorsPuzzleByDateKey,
 } from "@/games/statehue/utils/colors-daily"
 import { ArchiveCalendar, Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
@@ -102,10 +103,10 @@ interface ColorsCalendarProps {
   onPlayArchive?: (dateKey: string) => void
   /** Bump to force a re-read of saved history (e.g. after an archive play). */
   historyVersion?: number
-  /** Omit the app-viewport shell; renders as panel content. */
+  /** Omit the app-viewport shell; renders as panel content driven by context. */
   panel?: boolean
-  /** Controls Panel visibility when panel=true. */
-  open?: boolean
+  /** Panel ID in context; required when panel=true. */
+  id?: string
 }
 
 export default function ColorsCalendar({
@@ -114,8 +115,9 @@ export default function ColorsCalendar({
   onPlayArchive,
   historyVersion = 0,
   panel = false,
-  open,
+  id,
 }: ColorsCalendarProps = {}) {
+  const ctx = usePanelContext()
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
   const [selected, setSelected] = useState<string>(formatDateKey(today))
@@ -165,9 +167,9 @@ export default function ColorsCalendar({
     </ArchiveCalendar>
   )
 
-  if (panel) {
+  if (panel && ctx && id) {
     return (
-      <Panel open={open ?? false} onClose={onClose ?? (() => {})} title={calendarTitle} layout="full">
+      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title={calendarTitle} layout="full">
         {calendar}
       </Panel>
     )

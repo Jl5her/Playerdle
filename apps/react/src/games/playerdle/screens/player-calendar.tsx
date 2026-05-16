@@ -13,6 +13,8 @@ import {
 } from "@/games/playerdle/sports"
 import { type GameResult, getGameHistory } from "@/games/playerdle/utils/stats"
 import { ArchiveCalendar, Panel } from "@/shared/components"
+import { PanelStackContext, usePanelContext } from "@/shared/hooks/use-panel-context"
+import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate, getTodayKey } from "@/shared/utils/time"
@@ -109,16 +111,63 @@ function DayDetail({
   )
 }
 
+/** Standalone archive game view (non-panel route mode) with its own panel context. */
+function ArchiveGameView({
+  sport,
+  variantId,
+  archiveDateKey,
+  sportMeta,
+  onBack,
+}: {
+  sport: SportConfig
+  variantId?: string
+  archiveDateKey: string
+  sportMeta: ReturnType<typeof getSportMetaById>
+  onBack: () => void
+}) {
+  const panels = usePanelStack<"guide">()
+  const archiveSubtitle = formatLongDate(parseDateKey(archiveDateKey))
+  return (
+    <PanelStackContext.Provider value={panels}>
+      <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
+        <Header
+          sport={sportMeta}
+          subtitle={archiveSubtitle}
+          onBack={onBack}
+          onShowTutorial={panels.isAnyOpen ? undefined : () => panels.push("guide")}
+        />
+        <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
+          <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
+            <div
+              className={clsx(
+                "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+                panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
+              )}
+            >
+              <Game
+                key={`archive:${sport.id}:${archiveDateKey}`}
+                mode="daily"
+                sport={sport}
+                variantId={variantId}
+                archiveDateKey={archiveDateKey}
+              />
+            </div>
+            <GameGuideContent id="guide" sport={sport} mode="manual" />
+          </div>
+        </div>
+      </div>
+    </PanelStackContext.Provider>
+  )
+}
+
 interface PlayerCalendarProps {
   variantId?: string
   /** When true, renders as a panel (no app-viewport shell, no inline archive game). */
   panel?: boolean
-  /** Controls Panel visibility when panel=true. */
-  open?: boolean
+  /** Panel ID in context; required when panel=true. */
+  id?: string
   /** Called when the user selects a date to play in panel mode. */
   onPlayArchive?: (dateKey: string) => void
-  /** Called to close the panel when panel=true. */
-  onClose?: () => void
   /** Bump to force a re-read of history after an archive play. */
   historyVersion?: number
 }
@@ -126,11 +175,11 @@ interface PlayerCalendarProps {
 export default function PlayerCalendar({
   variantId,
   panel = false,
-  open,
+  id,
   onPlayArchive,
-  onClose,
   historyVersion = 0,
 }: PlayerCalendarProps = {}) {
+  const ctx = usePanelContext()
   const navigate = useNavigate()
   const { sport: sportParam } = useParams<{ sport?: string }>()
   const sportId = getSportIdFromParam(sportParam) ?? "nfl"
@@ -139,7 +188,6 @@ export default function PlayerCalendar({
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
   const [selected, setSelected] = useState<string>(formatDateKey(today))
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
-  const [archiveGuideOpen, setArchiveGuideOpen] = useState(false)
 
   useEffect(() => {
     let mounted = true
@@ -167,40 +215,14 @@ export default function PlayerCalendar({
 
   // Non-panel mode: show archive game inline when a date is selected
   if (!panel && archiveDateKey && sport) {
-    const archiveSubtitle = formatLongDate(parseDateKey(archiveDateKey))
     return (
-      <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
-        <Header
-          sport={sportMeta}
-          subtitle={archiveSubtitle}
-          onBack={() => setArchiveDateKey(null)}
-          onShowTutorial={archiveGuideOpen ? undefined : () => setArchiveGuideOpen(true)}
-        />
-        <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
-          <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
-            <div
-              className={clsx(
-                "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                archiveGuideOpen ? "crossfade-inactive" : "crossfade-active",
-              )}
-            >
-              <Game
-                key={`archive:${sport.id}:${archiveDateKey}`}
-                mode="daily"
-                sport={sport}
-                variantId={variantId}
-                archiveDateKey={archiveDateKey}
-              />
-            </div>
-            <GameGuideContent
-              open={archiveGuideOpen}
-              onClose={() => setArchiveGuideOpen(false)}
-              sport={sport}
-              mode="manual"
-            />
-          </div>
-        </div>
-      </div>
+      <ArchiveGameView
+        sport={sport}
+        variantId={variantId}
+        archiveDateKey={archiveDateKey}
+        sportMeta={sportMeta}
+        onBack={() => setArchiveDateKey(null)}
+      />
     )
   }
 
@@ -247,9 +269,9 @@ export default function PlayerCalendar({
     </ArchiveCalendar>
   )
 
-  if (panel) {
+  if (panel && ctx && id) {
     return (
-      <Panel open={open ?? false} onClose={onClose ?? (() => {})} title={calendarTitle} layout="full">
+      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title={calendarTitle} layout="full">
         {calendar}
       </Panel>
     )
