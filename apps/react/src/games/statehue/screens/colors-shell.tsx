@@ -41,7 +41,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     if (initialShowStats) return
     if (localStorage.getItem(colorsTutorialSeenKey(variant))) return
     panels.push("guide")
-  }, [screen, initialShowStats])
+  }, [screen, initialShowStats, variant])
 
   function goToMenu() {
     navigate("/statehue")
