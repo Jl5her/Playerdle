@@ -23,11 +23,10 @@ const CORS = {
 
 const MAX_BYTES = 2_000_000
 
-// While at least one device is linked, refresh the TTL to ~1 year on every
-// operation so a synced code effectively never expires. Once the last device
-// unlinks, switch to a 7-day TTL so the cleanup script will reap it.
+// Refresh the TTL to ~1 year on every write so a code never expires while
+// devices are actively using it. The entry is deleted immediately when the
+// last device unlinks, so no separate short TTL is needed for cleanup.
 const ACTIVE_TTL_SECONDS = 365 * 24 * 60 * 60
-const INACTIVE_TTL_SECONDS = 7 * 24 * 60 * 60
 const MAX_DEVICES = 50
 
 interface Envelope {
@@ -64,8 +63,7 @@ async function writeEnvelope(
   hash: string,
   envelope: Envelope,
 ): Promise<void> {
-  const ttl = envelope.devices.length > 0 ? ACTIVE_TTL_SECONDS : INACTIVE_TTL_SECONDS
-  await kv.put(hash, JSON.stringify(envelope), { expirationTtl: ttl })
+  await kv.put(hash, JSON.stringify(envelope), { expirationTtl: ACTIVE_TTL_SECONDS })
 }
 
 function jsonResponse(body: unknown, init?: ResponseInit): Response {
@@ -161,7 +159,13 @@ export async function onRequest(context: PagesContext): Promise<Response> {
       return jsonResponse({ devices: 0 })
     }
     envelope.devices = envelope.devices.filter(id => id !== deviceId)
-    await writeEnvelope(kv, hash, envelope)
+    if (envelope.devices.length === 0) {
+      // All devices gone — purge the entry immediately rather than letting it
+      // linger. This covers both explicit unlinks and switches to a new code.
+      await kv.delete(hash)
+    } else {
+      await writeEnvelope(kv, hash, envelope)
+    }
     return jsonResponse({ devices: envelope.devices.length })
   }
 
