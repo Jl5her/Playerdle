@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { useRef } from "react"
-import ScrollHint from "./scroll-hint"
+import ScrollHint from "@/shared/components/scroll-hint"
 
 // A stable fallback ref used only to satisfy the required `scrollRef` arg type.
 // Individual stories override rendering entirely via a wrapper component.

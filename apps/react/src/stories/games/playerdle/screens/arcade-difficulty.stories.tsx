@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import ArcadeDifficulty from "./arcade-difficulty"
+import ArcadeDifficulty from "@/games/playerdle/screens/arcade-difficulty"
 
 const meta = {
   title: "Playerdle/Screens/ArcadeDifficulty",

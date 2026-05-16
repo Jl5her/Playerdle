@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import type { SportColumn, SportConfig, SportInfo } from "@/games/playerdle/sports"
-import MainMenu from "./main-menu"
+import MainMenu from "@/games/playerdle/screens/main-menu"
 
 const nflInfo: SportInfo = {
   id: "nfl",

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import MenuLinkButton from "./menu-link-button"
-import MenuOverlay from "./menu-overlay"
+import MenuLinkButton from "@/shared/components/menu-link-button"
+import MenuOverlay from "@/shared/components/menu-overlay"
 
 const meta = {
   title: "UI/MenuOverlay",

@@ -7,7 +7,7 @@ import {
   faMap,
 } from "@fortawesome/free-solid-svg-icons"
 import { fn } from "storybook/test"
-import LeagueFooter, { type FooterTab } from "./league-footer"
+import LeagueFooter, { type FooterTab } from "@/shared/components/league-footer"
 
 const nflTab: FooterTab = {
   id: "nfl",

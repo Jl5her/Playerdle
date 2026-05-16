@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import PWAUpdateToast from "./pwa-update-toast"
-import Popup from "./popup"
+import PWAUpdateToast from "@/shared/components/pwa-update-toast"
+import Popup from "@/shared/components/popup"
 
 const meta = {
   title: "Shared/PWAUpdateToast",

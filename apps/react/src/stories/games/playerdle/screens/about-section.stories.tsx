@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import type { SportInfo } from "@/games/playerdle/sports"
-import AboutSection from "./about-section"
+import AboutSection from "@/games/playerdle/screens/about-section"
 
 const nflInfo: SportInfo = {
   id: "nfl",

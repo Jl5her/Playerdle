@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import { ColorsStatsBody } from "./colors-stats-overlay"
+import { ColorsStatsBody } from "@/games/statehue/screens/colors-stats-overlay"
 
 const meta = {
   title: "StateHue/ColorsStatsBody",

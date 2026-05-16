@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import type { Player, SportColumn, SportConfig } from "@/games/playerdle/sports"
-import { StatsContent } from "./stats-content"
+import { StatsContent } from "@/games/playerdle/modals/stats-content"
 
 const nflColumns: SportColumn[] = [
   { id: "conference", label: "CONF", key: "conference", evaluator: { type: "match" as const }, example: { value: "AFC", status: "correct" as const } },

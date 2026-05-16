@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import SyncPanel from "./sync-panel"
+import SyncPanel from "@/shared/components/sync-panel"
 
 const meta = {
   title: "Shared/SyncPanel",

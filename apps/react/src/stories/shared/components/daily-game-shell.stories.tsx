@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import DailyGameShell from "./daily-game-shell"
+import DailyGameShell from "@/shared/components/daily-game-shell"
 
 const GamePlaceholder = () => (
   <div className="flex-1 flex items-center justify-center text-primary-400 dark:text-primary-600 text-sm font-medium select-none">

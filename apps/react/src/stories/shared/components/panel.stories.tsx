@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import Panel from "./panel"
+import Panel from "@/shared/components/panel"
 
 const meta = {
   title: "UI/Panel",

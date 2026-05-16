@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import Tile from "./tile"
+import Tile from "@/games/playerdle/components/tile"
 
 const meta = {
   title: "Playerdle/Tile",

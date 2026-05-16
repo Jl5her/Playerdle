@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import Overlay from "./overlay"
+import Overlay from "@/shared/components/overlay"
 
 const meta = {
   title: "UI/Overlay",

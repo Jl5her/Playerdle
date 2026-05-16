@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import type { SportInfo } from "@/games/playerdle/sports"
-import Header from "./header"
+import Header from "@/games/playerdle/components/header"
 
 const mockNflSport: SportInfo = {
   id: "nfl",

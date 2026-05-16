@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import ResultBanner from "./result-banner"
+import ResultBanner from "@/shared/components/result-banner"
 
 const meta = {
   title: "UI/ResultBanner",

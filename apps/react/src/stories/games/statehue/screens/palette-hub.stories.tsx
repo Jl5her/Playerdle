@@ -1,6 +1,6 @@
 import type { Decorator, Meta, StoryObj } from "@storybook/react-vite"
 import { MemoryRouter } from "react-router-dom"
-import PaletteHub from "./palette-hub"
+import PaletteHub from "@/games/statehue/screens/palette-hub"
 
 const withRouter: Decorator = (Story) => (
   <MemoryRouter initialEntries={["/statehue"]}>

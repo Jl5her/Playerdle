@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import ArchiveCalendar from "./archive-calendar"
+import ArchiveCalendar from "@/shared/components/archive-calendar"
 
 const meta = {
   title: "Shared/ArchiveCalendar",

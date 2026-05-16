@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import type { Player, SportColumn } from "@/games/playerdle/sports"
-import GuessRow from "./guess-row"
+import GuessRow from "@/games/playerdle/components/guess-row"
 
 const mockColumns: SportColumn[] = [
   { id: "conference", label: "CONF", key: "conference", evaluator: { type: "match" }, example: { value: "AFC", status: "correct" } },

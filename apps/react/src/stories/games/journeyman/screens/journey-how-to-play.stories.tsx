@@ -1,7 +1,7 @@
 import type { Decorator, Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import { PanelStackContext, type PanelStackApi } from "@/shared/hooks/use-panel-context"
-import JourneyHowToPlay from "./journey-how-to-play"
+import JourneyHowToPlay from "@/games/journeyman/screens/journey-how-to-play"
 
 const openContext: PanelStackApi = {
   isOpen: () => true,

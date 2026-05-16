@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import type { Player } from "@/games/playerdle/sports"
-import GuessInput from "./guess-input"
+import GuessInput from "@/games/playerdle/components/guess-input"
 
 const mockPlayers: Player[] = [
   { id: "mahomes", name: "Patrick Mahomes", conference: "AFC", division: "AFC West", team: "KC", position: "QB", number: 15 },

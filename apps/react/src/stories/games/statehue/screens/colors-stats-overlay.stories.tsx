@@ -1,7 +1,7 @@
 import type { Decorator, Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
 import { PanelStackContext, type PanelStackApi } from "@/shared/hooks/use-panel-context"
-import ColorsStatsOverlay from "./colors-stats-overlay"
+import ColorsStatsOverlay from "@/games/statehue/screens/colors-stats-overlay"
 
 const openContext: PanelStackApi = {
   isOpen: () => true,

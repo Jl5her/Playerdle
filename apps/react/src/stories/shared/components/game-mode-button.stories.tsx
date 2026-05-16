@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import { fn } from "storybook/test"
-import GameModeButton from "./game-mode-button"
+import GameModeButton from "@/shared/components/game-mode-button"
 
 const meta = {
   title: "UI/GameModeButton",
