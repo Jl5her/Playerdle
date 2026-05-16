@@ -53,7 +53,7 @@ export async function onRequest(context: PagesContext): Promise<Response> {
 
   if (request.method === "PUT") {
     const body = await request.text()
-    if (body.length > MAX_BYTES) {
+    if (new TextEncoder().encode(body).byteLength > MAX_BYTES) {
       return new Response("Payload too large", { status: 413, headers: CORS })
     }
     try {
