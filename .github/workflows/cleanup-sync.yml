@@ -18,15 +18,28 @@ jobs:
         run: |
           # Fetch all keys. Cloudflare returns up to 1000 per page; for a
           # small app a single page is almost always sufficient.
-          RESPONSE=$(curl -s -X GET \
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X GET \
             "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/keys?limit=1000" \
             -H "Authorization: Bearer ${CF_API_TOKEN}")
 
-          echo "Keys response received"
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+
+          if [ "$HTTP_CODE" -ne 200 ]; then
+            echo "Error: Cloudflare API returned HTTP ${HTTP_CODE}"
+            echo "$BODY" | jq -r '.errors[]? | "  [\(.code)] \(.message)"' 2>/dev/null || echo "$BODY"
+            exit 1
+          fi
+
+          if ! echo "$BODY" | jq -e '.success == true and (.result | type) == "array"' > /dev/null 2>&1; then
+            echo "Error: unexpected API response"
+            echo "$BODY" | jq -r '.errors[]? | "  [\(.code)] \(.message)"' 2>/dev/null || echo "$BODY"
+            exit 1
+          fi
 
           # Extract names of keys whose expiration timestamp is in the past.
           # .expiration is a Unix timestamp in seconds; jq's now is fractional seconds.
-          EXPIRED=$(echo "$RESPONSE" | jq -r \
+          EXPIRED=$(echo "$BODY" | jq -r \
             '.result[] | select(.expiration != null and .expiration < (now | floor)) | .name')
 
           if [ -z "$EXPIRED" ]; then
