@@ -7,7 +7,7 @@ import nhlPlayers from "@playerdle/data/playerdle/nhl/players.json"
 import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { hexToColorName } from "@/shared/utils/color-name"
+import { boostDarkColor, hexToColorName } from "@/shared/utils/color-name"
 import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
@@ -146,11 +146,12 @@ function FlipDiamond({
   delayMs: number
 }) {
   const isTransparent = color === "transparent"
-  const border = isTransparent ? "#a0a0a0" : diamondBorder(color)
+  const displayColor = boostDarkColor(color)
+  const border = isTransparent ? "#a0a0a0" : diamondBorder(displayColor)
   const frontStyle: React.CSSProperties = { transitionDelay: `${delayMs}ms` }
   const backStyle: React.CSSProperties = isTransparent
     ? { borderColor: border, transitionDelay: `${delayMs + 300}ms` }
-    : { backgroundColor: color, borderColor: border, transitionDelay: `${delayMs + 300}ms` }
+    : { backgroundColor: displayColor, borderColor: border, transitionDelay: `${delayMs + 300}ms` }
   return (
     <span
       className={clsx("flip-diamond", revealed ? "revealed" : "")}
@@ -181,6 +182,7 @@ function FlipDiamondWithPreview({
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
   const isTransparent = color === "transparent"
+  const displayColor = boostDarkColor(color)
 
   useEffect(() => {
     if (!open) return
@@ -226,7 +228,7 @@ function FlipDiamondWithPreview({
           <span
             aria-hidden="true"
             className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: color, border: `2px solid ${diamondBorder(color)}` }}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${diamondBorder(displayColor)}` }}
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
