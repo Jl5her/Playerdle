@@ -89,11 +89,9 @@ export default function SyncPanel() {
     setStatus({ type: "idle" })
   }
 
-  const words = passphrase.split("-")
-
   function handleCopy() {
     if (copiedTimer.current) clearTimeout(copiedTimer.current)
-    navigator.clipboard.writeText(words.join(" ")).then(() => {
+    navigator.clipboard.writeText(passphrase).then(() => {
       setCopied(true)
       setCopyError(null)
       copiedTimer.current = setTimeout(() => setCopied(false), 2000)
@@ -116,7 +114,7 @@ export default function SyncPanel() {
   async function handleImportStart() {
     const normalized = normalizePassphrase(importInput)
     if (!normalized) {
-      setStatus({ type: "import-err", message: "Enter all 5 words separated by spaces or dashes" })
+      setStatus({ type: "import-err", message: "Enter all 5 words separated by dashes" })
       return
     }
     setStatus({ type: "importing" })
@@ -233,15 +231,8 @@ export default function SyncPanel() {
         <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
           Your Sync Code
         </h3>
-        <div className="flex flex-wrap gap-1.5">
-          {words.map((word, i) => (
-            <span
-              key={`${word}-${i}`}
-              className="px-2.5 py-1 rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide"
-            >
-              {word}
-            </span>
-          ))}
+        <div className="px-3 py-2 rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all">
+          {passphrase}
         </div>
         {expiresAt && (
           <p className="text-xs text-primary-500 dark:text-primary-400">
@@ -328,7 +319,7 @@ export default function SyncPanel() {
                 setImportInput(e.target.value)
                 if (status.type === "import-err") resetStatus()
               }}
-              placeholder="hawk wolf bear deer fox"
+              placeholder="hawk-wolf-bear-deer-fox"
               className="w-full px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
               spellCheck={false}
               autoCapitalize="none"
