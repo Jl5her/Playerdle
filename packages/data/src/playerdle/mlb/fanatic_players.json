@@ -522,24 +522,6 @@
     "ops": 0.649
   },
   {
-    "id": "mlb:4109031",
-    "name": "Christian Koss",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "2B",
-    "number": 50,
-    "league": "NL",
-    "gp": 74,
-    "pa": 191,
-    "avg": 0.264,
-    "hr": 3,
-    "rbi": 23,
-    "sb": 4,
-    "ops": 0.676
-  },
-  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -1584,6 +1566,24 @@
     "ops": 0.727
   },
   {
+    "id": "mlb:42047",
+    "name": "Logan O'Hoppe",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "C",
+    "number": 14,
+    "league": "AL",
+    "gp": 119,
+    "pa": 451,
+    "avg": 0.213,
+    "hr": 19,
+    "rbi": 43,
+    "sb": 2,
+    "ops": 0.629
+  },
+  {
     "id": "mlb:36040",
     "name": "Lourdes Gurriel Jr.",
     "conference": "NL",
@@ -2590,24 +2590,6 @@
     "rbi": 52,
     "sb": 1,
     "ops": 0.681
-  },
-  {
-    "id": "mlb:40958",
-    "name": "Tyler Freeman",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RF",
-    "number": 2,
-    "league": "NL",
-    "gp": 110,
-    "pa": 428,
-    "avg": 0.281,
-    "hr": 2,
-    "rbi": 31,
-    "sb": 18,
-    "ops": 0.715
   },
   {
     "id": "mlb:34168",
