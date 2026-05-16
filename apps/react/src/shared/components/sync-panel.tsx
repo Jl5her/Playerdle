@@ -3,7 +3,6 @@ import {
   faCheck,
   faCopy,
   faLinkSlash,
-  faRotateRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
@@ -65,28 +64,12 @@ export default function SyncPanel() {
   const [copyError, setCopyError] = useState<string | null>(null)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
-  const [confirmingReset, setConfirmingReset] = useState(false)
   const [confirmingUnlink, setConfirmingUnlink] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const resetRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const unlinkRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const linked = deviceCount > 1
-
-  useEffect(() => {
-    if (!confirmingReset) return
-    if (resetRevertTimer.current) clearTimeout(resetRevertTimer.current)
-    resetRevertTimer.current = setTimeout(() => {
-      setConfirmingReset(false)
-    }, CONFIRM_REVERT_MS)
-    return () => {
-      if (resetRevertTimer.current) {
-        clearTimeout(resetRevertTimer.current)
-        resetRevertTimer.current = null
-      }
-    }
-  }, [confirmingReset])
 
   useEffect(() => {
     if (!confirmingUnlink) return
@@ -175,18 +158,6 @@ export default function SyncPanel() {
     setView("active")
     setStatus({ type: "idle" })
     void autoSaveAfterGenerate(phrase)
-  }
-
-  async function handleRegenerateConfirm() {
-    setConfirmingReset(false)
-    const oldPhrase = passphrase
-    // Best-effort: unlink this device from the old code so its device count
-    // drops and the cloud entry can age out. Failures are non-fatal.
-    if (oldPhrase) {
-      void unlinkFromCloud(oldPhrase).catch(() => {})
-    }
-    clearPassphrase()
-    handleGenerate()
   }
 
   function handleCopy() {
@@ -505,25 +476,26 @@ export default function SyncPanel() {
             <button
               type="button"
               onClick={() => {
-                if (confirmingReset) {
-                  void handleRegenerateConfirm()
+                if (confirmingUnlink) {
+                  void handleUnlinkConfirm()
                 } else {
-                  setConfirmingReset(true)
+                  setConfirmingUnlink(true)
                 }
               }}
-              aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
-              title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
+              disabled={isLoading && !confirmingUnlink}
+              aria-label={confirmingUnlink ? "Confirm revoke sync code" : "Revoke this sync code"}
+              title={confirmingUnlink ? "Tap to confirm" : "Revoke this sync code"}
               className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
-                confirmingReset
+                confirmingUnlink
                   ? "bg-red-600 text-white hover:bg-red-500"
                   : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
-              }`}
+              } disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               <FontAwesomeIcon
-                icon={confirmingReset ? faCheck : faRotateRight}
+                icon={confirmingUnlink ? faCheck : faLinkSlash}
                 className="text-sm"
               />
-              <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
+              <span>{confirmingUnlink ? "Confirm Revoke" : "Revoke"}</span>
             </button>
           )}
         </div>
@@ -601,8 +573,6 @@ export default function SyncPanel() {
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{status.message}</p>
         )}
       </section>
-      <hr className="border-primary-200 dark:border-primary-700" />
-      {linkSection}
     </div>
   )
 }
