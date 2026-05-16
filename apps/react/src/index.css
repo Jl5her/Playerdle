@@ -227,6 +227,21 @@ body,
   pointer-events: none;
 }
 
+@keyframes stats-tab-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats-tab-fade-in {
+  animation: stats-tab-fade-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .slide-up-panel {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -356,6 +371,10 @@ body,
   }
 
   .endgame-popup {
+    animation: none;
+  }
+
+  .stats-tab-fade-in {
     animation: none;
   }
 }

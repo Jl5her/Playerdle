@@ -1,33 +1,34 @@
 import clsx from "clsx"
 import {
+  type ColorsStats,
   type ColorsVariant,
   calculateColorsStats,
 } from "@/games/statehue/utils/colors-daily"
-import { Panel } from "@/shared/components"
+import { Panel, StatsTabs, type StatsTab } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
-interface ColorsStatsBodyProps {
-  variant?: ColorsVariant
-  className?: string
-  onViewArchive?: () => void
-}
+const MAX_GUESSES = 5
 
-/** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
-export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
-  const stats = calculateColorsStats(variant)
+function ColorsStatsBlock({
+  stats,
+  onViewArchive,
+}: {
+  stats: ColorsStats
+  onViewArchive?: () => void
+}) {
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
-    ...[1, 2, 3, 4, 5].map(n => ({
-      key: String(n),
-      label: String(n),
-      count: stats.guessDistribution[n] || 0,
+    ...Array.from({ length: MAX_GUESSES }, (_, i) => ({
+      key: String(i + 1),
+      label: String(i + 1),
+      count: stats.guessDistribution[i + 1] || 0,
       isLoss: false,
     })),
     { key: "X", label: "X", count: stats.losses, isLoss: true },
   ]
 
   return (
-    <div className={clsx("text-center px-6 py-6", className)}>
+    <>
       <div className="grid grid-cols-4 gap-2 mb-6">
         <Stat value={stats.played} label="Played" />
         <Stat value={stats.winPercentage} label="Win %" />
@@ -80,7 +81,60 @@ export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: C
           </button>
         </div>
       )}
+    </>
+  )
+}
+
+interface ColorsStatsBodyProps {
+  variant?: ColorsVariant
+  className?: string
+  onViewArchive?: () => void
+}
+
+/** Single-variant stats body — used inside in-game overlays where the active variant is fixed. */
+export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
+  const stats = calculateColorsStats(variant)
+
+  return (
+    <div className={clsx("text-center px-6 py-6", className)}>
+      <ColorsStatsBlock stats={stats} onViewArchive={onViewArchive} />
     </div>
+  )
+}
+
+interface ColorsStatsTabbedBodyProps {
+  className?: string
+}
+
+/** Tabbed stats body — shows Statehue and Collegiate side-by-side as tabs. */
+export function ColorsStatsTabbedBody({ className }: ColorsStatsTabbedBodyProps) {
+  const tabs: StatsTab[] = [
+    {
+      id: "pro",
+      label: "Statehue",
+      content: (
+        <div className="text-center pt-2 pb-6 px-2">
+          <ColorsStatsBlock stats={calculateColorsStats("pro")} />
+        </div>
+      ),
+    },
+    {
+      id: "collegiate",
+      label: "Collegiate",
+      content: (
+        <div className="text-center pt-2 pb-6 px-2">
+          <ColorsStatsBlock stats={calculateColorsStats("collegiate")} />
+        </div>
+      ),
+    },
+  ]
+
+  return (
+    <StatsTabs
+      tabs={tabs}
+      className={className}
+      ariaLabel="Statehue stats"
+    />
   )
 }
 

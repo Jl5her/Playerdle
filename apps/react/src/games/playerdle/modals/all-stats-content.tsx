@@ -1,11 +1,11 @@
-import clsx from "clsx"
-import { useState, type ReactNode } from "react"
+import type { ReactNode } from "react"
 import {
   calculateJourneyStats,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
 import type { SportConfig, SportInfo, SportVariant } from "@/games/playerdle/sports"
 import { calculateStats, type Stats } from "@/games/playerdle/utils/stats"
+import { StatsTabs, type StatsTab } from "@/shared/components"
 
 interface AllStatsContentProps {
   sport: SportConfig | SportInfo
@@ -13,14 +13,7 @@ interface AllStatsContentProps {
   className?: string
 }
 
-interface StatsTab {
-  id: string
-  label: string
-  stats: Stats
-  maxGuesses: number
-}
-
-function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number }) {
+export function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number }) {
   const maxGuessCount = Math.max(
     ...Object.values<number>(stats.guessDistribution),
     stats.losses,
@@ -100,59 +93,31 @@ export function AllStatsContent({ sport, journeyLeague, className }: AllStatsCon
     {
       id: "classic",
       label: "Playerdle",
-      stats: calculateStats(sport.id),
-      maxGuesses: 6,
+      content: <StatsBlock stats={calculateStats(sport.id)} maxGuesses={6} />,
     },
     ...variants.map(variant => ({
       id: `variant:${variant.id}`,
       label: variant.label,
-      stats: calculateStats(sport.id, variant.id),
-      maxGuesses: 6,
+      content: <StatsBlock stats={calculateStats(sport.id, variant.id)} maxGuesses={6} />,
     })),
     ...(journeyLeague
       ? [
           {
             id: "journeyman",
             label: "Journeyman",
-            stats: calculateJourneyStats(journeyLeague),
-            maxGuesses: 5,
+            content: (
+              <StatsBlock stats={calculateJourneyStats(journeyLeague)} maxGuesses={5} />
+            ),
           },
         ]
       : []),
   ]
 
-  const [activeId, setActiveId] = useState(tabs[0].id)
-  const activeTab = tabs.find(tab => tab.id === activeId) ?? tabs[0]
-
   return (
-    <div className={className}>
-      <div
-        role="tablist"
-        aria-label="Game mode stats"
-        className="flex gap-1 border-b border-primary-200 dark:border-primary-700 mb-4 -mx-1 px-1 overflow-x-auto"
-      >
-        {tabs.map(tab => {
-          const isActive = tab.id === activeTab.id
-          return (
-            <button
-              key={tab.id}
-              type="button"
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => setActiveId(tab.id)}
-              className={clsx(
-                "shrink-0 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors border-b-2 -mb-px",
-                isActive
-                  ? "text-primary-900 dark:text-primary-50 border-primary-700 dark:border-primary-100"
-                  : "text-primary-500 dark:text-primary-300 border-transparent hover:text-primary-700 dark:hover:text-primary-100",
-              )}
-            >
-              {tab.label}
-            </button>
-          )
-        })}
-      </div>
-      <StatsBlock stats={activeTab.stats} maxGuesses={activeTab.maxGuesses} />
-    </div>
+    <StatsTabs
+      tabs={tabs}
+      className={className}
+      ariaLabel="Game mode stats"
+    />
   )
 }
