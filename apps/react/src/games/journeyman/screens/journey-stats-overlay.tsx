@@ -1,9 +1,8 @@
-import clsx from "clsx"
 import {
   calculateJourneyStats,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import { Panel } from "@/shared/components"
+import { CountUp, Panel, StatBar } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
 interface Props {
@@ -28,61 +27,27 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
 
   return (
     <Panel open={ctx?.isOpen(id) ?? false} onClose={() => ctx?.pop()} title="Statistics" layout="scroll">
-      <div className="text-center px-6 py-6">
+      <div className="text-center px-6 py-6 overflow-x-hidden">
       <div className="grid grid-cols-4 gap-2 mb-6">
-        <Stat
-          value={stats.played}
-          label="Played"
-        />
-        <Stat
-          value={stats.winPercentage}
-          label="Win %"
-        />
-        <Stat
-          value={stats.currentStreak}
-          label={"Current\nStreak"}
-        />
-        <Stat
-          value={stats.maxStreak}
-          label={"Max\nStreak"}
-        />
+        <Stat value={stats.played} label="Played" />
+        <Stat value={stats.winPercentage} label="Win %" />
+        <Stat value={stats.currentStreak} label={"Current\nStreak"} />
+        <Stat value={stats.maxStreak} label={"Max\nStreak"} />
       </div>
 
       <div className="mt-4 text-left">
         <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
           Guess Distribution
         </h3>
-        {rows.map(row => {
-          const has = row.count > 0
-          const scaled = maxGuessCount > 0 ? (row.count / maxGuessCount) * 100 : 0
-          const barWidth = row.count === 0 ? "2.25rem" : `${Math.max(scaled, 12)}%`
-          const filledClass = row.isLoss
-            ? "bg-error-500 dark:bg-error-400 text-primary-50 dark:text-primary-900"
-            : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
-          return (
-            <div
-              key={row.key}
-              className="flex items-center mb-1 gap-2"
-            >
-              <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
-                {row.label}
-              </div>
-              <div className="flex-1">
-                <div
-                  className={clsx(
-                    "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
-                    has
-                      ? filledClass
-                      : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
-                  )}
-                  style={{ width: barWidth }}
-                >
-                  {row.count}
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        {rows.map(row => (
+          <StatBar
+            key={row.key}
+            label={row.label}
+            count={row.count}
+            maxCount={maxGuessCount}
+            isLoss={row.isLoss}
+          />
+        ))}
       </div>
 
       {onViewArchive && (
@@ -104,7 +69,9 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
 function Stat({ value, label }: { value: number; label: string }) {
   return (
     <div className="text-center">
-      <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{value}</div>
+      <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+        <CountUp value={value} />
+      </div>
       <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 font-light leading-tight whitespace-pre-line">
         {label}
       </div>

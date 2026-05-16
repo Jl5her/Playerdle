@@ -175,7 +175,7 @@ export default function MainMenu({
           <AllStatsContent
             sport={sport}
             journeyLeague={journeyLeague}
-            className="-mt-1 flex-1 overflow-auto pb-2"
+            className="-mt-1 flex-1 overflow-y-auto overflow-x-hidden pb-2"
           />
         </MenuOverlay>
         <MenuOverlay

@@ -47,7 +47,7 @@ export default function Panel({ open, onClose, title = "Results", layout, childr
       {layout === "full" ? (
         children
       ) : layout === "scroll" ? (
-        <div className="w-full max-w-2xl mx-auto flex-1 overflow-auto px-4 pb-4 -mt-1">
+        <div className="w-full max-w-2xl mx-auto flex-1 overflow-y-auto overflow-x-hidden px-4 pb-4 -mt-1">
           {children}
         </div>
       ) : (

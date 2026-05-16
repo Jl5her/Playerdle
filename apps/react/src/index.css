@@ -249,6 +249,11 @@ body,
   will-change: transform, width;
 }
 
+.stat-bar {
+  transition: width 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: width;
+}
+
 .slide-up-panel {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -386,6 +391,10 @@ body,
   }
 
   .stats-tabs-indicator {
+    transition: none;
+  }
+
+  .stat-bar {
     transition: none;
   }
 }

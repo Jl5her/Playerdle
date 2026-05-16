@@ -108,7 +108,7 @@ export default function PaletteHub() {
               title="Statistics"
               onClose={goBack}
             >
-              <ColorsStatsTabbedBody className="-mt-1 flex-1 overflow-auto pb-2" />
+              <ColorsStatsTabbedBody className="-mt-1 flex-1 overflow-y-auto overflow-x-hidden pb-2" />
             </MenuOverlay>
 
             <MenuOverlay
