@@ -107,11 +107,14 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
         if (analysis.hasConflicts) {
           setStatus({ type: "merge-conflict", analysis, phrase })
         } else {
-          const hasNewData = Object.entries(analysis.easyMerged).some(
+          const localIsBehind = Object.entries(analysis.easyMerged).some(
             ([k, v]) => localData[k] !== v,
           )
-          if (hasNewData) {
-            applyData(analysis.easyMerged)
+          const remoteIsBehind = Object.keys({ ...localData, ...payload.data }).some(
+            k => analysis.easyMerged[k] !== payload.data[k],
+          )
+          if (localIsBehind) applyData(analysis.easyMerged)
+          if (localIsBehind || remoteIsBehind) {
             void pushToCloud(phrase)
               .then(d => {
                 setDeviceCount(d)
@@ -260,9 +263,9 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
     }
   }
 
-  const handleImportConfirm = useCallback(() => {
+  const handleImportConfirm = useCallback(async () => {
     if (status.type !== "import-confirm") return
-    const { phrase, payload, devices } = status
+    const { phrase, payload } = status
     // Revoke the current code when switching to another device's code.
     if (passphrase && passphrase !== phrase) {
       void unlinkFromCloud(passphrase).catch(() => {})
@@ -270,10 +273,16 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
     restoreSyncData(payload)
     setPassphrase(phrase)
     setLocalPassphrase(phrase)
-    setDeviceCount(devices)
-    setLastSynced(getLastSynced())
     setImportInput("")
     setView("active")
+    setStatus({ type: "importing" })
+    try {
+      const devices = await pushToCloud(phrase)
+      setDeviceCount(devices)
+      setLastSynced(getLastSynced())
+    } catch {
+      // Push failed; device count may be stale but data is restored
+    }
     setStatus({ type: "import-ok" })
   }, [status, passphrase])
 
@@ -546,6 +555,22 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
               className="text-xs text-primary-500 dark:text-primary-400 hover:underline"
             >
               Decide later
+            </button>
+          </div>
+        ) : status.type === "import-ok" ? (
+          <div className="rounded-md border-2 border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-950/30 px-4 py-3 flex flex-col gap-2">
+            <p className="text-sm font-semibold text-green-800 dark:text-green-300">
+              Stats imported from cloud
+            </p>
+            <p className="text-sm text-green-700 dark:text-green-400">
+              Reload the page to see your updated progress.
+            </p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="self-start px-3 py-1.5 rounded-md text-sm font-bold bg-green-700 text-white hover:bg-green-600 transition-colors"
+            >
+              Reload Now
             </button>
           </div>
         ) : (
