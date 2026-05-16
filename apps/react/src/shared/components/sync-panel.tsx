@@ -37,6 +37,7 @@ export default function SyncPanel() {
   const [passphrase, setLocalPassphrase] = useState("")
   const [expiresAt, setExpiresAt] = useState<Date | null>(null)
   const [copied, setCopied] = useState(false)
+  const [copyError, setCopyError] = useState<string | null>(null)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
   const [confirmingReset, setConfirmingReset] = useState(false)
@@ -91,10 +92,13 @@ export default function SyncPanel() {
   const words = passphrase.split("-")
 
   function handleCopy() {
+    if (copiedTimer.current) clearTimeout(copiedTimer.current)
     navigator.clipboard.writeText(words.join(" ")).then(() => {
       setCopied(true)
-      if (copiedTimer.current) clearTimeout(copiedTimer.current)
+      setCopyError(null)
       copiedTimer.current = setTimeout(() => setCopied(false), 2000)
+    }).catch(() => {
+      setCopyError("Could not copy — please copy the code manually.")
     })
   }
 
@@ -266,6 +270,9 @@ export default function SyncPanel() {
             Save to Cloud
           </button>
         </div>
+        {copyError && (
+          <p className="text-sm text-red-600 dark:text-red-400">{copyError}</p>
+        )}
         {status.type === "save-ok" && (
           <p className="text-sm text-green-600 dark:text-green-400 font-medium">
             Saved! Progress backed up for {SYNC_TTL_DAYS} days.
