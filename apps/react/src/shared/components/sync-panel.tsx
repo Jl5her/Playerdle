@@ -1,4 +1,9 @@
-import { faCheck, faCopy, faRotate } from "@fortawesome/free-solid-svg-icons"
+import {
+  faArrowsRotate,
+  faCheck,
+  faCopy,
+  faRotateRight,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
 import Popup from "./popup"
@@ -7,12 +12,15 @@ import {
   createPassphrase,
   extendLocalExpiry,
   getExpiresAt,
+  getLastSynced,
   getPassphrase,
+  isLinked,
   isLocallyExpired,
   normalizePassphrase,
   pullFromCloud,
   pushToCloud,
   restoreSyncData,
+  setLinked,
   setPassphrase,
   SYNC_TTL_DAYS,
 } from "@/shared/utils/sync"
@@ -33,16 +41,24 @@ function daysLeft(expiresAt: Date): number {
   return Math.max(0, Math.ceil((expiresAt.getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
 }
 
+function formatSyncedAt(date: Date): string {
+  return date.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })
+}
+
 export default function SyncPanel() {
   const [view, setView] = useState<PanelView>("no-code")
   const [passphrase, setLocalPassphrase] = useState("")
   const [expiresAt, setExpiresAt] = useState<Date | null>(null)
+  const [lastSynced, setLastSynced] = useState<Date | null>(null)
+  const [linked, setLinkedState] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [savedToast, setSavedToast] = useState(false)
   const [copyError, setCopyError] = useState<string | null>(null)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
   const [confirmingReset, setConfirmingReset] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const phrase = getPassphrase()
@@ -51,6 +67,8 @@ export default function SyncPanel() {
       return
     }
     setLocalPassphrase(phrase)
+    setLinkedState(isLinked())
+    setLastSynced(getLastSynced())
 
     if (!isLocallyExpired()) {
       setExpiresAt(getExpiresAt())
@@ -58,23 +76,20 @@ export default function SyncPanel() {
       return
     }
 
-    // Local timer says expired — verify with cloud before wiping
     setView("checking-expiry")
     pullFromCloud(phrase)
       .then(() => {
-        // Cloud still has data; another device must have extended the TTL
         extendLocalExpiry()
         setExpiresAt(getExpiresAt())
+        setLastSynced(getLastSynced())
         setView("active")
       })
       .catch(err => {
-        // 404 or network error → treat as expired
         const is404 = err instanceof Error && err.message.includes("No data found")
         if (is404) {
           clearPassphrase()
           setView("expired")
         } else {
-          // Network failure — can't confirm; assume still valid to avoid false wipes
           extendLocalExpiry()
           setExpiresAt(getExpiresAt())
           setView("active")
@@ -82,31 +97,58 @@ export default function SyncPanel() {
       })
   }, [])
 
+  function flashSavedToast() {
+    if (savedTimer.current) clearTimeout(savedTimer.current)
+    setSavedToast(true)
+    savedTimer.current = setTimeout(() => setSavedToast(false), 2000)
+  }
+
+  async function autoSaveOnGenerate(phrase: string) {
+    setStatus({ type: "saving" })
+    try {
+      await pushToCloud(phrase)
+      setExpiresAt(getExpiresAt())
+      setLastSynced(getLastSynced())
+      setStatus({ type: "idle" })
+      flashSavedToast()
+    } catch (e) {
+      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+    }
+  }
+
   function handleGenerate() {
     const phrase = createPassphrase()
     setLocalPassphrase(phrase)
     setExpiresAt(null)
+    setLastSynced(null)
+    setLinkedState(false)
     setView("active")
     setStatus({ type: "idle" })
+    void autoSaveOnGenerate(phrase)
   }
 
   function handleCopy() {
     if (copiedTimer.current) clearTimeout(copiedTimer.current)
-    navigator.clipboard.writeText(passphrase).then(() => {
-      setCopied(true)
-      setCopyError(null)
-      copiedTimer.current = setTimeout(() => setCopied(false), 2000)
-    }).catch(() => {
-      setCopyError("Could not copy — please copy the code manually.")
-    })
+    navigator.clipboard
+      .writeText(passphrase)
+      .then(() => {
+        setCopied(true)
+        setCopyError(null)
+        copiedTimer.current = setTimeout(() => setCopied(false), 2000)
+      })
+      .catch(() => {
+        setCopyError("Could not copy — please copy the code manually.")
+      })
   }
 
-  async function handleSave() {
+  async function handleSync() {
     setStatus({ type: "saving" })
     try {
       await pushToCloud(passphrase)
       setExpiresAt(getExpiresAt())
+      setLastSynced(getLastSynced())
       setStatus({ type: "save-ok" })
+      flashSavedToast()
     } catch (e) {
       setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
     }
@@ -145,8 +187,11 @@ export default function SyncPanel() {
       restoreSyncData(payload)
       setPassphrase(phrase)
       extendLocalExpiry()
+      setLinked()
       setLocalPassphrase(phrase)
       setExpiresAt(getExpiresAt())
+      setLastSynced(getLastSynced())
+      setLinkedState(true)
       setImportInput("")
       setStatus({ type: "import-ok" })
     } catch {
@@ -163,14 +208,16 @@ export default function SyncPanel() {
     const phrase = createPassphrase()
     setLocalPassphrase(phrase)
     setExpiresAt(null)
+    setLastSynced(null)
+    setLinkedState(false)
     setImportInput("")
     setStatus({ type: "idle" })
     setConfirmingReset(false)
+    void autoSaveOnGenerate(phrase)
   }
 
   const isLoading = status.type === "saving" || status.type === "importing"
 
-  // ── No code yet ──────────────────────────────────────────────────────────────
   if (view === "no-code") {
     return (
       <div className="flex flex-col gap-4 pt-1">
@@ -189,7 +236,6 @@ export default function SyncPanel() {
     )
   }
 
-  // ── Checking expiry ───────────────────────────────────────────────────────────
   if (view === "checking-expiry") {
     return (
       <div className="flex flex-col gap-3 pt-1">
@@ -200,7 +246,6 @@ export default function SyncPanel() {
     )
   }
 
-  // ── Expired ───────────────────────────────────────────────────────────────────
   if (view === "expired") {
     return (
       <div className="flex flex-col gap-4 pt-1">
@@ -224,7 +269,6 @@ export default function SyncPanel() {
     )
   }
 
-  // ── Active ────────────────────────────────────────────────────────────────────
   return (
     <div className="flex flex-col gap-5 pt-1 relative">
       <Popup
@@ -232,132 +276,16 @@ export default function SyncPanel() {
         message="Copied to clipboard"
         durationMs={2000}
       />
+      <Popup
+        visible={savedToast}
+        message="Saved to cloud"
+        durationMs={2000}
+      />
+
       {/* Your code */}
       <section className="flex flex-col gap-2">
         <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
           Your Sync Code
-        </h3>
-        <button
-          type="button"
-          onClick={handleCopy}
-          aria-label="Copy sync code to clipboard"
-          className="flex items-center gap-3 w-full px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-transparent text-primary-800 dark:text-primary-100 hover:border-primary-500 dark:hover:border-primary-400 transition-colors cursor-pointer text-left"
-        >
-          <span className="flex-1 font-mono text-sm font-semibold tracking-wide break-all">
-            {passphrase}
-          </span>
-          <FontAwesomeIcon
-            icon={copied ? faCheck : faCopy}
-            className="text-base text-primary-500 dark:text-primary-300 shrink-0"
-          />
-        </button>
-        {expiresAt && (
-          <p className="text-xs text-primary-500 dark:text-primary-400">
-            Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
-          </p>
-        )}
-        <div className="flex gap-2 mt-1">
-          <button
-            type="button"
-            onClick={handleSave}
-            disabled={isLoading}
-            className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <FontAwesomeIcon
-              icon={faRotate}
-              className={`text-sm ${status.type === "saving" ? "animate-spin" : ""}`}
-            />
-            Save to Cloud
-          </button>
-        </div>
-        {copyError && (
-          <p className="text-sm text-red-600 dark:text-red-400">{copyError}</p>
-        )}
-        {status.type === "save-ok" && (
-          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-            Saved! Progress backed up for {SYNC_TTL_DAYS} days.
-          </p>
-        )}
-        {status.type === "save-err" && (
-          <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
-        )}
-      </section>
-
-      <hr className="border-primary-200 dark:border-primary-700" />
-
-      {/* Import */}
-      <section className="flex flex-col gap-2">
-        <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
-          Import from Another Device
-        </h3>
-
-        {status.type === "import-confirm" ? (
-          <div className="flex flex-col gap-3">
-            <p className="text-sm text-primary-700 dark:text-primary-200">
-              Found data saved on{" "}
-              <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
-              current progress on this device.
-            </p>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={handleImportConfirm}
-                className="px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
-              >
-                Import & Replace
-              </button>
-              <button
-                type="button"
-                onClick={resetStatus}
-                className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        ) : status.type === "import-ok" ? (
-          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
-            Import successful! Your progress has been updated.
-          </p>
-        ) : (
-          <>
-            <input
-              type="text"
-              value={importInput}
-              onChange={e => {
-                setImportInput(e.target.value)
-                if (status.type === "import-err") resetStatus()
-              }}
-              placeholder="hawk-wolf-bear-deer-fox"
-              className="w-full px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
-              spellCheck={false}
-              autoCapitalize="none"
-              autoCorrect="off"
-            />
-            {status.type === "import-err" && (
-              <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
-            )}
-            <button
-              type="button"
-              onClick={handleImportStart}
-              disabled={isLoading || importInput.trim().length === 0}
-              className="self-start px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {status.type === "importing" ? "Loading…" : "Import Progress"}
-            </button>
-            <p className="text-xs text-primary-500 dark:text-primary-400">
-              After importing you'll share the same sync code as that device.
-            </p>
-          </>
-        )}
-      </section>
-
-      <hr className="border-primary-200 dark:border-primary-700" />
-
-      {/* Reset */}
-      <section className="flex flex-col gap-2">
-        <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
-          Reset
         </h3>
         {confirmingReset ? (
           <div className="flex flex-col gap-3">
@@ -383,13 +311,140 @@ export default function SyncPanel() {
             </div>
           </div>
         ) : (
-          <button
-            type="button"
-            onClick={() => setConfirmingReset(true)}
-            className="self-start px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-300 dark:border-primary-600 text-primary-500 dark:text-primary-400 hover:border-primary-400 dark:hover:border-primary-500 transition-colors"
-          >
-            Generate New Code…
-          </button>
+          <div className="flex items-center gap-2 flex-wrap">
+            <button
+              type="button"
+              onClick={handleCopy}
+              aria-label="Copy sync code to clipboard"
+              className="rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all px-3 py-1.5 cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
+            >
+              {passphrase}
+            </button>
+            <button
+              type="button"
+              onClick={handleCopy}
+              aria-label="Copy sync code"
+              className="p-2 rounded-md text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
+            >
+              <FontAwesomeIcon icon={copied ? faCheck : faCopy} className="text-base" />
+            </button>
+            <button
+              type="button"
+              onClick={() => setConfirmingReset(true)}
+              aria-label="Generate a new code"
+              title="Generate a new code"
+              className="p-2 rounded-md text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
+            >
+              <FontAwesomeIcon icon={faRotateRight} className="text-base" />
+            </button>
+          </div>
+        )}
+        {!confirmingReset && (
+          <div className="flex flex-col gap-0.5">
+            {expiresAt && (
+              <p className="text-xs text-primary-500 dark:text-primary-400">
+                Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
+              </p>
+            )}
+            {lastSynced && (
+              <p className="text-xs text-primary-500 dark:text-primary-400">
+                Last synced {formatSyncedAt(lastSynced)}
+              </p>
+            )}
+          </div>
+        )}
+        {linked && !confirmingReset && (
+          <div className="flex gap-2 mt-1">
+            <button
+              type="button"
+              onClick={handleSync}
+              disabled={isLoading}
+              className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              <FontAwesomeIcon
+                icon={faArrowsRotate}
+                className={`text-sm ${status.type === "saving" ? "animate-spin" : ""}`}
+              />
+              Sync
+            </button>
+          </div>
+        )}
+        {copyError && (
+          <p className="text-sm text-red-600 dark:text-red-400">{copyError}</p>
+        )}
+        {status.type === "save-err" && (
+          <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
+        )}
+      </section>
+
+      <hr className="border-primary-200 dark:border-primary-700" />
+
+      {/* Link */}
+      <section className="flex flex-col gap-2">
+        <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
+          Link Another Device
+        </h3>
+
+        {status.type === "import-confirm" ? (
+          <div className="flex flex-col gap-3">
+            <p className="text-sm text-primary-700 dark:text-primary-200">
+              Found data saved on{" "}
+              <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
+              current progress on this device.
+            </p>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                onClick={handleImportConfirm}
+                className="px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+              >
+                Link & Replace
+              </button>
+              <button
+                type="button"
+                onClick={resetStatus}
+                className="px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        ) : status.type === "import-ok" ? (
+          <p className="text-sm text-green-600 dark:text-green-400 font-medium">
+            Linked! Your progress has been updated.
+          </p>
+        ) : (
+          <>
+            <div className="flex gap-2 items-stretch">
+              <input
+                type="text"
+                value={importInput}
+                onChange={e => {
+                  setImportInput(e.target.value)
+                  if (status.type === "import-err") resetStatus()
+                }}
+                placeholder="hawk-wolf-bear-deer-fox"
+                className="flex-1 min-w-0 px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
+                spellCheck={false}
+                autoCapitalize="none"
+                autoCorrect="off"
+              />
+              <button
+                type="button"
+                onClick={handleImportStart}
+                disabled={isLoading || importInput.trim().length === 0}
+                className="shrink-0 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {status.type === "importing" ? "Loading…" : "Link"}
+              </button>
+            </div>
+            {status.type === "import-err" && (
+              <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
+            )}
+            <p className="text-xs text-primary-500 dark:text-primary-400">
+              After linking you'll share the same sync code as that device.
+            </p>
+          </>
         )}
       </section>
     </div>
