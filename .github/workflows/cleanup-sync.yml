@@ -10,58 +10,26 @@ jobs:
     name: Delete expired KV keys
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.28.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
       - name: Delete expired sync keys
         env:
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           CF_KV_NAMESPACE_ID: ${{ secrets.CF_KV_NAMESPACE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
-        run: |
-          # Fetch all keys. Cloudflare returns up to 1000 per page; for a
-          # small app a single page is almost always sufficient.
-          RESPONSE=$(curl -s -w "\n%{http_code}" -X GET \
-            "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/keys?limit=1000" \
-            -H "Authorization: Bearer ${CF_API_TOKEN}")
-
-          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
-          BODY=$(echo "$RESPONSE" | sed '$d')
-
-          if [ "$HTTP_CODE" -ne 200 ]; then
-            echo "Error: Cloudflare API returned HTTP ${HTTP_CODE}"
-            echo "$BODY" | jq -r '.errors[]? | "  [\(.code)] \(.message)"' 2>/dev/null || echo "$BODY"
-            exit 1
-          fi
-
-          if ! echo "$BODY" | jq -e '.success == true and (.result | type) == "array"' > /dev/null 2>&1; then
-            echo "Error: unexpected API response"
-            echo "$BODY" | jq -r '.errors[]? | "  [\(.code)] \(.message)"' 2>/dev/null || echo "$BODY"
-            exit 1
-          fi
-
-          # Extract names of keys whose expiration timestamp is in the past.
-          # .expiration is a Unix timestamp in seconds; jq's now is fractional seconds.
-          EXPIRED=$(echo "$BODY" | jq -r \
-            '.result[] | select(.expiration != null and .expiration < (now | floor)) | .name')
-
-          if [ -z "$EXPIRED" ]; then
-            echo "No expired keys to delete."
-            exit 0
-          fi
-
-          COUNT=0
-          FAIL=0
-          while IFS= read -r KEY; do
-            [ -z "$KEY" ] && continue
-            DEL_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE \
-              "https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/storage/kv/namespaces/${CF_KV_NAMESPACE_ID}/values/${KEY}" \
-              -H "Authorization: Bearer ${CF_API_TOKEN}")
-            if [ "$DEL_CODE" -eq 200 ]; then
-              echo "Deleted: $KEY"
-              COUNT=$((COUNT + 1))
-            else
-              echo "Failed to delete: $KEY (HTTP ${DEL_CODE})"
-              FAIL=$((FAIL + 1))
-            fi
-          done <<< "$EXPIRED"
-
-          echo "Deleted ${COUNT} expired key(s). Failed: ${FAIL}."
-          [ "$FAIL" -eq 0 ] || exit 1
+        run: pnpm tsx scripts/cleanup-sync.ts
