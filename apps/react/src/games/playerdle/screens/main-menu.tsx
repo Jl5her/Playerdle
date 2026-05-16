@@ -5,12 +5,15 @@ import {
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
+import { useEffect, useState } from "react"
 import { GameModeButton, MenuLinkButton, MenuOverlay, SyncPanel } from "@/shared/components"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
 import type { SportConfig, SportInfo } from "@/games/playerdle/sports"
+import { getAllSportMeta } from "@/games/playerdle/sports"
 import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
 
 export type Screen =
@@ -46,6 +49,10 @@ interface Props {
   journeyLeague?: JourneyLeague | null
 }
 
+const SPORT_IDS = getAllSportMeta().map(s => s.id)
+const FADE_OUT_MS = 180
+type Direction = "forward" | "backward"
+
 export default function MainMenu({
   onNavigate,
   sport,
@@ -55,7 +62,31 @@ export default function MainMenu({
   extraGames,
   journeyLeague,
 }: Props) {
-  const variants = "variants" in sport ? (sport.variants ?? []) : []
+  const [displayedSport, setDisplayedSport] = useState<SportInfo | SportConfig>(sport)
+  const [displayedExtraGames, setDisplayedExtraGames] = useState(extraGames)
+  const [direction, setDirection] = useState<Direction>("forward")
+  const [isLeaving, setIsLeaving] = useState(false)
+  const [hasTransitioned, setHasTransitioned] = useState(false)
+
+  useEffect(() => {
+    if (sport.id === displayedSport.id) {
+      setDisplayedSport(sport)
+      return
+    }
+    const fromIdx = SPORT_IDS.indexOf(displayedSport.id)
+    const toIdx = SPORT_IDS.indexOf(sport.id)
+    setDirection(toIdx >= fromIdx ? "forward" : "backward")
+    setHasTransitioned(true)
+    setIsLeaving(true)
+    const capturedExtraGames = extraGames
+    const timer = setTimeout(() => {
+      setDisplayedSport(sport)
+      setDisplayedExtraGames(capturedExtraGames)
+      setIsLeaving(false)
+    }, FADE_OUT_MS)
+    return () => clearTimeout(timer)
+  }, [sport])
+
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
     weekday: "long",
@@ -81,18 +112,22 @@ export default function MainMenu({
     played: boolean
   }
 
+  const variants = "variants" in displayedSport ? (displayedSport.variants ?? []) : []
   const variantRows: VariantRow[] = [
     {
       variantLabel: "Playerdle",
       variantId: undefined,
-      played: hasPlayedTodaysDaily(sport.id, undefined),
+      played: hasPlayedTodaysDaily(displayedSport.id, undefined),
     },
     ...variants.map(variant => ({
       variantLabel: variant.label,
       variantId: variant.id,
-      played: hasPlayedTodaysDaily(sport.id, variant.id),
+      played: hasPlayedTodaysDaily(displayedSport.id, variant.id),
     })),
   ]
+
+  const enterClass = hasTransitioned ? `stats-tab-enter-${direction}` : undefined
+  const leaveClass = `stats-tab-leave-${direction}`
 
   return (
     <div className="flex flex-col items-center flex-1 w-full px-4 pt-8 pb-8">
@@ -125,38 +160,46 @@ export default function MainMenu({
         <div
           className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
         >
-          <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
-            <div className="flex flex-col gap-3 w-full">
-              {variantRows.map(row => (
-                <GameModeButton
-                  key={`row:${row.variantId ?? "classic"}`}
-                  label={row.variantLabel}
-                  played={row.played}
-                  onClick={() => onNavigate("daily", { variantId: row.variantId })}
+          <div
+            key={`${displayedSport.id}:${isLeaving ? "out" : "in"}`}
+            className={clsx(
+              "flex-1 flex flex-col",
+              isLeaving ? leaveClass : enterClass,
+            )}
+          >
+            <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
+              <div className="flex flex-col gap-3 w-full">
+                {variantRows.map(row => (
+                  <GameModeButton
+                    key={`row:${row.variantId ?? "classic"}`}
+                    label={row.variantLabel}
+                    played={row.played}
+                    onClick={() => onNavigate("daily", { variantId: row.variantId })}
+                  />
+                ))}
+                {displayedExtraGames?.map(game => (
+                  <GameModeButton
+                    key={game.label}
+                    label={game.label}
+                    played={game.played}
+                    onClick={game.onPlayDaily}
+                  />
+                ))}
+                <MenuLinkButton
+                  label="Stats"
+                  onClick={() => onNavigate("all-stats")}
+                  className="mt-3"
                 />
-              ))}
-              {extraGames?.map(game => (
-                <GameModeButton
-                  key={game.label}
-                  label={game.label}
-                  played={game.played}
-                  onClick={game.onPlayDaily}
+                <MenuLinkButton
+                  label="About"
+                  onClick={() => onNavigate("about")}
                 />
-              ))}
-              <MenuLinkButton
-                label="Stats"
-                onClick={() => onNavigate("all-stats")}
-                className="mt-3"
-              />
-              <MenuLinkButton
-                label="About"
-                onClick={() => onNavigate("about")}
-              />
+              </div>
             </div>
+            <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
+              {dateStr}
+            </p>
           </div>
-          <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
-            {dateStr}
-          </p>
         </div>
         <AboutSection
           open={section === "about"}
