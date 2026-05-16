@@ -181,10 +181,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
 
   function handleSelectSport(nextSportId: SportConfig["id"]) {
-    if (nextSportId === sportId) {
-      return
-    }
-
     navigate(buildPath(nextSportId, "menu"))
     setMenuSection("menu")
     panels.clear()
