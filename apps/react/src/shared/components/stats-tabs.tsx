@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react"
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react"
 
 export interface StatsTab {
   id: string
@@ -13,18 +13,30 @@ interface StatsTabsProps {
   ariaLabel?: string
 }
 
+const FADE_OUT_MS = 120
+
 export default function StatsTabs({
   tabs,
   className,
   ariaLabel = "Stats tabs",
 }: StatsTabsProps) {
-  const [activeId, setActiveId] = useState(tabs[0]?.id)
-  const activeTab = tabs.find(tab => tab.id === activeId) ?? tabs[0]
+  const [requestedId, setRequestedId] = useState(tabs[0]?.id)
+  const [displayedId, setDisplayedId] = useState(tabs[0]?.id)
+  const leaving = requestedId !== displayedId
 
   const tablistRef = useRef<HTMLDivElement | null>(null)
   const buttonRefs = useRef<Record<string, HTMLButtonElement | null>>({})
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
   const [ready, setReady] = useState(false)
+
+  const activeTab = tabs.find(tab => tab.id === requestedId) ?? tabs[0]
+  const displayedTab = tabs.find(tab => tab.id === displayedId) ?? tabs[0]
+
+  useEffect(() => {
+    if (!leaving) return
+    const timer = setTimeout(() => setDisplayedId(requestedId), FADE_OUT_MS)
+    return () => clearTimeout(timer)
+  }, [leaving, requestedId])
 
   useLayoutEffect(() => {
     if (!activeTab) return
@@ -50,9 +62,9 @@ export default function StatsTabs({
     return () => window.removeEventListener("resize", updateIndicator)
   }, [activeTab])
 
-  if (!activeTab) return null
+  if (!activeTab || !displayedTab) return null
   if (tabs.length === 1) {
-    return <div className={className}>{activeTab.content}</div>
+    return <div className={className}>{displayedTab.content}</div>
   }
 
   return (
@@ -74,7 +86,7 @@ export default function StatsTabs({
               type="button"
               role="tab"
               aria-selected={isActive}
-              onClick={() => setActiveId(tab.id)}
+              onClick={() => setRequestedId(tab.id)}
               className={clsx(
                 "shrink-0 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors",
                 isActive
@@ -99,11 +111,11 @@ export default function StatsTabs({
         />
       </div>
       <div
-        key={activeTab.id}
+        key={`${displayedTab.id}:${leaving ? "out" : "in"}`}
         role="tabpanel"
-        className="stats-tab-fade-in"
+        className={leaving ? "stats-tab-fade-out" : "stats-tab-fade-in"}
       >
-        {activeTab.content}
+        {displayedTab.content}
       </div>
     </div>
   )
