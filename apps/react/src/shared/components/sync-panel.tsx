@@ -1,6 +1,7 @@
 import {
   faArrowsRotate,
   faCheck,
+  faCopy,
   faRotateRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -247,7 +248,7 @@ export default function SyncPanel() {
   }
 
   const linkSection = (
-    <section className="flex flex-col gap-2">
+    <section className="flex flex-col gap-3">
       <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
         Link Another Device
       </h3>
@@ -333,9 +334,9 @@ export default function SyncPanel() {
 
   if (view === "no-code") {
     return (
-      <div className="flex flex-col gap-5 pt-1">
+      <div className="flex flex-col gap-8 pt-2">
         {toasts}
-        <section className="flex flex-col gap-4 items-center text-center">
+        <section className="flex flex-col gap-5 items-center text-center">
           <p className="text-sm text-primary-600 dark:text-primary-300">
             Sync your game progress across devices without signing in. A 5-word code links your
             devices. Codes expire {SYNC_TTL_DAYS} days after last use.
@@ -353,9 +354,9 @@ export default function SyncPanel() {
 
   if (view === "expired") {
     return (
-      <div className="flex flex-col gap-5 pt-1">
+      <div className="flex flex-col gap-8 pt-2">
         {toasts}
-        <section className="flex flex-col gap-4">
+        <section className="flex flex-col gap-5">
           <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
             <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
               Your sync code expired
@@ -379,23 +380,33 @@ export default function SyncPanel() {
   }
 
   return (
-    <div className="flex flex-col gap-5 pt-1">
+    <div className="flex flex-col gap-8 pt-2">
       {toasts}
 
       {/* Your code */}
-      <section className="flex flex-col gap-2">
+      <section className="flex flex-col gap-4">
         <h3 className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
           Your Sync Code
         </h3>
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex flex-col items-center gap-2">
           <button
             type="button"
             onClick={handleCopy}
             aria-label="Copy sync code to clipboard"
-            className="rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all px-3 py-1.5 cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
+            className="inline-flex items-center gap-2 max-w-full rounded-md bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-100 font-mono text-sm font-semibold tracking-wide break-all px-3 py-1.5 cursor-pointer hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
           >
-            {passphrase}
+            <span className="break-all">{passphrase}</span>
+            <FontAwesomeIcon
+              icon={copied ? faCheck : faCopy}
+              className="text-xs text-primary-500 dark:text-primary-300 shrink-0"
+              aria-hidden="true"
+            />
           </button>
+          <p className="text-xs text-primary-500 dark:text-primary-400">
+            Tap the phrase to copy
+          </p>
+        </div>
+        <div className="flex justify-center">
           <button
             type="button"
             onClick={() => {
@@ -407,10 +418,10 @@ export default function SyncPanel() {
             }}
             aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
             title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
-            className={`inline-flex items-center gap-1.5 rounded-md text-sm font-semibold px-3 py-1.5 transition-all duration-200 ${
+            className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
               confirmingReset
                 ? "bg-red-600 text-white hover:bg-red-500"
-                : "text-primary-500 dark:text-primary-300 hover:bg-primary-100 dark:hover:bg-primary-800"
+                : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
             }`}
           >
             <FontAwesomeIcon
@@ -420,7 +431,7 @@ export default function SyncPanel() {
             <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
           </button>
         </div>
-        <div className="flex flex-col gap-0.5">
+        <div className="flex flex-col items-center gap-0.5 mt-1">
           {expiresAt && (
             <p className="text-xs text-primary-500 dark:text-primary-400">
               Expires in {daysLeft(expiresAt)} day{daysLeft(expiresAt) === 1 ? "" : "s"}
@@ -433,26 +444,26 @@ export default function SyncPanel() {
           )}
         </div>
         {linked && (
-          <div className="flex gap-2 mt-1">
+          <div className="flex justify-center">
             <button
               type="button"
               onClick={handleSync}
               disabled={isLoading}
-              className="flex items-center gap-2 px-4 py-2 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <FontAwesomeIcon
                 icon={faArrowsRotate}
                 className={`text-sm ${status.type === "saving" ? "animate-spin" : ""}`}
               />
-              Sync
+              Sync Now
             </button>
           </div>
         )}
         {copyError && (
-          <p className="text-sm text-red-600 dark:text-red-400">{copyError}</p>
+          <p className="text-sm text-red-600 dark:text-red-400 text-center">{copyError}</p>
         )}
         {status.type === "save-err" && (
-          <p className="text-sm text-red-600 dark:text-red-400">{status.message}</p>
+          <p className="text-sm text-red-600 dark:text-red-400 text-center">{status.message}</p>
         )}
       </section>
 
