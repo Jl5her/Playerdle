@@ -1,4 +1,5 @@
 import type { GameResult, Stats } from "@playerdle/types"
+import { parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
 
 export type { GameResult, Stats }
@@ -82,36 +83,34 @@ export function calculateStats(sportId: string, variantId?: string): Stats {
   // Calculate streaks — archive plays (replayed after the day) don't count.
   const sortedHistory = history
     .filter(r => !r.archive)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    .sort((a, b) => parseDateKey(a.date).getTime() - parseDateKey(b.date).getTime())
 
-  let currentStreak = 0
+  // maxStreak: longest run of consecutive wins (only losses break it, skipped days don't)
   let maxStreak = 0
   let tempStreak = 0
-
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-
-  for (let i = sortedHistory.length - 1; i >= 0; i -= 1) {
-    const result = sortedHistory[i]
-    const resultDate = new Date(result.date)
-    resultDate.setHours(0, 0, 0, 0)
-
+  for (const result of sortedHistory) {
     if (result.won) {
       tempStreak += 1
-      maxStreak = Math.max(maxStreak, tempStreak)
-
-      // Check if this is part of current streak
-      const daysDiff = Math.floor((today.getTime() - resultDate.getTime()) / (1000 * 60 * 60 * 24))
-      if (i === sortedHistory.length - 1 && (daysDiff === 0 || daysDiff === 1)) {
-        currentStreak = tempStreak
-      }
+      if (tempStreak > maxStreak) maxStreak = tempStreak
     } else {
       tempStreak = 0
-      // If we hit a loss and haven't set current streak, it's 0
-      if (i === sortedHistory.length - 1) {
-        currentStreak = 0
-      }
     }
+  }
+
+  // currentStreak: consecutive wins walking back from the most recent entry.
+  // Only active if the most recent play was today or yesterday.
+  let currentStreak = 0
+  const today = new Date()
+  today.setHours(0, 0, 0, 0)
+  for (let i = sortedHistory.length - 1; i >= 0; i -= 1) {
+    const result = sortedHistory[i]
+    if (!result.won) break
+    if (i === sortedHistory.length - 1) {
+      const resultDate = parseDateKey(result.date)
+      const daysDiff = Math.floor((today.getTime() - resultDate.getTime()) / 86_400_000)
+      if (daysDiff > 1) break
+    }
+    currentStreak += 1
   }
 
   return {

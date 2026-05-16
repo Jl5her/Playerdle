@@ -115,7 +115,7 @@ export default function GuessInput({ onGuess, guessedIds, disabled, players }: P
       const el = dropdownRef.current.children[highlightIndex] as HTMLElement
       el?.scrollIntoView({ block: "nearest" })
     }
-  }, [highlightIndex, filtered.length])
+  }, [highlightIndex, filtered])
 
   function handleInput(e: React.ChangeEvent<HTMLInputElement>) {
     if (!composingRef.current) {
