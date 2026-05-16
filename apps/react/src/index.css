@@ -242,6 +242,13 @@ body,
   animation: stats-tab-fade-in 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.stats-tabs-indicator {
+  transition:
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 240ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, width;
+}
+
 .slide-up-panel {
   transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -376,6 +383,10 @@ body,
 
   .stats-tab-fade-in {
     animation: none;
+  }
+
+  .stats-tabs-indicator {
+    transition: none;
   }
 }
 
