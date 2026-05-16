@@ -3,20 +3,24 @@ import {
   faCheck,
   faCopy,
   faLinkSlash,
-  faRotateRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
 import MenuLinkButton from "./menu-link-button"
 import Popup from "./popup"
 import {
+  analyzeMerge,
+  applyData,
   clearPassphrase,
+  collectSyncData,
   createPassphrase,
   getLastSynced,
   getPassphrase,
+  type MergeAnalysis,
   normalizePassphrase,
   pullFromCloud,
   pushToCloud,
+  resolveMerge,
   restoreSyncData,
   setPassphrase,
   SYNC_TTL_DAYS,
@@ -41,6 +45,8 @@ type ActionStatus =
   | { type: "import-ok" }
   | { type: "import-err"; message: string }
   | { type: "unlinking" }
+  | { type: "merge-conflict"; analysis: MergeAnalysis; phrase: string }
+  | { type: "resolving-merge" }
 
 function formatSyncedAt(date: Date): string {
   return date.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })
@@ -58,28 +64,12 @@ export default function SyncPanel() {
   const [copyError, setCopyError] = useState<string | null>(null)
   const [importInput, setImportInput] = useState("")
   const [status, setStatus] = useState<ActionStatus>({ type: "idle" })
-  const [confirmingReset, setConfirmingReset] = useState(false)
   const [confirmingUnlink, setConfirmingUnlink] = useState(false)
   const copiedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const savedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const resetRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const unlinkRevertTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const linked = deviceCount > 1
-
-  useEffect(() => {
-    if (!confirmingReset) return
-    if (resetRevertTimer.current) clearTimeout(resetRevertTimer.current)
-    resetRevertTimer.current = setTimeout(() => {
-      setConfirmingReset(false)
-    }, CONFIRM_REVERT_MS)
-    return () => {
-      if (resetRevertTimer.current) {
-        clearTimeout(resetRevertTimer.current)
-        resetRevertTimer.current = null
-      }
-    }
-  }, [confirmingReset])
 
   useEffect(() => {
     if (!confirmingUnlink) return
@@ -104,13 +94,32 @@ export default function SyncPanel() {
     setLocalPassphrase(phrase)
     setLastSynced(getLastSynced())
     setView("active")
-    // Refresh device registration and pull the latest count. We discard the
-    // payload here — local data stays canonical until the user explicitly
-    // pushes or imports.
+    // Snapshot local data before the async pull so the comparison is consistent.
+    const localData = collectSyncData().data
     pullFromCloud(phrase)
-      .then(({ devices }) => {
+      .then(({ payload, devices }) => {
         setDeviceCount(devices)
         setLastSynced(getLastSynced())
+        // Analyze local vs remote to detect conflicts or easy merges.
+        const analysis = analyzeMerge(localData, payload.data)
+        if (analysis.hasConflicts) {
+          setStatus({ type: "merge-conflict", analysis, phrase })
+        } else {
+          // No conflicts: apply best-effort merge (picks up any completions from
+          // other devices) and push the unified snapshot back to the cloud.
+          const hasNewData = Object.entries(analysis.easyMerged).some(
+            ([k, v]) => localData[k] !== v,
+          )
+          if (hasNewData) {
+            applyData(analysis.easyMerged)
+            void pushToCloud(phrase)
+              .then(d => {
+                setDeviceCount(d)
+                setLastSynced(getLastSynced())
+              })
+              .catch(() => {})
+          }
+        }
       })
       .catch(err => {
         const is404 = err instanceof Error && err.message.includes("No data found")
@@ -151,18 +160,6 @@ export default function SyncPanel() {
     void autoSaveAfterGenerate(phrase)
   }
 
-  async function handleRegenerateConfirm() {
-    setConfirmingReset(false)
-    const oldPhrase = passphrase
-    // Best-effort: unlink this device from the old code so its device count
-    // drops and the cloud entry can age out. Failures are non-fatal.
-    if (oldPhrase) {
-      void unlinkFromCloud(oldPhrase).catch(() => {})
-    }
-    clearPassphrase()
-    handleGenerate()
-  }
-
   function handleCopy() {
     if (copiedTimer.current) clearTimeout(copiedTimer.current)
     navigator.clipboard
@@ -180,7 +177,32 @@ export default function SyncPanel() {
   async function handleSync() {
     setStatus({ type: "saving" })
     try {
-      const devices = await pushToCloud(passphrase)
+      const localData = collectSyncData().data
+      const { payload, devices } = await pullFromCloud(passphrase)
+      setDeviceCount(devices)
+      const analysis = analyzeMerge(localData, payload.data)
+      if (analysis.hasConflicts) {
+        setStatus({ type: "merge-conflict", analysis, phrase: passphrase })
+        return
+      }
+      applyData(analysis.easyMerged)
+      const finalDevices = await pushToCloud(passphrase)
+      setDeviceCount(finalDevices)
+      setLastSynced(getLastSynced())
+      setStatus({ type: "idle" })
+      flashSavedToast()
+    } catch (e) {
+      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+    }
+  }
+
+  async function handleMergeResolve(winner: "local" | "remote") {
+    if (status.type !== "merge-conflict") return
+    const { analysis, phrase } = status
+    setStatus({ type: "resolving-merge" })
+    try {
+      applyData(resolveMerge(analysis, winner))
+      const devices = await pushToCloud(phrase)
       setDeviceCount(devices)
       setLastSynced(getLastSynced())
       setStatus({ type: "idle" })
@@ -241,6 +263,10 @@ export default function SyncPanel() {
   const handleImportConfirm = useCallback(() => {
     if (status.type !== "import-confirm") return
     const { phrase, payload, devices } = status
+    // Revoke the current code when switching to another device's code.
+    if (passphrase && passphrase !== phrase) {
+      void unlinkFromCloud(passphrase).catch(() => {})
+    }
     restoreSyncData(payload)
     setPassphrase(phrase)
     setLocalPassphrase(phrase)
@@ -249,14 +275,17 @@ export default function SyncPanel() {
     setImportInput("")
     setView("active")
     setStatus({ type: "import-ok" })
-  }, [status])
+  }, [status, passphrase])
 
   function resetStatus() {
     setStatus({ type: "idle" })
   }
 
   const isLoading =
-    status.type === "saving" || status.type === "importing" || status.type === "unlinking"
+    status.type === "saving" ||
+    status.type === "importing" ||
+    status.type === "unlinking" ||
+    status.type === "resolving-merge"
 
   const linkSection = (
     <section className="flex flex-col gap-3">
@@ -268,8 +297,10 @@ export default function SyncPanel() {
         <div className="flex flex-col gap-3">
           <p className="text-sm text-primary-700 dark:text-primary-200">
             Found data saved on{" "}
-            <span className="font-semibold">{status.lastUpdated}</span>. This will replace your
-            current progress on this device.
+            <span className="font-semibold">{status.lastUpdated}</span>.{" "}
+            {passphrase
+              ? "This will switch your sync code and replace your current progress on this device."
+              : "This will replace your current progress on this device."}
           </p>
           <div className="flex gap-2">
             <button
@@ -445,25 +476,26 @@ export default function SyncPanel() {
             <button
               type="button"
               onClick={() => {
-                if (confirmingReset) {
-                  void handleRegenerateConfirm()
+                if (confirmingUnlink) {
+                  void handleUnlinkConfirm()
                 } else {
-                  setConfirmingReset(true)
+                  setConfirmingUnlink(true)
                 }
               }}
-              aria-label={confirmingReset ? "Confirm new sync code" : "Generate a new sync code"}
-              title={confirmingReset ? "Tap to confirm" : "Generate a new code"}
+              disabled={isLoading && !confirmingUnlink}
+              aria-label={confirmingUnlink ? "Confirm revoke sync code" : "Revoke this sync code"}
+              title={confirmingUnlink ? "Tap to confirm" : "Revoke this sync code"}
               className={`inline-flex items-center gap-2 rounded-md text-sm font-semibold px-4 py-2 transition-all duration-200 ${
-                confirmingReset
+                confirmingUnlink
                   ? "bg-red-600 text-white hover:bg-red-500"
                   : "border-2 border-primary-300 dark:border-primary-600 text-primary-600 dark:text-primary-200 hover:border-primary-500 dark:hover:border-primary-400"
-              }`}
+              } disabled:opacity-50 disabled:cursor-not-allowed`}
             >
               <FontAwesomeIcon
-                icon={confirmingReset ? faCheck : faRotateRight}
+                icon={confirmingUnlink ? faCheck : faLinkSlash}
                 className="text-sm"
               />
-              <span>{confirmingReset ? "Confirm" : "Regenerate"}</span>
+              <span>{confirmingUnlink ? "Confirm Revoke" : "Revoke"}</span>
             </button>
           )}
         </div>
@@ -481,21 +513,58 @@ export default function SyncPanel() {
             </p>
           )}
         </div>
-        {linked && (
-          <div className="flex justify-center">
+        {status.type === "merge-conflict" ? (
+          <div className="flex flex-col gap-3">
+            <div className="rounded-md border-2 border-amber-400 dark:border-amber-500 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+              <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+                Devices are out of sync
+              </p>
+              <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">
+                We've noticed your devices are out of sync. Would you like to keep your progress on
+                this device or overwrite with what's in the cloud?
+              </p>
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              <button
+                type="button"
+                onClick={() => void handleMergeResolve("local")}
+                className="flex-1 px-4 py-2 rounded-md text-sm font-bold bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 transition-colors"
+              >
+                Keep This Device
+              </button>
+              <button
+                type="button"
+                onClick={() => void handleMergeResolve("remote")}
+                className="flex-1 px-4 py-2 rounded-md text-sm font-bold border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-50 hover:border-primary-600 dark:hover:border-primary-300 transition-colors"
+              >
+                Keep Cloud
+              </button>
+            </div>
             <button
               type="button"
-              onClick={handleSync}
-              disabled={isLoading}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              onClick={resetStatus}
+              className="text-xs text-primary-500 dark:text-primary-400 hover:underline"
             >
-              <FontAwesomeIcon
-                icon={faArrowsRotate}
-                className={`text-sm ${status.type === "saving" ? "animate-spin" : ""}`}
-              />
-              Sync Now
+              Decide later
             </button>
           </div>
+        ) : (
+          linked && (
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={() => void handleSync()}
+                disabled={isLoading}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-md text-sm font-bold transition-colors bg-primary-700 text-primary-50 hover:bg-primary-600 dark:bg-primary-50 dark:text-primary-900 dark:hover:bg-primary-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowsRotate}
+                  className={`text-sm ${status.type === "saving" || status.type === "resolving-merge" ? "animate-spin" : ""}`}
+                />
+                {status.type === "resolving-merge" ? "Syncing…" : "Sync Now"}
+              </button>
+            </div>
+          )
         )}
         {copyError && (
           <p className="text-sm text-red-600 dark:text-red-400 text-center">{copyError}</p>

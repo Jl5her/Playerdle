@@ -2,11 +2,15 @@ name = "playerdle"
 pages_build_output_dir = "apps/react/dist"
 compatibility_date = "2024-01-15"
 
-# Device sync storage.
-# To enable sync:
-#   1. Run: wrangler kv namespace create PLAYERDLE_SYNC_KV
-#   2. Replace the id below with the output namespace ID
-#   3. Deploy
+# Production sync storage (live player stats — never use for testing).
+# Applies to all production deployments (main branch).
 [[kv_namespaces]]
 binding = "PLAYERDLE_SYNC_KV"
 id = "eeef69aa332141d5a3cc57522f30f9fc"
+
+# Preview sync storage — isolated from production.
+# Applies to all preview deployments (branch previews, PRs, staging URLs).
+[env.preview]
+[[env.preview.kv_namespaces]]
+binding = "PLAYERDLE_SYNC_KV"
+id = "af833ac4388746b9a41d1dd630057bfc"

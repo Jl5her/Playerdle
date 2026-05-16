@@ -25,7 +25,7 @@ const MAX_BYTES = 2_000_000
 
 // While at least one device is linked, refresh the TTL to ~1 year on every
 // operation so a synced code effectively never expires. Once the last device
-// unlinks, switch to a 7-day TTL so the cleanup script will reap it.
+// unlinks, switch to a 7-day TTL so the entry ages out on its own.
 const ACTIVE_TTL_SECONDS = 365 * 24 * 60 * 60
 const INACTIVE_TTL_SECONDS = 7 * 24 * 60 * 60
 const MAX_DEVICES = 50

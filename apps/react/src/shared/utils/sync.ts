@@ -154,6 +154,229 @@ export function restoreSyncData(payload: SyncPayload): void {
   }
 }
 
+/** Write a merged data map into localStorage (only touches sync-prefixed keys). */
+export function applyData(data: Record<string, string>): void {
+  for (const [key, value] of Object.entries(data)) {
+    if (SYNC_KEY_PREFIXES.some(prefix => key.startsWith(prefix))) {
+      try {
+        localStorage.setItem(key, value)
+      } catch {
+        // ignore storage errors
+      }
+    }
+  }
+}
+
+export interface MergeConflict {
+  key: string
+  label: string
+}
+
+export interface MergeAnalysis {
+  /** Data after applying best-effort (non-conflicting) merges. */
+  easyMerged: Record<string, string>
+  /** In-progress-on-both-sides keys that need user resolution. */
+  conflicts: MergeConflict[]
+  /** Local values for each conflicted key. */
+  conflictLocal: Record<string, string>
+  /** Remote values for each conflicted key. */
+  conflictRemote: Record<string, string>
+  hasConflicts: boolean
+}
+
+function completedDatesSet(statsJson: string | undefined): Set<string> {
+  if (!statsJson) return new Set()
+  try {
+    const arr = JSON.parse(statsJson) as Array<{ date: string }>
+    return new Set(arr.map(r => r.date))
+  } catch {
+    return new Set()
+  }
+}
+
+function mergeStatsArrays(
+  localJson: string | undefined,
+  remoteJson: string | undefined,
+): string {
+  try {
+    const local: Array<{ date: string }> = localJson ? JSON.parse(localJson) : []
+    const remote: Array<{ date: string }> = remoteJson ? JSON.parse(remoteJson) : []
+    const byDate = new Map<string, { date: string }>()
+    for (const r of local) byDate.set(r.date, r)
+    // Remote fills in dates not present locally; if both have a date, keep local.
+    for (const r of remote) {
+      if (!byDate.has(r.date)) byDate.set(r.date, r)
+    }
+    return JSON.stringify([...byDate.values()])
+  } catch {
+    return localJson ?? remoteJson ?? "[]"
+  }
+}
+
+function hasGuesses(json: string | undefined): boolean {
+  if (!json) return false
+  try {
+    const arr = JSON.parse(json)
+    return Array.isArray(arr) && arr.length > 0
+  } catch {
+    return false
+  }
+}
+
+function mergeStateKey(
+  key: string,
+  label: string,
+  localState: string | undefined,
+  remoteState: string | undefined,
+  localCompleted: boolean,
+  remoteCompleted: boolean,
+  easyMerged: Record<string, string>,
+  conflicts: MergeConflict[],
+  conflictLocal: Record<string, string>,
+  conflictRemote: Record<string, string>,
+) {
+  const localInProgress = hasGuesses(localState) && !localCompleted
+  const remoteInProgress = hasGuesses(remoteState) && !remoteCompleted
+
+  if (localInProgress && remoteInProgress && localState !== remoteState) {
+    conflicts.push({ key, label })
+    conflictLocal[key] = localState!
+    conflictRemote[key] = remoteState!
+  } else if (localCompleted && localState != null) {
+    easyMerged[key] = localState
+  } else if (remoteCompleted && remoteState != null) {
+    easyMerged[key] = remoteState
+  } else {
+    const value = localState ?? remoteState
+    if (value != null) easyMerged[key] = value
+  }
+}
+
+/**
+ * Analyzes two sync data snapshots and produces:
+ * - `easyMerged`: best-effort merge of all non-conflicting data
+ * - `conflicts`: keys where both sides have an in-progress (unfinished) game
+ *
+ * Easy merges:
+ * - Stats/history arrays: union by date (local wins ties)
+ * - State keys: completed side wins; if neither completed, whichever has guesses wins
+ * - Tutorial-seen: true if either side is true
+ * - Journey played-day: whichever date is more recent
+ */
+export function analyzeMerge(
+  localData: Record<string, string>,
+  remoteData: Record<string, string>,
+): MergeAnalysis {
+  const easyMerged: Record<string, string> = {}
+  const conflicts: MergeConflict[] = []
+  const conflictLocal: Record<string, string> = {}
+  const conflictRemote: Record<string, string> = {}
+
+  const allKeys = new Set([...Object.keys(localData), ...Object.keys(remoteData)])
+
+  // Pass 1: merge completed-game history arrays (stats + journey history)
+  for (const key of allKeys) {
+    if (
+      key.startsWith("playerdle-stats:") ||
+      key.startsWith("playerdle-journey-history:")
+    ) {
+      easyMerged[key] = mergeStatsArrays(localData[key], remoteData[key])
+    }
+  }
+
+  // Pass 2: per-date in-progress state keys
+  for (const key of allKeys) {
+    if (key.startsWith("playerdle-state:")) {
+      // playerdle-state:<sportId>:<variantId>:<dateKey>
+      const parts = key.split(":")
+      const sportId = parts[1]
+      const variantId = parts[2]
+      const dateKey = parts[3]
+      if (!sportId || !variantId || !dateKey) {
+        easyMerged[key] = localData[key] ?? remoteData[key]
+        continue
+      }
+      const statsKey = `playerdle-stats:${sportId}:${variantId}`
+      mergeStateKey(
+        key,
+        `${sportId.toUpperCase()} puzzle (${dateKey})`,
+        localData[key],
+        remoteData[key],
+        completedDatesSet(localData[statsKey]).has(dateKey),
+        completedDatesSet(remoteData[statsKey]).has(dateKey),
+        easyMerged,
+        conflicts,
+        conflictLocal,
+        conflictRemote,
+      )
+    } else if (key.startsWith("playerdle-journey-state:")) {
+      // playerdle-journey-state:v1:<league>:<dateKey>
+      const parts = key.split(":")
+      const league = parts[2]
+      const dateKey = parts[3]
+      if (!league || !dateKey) {
+        easyMerged[key] = localData[key] ?? remoteData[key]
+        continue
+      }
+      const historyKey = `playerdle-journey-history:v1:${league}`
+      mergeStateKey(
+        key,
+        `Journey ${league.toUpperCase()} puzzle (${dateKey})`,
+        localData[key],
+        remoteData[key],
+        completedDatesSet(localData[historyKey]).has(dateKey),
+        completedDatesSet(remoteData[historyKey]).has(dateKey),
+        easyMerged,
+        conflicts,
+        conflictLocal,
+        conflictRemote,
+      )
+    }
+  }
+
+  // Pass 3: all remaining keys not yet handled
+  for (const key of allKeys) {
+    if (key in easyMerged || key in conflictLocal) continue
+    if (
+      key.startsWith("playerdle-stats:") ||
+      key.startsWith("playerdle-journey-history:")
+    )
+      continue
+
+    if (
+      key.startsWith("playerdle-tutorial-seen-v2:") ||
+      key.startsWith("journey-tutorial-seen:")
+    ) {
+      easyMerged[key] =
+        localData[key] === "true" || remoteData[key] === "true"
+          ? "true"
+          : (localData[key] ?? remoteData[key] ?? "false")
+    } else if (key.startsWith("playerdle-journey-played-day:")) {
+      // More recent date wins (YYYY-MM-DD lexicographic comparison is correct)
+      const local = localData[key] ?? ""
+      const remote = remoteData[key] ?? ""
+      easyMerged[key] = local >= remote ? local : remote
+    } else {
+      easyMerged[key] = remoteData[key] ?? localData[key]
+    }
+  }
+
+  return { easyMerged, conflicts, conflictLocal, conflictRemote, hasConflicts: conflicts.length > 0 }
+}
+
+/**
+ * Produces the final merged data map given the user's conflict resolution choice.
+ * Easy merges are always applied; conflicted keys use the chosen side.
+ */
+export function resolveMerge(
+  analysis: MergeAnalysis,
+  winner: "local" | "remote",
+): Record<string, string> {
+  const conflictValues =
+    winner === "local" ? analysis.conflictLocal : analysis.conflictRemote
+  return { ...analysis.easyMerged, ...conflictValues }
+}
+
 function apiUrl(hash: string): string {
   const deviceId = getDeviceId()
   return `/api/sync/${hash}?device=${encodeURIComponent(deviceId)}`
