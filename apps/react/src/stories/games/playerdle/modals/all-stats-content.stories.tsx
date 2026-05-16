@@ -64,3 +64,21 @@ export const MultiVariant: Story = {
     },
   },
 }
+
+export const WithJourneyman: Story = {
+  args: {
+    sport: {
+      ...nflConfig,
+      variants: [
+        {
+          id: "fanatic",
+          label: "Fanatic",
+          players: [],
+          answerPool: [],
+          columns: nflColumns,
+        },
+      ],
+    },
+    journeyLeague: "nfl",
+  },
+}

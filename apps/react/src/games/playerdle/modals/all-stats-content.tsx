@@ -1,34 +1,31 @@
-import type { ReactNode } from "react"
+import clsx from "clsx"
+import { useState, type ReactNode } from "react"
+import {
+  calculateJourneyStats,
+  type JourneyLeague,
+} from "@/games/journeyman/utils/journey-daily"
 import type { SportConfig, SportInfo, SportVariant } from "@/games/playerdle/sports"
-import { calculateStats } from "@/games/playerdle/utils/stats"
+import { calculateStats, type Stats } from "@/games/playerdle/utils/stats"
 
 interface AllStatsContentProps {
   sport: SportConfig | SportInfo
+  journeyLeague?: JourneyLeague | null
   className?: string
 }
 
-interface VariantEntry {
+interface StatsTab {
+  id: string
   label: string
-  variantId?: string
+  stats: Stats
+  maxGuesses: number
 }
 
-function VariantStatsBlock({
-  sportId,
-  variantId,
-  label,
-}: {
-  sportId: string
-  variantId?: string
-  label: string
-}) {
-  const stats = calculateStats(sportId, variantId)
+function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number }) {
   const maxGuessCount = Math.max(...Object.values<number>(stats.guessDistribution), 1)
+  const rows = Array.from({ length: maxGuesses }, (_, i) => i + 1)
 
   return (
-    <section className="mb-6 last:mb-0">
-      <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left tracking-wider">
-        {label}
-      </h3>
+    <section>
       <div className="grid grid-cols-4 gap-2 mb-4">
         <Tile value={stats.played} label="Played" />
         <Tile value={stats.winPercentage} label="Win %" />
@@ -38,7 +35,7 @@ function VariantStatsBlock({
       <h4 className="text-xs font-semibold text-primary-700 dark:text-primary-200 mb-2 uppercase text-left tracking-wide">
         Guess Distribution
       </h4>
-      {[1, 2, 3, 4, 5, 6].map(guessNum => {
+      {rows.map(guessNum => {
         const count = stats.guessDistribution[guessNum] || 0
         const hasValue = count > 0
         const scaledWidth = (count / maxGuessCount) * 100
@@ -81,24 +78,67 @@ function Tile({ value, label }: { value: number; label: ReactNode }) {
   )
 }
 
-export function AllStatsContent({ sport, className }: AllStatsContentProps) {
+export function AllStatsContent({ sport, journeyLeague, className }: AllStatsContentProps) {
   const variants =
     "variants" in sport && Array.isArray(sport.variants) ? (sport.variants as SportVariant[]) : []
-  const entries: VariantEntry[] = [
-    { label: "Daily" },
-    ...variants.map(v => ({ label: v.label, variantId: v.id })),
+
+  const tabs: StatsTab[] = [
+    {
+      id: "classic",
+      label: "Playerdle",
+      stats: calculateStats(sport.id),
+      maxGuesses: 6,
+    },
+    ...variants.map(variant => ({
+      id: `variant:${variant.id}`,
+      label: variant.label,
+      stats: calculateStats(sport.id, variant.id),
+      maxGuesses: 6,
+    })),
+    ...(journeyLeague
+      ? [
+          {
+            id: "journeyman",
+            label: "Journeyman",
+            stats: calculateJourneyStats(journeyLeague),
+            maxGuesses: 5,
+          },
+        ]
+      : []),
   ]
+
+  const [activeId, setActiveId] = useState(tabs[0].id)
+  const activeTab = tabs.find(tab => tab.id === activeId) ?? tabs[0]
 
   return (
     <div className={className}>
-      {entries.map(entry => (
-        <VariantStatsBlock
-          key={entry.variantId ?? "classic"}
-          sportId={sport.id}
-          variantId={entry.variantId}
-          label={entry.label}
-        />
-      ))}
+      <div
+        role="tablist"
+        aria-label="Game mode stats"
+        className="flex gap-1 border-b border-primary-200 dark:border-primary-700 mb-4 -mx-1 px-1 overflow-x-auto"
+      >
+        {tabs.map(tab => {
+          const isActive = tab.id === activeTab.id
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              onClick={() => setActiveId(tab.id)}
+              className={clsx(
+                "shrink-0 px-3 py-2 text-xs font-semibold uppercase tracking-wider transition-colors border-b-2 -mb-px",
+                isActive
+                  ? "text-primary-900 dark:text-primary-50 border-primary-700 dark:border-primary-100"
+                  : "text-primary-500 dark:text-primary-300 border-transparent hover:text-primary-700 dark:hover:text-primary-100",
+              )}
+            >
+              {tab.label}
+            </button>
+          )
+        })}
+      </div>
+      <StatsBlock stats={activeTab.stats} maxGuesses={activeTab.maxGuesses} />
     </div>
   )
 }
