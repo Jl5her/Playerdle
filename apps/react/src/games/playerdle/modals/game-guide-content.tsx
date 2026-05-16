@@ -1,21 +1,19 @@
 import clsx from "clsx"
 import type { SportConfig } from "@/games/playerdle/sports"
+import { Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
 
 export type GuideMode = "onboarding" | "manual"
 
-interface GameGuideContentProps {
+interface GameGuideBodyProps {
   sport: SportConfig
   mode: GuideMode
   className?: string
   onOpenCalendar?: () => void
 }
 
-export function GameGuideContent({
-  sport,
-  mode,
-  className,
-  onOpenCalendar,
-}: GameGuideContentProps) {
+/** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
+export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGuideBodyProps) {
   const isLocal = import.meta.env.DEV
   const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
@@ -157,5 +155,35 @@ export function GameGuideContent({
         </div>
       )}
     </div>
+  )
+}
+
+interface GameGuideContentProps {
+  id: string
+  sport: SportConfig
+  mode: GuideMode
+  tutorialKey?: string
+  onOpenCalendar?: () => void
+}
+
+/** Self-contained panel — reads open state from PanelStackContext. */
+export function GameGuideContent({
+  id,
+  sport,
+  mode,
+  tutorialKey,
+  onOpenCalendar,
+}: GameGuideContentProps) {
+  const ctx = usePanelContext()
+
+  function handleClose() {
+    if (tutorialKey) localStorage.setItem(tutorialKey, "true")
+    ctx?.pop()
+  }
+
+  return (
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
+      <GameGuideBody sport={sport} mode={mode} onOpenCalendar={onOpenCalendar} />
+    </Panel>
   )
 }

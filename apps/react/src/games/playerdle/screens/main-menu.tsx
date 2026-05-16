@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { GameModeButton, MenuLinkButton, MenuOverlay, SyncPanel } from "@/shared/components"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
-import { GameGuideContent } from "@/games/playerdle/modals/game-guide-content"
+import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
 import type { SportConfig, SportInfo } from "@/games/playerdle/sports"
 import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
@@ -180,7 +180,7 @@ export default function MainMenu({
           onClose={onCloseAbout}
         >
           {guideSport ? (
-            <GameGuideContent
+            <GameGuideBody
               sport={guideSport}
               mode="manual"
               className="-mt-1 flex-1 overflow-auto pb-2"

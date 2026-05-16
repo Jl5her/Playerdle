@@ -1,10 +1,16 @@
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
+import { Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
+
+export function journeyTutorialSeenKey(league: JourneyLeague): string {
+  return `journey-tutorial-seen:${league}`
+}
 
 interface Props {
+  id: string
   league: JourneyLeague
-  className?: string
   onOpenCalendar?: () => void
 }
 
@@ -99,15 +105,21 @@ const LEAGUE_EXAMPLES: Record<JourneyLeague, LeagueExample> = {
   },
 }
 
-export default function JourneyHowToPlay({ league, className, onOpenCalendar }: Props) {
+export default function JourneyHowToPlay({ id, league, onOpenCalendar }: Props) {
+  const ctx = usePanelContext()
   const isLocal = import.meta.env.DEV
   const data = getLeagueJourneyData(league)
   const example = LEAGUE_EXAMPLES[league]
   const teamRequirement = `at least 3 ${data.label} teams`
   const playerType = `${data.label} player`
 
+  function handleClose() {
+    localStorage.setItem(journeyTutorialSeenKey(league), "true")
+    ctx?.pop()
+  }
+
   return (
-    <div className={className}>
+    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the {playerType} from the chronological list of teams they've played for. You have 5
         guesses.
@@ -226,6 +238,6 @@ export default function JourneyHowToPlay({ league, className, onOpenCalendar }: 
           </div>
         </div>
       )}
-    </div>
+    </Panel>
   )
 }
