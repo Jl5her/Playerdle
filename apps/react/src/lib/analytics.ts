@@ -8,10 +8,11 @@ export function initAnalytics() {
 
   posthog.init(key, {
     api_host: "https://us.i.posthog.com",
-    person_profiles: "never", // fully anonymous — no user identity stored
-    autocapture: false,       // only track explicit events
+    person_profiles: "never",
+    autocapture: false,
     capture_pageview: true,
     capture_pageleave: false,
+    disable_external_dependency_loading: true,
   })
   ready = true
 }
