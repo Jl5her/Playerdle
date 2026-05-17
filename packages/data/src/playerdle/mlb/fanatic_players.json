@@ -360,24 +360,6 @@
     "ops": 0.651
   },
   {
-    "id": "mlb:4307826",
-    "name": "Bryce Teodosio",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "LF",
-    "number": 22,
-    "league": "AL",
-    "gp": 50,
-    "pa": 150,
-    "avg": 0.203,
-    "hr": 1,
-    "rbi": 7,
-    "sb": 7,
-    "ops": 0.553
-  },
-  {
     "id": "mlb:32655",
     "name": "Byron Buxton",
     "conference": "AL",
@@ -564,7 +546,7 @@
     "division": "East",
     "team": "Miami Marlins",
     "teamAbbr": "MIA",
-    "position": "DH",
+    "position": "1B",
     "number": 5,
     "league": "NL",
     "gp": 105,
@@ -970,24 +952,6 @@
     "rbi": 54,
     "sb": 11,
     "ops": 0.796
-  },
-  {
-    "id": "mlb:39642",
-    "name": "Heliot Ramos",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "LF",
-    "number": 17,
-    "league": "NL",
-    "gp": 157,
-    "pa": 695,
-    "avg": 0.256,
-    "hr": 21,
-    "rbi": 69,
-    "sb": 6,
-    "ops": 0.728
   },
   {
     "id": "mlb:4418683",
@@ -2554,24 +2518,6 @@
     "rbi": 69,
     "sb": 36,
     "ops": 0.812
-  },
-  {
-    "id": "mlb:32150",
-    "name": "Trevor Story",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "SS",
-    "number": 10,
-    "league": "AL",
-    "gp": 157,
-    "pa": 654,
-    "avg": 0.263,
-    "hr": 25,
-    "rbi": 96,
-    "sb": 31,
-    "ops": 0.741
   },
   {
     "id": "mlb:35591",
