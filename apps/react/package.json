@@ -21,7 +21,6 @@
     "@playerdle/data": "workspace:*",
     "@playerdle/theme": "workspace:*",
     "@playerdle/types": "workspace:*",
-    "@sentry/react": "^10.53.1",
     "@tailwindcss/vite": "^4.1.18",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
