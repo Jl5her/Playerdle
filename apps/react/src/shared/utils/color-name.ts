@@ -1,6 +1,8 @@
 /**
- * If a hex color's HSL lightness is below 0.15 (near-black), boosts it to 0.30
- * so the hue is visible on screen. Returns the original hex otherwise.
+ * If a hex color's HSL lightness is below 0.15 (near-black) AND it has a
+ * meaningful hue (saturation >= 0.30), boosts lightness to 0.30 so the hue
+ * shows on screen. Pure blacks and dark grays/browns are returned as-is so
+ * they don't get washed out into medium gray.
  */
 export function boostDarkColor(hex: string): string {
   if (hex === "transparent") return hex
@@ -18,6 +20,8 @@ export function boostDarkColor(hex: string): string {
   if (l >= 0.15) return hex
 
   const s = max === min ? 0 : l < 0.5 ? (max - min) / (max + min) : (max - min) / (2 - max - min)
+
+  if (s < 0.30) return hex
   let h = 0
   if (max !== min) {
     if (max === r) h = (g - b) / (max - min)
