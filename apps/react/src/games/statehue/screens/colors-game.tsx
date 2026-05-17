@@ -32,6 +32,7 @@ import { TEAM_COLOR_NAME_MAP } from "@playerdle/data/journeyman/leagues"
 import { boostDarkColor, hexToColorName } from "@/shared/utils/color-name"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
+import { trackGameComplete } from "@/lib/analytics"
 
 const MAX_GUESSES = 5
 
@@ -707,6 +708,11 @@ export default function ColorsGame({
     const next = [...guesses, stateName]
     setGuesses(next)
     if (activeMode === "daily") saveDailyGuesses(puzzle.dateKey, next, variant)
+    const newWon = next.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
+    const newLost = !newWon && next.length >= MAX_GUESSES
+    if (newWon || newLost) {
+      trackGameComplete({ game: "statehue", variant, mode: activeMode, won: newWon, guesses: next.length })
+    }
   }
 
   function handlePlayAgain() {
