@@ -1,5 +1,6 @@
 import type { GameMode } from "@playerdle/types"
 import { useMemo, useRef, useState } from "react"
+import { trackGameComplete } from "@/lib/analytics"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import type { Player, SportConfig } from "@/games/playerdle/sports"
@@ -177,6 +178,14 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
           dateKey,
         )
       }
+      trackGameComplete({
+        game: "playerdle",
+        sport: sport.id,
+        variant: variantId ?? "classic",
+        mode: activeMode,
+        won: newWon,
+        guesses: newGuesses.length,
+      })
     }
   }
 
