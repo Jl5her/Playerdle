@@ -7,7 +7,7 @@ import nhlPlayers from "@playerdle/data/playerdle/nhl/players.json"
 import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { boostDarkColor, hexToColorName } from "@/shared/utils/color-name"
+import { hexToColorName } from "@/shared/utils/color-name"
 import {
   calculateJourneyStats,
   getArcadeJourneyPuzzle,
@@ -147,7 +147,7 @@ function FlipDiamond({
   delayMs: number
 }) {
   const isTransparent = color === "transparent"
-  const displayColor = boostDarkColor(color)
+  const displayColor = color
   const border = isTransparent ? "#a0a0a0" : diamondBorder(displayColor)
   const frontStyle: React.CSSProperties = { transitionDelay: `${delayMs}ms` }
   const backStyle: React.CSSProperties = isTransparent
@@ -183,7 +183,7 @@ function FlipDiamondWithPreview({
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
   const isTransparent = color === "transparent"
-  const displayColor = boostDarkColor(color)
+  const displayColor = color
 
   useEffect(() => {
     if (!open) return
