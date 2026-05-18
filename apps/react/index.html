@@ -25,16 +25,24 @@
   <meta name="twitter:description" content="Daily sports guessing games — NFL, NHL, MLB, NBA, and more." />
   <meta name="twitter:image" content="https://playerdle.jackp.me/og-image.png" />
   <script>
-    // Set dark mode based on system preference
-    const setDarkMode = () => {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    (function () {
+      var theme = localStorage.getItem('playerdle-theme') || 'system';
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (theme === 'dark' || (theme === 'system' && prefersDark)) {
         document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
       }
-    };
-    setDarkMode();
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setDarkMode);
+      // Keep system preference in sync for the lifetime of the page.
+      // React's useSettings hook takes over when mounted, but this covers
+      // the pre-hydration window and system changes while panels are closed.
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        if ((localStorage.getItem('playerdle-theme') || 'system') !== 'system') return;
+        if (e.matches) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+      });
+      if (localStorage.getItem('playerdle-colorblind') === 'true') {
+        document.documentElement.classList.add('high-contrast');
+      }
+    })();
   </script>
 </head>
 

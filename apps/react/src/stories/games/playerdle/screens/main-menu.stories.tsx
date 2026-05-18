@@ -44,8 +44,6 @@ const meta = {
   args: {
     onNavigate: fn(),
     sport: nflInfo,
-    section: "menu" as const,
-    onCloseAbout: fn(),
     guideSport: null,
   },
 } satisfies Meta<typeof MainMenu>
@@ -55,7 +53,6 @@ type Story = StoryObj<typeof meta>
 
 export const Menu: Story = {
   args: {
-    section: "menu",
     sport: nflInfo,
     guideSport: null,
   },
@@ -63,14 +60,12 @@ export const Menu: Story = {
 
 export const AboutSection: Story = {
   args: {
-    section: "about",
     sport: nflInfo,
   },
 }
 
 export const HelpSection: Story = {
   args: {
-    section: "help",
     sport: nflInfo,
     guideSport: nflConfig,
   },
@@ -78,14 +73,12 @@ export const HelpSection: Story = {
 
 export const StatsSection: Story = {
   args: {
-    section: "stats",
     sport: nflInfo,
   },
 }
 
 export const SettingsSection: Story = {
   args: {
-    section: "settings",
     sport: nflInfo,
   },
 }

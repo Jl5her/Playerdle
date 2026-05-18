@@ -8,13 +8,15 @@ import {
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { GameModeButton, MenuOverlay, SyncPanel } from "@/shared/components"
+import { GameModeButton, MenuOverlay, SettingsPanel } from "@/shared/components"
+import SyncPanel from "@/shared/components/sync-panel"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
 import type { SportConfig, SportInfo } from "@/games/playerdle/sports"
 import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
+import { useMenuStack } from "@/shared/hooks/use-menu-stack"
 
 export type Screen =
   | "menu"
@@ -42,8 +44,6 @@ export interface ExtraGame {
 interface Props {
   onNavigate: (screen: Screen, options?: NavigationOptions) => void
   sport: SportInfo | SportConfig
-  section: "menu" | "about" | "help" | "stats" | "settings"
-  onCloseAbout: () => void
   guideSport?: SportConfig | null
   extraGames?: ExtraGame[]
   journeyLeague?: JourneyLeague | null
@@ -52,12 +52,11 @@ interface Props {
 export default function MainMenu({
   onNavigate,
   sport,
-  section,
-  onCloseAbout,
   guideSport,
   extraGames,
   journeyLeague,
 }: Props) {
+  const { push, pop, popAll, peek } = useMenuStack()
   const variants = "variants" in sport ? (sport.variants ?? []) : []
   const today = new Date()
   const dateStr = today.toLocaleDateString("en-US", {
@@ -126,7 +125,7 @@ export default function MainMenu({
 
       <div className="w-full flex-1 mt-6 relative overflow-hidden">
         <div
-          className={`crossfade-panel h-full flex flex-col ${section === "menu" ? "crossfade-active" : "crossfade-inactive"}`}
+          className={`crossfade-panel h-full flex flex-col ${peek === null ? "crossfade-active" : "crossfade-inactive"}`}
         >
           <div className="w-full max-w-xs mx-auto flex-1 flex flex-col items-center justify-end pb-4">
             <div className="flex flex-col gap-3 w-full">
@@ -149,15 +148,15 @@ export default function MainMenu({
               <div className="flex justify-center gap-4 mt-3">
                 {(
                   [
-                    { icon: faChartBar, label: "Stats", screen: "all-stats" },
-                    { icon: faCircleInfo, label: "About", screen: "about" },
-                    { icon: faGear, label: "Settings", screen: "settings" },
+                    { icon: faChartBar, label: "Stats", id: "stats" },
+                    { icon: faCircleInfo, label: "About", id: "about" },
+                    { icon: faGear, label: "Settings", id: "settings" },
                   ] as const
-                ).map(({ icon, label, screen }) => (
+                ).map(({ icon, label, id }) => (
                   <button
-                    key={screen}
+                    key={id}
                     type="button"
-                    onClick={() => onNavigate(screen)}
+                    onClick={() => push(id)}
                     aria-label={label}
                     className="w-11 h-11 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
                   >
@@ -172,14 +171,14 @@ export default function MainMenu({
           </p>
         </div>
         <AboutSection
-          open={section === "about"}
+          open={peek === "about"}
           sport={sport}
-          onClose={onCloseAbout}
+          onClose={popAll}
         />
         <MenuOverlay
-          open={section === "stats"}
+          open={peek === "stats"}
           title="Statistics"
-          onClose={onCloseAbout}
+          onClose={popAll}
         >
           <AllStatsContent
             sport={sport}
@@ -188,9 +187,9 @@ export default function MainMenu({
           />
         </MenuOverlay>
         <MenuOverlay
-          open={section === "help"}
+          open={peek === "help"}
           title="How to Play"
-          onClose={onCloseAbout}
+          onClose={popAll}
         >
           {guideSport ? (
             <GameGuideBody
@@ -203,15 +202,20 @@ export default function MainMenu({
           )}
         </MenuOverlay>
         <MenuOverlay
-          open={section === "settings"}
-          title="Sync Devices"
-          onClose={onCloseAbout}
+          open={peek === "settings"}
+          title="Settings"
+          onClose={popAll}
         >
-          <div
-            className="-mt-1 flex-1 overflow-auto pb-32"
-            style={{ scrollPaddingBottom: "8rem" }}
-          >
-            <SyncPanel open={section === "settings"} />
+          <SettingsPanel onOpenSync={() => push("sync")} />
+        </MenuOverlay>
+        <MenuOverlay
+          open={peek === "sync"}
+          title="Sync Devices"
+          onClose={popAll}
+          onBack={pop}
+        >
+          <div className="-mt-1 flex-1 overflow-auto pb-32" style={{ scrollPaddingBottom: "8rem" }}>
+            <SyncPanel open={peek === "sync"} />
           </div>
         </MenuOverlay>
       </div>

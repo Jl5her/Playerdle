@@ -2,6 +2,7 @@ import clsx from "clsx"
 import type { SportConfig } from "@/games/playerdle/sports"
 import { Panel } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
+import { useSettings } from "@/shared/hooks/use-settings"
 
 export type GuideMode = "onboarding" | "manual"
 
@@ -14,6 +15,7 @@ interface GameGuideBodyProps {
 
 /** Pure content — no Panel wrapper. Use inside MenuOverlay or other containers. */
 export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGuideBodyProps) {
+  const { highContrast } = useSettings()
   const isLocal = import.meta.env.DEV
   const isCompactLayout = sport.columns.length > 5
   const comparisonColumns = sport.columns.filter(
@@ -89,18 +91,20 @@ export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGu
           <div className="flex items-center gap-3">
             <div className="w-4 h-4 rounded-sm shrink-0 bg-success-500 dark:bg-success-600" />
             <p className="text-primary-700 dark:text-primary-50 m-0 text-sm">
-              Green = Correct match
+              {highContrast ? "Blue" : "Green"} = Correct match
             </p>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-4 h-4 rounded-sm shrink-0 bg-warning-500 dark:bg-warning-600" />
             <p className="text-primary-700 dark:text-primary-50 m-0 text-sm">
-              Yellow = Close value for that specific column
+              {highContrast ? "Orange" : "Yellow"} = Close value for that specific column
             </p>
           </div>
           <div className="flex items-center gap-3">
             <div className="w-4 h-4 rounded-sm shrink-0 bg-error-500 dark:bg-error-600" />
-            <p className="text-primary-700 dark:text-primary-50 m-0 text-sm">Red = Incorrect</p>
+            <p className="text-primary-700 dark:text-primary-50 m-0 text-sm">
+              {highContrast ? "Gray" : "Red"} = Incorrect
+            </p>
           </div>
         </div>
       </div>
