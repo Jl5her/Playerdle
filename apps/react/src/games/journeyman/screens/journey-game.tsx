@@ -66,6 +66,7 @@ const LEAGUE_PLAYER_SOURCES: Record<
   nhl: nhlPlayers as Array<{ name: string; position: string }>,
 }
 
+/** Merges active-roster players with journey-eligible players into a unified, deduplicated autocomplete pool. */
 function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
   const data = getLeagueJourneyData(league)
   const eligibleSet = new Set(data.eligiblePositions)
@@ -82,10 +83,12 @@ function buildAutocompletePool(league: JourneyLeague): PlayerOption[] {
   return Array.from(byName.values()).sort((a, b) => a.name.localeCompare(b.name))
 }
 
+/** Returns the localStorage key for persisting daily guesses for a given league and date. */
 function storageKey(league: JourneyLeague, dateKey: string): string {
   return `${STORAGE_KEY_PREFIX}:${league}:${dateKey}`
 }
 
+/** Reads persisted guess names for a league and date from localStorage; tolerates both array and legacy object shapes. */
 function loadDailyGuesses(league: JourneyLeague, dateKey: string): string[] {
   try {
     const raw = localStorage.getItem(storageKey(league, dateKey))
@@ -101,10 +104,15 @@ function loadDailyGuesses(league: JourneyLeague, dateKey: string): string[] {
   }
 }
 
+/** Persists the current guess list to localStorage for the given league and date. */
 function saveDailyGuesses(league: JourneyLeague, dateKey: string, guesses: string[]) {
   localStorage.setItem(storageKey(league, dateKey), JSON.stringify(guesses))
 }
 
+/**
+ * Lightens (positive amount) or darkens (negative amount) a hex color by scaling each RGB channel
+ * toward 255 or toward 0 by the given fraction.
+ */
 function shadeHex(hex: string, amount: number): string {
   const clean = hex.replace("#", "")
   if (clean.length !== 6) return hex
@@ -117,6 +125,7 @@ function shadeHex(hex: string, amount: number): string {
   return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
 }
 
+/** Returns a contrasting border color for a diamond: lighter for dark fills, darker for light fills. */
 function diamondBorder(hex: string): string {
   const clean = hex.replace("#", "")
   if (clean.length !== 6) return shadeHex(hex, -0.25)
@@ -127,6 +136,7 @@ function diamondBorder(hex: string): string {
   return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
 }
 
+/** Diamond badge displaying a player's position abbreviation. */
 function PositionDiamond({ position }: { position: string }) {
   return (
     <span className="relative inline-block w-12 h-12 rotate-45 rounded-md border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900">
@@ -137,6 +147,7 @@ function PositionDiamond({ position }: { position: string }) {
   )
 }
 
+/** Animated flip diamond that reveals the actual team color on its back face after a staggered delay. */
 function FlipDiamond({
   color,
   revealed,
@@ -170,6 +181,7 @@ function FlipDiamond({
   )
 }
 
+/** FlipDiamond extended with a hover/tap tooltip that shows the generic color name. */
 function FlipDiamondWithPreview({
   color,
   revealed,
@@ -242,6 +254,7 @@ function FlipDiamondWithPreview({
   )
 }
 
+/** Row of three flip diamonds representing one team stop in the career ladder, optionally showing the team name. */
 function LadderRow({
   name,
   palette,
@@ -283,6 +296,7 @@ interface GuessSlotsProps {
   hideAnswer?: boolean
 }
 
+/** Scrollable column of guess result slots showing correct (green), same-position (yellow), or wrong (red) feedback. */
 function GuessSlots({
   guesses,
   answerName,
@@ -347,6 +361,7 @@ interface PlayerInputProps {
   autocompletePool: PlayerOption[]
 }
 
+/** Typeahead input that filters the autocomplete pool and submits a player name guess on selection. */
 function PlayerInput({ onGuess, disabled, usedGuesses, autocompletePool }: PlayerInputProps) {
   const [query, setQuery] = useState("")
   const [showDropdown, setShowDropdown] = useState(false)
@@ -487,6 +502,7 @@ interface ResultsPanelProps {
   onPlayAgain: () => void
 }
 
+/** Formats a shareable result string with date, score, emoji grid, and short URL. */
 function buildShareText(
   league: JourneyLeague,
   puzzle: JourneyPuzzle,
@@ -518,6 +534,7 @@ function buildShareText(
   return `Journeyman ${label} (${dateStr}) — ${score}\n${emojiRow}\n\n${url}`
 }
 
+/** End-of-game panel showing the revealed career ladder, guess distribution stats, and a share button. */
 function ResultsPanel({
   league,
   puzzle,
@@ -654,6 +671,7 @@ function ResultsPanel({
   )
 }
 
+/** Root component for the Journeyman game; manages puzzle selection, guess persistence, and daily/arcade routing. */
 export default function JourneyGame({ league, mode, onModeChange, archiveDateKey }: Props) {
   const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
