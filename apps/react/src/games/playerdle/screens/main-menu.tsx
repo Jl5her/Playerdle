@@ -8,7 +8,7 @@ import {
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { GameModeButton, MenuOverlay, SyncPanel } from "@/shared/components"
+import { GameModeButton, MenuOverlay, SettingsPanel } from "@/shared/components"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
@@ -204,15 +204,10 @@ export default function MainMenu({
         </MenuOverlay>
         <MenuOverlay
           open={section === "settings"}
-          title="Sync Devices"
+          title="Settings"
           onClose={onCloseAbout}
         >
-          <div
-            className="-mt-1 flex-1 overflow-auto pb-32"
-            style={{ scrollPaddingBottom: "8rem" }}
-          >
-            <SyncPanel open={section === "settings"} />
-          </div>
+          <SettingsPanel open={section === "settings"} />
         </MenuOverlay>
       </div>
     </div>
