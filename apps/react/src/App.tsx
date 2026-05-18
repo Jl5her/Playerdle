@@ -273,7 +273,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     }
 
     if (menuSection === "settings") {
-      setMenuSection("about")
+      setMenuSection("menu")
       return
     }
 

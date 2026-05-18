@@ -1,6 +1,6 @@
 import { faChevronLeft, faChevronRight, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import SyncPanel from "./sync-panel"
 import { type ThemePreference, useSettings } from "@/shared/hooks/use-settings"
 
@@ -46,6 +46,14 @@ function Toggle({ checked, onChange, id, label }: ToggleProps) {
 export default function SettingsPanel({ open }: { open: boolean }) {
   const [view, setView] = useState<SettingsView>("main")
   const { theme, setTheme, colorblind, setColorblind } = useSettings()
+
+  // Reset to main view after the panel's fade-out animation completes (220ms),
+  // so the view never visibly jumps while the overlay is still fading.
+  useEffect(() => {
+    if (open) return
+    const timer = setTimeout(() => setView("main"), 250)
+    return () => clearTimeout(timer)
+  }, [open])
 
   if (view === "sync") {
     return (
