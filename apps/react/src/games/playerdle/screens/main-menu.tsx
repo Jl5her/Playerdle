@@ -146,7 +146,7 @@ export default function MainMenu({
                   onClick={game.onPlayDaily}
                 />
               ))}
-              <div className="flex justify-center gap-8 mt-3">
+              <div className="flex justify-center gap-4 mt-3">
                 {(
                   [
                     { icon: faChartBar, label: "Stats", screen: "all-stats" },
@@ -158,11 +158,10 @@ export default function MainMenu({
                     key={screen}
                     type="button"
                     onClick={() => onNavigate(screen)}
-                    className="flex flex-col items-center gap-1 text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
                     aria-label={label}
+                    className="w-11 h-11 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
                   >
-                    <FontAwesomeIcon icon={icon} className="text-xl" aria-hidden="true" />
-                    <span className="text-[11px] font-semibold uppercase tracking-wider">{label}</span>
+                    <FontAwesomeIcon icon={icon} className="text-lg" aria-hidden="true" />
                   </button>
                 ))}
               </div>
