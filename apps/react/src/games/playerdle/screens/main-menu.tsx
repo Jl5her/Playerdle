@@ -1,11 +1,14 @@
 import {
   faBaseball,
   faBasketball,
+  faChartBar,
+  faCircleInfo,
   faFootball,
+  faGear,
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { GameModeButton, MenuLinkButton, MenuOverlay, SyncPanel } from "@/shared/components"
+import { GameModeButton, MenuOverlay, SyncPanel } from "@/shared/components"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
@@ -143,15 +146,26 @@ export default function MainMenu({
                   onClick={game.onPlayDaily}
                 />
               ))}
-              <MenuLinkButton
-                label="Stats"
-                onClick={() => onNavigate("all-stats")}
-                className="mt-3"
-              />
-              <MenuLinkButton
-                label="About"
-                onClick={() => onNavigate("about")}
-              />
+              <div className="flex justify-center gap-8 mt-3">
+                {(
+                  [
+                    { icon: faChartBar, label: "Stats", screen: "all-stats" },
+                    { icon: faCircleInfo, label: "About", screen: "about" },
+                    { icon: faGear, label: "Settings", screen: "settings" },
+                  ] as const
+                ).map(({ icon, label, screen }) => (
+                  <button
+                    key={screen}
+                    type="button"
+                    onClick={() => onNavigate(screen)}
+                    className="flex flex-col items-center gap-1 text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
+                    aria-label={label}
+                  >
+                    <FontAwesomeIcon icon={icon} className="text-xl" aria-hidden="true" />
+                    <span className="text-[11px] font-semibold uppercase tracking-wider">{label}</span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
           <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
@@ -162,7 +176,6 @@ export default function MainMenu({
           open={section === "about"}
           sport={sport}
           onClose={onCloseAbout}
-          onOpenSettings={() => onNavigate("settings")}
         />
         <MenuOverlay
           open={section === "stats"}

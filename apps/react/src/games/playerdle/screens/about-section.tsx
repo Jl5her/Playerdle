@@ -1,14 +1,13 @@
-import { AboutFooter, MenuLinkButton, MenuOverlay } from "@/shared/components"
+import { AboutFooter, MenuOverlay } from "@/shared/components"
 import type { SportConfig, SportInfo } from "@/games/playerdle/sports"
 
 interface Props {
   open: boolean
   sport: SportInfo | SportConfig
   onClose: () => void
-  onOpenSettings: () => void
 }
 
-export default function AboutSection({ open, sport, onClose, onOpenSettings }: Props) {
+export default function AboutSection({ open, sport, onClose }: Props) {
   return (
     <MenuOverlay
       open={open}
@@ -29,12 +28,6 @@ export default function AboutSection({ open, sport, onClose, onOpenSettings }: P
           <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
             Inspired by Wordle and other sports guessing games.
           </p>
-        </div>
-        <div className="mt-6 flex justify-center">
-          <MenuLinkButton
-            label="Sync Devices"
-            onClick={onOpenSettings}
-          />
         </div>
         <AboutFooter />
       </div>

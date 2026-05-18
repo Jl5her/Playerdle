@@ -35,7 +35,6 @@ const meta = {
     open: true,
     sport: nflInfo,
     onClose: fn(),
-    onOpenSettings: fn(),
   },
 } satisfies Meta<typeof AboutSection>
 
