@@ -27,7 +27,7 @@ import {
 import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
-import { backgroundSync } from "@/shared/utils/sync"
+import { startAutoSync } from "@/shared/utils/sync"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -484,9 +484,7 @@ function JourneyCalendarRoute() {
 
 function App() {
   useViewportHeight()
-  useEffect(() => {
-    void backgroundSync().catch(() => {})
-  }, [])
+  useEffect(() => startAutoSync(), [])
   return (
     <>
     <PWAUpdateToast />

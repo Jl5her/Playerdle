@@ -485,3 +485,64 @@ export async function backgroundSync(): Promise<void> {
   if (localIsBehind) applyData(analysis.easyMerged)
   if (localIsBehind || remoteIsBehind) await pushToCloud(phrase)
 }
+
+let _autoSyncCleanup: (() => void) | null = null
+let _pushTimer: ReturnType<typeof setTimeout> | null = null
+let _lastBgSyncAt = 0
+
+function scheduleDebouncedPush(): void {
+  if (_pushTimer) clearTimeout(_pushTimer)
+  _pushTimer = setTimeout(() => {
+    _pushTimer = null
+    const phrase = getPassphrase()
+    if (!phrase) return
+    void pushToCloud(phrase).catch(() => {})
+  }, 1500)
+}
+
+function backgroundSyncThrottled(): void {
+  const now = Date.now()
+  if (now - _lastBgSyncAt < 5_000) return
+  _lastBgSyncAt = now
+  void backgroundSync().catch(() => {})
+}
+
+/**
+ * Starts continuous background sync: pulls on tab focus, pushes 1.5s after local writes.
+ * Idempotent — safe to call multiple times. Returns a cleanup function for useEffect.
+ */
+export function startAutoSync(): () => void {
+  if (_autoSyncCleanup) return () => {}
+
+  void backgroundSync().catch(() => {})
+
+  // Intercept localStorage.setItem to detect sync-key writes and push soon after
+  const origSetItem = localStorage.setItem.bind(localStorage)
+  localStorage.setItem = (key: string, value: string) => {
+    origSetItem(key, value)
+    if (SYNC_KEY_PREFIXES.some(p => key.startsWith(p))) scheduleDebouncedPush()
+  }
+
+  const onVisible = () => {
+    if (document.visibilityState === "visible") backgroundSyncThrottled()
+  }
+  const onStorage = (e: StorageEvent) => {
+    if (e.key && SYNC_KEY_PREFIXES.some(p => e.key!.startsWith(p))) backgroundSyncThrottled()
+  }
+
+  document.addEventListener("visibilitychange", onVisible)
+  window.addEventListener("storage", onStorage)
+
+  const cleanup = () => {
+    _autoSyncCleanup = null
+    localStorage.setItem = origSetItem
+    if (_pushTimer) {
+      clearTimeout(_pushTimer)
+      _pushTimer = null
+    }
+    document.removeEventListener("visibilitychange", onVisible)
+    window.removeEventListener("storage", onStorage)
+  }
+  _autoSyncCleanup = cleanup
+  return cleanup
+}
