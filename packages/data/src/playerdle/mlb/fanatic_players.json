@@ -450,6 +450,24 @@
     "ops": 0.761
   },
   {
+    "id": "mlb:4872692",
+    "name": "Carson Williams",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "SS",
+    "number": 7,
+    "league": "AL",
+    "gp": 32,
+    "pa": 106,
+    "avg": 0.172,
+    "hr": 5,
+    "rbi": 12,
+    "sb": 2,
+    "ops": 0.573
+  },
+  {
     "id": "mlb:4301949",
     "name": "Casey Schmitt",
     "conference": "NL",
@@ -1348,24 +1366,6 @@
     "rbi": 77,
     "sb": 10,
     "ops": 0.771
-  },
-  {
-    "id": "mlb:35268",
-    "name": "Jose Trevino",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "C",
-    "number": 35,
-    "league": "NL",
-    "gp": 93,
-    "pa": 302,
-    "avg": 0.238,
-    "hr": 4,
-    "rbi": 22,
-    "sb": 0,
-    "ops": 0.623
   },
   {
     "id": "mlb:42437",

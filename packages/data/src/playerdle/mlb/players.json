@@ -88,6 +88,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4918157",
+    "name": "Adam Macko",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42178",
     "name": "Adley Rutschman",
     "conference": "AL",
@@ -184,28 +195,6 @@
     "teamAbbr": "TEX",
     "position": "LF",
     "number": 19,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4346118",
-    "name": "Alek Jacob",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 37,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:42436",
-    "name": "Alek Manoah",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 47,
     "league": "AL"
   },
   {
@@ -693,6 +682,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5136509",
+    "name": "Blas Castano",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "SP",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41345",
     "name": "Blaze Alexander",
     "conference": "AL",
@@ -965,17 +965,6 @@
     "teamAbbr": "TOR",
     "position": "RP",
     "number": 63,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:41773",
-    "name": "Brendan Donovan",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "3B",
-    "number": 33,
     "league": "AL"
   },
   {
@@ -1364,6 +1353,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5270117",
+    "name": "Cameron Foster",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41337",
     "name": "Camilo Doval",
     "conference": "AL",
@@ -1439,6 +1439,17 @@
     "position": "C",
     "number": 15,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4872692",
+    "name": "Carson Williams",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "SS",
+    "number": 7,
+    "league": "AL"
   },
   {
     "id": "mlb:4917812",
@@ -1551,17 +1562,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42600",
-    "name": "Charlie Barnes",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4927516",
     "name": "Chase Burns",
     "conference": "NL",
@@ -1615,6 +1615,17 @@
     "position": "RP",
     "number": 63,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4415756",
+    "name": "Chayce McDermott",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 62,
+    "league": "NL"
   },
   {
     "id": "mlb:33148",
@@ -1834,6 +1845,17 @@
     "teamAbbr": "CHW",
     "position": "SS",
     "number": 12,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5149068",
+    "name": "Colt Emerson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "SS",
+    "number": 4,
     "league": "AL"
   },
   {
@@ -3003,6 +3025,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41196",
+    "name": "Grayson Rodriguez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 21,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41485",
     "name": "Greg Weissert",
     "conference": "AL",
@@ -3377,17 +3410,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5136082",
-    "name": "Jack Dreyer",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 86,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33837",
     "name": "Jack Flaherty",
     "conference": "AL",
@@ -3575,17 +3597,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:37974",
-    "name": "Jake Fraley",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RF",
-    "number": 17,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41290",
     "name": "Jake Irvin",
     "conference": "NL",
@@ -3594,6 +3605,17 @@
     "teamAbbr": "WSH",
     "position": "SP",
     "number": 27,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:42664",
+    "name": "Jake Mangum",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "LF",
+    "number": 28,
     "league": "NL"
   },
   {
@@ -3759,17 +3781,6 @@
     "teamAbbr": "SD",
     "position": "RP",
     "number": 40,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5002950",
-    "name": "Javier Assad",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "SP",
-    "number": 72,
     "league": "NL"
   },
   {
@@ -4312,6 +4323,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5332124",
+    "name": "Jose Franco",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "RP",
+    "number": 74,
+    "league": "NL"
+  },
+  {
     "id": "mlb:32106",
     "name": "Jose Quintana",
     "conference": "NL",
@@ -4378,17 +4400,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:35268",
-    "name": "Jose Trevino",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "C",
-    "number": 35,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32517",
     "name": "Josh Bell",
     "conference": "AL",
@@ -4430,17 +4441,6 @@
     "teamAbbr": "SEA",
     "position": "1B",
     "number": 12,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4917841",
-    "name": "Josh Walker",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 61,
     "league": "AL"
   },
   {
@@ -5170,6 +5170,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:32697",
+    "name": "Lucas Giolito",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "SP",
+    "number": 55,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5201985",
     "name": "Luinder Avila",
     "conference": "AL",
@@ -5234,17 +5245,6 @@
     "position": "RP",
     "number": 46,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4722939",
-    "name": "Luis Mey",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 47,
-    "league": "NL"
   },
   {
     "id": "mlb:37237",
@@ -6314,6 +6314,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:39136",
+    "name": "P.J. Higgins",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "C",
+    "number": 65,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4619898",
     "name": "Parker Messick",
     "conference": "AL",
@@ -6356,6 +6367,17 @@
     "position": "RP",
     "number": 58,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4927620",
+    "name": "Paul Gervase",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 65,
+    "league": "NL"
   },
   {
     "id": "mlb:31027",
@@ -6466,17 +6488,6 @@
     "position": "SP",
     "number": 38,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4012625",
-    "name": "Peter Strzelecki",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 38,
-    "league": "NL"
   },
   {
     "id": "mlb:4722962",
@@ -6743,6 +6754,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4918251",
+    "name": "Robert Gasser",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "SP",
+    "number": 54,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4148749",
     "name": "Robert Suarez",
     "conference": "NL",
@@ -6851,17 +6873,6 @@
     "position": "3B",
     "number": 19,
     "league": "AL"
-  },
-  {
-    "id": "mlb:35183",
-    "name": "Ryan O'Hearn",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RF",
-    "number": 29,
-    "league": "NL"
   },
   {
     "id": "mlb:41220",
@@ -7689,17 +7700,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36385",
-    "name": "Tommy Nance",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RP",
-    "number": 45,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4142423",
     "name": "Tomoyuki Sugano",
     "conference": "NL",
@@ -7876,6 +7876,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:33138",
+    "name": "Ty Blach",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 58,
+    "league": "NL"
+  },
+  {
     "id": "mlb:35591",
     "name": "Ty France",
     "conference": "NL",
@@ -7885,17 +7896,6 @@
     "position": "1B",
     "number": 25,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4414347",
-    "name": "Ty Madden",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "SP",
-    "number": 36,
-    "league": "AL"
   },
   {
     "id": "mlb:40360",
@@ -8228,6 +8228,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41606",
+    "name": "Will Vest",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "RP",
+    "number": 19,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5132011",
     "name": "Will Warren",
     "conference": "AL",
@@ -8467,17 +8478,6 @@
     "teamAbbr": "ARI",
     "position": "SP",
     "number": 23,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5207459",
-    "name": "Zach Agnos",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RP",
-    "number": 36,
     "league": "NL"
   },
   {
