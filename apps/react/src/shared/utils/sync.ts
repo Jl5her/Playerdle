@@ -15,6 +15,14 @@ const SYNC_KEY_PREFIXES = [
   "playerdle-journey-history:",
   "playerdle-journey-state:",
   "journey-tutorial-seen:",
+  "playerdle-colors-state:",
+  "playerdle-colors-collegiate-state:",
+  "playerdle-colors-history:",
+  "playerdle-colors-collegiate-history:",
+  "playerdle-colors-played-day",
+  "playerdle-colors-collegiate-played-day",
+  "statehue-tutorial-seen",
+  "statehue-collegiate-tutorial-seen",
 ]
 
 export interface SyncPayload {
@@ -274,11 +282,13 @@ export function analyzeMerge(
 
   const allKeys = new Set([...Object.keys(localData), ...Object.keys(remoteData)])
 
-  // Pass 1: merge completed-game history arrays (stats + journey history)
+  // Pass 1: merge completed-game history arrays (stats + journey + statehue history)
   for (const key of allKeys) {
     if (
       key.startsWith("playerdle-stats:") ||
-      key.startsWith("playerdle-journey-history:")
+      key.startsWith("playerdle-journey-history:") ||
+      key.startsWith("playerdle-colors-history:") ||
+      key.startsWith("playerdle-colors-collegiate-history:")
     ) {
       easyMerged[key] = mergeStatsArrays(localData[key], remoteData[key])
     }
@@ -331,6 +341,34 @@ export function analyzeMerge(
         conflictLocal,
         conflictRemote,
       )
+    } else if (
+      key.startsWith("playerdle-colors-state:") ||
+      key.startsWith("playerdle-colors-collegiate-state:")
+    ) {
+      // playerdle-colors-state:v1:<dateKey>
+      // playerdle-colors-collegiate-state:v1:<dateKey>
+      const parts = key.split(":")
+      const dateKey = parts[2]
+      if (!dateKey) {
+        easyMerged[key] = localData[key] ?? remoteData[key]
+        continue
+      }
+      const isCollegiate = key.startsWith("playerdle-colors-collegiate-state:")
+      const historyKey = isCollegiate
+        ? "playerdle-colors-collegiate-history:v1"
+        : "playerdle-colors-history:v1"
+      mergeStateKey(
+        key,
+        `Statehue${isCollegiate ? " Collegiate" : ""} puzzle (${dateKey})`,
+        localData[key],
+        remoteData[key],
+        completedDatesSet(localData[historyKey]).has(dateKey),
+        completedDatesSet(remoteData[historyKey]).has(dateKey),
+        easyMerged,
+        conflicts,
+        conflictLocal,
+        conflictRemote,
+      )
     }
   }
 
@@ -339,19 +377,27 @@ export function analyzeMerge(
     if (key in easyMerged || key in conflictLocal) continue
     if (
       key.startsWith("playerdle-stats:") ||
-      key.startsWith("playerdle-journey-history:")
+      key.startsWith("playerdle-journey-history:") ||
+      key.startsWith("playerdle-colors-history:") ||
+      key.startsWith("playerdle-colors-collegiate-history:")
     )
       continue
 
     if (
       key.startsWith("playerdle-tutorial-seen-v2:") ||
-      key.startsWith("journey-tutorial-seen:")
+      key.startsWith("journey-tutorial-seen:") ||
+      key === "statehue-tutorial-seen" ||
+      key === "statehue-collegiate-tutorial-seen"
     ) {
       easyMerged[key] =
         localData[key] === "true" || remoteData[key] === "true"
           ? "true"
           : (localData[key] ?? remoteData[key] ?? "false")
-    } else if (key.startsWith("playerdle-journey-played-day:")) {
+    } else if (
+      key.startsWith("playerdle-journey-played-day:") ||
+      key === "playerdle-colors-played-day" ||
+      key === "playerdle-colors-collegiate-played-day"
+    ) {
       // More recent date wins (YYYY-MM-DD lexicographic comparison is correct)
       const local = localData[key] ?? ""
       const remote = remoteData[key] ?? ""
