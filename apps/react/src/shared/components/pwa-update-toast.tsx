@@ -2,31 +2,47 @@ import { useEffect, useState } from "react"
 import Popup from "./popup"
 
 export default function PWAUpdateToast() {
+  const [updating, setUpdating] = useState(false)
   const [updated, setUpdated] = useState(false)
 
   useEffect(() => {
     if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) return
-    let initialControllerSet = !!navigator.serviceWorker.controller
-    const handleChange = () => {
-      // First controller assignment after a fresh load is normal; only treat
-      // subsequent swaps as "a new SW just took over → app was updated".
-      if (!initialControllerSet) {
-        initialControllerSet = true
+
+    // Track whether a SW was already controlling the page at mount time.
+    // The first controllerchange (and updatefound) on a fresh install is not an update.
+    let isFirstInstall = !navigator.serviceWorker.controller
+    let cleanupUpdateFound: (() => void) | null = null
+
+    navigator.serviceWorker.ready.then(registration => {
+      const handleUpdateFound = () => {
+        if (isFirstInstall) return
+        setUpdating(true)
+      }
+      registration.addEventListener("updatefound", handleUpdateFound)
+      cleanupUpdateFound = () => registration.removeEventListener("updatefound", handleUpdateFound)
+    })
+
+    const handleControllerChange = () => {
+      if (isFirstInstall) {
+        isFirstInstall = false
         return
       }
+      setUpdating(false)
       setUpdated(true)
     }
-    navigator.serviceWorker.addEventListener("controllerchange", handleChange)
+
+    navigator.serviceWorker.addEventListener("controllerchange", handleControllerChange)
+
     return () => {
-      navigator.serviceWorker.removeEventListener("controllerchange", handleChange)
+      navigator.serviceWorker.removeEventListener("controllerchange", handleControllerChange)
+      cleanupUpdateFound?.()
     }
   }, [])
 
   return (
-    <Popup
-      visible={updated}
-      message="Updated to latest version"
-      durationMs={3500}
-    />
+    <>
+      <Popup visible={updating} message="Updating…" persistent spinner />
+      <Popup visible={updated} message="Updated to latest version" durationMs={3500} />
+    </>
   )
 }
