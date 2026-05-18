@@ -486,6 +486,29 @@ export async function backgroundSync(): Promise<void> {
   if (localIsBehind || remoteIsBehind) await pushToCloud(phrase)
 }
 
+let _bgSyncPromise: Promise<void> | null = null
+const _syncListeners = new Set<() => void>()
+
+function notifySyncListeners(): void {
+  for (const fn of _syncListeners) fn()
+}
+
+/** Subscribe to changes in whether a background sync is in flight. Returns unsubscribe fn. */
+export function subscribeSyncState(fn: () => void): () => void {
+  _syncListeners.add(fn)
+  return () => _syncListeners.delete(fn)
+}
+
+/** Returns true if a background sync is currently in flight. */
+export function getIsSyncing(): boolean {
+  return _bgSyncPromise !== null
+}
+
+/** Resolves when the current background sync finishes, or immediately if none is running. */
+export function waitForSync(): Promise<void> {
+  return _bgSyncPromise ?? Promise.resolve()
+}
+
 let _autoSyncCleanup: (() => void) | null = null
 let _pushTimer: ReturnType<typeof setTimeout> | null = null
 let _lastBgSyncAt = 0
@@ -500,11 +523,22 @@ function scheduleDebouncedPush(): void {
   }, 1500)
 }
 
+function runTrackedSync(): void {
+  if (_bgSyncPromise) return
+  _bgSyncPromise = backgroundSync()
+    .catch(() => {})
+    .finally(() => {
+      _bgSyncPromise = null
+      notifySyncListeners()
+    })
+  notifySyncListeners()
+}
+
 function backgroundSyncThrottled(): void {
   const now = Date.now()
   if (now - _lastBgSyncAt < 5_000) return
   _lastBgSyncAt = now
-  void backgroundSync().catch(() => {})
+  runTrackedSync()
 }
 
 /**
@@ -514,7 +548,7 @@ function backgroundSyncThrottled(): void {
 export function startAutoSync(): () => void {
   if (_autoSyncCleanup) return () => {}
 
-  void backgroundSync().catch(() => {})
+  runTrackedSync()
 
   // Intercept localStorage.setItem to detect sync-key writes and push soon after
   const origSetItem = localStorage.setItem.bind(localStorage)
