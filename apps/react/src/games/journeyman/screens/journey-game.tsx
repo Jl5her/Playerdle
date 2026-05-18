@@ -32,6 +32,7 @@ import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 import { trackGameComplete } from "@/lib/analytics"
+import { hapticGuess, hapticLoss, hapticWin } from "@/shared/utils/haptic"
 
 const MAX_GUESSES = 5
 const STORAGE_KEY_PREFIX = "playerdle-journey-state:v1"
@@ -777,6 +778,9 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     if (activeMode === "daily") saveDailyGuesses(league, puzzle.dateKey, next)
     const newWon = next.some(g => g.toLowerCase() === answerName.toLowerCase())
     const newLost = !newWon && next.length >= MAX_GUESSES
+    if (newWon) hapticWin()
+    else if (newLost) hapticLoss()
+    else hapticGuess()
     if (newWon || newLost) {
       trackGameComplete({ game: "journeyman", sport: league, mode: activeMode, won: newWon, guesses: next.length })
     }

@@ -13,6 +13,7 @@ import { saveGameResult } from "@/games/playerdle/utils/stats"
 import { DailyGameShell, Popup, ResultBanner, ScrollHint } from "@/shared/components"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { parseDateKey } from "@/shared/utils/calendar-date"
+import { hapticGuess, hapticLoss, hapticWin } from "@/shared/utils/haptic"
 
 const MAX_GUESSES = 6
 
@@ -166,6 +167,10 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
       positionLockedShownRef.current = true
       setShowPositionPopup(true)
     }
+
+    if (newWon) hapticWin()
+    else if (newLost) hapticLoss()
+    else hapticGuess()
 
     if (newWon || newLost) {
       if (activeMode === "daily") {
