@@ -36,6 +36,7 @@ import { trackGameComplete } from "@/lib/analytics"
 
 const MAX_GUESSES = 5
 
+/** Returns the localStorage key for persisting daily guesses for a given Statehue variant and date. */
 function storageKeyFor(variant: ColorsVariant, dateKey: string): string {
   const base =
     variant === "collegiate" ? "playerdle-colors-collegiate-state:v1" : "playerdle-colors-state:v1"
@@ -56,6 +57,7 @@ interface Props {
   archiveDateKey?: string
 }
 
+/** Reads persisted guess names for a date and variant from localStorage; tolerates both array and legacy object shapes. */
 function loadDailyGuesses(dateKey: string, variant: ColorsVariant): string[] {
   try {
     const raw = localStorage.getItem(storageKeyFor(variant, dateKey))
@@ -71,10 +73,15 @@ function loadDailyGuesses(dateKey: string, variant: ColorsVariant): string[] {
   }
 }
 
+/** Persists the current guess list to localStorage for the given date and variant. */
 function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVariant) {
   localStorage.setItem(storageKeyFor(variant, dateKey), JSON.stringify(guesses))
 }
 
+/**
+ * Lightens (positive amount) or darkens (negative amount) a hex color by scaling each RGB channel
+ * toward 255 or toward 0 by the given fraction.
+ */
 function shadeHex(hex: string, amount: number): string {
   const clean = hex.replace("#", "")
   if (clean.length !== 6) return hex
@@ -87,6 +94,7 @@ function shadeHex(hex: string, amount: number): string {
   return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
 }
 
+/** Returns a contrasting border color for a diamond: lighter for dark fills, darker for light fills. */
 function diamondBorder(hex: string): string {
   const clean = hex.replace("#", "")
   if (clean.length !== 6) return shadeHex(hex, -0.25)
@@ -97,6 +105,7 @@ function diamondBorder(hex: string): string {
   return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
 }
 
+/** Small rotated diamond badge displaying a single raw team color swatch. */
 function Diamond({ color }: { color: string }) {
   const isTransparent = color === "transparent"
   const displayColor = color
@@ -109,6 +118,7 @@ function Diamond({ color }: { color: string }) {
   )
 }
 
+/** Diamond swatch with a hover/tap tooltip that shows the generic English color name. */
 function DiamondWithPreview({ color }: { color: string }) {
   const [open, setOpen] = useState(false)
   const closeTimer = useRef<number>(0)
@@ -168,6 +178,7 @@ function DiamondWithPreview({ color }: { color: string }) {
   )
 }
 
+/** Row of three color diamonds for one team, optionally revealing the team name and league label. */
 function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: boolean }) {
   return (
     <div className="flex items-center justify-center">
@@ -200,6 +211,7 @@ interface GuessSlotsProps {
   hideAnswer?: boolean
 }
 
+/** Inline SVG silhouette of a US state identified by its two-letter code, with a text fallback for unknown codes. */
 function StateBadge({ code, dim }: { code: string; dim?: boolean }) {
   const shape = code === "??" ? undefined : STATE_PATHS[code]
   return (
@@ -230,11 +242,13 @@ function StateBadge({ code, dim }: { code: string; dim?: boolean }) {
   )
 }
 
+/** Returns the two-letter state ID for a given state name, or undefined if not found. */
 function getStateCodeByName(name?: string): string | undefined {
   if (!name) return undefined
   return getStateByName(name)?.id
 }
 
+/** Directional arrow icon pointing from one state toward another based on their geographic bearing. */
 function CompassArrow({ fromCode, toCode }: { fromCode: string; toCode: string }) {
   const bearing = bearingDeg(fromCode, toCode)
   if (bearing === undefined) {
@@ -262,6 +276,7 @@ function CompassArrow({ fromCode, toCode }: { fromCode: string; toCode: string }
   )
 }
 
+/** Scrollable column of guess result slots showing each guessed state with its silhouette and a compass arrow toward the answer. */
 function GuessSlots({ guesses, answer, maxGuesses, hideAnswer = false }: GuessSlotsProps) {
   const answerCode = answer.id
   const slotRefs = useRef<Array<HTMLDivElement | null>>([])
@@ -324,6 +339,7 @@ interface StateInputProps {
   usedGuesses: Set<string>
 }
 
+/** Typeahead input that filters all US states and submits a state name guess on selection. */
 function StateInput({ onGuess, disabled, usedGuesses }: StateInputProps) {
   const [query, setQuery] = useState("")
   const [showDropdown, setShowDropdown] = useState(false)
@@ -482,6 +498,7 @@ interface ResultsPanelProps {
   onPlayAgain: () => void
 }
 
+/** Formats a shareable result string with date, score, emoji grid, and short URL. */
 function buildShareText(
   puzzle: ColorsPuzzle,
   guesses: string[],
@@ -500,6 +517,7 @@ function buildShareText(
   return `${title} (${dateStr}) — ${score}\n\n${url}`
 }
 
+/** End-of-game panel showing the revealed answer state, guess distribution stats, and a share button. */
 function ResultsPanel({
   puzzle,
   guesses,
@@ -632,6 +650,7 @@ function ResultsPanel({
   )
 }
 
+/** Root component for the Statehue game; manages puzzle selection, guess persistence, and daily/arcade routing. */
 export default function ColorsGame({
   mode,
   variant = "pro",
