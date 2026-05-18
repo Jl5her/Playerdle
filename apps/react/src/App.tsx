@@ -1,6 +1,6 @@
 import { faMap } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
-import { lazy, Suspense, useEffect, useRef, useState } from "react"
+import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
 import { parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate } from "@/shared/utils/time"
@@ -27,7 +27,7 @@ import {
 import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
-import { backgroundSync } from "@/shared/utils/sync"
+import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -107,6 +107,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     "menu" | "about" | "help" | "stats" | "settings"
   >(screen === "help" ? "help" : "menu")
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
+  const isSyncing = useSyncExternalStore(subscribeSyncState, getIsSyncing, () => false)
+  const [waitingForSync, setWaitingForSync] = useState(false)
 
   useEffect(() => {
     if (screen === "help") {
@@ -200,7 +202,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     setCalendarHistoryVersion(v => v + 1)
   }
 
-  function handleNavigate(target: Screen, options?: NavigationOptions) {
+  async function handleNavigate(target: Screen, options?: NavigationOptions) {
+    if ((target === "daily" || target === "arcade") && isSyncing) {
+      setWaitingForSync(true)
+      await waitForSync()
+      setWaitingForSync(false)
+    }
     if (target === "about" && screen === "menu") {
       setMenuSection("about")
       return
@@ -295,6 +302,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     <>
       {isMenuView && (
         <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
+          {waitingForSync && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center bg-primary-50/70 dark:bg-primary-900/70">
+              <div className="w-9 h-9 rounded-full border-[3px] border-primary-200 border-t-primary-600 dark:border-primary-700 dark:border-t-primary-200 animate-spin" />
+            </div>
+          )}
           <MainMenu
             onNavigate={handleNavigate}
             sport={sport ?? sportMeta}
@@ -484,9 +496,7 @@ function JourneyCalendarRoute() {
 
 function App() {
   useViewportHeight()
-  useEffect(() => {
-    void backgroundSync().catch(() => {})
-  }, [])
+  useEffect(() => startAutoSync(), [])
   return (
     <>
     <PWAUpdateToast />

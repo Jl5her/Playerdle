@@ -485,3 +485,98 @@ export async function backgroundSync(): Promise<void> {
   if (localIsBehind) applyData(analysis.easyMerged)
   if (localIsBehind || remoteIsBehind) await pushToCloud(phrase)
 }
+
+let _bgSyncPromise: Promise<void> | null = null
+const _syncListeners = new Set<() => void>()
+
+function notifySyncListeners(): void {
+  for (const fn of _syncListeners) fn()
+}
+
+/** Subscribe to changes in whether a background sync is in flight. Returns unsubscribe fn. */
+export function subscribeSyncState(fn: () => void): () => void {
+  _syncListeners.add(fn)
+  return () => _syncListeners.delete(fn)
+}
+
+/** Returns true if a background sync is currently in flight. */
+export function getIsSyncing(): boolean {
+  return _bgSyncPromise !== null
+}
+
+/** Resolves when the current background sync finishes, or immediately if none is running. */
+export function waitForSync(): Promise<void> {
+  return _bgSyncPromise ?? Promise.resolve()
+}
+
+let _autoSyncCleanup: (() => void) | null = null
+let _pushTimer: ReturnType<typeof setTimeout> | null = null
+let _lastBgSyncAt = 0
+
+function scheduleDebouncedPush(): void {
+  if (_pushTimer) clearTimeout(_pushTimer)
+  _pushTimer = setTimeout(() => {
+    _pushTimer = null
+    const phrase = getPassphrase()
+    if (!phrase) return
+    void pushToCloud(phrase).catch(() => {})
+  }, 1500)
+}
+
+function runTrackedSync(): void {
+  if (_bgSyncPromise) return
+  _bgSyncPromise = backgroundSync()
+    .catch(() => {})
+    .finally(() => {
+      _bgSyncPromise = null
+      notifySyncListeners()
+    })
+  notifySyncListeners()
+}
+
+function backgroundSyncThrottled(): void {
+  const now = Date.now()
+  if (now - _lastBgSyncAt < 5_000) return
+  _lastBgSyncAt = now
+  runTrackedSync()
+}
+
+/**
+ * Starts continuous background sync: pulls on tab focus, pushes 1.5s after local writes.
+ * Idempotent — safe to call multiple times. Returns a cleanup function for useEffect.
+ */
+export function startAutoSync(): () => void {
+  if (_autoSyncCleanup) return () => {}
+
+  runTrackedSync()
+
+  // Intercept localStorage.setItem to detect sync-key writes and push soon after
+  const origSetItem = localStorage.setItem.bind(localStorage)
+  localStorage.setItem = (key: string, value: string) => {
+    origSetItem(key, value)
+    if (SYNC_KEY_PREFIXES.some(p => key.startsWith(p))) scheduleDebouncedPush()
+  }
+
+  const onVisible = () => {
+    if (document.visibilityState === "visible") backgroundSyncThrottled()
+  }
+  const onStorage = (e: StorageEvent) => {
+    if (e.key && SYNC_KEY_PREFIXES.some(p => e.key!.startsWith(p))) backgroundSyncThrottled()
+  }
+
+  document.addEventListener("visibilitychange", onVisible)
+  window.addEventListener("storage", onStorage)
+
+  const cleanup = () => {
+    _autoSyncCleanup = null
+    localStorage.setItem = origSetItem
+    if (_pushTimer) {
+      clearTimeout(_pushTimer)
+      _pushTimer = null
+    }
+    document.removeEventListener("visibilitychange", onVisible)
+    window.removeEventListener("storage", onStorage)
+  }
+  _autoSyncCleanup = cleanup
+  return cleanup
+}
