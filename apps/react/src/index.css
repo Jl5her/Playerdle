@@ -66,6 +66,19 @@
   background-color: var(--color-primary-300);
 }
 
+/* Suppress mobile/WebKit input adornments (autofill icons, search decorations, spinners) */
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration,
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button,
+input::-webkit-clear-button {
+  display: none !important;
+}
+
 @keyframes cellReveal {
   0% {
     transform: perspective(400px) rotateX(0deg);
