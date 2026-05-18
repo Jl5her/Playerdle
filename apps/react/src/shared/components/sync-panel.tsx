@@ -97,9 +97,9 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
     setLocalPassphrase(phrase)
     setLastSynced(getLastSynced())
     setView("active")
-    const localData = collectSyncData().data
     pullFromCloud(phrase)
       .then(({ payload, devices }) => {
+        const localData = collectSyncData().data
         setDeviceCount(devices)
         setLastSynced(getLastSynced())
         const analysis = analyzeMerge(localData, payload.data)
@@ -179,8 +179,8 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
   async function handleSync() {
     setStatus({ type: "saving" })
     try {
-      const localData = collectSyncData().data
       const { payload, devices } = await pullFromCloud(passphrase)
+      const localData = collectSyncData().data
       setDeviceCount(devices)
       const analysis = analyzeMerge(localData, payload.data)
       if (analysis.hasConflicts) {

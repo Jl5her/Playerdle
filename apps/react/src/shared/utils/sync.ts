@@ -472,8 +472,10 @@ export async function unlinkFromCloud(phrase: string): Promise<number> {
 export async function backgroundSync(): Promise<void> {
   const phrase = getPassphrase()
   if (!phrase) return
-  const localData = collectSyncData().data
   const { payload } = await pullFromCloud(phrase)
+  // Snapshot taken after pull so the merge sees any writes that happened
+  // while the pull was in flight (e.g. the user finishing a game).
+  const localData = collectSyncData().data
   const analysis = analyzeMerge(localData, payload.data)
   if (analysis.hasConflicts) return
   const localIsBehind = Object.entries(analysis.easyMerged).some(
