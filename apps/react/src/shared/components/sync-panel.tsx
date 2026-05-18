@@ -379,8 +379,8 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
         {toasts}
         <section className="flex flex-col gap-5 items-center text-center">
           <p className="text-sm text-primary-600 dark:text-primary-300">
-            Sync your game progress across devices without signing in. A 4-word code links your
-            devices. Codes only expire {SYNC_TTL_DAYS} days after the last device unlinks.
+            Keep your progress in sync across devices — no account needed. Generate a code on this
+            device, then enter it on another to link them.
           </p>
           <MenuLinkButton
             label="Generate Sync Code"
