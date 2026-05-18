@@ -1,10 +1,6 @@
-import { faChevronLeft, faChevronRight, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { faChevronRight, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect, useState } from "react"
-import SyncPanel from "./sync-panel"
 import { type ThemePreference, useSettings } from "@/shared/hooks/use-settings"
-
-type SettingsView = "main" | "sync"
 
 const THEME_OPTIONS: { value: ThemePreference; label: string }[] = [
   { value: "light", label: "Light" },
@@ -43,38 +39,8 @@ function Toggle({ checked, onChange, id, label }: ToggleProps) {
   )
 }
 
-export default function SettingsPanel({ open }: { open: boolean }) {
-  const [view, setView] = useState<SettingsView>("main")
+export default function SettingsPanel({ onOpenSync }: { onOpenSync: () => void }) {
   const { theme, setTheme, colorblind, setColorblind } = useSettings()
-
-  // Reset to main view after the panel's fade-out animation completes (220ms),
-  // so the view never visibly jumps while the overlay is still fading.
-  useEffect(() => {
-    if (open) return
-    const timer = setTimeout(() => setView("main"), 250)
-    return () => clearTimeout(timer)
-  }, [open])
-
-  if (view === "sync") {
-    return (
-      <div className="flex flex-col gap-4 -mt-1 flex-1 overflow-auto">
-        <button
-          type="button"
-          onClick={() => setView("main")}
-          className="flex items-center gap-1.5 text-sm font-semibold text-primary-600 dark:text-primary-300 hover:text-primary-800 dark:hover:text-primary-100 transition-colors self-start -ml-1 px-1 py-0.5 rounded"
-        >
-          <FontAwesomeIcon icon={faChevronLeft} className="text-xs" />
-          Back
-        </button>
-        <h3 className="text-base font-bold text-primary-700 dark:text-primary-100 -mt-1">
-          Sync Devices
-        </h3>
-        <div className="flex-1 overflow-auto pb-32" style={{ scrollPaddingBottom: "8rem" }}>
-          <SyncPanel open={open && view === "sync"} />
-        </div>
-      </div>
-    )
-  }
 
   return (
     <div className="-mt-1 flex-1 overflow-auto pb-4">
@@ -142,7 +108,7 @@ export default function SettingsPanel({ open }: { open: boolean }) {
         {/* Sync sub-menu entry */}
         <button
           type="button"
-          onClick={() => setView("sync")}
+          onClick={onOpenSync}
           className="flex items-center justify-between w-full text-left py-1 group"
           aria-label="Open sync devices settings"
         >

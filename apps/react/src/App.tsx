@@ -54,6 +54,12 @@ interface AppShellProps {
   variantId?: string
 }
 
+function HelpRedirect() {
+  const { sport } = useParams<{ sport?: string }>()
+  const to = sport ? `/${sport}?m=help` : `/?m=help`
+  return <Navigate to={to} replace />
+}
+
 function getSportIdFromRouteParam(sport?: string): SportConfig["id"] | null {
   if (!sport) return "nfl"
   const normalized = sport.toLowerCase()
@@ -103,22 +109,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const isArchive = !!archiveDateKey
-  const [menuSection, setMenuSection] = useState<
-    "menu" | "about" | "help" | "stats" | "settings"
-  >(screen === "help" ? "help" : "menu")
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
   const isSyncing = useSyncExternalStore(subscribeSyncState, getIsSyncing, () => false)
   const [waitingForSync, setWaitingForSync] = useState(false)
-
-  useEffect(() => {
-    if (screen === "help") {
-      setMenuSection("help")
-      return
-    }
-    if (screen !== "menu") {
-      setMenuSection("menu")
-    }
-  }, [screen])
 
   useEffect(() => {
     let isMounted = true
@@ -165,7 +158,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   function goToMenu() {
     navigate(buildPath(sportId, "menu"))
-    setMenuSection("menu")
     panels.clear()
   }
 
@@ -185,7 +177,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   function handleSelectSport(nextSportId: SportConfig["id"]) {
     navigate(buildPath(nextSportId, "menu"))
-    setMenuSection("menu")
     panels.clear()
   }
 
@@ -207,26 +198,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       setWaitingForSync(true)
       await waitForSync()
       setWaitingForSync(false)
-    }
-    if (target === "about" && screen === "menu") {
-      setMenuSection("about")
-      return
-    }
-
-    if (target === "all-stats" && screen === "menu") {
-      setMenuSection("stats")
-      return
-    }
-
-    if (target === "settings" && screen === "menu") {
-      setMenuSection("settings")
-      return
-    }
-
-    if (target === "help" && screen === "menu") {
-      navigate(buildPath(sportId, "help"))
-      setMenuSection("help")
-      return
     }
 
     const nextVariantId = options?.variantId
@@ -260,26 +231,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     }
   }
 
-  function handleAboutBack() {
-    if (menuSection === "help") {
-      navigate(buildPath(sportId, "menu"))
-      setMenuSection("menu")
-      return
-    }
-
-    if (menuSection === "about" || menuSection === "stats") {
-      setMenuSection("menu")
-      return
-    }
-
-    if (menuSection === "settings") {
-      setMenuSection("menu")
-      return
-    }
-
-    goToMenu()
-  }
-
   const isMenuView = screen === "menu" || screen === "help"
 
   const journeymanLeague: JourneyLeague | null = isJourneyLeague(sportId) ? sportId : null
@@ -310,8 +261,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
           <MainMenu
             onNavigate={handleNavigate}
             sport={sport ?? sportMeta}
-            section={menuSection}
-            onCloseAbout={handleAboutBack}
             guideSport={activeSport ?? sport}
             extraGames={extraGames}
             journeyLeague={journeymanLeague}
@@ -507,7 +456,7 @@ function App() {
       />
       <Route
         path="/help"
-        element={<SportRoute screen="help" />}
+        element={<HelpRedirect />}
       />
       <Route
         path="/daily"
@@ -541,7 +490,7 @@ function App() {
       />
       <Route
         path="/:sport/help"
-        element={<SportRoute screen="help" />}
+        element={<HelpRedirect />}
       />
       <Route
         path="/:sport/daily"
