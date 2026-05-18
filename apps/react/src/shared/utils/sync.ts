@@ -5,7 +5,7 @@ const LAST_SYNCED_KEY = "playerdle-sync-last-synced"
 const DEVICE_ID_KEY = "playerdle-sync-device-id"
 
 export const SYNC_TTL_DAYS = 7
-const PASSPHRASE_WORD_COUNT = 5
+const PASSPHRASE_WORD_COUNT = 4
 
 const SYNC_KEY_PREFIXES = [
   "playerdle-stats:",
@@ -417,4 +417,25 @@ export async function unlinkFromCloud(phrase: string): Promise<number> {
   if (!res.ok) throw new Error("Failed to unlink")
   const body = (await res.json()) as ServerWriteResponse
   return body.devices
+}
+
+/**
+ * Silently pulls from cloud and applies a best-effort merge on page load.
+ * Skips if there is no stored passphrase or if conflicts need user resolution.
+ */
+export async function backgroundSync(): Promise<void> {
+  const phrase = getPassphrase()
+  if (!phrase) return
+  const localData = collectSyncData().data
+  const { payload } = await pullFromCloud(phrase)
+  const analysis = analyzeMerge(localData, payload.data)
+  if (analysis.hasConflicts) return
+  const localIsBehind = Object.entries(analysis.easyMerged).some(
+    ([k, v]) => localData[k] !== v,
+  )
+  const remoteIsBehind = Object.keys({ ...localData, ...payload.data }).some(
+    k => analysis.easyMerged[k] !== payload.data[k],
+  )
+  if (localIsBehind) applyData(analysis.easyMerged)
+  if (localIsBehind || remoteIsBehind) await pushToCloud(phrase)
 }

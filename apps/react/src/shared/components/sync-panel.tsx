@@ -42,7 +42,6 @@ type ActionStatus =
       payload: SyncPayload
       devices: number
     }
-  | { type: "import-ok" }
   | { type: "import-err"; message: string }
   | { type: "unlinking" }
   | { type: "merge-conflict"; analysis: MergeAnalysis; phrase: string }
@@ -235,7 +234,7 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
   async function handleImportStart() {
     const normalized = normalizePassphrase(importInput)
     if (!normalized) {
-      setStatus({ type: "import-err", message: "Enter all 5 words separated by dashes" })
+      setStatus({ type: "import-err", message: "Enter all 4 words separated by dashes" })
       return
     }
     setStatus({ type: "importing" })
@@ -272,18 +271,13 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
     }
     restoreSyncData(payload)
     setPassphrase(phrase)
-    setLocalPassphrase(phrase)
-    setImportInput("")
-    setView("active")
     setStatus({ type: "importing" })
     try {
-      const devices = await pushToCloud(phrase)
-      setDeviceCount(devices)
-      setLastSynced(getLastSynced())
+      await pushToCloud(phrase)
     } catch {
-      // Push failed; device count may be stale but data is restored
+      // Push failed; data is restored, device count may be stale
     }
-    setStatus({ type: "import-ok" })
+    window.location.reload()
   }, [status, passphrase])
 
   function resetStatus() {
@@ -338,7 +332,7 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
                 setImportInput(e.target.value)
                 if (status.type === "import-err") resetStatus()
               }}
-              placeholder="hawk-wolf-bear-deer-fox"
+              placeholder="hawk-bear-deer-fox"
               className="flex-1 min-w-0 px-3 py-2 rounded-md border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-primary-800 text-primary-900 dark:text-primary-50 placeholder-primary-400 dark:placeholder-primary-500 font-mono text-sm focus:outline-none focus:border-primary-500 dark:focus:border-primary-400"
               spellCheck={false}
               autoCapitalize="none"
@@ -385,7 +379,7 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
         {toasts}
         <section className="flex flex-col gap-5 items-center text-center">
           <p className="text-sm text-primary-600 dark:text-primary-300">
-            Sync your game progress across devices without signing in. A 5-word code links your
+            Sync your game progress across devices without signing in. A 4-word code links your
             devices. Codes only expire {SYNC_TTL_DAYS} days after the last device unlinks.
           </p>
           <MenuLinkButton
@@ -555,22 +549,6 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
               className="text-xs text-primary-500 dark:text-primary-400 hover:underline"
             >
               Decide later
-            </button>
-          </div>
-        ) : status.type === "import-ok" ? (
-          <div className="rounded-md border-2 border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-950/30 px-4 py-3 flex flex-col gap-2">
-            <p className="text-sm font-semibold text-green-800 dark:text-green-300">
-              Stats imported from cloud
-            </p>
-            <p className="text-sm text-green-700 dark:text-green-400">
-              Reload the page to see your updated progress.
-            </p>
-            <button
-              type="button"
-              onClick={() => window.location.reload()}
-              className="self-start px-3 py-1.5 rounded-md text-sm font-bold bg-green-700 text-white hover:bg-green-600 transition-colors"
-            >
-              Reload Now
             </button>
           </div>
         ) : (
