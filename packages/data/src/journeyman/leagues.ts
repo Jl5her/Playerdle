@@ -27,8 +27,8 @@ function buildPaletteLookup(
   const map = new Map<string, [string, string, string]>()
   for (const t of teams) {
     const c = t.colors
-    if (!c || c.length < 3) continue
-    map.set(t.name, [c[0], c[1], c[2]])
+    if (!c || c.length < 2) continue
+    map.set(t.name, [c[0], c[1], c[2] ?? c[0]])
   }
   return name => map.get(name)
 }
