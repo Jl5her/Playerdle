@@ -1,4 +1,4 @@
-import { faMap } from "@fortawesome/free-solid-svg-icons"
+import { faChartBar, faCircleInfo, faGear, faMap } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useState } from "react"
@@ -11,12 +11,12 @@ import {
   type FooterTab,
   GameModeButton,
   LeagueFooter,
-  MenuLinkButton,
   MenuOverlay,
+  SettingsPanel,
   SyncPanel,
 } from "@/shared/components"
 
-type Section = "menu" | "about" | "stats" | "sync-devices"
+type Section = "menu" | "about" | "stats" | "settings" | "sync-devices"
 
 export default function PaletteHub() {
   const navigate = useNavigate()
@@ -83,15 +83,25 @@ export default function PaletteHub() {
                     played={playedCollegiateToday}
                     onClick={() => navigate("/statehue/collegiate")}
                   />
-                  <MenuLinkButton
-                    label="Stats"
-                    onClick={() => setSection("stats")}
-                    className="mt-3"
-                  />
-                  <MenuLinkButton
-                    label="About"
-                    onClick={() => setSection("about")}
-                  />
+                  <div className="flex justify-center gap-4 mt-3">
+                    {(
+                      [
+                        { icon: faChartBar, label: "Stats", id: "stats" },
+                        { icon: faCircleInfo, label: "About", id: "about" },
+                        { icon: faGear, label: "Settings", id: "settings" },
+                      ] as const
+                    ).map(({ icon, label, id }) => (
+                      <button
+                        key={id}
+                        type="button"
+                        onClick={() => setSection(id)}
+                        aria-label={label}
+                        className="w-11 h-11 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
+                      >
+                        <FontAwesomeIcon icon={icon} className="text-lg" aria-hidden="true" />
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
               <p className="text-xs text-primary-600 dark:text-primary-300 text-center pb-2">
@@ -105,6 +115,14 @@ export default function PaletteHub() {
               onClose={goBack}
             >
               <ColorsStatsTabbedBody className="-mt-1 flex-1 overflow-y-auto overflow-x-hidden pb-2" />
+            </MenuOverlay>
+
+            <MenuOverlay
+              open={section === "settings"}
+              title="Settings"
+              onClose={goBack}
+            >
+              <SettingsPanel onOpenSync={() => setSection("sync-devices")} />
             </MenuOverlay>
 
             <MenuOverlay
@@ -135,12 +153,6 @@ export default function PaletteHub() {
                   <p className="text-sm text-primary-600 dark:text-primary-200 leading-6 mt-2">
                     Part of the Playerdle family. Inspired by Wordle and other guessing games.
                   </p>
-                </div>
-                <div className="mt-6 flex justify-center">
-                  <MenuLinkButton
-                    label="Sync Devices"
-                    onClick={() => setSection("sync-devices")}
-                  />
                 </div>
                 <AboutFooter />
               </div>
