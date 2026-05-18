@@ -40,7 +40,7 @@ function Toggle({ checked, onChange, id, label }: ToggleProps) {
 }
 
 export default function SettingsPanel({ onOpenSync }: { onOpenSync: () => void }) {
-  const { theme, setTheme, colorblind, setColorblind } = useSettings()
+  const { theme, setTheme, highContrast, setHighContrast } = useSettings()
 
   return (
     <div className="-mt-1 flex-1 overflow-auto pb-4">
@@ -84,21 +84,21 @@ export default function SettingsPanel({ onOpenSync }: { onOpenSync: () => void }
             </div>
           </div>
 
-          {/* Colorblind toggle */}
+          {/* High contrast toggle */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex flex-col gap-0.5">
               <span className="text-sm font-semibold text-primary-700 dark:text-primary-200">
-                Colorblind-Friendly Colors
+                High Contrast Mode
               </span>
               <span className="text-xs text-primary-500 dark:text-primary-400">
-                {colorblind ? "Blue / Amber / Gray" : "Green / Amber / Red"}
+                Colorblind-safe palette, WCAG AA contrast
               </span>
             </div>
             <Toggle
-              id="colorblind-toggle"
-              checked={colorblind}
-              onChange={setColorblind}
-              label="Toggle colorblind-friendly colors"
+              id="high-contrast-toggle"
+              checked={highContrast}
+              onChange={setHighContrast}
+              label="Toggle high contrast mode"
             />
           </div>
         </section>

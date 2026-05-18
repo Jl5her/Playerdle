@@ -3,7 +3,7 @@ import { useCallback, useState } from "react"
 export type ThemePreference = "light" | "dark" | "system"
 
 const THEME_KEY = "playerdle-theme"
-const COLORBLIND_KEY = "playerdle-colorblind"
+const HIGH_CONTRAST_KEY = "playerdle-colorblind"
 
 export function applyTheme(pref: ThemePreference) {
   const root = document.documentElement
@@ -20,11 +20,11 @@ export function applyTheme(pref: ThemePreference) {
   }
 }
 
-export function applyColorblind(enabled: boolean) {
+export function applyHighContrast(enabled: boolean) {
   if (enabled) {
-    document.documentElement.classList.add("colorblind")
+    document.documentElement.classList.add("high-contrast")
   } else {
-    document.documentElement.classList.remove("colorblind")
+    document.documentElement.classList.remove("high-contrast")
   }
 }
 
@@ -32,8 +32,8 @@ export function useSettings() {
   const [theme, setThemeState] = useState<ThemePreference>(() => {
     return (localStorage.getItem(THEME_KEY) as ThemePreference) ?? "system"
   })
-  const [colorblind, setColorblindState] = useState<boolean>(() => {
-    return localStorage.getItem(COLORBLIND_KEY) === "true"
+  const [highContrast, setHighContrastState] = useState<boolean>(() => {
+    return localStorage.getItem(HIGH_CONTRAST_KEY) === "true"
   })
 
   const setTheme = useCallback((pref: ThemePreference) => {
@@ -42,11 +42,11 @@ export function useSettings() {
     applyTheme(pref)
   }, [])
 
-  const setColorblind = useCallback((enabled: boolean) => {
-    localStorage.setItem(COLORBLIND_KEY, String(enabled))
-    setColorblindState(enabled)
-    applyColorblind(enabled)
+  const setHighContrast = useCallback((enabled: boolean) => {
+    localStorage.setItem(HIGH_CONTRAST_KEY, String(enabled))
+    setHighContrastState(enabled)
+    applyHighContrast(enabled)
   }, [])
 
-  return { theme, setTheme, colorblind, setColorblind }
+  return { theme, setTheme, highContrast, setHighContrast }
 }

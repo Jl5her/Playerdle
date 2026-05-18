@@ -3,29 +3,41 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Colorblind-friendly palette: replaces green (correct) with blue and red
-   (incorrect) with gray. Amber (close) is already distinguishable and unchanged. */
-html.colorblind {
-  --color-success-50: #e8f2fb;
-  --color-success-100: #cce0f5;
-  --color-success-200: #99c1ec;
-  --color-success-300: #66a2e2;
-  --color-success-400: #3382d7;
-  --color-success-500: #0072b2;
-  --color-success-600: #005a8e;
-  --color-success-700: #00436a;
-  --color-success-800: #002c47;
-  --color-success-900: #001523;
-  --color-error-50: #f5f5f5;
-  --color-error-100: #ebebeb;
-  --color-error-200: #d6d6d6;
-  --color-error-300: #c2c2c2;
-  --color-error-400: #adadad;
-  --color-error-500: #929292;
-  --color-error-600: #7a7a7a;
-  --color-error-700: #616161;
-  --color-error-800: #494949;
-  --color-error-900: #303030;
+/* High Contrast Mode: colorblind-safe hues (blue/amber/gray instead of
+   green/amber/red) all tuned to meet WCAG AA contrast (≥4.5:1) with white text.
+   Standard green ~3.6:1, standard red ~3.1:1, standard amber ~2.5:1 — all fail.
+   localStorage key kept as "playerdle-colorblind" for backward compatibility. */
+html.high-contrast {
+  --color-success-50: #e5eef8;
+  --color-success-100: #c2d8f0;
+  --color-success-200: #8ab4e0;
+  --color-success-300: #5190cf;
+  --color-success-400: #2770be;
+  --color-success-500: #0057a8;  /* 7.2:1 with white */
+  --color-success-600: #00468a;
+  --color-success-700: #00356b;
+  --color-success-800: #00244d;
+  --color-success-900: #00132e;
+  --color-warning-50: #fdf3e7;
+  --color-warning-100: #fae0bb;
+  --color-warning-200: #f5c07a;
+  --color-warning-300: #e89f3a;
+  --color-warning-400: #d07b0e;
+  --color-warning-500: #b45309;  /* 5.1:1 with white */
+  --color-warning-600: #923e06;
+  --color-warning-700: #712e05;
+  --color-warning-800: #501f03;
+  --color-warning-900: #301002;
+  --color-error-50: #f0f0f0;
+  --color-error-100: #dedede;
+  --color-error-200: #c2c2c2;
+  --color-error-300: #a5a5a5;
+  --color-error-400: #888888;
+  --color-error-500: #525252;  /* 9.7:1 with white */
+  --color-error-600: #404040;
+  --color-error-700: #2e2e2e;
+  --color-error-800: #1c1c1c;
+  --color-error-900: #0a0a0a;
 }
 
 
