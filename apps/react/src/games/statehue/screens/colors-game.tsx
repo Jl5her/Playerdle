@@ -29,7 +29,7 @@ import {
 import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { TEAM_COLOR_NAME_MAP } from "@playerdle/data/journeyman/leagues"
-import { boostDarkColor, hexToColorName } from "@/shared/utils/color-name"
+import { hexToColorName } from "@/shared/utils/color-name"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
 import { trackGameComplete } from "@/lib/analytics"
@@ -99,7 +99,7 @@ function diamondBorder(hex: string): string {
 
 function Diamond({ color }: { color: string }) {
   const isTransparent = color === "transparent"
-  const displayColor = boostDarkColor(color)
+  const displayColor = color
   return (
     <span
       className={clsx("inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm", isTransparent && "diamond-transparent")}
@@ -114,7 +114,7 @@ function DiamondWithPreview({ color }: { color: string }) {
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
   const isTransparent = color === "transparent"
-  const displayColor = boostDarkColor(color)
+  const displayColor = color
 
   useEffect(() => {
     if (!open) return
