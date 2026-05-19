@@ -520,6 +520,23 @@ body,
   }
 }
 
+/* While a theme transition plays, animate colour-related properties on all
+   elements so content colours shift in step with the background rather than
+   snapping at the end. --tt-dur is set inline to match the animation length.
+   !important is necessary to beat Tailwind utilities and override any shorter
+   transition-duration already on those elements; the class is only present for
+   the ~700ms the overlay is active, so side-effects are negligible. */
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    color var(--tt-dur, 650ms) linear,
+    background-color var(--tt-dur, 650ms) linear,
+    border-color var(--tt-dur, 650ms) linear,
+    fill var(--tt-dur, 650ms) linear,
+    stroke var(--tt-dur, 650ms) linear !important;
+}
+
 /* CRT TV turning off: white overlay collapses vertically to a glowing
    horizontal line, the line shrinks to a dot, then fades to black. */
 @keyframes theme-tv-off {

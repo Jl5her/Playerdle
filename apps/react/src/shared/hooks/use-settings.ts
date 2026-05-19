@@ -30,101 +30,88 @@ export function applyHighContrast(enabled: boolean) {
 
 let cancelActiveTransition: (() => void) | null = null
 
-function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
+function playThemeTransition(direction: "to-dark" | "to-light", pref: ThemePreference): void {
   if (cancelActiveTransition) {
     cancelActiveTransition()
     cancelActiveTransition = null
   }
 
-  return new Promise(resolve => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      resolve()
-      return
-    }
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    applyTheme(pref)
+    return
+  }
 
-    const created: HTMLElement[] = []
+  // Apply the new theme class immediately so CSS colour transitions on all
+  // content elements start in sync with the overlay animation. The overlay
+  // hides the background switch; the content colours drift visibly above it.
+  applyTheme(pref)
 
-    const removeAll = () => {
-      created.forEach(el => el.remove())
-      cancelActiveTransition = null
-    }
-    cancelActiveTransition = () => {
-      removeAll()
-      resolve()
-    }
+  const root = document.documentElement
+  const dur = direction === "to-dark" ? "650ms" : "750ms"
+  root.style.setProperty("--tt-dur", dur)
+  root.classList.add("theme-transitioning")
 
-    const cs = getComputedStyle(document.documentElement)
-    const darkBg = cs.getPropertyValue("--color-primary-900").trim() || "#18263c"
-    const lightBg = cs.getPropertyValue("--color-primary-50").trim() || "#f2f6fb"
+  const cs = getComputedStyle(root)
+  const darkBg = cs.getPropertyValue("--color-primary-900").trim() || "#18263c"
+  const lightBg = cs.getPropertyValue("--color-primary-50").trim() || "#f2f6fb"
 
-    if (direction === "to-dark") {
-      // Backdrop in the dark-mode background colour — visible where the collapsing
-      // white overlay is clipped away, so it reads as the CRT bezel and dissolves
-      // seamlessly into dark mode when the animation ends.
-      // z-index 0: above body background, below #root (z-index:1).
-      const backdrop = document.createElement("div")
-      Object.assign(backdrop.style, {
-        position: "fixed",
-        inset: "0",
-        zIndex: "0",
-        background: darkBg,
-        pointerEvents: "none",
-      })
-      document.body.appendChild(backdrop)
-      created.push(backdrop)
+  const created: HTMLElement[] = []
 
-      // White overlay that collapses like a CRT screen turning off.
-      // Appended after backdrop so DOM order puts it on top at the same z-level.
-      const overlay = document.createElement("div")
-      Object.assign(overlay.style, {
-        position: "fixed",
-        inset: "0",
-        zIndex: "0",
-        background: "white",
-        pointerEvents: "none",
-      })
-      overlay.classList.add("theme-transition-tv-off")
-      document.body.appendChild(overlay)
-      created.push(overlay)
+  const removeAll = () => {
+    created.forEach(el => el.remove())
+    root.classList.remove("theme-transitioning")
+    root.style.removeProperty("--tt-dur")
+    cancelActiveTransition = null
+  }
+  cancelActiveTransition = removeAll
 
-      overlay.addEventListener(
-        "animationend",
-        () => {
-          removeAll()
-          resolve()
-        },
-        { once: true },
-      )
-    } else {
-      // CRT TV turning on: a light-mode-coloured overlay blooms from a bright dot
-      // at centre into a full screen, mirroring the TV-off collapse in reverse.
-      // The dark-mode body shows through the clipped area as the natural "bezel."
-      // Animation ends covering the full viewport; JS applies light mode underneath
-      // then fades the overlay out so the reveal is seamless.
-      const overlay = document.createElement("div")
-      Object.assign(overlay.style, {
-        position: "fixed",
-        inset: "0",
-        zIndex: "0",
-        background: lightBg,
-        pointerEvents: "none",
-      })
-      overlay.classList.add("theme-transition-tv-on")
-      document.body.appendChild(overlay)
-      created.push(overlay)
-
-      overlay.addEventListener(
-        "animationend",
-        () => {
-          resolve()
-          overlay.style.transition = "opacity 300ms ease-out"
-          overlay.style.opacity = "0"
-          overlay.addEventListener("transitionend", removeAll, { once: true })
-        },
-        { once: true },
-      )
-    }
+  // Dark backdrop sits behind the animated overlay at the same z-level.
+  // For TV-off: reveals the dark-mode bezel as the white screen collapses.
+  // For TV-on: hides the now-light body so the dark surround is visible
+  //   while the light dot expands from centre — without it the dot would be
+  //   invisible against the newly-applied light background.
+  const backdrop = document.createElement("div")
+  Object.assign(backdrop.style, {
+    position: "fixed",
+    inset: "0",
+    zIndex: "0",
+    background: darkBg,
+    pointerEvents: "none",
   })
+  document.body.appendChild(backdrop)
+  created.push(backdrop)
+
+  // Coloured overlay that carries the CRT animation.
+  // Appended after the backdrop so DOM order puts it on top at the same z-level.
+  const overlay = document.createElement("div")
+  Object.assign(overlay.style, {
+    position: "fixed",
+    inset: "0",
+    zIndex: "0",
+    background: direction === "to-dark" ? "white" : lightBg,
+    pointerEvents: "none",
+  })
+  overlay.classList.add(
+    direction === "to-dark" ? "theme-transition-tv-off" : "theme-transition-tv-on",
+  )
+  document.body.appendChild(overlay)
+  created.push(overlay)
+
+  if (direction === "to-dark") {
+    overlay.addEventListener("animationend", removeAll, { once: true })
+  } else {
+    overlay.addEventListener(
+      "animationend",
+      () => {
+        // Light mode and colour transitions are already complete; fade the
+        // overlay out to reveal the finished light-mode page underneath.
+        overlay.style.transition = "opacity 300ms ease-out"
+        overlay.style.opacity = "0"
+        overlay.addEventListener("transitionend", removeAll, { once: true })
+      },
+      { once: true },
+    )
+  }
 }
 
 // System theme changes use the same animated transition as the manual switcher.
@@ -135,9 +122,9 @@ window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e =
   if (stored !== "system") return
   const currentIsDark = document.documentElement.classList.contains("dark")
   if (!currentIsDark && e.matches) {
-    playThemeTransition("to-dark").then(() => applyTheme("system"))
+    playThemeTransition("to-dark", "system")
   } else if (currentIsDark && !e.matches) {
-    playThemeTransition("to-light").then(() => applyTheme("system"))
+    playThemeTransition("to-light", "system")
   }
 })
 
@@ -159,11 +146,9 @@ export function useSettings() {
       (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
 
     if (!currentIsDark && nextIsDark) {
-      // Light → dark: CRT collapse animation, then reveal dark mode.
-      playThemeTransition("to-dark").then(() => applyTheme(pref))
+      playThemeTransition("to-dark", pref)
     } else if (currentIsDark && !nextIsDark) {
-      // Dark → light: fluorescent flicker animation, then reveal light mode.
-      playThemeTransition("to-light").then(() => applyTheme(pref))
+      playThemeTransition("to-light", pref)
     } else {
       applyTheme(pref)
     }
