@@ -537,6 +537,19 @@ html.theme-transitioning *::after {
     stroke var(--tt-dur, 650ms) linear !important;
 }
 
+/* SVG icons and their direct parent containers snap to the final colour
+   immediately. The interpolated mid-value between saturated icon colours
+   looks jarring; plain text gradients do not. Direct parents are excluded
+   so that inherited currentColor also snaps rather than drifting.
+   These rules win the !important contest via higher specificity. */
+html.theme-transitioning svg,
+html.theme-transitioning svg *,
+html.theme-transitioning *:has(> svg) {
+  transition:
+    background-color var(--tt-dur, 650ms) linear,
+    border-color var(--tt-dur, 650ms) linear !important;
+}
+
 /* CRT TV turning off: white overlay collapses vertically to a glowing
    horizontal line, the line shrinks to a dot, then fades to black. */
 @keyframes theme-tv-off {
