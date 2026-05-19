@@ -36,6 +36,9 @@ const PlayerCalendar = lazy(() => import("@/games/playerdle/screens/player-calen
 const PaletteHub = lazy(() => import("@/games/statehue/screens/palette-hub"))
 const JourneyShell = lazy(() => import("@/games/journeyman/screens/journey-shell"))
 const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-calendar"))
+const TeamColorsKey = lazy(() =>
+  import("@/games/playerdle/screens/team-colors-key").then(m => ({ default: m.TeamColorsKey })),
+)
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -482,6 +485,14 @@ function App() {
             screen="arcade"
             variantId={FANATIC_VARIANT_ID}
           />
+        }
+      />
+      <Route
+        path="/team-colors-key"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <TeamColorsKey />
+          </Suspense>
         }
       />
       <Route
