@@ -53,17 +53,21 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
       resolve()
     }
 
+    const cs = getComputedStyle(document.documentElement)
+    const darkBg = cs.getPropertyValue("--color-primary-900").trim() || "#18263c"
+    const lightBg = cs.getPropertyValue("--color-primary-50").trim() || "#f2f6fb"
+
     if (direction === "to-dark") {
-      // Solid black backdrop — visible in the areas the white overlay is clipped away,
-      // simulating the dark bezel of a CRT as the screen collapses.
-      // z-index 0: sits above the body background but below #root (z-index:1),
-      // so app content stays visible above the animation.
+      // Backdrop in the dark-mode background colour — visible where the collapsing
+      // white overlay is clipped away, so it reads as the CRT bezel and dissolves
+      // seamlessly into dark mode when the animation ends.
+      // z-index 0: above body background, below #root (z-index:1).
       const backdrop = document.createElement("div")
       Object.assign(backdrop.style, {
         position: "fixed",
         inset: "0",
         zIndex: "0",
-        background: "black",
+        background: darkBg,
         pointerEvents: "none",
       })
       document.body.appendChild(backdrop)
@@ -92,30 +96,28 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
         { once: true },
       )
     } else {
-      // White overlay that flickers like a fluorescent tube turning on.
-      // Animation ends at opacity 1; JS fades it out after applying the theme.
-      // z-index 0: above body background, below #root (z-index:1).
+      // CRT TV turning on: a light-mode-coloured overlay blooms from a bright dot
+      // at centre into a full screen, mirroring the TV-off collapse in reverse.
+      // The dark-mode body shows through the clipped area as the natural "bezel."
+      // Animation ends covering the full viewport; JS applies light mode underneath
+      // then fades the overlay out so the reveal is seamless.
       const overlay = document.createElement("div")
       Object.assign(overlay.style, {
         position: "fixed",
         inset: "0",
         zIndex: "0",
-        background: "white",
+        background: lightBg,
         pointerEvents: "none",
-        opacity: "0",
       })
-      overlay.classList.add("theme-transition-flicker")
+      overlay.classList.add("theme-transition-tv-on")
       document.body.appendChild(overlay)
       created.push(overlay)
 
       overlay.addEventListener(
         "animationend",
         () => {
-          // Light mode is applied by the caller immediately after this resolves,
-          // while the overlay is still at full opacity — hiding the instant switch.
           resolve()
-          // Then smoothly fade the overlay out to reveal the new light theme.
-          overlay.style.transition = "opacity 350ms ease-out"
+          overlay.style.transition = "opacity 300ms ease-out"
           overlay.style.opacity = "0"
           overlay.addEventListener("transitionend", removeAll, { once: true })
         },
