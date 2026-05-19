@@ -169,6 +169,13 @@ body,
   overscroll-behavior: none;
 }
 
+/* Establishes a stacking context so theme-transition overlays appended to
+   <body> at z-index:0 sit between the body background and all app content. */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 .dark body {
   color: var(--color-primary-50);
 }
@@ -511,6 +518,100 @@ body,
   .stat-bar {
     transition: none;
   }
+}
+
+/* While a theme transition plays, animate colour-related properties on all
+   elements so content colours shift in step with the background rather than
+   snapping at the end. --tt-dur is set inline to match the animation length.
+   !important is necessary to beat Tailwind utilities and override any shorter
+   transition-duration already on those elements; the class is only present for
+   the ~700ms the overlay is active, so side-effects are negligible. */
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    color var(--tt-dur, 650ms) linear,
+    background-color var(--tt-dur, 650ms) linear,
+    border-color var(--tt-dur, 650ms) linear,
+    fill var(--tt-dur, 650ms) linear,
+    stroke var(--tt-dur, 650ms) linear !important;
+}
+
+/* CRT TV turning off: white overlay collapses vertically to a glowing
+   horizontal line, the line shrinks to a dot, then fades to black. */
+@keyframes theme-tv-off {
+  0% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1.3) blur(0px);
+    opacity: 1;
+  }
+  8% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(2.5) blur(0px);
+    opacity: 1;
+  }
+  30% {
+    clip-path: inset(38% 0 38% 0);
+    filter: brightness(3) blur(1px);
+    opacity: 1;
+  }
+  55% {
+    clip-path: inset(49% 0 49% 0);
+    filter: brightness(6) blur(4px);
+    opacity: 1;
+  }
+  72% {
+    clip-path: inset(49.5% 20% 49.5% 20%);
+    filter: brightness(10) blur(6px);
+    opacity: 1;
+  }
+  87% {
+    clip-path: inset(49.8% 45% 49.8% 45%);
+    filter: brightness(12) blur(8px);
+    opacity: 0.8;
+  }
+  100% {
+    clip-path: inset(49.9% 50% 49.9% 50%);
+    filter: brightness(1) blur(0px);
+    opacity: 0;
+  }
+}
+
+/* CRT TV turning on: a bright dot blooms from centre into a horizontal line,
+   then expands vertically until it fills the screen. */
+@keyframes theme-tv-on {
+  0% {
+    clip-path: inset(49.9% 47% 49.9% 47%);
+    filter: brightness(4) blur(8px);
+  }
+  12% {
+    clip-path: inset(49.6% 12% 49.6% 12%);
+    filter: brightness(3) blur(5px);
+  }
+  30% {
+    clip-path: inset(49.3% 0 49.3% 0);
+    filter: brightness(2) blur(3px);
+  }
+  55% {
+    clip-path: inset(28% 0 28% 0);
+    filter: brightness(1.4) blur(1px);
+  }
+  78% {
+    clip-path: inset(6% 0 6% 0);
+    filter: brightness(1.1) blur(0px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1) blur(0px);
+  }
+}
+
+.theme-transition-tv-off {
+  animation: theme-tv-off 650ms linear forwards;
+}
+
+.theme-transition-tv-on {
+  animation: theme-tv-on 750ms linear forwards;
 }
 
 /* Checkerboard pattern for diamonds with no third brand color */

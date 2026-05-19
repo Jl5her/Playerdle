@@ -28,6 +28,122 @@ export function applyHighContrast(enabled: boolean) {
   }
 }
 
+let cancelActiveTransition: (() => void) | null = null
+
+function playThemeTransition(direction: "to-dark" | "to-light", pref: ThemePreference): void {
+  if (cancelActiveTransition) {
+    cancelActiveTransition()
+    cancelActiveTransition = null
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    applyTheme(pref)
+    return
+  }
+
+  // Apply the new theme class immediately so CSS colour transitions on all
+  // content elements start in sync with the overlay animation. The overlay
+  // hides the background switch; the content colours drift visibly above it.
+  applyTheme(pref)
+
+  const root = document.documentElement
+  const dur = direction === "to-dark" ? "650ms" : "750ms"
+  root.style.setProperty("--tt-dur", dur)
+  root.classList.add("theme-transitioning")
+
+  const cs = getComputedStyle(root)
+  const darkBg = cs.getPropertyValue("--color-primary-900").trim() || "#18263c"
+  const lightBg = cs.getPropertyValue("--color-primary-50").trim() || "#f2f6fb"
+
+  const created: HTMLElement[] = []
+
+  const removeAll = () => {
+    created.forEach(el => el.remove())
+    root.classList.remove("theme-transitioning")
+    root.style.removeProperty("--tt-dur")
+    cancelActiveTransition = null
+  }
+  cancelActiveTransition = removeAll
+
+  // Dark backdrop sits behind the animated overlay at the same z-level.
+  // For TV-off: reveals the dark-mode bezel as the white screen collapses.
+  // For TV-on: hides the now-light body so the dark surround is visible
+  //   while the light dot expands from centre — without it the dot would be
+  //   invisible against the newly-applied light background.
+  const backdrop = document.createElement("div")
+  Object.assign(backdrop.style, {
+    position: "fixed",
+    inset: "0",
+    zIndex: "0",
+    background: darkBg,
+    pointerEvents: "none",
+  })
+  document.body.appendChild(backdrop)
+  created.push(backdrop)
+
+  // Coloured overlay that carries the CRT animation.
+  // Appended after the backdrop so DOM order puts it on top at the same z-level.
+  const overlay = document.createElement("div")
+  Object.assign(overlay.style, {
+    position: "fixed",
+    inset: "0",
+    zIndex: "0",
+    background: direction === "to-dark" ? "white" : lightBg,
+    pointerEvents: "none",
+  })
+  overlay.classList.add(
+    direction === "to-dark" ? "theme-transition-tv-off" : "theme-transition-tv-on",
+  )
+  document.body.appendChild(overlay)
+  created.push(overlay)
+
+  if (direction === "to-dark") {
+    overlay.addEventListener("animationend", removeAll, { once: true })
+  } else {
+    overlay.addEventListener(
+      "animationend",
+      () => {
+        // The overlay is now full-screen at full opacity — the backdrop is no
+        // longer needed and must be removed NOW. If it stays, it bleeds through
+        // as the overlay fades and causes a dark flash before light mode settles.
+        backdrop.remove()
+
+        // Colour transitions are complete. Remove the coordination class before
+        // setting the inline opacity transition — its !important would otherwise
+        // override the fade, causing the overlay to snap instead of easing out.
+        root.classList.remove("theme-transitioning")
+        root.style.removeProperty("--tt-dur")
+
+        overlay.style.transition = "opacity 300ms ease-out"
+        overlay.style.opacity = "0"
+        overlay.addEventListener(
+          "transitionend",
+          () => {
+            overlay.remove()
+            cancelActiveTransition = null
+          },
+          { once: true },
+        )
+      },
+      { once: true },
+    )
+  }
+}
+
+// System theme changes use the same animated transition as the manual switcher.
+// This runs once at module load and stays active for the lifetime of the page,
+// replacing the plain class-toggle listener that was previously in index.html.
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+  const stored = (localStorage.getItem(THEME_KEY) as ThemePreference) ?? "system"
+  if (stored !== "system") return
+  const currentIsDark = document.documentElement.classList.contains("dark")
+  if (!currentIsDark && e.matches) {
+    playThemeTransition("to-dark", "system")
+  } else if (currentIsDark && !e.matches) {
+    playThemeTransition("to-light", "system")
+  }
+})
+
 export function useSettings() {
   const [theme, setThemeState] = useState<ThemePreference>(() => {
     return (localStorage.getItem(THEME_KEY) as ThemePreference) ?? "system"
@@ -39,7 +155,19 @@ export function useSettings() {
   const setTheme = useCallback((pref: ThemePreference) => {
     localStorage.setItem(THEME_KEY, pref)
     setThemeState(pref)
-    applyTheme(pref)
+
+    const currentIsDark = document.documentElement.classList.contains("dark")
+    const nextIsDark =
+      pref === "dark" ||
+      (pref === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+
+    if (!currentIsDark && nextIsDark) {
+      playThemeTransition("to-dark", pref)
+    } else if (currentIsDark && !nextIsDark) {
+      playThemeTransition("to-light", pref)
+    } else {
+      applyTheme(pref)
+    }
   }, [])
 
   const setHighContrast = useCallback((enabled: boolean) => {
