@@ -324,6 +324,24 @@
     "ops": 0.574
   },
   {
+    "id": "mlb:5000931",
+    "name": "Braxton Fulford",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 37,
+    "league": "NL",
+    "gp": 38,
+    "pa": 120,
+    "avg": 0.213,
+    "hr": 1,
+    "rbi": 16,
+    "sb": 1,
+    "ops": 0.591
+  },
+  {
     "id": "mlb:40926",
     "name": "Brent Rooker",
     "conference": "AL",
@@ -1260,6 +1278,24 @@
     "ops": 0.775
   },
   {
+    "id": "mlb:41273",
+    "name": "Jeremy Pena",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SS",
+    "number": 3,
+    "league": "AL",
+    "gp": 125,
+    "pa": 543,
+    "avg": 0.304,
+    "hr": 17,
+    "rbi": 62,
+    "sb": 20,
+    "ops": 0.84
+  },
+  {
     "id": "mlb:40854",
     "name": "Jo Adell",
     "conference": "AL",
@@ -1296,24 +1332,6 @@
     "ops": 0.593
   },
   {
-    "id": "mlb:4619460",
-    "name": "Jordan Beck",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "LF",
-    "number": 27,
-    "league": "NL",
-    "gp": 148,
-    "pa": 588,
-    "avg": 0.258,
-    "hr": 16,
-    "rbi": 53,
-    "sb": 19,
-    "ops": 0.732
-  },
-  {
     "id": "mlb:4684778",
     "name": "Jordan Walker",
     "conference": "NL",
@@ -1348,24 +1366,6 @@
     "rbi": 34,
     "sb": 0,
     "ops": 0.68
-  },
-  {
-    "id": "mlb:31662",
-    "name": "Jose Altuve",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "2B",
-    "number": 27,
-    "league": "AL",
-    "gp": 155,
-    "pa": 654,
-    "avg": 0.265,
-    "hr": 26,
-    "rbi": 77,
-    "sb": 10,
-    "ops": 0.771
   },
   {
     "id": "mlb:42437",
@@ -1438,24 +1438,6 @@
     "rbi": 13,
     "sb": 2,
     "ops": 0.656
-  },
-  {
-    "id": "mlb:33287",
-    "name": "Kyle Farmer",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "DH",
-    "number": 15,
-    "league": "NL",
-    "gp": 97,
-    "pa": 300,
-    "avg": 0.227,
-    "hr": 8,
-    "rbi": 31,
-    "sb": 0,
-    "ops": 0.645
   },
   {
     "id": "mlb:30545",
@@ -1854,6 +1836,24 @@
     "ops": 0.568
   },
   {
+    "id": "mlb:42065",
+    "name": "Michael Helman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "CF",
+    "number": 23,
+    "league": "AL",
+    "gp": 38,
+    "pa": 110,
+    "avg": 0.232,
+    "hr": 5,
+    "rbi": 20,
+    "sb": 4,
+    "ops": 0.744
+  },
+  {
     "id": "mlb:33743",
     "name": "Miguel Andujar",
     "conference": "NL",
@@ -2106,6 +2106,24 @@
     "ops": 0.666
   },
   {
+    "id": "mlb:5136835",
+    "name": "Otto Kemp",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "OF",
+    "number": 4,
+    "league": "NL",
+    "gp": 62,
+    "pa": 218,
+    "avg": 0.234,
+    "hr": 8,
+    "rbi": 28,
+    "sb": 2,
+    "ops": 0.709
+  },
+  {
     "id": "mlb:41917",
     "name": "Otto Lopez",
     "conference": "NL",
@@ -2266,6 +2284,24 @@
     "rbi": 30,
     "sb": 3,
     "ops": 0.838
+  },
+  {
+    "id": "mlb:36185",
+    "name": "Ronald Acuna Jr.",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RF",
+    "number": 13,
+    "league": "NL",
+    "gp": 95,
+    "pa": 412,
+    "avg": 0.29,
+    "hr": 21,
+    "rbi": 42,
+    "sb": 9,
+    "ops": 0.935
   },
   {
     "id": "mlb:40635",
