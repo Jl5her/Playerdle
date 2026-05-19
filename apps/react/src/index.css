@@ -513,6 +513,110 @@ body,
   }
 }
 
+/* CRT TV turning off: white overlay collapses vertically to a glowing
+   horizontal line, the line shrinks to a dot, then fades to black. */
+@keyframes theme-tv-off {
+  0% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(1.3) blur(0px);
+    opacity: 1;
+  }
+  8% {
+    clip-path: inset(0 0 0 0);
+    filter: brightness(2.5) blur(0px);
+    opacity: 1;
+  }
+  30% {
+    clip-path: inset(38% 0 38% 0);
+    filter: brightness(3) blur(1px);
+    opacity: 1;
+  }
+  55% {
+    clip-path: inset(49% 0 49% 0);
+    filter: brightness(6) blur(4px);
+    opacity: 1;
+  }
+  72% {
+    clip-path: inset(49.5% 20% 49.5% 20%);
+    filter: brightness(10) blur(6px);
+    opacity: 1;
+  }
+  87% {
+    clip-path: inset(49.8% 45% 49.8% 45%);
+    filter: brightness(12) blur(8px);
+    opacity: 0.8;
+  }
+  100% {
+    clip-path: inset(49.9% 50% 49.9% 50%);
+    filter: brightness(1) blur(0px);
+    opacity: 0;
+  }
+}
+
+/* Fluorescent tube starting up: sharp flickers (step-start per interval)
+   that grow longer and more stable, then smooth fade-in to full on. */
+@keyframes theme-light-flicker {
+  0% {
+    opacity: 0;
+    animation-timing-function: step-start;
+  }
+  5% {
+    opacity: 0.95;
+    animation-timing-function: step-start;
+  }
+  10% {
+    opacity: 0;
+    animation-timing-function: step-start;
+  }
+  17% {
+    opacity: 0.88;
+    animation-timing-function: step-start;
+  }
+  22% {
+    opacity: 0;
+    animation-timing-function: step-start;
+  }
+  28% {
+    opacity: 0.82;
+    animation-timing-function: step-start;
+  }
+  34% {
+    opacity: 0.12;
+    animation-timing-function: step-start;
+  }
+  40% {
+    opacity: 0.78;
+    animation-timing-function: step-start;
+  }
+  47% {
+    opacity: 0.32;
+    animation-timing-function: step-start;
+  }
+  54% {
+    opacity: 0.9;
+  }
+  66% {
+    opacity: 0.93;
+  }
+  80% {
+    opacity: 0.97;
+  }
+  93% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.theme-transition-tv-off {
+  animation: theme-tv-off 650ms linear forwards;
+}
+
+.theme-transition-flicker {
+  animation: theme-light-flicker 950ms linear forwards;
+}
+
 /* Checkerboard pattern for diamonds with no third brand color */
 .diamond-transparent {
   background-image: repeating-conic-gradient(#c0c0c0 0% 25%, #efefef 0% 50%);
