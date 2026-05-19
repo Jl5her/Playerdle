@@ -252,7 +252,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   return (
     <>
       {isMenuView && (
-        <div className="app-viewport pb-11 flex flex-col bg-primary-50 dark:bg-primary-900">
+        <div className="app-viewport pb-11 flex flex-col">
           {waitingForSync && (
             <div className="absolute inset-0 z-50 flex items-center justify-center bg-primary-50/70 dark:bg-primary-900/70">
               <div className="w-9 h-9 rounded-full border-[3px] border-primary-200 border-t-primary-600 dark:border-primary-700 dark:border-t-primary-200 animate-spin" />
@@ -269,7 +269,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       )}
       {isGame && (
         <PanelStackContext.Provider value={panels}>
-        <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
+        <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
           <Header
             onShowTutorial={
               screen === "daily" && !panels.isAnyOpen

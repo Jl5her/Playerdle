@@ -169,6 +169,13 @@ body,
   overscroll-behavior: none;
 }
 
+/* Establishes a stacking context so theme-transition overlays appended to
+   <body> at z-index:0 sit between the body background and all app content. */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
 .dark body {
   color: var(--color-primary-50);
 }

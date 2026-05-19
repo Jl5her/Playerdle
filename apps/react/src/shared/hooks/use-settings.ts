@@ -56,11 +56,13 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
     if (direction === "to-dark") {
       // Solid black backdrop — visible in the areas the white overlay is clipped away,
       // simulating the dark bezel of a CRT as the screen collapses.
+      // z-index 0: sits above the body background but below #root (z-index:1),
+      // so app content stays visible above the animation.
       const backdrop = document.createElement("div")
       Object.assign(backdrop.style, {
         position: "fixed",
         inset: "0",
-        zIndex: "99998",
+        zIndex: "0",
         background: "black",
         pointerEvents: "none",
       })
@@ -68,11 +70,12 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
       created.push(backdrop)
 
       // White overlay that collapses like a CRT screen turning off.
+      // Appended after backdrop so DOM order puts it on top at the same z-level.
       const overlay = document.createElement("div")
       Object.assign(overlay.style, {
         position: "fixed",
         inset: "0",
-        zIndex: "99999",
+        zIndex: "0",
         background: "white",
         pointerEvents: "none",
       })
@@ -91,11 +94,12 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
     } else {
       // White overlay that flickers like a fluorescent tube turning on.
       // Animation ends at opacity 1; JS fades it out after applying the theme.
+      // z-index 0: above body background, below #root (z-index:1).
       const overlay = document.createElement("div")
       Object.assign(overlay.style, {
         position: "fixed",
         inset: "0",
-        zIndex: "99999",
+        zIndex: "0",
         background: "white",
         pointerEvents: "none",
         opacity: "0",
