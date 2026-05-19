@@ -103,9 +103,14 @@ function playThemeTransition(direction: "to-dark" | "to-light", pref: ThemePrefe
     overlay.addEventListener(
       "animationend",
       () => {
-        // Colour transitions are complete. Remove the coordination class NOW —
-        // its transition:…!important would otherwise override the inline
-        // opacity transition below, causing the overlay to snap instead of fade.
+        // The overlay is now full-screen at full opacity — the backdrop is no
+        // longer needed and must be removed NOW. If it stays, it bleeds through
+        // as the overlay fades and causes a dark flash before light mode settles.
+        backdrop.remove()
+
+        // Colour transitions are complete. Remove the coordination class before
+        // setting the inline opacity transition — its !important would otherwise
+        // override the fade, causing the overlay to snap instead of easing out.
         root.classList.remove("theme-transitioning")
         root.style.removeProperty("--tt-dur")
 
@@ -114,7 +119,7 @@ function playThemeTransition(direction: "to-dark" | "to-light", pref: ThemePrefe
         overlay.addEventListener(
           "transitionend",
           () => {
-            created.forEach(el => el.remove())
+            overlay.remove()
             cancelActiveTransition = null
           },
           { once: true },
