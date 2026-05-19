@@ -127,6 +127,20 @@ function playThemeTransition(direction: "to-dark" | "to-light"): Promise<void> {
   })
 }
 
+// System theme changes use the same animated transition as the manual switcher.
+// This runs once at module load and stays active for the lifetime of the page,
+// replacing the plain class-toggle listener that was previously in index.html.
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+  const stored = (localStorage.getItem(THEME_KEY) as ThemePreference) ?? "system"
+  if (stored !== "system") return
+  const currentIsDark = document.documentElement.classList.contains("dark")
+  if (!currentIsDark && e.matches) {
+    playThemeTransition("to-dark").then(() => applyTheme("system"))
+  } else if (currentIsDark && !e.matches) {
+    playThemeTransition("to-light").then(() => applyTheme("system"))
+  }
+})
+
 export function useSettings() {
   const [theme, setThemeState] = useState<ThemePreference>(() => {
     return (localStorage.getItem(THEME_KEY) as ThemePreference) ?? "system"

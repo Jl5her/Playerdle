@@ -31,15 +31,7 @@
       if (theme === 'dark' || (theme === 'system' && prefersDark)) {
         document.documentElement.classList.add('dark');
       }
-      // Keep system preference in sync for the lifetime of the page.
-      // React's useSettings hook takes over when mounted, but this covers
-      // the pre-hydration window and system changes while panels are closed.
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-        if ((localStorage.getItem('playerdle-theme') || 'system') !== 'system') return;
-        if (e.matches) document.documentElement.classList.add('dark');
-        else document.documentElement.classList.remove('dark');
-      });
-      if (localStorage.getItem('playerdle-colorblind') === 'true') {
+if (localStorage.getItem('playerdle-colorblind') === 'true') {
         document.documentElement.classList.add('high-contrast');
       }
     })();
