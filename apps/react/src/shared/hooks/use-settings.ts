@@ -103,11 +103,22 @@ function playThemeTransition(direction: "to-dark" | "to-light", pref: ThemePrefe
     overlay.addEventListener(
       "animationend",
       () => {
-        // Light mode and colour transitions are already complete; fade the
-        // overlay out to reveal the finished light-mode page underneath.
+        // Colour transitions are complete. Remove the coordination class NOW —
+        // its transition:…!important would otherwise override the inline
+        // opacity transition below, causing the overlay to snap instead of fade.
+        root.classList.remove("theme-transitioning")
+        root.style.removeProperty("--tt-dur")
+
         overlay.style.transition = "opacity 300ms ease-out"
         overlay.style.opacity = "0"
-        overlay.addEventListener("transitionend", removeAll, { once: true })
+        overlay.addEventListener(
+          "transitionend",
+          () => {
+            created.forEach(el => el.remove())
+            cancelActiveTransition = null
+          },
+          { once: true },
+        )
       },
       { once: true },
     )
