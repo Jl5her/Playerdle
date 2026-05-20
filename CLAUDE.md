@@ -92,6 +92,51 @@ All game state lives in `localStorage`:
 
 **Device sync** (`shared/utils/sync.ts`) hashes a 5-word passphrase via SHA-256 and uses that as the key for the Cloudflare KV edge API at `/api/sync/:hash`. The KV namespace is `PLAYERDLE_SYNC_KV` (configured in `wrangler.toml`). All `playerdle-stats:*`, `playerdle-state:*`, `playerdle-tutorial-seen-v2:*`, and journey keys are included in the sync payload.
 
+## Team Color Convention
+
+Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` array of up to 3 entries used by Journeyman (3-diamond palette) and Playerdle confetti.
+
+**Ordering:** `[primary, secondary, tertiary]` — most prominent brand color first.
+
+**Third slot rules:**
+- Use a real hex color only if the team genuinely has a 3rd distinct brand color (appears on uniforms, not just a minor logo accent).
+- Use `"transparent"` when the team only has 2 primary brand colors. White-as-jersey-background does not count as a brand color.
+
+**NBA reference** (established precedent):
+
+| Team | Primary | Secondary | Tertiary |
+|---|---|---|---|
+| Atlanta Hawks | Red `#e03a3e` | Volt `#c1d32f` | Near Black `#26282a` |
+| Boston Celtics | Green `#007a33` | White `#ffffff` | transparent |
+| Brooklyn Nets | Black `#000000` | White `#ffffff` | transparent |
+| Charlotte Hornets | Purple `#1d1160` | Teal `#00788c` | Gray `#a1a1a4` |
+| Chicago Bulls | Red `#ce1141` | Black `#000000` | transparent |
+| Cleveland Cavaliers | Wine `#860038` | Gold `#fdbb30` | Navy `#041e42` |
+| Dallas Mavericks | Blue `#00538c` | Navy `#002b5e` | Silver `#b8c4ca` |
+| Denver Nuggets | Navy `#0e2240` | Gold `#fec524` | Rust `#8b2131` |
+| Detroit Pistons | Red `#c8102e` | Blue `#1d42ba` | transparent |
+| Golden State Warriors | Blue `#1d428a` | Gold `#ffc72c` | transparent |
+| Houston Rockets | Red `#ce1141` | Black `#000000` | Silver `#c4ced4` |
+| Indiana Pacers | Navy `#0c2340` | Gold `#ffd520` | Silver `#bec0c2` |
+| LA Clippers | Red `#c8102e` | Blue `#1d428a` | transparent |
+| Los Angeles Lakers | Purple `#552583` | Gold `#fdb927` | transparent |
+| Memphis Grizzlies | Navy `#12173f` | Blue `#5d76a9` | Gold `#f5b112` |
+| Miami Heat | Red `#98002e` | Black `#000000` | Gold `#f9a01b` |
+| Milwaukee Bucks | Green `#00471b` | Cream `#eee1c6` | Black `#000000` |
+| Minnesota Timberwolves | Navy `#0c2340` | Blue `#236192` | Gray `#9ea2a2` |
+| New Orleans Pelicans | Navy `#0a2240` | Gold `#b4975a` | Red `#c8102e` |
+| New York Knicks | Blue `#006bb6` | Orange `#f58426` | Silver `#bec0c2` |
+| Oklahoma City Thunder | Blue `#007ac1` | Orange `#ef3b24` | Navy `#002d62` |
+| Orlando Magic | Blue `#0077c0` | Black `#000000` | Silver `#c4ced4` |
+| Philadelphia 76ers | Blue `#006bb6` | Red `#ed174c` | Navy `#002b5c` |
+| Phoenix Suns | Purple `#1d1160` | Orange `#e56020` | Gold `#f9ad1b` |
+| Portland Trail Blazers | Red `#e03a3e` | Black `#000000` | transparent |
+| Sacramento Kings | Purple `#5a2d81` | Black `#000000` | Gray `#63727a` |
+| San Antonio Spurs | Black `#000000` | Silver `#c4ced4` | transparent |
+| Toronto Raptors | Red `#d91244` | Black `#000000` | transparent |
+| Utah Jazz | Purple `#4e008e` | Blue `#79a3dc` | Gold `#ffb81c` |
+| Washington Wizards | Red `#e31837` | Navy `#002b5c` | Silver `#c4ced4` |
+
 ## Adding a New Sport or Variant
 
 To add a new sport to Playerdle:
