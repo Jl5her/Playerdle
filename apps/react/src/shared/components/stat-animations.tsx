@@ -40,10 +40,11 @@ interface StatBarProps {
   maxCount: number
   label: string
   isLoss?: boolean
+  highlight?: boolean
 }
 
 /** A single guess-distribution row that grows its bar from 0 → target width on mount. */
-export function StatBar({ count, maxCount, label, isLoss = false }: StatBarProps) {
+export function StatBar({ count, maxCount, label, isLoss = false, highlight = false }: StatBarProps) {
   const [animated, setAnimated] = useState(false)
   useEffect(() => {
     const raf = requestAnimationFrame(() => setAnimated(true))
@@ -56,8 +57,12 @@ export function StatBar({ count, maxCount, label, isLoss = false }: StatBarProps
   const width = animated ? targetWidth : count === 0 ? "2.25rem" : "0%"
 
   const filledClass = isLoss
-    ? "bg-error-200 dark:bg-error-800 text-error-800 dark:text-error-200"
-    : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+    ? highlight
+      ? "bg-error-600 dark:bg-error-600 text-error-50 dark:text-error-50"
+      : "bg-error-200 dark:bg-error-800 text-error-800 dark:text-error-200"
+    : highlight
+      ? "bg-primary-700 dark:bg-primary-700 text-primary-50 dark:text-primary-100"
+      : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
 
   return (
     <div className="flex items-center mb-1 gap-2">
