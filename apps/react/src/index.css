@@ -131,31 +131,6 @@ input::-webkit-clear-button {
   }
 }
 
-@keyframes endgamePopupFade {
-  0% {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-
-  10% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-}
-
-.endgame-popup {
-  animation: endgamePopupFade 3s ease-in-out both;
-}
 
 body {
   color: var(--color-primary-900);
@@ -497,10 +472,6 @@ body,
 
   .flip-diamond-inner {
     transition: none;
-  }
-
-  .endgame-popup {
-    animation: none;
   }
 
   .stats-tab-fade-in,
