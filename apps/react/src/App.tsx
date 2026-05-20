@@ -1,6 +1,7 @@
 import { faMap } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
+import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
 import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
 import { parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate } from "@/shared/utils/time"
@@ -449,9 +450,11 @@ function JourneyCalendarRoute() {
 function App() {
   useViewportHeight()
   useEffect(() => startAutoSync(), [])
+  const [showWelcome, setShowWelcome] = useState(() => !hasSeenWelcome())
   return (
     <>
     <PWAUpdateToast />
+    {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
     <Routes>
       <Route
         path="/"
