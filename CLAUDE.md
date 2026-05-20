@@ -104,6 +104,44 @@ To add a new sport to Playerdle:
 
 To add a new variant (like "fanatic") to an existing sport, add a `variants` array entry in the sport config file — `resolveSportConfig()` handles the rest.
 
+## Git Conventions
+
+### Commit Messages
+Use [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>(<scope>): <short summary>
+```
+
+Common types:
+- `feat`: new feature
+- `fix`: bug fix
+- `refactor`: code change that neither fixes a bug nor adds a feature
+- `style`: formatting, whitespace, etc. (no logic change)
+- `perf`: performance improvement
+- `chore`: build process, dependency updates, tooling
+- `docs`: documentation only
+
+Examples:
+```
+feat(playerdle): add highlight to current daily result bar
+fix(journeyman): prevent duplicate guesses from being submitted
+refactor(stats): extract todayHighlightKey helper
+chore(deps): update biome to v2
+```
+
+### Branch Naming
+Use a `<type>/<short-description>` prefix matching the commit type:
+
+- `feat/<description>` — new feature
+- `fix/<description>` — bug fix
+- `enhancement/<description>` — improvement to existing feature
+- `refactor/<description>` — code restructuring
+- `chore/<description>` — maintenance, deps, tooling
+- `docs/<description>` — documentation
+
+Examples: `feat/mlb-fanatic-variant`, `fix/streak-calculation`, `enhancement/stat-bar-highlight`
+
 ## Tooling
 
 - **Formatter/Linter**: Biome (replaces ESLint + Prettier). Config in `biome.json`: 2-space indent, 100-char line width, double quotes, trailing commas, semicolons omitted where possible.
