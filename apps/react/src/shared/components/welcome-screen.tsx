@@ -14,6 +14,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useRef, useState } from "react"
+import ScrollHint from "./scroll-hint"
 
 const WELCOME_SEEN_KEY = "playerdle-welcome-seen"
 
@@ -32,29 +33,11 @@ interface WelcomeScreenProps {
 export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
   const [visible, setVisible] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
-  const [atBottom, setAtBottom] = useState(false)
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setVisible(true))
     return () => cancelAnimationFrame(id)
   }, [])
-
-  // Check initial scroll state once sheet is visible and content is laid out
-  useEffect(() => {
-    if (!visible) return
-    const el = scrollRef.current
-    if (!el) return
-    const id = requestAnimationFrame(() => {
-      setAtBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 8)
-    })
-    return () => cancelAnimationFrame(id)
-  }, [visible])
-
-  function handleScroll() {
-    const el = scrollRef.current
-    if (!el) return
-    setAtBottom(el.scrollTop + el.clientHeight >= el.scrollHeight - 8)
-  }
 
   function handleDismiss() {
     markWelcomeSeen()
@@ -107,8 +90,7 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
         </div>
 
         {/* Scrollable content */}
-        <div className="relative flex-1 min-h-0 overflow-hidden">
-          <div ref={scrollRef} onScroll={handleScroll} className="h-full overflow-y-auto">
+        <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto">
           <div className="px-5 pt-5 pb-8 flex flex-col gap-6">
             {/* Game Modes */}
             <section className="flex flex-col gap-3">
@@ -230,22 +212,8 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
               Start Playing
             </button>
           </div>
-          </div>
-
-          {/* Scroll indicator — fades out once user reaches the bottom */}
-          <div
-            aria-hidden="true"
-            className={clsx(
-              "pointer-events-none absolute bottom-0 left-0 right-0 h-20 flex flex-col items-center justify-end pb-3 transition-opacity duration-300",
-              "bg-gradient-to-t from-primary-50 dark:from-primary-900 to-transparent",
-              atBottom ? "opacity-0" : "opacity-100",
-            )}
-          >
-            <div className="scroll-hint-bounce text-primary-400 dark:text-primary-500 text-lg leading-none">
-              ↓
-            </div>
-          </div>
         </div>
+        <ScrollHint scrollRef={scrollRef} />
       </div>
     </div>
   )
