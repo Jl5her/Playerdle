@@ -1,7 +1,7 @@
 import {
   faBaseball,
   faBasketball,
-  faChartBar,
+  faBolt,
   faFootball,
   faHockeyPuck,
   faMap,
@@ -103,7 +103,7 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
               />
 
               <Card
-                icon={faChartBar}
+                icon={faBolt}
                 title="Fanatic Mode"
                 accent
                 description="A harder stats-based variant of Playerdle. Columns swap to fantasy stats like FPPG, yards per game, and touchdowns — no team or position hints. Available for NFL, MLB, NBA, and NHL."
@@ -204,13 +204,15 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
             </section>
 
             {/* CTA — at the bottom of scroll so users read first */}
-            <button
-              type="button"
-              onClick={handleDismiss}
-              className="w-full py-3.5 rounded-xl bg-primary-700 dark:bg-primary-200 text-primary-50 dark:text-primary-900 font-black text-base tracking-wide hover:bg-primary-600 dark:hover:bg-primary-100 transition-colors cursor-pointer"
-            >
-              Start Playing
-            </button>
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={handleDismiss}
+                className="mx-auto w-fit min-w-44 px-6 py-2 rounded-full text-base font-bold transition-colors whitespace-nowrap border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200"
+              >
+                Start Playing
+              </button>
+            </div>
           </div>
         </div>
         <ScrollHint scrollRef={scrollRef} />
