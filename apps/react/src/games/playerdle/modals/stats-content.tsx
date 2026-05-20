@@ -193,8 +193,9 @@ export function StatsContent({
                 label: String(n),
                 count: stats.guessDistribution[n] || 0,
                 isLoss: false,
+                highlight: won && guessCount === n,
               })),
-              { key: "X", label: "X", count: stats.losses, isLoss: true },
+              { key: "X", label: "X", count: stats.losses, isLoss: true, highlight: lost },
             ].map(row => (
               <StatBar
                 key={row.key}
@@ -202,6 +203,7 @@ export function StatsContent({
                 count={row.count}
                 maxCount={maxGuessCount}
                 isLoss={row.isLoss}
+                highlight={row.highlight}
               />
             ))}
           </div>

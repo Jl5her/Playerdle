@@ -1,9 +1,11 @@
 import {
   calculateJourneyStats,
+  getJourneyHistory,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
 import { CountUp, Panel, StatBar } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
+import { getTodayKey } from "@/shared/utils/time"
 
 interface Props {
   id: string
@@ -15,6 +17,8 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
   const ctx = usePanelContext()
   const stats = calculateJourneyStats(league)
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
+  const todayResult = getJourneyHistory(league).find(r => r.date === getTodayKey())
+  const highlightKey = todayResult ? (todayResult.won ? String(todayResult.guesses) : "X") : undefined
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
     ...[1, 2, 3, 4, 5].map(n => ({
       key: String(n),
@@ -46,6 +50,7 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
             count={row.count}
             maxCount={maxGuessCount}
             isLoss={row.isLoss}
+            highlight={row.key === highlightKey}
           />
         ))}
       </div>

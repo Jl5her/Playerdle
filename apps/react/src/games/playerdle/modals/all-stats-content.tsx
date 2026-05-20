@@ -1,11 +1,13 @@
 import type { ReactNode } from "react"
 import {
   calculateJourneyStats,
+  getJourneyHistory,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
 import type { SportConfig, SportInfo, SportVariant } from "@/games/playerdle/sports"
-import { calculateStats, type Stats } from "@/games/playerdle/utils/stats"
+import { calculateStats, getGameHistory, type Stats } from "@/games/playerdle/utils/stats"
 import { CountUp, StatBar, StatsTabs, type StatsTab } from "@/shared/components"
+import { getTodayKey } from "@/shared/utils/time"
 
 interface AllStatsContentProps {
   sport: SportConfig | SportInfo
@@ -13,7 +15,23 @@ interface AllStatsContentProps {
   className?: string
 }
 
-export function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: number }) {
+function todayHighlightKey(
+  history: Array<{ date: string; won: boolean; guesses: number }>,
+): string | undefined {
+  const r = history.find(entry => entry.date === getTodayKey())
+  if (!r) return undefined
+  return r.won ? String(r.guesses) : "X"
+}
+
+export function StatsBlock({
+  stats,
+  maxGuesses,
+  highlightKey,
+}: {
+  stats: Stats
+  maxGuesses: number
+  highlightKey?: string
+}) {
   const maxGuessCount = Math.max(
     ...Object.values<number>(stats.guessDistribution),
     stats.losses,
@@ -47,6 +65,7 @@ export function StatsBlock({ stats, maxGuesses }: { stats: Stats; maxGuesses: nu
           count={row.count}
           maxCount={maxGuessCount}
           isLoss={row.isLoss}
+          highlight={row.key === highlightKey}
         />
       ))}
     </section>
@@ -74,12 +93,24 @@ export function AllStatsContent({ sport, journeyLeague, className }: AllStatsCon
     {
       id: "classic",
       label: "Playerdle",
-      content: <StatsBlock stats={calculateStats(sport.id)} maxGuesses={6} />,
+      content: (
+        <StatsBlock
+          stats={calculateStats(sport.id)}
+          maxGuesses={6}
+          highlightKey={todayHighlightKey(getGameHistory(sport.id))}
+        />
+      ),
     },
     ...variants.map(variant => ({
       id: `variant:${variant.id}`,
       label: variant.label,
-      content: <StatsBlock stats={calculateStats(sport.id, variant.id)} maxGuesses={6} />,
+      content: (
+        <StatsBlock
+          stats={calculateStats(sport.id, variant.id)}
+          maxGuesses={6}
+          highlightKey={todayHighlightKey(getGameHistory(sport.id, variant.id))}
+        />
+      ),
     })),
     ...(journeyLeague
       ? [
@@ -87,7 +118,11 @@ export function AllStatsContent({ sport, journeyLeague, className }: AllStatsCon
             id: "journeyman",
             label: "Journeyman",
             content: (
-              <StatsBlock stats={calculateJourneyStats(journeyLeague)} maxGuesses={5} />
+              <StatsBlock
+                stats={calculateJourneyStats(journeyLeague)}
+                maxGuesses={5}
+                highlightKey={todayHighlightKey(getJourneyHistory(journeyLeague))}
+              />
             ),
           },
         ]

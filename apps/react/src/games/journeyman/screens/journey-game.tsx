@@ -624,6 +624,7 @@ function ResultsPanel({
               const has = count > 0
               const scaledWidth = maxBar > 0 ? (count / maxBar) * 100 : 0
               const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
+              const isHighlighted = won && num === guesses.length
               return (
                 <div
                   key={num}
@@ -637,7 +638,9 @@ function ResultsPanel({
                       className={clsx(
                         "min-h-4 py-1 rounded-sm text-xs font-semibold px-2 flex items-center justify-end",
                         has
-                          ? "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
+                          ? isHighlighted
+                            ? "bg-primary-700 dark:bg-primary-700 text-primary-50 dark:text-primary-100"
+                            : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
                           : "bg-primary-100 dark:bg-primary-800 text-primary-500 dark:text-primary-300",
                       )}
                       style={{ width: barWidth }}

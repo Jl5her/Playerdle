@@ -3,18 +3,22 @@ import {
   type ColorsStats,
   type ColorsVariant,
   calculateColorsStats,
+  getColorsHistory,
 } from "@/games/statehue/utils/colors-daily"
 import { CountUp, Panel, StatBar, StatsTabs, type StatsTab } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
+import { getTodayKey } from "@/shared/utils/time"
 
 const MAX_GUESSES = 5
 
 function ColorsStatsBlock({
   stats,
   onViewArchive,
+  highlightKey,
 }: {
   stats: ColorsStats
   onViewArchive?: () => void
+  highlightKey?: string
 }) {
   const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
@@ -47,6 +51,7 @@ function ColorsStatsBlock({
             count={row.count}
             maxCount={maxGuessCount}
             isLoss={row.isLoss}
+            highlight={row.key === highlightKey}
           />
         ))}
       </div>
@@ -75,16 +80,24 @@ interface ColorsStatsBodyProps {
 /** Single-variant stats body — used inside in-game overlays where the active variant is fixed. */
 export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
   const stats = calculateColorsStats(variant)
+  const todayResult = getColorsHistory(variant).find(r => r.date === getTodayKey())
+  const highlightKey = todayResult ? (todayResult.won ? String(todayResult.guesses) : "X") : undefined
 
   return (
     <div className={clsx("text-center px-6 py-6 overflow-x-hidden", className)}>
-      <ColorsStatsBlock stats={stats} onViewArchive={onViewArchive} />
+      <ColorsStatsBlock stats={stats} onViewArchive={onViewArchive} highlightKey={highlightKey} />
     </div>
   )
 }
 
 interface ColorsStatsTabbedBodyProps {
   className?: string
+}
+
+function colorsHighlightKey(variant: ColorsVariant): string | undefined {
+  const r = getColorsHistory(variant).find(entry => entry.date === getTodayKey())
+  if (!r) return undefined
+  return r.won ? String(r.guesses) : "X"
 }
 
 /** Tabbed stats body — shows Statehue and Collegiate side-by-side as tabs. */
@@ -95,7 +108,7 @@ export function ColorsStatsTabbedBody({ className }: ColorsStatsTabbedBodyProps)
       label: "Statehue",
       content: (
         <div className="text-center pt-2 pb-6 px-2">
-          <ColorsStatsBlock stats={calculateColorsStats("pro")} />
+          <ColorsStatsBlock stats={calculateColorsStats("pro")} highlightKey={colorsHighlightKey("pro")} />
         </div>
       ),
     },
@@ -104,7 +117,7 @@ export function ColorsStatsTabbedBody({ className }: ColorsStatsTabbedBodyProps)
       label: "Collegiate",
       content: (
         <div className="text-center pt-2 pb-6 px-2">
-          <ColorsStatsBlock stats={calculateColorsStats("collegiate")} />
+          <ColorsStatsBlock stats={calculateColorsStats("collegiate")} highlightKey={colorsHighlightKey("collegiate")} />
         </div>
       ),
     },
