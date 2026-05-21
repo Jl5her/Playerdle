@@ -7,6 +7,7 @@ import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
+import { trackPanelOpened } from "@/lib/analytics"
 import ColorsCalendar from "./colors-calendar"
 import ColorsGame, { type ColorsGameMode } from "./colors-game"
 import ColorsHowToPlay, { colorsTutorialSeenKey } from "./colors-how-to-play"
@@ -41,6 +42,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     if (initialShowStats) return
     if (localStorage.getItem(colorsTutorialSeenKey(variant))) return
     panels.push("guide")
+    trackPanelOpened({ panel: "guide", game: "statehue", variant, mode: "daily", is_onboarding: true })
   }, [screen, initialShowStats, variant])
 
   function goToMenu() {
@@ -100,7 +102,10 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {!panels.isAnyOpen && (
               <button
-                onClick={() => panels.push("stats")}
+                onClick={() => {
+                  panels.push("stats")
+                  trackPanelOpened({ panel: "stats", game: "statehue", variant, mode: activeMode })
+                }}
                 aria-label="Show stats"
                 title="Stats"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
@@ -114,7 +119,10 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
             )}
             {!panels.isAnyOpen && (
               <button
-                onClick={() => panels.push("guide")}
+                onClick={() => {
+                  panels.push("guide")
+                  trackPanelOpened({ panel: "guide", game: "statehue", variant, mode: activeMode })
+                }}
                 aria-label="Show tutorial"
                 title="How to play"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"

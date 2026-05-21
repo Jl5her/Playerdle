@@ -31,7 +31,7 @@ import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
-import { trackGameComplete } from "@/lib/analytics"
+import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 
 const MAX_GUESSES = 5
 const STORAGE_KEY_PREFIX = "playerdle-journey-state:v1"
@@ -700,6 +700,17 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
   const gameOver = won || lost
   const wrongCount = guesses.filter(g => g.toLowerCase() !== answerName.toLowerCase()).length
 
+  const analytics = useGameAnalytics({
+    game: "journeyman",
+    sport: league,
+    mode: activeMode,
+    maxGuesses: MAX_GUESSES,
+    dateKey: puzzle.dateKey,
+    isArchive: !!archiveDateKey,
+    initialGuessCount: guesses.length,
+    initialGameOver: gameOver,
+  })
+
   const [hideAnswer, setHideAnswer] = useState(false)
 
   // Reveal cadence: distribute the player's teams evenly across 4 buckets
@@ -780,12 +791,14 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     if (activeMode === "daily") saveDailyGuesses(league, puzzle.dateKey, next)
     const newWon = next.some(g => g.toLowerCase() === answerName.toLowerCase())
     const newLost = !newWon && next.length >= MAX_GUESSES
+    analytics.onGuess(next.length, newWon)
     if (newWon || newLost) {
-      trackGameComplete({ game: "journeyman", sport: league, mode: activeMode, won: newWon, guesses: next.length })
+      analytics.onComplete(newWon, next.length)
     }
   }
 
   function handlePlayAgain() {
+    analytics.reset()
     const fresh = getArcadeJourneyPuzzle(league, puzzle.player.id)
     setPuzzle(fresh)
     setGuesses([])

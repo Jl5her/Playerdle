@@ -1,6 +1,6 @@
 import type { GameMode } from "@playerdle/types"
 import { useMemo, useRef, useState } from "react"
-import { trackGameComplete } from "@/lib/analytics"
+import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import type { Player, SportConfig } from "@/games/playerdle/sports"
@@ -107,6 +107,18 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
   const gameOver = won || lost
   const isFanatic = variantId === "fanatic"
 
+  const analytics = useGameAnalytics({
+    game: "playerdle",
+    sport: sport.id,
+    variant: variantId ?? "classic",
+    mode: activeMode,
+    maxGuesses: MAX_GUESSES,
+    dateKey,
+    isArchive: !!archiveDateKey,
+    initialGuessCount: guesses.length,
+    initialGameOver: gameOver,
+  })
+
   const guessedIds = useMemo(() => new Set(guesses.map(g => g.id)), [guesses])
 
   const confettiColors = useMemo(() => {
@@ -155,6 +167,8 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
     const newWon = !!(answer && newGuesses.some(g => g.id === answer.id))
     const newLost = !newWon && newGuesses.length >= MAX_GUESSES
 
+    analytics.onGuess(newGuesses.length, newWon)
+
     if (
       isFanatic &&
       !newWon &&
@@ -178,18 +192,12 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
           dateKey,
         )
       }
-      trackGameComplete({
-        game: "playerdle",
-        sport: sport.id,
-        variant: variantId ?? "classic",
-        mode: activeMode,
-        won: newWon,
-        guesses: newGuesses.length,
-      })
+      analytics.onComplete(newWon, newGuesses.length)
     }
   }
 
   function handlePlayAgain() {
+    analytics.reset()
     if (!answer) return
     const newPlayer = getRandomArcadePlayer(sport, answer.id)
     setAnswer(newPlayer)

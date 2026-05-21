@@ -32,7 +32,7 @@ import { TEAM_COLOR_NAME_MAP } from "@playerdle/data/journeyman/leagues"
 import { hexToColorName } from "@/shared/utils/color-name"
 import { shortenUrl } from "@/shared/utils/shorten-url"
 import { getTodayKey } from "@/shared/utils/time"
-import { trackGameComplete } from "@/lib/analytics"
+import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 
 const MAX_GUESSES = 5
 
@@ -683,6 +683,17 @@ export default function ColorsGame({
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
   const wrongCount = guesses.filter(g => g.toLowerCase() !== puzzle.state.name.toLowerCase()).length
+
+  const analytics = useGameAnalytics({
+    game: "statehue",
+    variant,
+    mode: activeMode,
+    maxGuesses: MAX_GUESSES,
+    dateKey: puzzle.dateKey,
+    isArchive: !!archiveDateKey,
+    initialGuessCount: guesses.length,
+    initialGameOver: gameOver,
+  })
   // Hint cadence: start with 1 team's colors, +1 per wrong guess, up to 3.
   const visibleTeamCount = gameOver
     ? puzzle.teams.length
@@ -732,12 +743,14 @@ export default function ColorsGame({
     if (activeMode === "daily") saveDailyGuesses(puzzle.dateKey, next, variant)
     const newWon = next.some(g => g.toLowerCase() === puzzle.state.name.toLowerCase())
     const newLost = !newWon && next.length >= MAX_GUESSES
+    analytics.onGuess(next.length, newWon)
     if (newWon || newLost) {
-      trackGameComplete({ game: "statehue", variant, mode: activeMode, won: newWon, guesses: next.length })
+      analytics.onComplete(newWon, next.length)
     }
   }
 
   function handlePlayAgain() {
+    analytics.reset()
     const fresh = getArcadeColorsPuzzle(puzzle.state.id, variant)
     setPuzzle(fresh)
     setGuesses([])
