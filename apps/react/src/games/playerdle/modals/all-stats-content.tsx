@@ -20,7 +20,7 @@ function todayHighlightKey(
 ): string | undefined {
   const r = history.find(entry => entry.date === getTodayKey())
   if (!r) return undefined
-  return r.won ? String(r.guesses) : "X"
+  return r.won ? String(r.guesses) : undefined
 }
 
 export function StatsBlock({
@@ -34,7 +34,6 @@ export function StatsBlock({
 }) {
   const maxGuessCount = Math.max(
     ...Object.values<number>(stats.guessDistribution),
-    stats.losses,
     1,
   )
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
@@ -44,7 +43,6 @@ export function StatsBlock({
       count: stats.guessDistribution[i + 1] || 0,
       isLoss: false,
     })),
-    { key: "X", label: "X", count: stats.losses, isLoss: true },
   ]
 
   return (

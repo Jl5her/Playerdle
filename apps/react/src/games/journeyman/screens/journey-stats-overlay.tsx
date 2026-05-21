@@ -16,9 +16,9 @@ interface Props {
 export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props) {
   const ctx = usePanelContext()
   const stats = calculateJourneyStats(league)
-  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
+  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
   const todayResult = getJourneyHistory(league).find(r => r.date === getTodayKey())
-  const highlightKey = todayResult ? (todayResult.won ? String(todayResult.guesses) : "X") : undefined
+  const highlightKey = todayResult?.won ? String(todayResult.guesses) : undefined
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
     ...[1, 2, 3, 4, 5].map(n => ({
       key: String(n),
@@ -26,7 +26,6 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
       count: stats.guessDistribution[n] || 0,
       isLoss: false,
     })),
-    { key: "X", label: "X", count: stats.losses, isLoss: true },
   ]
 
   return (
