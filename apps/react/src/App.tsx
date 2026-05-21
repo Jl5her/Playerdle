@@ -105,6 +105,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const sportMeta = getSportMetaById(sportId)
   const [gameKey, setGameKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
+  const [sportLoadFailed, setSportLoadFailed] = useState(false)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
   const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
@@ -133,6 +134,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   useEffect(() => {
     let isMounted = true
+    setSportLoadFailed(false)
     const cachedSport = sportCacheRef.current[sportId]
 
     if (cachedSport) {
@@ -142,12 +144,16 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       }
     }
 
-    loadSportConfig(sportId).then(config => {
-      if (isMounted) {
-        sportCacheRef.current[sportId] = config
-        setSport(config)
-      }
-    })
+    loadSportConfig(sportId)
+      .then(config => {
+        if (isMounted) {
+          sportCacheRef.current[sportId] = config
+          setSport(config)
+        }
+      })
+      .catch(() => {
+        if (isMounted) setSportLoadFailed(true)
+      })
 
     return () => {
       isMounted = false
@@ -280,6 +286,16 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
         },
       ]
     : undefined
+
+  if (sportLoadFailed && !sport) {
+    return (
+      <div className="app-viewport flex items-center justify-center p-8 text-center">
+        <p className="text-primary-500 dark:text-primary-400 text-sm">
+          Failed to load game data. Please refresh the page.
+        </p>
+      </div>
+    )
+  }
 
   return (
     <>

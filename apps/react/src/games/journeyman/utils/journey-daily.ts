@@ -77,18 +77,33 @@ function pickPlayerForDate(league: JourneyLeague, dateKey: string): JourneyPlaye
   const cached = runtime.cache.get(dateKey)
   if (cached) return cached
 
-  const ranked = rankPlayersByHash(league, dateKey)
-  let result = ranked[0]
-  const yesterday = previousDateKey(dateKey)
-  if (yesterday && yesterday >= JOURNEY_EPOCH_DATE_KEY) {
-    const yesterdayPick = pickPlayerForDate(league, yesterday)
-    if (conflictsWithYesterday(result, yesterdayPick)) {
-      const alt = ranked.find(p => !conflictsWithYesterday(p, yesterdayPick))
-      if (alt) result = alt
-    }
+  // Walk back to find the oldest uncached date, then resolve forward.
+  // Avoids unbounded recursion as the puzzle archive grows.
+  const chain: string[] = []
+  let cursor = dateKey
+  while (!runtime.cache.has(cursor)) {
+    chain.push(cursor)
+    const prev = previousDateKey(cursor)
+    if (!prev || prev < JOURNEY_EPOCH_DATE_KEY) break
+    cursor = prev
   }
-  runtime.cache.set(dateKey, result)
-  return result
+
+  for (let i = chain.length - 1; i >= 0; i--) {
+    const dk = chain[i]
+    const ranked = rankPlayersByHash(league, dk)
+    let result = ranked[0]
+    const prev = previousDateKey(dk)
+    if (prev && prev >= JOURNEY_EPOCH_DATE_KEY) {
+      const prevPick = runtime.cache.get(prev)
+      if (prevPick && conflictsWithYesterday(result, prevPick)) {
+        const alt = ranked.find(p => !conflictsWithYesterday(p, prevPick))
+        if (alt) result = alt
+      }
+    }
+    runtime.cache.set(dk, result)
+  }
+
+  return runtime.cache.get(dateKey)!
 }
 
 function daysSinceEpoch(dateKey: string): number {
@@ -181,7 +196,8 @@ export function getJourneyHistory(league: JourneyLeague): JourneyResult[] {
   try {
     const raw = localStorage.getItem(historyKey(league))
     if (!raw) return []
-    return JSON.parse(raw) as JourneyResult[]
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? (parsed as JourneyResult[]) : []
   } catch {
     return []
   }
