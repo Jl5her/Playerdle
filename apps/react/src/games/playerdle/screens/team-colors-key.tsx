@@ -43,7 +43,7 @@ export function TeamColorsKey() {
   const conferences = Object.keys(grouped).sort()
 
   return (
-    <div className="min-h-screen bg-primary-50 dark:bg-primary-900 p-6">
+    <div className="h-screen overflow-y-auto bg-primary-50 dark:bg-primary-900 p-6">
       <h1 className="text-2xl font-black tracking-wide text-primary-700 dark:text-primary-50 mb-6">
         Team Colors Key
       </h1>
