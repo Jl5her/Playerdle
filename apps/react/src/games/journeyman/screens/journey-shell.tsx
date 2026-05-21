@@ -8,6 +8,7 @@ import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { formatLongDate } from "@/shared/utils/time"
+import { trackPanelOpened } from "@/lib/analytics"
 import JourneyCalendar from "./journey-calendar"
 import JourneyGame, { type JourneyGameMode } from "./journey-game"
 import JourneyHowToPlay, { journeyTutorialSeenKey } from "./journey-how-to-play"
@@ -59,6 +60,7 @@ export default function JourneyShell({ league, screen }: Props) {
     migrateLegacyTutorialFlagIfNeeded(league)
     if (localStorage.getItem(journeyTutorialSeenKey(league))) return
     panels.push("guide")
+    trackPanelOpened({ panel: "guide", game: "journeyman", sport: league, mode: "daily", is_onboarding: true })
   }, [screen, initialShowStats, league])
 
   function goToMenu() {
@@ -122,7 +124,10 @@ export default function JourneyShell({ league, screen }: Props) {
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {!panels.isAnyOpen && (
               <button
-                onClick={() => panels.push("stats")}
+                onClick={() => {
+                  panels.push("stats")
+                  trackPanelOpened({ panel: "stats", game: "journeyman", sport: league, mode: activeMode })
+                }}
                 aria-label="Show stats"
                 title="Stats"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
@@ -136,7 +141,10 @@ export default function JourneyShell({ league, screen }: Props) {
             )}
             {!panels.isAnyOpen && (
               <button
-                onClick={() => panels.push("guide")}
+                onClick={() => {
+                  panels.push("guide")
+                  trackPanelOpened({ panel: "guide", game: "journeyman", sport: league, mode: activeMode })
+                }}
                 aria-label="Show tutorial"
                 title="How to play"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"

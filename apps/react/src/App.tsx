@@ -29,6 +29,7 @@ import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/co
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
+import { trackPanelOpened } from "@/lib/analytics"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -118,6 +119,19 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [waitingForSync, setWaitingForSync] = useState(false)
 
   useEffect(() => {
+    if (initialGuideMode === "onboarding") {
+      trackPanelOpened({
+        panel: "guide",
+        game: "playerdle",
+        sport: sportId,
+        variant: variantId,
+        mode: "daily",
+        is_onboarding: true,
+      })
+    }
+  }, []) // intentionally runs once on mount
+
+  useEffect(() => {
     let isMounted = true
     const cachedSport = sportCacheRef.current[sportId]
 
@@ -158,6 +172,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
     setGameGuideMode("manual")
     panels.push("guide")
+    trackPanelOpened({
+      panel: "guide",
+      game: "playerdle",
+      sport: sportId,
+      variant: activeVariantId,
+      mode: "daily",
+    })
   }
 
   function goToMenu() {
@@ -177,6 +198,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       variantId: activeVariantId,
     })
     panels.push("stats")
+    trackPanelOpened({
+      panel: "stats",
+      game: "playerdle",
+      sport: sportId,
+      variant: activeVariantId,
+      mode: "daily",
+    })
   }
 
   function handleSelectSport(nextSportId: SportConfig["id"]) {

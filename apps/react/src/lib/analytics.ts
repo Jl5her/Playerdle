@@ -11,22 +11,76 @@ export function initAnalytics() {
     person_profiles: "never",
     autocapture: false,
     capture_pageview: true,
-    capture_pageleave: false,
+    capture_pageleave: true,
     disable_external_dependency_loading: true,
   })
   ready = true
 }
 
-export interface GameCompleteProps {
-  game: "playerdle" | "journeyman" | "statehue"
-  sport?: string   // nfl | mlb | nba | nhl
-  variant?: string // classic | fanatic (playerdle) · pro | collegiate (statehue)
+function capture(event: string, props: object) {
+  if (!ready) return
+  posthog.capture(event, props)
+}
+
+type GameId = "playerdle" | "journeyman" | "statehue"
+
+interface BaseGameProps {
+  game: GameId
+  sport?: string
+  variant?: string
   mode: "daily" | "arcade"
+}
+
+export interface GameStartProps extends BaseGameProps {
+  date_key?: string
+  is_archive?: boolean
+}
+
+export interface GuessSubmittedProps extends BaseGameProps {
+  guess_number: number
+  is_correct: boolean
+  seconds_elapsed: number
+}
+
+export interface GameCompleteProps extends BaseGameProps {
   won: boolean
   guesses: number
+  seconds_to_complete: number
+  date_key?: string
+  is_archive?: boolean
+}
+
+export interface GameAbandonedProps extends BaseGameProps {
+  guesses_made: number
+  max_guesses: number
+  seconds_active: number
+}
+
+export interface PanelOpenedProps {
+  panel: "guide" | "stats"
+  game: GameId
+  sport?: string
+  variant?: string
+  mode: "daily" | "arcade"
+  is_onboarding?: boolean
+}
+
+export function trackGameStart(props: GameStartProps) {
+  capture("game_start", props)
+}
+
+export function trackGuessSubmitted(props: GuessSubmittedProps) {
+  capture("guess_submitted", props)
 }
 
 export function trackGameComplete(props: GameCompleteProps) {
-  if (!ready) return
-  posthog.capture("game_complete", props)
+  capture("game_complete", props)
+}
+
+export function trackGameAbandoned(props: GameAbandonedProps) {
+  capture("game_abandoned", props)
+}
+
+export function trackPanelOpened(props: PanelOpenedProps) {
+  capture("panel_opened", props)
 }
