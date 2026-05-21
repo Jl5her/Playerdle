@@ -20,7 +20,7 @@ function ColorsStatsBlock({
   onViewArchive?: () => void
   highlightKey?: string
 }) {
-  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), stats.losses, 1)
+  const maxGuessCount = Math.max(...Object.values(stats.guessDistribution), 1)
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
     ...Array.from({ length: MAX_GUESSES }, (_, i) => ({
       key: String(i + 1),
@@ -28,7 +28,6 @@ function ColorsStatsBlock({
       count: stats.guessDistribution[i + 1] || 0,
       isLoss: false,
     })),
-    { key: "X", label: "X", count: stats.losses, isLoss: true },
   ]
 
   return (
@@ -81,7 +80,7 @@ interface ColorsStatsBodyProps {
 export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
   const stats = calculateColorsStats(variant)
   const todayResult = getColorsHistory(variant).find(r => r.date === getTodayKey())
-  const highlightKey = todayResult ? (todayResult.won ? String(todayResult.guesses) : "X") : undefined
+  const highlightKey = todayResult?.won ? String(todayResult.guesses) : undefined
 
   return (
     <div className={clsx("text-center px-6 py-6 overflow-x-hidden", className)}>
@@ -97,7 +96,7 @@ interface ColorsStatsTabbedBodyProps {
 function colorsHighlightKey(variant: ColorsVariant): string | undefined {
   const r = getColorsHistory(variant).find(entry => entry.date === getTodayKey())
   if (!r) return undefined
-  return r.won ? String(r.guesses) : "X"
+  return r.won ? String(r.guesses) : undefined
 }
 
 /** Tabbed stats body — shows Statehue and Collegiate side-by-side as tabs. */
