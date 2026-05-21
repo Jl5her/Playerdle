@@ -45,12 +45,19 @@ export function TeamColorsKey() {
   const conferences = Object.keys(grouped).sort()
 
   useEffect(() => {
-    const root = document.getElementById("root")
-    if (!root) return
-    const prev = root.style.overflow
-    root.style.overflow = "visible"
+    const targets = [document.documentElement, document.body, document.getElementById("root")].filter(
+      Boolean,
+    ) as HTMLElement[]
+    const prev = targets.map(el => ({ overflow: el.style.overflow, height: el.style.height }))
+    for (const el of targets) {
+      el.style.overflow = "visible"
+      el.style.height = "auto"
+    }
     return () => {
-      root.style.overflow = prev
+      targets.forEach((el, i) => {
+        el.style.overflow = prev[i].overflow
+        el.style.height = prev[i].height
+      })
     }
   }, [])
 
