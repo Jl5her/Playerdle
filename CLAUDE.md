@@ -98,6 +98,8 @@ Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` arr
 
 **Ordering:** `[primary, secondary, tertiary]` — most prominent brand color first, based on how the team uses colors on their uniforms and primary branding.
 
+**Minimum two colors:** Every team must have at least 2 recognizable brand colors. If a team's second slot would otherwise be `"transparent"`, find the next most prominent brand color instead.
+
 **Third slot rules:**
 - Use a real hex color only if the team genuinely has a 3rd distinct brand color that appears on their uniforms — not just a minor logo accent.
 - Use `"transparent"` when the team only has 2 primary brand colors. White as a jersey background does not count as a brand color.
