@@ -92,6 +92,16 @@ All game state lives in `localStorage`:
 
 **Device sync** (`shared/utils/sync.ts`) hashes a 5-word passphrase via SHA-256 and uses that as the key for the Cloudflare KV edge API at `/api/sync/:hash`. The KV namespace is `PLAYERDLE_SYNC_KV` (configured in `wrangler.toml`). All `playerdle-stats:*`, `playerdle-state:*`, `playerdle-tutorial-seen-v2:*`, and journey keys are included in the sync payload.
 
+## Team Color Convention
+
+Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` array of up to 3 entries used by Journeyman (3-diamond palette) and Playerdle confetti.
+
+**Ordering:** `[primary, secondary, tertiary]` — most prominent brand color first, based on how the team uses colors on their uniforms and primary branding.
+
+**Third slot rules:**
+- Use a real hex color only if the team genuinely has a 3rd distinct brand color that appears on their uniforms — not just a minor logo accent.
+- Use `"transparent"` when the team only has 2 primary brand colors. White as a jersey background does not count as a brand color.
+
 ## Adding a New Sport or Variant
 
 To add a new sport to Playerdle:

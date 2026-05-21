@@ -490,8 +490,9 @@ function App() {
           />
         }
       />
+      <Route path="/team-colors-key" element={<Navigate to="/team-colors-key/nfl" replace />} />
       <Route
-        path="/team-colors-key"
+        path="/team-colors-key/:sport"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <TeamColorsKey />

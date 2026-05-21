@@ -6,7 +6,8 @@
     "conference": "NL",
     "division": "West",
     "colors": [
-      "#aa182c",
+      "#a71930",
+      "#e3d4ad",
       "#000000"
     ]
   },
@@ -18,7 +19,8 @@
     "division": "West",
     "colors": [
       "#003831",
-      "#efb21e"
+      "#efb21e",
+      "transparent"
     ]
   },
   {
@@ -29,7 +31,8 @@
     "division": "East",
     "colors": [
       "#0c2340",
-      "#ba0c2f"
+      "#ce1141",
+      "transparent"
     ]
   },
   {
@@ -40,7 +43,8 @@
     "division": "East",
     "colors": [
       "#df4601",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -51,7 +55,8 @@
     "division": "East",
     "colors": [
       "#0d2b56",
-      "#bd3039"
+      "#bd3039",
+      "transparent"
     ]
   },
   {
@@ -62,7 +67,8 @@
     "division": "Central",
     "colors": [
       "#0e3386",
-      "#cc3433"
+      "#cc3433",
+      "transparent"
     ]
   },
   {
@@ -73,7 +79,8 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -84,7 +91,8 @@
     "division": "Central",
     "colors": [
       "#c6011f",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -95,7 +103,8 @@
     "division": "Central",
     "colors": [
       "#002b5c",
-      "#e31937"
+      "#e31937",
+      "transparent"
     ]
   },
   {
@@ -106,7 +115,8 @@
     "division": "West",
     "colors": [
       "#33006f",
-      "#000000"
+      "#000000",
+      "#c4ced4"
     ]
   },
   {
@@ -117,7 +127,8 @@
     "division": "Central",
     "colors": [
       "#0a2240",
-      "#ff4713"
+      "#fa4616",
+      "transparent"
     ]
   },
   {
@@ -128,7 +139,8 @@
     "division": "West",
     "colors": [
       "#002d62",
-      "#eb6e1f"
+      "#eb6e1f",
+      "transparent"
     ]
   },
   {
@@ -139,6 +151,7 @@
     "division": "Central",
     "colors": [
       "#004687",
+      "#c09a5b",
       "#7ab2dd"
     ]
   },
@@ -149,7 +162,8 @@
     "conference": "AL",
     "division": "West",
     "colors": [
-      "#ba0021",
+      "#b71234",
+      "#003263",
       "#c4ced4"
     ]
   },
@@ -161,7 +175,8 @@
     "division": "West",
     "colors": [
       "#005a9c",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -172,7 +187,8 @@
     "division": "East",
     "colors": [
       "#00a3e0",
-      "#000000"
+      "#000000",
+      "#ef3340"
     ]
   },
   {
@@ -183,7 +199,8 @@
     "division": "Central",
     "colors": [
       "#13294b",
-      "#ffc72c"
+      "#ffc72c",
+      "transparent"
     ]
   },
   {
@@ -194,7 +211,8 @@
     "division": "Central",
     "colors": [
       "#031f40",
-      "#e20e32"
+      "#d31145",
+      "transparent"
     ]
   },
   {
@@ -205,7 +223,8 @@
     "division": "East",
     "colors": [
       "#002d72",
-      "#ff5910"
+      "#ff5910",
+      "transparent"
     ]
   },
   {
@@ -216,7 +235,8 @@
     "division": "East",
     "colors": [
       "#132448",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -227,7 +247,8 @@
     "division": "East",
     "colors": [
       "#e81828",
-      "#003278"
+      "#003278",
+      "transparent"
     ]
   },
   {
@@ -238,7 +259,8 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#fdb827"
+      "#fdb827",
+      "transparent"
     ]
   },
   {
@@ -249,7 +271,8 @@
     "division": "West",
     "colors": [
       "#2f241d",
-      "#ffc425"
+      "#ffc425",
+      "transparent"
     ]
   },
   {
@@ -259,8 +282,9 @@
     "conference": "NL",
     "division": "West",
     "colors": [
+      "#fd5a1e",
       "#000000",
-      "#fd5a1e"
+      "transparent"
     ]
   },
   {
@@ -271,7 +295,8 @@
     "division": "West",
     "colors": [
       "#005c5c",
-      "#0c2c56"
+      "#0c2c56",
+      "transparent"
     ]
   },
   {
@@ -282,7 +307,8 @@
     "division": "Central",
     "colors": [
       "#be0a14",
-      "#001541"
+      "#001541",
+      "transparent"
     ]
   },
   {
@@ -293,7 +319,8 @@
     "division": "East",
     "colors": [
       "#092c5c",
-      "#8fbce6"
+      "#8fbce6",
+      "#f5d130"
     ]
   },
   {
@@ -304,7 +331,8 @@
     "division": "West",
     "colors": [
       "#003278",
-      "#c0111f"
+      "#c0111f",
+      "transparent"
     ]
   },
   {
@@ -315,7 +343,8 @@
     "division": "East",
     "colors": [
       "#134a8e",
-      "#6cace5"
+      "#6cace5",
+      "transparent"
     ]
   },
   {
@@ -326,7 +355,8 @@
     "division": "East",
     "colors": [
       "#ab0003",
-      "#11225b"
+      "#11225b",
+      "transparent"
     ]
   }
 ]
