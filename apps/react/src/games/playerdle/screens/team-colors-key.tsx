@@ -1,5 +1,6 @@
 import clsx from "clsx"
-import { useState } from "react"
+import { useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 import nflTeams from "@playerdle/data/playerdle/nfl/teams.json"
 import mlbTeams from "@playerdle/data/playerdle/mlb/teams.json"
 import nbaTeams from "@playerdle/data/playerdle/nba/teams.json"
@@ -37,32 +38,42 @@ function groupTeams(teams: RawTeam[]): Record<string, Record<string, RawTeam[]>>
 }
 
 export function TeamColorsKey() {
-  const [activeSportId, setActiveSportId] = useState("nfl")
+  const { sport: sportParam } = useParams<{ sport: string }>()
+  const activeSportId = SPORTS.find(s => s.id === sportParam)?.id ?? "nfl"
   const sport = SPORTS.find(s => s.id === activeSportId)!
   const grouped = groupTeams(sport.teams)
   const conferences = Object.keys(grouped).sort()
 
+  useEffect(() => {
+    const root = document.getElementById("root")
+    if (!root) return
+    const prev = root.style.overflow
+    root.style.overflow = "visible"
+    return () => {
+      root.style.overflow = prev
+    }
+  }, [])
+
   return (
-    <div className="h-screen overflow-y-auto bg-primary-50 dark:bg-primary-900 p-6">
+    <div className="min-h-screen bg-primary-50 dark:bg-primary-900 p-6">
       <h1 className="text-2xl font-black tracking-wide text-primary-700 dark:text-primary-50 mb-6">
         Team Colors Key
       </h1>
 
       <div className="flex gap-2 mb-8">
         {SPORTS.map(s => (
-          <button
+          <Link
             key={s.id}
-            type="button"
-            onClick={() => setActiveSportId(s.id)}
+            to={`/team-colors-key/${s.id}`}
             className={clsx(
-              "px-4 py-2 rounded-lg font-bold text-sm transition-colors cursor-pointer",
+              "px-4 py-2 rounded-lg font-bold text-sm transition-colors",
               activeSportId === s.id
                 ? "bg-primary-700 text-white dark:bg-primary-200 dark:text-primary-900"
                 : "bg-primary-200 text-primary-700 dark:bg-primary-700 dark:text-primary-200 hover:bg-primary-300 dark:hover:bg-primary-600",
             )}
           >
             {s.label}
-          </button>
+          </Link>
         ))}
       </div>
 
