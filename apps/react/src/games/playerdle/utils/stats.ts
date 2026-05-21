@@ -46,7 +46,8 @@ export function getGameHistory(sportId: string, variantId?: string): GameResult[
   try {
     const raw = localStorage.getItem(getStatsKey(sportId, variantId))
     if (!raw) return []
-    return JSON.parse(raw)
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? parsed : []
   } catch {
     return []
   }

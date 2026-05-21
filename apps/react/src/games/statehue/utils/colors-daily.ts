@@ -83,19 +83,33 @@ function pickWeightedStateForDate(dateKey: string, variant: ColorsVariant): Colo
   const cached = STATE_FOR_DATE_CACHE.get(cacheKey)
   if (cached) return cached
 
-  const ranked = rankStatesByHash(dateKey, variant)
-  let result = ranked[0]
-  const yesterday = previousDateKey(dateKey)
-  if (yesterday && yesterday >= COLORS_EPOCH_DATE_KEY) {
-    const yesterdayActual = pickWeightedStateForDate(yesterday, variant)
-    if (result.id === yesterdayActual.id) {
-      const alt = ranked.find(s => s.id !== yesterdayActual.id)
-      if (alt) result = alt
-    }
+  // Walk back to find the oldest uncached date, then resolve forward.
+  // Avoids unbounded recursion as the puzzle archive grows.
+  const chain: string[] = []
+  let cursor = dateKey
+  while (!STATE_FOR_DATE_CACHE.has(`${variant}:${cursor}`)) {
+    chain.push(cursor)
+    const prev = previousDateKey(cursor)
+    if (!prev || prev < COLORS_EPOCH_DATE_KEY) break
+    cursor = prev
   }
 
-  STATE_FOR_DATE_CACHE.set(cacheKey, result)
-  return result
+  for (let i = chain.length - 1; i >= 0; i--) {
+    const dk = chain[i]
+    const ranked = rankStatesByHash(dk, variant)
+    let result = ranked[0]
+    const prev = previousDateKey(dk)
+    if (prev && prev >= COLORS_EPOCH_DATE_KEY) {
+      const prevActual = STATE_FOR_DATE_CACHE.get(`${variant}:${prev}`)
+      if (prevActual && result.id === prevActual.id) {
+        const alt = ranked.find(s => s.id !== prevActual.id)
+        if (alt) result = alt
+      }
+    }
+    STATE_FOR_DATE_CACHE.set(`${variant}:${dk}`, result)
+  }
+
+  return STATE_FOR_DATE_CACHE.get(cacheKey)!
 }
 
 function pickWeightedStateRandom(
@@ -201,7 +215,8 @@ export function getColorsHistory(variant: ColorsVariant = "pro"): ColorsResult[]
   try {
     const raw = localStorage.getItem(historyKey(variant))
     if (!raw) return []
-    return JSON.parse(raw) as ColorsResult[]
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) ? (parsed as ColorsResult[]) : []
   } catch {
     return []
   }

@@ -19,11 +19,19 @@ import ScrollHint from "./scroll-hint"
 const WELCOME_SEEN_KEY = "playerdle-welcome-seen"
 
 export function hasSeenWelcome(): boolean {
-  return !!localStorage.getItem(WELCOME_SEEN_KEY)
+  try {
+    return !!localStorage.getItem(WELCOME_SEEN_KEY)
+  } catch {
+    return false
+  }
 }
 
 function markWelcomeSeen() {
-  localStorage.setItem(WELCOME_SEEN_KEY, "true")
+  try {
+    localStorage.setItem(WELCOME_SEEN_KEY, "true")
+  } catch {
+    // ignore storage errors
+  }
 }
 
 interface WelcomeScreenProps {

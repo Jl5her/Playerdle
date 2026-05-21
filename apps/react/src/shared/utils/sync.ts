@@ -97,12 +97,20 @@ export function createPassphrase(): string {
 }
 
 export function setPassphrase(phrase: string): void {
-  localStorage.setItem(PASSPHRASE_KEY, phrase)
+  try {
+    localStorage.setItem(PASSPHRASE_KEY, phrase)
+  } catch {
+    // ignore storage errors
+  }
 }
 
 export function clearPassphrase(): void {
-  localStorage.removeItem(PASSPHRASE_KEY)
-  localStorage.removeItem(LAST_SYNCED_KEY)
+  try {
+    localStorage.removeItem(PASSPHRASE_KEY)
+    localStorage.removeItem(LAST_SYNCED_KEY)
+  } catch {
+    // ignore storage errors
+  }
 }
 
 export function getLastSynced(): Date | null {
@@ -156,8 +164,13 @@ export function collectSyncData(): SyncPayload {
 
 export function restoreSyncData(payload: SyncPayload): void {
   for (const [key, value] of Object.entries(payload.data)) {
+    if (typeof value !== "string") continue
     if (SYNC_KEY_PREFIXES.some(prefix => key.startsWith(prefix))) {
-      localStorage.setItem(key, value)
+      try {
+        localStorage.setItem(key, value)
+      } catch {
+        // ignore storage errors
+      }
     }
   }
 }
@@ -447,14 +460,28 @@ export interface PullResult {
   devices: number
 }
 
+function isValidSyncPayload(v: unknown): v is SyncPayload {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return false
+  const obj = v as Record<string, unknown>
+  return (
+    obj.version === 1 &&
+    typeof obj.lastUpdated === "string" &&
+    obj.data !== null &&
+    typeof obj.data === "object" &&
+    !Array.isArray(obj.data) &&
+    Object.values(obj.data as object).every(val => typeof val === "string")
+  )
+}
+
 export async function pullFromCloud(phrase: string): Promise<PullResult> {
   const hash = await hashPassphrase(phrase)
   const res = await fetch(apiUrl(hash))
   if (res.status === 404) throw new Error("No data found for this code")
   if (!res.ok) throw new Error("Failed to fetch from cloud")
-  const body = (await res.json()) as ServerGetResponse
+  const body = (await res.json()) as Record<string, unknown>
+  if (!isValidSyncPayload(body.payload)) throw new Error("Invalid response from sync server")
   storeLastSynced()
-  return { payload: body.payload, devices: body.devices }
+  return { payload: body.payload as SyncPayload, devices: body.devices as number }
 }
 
 export async function unlinkFromCloud(phrase: string): Promise<number> {
