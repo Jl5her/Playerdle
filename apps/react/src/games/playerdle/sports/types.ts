@@ -10,11 +10,18 @@ export interface Player {
   [key: string]: SportValue
 }
 
+export interface TeamJson {
+  id: string
+  name: string
+  abbr: string
+  colors?: string[]
+}
+
 export interface SportTeam {
   id: string
   name: string
   abbr: string
-  colors?: [string, string]
+  colors?: string[]
 }
 
 export interface SportInfo {

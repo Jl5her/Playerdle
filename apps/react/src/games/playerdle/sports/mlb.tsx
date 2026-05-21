@@ -3,16 +3,9 @@ import mlbFanaticAnswerPoolIds from "@playerdle/data/playerdle/mlb/fanatic_answe
 import mlbFanaticPlayers from "@playerdle/data/playerdle/mlb/fanatic_players.json"
 import mlbPlayers from "@playerdle/data/playerdle/mlb/players.json"
 import mlbTeams from "@playerdle/data/playerdle/mlb/teams.json"
-import type { Player, SportConfig, SportTeam } from "./types"
+import type { Player, SportConfig, SportTeam, TeamJson } from "./types"
 
-interface GeneratedTeam {
-  id: string
-  name: string
-  abbr: string
-  colors?: string[]
-}
-
-const teamsData = mlbTeams as unknown as GeneratedTeam[]
+const teamsData = mlbTeams as unknown as TeamJson[]
 const playersData = mlbPlayers as unknown as Player[]
 const fanaticPlayersData = mlbFanaticPlayers as unknown as Player[]
 const answerPoolIdSet = new Set(mlbAnswerPoolIds as unknown as string[])
@@ -22,7 +15,7 @@ const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
   name: team.name,
   abbr: team.abbr,
-  colors: team.colors && team.colors.length >= 2 ? [team.colors[0], team.colors[1]] : undefined,
+  colors: team.colors?.filter(c => c !== "transparent"),
 }))
 
 const mlbConfig: SportConfig = {
