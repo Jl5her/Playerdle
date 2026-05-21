@@ -105,7 +105,6 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
               <Card
                 icon={faBolt}
                 title="Fanatic Mode"
-                accent
                 description="A harder stats-based variant of Playerdle. Columns swap to fantasy stats like FPPG, yards per game, and touchdowns — no team or position hints. Available for NFL, MLB, NBA, and NHL."
               />
 
@@ -233,20 +232,12 @@ interface CardProps {
   icon: typeof faFootball
   title: string
   description: string
-  accent?: boolean
 }
 
-function Card({ icon, title, description, accent }: CardProps) {
+function Card({ icon, title, description }: CardProps) {
   return (
     <div className="rounded-xl bg-primary-100 dark:bg-primary-800 p-4 flex gap-3 items-start">
-      <div
-        className={clsx(
-          "w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5",
-          accent
-            ? "bg-warning-100 dark:bg-warning-900/40 text-warning-600 dark:text-warning-400"
-            : "bg-primary-200 dark:bg-primary-700 text-primary-600 dark:text-primary-300",
-        )}
-      >
+      <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-primary-200 dark:bg-primary-700 text-primary-600 dark:text-primary-300">
         <FontAwesomeIcon icon={icon} className="text-base" />
       </div>
       <div>
