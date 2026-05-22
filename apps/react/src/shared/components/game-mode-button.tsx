@@ -22,9 +22,9 @@ export default function GameModeButton({ label, played, onClick, title }: Props)
       title={computedTitle}
       onClick={onClick}
     >
-      <span className="flex flex-col items-center justify-center leading-tight min-h-8">
+      <span className="flex flex-col items-center justify-center leading-tight">
         <span className="text-base">{label}</span>
-        {played && <span className="text-[10px] font-medium opacity-75 -mt-0.5">Completed</span>}
+        <span className={clsx("text-[10px] font-medium -mt-0.5", played ? "opacity-75" : "invisible")}>Completed</span>
       </span>
     </button>
   )
