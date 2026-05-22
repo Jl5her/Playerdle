@@ -693,6 +693,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5136509",
+    "name": "Blas Castano",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "SP",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41345",
     "name": "Blaze Alexander",
     "conference": "AL",
@@ -999,17 +1010,6 @@
     "position": "RP",
     "number": 37,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42462",
-    "name": "Brenton Doyle",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "CF",
-    "number": 9,
-    "league": "NL"
   },
   {
     "id": "mlb:42414",
@@ -1375,6 +1375,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:28968",
+    "name": "Carlos Carrasco",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RP",
+    "number": 59,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41595",
     "name": "Carlos Cortes",
     "conference": "AL",
@@ -1551,6 +1562,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4995563",
+    "name": "Chad Stevens",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "SS",
+    "number": 39,
+    "league": "NL"
+  },
+  {
     "id": "mlb:35358",
     "name": "Chadwick Tromp",
     "conference": "NL",
@@ -1558,7 +1580,7 @@
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
     "position": "C",
-    "number": 38,
+    "number": 39,
     "league": "NL"
   },
   {
@@ -1746,6 +1768,17 @@
     "teamAbbr": "WSH",
     "position": "SS",
     "number": 5,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4313143",
+    "name": "Clayton Beeter",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 39,
     "league": "NL"
   },
   {
@@ -2981,6 +3014,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4622931",
+    "name": "Graham Pauley",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "3B",
+    "number": 21,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42161",
     "name": "Grant Anderson",
     "conference": "NL",
@@ -3793,17 +3837,6 @@
     "position": "3B",
     "number": 8,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4722919",
-    "name": "Jayden Murray",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "RP",
-    "number": 70,
-    "league": "AL"
   },
   {
     "id": "mlb:41433",
@@ -4981,17 +5014,6 @@
     "position": "2B",
     "number": 50,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41397",
-    "name": "Leo Jimenez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 19,
-    "league": "NL"
   },
   {
     "id": "mlb:34951",
@@ -6512,17 +6534,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4019760",
-    "name": "PJ Poulin",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 50,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33859",
     "name": "Rafael Devers",
     "conference": "NL",
@@ -7018,17 +7029,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4991148",
-    "name": "Sammy Peralta",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4917646",
     "name": "Samuel Basallo",
     "conference": "AL",
@@ -7233,7 +7233,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "SP",
+    "position": "DH",
     "number": 17,
     "league": "NL"
   },
@@ -7302,17 +7302,6 @@
     "position": "1B",
     "number": 2,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4867424",
-    "name": "Spencer Jones",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RF",
-    "number": 78,
-    "league": "AL"
   },
   {
     "id": "mlb:4833671",
@@ -8041,17 +8030,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4683391",
-    "name": "Victor Mederos",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SP",
-    "number": 58,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4807220",
     "name": "Victor Scott II",
     "conference": "NL",
@@ -8413,17 +8391,6 @@
     "position": "SP",
     "number": 18,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5196250",
-    "name": "Yovanny Cruz",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RP",
-    "number": 96,
-    "league": "AL"
   },
   {
     "id": "mlb:32055",
