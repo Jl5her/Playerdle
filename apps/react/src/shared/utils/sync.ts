@@ -31,11 +31,6 @@ export interface SyncPayload {
   data: Record<string, string>
 }
 
-interface ServerGetResponse {
-  payload: SyncPayload
-  devices: number
-}
-
 interface ServerWriteResponse {
   devices: number
 }
