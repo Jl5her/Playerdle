@@ -810,24 +810,6 @@
     "ops": 0.677
   },
   {
-    "id": "mlb:33594",
-    "name": "Elias Diaz",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "C",
-    "number": 43,
-    "league": "AL",
-    "gp": 106,
-    "pa": 283,
-    "avg": 0.204,
-    "hr": 9,
-    "rbi": 29,
-    "sb": 0,
-    "ops": 0.607
-  },
-  {
     "id": "mlb:41287",
     "name": "Ernie Clement",
     "conference": "AL",
@@ -844,6 +826,24 @@
     "rbi": 50,
     "sb": 6,
     "ops": 0.711
+  },
+  {
+    "id": "mlb:32367",
+    "name": "Eugenio Suarez",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "3B",
+    "number": 28,
+    "league": "NL",
+    "gp": 159,
+    "pa": 657,
+    "avg": 0.228,
+    "hr": 49,
+    "rbi": 118,
+    "sb": 4,
+    "ops": 0.824
   },
   {
     "id": "mlb:42457",
@@ -1404,24 +1404,6 @@
     "ops": 0.846
   },
   {
-    "id": "mlb:35020",
-    "name": "Ke'Bryan Hayes",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "3B",
-    "number": 3,
-    "league": "NL",
-    "gp": 52,
-    "pa": 178,
-    "avg": 0.234,
-    "hr": 3,
-    "rbi": 13,
-    "sb": 2,
-    "ops": 0.656
-  },
-  {
     "id": "mlb:30545",
     "name": "Kyle Higashioka",
     "conference": "AL",
@@ -1726,24 +1708,6 @@
     "rbi": 50,
     "sb": 18,
     "ops": 0.643
-  },
-  {
-    "id": "mlb:4867667",
-    "name": "Matt Shaw",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RF",
-    "number": 6,
-    "league": "NL",
-    "gp": 126,
-    "pa": 437,
-    "avg": 0.226,
-    "hr": 13,
-    "rbi": 44,
-    "sb": 17,
-    "ops": 0.69
   },
   {
     "id": "mlb:41636",
@@ -2608,6 +2572,24 @@
     "rbi": 27,
     "sb": 12,
     "ops": 0.598
+  },
+  {
+    "id": "mlb:35042",
+    "name": "Victor Robles",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RF",
+    "number": 10,
+    "league": "AL",
+    "gp": 32,
+    "pa": 114,
+    "avg": 0.245,
+    "hr": 1,
+    "rbi": 9,
+    "sb": 6,
+    "ops": 0.611
   },
   {
     "id": "mlb:35002",
