@@ -144,6 +144,29 @@ export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGu
         )}
       </div>
 
+      {sport.activeVariantId === "fanatic" && (
+        <div className="mt-5">
+          <h3 className="text-lg font-semibold text-primary-700 dark:text-primary-50 mb-3">
+            Position Lock
+          </h3>
+          <div className="flex items-center gap-4">
+            <span className="flex shrink-0 items-center justify-center w-14 h-14">
+              <span className="relative inline-block w-10 h-10 rotate-45 rounded-md border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900">
+                <span className="absolute inset-0 -rotate-45 flex items-center justify-center text-xs font-black tracking-wider text-primary-300 dark:text-primary-600">
+                  ?
+                </span>
+              </span>
+            </span>
+            <p className="text-primary-500 dark:text-primary-200 leading-relaxed text-sm m-0">
+              As soon as you guess a player who shares the same position as the mystery player, their
+              position is revealed in the{" "}
+              <strong className="text-primary-700 dark:text-primary-50">?</strong> badge above the
+              grid.
+            </p>
+          </div>
+        </div>
+      )}
+
       {isLocal && onOpenCalendar && (
         <div className="mt-6 pt-4 border-t border-primary-300 dark:border-primary-700 text-center">
           <button
