@@ -150,9 +150,11 @@ export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGu
             Position Lock
           </h3>
           <div className="flex items-center gap-4">
-            <span className="relative inline-block w-10 h-10 shrink-0 rotate-45 rounded-md border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900">
-              <span className="absolute inset-0 -rotate-45 flex items-center justify-center text-xs font-black tracking-wider text-primary-300 dark:text-primary-600">
-                ?
+            <span className="flex shrink-0 items-center justify-center w-14 h-14">
+              <span className="relative inline-block w-10 h-10 rotate-45 rounded-md border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900">
+                <span className="absolute inset-0 -rotate-45 flex items-center justify-center text-xs font-black tracking-wider text-primary-300 dark:text-primary-600">
+                  ?
+                </span>
               </span>
             </span>
             <p className="text-primary-500 dark:text-primary-200 leading-relaxed text-sm m-0">
