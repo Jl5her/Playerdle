@@ -1,4 +1,5 @@
 import type { GameMode } from "@playerdle/types"
+import clsx from "clsx"
 import { useMemo, useRef, useState } from "react"
 import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
@@ -85,6 +86,33 @@ function getInitialGuesses(
   return []
 }
 
+function PositionBadge({ position, revealed }: { position: string; revealed: boolean }) {
+  return (
+    <div className="flex flex-col items-center gap-2">
+      <span className="text-[10px] uppercase tracking-widest font-semibold text-primary-400 dark:text-primary-500">
+        Position
+      </span>
+      <span
+        className={clsx(
+          "relative inline-block w-12 h-12 rotate-45 rounded-md border-2 transition-colors duration-500",
+          revealed
+            ? "border-success-500 bg-success-500/20"
+            : "border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900",
+        )}
+      >
+        <span
+          className={clsx(
+            "absolute inset-0 -rotate-45 flex items-center justify-center text-sm font-black tracking-wider transition-colors duration-500",
+            revealed ? "text-success-500 dark:text-success-400" : "text-primary-300 dark:text-primary-600",
+          )}
+        >
+          {position}
+        </span>
+      </span>
+    </div>
+  )
+}
+
 export default function Game({ mode, sport, variantId, onBackToToday, archiveDateKey }: Props) {
   const [activeMode, setActiveMode] = useState<GameMode>(mode)
   const [answer, setAnswer] = useState<Player | null>(() => {
@@ -106,6 +134,13 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
   const isFanatic = variantId === "fanatic"
+
+  const positionRevealed = useMemo(() => {
+    if (!isFanatic) return false
+    if (gameOver) return true
+    if (!answer) return false
+    return guesses.some(g => g.position !== undefined && g.position === answer.position)
+  }, [isFanatic, gameOver, answer, guesses])
 
   const analytics = useGameAnalytics({
     game: "playerdle",
@@ -261,6 +296,14 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
       )}
       {answer && (
         <div className="flex-1 min-h-0 flex flex-col">
+          {isFanatic && (
+            <div className="flex justify-center py-3">
+              <PositionBadge
+                position={positionRevealed ? String(answer.position ?? "?") : "?"}
+                revealed={positionRevealed}
+              />
+            </div>
+          )}
           <div
             ref={gridScrollRef}
             className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
