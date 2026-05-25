@@ -8,7 +8,7 @@ export interface JourneyPlayer {
   id: string
   name: string
   position: string
-  college?: string
+  college: string
   teams: string[] // chronological: oldest stint first, current/last team last
   espnId?: string // ESPN athlete ID for direct API lookups
 }
@@ -247,6 +247,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New York Giants",
       "New York Jets",
     ],
+    espnId: "14163",
   },
   {
     id: "journey:jimmy-garoppolo",
