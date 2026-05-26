@@ -720,24 +720,6 @@
     "ops": 0.592
   },
   {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 82,
-    "pa": 227,
-    "avg": 0.234,
-    "hr": 11,
-    "rbi": 31,
-    "sb": 3,
-    "ops": 0.797
-  },
-  {
     "id": "mlb:4345620",
     "name": "Dillon Dingler",
     "conference": "AL",
@@ -834,7 +816,7 @@
     "division": "Central",
     "team": "Cincinnati Reds",
     "teamAbbr": "CIN",
-    "position": "3B",
+    "position": "DH",
     "number": 28,
     "league": "NL",
     "gp": 159,
@@ -2266,24 +2248,6 @@
     "rbi": 100,
     "sb": 0,
     "ops": 0.729
-  },
-  {
-    "id": "mlb:39924",
-    "name": "Santiago Espinal",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "3B",
-    "number": 21,
-    "league": "NL",
-    "gp": 114,
-    "pa": 328,
-    "avg": 0.243,
-    "hr": 0,
-    "rbi": 16,
-    "sb": 2,
-    "ops": 0.575
   },
   {
     "id": "mlb:4142424",

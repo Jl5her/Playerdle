@@ -1210,17 +1210,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5067321",
-    "name": "Brycen Mautz",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 52,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42417",
     "name": "Bryson Stott",
     "conference": "NL",
@@ -1815,6 +1804,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42138",
+    "name": "Codi Heuer",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "RP",
+    "number": 50,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33912",
     "name": "Cody Bellinger",
     "conference": "AL",
@@ -2178,17 +2178,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4917889",
     "name": "Daylen Lile",
     "conference": "NL",
@@ -2365,17 +2354,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5272008",
-    "name": "Drew Sommers",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RP",
-    "number": 51,
-    "league": "AL"
-  },
-  {
     "id": "mlb:40937",
     "name": "Dustin May",
     "conference": "NL",
@@ -2385,17 +2363,6 @@
     "position": "SP",
     "number": 3,
     "league": "NL"
-  },
-  {
-    "id": "mlb:34943",
-    "name": "Dylan Cease",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "SP",
-    "number": 84,
-    "league": "AL"
   },
   {
     "id": "mlb:4719511",
@@ -2574,6 +2541,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:31358",
+    "name": "Enrique Hernandez",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "1B",
+    "number": 8,
+    "league": "NL"
+  },
+  {
     "id": "mlb:35026",
     "name": "Enyel De Los Santos",
     "conference": "AL",
@@ -2640,17 +2618,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5194333",
-    "name": "Erik Sabrowski",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "RP",
-    "number": 62,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41287",
     "name": "Ernie Clement",
     "conference": "AL",
@@ -2701,7 +2668,7 @@
     "division": "Central",
     "team": "Cincinnati Reds",
     "teamAbbr": "CIN",
-    "position": "3B",
+    "position": "DH",
     "number": 28,
     "league": "NL"
   },
@@ -2836,17 +2803,6 @@
     "position": "SP",
     "number": 51,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4919918",
-    "name": "Gabriel Gonzalez",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RF",
-    "number": 72,
-    "league": "AL"
   },
   {
     "id": "mlb:42464",
@@ -3806,17 +3762,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41150",
-    "name": "Jarred Kelenic",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RF",
-    "number": 24,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41610",
     "name": "Jarren Duran",
     "conference": "AL",
@@ -4376,17 +4321,6 @@
     "position": "RP",
     "number": 45,
     "league": "AL"
-  },
-  {
-    "id": "mlb:32106",
-    "name": "Jose Quintana",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SP",
-    "number": 62,
-    "league": "NL"
   },
   {
     "id": "mlb:32801",
@@ -5929,6 +5863,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:35682",
+    "name": "Nathan Lukes",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RF",
+    "number": 38,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40538",
     "name": "Nathaniel Lowe",
     "conference": "NL",
@@ -6677,6 +6622,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5205710",
+    "name": "Rikuu Nishida",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "OF",
+    "number": 51,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42179",
     "name": "Riley Greene",
     "conference": "AL",
@@ -7037,17 +6993,6 @@
     "teamAbbr": "ATL",
     "position": "C",
     "number": 9,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:39924",
-    "name": "Santiago Espinal",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "3B",
-    "number": 21,
     "league": "NL"
   },
   {
@@ -7422,6 +7367,17 @@
     "teamAbbr": "MIN",
     "position": "SP",
     "number": 26,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:3332092",
+    "name": "Tanner Andrews",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 43,
     "league": "AL"
   },
   {
@@ -7810,6 +7766,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:39918",
+    "name": "Tristan Gray",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "3B",
+    "number": 4,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5085893",
     "name": "Tristan Peters",
     "conference": "AL",
@@ -8170,6 +8137,17 @@
     "teamAbbr": "SD",
     "position": "RP",
     "number": 58,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5274126",
+    "name": "Welinton Herrera",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 59,
     "league": "NL"
   },
   {
