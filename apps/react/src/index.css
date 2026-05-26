@@ -361,6 +361,25 @@ body,
   pointer-events: none;
 }
 
+/* Desktop: panels render as centered modals (see Panel.tsx), so swap the
+   slide-up sheet animation for a simple fade. Tailwind's md breakpoint. */
+@media (min-width: 768px) {
+  .slide-up-panel {
+    transition: opacity 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
+  }
+
+  .slide-up-active {
+    transform: none;
+    opacity: 1;
+  }
+
+  .slide-up-inactive {
+    transform: none;
+    opacity: 0;
+  }
+}
+
 /* 2D card-flip animation for revealing the next team rung in Journey.
    Each face is a rotated square (diamond). Front scales X 1→0; back scales
    X 0→1 with a 300ms delay — produces a clean flip without 3D quirks. */
