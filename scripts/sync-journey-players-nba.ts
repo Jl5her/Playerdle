@@ -170,6 +170,18 @@ function walk(obj: unknown, ctx: ExtractContext, out: Extraction): void {
   for (const v of Object.values(record)) walk(v, next, out)
 }
 
+async function fetchAthleteCollege(nbaId: string): Promise<string | undefined> {
+  const url = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/athletes/${nbaId}`
+  try {
+    const data = await fetchJson<{
+      athlete?: { college?: { name?: string } }
+    }>(url)
+    return data.athlete?.college?.name ?? undefined
+  } catch {
+    return undefined
+  }
+}
+
 async function fetchCareer(nbaId: string): Promise<Extraction | null> {
   const urls = [
     `https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/${nbaId}/stats`,
@@ -281,6 +293,7 @@ async function main() {
 
   let idsPopulated = 0
   let idsAlreadyCached = 0
+  let collegesPopulated = 0
   let listsRewritten = 0
   let verifyOnly = 0
   const warnings: string[] = []
@@ -306,6 +319,16 @@ async function main() {
     } else {
       idsAlreadyCached++
       process.stdout.write(` [id:${p.nbaId} cached]`)
+    }
+
+    if (!p.college) {
+      await sleep(200)
+      const college = await fetchAthleteCollege(p.nbaId)
+      if (college) {
+        p.college = college
+        collegesPopulated++
+        process.stdout.write(` [college:${college}]`)
+      }
     }
 
     await sleep(300)
@@ -356,6 +379,7 @@ async function main() {
   console.log("\n--- Sync Summary ---")
   console.log(`NBA IDs newly populated  : ${idsPopulated}`)
   console.log(`NBA IDs already cached   : ${idsAlreadyCached}`)
+  console.log(`Colleges populated       : ${collegesPopulated}`)
   console.log(`Team lists rewritten     : ${listsRewritten}`)
   console.log(`Players in verify-only   : ${verifyOnly}`)
   console.log(`Warnings (manual review) : ${warnings.length}`)
