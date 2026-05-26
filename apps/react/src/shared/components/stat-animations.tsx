@@ -61,7 +61,7 @@ export function StatBar({ count, maxCount, label, isLoss = false, highlight = fa
       ? "bg-error-600 dark:bg-error-600 text-error-50 dark:text-error-50"
       : "bg-error-200 dark:bg-error-800 text-error-800 dark:text-error-200"
     : highlight
-      ? "bg-primary-700 dark:bg-primary-700 text-primary-50 dark:text-primary-100"
+      ? "bg-primary-700 dark:bg-primary-400 text-primary-50 dark:text-primary-900"
       : "bg-primary-400 dark:bg-primary-500 text-primary-50 dark:text-primary-900"
 
   return (
