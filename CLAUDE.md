@@ -94,15 +94,17 @@ All game state lives in `localStorage`:
 
 ## Team Color Convention
 
-Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` array of up to 3 entries used by Journeyman (3-diamond palette) and Playerdle confetti.
+Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` array of **exactly 3 entries** used by Journeyman (3-diamond palette) and Playerdle confetti.
 
 **Ordering:** `[primary, secondary, tertiary]` — most prominent brand color first, based on how the team uses colors on their uniforms and primary branding.
 
-**Minimum two colors:** Every team must have at least 2 recognizable brand colors. If a team's second slot would otherwise be `"transparent"`, find the next most prominent brand color instead.
+**All three slots are required.** Journeyman's `buildPaletteLookup` in `packages/data/src/journeyman/leagues.ts` expects exactly 3 colors. A missing third entry causes it to fall back to the first color, duplicating it in the diamond display.
+
+**Second slot:** Must always be a real hex color. Every team has at least 2 recognizable brand colors. White as a jersey background does not count as a brand color — use the next most prominent color instead.
 
 **Third slot rules:**
 - Use a real hex color only if the team genuinely has a 3rd distinct brand color that appears on their uniforms — not just a minor logo accent.
-- Use `"transparent"` when the team only has 2 primary brand colors. White as a jersey background does not count as a brand color.
+- Use `"transparent"` when the team only has 2 primary brand colors. The `FlipDiamond` component renders transparent as a checkered/empty diamond.
 
 ## Adding a New Sport or Variant
 
