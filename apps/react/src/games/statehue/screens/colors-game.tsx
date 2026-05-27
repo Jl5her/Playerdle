@@ -78,10 +78,7 @@ function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVar
   localStorage.setItem(storageKeyFor(variant, dateKey), JSON.stringify(guesses))
 }
 
-/**
- * Lightens (positive amount) or darkens (negative amount) a hex color by scaling each RGB channel
- * toward 255 or toward 0 by the given fraction.
- */
+/** Lightens or darkens a hex color by the given fraction (positive = toward white, negative = toward black). */
 function shadeHex(hex: string, amount: number): string {
   const clean = hex.replace("#", "")
   if (clean.length !== 6) return hex
@@ -94,15 +91,15 @@ function shadeHex(hex: string, amount: number): string {
   return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
 }
 
-/** Returns a contrasting border color for a diamond: lighter for dark fills, darker for light fills. */
+/** Returns a border color close to the fill: slightly lighter for dark colors, slightly darker for light colors. */
 function diamondBorder(hex: string): string {
   const clean = hex.replace("#", "")
-  if (clean.length !== 6) return shadeHex(hex, -0.25)
+  if (clean.length !== 6) return hex
   const r = parseInt(clean.slice(0, 2), 16) / 255
   const g = parseInt(clean.slice(2, 4), 16) / 255
   const b = parseInt(clean.slice(4, 6), 16) / 255
   const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
-  return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
+  return shadeHex(hex, l < 0.45 ? 0.2 : -0.2)
 }
 
 /** Small rotated diamond badge displaying a single raw team color swatch. */

@@ -62,6 +62,7 @@ export function hexToColorName(hex: string): string {
     const isGoldToned = rgRatio < 1.75 && b < 0.35
 
     if (isGoldToned) {
+      if (l < 0.22) return "Brown" // too dark to read as gold — e.g. Browns #472a08
       if (l < 0.38) return "Old Gold"
       return "Gold"
     }
