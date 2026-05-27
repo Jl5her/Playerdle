@@ -2,6 +2,7 @@ import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
@@ -14,6 +15,9 @@ import ColorsStatsOverlay from "./colors-stats-overlay"
 
 interface Props {
   variant?: ColorsVariant
+  /** Called when the back button is pressed outside of archive mode.
+   *  If omitted, pressing back navigates to /statehue (the hub). */
+  onBack?: () => void
 }
 
 function parseDateKey(key: string): Date {
@@ -23,7 +27,8 @@ function parseDateKey(key: string): Date {
 
 type ColorsPanel = "guide" | "stats" | "calendar"
 
-export default function ColorsShell({ variant = "pro" }: Props) {
+export default function ColorsShell({ variant = "pro", onBack }: Props) {
+  const navigate = useNavigate()
   const [dailyKey, setDailyKey] = useState(0)
   const panels = usePanelStack<ColorsPanel>()
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
@@ -62,6 +67,16 @@ export default function ColorsShell({ variant = "pro" }: Props) {
     setCalendarHistoryVersion(v => v + 1)
   }
 
+  function handleBack() {
+    if (isArchive) {
+      exitArchive()
+    } else if (onBack) {
+      onBack()
+    } else {
+      navigate("/statehue")
+    }
+  }
+
   /** Called by the ColorsGame "Back to Today's" button after an arcade session. */
   function handleBackToToday() {
     setArchiveDateKey(null)
@@ -73,20 +88,18 @@ export default function ColorsShell({ variant = "pro" }: Props) {
     <PanelStackContext.Provider value={panels}>
       <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
         <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
-          {isArchive && (
-            <button
-              onClick={exitArchive}
-              aria-label="Back to archive"
-              title="Back"
-              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
-            >
-              <FontAwesomeIcon
-                icon={faAngleLeft}
-                className="text-[1.7rem]"
-                aria-hidden="true"
-              />
-            </button>
-          )}
+          <button
+            onClick={handleBack}
+            aria-label={isArchive ? "Back to archive" : "Back to menu"}
+            title="Back"
+            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
+          >
+            <FontAwesomeIcon
+              icon={faAngleLeft}
+              className="text-[1.7rem]"
+              aria-hidden="true"
+            />
+          </button>
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
             {variant === "collegiate" ? "Collegiate" : "Statehue"}
           </h1>

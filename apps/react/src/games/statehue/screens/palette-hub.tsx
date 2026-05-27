@@ -18,7 +18,11 @@ import {
 
 type Section = "menu" | "about" | "stats" | "settings" | "sync-devices"
 
-export default function PaletteHub() {
+interface Props {
+  onPlayStatehue: () => void
+}
+
+export default function PaletteHub({ onPlayStatehue }: Props) {
   const navigate = useNavigate()
   const [section, setSection] = useState<Section>("menu")
   const playedToday = hasPlayedColorsDailyToday()
@@ -76,7 +80,7 @@ export default function PaletteHub() {
                   <GameModeButton
                     label="Statehue"
                     played={playedToday}
-                    onClick={() => navigate("/statehue/daily")}
+                    onClick={onPlayStatehue}
                   />
                   <GameModeButton
                     label="Collegiate"

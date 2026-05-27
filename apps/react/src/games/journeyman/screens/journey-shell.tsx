@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
@@ -42,8 +42,10 @@ type JourneyPanel = "guide" | "stats" | "calendar"
 
 export default function JourneyShell({ league }: Props) {
   const navigate = useNavigate()
+  const location = useLocation()
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
-  const panels = usePanelStack<JourneyPanel>()
+  const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
+  const panels = usePanelStack<JourneyPanel>(initialShowStats ? "stats" : undefined)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   // activeMode tracks the current mode for the subtitle; the game manages transitions internally.
@@ -58,6 +60,7 @@ export default function JourneyShell({ league }: Props) {
   useEffect(() => {
     if (tutorialCheckedRef.current.has(league)) return
     tutorialCheckedRef.current.add(league)
+    if (initialShowStats) return // Don't show tutorial when opening straight to stats
     migrateLegacyTutorialFlagIfNeeded(league)
     if (localStorage.getItem(journeyTutorialSeenKey(league))) return
     panels.push("guide")
