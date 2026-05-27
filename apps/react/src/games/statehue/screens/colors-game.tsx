@@ -78,6 +78,29 @@ function saveDailyGuesses(dateKey: string, guesses: string[], variant: ColorsVar
   localStorage.setItem(storageKeyFor(variant, dateKey), JSON.stringify(guesses))
 }
 
+/** Lightens or darkens a hex color by the given fraction (positive = toward white, negative = toward black). */
+function shadeHex(hex: string, amount: number): string {
+  const clean = hex.replace("#", "")
+  if (clean.length !== 6) return hex
+  const r = parseInt(clean.slice(0, 2), 16)
+  const g = parseInt(clean.slice(2, 4), 16)
+  const b = parseInt(clean.slice(4, 6), 16)
+  const adjust = (c: number) =>
+    Math.max(0, Math.min(255, Math.round(c + (amount < 0 ? c * amount : (255 - c) * amount))))
+  const toHex = (c: number) => c.toString(16).padStart(2, "0")
+  return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
+}
+
+/** Returns a border color close to the fill: slightly lighter for dark colors, slightly darker for light colors. */
+function diamondBorder(hex: string): string {
+  const clean = hex.replace("#", "")
+  if (clean.length !== 6) return hex
+  const r = parseInt(clean.slice(0, 2), 16) / 255
+  const g = parseInt(clean.slice(2, 4), 16) / 255
+  const b = parseInt(clean.slice(4, 6), 16) / 255
+  const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
+  return shadeHex(hex, l < 0.45 ? 0.2 : -0.2)
+}
 
 /** Small rotated diamond badge displaying a single raw team color swatch. */
 function Diamond({ color }: { color: string }) {
@@ -86,7 +109,7 @@ function Diamond({ color }: { color: string }) {
   return (
     <span
       className={clsx("inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm", isTransparent && "diamond-transparent")}
-      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: displayColor, border: `1px solid ${displayColor}` }}
+      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: displayColor, border: `1px solid ${diamondBorder(displayColor)}` }}
       aria-hidden="true"
     />
   )
@@ -139,7 +162,7 @@ function DiamondWithPreview({ color }: { color: string }) {
           <span
             aria-hidden="true"
             className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${displayColor}` }}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${diamondBorder(displayColor)}` }}
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
