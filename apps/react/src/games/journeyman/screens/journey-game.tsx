@@ -109,32 +109,6 @@ function saveDailyGuesses(league: JourneyLeague, dateKey: string, guesses: strin
   localStorage.setItem(storageKey(league, dateKey), JSON.stringify(guesses))
 }
 
-/**
- * Lightens (positive amount) or darkens (negative amount) a hex color by scaling each RGB channel
- * toward 255 or toward 0 by the given fraction.
- */
-function shadeHex(hex: string, amount: number): string {
-  const clean = hex.replace("#", "")
-  if (clean.length !== 6) return hex
-  const r = parseInt(clean.slice(0, 2), 16)
-  const g = parseInt(clean.slice(2, 4), 16)
-  const b = parseInt(clean.slice(4, 6), 16)
-  const adjust = (c: number) =>
-    Math.max(0, Math.min(255, Math.round(c + (amount < 0 ? c * amount : (255 - c) * amount))))
-  const toHex = (c: number) => c.toString(16).padStart(2, "0")
-  return `#${toHex(adjust(r))}${toHex(adjust(g))}${toHex(adjust(b))}`
-}
-
-/** Returns a contrasting border color for a diamond: lighter for dark fills, darker for light fills. */
-function diamondBorder(hex: string): string {
-  const clean = hex.replace("#", "")
-  if (clean.length !== 6) return shadeHex(hex, -0.25)
-  const r = parseInt(clean.slice(0, 2), 16) / 255
-  const g = parseInt(clean.slice(2, 4), 16) / 255
-  const b = parseInt(clean.slice(4, 6), 16) / 255
-  const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
-  return shadeHex(hex, l < 0.45 ? 0.5 : -0.25)
-}
 
 /** Diamond badge displaying a player's position abbreviation. */
 function PositionDiamond({ position }: { position: string }) {
@@ -159,11 +133,10 @@ function FlipDiamond({
 }) {
   const isTransparent = color === "transparent"
   const displayColor = color
-  const border = isTransparent ? "#a0a0a0" : diamondBorder(displayColor)
   const frontStyle: React.CSSProperties = { transitionDelay: `${delayMs}ms` }
   const backStyle: React.CSSProperties = isTransparent
-    ? { borderColor: border, transitionDelay: `${delayMs + 300}ms` }
-    : { backgroundColor: displayColor, borderColor: border, transitionDelay: `${delayMs + 300}ms` }
+    ? { borderColor: "#a0a0a0", transitionDelay: `${delayMs + 300}ms` }
+    : { backgroundColor: displayColor, borderColor: displayColor, transitionDelay: `${delayMs + 300}ms` }
   return (
     <span
       className={clsx("flip-diamond", revealed ? "revealed" : "")}
@@ -241,7 +214,7 @@ function FlipDiamondWithPreview({
           <span
             aria-hidden="true"
             className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${diamondBorder(displayColor)}` }}
+            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${displayColor}` }}
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
