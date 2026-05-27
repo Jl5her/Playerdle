@@ -133,7 +133,7 @@ function diamondBorder(hex: string): string {
   const g = parseInt(clean.slice(2, 4), 16) / 255
   const b = parseInt(clean.slice(4, 6), 16) / 255
   const l = (Math.max(r, g, b) + Math.min(r, g, b)) / 2
-  return shadeHex(hex, l < 0.18 ? 0.5 : -0.25)
+  return shadeHex(hex, l < 0.45 ? 0.5 : -0.25)
 }
 
 /** Diamond badge displaying a player's position abbreviation. */
