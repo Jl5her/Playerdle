@@ -32,7 +32,7 @@ export default function ResultBanner({
 
   const answerColor = won
     ? "text-success-800 dark:text-success-300"
-    : "text-primary-900 dark:text-primary-50"
+    : "text-error-800 dark:text-error-300"
 
   const eyeColor = won
     ? "text-success-400 hover:text-success-600 dark:text-success-400 dark:hover:text-success-300"
