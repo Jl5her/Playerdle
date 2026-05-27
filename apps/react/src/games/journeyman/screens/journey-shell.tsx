@@ -2,8 +2,8 @@ import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { getLeagueJourneyData } from "@playerdle/data/journeyman/leagues"
 import clsx from "clsx"
-import { useEffect, useMemo, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { useNavigate } from "react-router-dom"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
@@ -16,7 +16,6 @@ import JourneyStatsOverlay from "./journey-stats-overlay"
 
 interface Props {
   league: JourneyLeague
-  screen: "daily" | "arcade"
 }
 
 function parseDateKey(key: string): Date {
@@ -41,27 +40,31 @@ function migrateLegacyTutorialFlagIfNeeded(league: JourneyLeague) {
 
 type JourneyPanel = "guide" | "stats" | "calendar"
 
-export default function JourneyShell({ league, screen }: Props) {
+export default function JourneyShell({ league }: Props) {
   const navigate = useNavigate()
-  const location = useLocation()
   const leagueData = useMemo(() => getLeagueJourneyData(league), [league])
-  const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
-  const panels = usePanelStack<JourneyPanel>(initialShowStats ? "stats" : undefined)
+  const panels = usePanelStack<JourneyPanel>()
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
+  // activeMode tracks the current mode for the subtitle; the game manages transitions internally.
+  const [activeMode, setActiveMode] = useState<JourneyGameMode>("daily")
+  const tutorialCheckedRef = useRef<Set<string>>(new Set())
 
   useEffect(() => {
     document.title = `Playerdle Journeyman ${leagueData.label}`
   }, [leagueData.label])
 
+  // Show onboarding tutorial the first time a player visits this league
   useEffect(() => {
-    if (screen !== "daily") return
-    if (initialShowStats) return
+    if (tutorialCheckedRef.current.has(league)) return
+    tutorialCheckedRef.current.add(league)
     migrateLegacyTutorialFlagIfNeeded(league)
     if (localStorage.getItem(journeyTutorialSeenKey(league))) return
     panels.push("guide")
     trackPanelOpened({ panel: "guide", game: "journeyman", sport: league, mode: "daily", is_onboarding: true })
-  }, [screen, initialShowStats, league])
+    // panels is intentionally omitted — we only want this to fire once per league
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [league])
 
   function goToMenu() {
     if (league === "nfl") {
@@ -72,11 +75,6 @@ export default function JourneyShell({ league, screen }: Props) {
   }
 
   const isArchive = !!archiveDateKey
-  const mode: JourneyGameMode = screen === "arcade" ? "arcade" : "daily"
-  const [activeMode, setActiveMode] = useState<JourneyGameMode>(mode)
-  useEffect(() => {
-    setActiveMode(mode)
-  }, [mode])
 
   const subtitle = isArchive
     ? formatLongDate(parseDateKey(archiveDateKey))
@@ -175,9 +173,9 @@ export default function JourneyShell({ league, screen }: Props) {
                 />
               ) : (
                 <JourneyGame
-                  key={`${league}:${mode}`}
+                  key={league}
                   league={league}
-                  mode={mode}
+                  mode="daily"
                   onModeChange={setActiveMode}
                 />
               )}

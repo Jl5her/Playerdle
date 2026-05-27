@@ -1,34 +1,25 @@
-import { faMap } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
-import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
+import { lazy, Suspense, useEffect, useRef, useState } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
+import { Navigate, Route, Routes, useParams } from "react-router-dom"
 import { parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate } from "@/shared/utils/time"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
-import {
-  hasPlayedJourneyDailyToday,
-  isJourneyLeague,
-  type JourneyLeague,
-} from "@/games/journeyman/utils/journey-daily"
+import { isJourneyLeague } from "@/games/journeyman/utils/journey-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
-import { MainMenu } from "@/games/playerdle/screens"
 import type { StatsModalConfig } from "@/games/playerdle/screens/game"
-import type { ExtraGame, NavigationOptions, Screen } from "@/games/playerdle/screens/main-menu"
 import {
-  getAllSportMeta,
-  getSportIcon,
   getSportMetaById,
   loadSportConfig,
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
+import { Panel, PWAUpdateToast } from "@/shared/components"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
-import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
+import { startAutoSync } from "@/shared/utils/sync"
 import { trackPanelOpened } from "@/lib/analytics"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
@@ -46,16 +37,9 @@ const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
 
 type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
-type RouteScreen = "menu" | "daily" | "arcade" | "help"
-
-interface DailyRouteState {
-  guideMode?: GuideMode
-  showStats?: boolean
-}
 
 interface AppShellProps {
   sportId: SportConfig["id"]
-  screen: RouteScreen
   variantId?: string
 }
 
@@ -74,63 +58,41 @@ function getSportIdFromRouteParam(sport?: string): SportConfig["id"] | null {
   return null
 }
 
-function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: string): string {
-  const prefix = sportId === "nfl" ? "" : `/${sportId}`
-  if (screen === "menu") {
-    return prefix || "/"
-  }
-  if (variantId === FANATIC_VARIANT_ID) {
-    if (screen === "daily") return `${prefix}/${FANATIC_VARIANT_ID}`
-    if (screen === "arcade") return `${prefix}/arcade/${FANATIC_VARIANT_ID}`
-  }
-  return `${prefix}/${screen}`
+/** Redirects /:sport/daily and /:sport/arcade → /:sport */
+function SportModeRedirect() {
+  const { sport } = useParams<{ sport?: string }>()
+  return <Navigate to={sport ? `/${sport}` : "/"} replace />
+}
+
+/** Redirects /:sport/arcade/fanatic → /:sport/fanatic */
+function SportFanaticModeRedirect() {
+  const { sport } = useParams<{ sport?: string }>()
+  return <Navigate to={sport ? `/${sport}/${FANATIC_VARIANT_ID}` : `/${FANATIC_VARIANT_ID}`} replace />
+}
+
+/** Redirects /journeyman/:league/daily and /journeyman/:league/arcade → /journeyman/:league */
+function JourneyLeagueRedirect() {
+  const { league } = useParams<{ league?: string }>()
+  return <Navigate to={`/journeyman/${league ?? "nfl"}`} replace />
 }
 
 function getTutorialStorageKey(sportId: string, variantId?: string): string {
   return `${TUTORIAL_SEEN_KEY}:${sportId}:${variantId ?? "classic"}`
 }
 
-function getGuideModeFromState(state: unknown): GuideMode | undefined {
-  if (!state || typeof state !== "object") return undefined
-  const routeState = state as DailyRouteState
-  if (routeState.guideMode === "manual" || routeState.guideMode === "onboarding") {
-    return routeState.guideMode
-  }
-  return undefined
-}
-
-function AppShell({ sportId, screen, variantId }: AppShellProps) {
-  const location = useLocation()
-  const navigate = useNavigate()
+function AppShell({ sportId, variantId }: AppShellProps) {
   const sportMeta = getSportMetaById(sportId)
-  const [gameKey, setGameKey] = useState(0)
+  const [dailyKey, setDailyKey] = useState(0)
   const [sport, setSport] = useState<SportConfig | null>(null)
   const [sportLoadFailed, setSportLoadFailed] = useState(false)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
-  const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
-  const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
-  const panels = usePanelStack<AppPanel>(
-    initialGuideMode ? "guide" : undefined,
-  )
+  const [gameGuideMode, setGameGuideMode] = useState<GuideMode>("manual")
+  const panels = usePanelStack<AppPanel>()
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const isArchive = !!archiveDateKey
   const sportCacheRef = useRef<Partial<Record<SportConfig["id"], SportConfig>>>({})
-  const isSyncing = useSyncExternalStore(subscribeSyncState, getIsSyncing, () => false)
-  const [waitingForSync, setWaitingForSync] = useState(false)
-
-  useEffect(() => {
-    if (initialGuideMode === "onboarding") {
-      trackPanelOpened({
-        panel: "guide",
-        game: "playerdle",
-        sport: sportId,
-        variant: variantId,
-        mode: "daily",
-        is_onboarding: true,
-      })
-    }
-  }, []) // intentionally runs once on mount
+  const tutorialShownRef = useRef<Set<string>>(new Set())
 
   useEffect(() => {
     let isMounted = true
@@ -169,10 +131,30 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     document.title = `Playerdle ${leagueName}`
   }, [activeSport, sportMeta.displayName])
 
-  const isGame = screen === "daily" || screen === "arcade"
+  // Show onboarding tutorial the first time a player visits this sport/variant
+  useEffect(() => {
+    if (!sport) return
+    const tutorialKey = getTutorialStorageKey(sportId, activeVariantId)
+    if (tutorialShownRef.current.has(tutorialKey)) return
+    tutorialShownRef.current.add(tutorialKey)
+    if (localStorage.getItem(tutorialKey)) return
+
+    setGameGuideMode("onboarding")
+    panels.push("guide")
+    trackPanelOpened({
+      panel: "guide",
+      game: "playerdle",
+      sport: sportId,
+      variant: activeVariantId,
+      mode: "daily",
+      is_onboarding: true,
+    })
+    // panels is intentionally omitted — we only want this to fire once per sport/variant load
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sport, sportId, activeVariantId])
 
   function handleShowTutorial() {
-    if (screen !== "daily" || panels.isAnyOpen) {
+    if (panels.isAnyOpen) {
       return
     }
 
@@ -187,13 +169,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     })
   }
 
-  function goToMenu() {
-    navigate(buildPath(sportId, "menu"))
-    panels.clear()
-  }
-
   function handleShowStats() {
-    if (screen !== "daily" || panels.isOpen("stats")) {
+    if (panels.isOpen("stats")) {
       return
     }
 
@@ -213,11 +190,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     })
   }
 
-  function handleSelectSport(nextSportId: SportConfig["id"]) {
-    navigate(buildPath(nextSportId, "menu"))
-    panels.clear()
-  }
-
   function handlePlayArchive(dateKey: string) {
     setArchiveDateKey(dateKey)
     panels.clear()
@@ -231,61 +203,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     setCalendarHistoryVersion(v => v + 1)
   }
 
-  async function handleNavigate(target: Screen, options?: NavigationOptions) {
-    if ((target === "daily" || target === "arcade") && isSyncing) {
-      setWaitingForSync(true)
-      await waitForSync()
-      setWaitingForSync(false)
-    }
-
-    const nextVariantId = options?.variantId
-
-    if (target === "daily") {
-      const seenKey = getTutorialStorageKey(sportId, nextVariantId)
-      const shouldShowOnboarding = !localStorage.getItem(seenKey)
-      navigate(buildPath(sportId, "daily", nextVariantId), {
-        state: shouldShowOnboarding ? ({ guideMode: "onboarding" } as DailyRouteState) : undefined,
-      })
-      return
-    }
-
-    if (target === "arcade") {
-      setGameKey(k => k + 1)
-      navigate(buildPath(sportId, "arcade", nextVariantId))
-      return
-    }
-
-    if (target === "stats") {
-      navigate(buildPath(sportId, "daily", nextVariantId), {
-        state: { showStats: true } as DailyRouteState,
-      })
-      return
-    }
-
-    if (target === "calendar") {
-      const prefix = sportId === "nfl" ? "" : `/${sportId}`
-      navigate(`${prefix}/calendar`)
-      return
-    }
+  /** Called by the Game component's "Back to Today's" button after an arcade session. */
+  function handleBackToToday() {
+    setArchiveDateKey(null)
+    setDailyKey(k => k + 1)
+    panels.clear()
   }
-
-  const isMenuView = screen === "menu" || screen === "help"
-
-  const journeymanLeague: JourneyLeague | null = isJourneyLeague(sportId) ? sportId : null
-  const extraGames: ExtraGame[] | undefined = journeymanLeague
-    ? [
-        {
-          label: "Journeyman",
-          played: hasPlayedJourneyDailyToday(journeymanLeague),
-          onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
-          onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
-          onShowStats: () =>
-            navigate(`/journeyman/${journeymanLeague}/daily`, {
-              state: { showStats: true },
-            }),
-        },
-      ]
-    : undefined
 
   if (sportLoadFailed && !sport) {
     return (
@@ -298,143 +221,92 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
 
   return (
-    <>
-      {isMenuView && (
-        <div className="app-viewport pb-11 flex flex-col">
-          {waitingForSync && (
-            <div className="absolute inset-0 z-50 flex items-center justify-center bg-primary-50/70 dark:bg-primary-900/70">
-              <div className="w-9 h-9 rounded-full border-[3px] border-primary-200 border-t-primary-600 dark:border-primary-700 dark:border-t-primary-200 animate-spin" />
-            </div>
-          )}
-          <MainMenu
-            onNavigate={handleNavigate}
-            sport={sport ?? sportMeta}
-            guideSport={activeSport ?? sport}
-            extraGames={extraGames}
-            journeyLeague={journeymanLeague}
-          />
-        </div>
-      )}
-      {isGame && (
-        <PanelStackContext.Provider value={panels}>
-        <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
-          <Header
-            onShowTutorial={
-              screen === "daily" && !panels.isAnyOpen
-                ? isArchive
-                  ? () => panels.push("archive-guide")
-                  : handleShowTutorial
-                : undefined
-            }
-            onShowStats={
-              screen === "daily" && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
-            }
-            onBack={isArchive ? exitArchive : goToMenu}
-            sport={activeSport ?? sportMeta}
-            subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
-          />
-          <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
-            <Suspense fallback={<div className="flex-1 min-h-0" />}>
-              {screen === "daily" && activeSport && (
-                <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
-                  <div
-                    className={clsx(
-                      "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                      panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
-                    )}
-                  >
-                    {isArchive ? (
-                      <Game
-                        key={`archive:${activeSport.id}:${archiveDateKey}`}
-                        mode="daily"
-                        sport={activeSport}
-                        variantId={activeVariantId}
-                        archiveDateKey={archiveDateKey!}
-                      />
-                    ) : (
-                      <Game
-                        key="daily"
-                        mode="daily"
-                        sport={activeSport}
-                        variantId={activeVariantId}
-                      />
-                    )}
-                  </div>
-                  <GameGuideContent
-                    id="guide"
-                    tutorialKey={gameGuideMode === "onboarding" ? getTutorialStorageKey(sportId, activeVariantId) : undefined}
-                    sport={activeSport}
-                    mode={gameGuideMode}
-                    onOpenCalendar={() => panels.push("calendar")}
-                  />
-                  <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
-                    <StatsContent
-                      {...statsModalConfig}
+    <PanelStackContext.Provider value={panels}>
+      <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
+        <Header
+          onShowTutorial={
+            !panels.isAnyOpen
+              ? isArchive
+                ? () => panels.push("archive-guide")
+                : handleShowTutorial
+              : undefined
+          }
+          onShowStats={!panels.isAnyOpen && !isArchive ? handleShowStats : undefined}
+          onBack={isArchive ? exitArchive : undefined}
+          sport={activeSport ?? sportMeta}
+          subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
+        />
+        <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
+          <Suspense fallback={<div className="flex-1 min-h-0" />}>
+            {activeSport && (
+              <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
+                <div
+                  className={clsx(
+                    "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+                    panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
+                  )}
+                >
+                  {isArchive ? (
+                    <Game
+                      key={`archive:${activeSport.id}:${archiveDateKey}`}
+                      mode="daily"
                       sport={activeSport}
                       variantId={activeVariantId}
-                      onViewArchive={() => panels.push("calendar")}
+                      archiveDateKey={archiveDateKey!}
                     />
-                  </Panel>
-                  <GameGuideContent
-                    id="archive-guide"
-                    sport={activeSport}
-                    mode="manual"
-                  />
-                  <Suspense fallback={<div className="flex-1 min-h-0" />}>
-                    <PlayerCalendar
-                      id="calendar"
-                      panel
+                  ) : (
+                    <Game
+                      key={`daily-${dailyKey}`}
+                      mode="daily"
+                      sport={activeSport}
                       variantId={activeVariantId}
-                      onPlayArchive={handlePlayArchive}
-                      historyVersion={calendarHistoryVersion}
+                      onBackToToday={handleBackToToday}
                     />
-                  </Suspense>
+                  )}
                 </div>
-              )}
-              {screen === "arcade" && activeSport && (
-                <Game
-                  key={`arcade-${gameKey}`}
-                  mode="arcade"
+                <GameGuideContent
+                  id="guide"
+                  tutorialKey={gameGuideMode === "onboarding" ? getTutorialStorageKey(sportId, activeVariantId) : undefined}
                   sport={activeSport}
-                  variantId={activeVariantId}
-                  onBackToToday={() => navigate(buildPath(sportId, "daily", activeVariantId))}
+                  mode={gameGuideMode}
+                  onOpenCalendar={() => panels.push("calendar")}
                 />
-              )}
-            </Suspense>
-          </div>
+                <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
+                  <StatsContent
+                    {...statsModalConfig}
+                    sport={activeSport}
+                    variantId={activeVariantId}
+                    onViewArchive={() => panels.push("calendar")}
+                  />
+                </Panel>
+                <GameGuideContent
+                  id="archive-guide"
+                  sport={activeSport}
+                  mode="manual"
+                />
+                <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                  <PlayerCalendar
+                    id="calendar"
+                    panel
+                    variantId={activeVariantId}
+                    onPlayArchive={handlePlayArchive}
+                    historyVersion={calendarHistoryVersion}
+                  />
+                </Suspense>
+              </div>
+            )}
+          </Suspense>
         </div>
-        </PanelStackContext.Provider>
-      )}
-      {isMenuView && (
-        <LeagueFooter
-          tabs={[
-            ...getAllSportMeta().map<FooterTab>(sport => ({
-              id: sport.id,
-              icon: getSportIcon(sport.id),
-              label: sport.displayName,
-              active: sport.id === sportId,
-              onSelect: () => handleSelectSport(sport.id),
-            })),
-            {
-              id: "statehue",
-              icon: faMap,
-              label: "Statehue",
-              active: false,
-              onSelect: () => navigate("/statehue"),
-            },
-          ]}
-        />
-      )}
-    </>
+      </div>
+    </PanelStackContext.Provider>
   )
 }
 
 interface SportRouteProps {
-  screen: RouteScreen
   variantId?: string
 }
 
-function SportRoute({ screen, variantId }: SportRouteProps) {
+function SportRoute({ variantId }: SportRouteProps) {
   const { sport } = useParams<{ sport?: string }>()
   const sportId = getSportIdFromRouteParam(sport)
 
@@ -450,22 +322,17 @@ function SportRoute({ screen, variantId }: SportRouteProps) {
   return (
     <AppShell
       sportId={sportId}
-      screen={screen}
       variantId={variantId}
     />
   )
 }
 
-interface JourneyRouteProps {
-  screen: "daily" | "arcade"
-}
-
-function JourneyRoute({ screen }: JourneyRouteProps) {
+function JourneyRoute() {
   const { league } = useParams<{ league?: string }>()
   if (!league || !isJourneyLeague(league)) {
     return (
       <Navigate
-        to={`/journeyman/nfl/${screen}`}
+        to="/journeyman/nfl"
         replace
       />
     )
@@ -473,7 +340,6 @@ function JourneyRoute({ screen }: JourneyRouteProps) {
   return (
     <JourneyShell
       league={league}
-      screen={screen}
     />
   )
 }
@@ -500,39 +366,36 @@ function App() {
     <PWAUpdateToast />
     {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
     <Routes>
+      {/* ── NFL Playerdle (default sport, no prefix) ── */}
       <Route
         path="/"
-        element={<SportRoute screen="menu" />}
+        element={<SportRoute />}
       />
       <Route
         path="/help"
         element={<HelpRedirect />}
       />
+      {/* Backwards-compat redirects for old /daily and /arcade URLs */}
       <Route
         path="/daily"
-        element={<SportRoute screen="daily" />}
+        element={<Navigate to="/" replace />}
       />
       <Route
         path="/arcade"
-        element={<SportRoute screen="arcade" />}
+        element={<Navigate to="/" replace />}
       />
       <Route
         path="/fanatic"
         element={
           <SportRoute
-            screen="daily"
             variantId={FANATIC_VARIANT_ID}
           />
         }
       />
+      {/* Backwards-compat redirect for /arcade/fanatic */}
       <Route
         path="/arcade/fanatic"
-        element={
-          <SportRoute
-            screen="arcade"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
+        element={<Navigate to={`/${FANATIC_VARIANT_ID}`} replace />}
       />
       <Route path="/team-colors-key" element={<Navigate to="/team-colors-key/nfl" replace />} />
       <Route
@@ -543,41 +406,38 @@ function App() {
           </Suspense>
         }
       />
+      {/* ── Other sports ── */}
       <Route
         path="/:sport"
-        element={<SportRoute screen="menu" />}
+        element={<SportRoute />}
       />
       <Route
         path="/:sport/help"
         element={<HelpRedirect />}
       />
+      {/* Backwards-compat redirects for old /:sport/daily and /:sport/arcade URLs */}
       <Route
         path="/:sport/daily"
-        element={<SportRoute screen="daily" />}
+        element={<SportModeRedirect />}
       />
       <Route
         path="/:sport/arcade"
-        element={<SportRoute screen="arcade" />}
+        element={<SportModeRedirect />}
       />
       <Route
         path="/:sport/fanatic"
         element={
           <SportRoute
-            screen="daily"
             variantId={FANATIC_VARIANT_ID}
           />
         }
       />
+      {/* Backwards-compat redirect for /:sport/arcade/fanatic */}
       <Route
         path="/:sport/arcade/fanatic"
-        element={
-          <SportRoute
-            screen="arcade"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
+        element={<SportFanaticModeRedirect />}
       />
-      {/* Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. */}
+      {/* ── Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. ── */}
       <Route
         path="/statehue"
         element={
@@ -695,9 +555,9 @@ function App() {
           />
         }
       />
-      {/* Journeyman lives under /journeyman/:league. Plain /journeyman/* paths
-          default to NFL for backwards compatibility with bookmarks and shared
-          links from the original single-league launch. */}
+      {/* ── Journeyman lives under /journeyman/:league ──
+          Plain /journeyman/* paths default to NFL for backwards compatibility.
+          Old /daily and /arcade suffixes redirect to the clean league URL. */}
       <Route
         path="/journeyman"
         element={
@@ -711,7 +571,7 @@ function App() {
         path="/journeyman/daily"
         element={
           <Navigate
-            to="/journeyman/nfl/daily"
+            to="/journeyman/nfl"
             replace
           />
         }
@@ -720,7 +580,7 @@ function App() {
         path="/journeyman/arcade"
         element={
           <Navigate
-            to="/journeyman/nfl/arcade"
+            to="/journeyman/nfl"
             replace
           />
         }
@@ -735,20 +595,21 @@ function App() {
         }
       />
       <Route
-        path="/journeyman/:league/daily"
+        path="/journeyman/:league"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyRoute screen="daily" />
+            <JourneyRoute />
           </Suspense>
         }
       />
+      {/* Backwards-compat redirects for old /journeyman/:league/daily and /arcade URLs */}
+      <Route
+        path="/journeyman/:league/daily"
+        element={<JourneyLeagueRedirect />}
+      />
       <Route
         path="/journeyman/:league/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyRoute screen="arcade" />
-          </Suspense>
-        }
+        element={<JourneyLeagueRedirect />}
       />
       <Route
         path="/journeyman/:league/calendar"
@@ -771,7 +632,7 @@ function App() {
         path="/palette/journey/daily"
         element={
           <Navigate
-            to="/journeyman/nfl/daily"
+            to="/journeyman/nfl"
             replace
           />
         }
@@ -780,7 +641,7 @@ function App() {
         path="/palette/journey/arcade"
         element={
           <Navigate
-            to="/journeyman/nfl/arcade"
+            to="/journeyman/nfl"
             replace
           />
         }
@@ -794,6 +655,7 @@ function App() {
           />
         }
       />
+      {/* ── Calendar routes ── */}
       <Route
         path="/calendar"
         element={
