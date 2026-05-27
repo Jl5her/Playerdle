@@ -1,8 +1,7 @@
 import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
-import { useEffect, useState } from "react"
-import { useLocation, useNavigate } from "react-router-dom"
+import { useEffect, useRef, useState } from "react"
 import type { ColorsVariant } from "@/games/statehue/utils/colors-daily"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
@@ -14,7 +13,6 @@ import ColorsHowToPlay, { colorsTutorialSeenKey } from "./colors-how-to-play"
 import ColorsStatsOverlay from "./colors-stats-overlay"
 
 interface Props {
-  screen: "daily" | "arcade"
   variant?: ColorsVariant
 }
 
@@ -25,36 +23,31 @@ function parseDateKey(key: string): Date {
 
 type ColorsPanel = "guide" | "stats" | "calendar"
 
-export default function ColorsShell({ screen, variant = "pro" }: Props) {
-  const navigate = useNavigate()
-  const location = useLocation()
-  const initialShowStats = Boolean((location.state as { showStats?: boolean } | null)?.showStats)
-  const panels = usePanelStack<ColorsPanel>(initialShowStats ? "stats" : undefined)
+export default function ColorsShell({ variant = "pro" }: Props) {
+  const [dailyKey, setDailyKey] = useState(0)
+  const panels = usePanelStack<ColorsPanel>()
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
+  // activeMode tracks the current mode for the subtitle; the game manages transitions internally.
+  const [activeMode, setActiveMode] = useState<ColorsGameMode>("daily")
+  const tutorialCheckedRef = useRef<Set<string>>(new Set())
 
   useEffect(() => {
     document.title = "Playerdle Statehue"
   }, [])
 
+  // Show onboarding tutorial the first time a player visits this variant
   useEffect(() => {
-    if (screen !== "daily") return
-    if (initialShowStats) return
+    if (tutorialCheckedRef.current.has(variant)) return
+    tutorialCheckedRef.current.add(variant)
     if (localStorage.getItem(colorsTutorialSeenKey(variant))) return
     panels.push("guide")
     trackPanelOpened({ panel: "guide", game: "statehue", variant, mode: "daily", is_onboarding: true })
-  }, [screen, initialShowStats, variant])
-
-  function goToMenu() {
-    navigate("/statehue")
-  }
+    // panels is intentionally omitted — we only want this to fire once per variant
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [variant])
 
   const isArchive = !!archiveDateKey
-  const mode: ColorsGameMode = screen === "arcade" ? "arcade" : "daily"
-  const [activeMode, setActiveMode] = useState<ColorsGameMode>(mode)
-  useEffect(() => {
-    setActiveMode(mode)
-  }, [mode])
 
   const subtitle = isArchive
     ? formatLongDate(parseDateKey(archiveDateKey))
@@ -69,30 +62,31 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     setCalendarHistoryVersion(v => v + 1)
   }
 
-  function handleBack() {
-    if (isArchive) {
-      exitArchive()
-    } else {
-      goToMenu()
-    }
+  /** Called by the ColorsGame "Back to Today's" button after an arcade session. */
+  function handleBackToToday() {
+    setArchiveDateKey(null)
+    setDailyKey(k => k + 1)
+    panels.clear()
   }
 
   return (
     <PanelStackContext.Provider value={panels}>
       <div className="app-viewport flex min-h-0 flex-col overflow-hidden bg-primary-50 dark:bg-primary-900">
         <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
-          <button
-            onClick={handleBack}
-            aria-label={isArchive ? "Back to archive" : "Back to menu"}
-            title="Back"
-            className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
-          >
-            <FontAwesomeIcon
-              icon={faAngleLeft}
-              className="text-[1.7rem]"
-              aria-hidden="true"
-            />
-          </button>
+          {isArchive && (
+            <button
+              onClick={exitArchive}
+              aria-label="Back to archive"
+              title="Back"
+              className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
+            >
+              <FontAwesomeIcon
+                icon={faAngleLeft}
+                className="text-[1.7rem]"
+                aria-hidden="true"
+              />
+            </button>
+          )}
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
             {variant === "collegiate" ? "Collegiate" : "Statehue"}
           </h1>
@@ -153,18 +147,11 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
                 />
               ) : (
                 <ColorsGame
-                  key={`${variant}:${mode}`}
-                  mode={mode}
+                  key={`daily-${dailyKey}`}
+                  mode="daily"
                   variant={variant}
                   onModeChange={setActiveMode}
-                  onBackToToday={
-                    screen === "arcade"
-                      ? () =>
-                          navigate(
-                            variant === "collegiate" ? "/statehue/collegiate" : "/statehue/daily",
-                          )
-                      : undefined
-                  }
+                  onBackToToday={handleBackToToday}
                 />
               )}
             </div>

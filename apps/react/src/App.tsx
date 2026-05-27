@@ -26,7 +26,6 @@ const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
 const ColorsCalendar = lazy(() => import("@/games/statehue/screens/colors-calendar"))
 const PlayerCalendar = lazy(() => import("@/games/playerdle/screens/player-calendar"))
-const PaletteHub = lazy(() => import("@/games/statehue/screens/palette-hub"))
 const JourneyShell = lazy(() => import("@/games/journeyman/screens/journey-shell"))
 const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-calendar"))
 const TeamColorsKey = lazy(() =>
@@ -437,49 +436,31 @@ function App() {
         path="/:sport/arcade/fanatic"
         element={<SportFanaticModeRedirect />}
       />
-      {/* ── Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. ── */}
+      {/* ── Statehue. /geo and /palette redirect for backwards compatibility. ── */}
       <Route
         path="/statehue"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <PaletteHub />
+            <ColorsShell />
           </Suspense>
         }
       />
       <Route
         path="/geo"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue" replace />}
       />
       <Route
         path="/palette"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue" replace />}
       />
-      {/* Statehue game routes live under /statehue/*. Old /palette/states/* redirects for backwards compatibility. */}
+      {/* Backwards-compat redirects for old /statehue/daily and /statehue/arcade URLs */}
       <Route
         path="/statehue/daily"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell screen="daily" />
-          </Suspense>
-        }
+        element={<Navigate to="/statehue" replace />}
       />
       <Route
         path="/statehue/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell screen="arcade" />
-          </Suspense>
-        }
+        element={<Navigate to="/statehue" replace />}
       />
       <Route
         path="/statehue/calendar"
@@ -493,23 +474,14 @@ function App() {
         path="/statehue/collegiate"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell
-              screen="daily"
-              variant="collegiate"
-            />
+            <ColorsShell variant="collegiate" />
           </Suspense>
         }
       />
+      {/* Backwards-compat redirect for old /statehue/collegiate/arcade URL */}
       <Route
         path="/statehue/collegiate/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell
-              screen="arcade"
-              variant="collegiate"
-            />
-          </Suspense>
-        }
+        element={<Navigate to="/statehue/collegiate" replace />}
       />
       <Route
         path="/statehue/collegiate/calendar"
@@ -521,39 +493,20 @@ function App() {
       />
       <Route
         path="/palette/states"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue" replace />}
       />
+      {/* Redirects for old /palette/states/* URLs — point directly to final destination */}
       <Route
         path="/palette/states/daily"
-        element={
-          <Navigate
-            to="/statehue/daily"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue" replace />}
       />
       <Route
         path="/palette/states/arcade"
-        element={
-          <Navigate
-            to="/statehue/arcade"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue" replace />}
       />
       <Route
         path="/palette/states/calendar"
-        element={
-          <Navigate
-            to="/statehue/calendar"
-            replace
-          />
-        }
+        element={<Navigate to="/statehue/calendar" replace />}
       />
       {/* ── Journeyman lives under /journeyman/:league ──
           Plain /journeyman/* paths default to NFL for backwards compatibility.
