@@ -25,7 +25,7 @@ export default function Panel({ open, onClose, title = "Results", layout, childr
       className={clsx(
         "slide-up-panel absolute inset-0 flex flex-col bg-primary-50 dark:bg-primary-900",
         // Desktop: become a centered-modal wrapper with a translucent backdrop and equal top/bottom margins.
-        "md:items-center md:justify-center md:p-6 md:bg-primary-900/60 md:dark:bg-primary-950/70",
+        "md:items-center md:justify-center md:p-6 md:bg-primary-900/40 md:dark:bg-black/50 md:backdrop-blur-sm",
         open ? "slide-up-active" : "slide-up-inactive",
       )}
     >
@@ -40,7 +40,7 @@ export default function Panel({ open, onClose, title = "Results", layout, childr
           "relative flex flex-col flex-1 min-h-0 w-full",
           // Desktop: size to viewport with equal top/bottom margins (from the wrapper's p-6),
           // capped at a comfortable max width and full available height.
-          "md:flex-none md:max-w-2xl md:max-h-full md:rounded-2xl md:shadow-2xl md:bg-primary-50 md:dark:bg-primary-900 md:overflow-hidden",
+          "md:flex-none md:max-w-2xl md:max-h-full md:rounded-2xl md:shadow-2xl md:bg-primary-50 md:dark:bg-primary-800 md:ring-1 md:ring-primary-300/60 md:dark:ring-primary-700/60 md:overflow-hidden",
         )}
       >
         <div className="w-full max-w-2xl mx-auto px-4 flex items-center justify-between pt-3">

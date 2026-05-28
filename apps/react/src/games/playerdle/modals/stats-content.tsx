@@ -77,7 +77,7 @@ export function StatsContent({
   async function handleShare() {
     if (!player) return
     const prefix = sport.id === "nfl" ? "" : `/${sport.id}`
-    const path = variantId === "fanatic" ? "/fanatic" : "/daily"
+    const path = variantId === "fanatic" ? "/fanatic" : "/playerdle"
     const rawUrl = `${window.location.origin}${prefix}${path}`
     const url = await shortenUrl(rawUrl)
     share({
@@ -187,23 +187,13 @@ export function StatsContent({
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase text-left">
               Guess Distribution
             </h3>
-            {[
-              ...[1, 2, 3, 4, 5, 6].map(n => ({
-                key: String(n),
-                label: String(n),
-                count: stats.guessDistribution[n] || 0,
-                isLoss: false,
-                highlight: won && guessCount === n,
-              })),
-              { key: "X", label: "X", count: stats.losses, isLoss: true, highlight: lost },
-            ].map(row => (
+            {[1, 2, 3, 4, 5, 6].map(n => (
               <StatBar
-                key={row.key}
-                label={row.label}
-                count={row.count}
+                key={n}
+                label={String(n)}
+                count={stats.guessDistribution[n] || 0}
                 maxCount={maxGuessCount}
-                isLoss={row.isLoss}
-                highlight={row.highlight}
+                highlight={won && guessCount === n}
               />
             ))}
           </div>

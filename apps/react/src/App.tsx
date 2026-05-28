@@ -46,7 +46,7 @@ const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
 
 type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
-type RouteScreen = "menu" | "daily" | "arcade" | "help"
+type RouteScreen = "menu" | "playerdle" | "help"
 
 interface DailyRouteState {
   guideMode?: GuideMode
@@ -65,6 +65,12 @@ function HelpRedirect() {
   return <Navigate to={to} replace />
 }
 
+function LegacySportRedirect({ to }: { to: string }) {
+  const { sport } = useParams<{ sport?: string }>()
+  const prefix = sport ? `/${sport}` : ""
+  return <Navigate to={`${prefix}${to}`} replace />
+}
+
 function getSportIdFromRouteParam(sport?: string): SportConfig["id"] | null {
   if (!sport) return "nfl"
   const normalized = sport.toLowerCase()
@@ -80,10 +86,9 @@ function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: 
     return prefix || "/"
   }
   if (variantId === FANATIC_VARIANT_ID) {
-    if (screen === "daily") return `${prefix}/${FANATIC_VARIANT_ID}`
-    if (screen === "arcade") return `${prefix}/arcade/${FANATIC_VARIANT_ID}`
+    return `${prefix}/${FANATIC_VARIANT_ID}`
   }
-  return `${prefix}/${screen}`
+  return `${prefix}/playerdle`
 }
 
 function getTutorialStorageKey(sportId: string, variantId?: string): string {
@@ -107,7 +112,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [sport, setSport] = useState<SportConfig | null>(null)
   const [sportLoadFailed, setSportLoadFailed] = useState(false)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
-  const initialGuideMode = screen === "daily" ? getGuideModeFromState(location.state) : undefined
+  const initialGuideMode = screen === "playerdle" ? getGuideModeFromState(location.state) : undefined
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
   const panels = usePanelStack<AppPanel>(
     initialGuideMode ? "guide" : undefined,
@@ -169,10 +174,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     document.title = `Playerdle ${leagueName}`
   }, [activeSport, sportMeta.displayName])
 
-  const isGame = screen === "daily" || screen === "arcade"
+  const isPlayerdleScreen = screen === "playerdle"
 
   function handleShowTutorial() {
-    if (screen !== "daily" || panels.isAnyOpen) {
+    if (!isPlayerdleScreen || panels.isAnyOpen) {
       return
     }
 
@@ -193,7 +198,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
 
   function handleShowStats() {
-    if (screen !== "daily" || panels.isOpen("stats")) {
+    if (!isPlayerdleScreen || panels.isOpen("stats")) {
       return
     }
 
@@ -243,7 +248,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     if (target === "daily") {
       const seenKey = getTutorialStorageKey(sportId, nextVariantId)
       const shouldShowOnboarding = !localStorage.getItem(seenKey)
-      navigate(buildPath(sportId, "daily", nextVariantId), {
+      navigate(buildPath(sportId, "playerdle", nextVariantId), {
         state: shouldShowOnboarding ? ({ guideMode: "onboarding" } as DailyRouteState) : undefined,
       })
       return
@@ -251,12 +256,12 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
     if (target === "arcade") {
       setGameKey(k => k + 1)
-      navigate(buildPath(sportId, "arcade", nextVariantId))
+      navigate(buildPath(sportId, "playerdle", nextVariantId))
       return
     }
 
     if (target === "stats") {
-      navigate(buildPath(sportId, "daily", nextVariantId), {
+      navigate(buildPath(sportId, "playerdle", nextVariantId), {
         state: { showStats: true } as DailyRouteState,
       })
       return
@@ -315,19 +320,19 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
           />
         </div>
       )}
-      {isGame && (
+      {isPlayerdleScreen && (
         <PanelStackContext.Provider value={panels}>
         <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
           <Header
             onShowTutorial={
-              screen === "daily" && !panels.isAnyOpen
+              isPlayerdleScreen && !panels.isAnyOpen
                 ? isArchive
                   ? () => panels.push("archive-guide")
                   : handleShowTutorial
                 : undefined
             }
             onShowStats={
-              screen === "daily" && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
+              isPlayerdleScreen && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
             }
             onBack={isArchive ? exitArchive : goToMenu}
             sport={activeSport ?? sportMeta}
@@ -335,7 +340,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
           />
           <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
             <Suspense fallback={<div className="flex-1 min-h-0" />}>
-              {screen === "daily" && activeSport && (
+              {isPlayerdleScreen && activeSport && (
                 <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
                   <div
                     className={clsx(
@@ -353,10 +358,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                       />
                     ) : (
                       <Game
-                        key="daily"
+                        key={`playerdle-${gameKey}`}
                         mode="daily"
                         sport={activeSport}
                         variantId={activeVariantId}
+                        onBackToToday={() => setGameKey(k => k + 1)}
                       />
                     )}
                   </div>
@@ -390,15 +396,6 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
                     />
                   </Suspense>
                 </div>
-              )}
-              {screen === "arcade" && activeSport && (
-                <Game
-                  key={`arcade-${gameKey}`}
-                  mode="arcade"
-                  sport={activeSport}
-                  variantId={activeVariantId}
-                  onBackToToday={() => navigate(buildPath(sportId, "daily", activeVariantId))}
-                />
               )}
             </Suspense>
           </div>
@@ -509,31 +506,22 @@ function App() {
         element={<HelpRedirect />}
       />
       <Route
-        path="/daily"
-        element={<SportRoute screen="daily" />}
-      />
-      <Route
-        path="/arcade"
-        element={<SportRoute screen="arcade" />}
+        path="/playerdle"
+        element={<SportRoute screen="playerdle" />}
       />
       <Route
         path="/fanatic"
         element={
           <SportRoute
-            screen="daily"
+            screen="playerdle"
             variantId={FANATIC_VARIANT_ID}
           />
         }
       />
-      <Route
-        path="/arcade/fanatic"
-        element={
-          <SportRoute
-            screen="arcade"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
-      />
+      {/* Legacy /daily and /arcade paths redirect to the unified /playerdle URL. */}
+      <Route path="/daily" element={<Navigate to="/playerdle" replace />} />
+      <Route path="/arcade" element={<Navigate to="/playerdle" replace />} />
+      <Route path="/arcade/fanatic" element={<Navigate to="/fanatic" replace />} />
       <Route path="/team-colors-key" element={<Navigate to="/team-colors-key/nfl" replace />} />
       <Route
         path="/team-colors-key/:sport"
@@ -552,31 +540,21 @@ function App() {
         element={<HelpRedirect />}
       />
       <Route
-        path="/:sport/daily"
-        element={<SportRoute screen="daily" />}
-      />
-      <Route
-        path="/:sport/arcade"
-        element={<SportRoute screen="arcade" />}
+        path="/:sport/playerdle"
+        element={<SportRoute screen="playerdle" />}
       />
       <Route
         path="/:sport/fanatic"
         element={
           <SportRoute
-            screen="daily"
+            screen="playerdle"
             variantId={FANATIC_VARIANT_ID}
           />
         }
       />
-      <Route
-        path="/:sport/arcade/fanatic"
-        element={
-          <SportRoute
-            screen="arcade"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
-      />
+      <Route path="/:sport/daily" element={<LegacySportRedirect to="/playerdle" />} />
+      <Route path="/:sport/arcade" element={<LegacySportRedirect to="/playerdle" />} />
+      <Route path="/:sport/arcade/fanatic" element={<LegacySportRedirect to="/fanatic" />} />
       {/* Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. */}
       <Route
         path="/statehue"
