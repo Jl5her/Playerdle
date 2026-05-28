@@ -207,7 +207,7 @@ body,
 }
 
 .guess-input-shell:focus-within {
-  padding-bottom: 0.2rem;
+  padding-bottom: 0.5rem;
 }
 
 .guess-input-field {
