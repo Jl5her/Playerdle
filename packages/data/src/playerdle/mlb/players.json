@@ -209,6 +209,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4727589",
+    "name": "Alex Freeland",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "2B",
+    "number": 76,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4300541",
     "name": "Alex Hoppe",
     "conference": "AL",
@@ -371,17 +382,6 @@
     "teamAbbr": "BAL",
     "position": "RP",
     "number": 39,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:28701",
-    "name": "Andrew McCutchen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "DH",
-    "number": 4,
     "league": "AL"
   },
   {
@@ -583,6 +583,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:35044",
+    "name": "Austin Voth",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 58,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42848",
     "name": "Austin Warren",
     "conference": "NL",
@@ -602,17 +613,6 @@
     "teamAbbr": "NYY",
     "position": "C",
     "number": 28,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4705677",
-    "name": "Bailey Falter",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 36,
     "league": "AL"
   },
   {
@@ -2563,17 +2563,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:31358",
-    "name": "Enrique Hernandez",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "1B",
-    "number": 8,
-    "league": "NL"
-  },
-  {
     "id": "mlb:35026",
     "name": "Enyel De Los Santos",
     "conference": "AL",
@@ -3850,17 +3839,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41849",
-    "name": "Jason Alexander",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5073992",
     "name": "Javier Sanoja",
     "conference": "NL",
@@ -4200,6 +4178,17 @@
     "position": "RP",
     "number": 52,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4179560",
+    "name": "Jonathan Heasley",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 68,
+    "league": "AL"
   },
   {
     "id": "mlb:39814",
@@ -5060,6 +5049,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5136495",
+    "name": "Logan VanWey",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4917888",
     "name": "Louis Varland",
     "conference": "AL",
@@ -5332,6 +5332,17 @@
     "teamAbbr": "BOS",
     "position": "DH",
     "number": 7,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5099971",
+    "name": "Mason Black",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RP",
+    "number": 47,
     "league": "AL"
   },
   {
@@ -5984,6 +5995,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41170",
+    "name": "Nick Madrigal",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "3B",
+    "number": 17,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33372",
     "name": "Nick Martinez",
     "conference": "AL",
@@ -6006,17 +6028,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41006",
-    "name": "Nick Raquet",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 72,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42979",
     "name": "Nick Sogard",
     "conference": "AL",
@@ -6025,6 +6036,17 @@
     "teamAbbr": "BOS",
     "position": "3B",
     "number": 20,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:38106",
+    "name": "Nicky Lopez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "2B",
+    "number": 33,
     "league": "AL"
   },
   {
@@ -6081,17 +6103,6 @@
     "position": "SP",
     "number": 26,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4739755",
-    "name": "Nolan Schanuel",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "1B",
-    "number": 18,
-    "league": "AL"
   },
   {
     "id": "mlb:5001160",
@@ -6443,17 +6454,6 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 52,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4019760",
-    "name": "PJ Poulin",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 50,
     "league": "NL"
   },
   {
@@ -7167,7 +7167,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "DH",
+    "position": "SP",
     "number": 17,
     "league": "NL"
   },
@@ -7378,17 +7378,6 @@
     "teamAbbr": "MIN",
     "position": "SP",
     "number": 26,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3332092",
-    "name": "Tanner Andrews",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RP",
-    "number": 43,
     "league": "AL"
   },
   {
@@ -7722,17 +7711,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5201553",
-    "name": "Trevor Martin",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RP",
-    "number": 70,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5185136",
     "name": "Trevor McDonald",
     "conference": "NL",
@@ -7774,6 +7752,17 @@
     "teamAbbr": "BAL",
     "position": "SP",
     "number": 28,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4867802",
+    "name": "Trey Gibson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "SP",
+    "number": 43,
     "league": "AL"
   },
   {
