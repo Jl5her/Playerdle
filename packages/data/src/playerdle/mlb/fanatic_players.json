@@ -672,7 +672,7 @@
     "division": "West",
     "team": "Athletics",
     "teamAbbr": "ATH",
-    "position": "3B",
+    "position": "SS",
     "number": 2,
     "league": "AL",
     "gp": 51,
@@ -1440,24 +1440,6 @@
     "ops": 0.518
   },
   {
-    "id": "mlb:41684",
-    "name": "Lenyn Sosa",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "2B",
-    "number": 50,
-    "league": "AL",
-    "gp": 140,
-    "pa": 544,
-    "avg": 0.264,
-    "hr": 22,
-    "rbi": 75,
-    "sb": 2,
-    "ops": 0.727
-  },
-  {
     "id": "mlb:42047",
     "name": "Logan O'Hoppe",
     "conference": "AL",
@@ -2032,24 +2014,6 @@
     "rbi": 13,
     "sb": 0,
     "ops": 0.529
-  },
-  {
-    "id": "mlb:5136835",
-    "name": "Otto Kemp",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "LF",
-    "number": 4,
-    "league": "NL",
-    "gp": 62,
-    "pa": 218,
-    "avg": 0.234,
-    "hr": 8,
-    "rbi": 28,
-    "sb": 2,
-    "ops": 0.709
   },
   {
     "id": "mlb:41917",
