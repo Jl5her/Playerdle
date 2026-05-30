@@ -442,7 +442,7 @@ function buildShareText(
     .join("\n")
 
   const league = puzzle.league.toUpperCase()
-  return `Cap Crunch ${league} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/payroll`
+  return `Cap Crunch ${league} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/capcrunch`
 }
 
 function ResultsPanel({

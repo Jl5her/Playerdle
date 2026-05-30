@@ -295,9 +295,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     builtExtraGames.push({
       label: "Cap Crunch",
       played: hasPlayedPayrollToday("nfl"),
-      onPlayDaily: () => navigate("/payroll"),
-      onPlayArcade: () => navigate("/payroll/arcade"),
-      onShowStats: () => navigate("/payroll"),
+      onPlayDaily: () => navigate("/capcrunch"),
+      onPlayArcade: () => navigate("/capcrunch/arcade"),
+      onShowStats: () => navigate("/capcrunch"),
     })
   }
   const extraGames: ExtraGame[] | undefined = builtExtraGames.length > 0 ? builtExtraGames : undefined
@@ -821,7 +821,7 @@ function App() {
       />
       {/* Cap Crunch payroll game — NFL only for now */}
       <Route
-        path="/payroll"
+        path="/capcrunch"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PayrollShell league="nfl" screen="daily" />
@@ -829,7 +829,7 @@ function App() {
         }
       />
       <Route
-        path="/payroll/arcade"
+        path="/capcrunch/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PayrollShell league="nfl" screen="arcade" />
@@ -837,7 +837,7 @@ function App() {
         }
       />
       <Route
-        path="/payroll/calendar"
+        path="/capcrunch/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PayrollCalendar league="nfl" />
@@ -845,7 +845,7 @@ function App() {
         }
       />
       <Route
-        path="/payroll/archive/:dateKey"
+        path="/capcrunch/archive/:dateKey"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PayrollArchiveRoute />

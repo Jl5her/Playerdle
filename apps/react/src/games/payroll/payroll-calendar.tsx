@@ -120,16 +120,16 @@ export default function PayrollCalendar({ league, panel = false, id, historyVers
 
   function handlePlay() {
     if (selected === todayKey) {
-      navigate("/payroll")
+      navigate("/capcrunch")
     } else {
-      navigate(`/payroll/archive/${selected}`)
+      navigate(`/capcrunch/archive/${selected}`)
     }
   }
 
   const calendar = (
     <ArchiveCalendar
       title="Cap Crunch Archive"
-      onBack={panel ? undefined : () => navigate("/payroll")}
+      onBack={panel ? undefined : () => navigate("/capcrunch")}
       panel={panel}
       epoch={EPOCH}
       history={history}
