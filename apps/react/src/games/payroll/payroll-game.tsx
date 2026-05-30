@@ -637,7 +637,7 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
           </div>
 
           {/* Guess grid */}
-          <div className="guess-grid-shell flex flex-col items-center px-2 pt-1 pb-1 mt-3">
+          <div className="guess-grid-shell flex flex-col items-center gap-3 px-2 pt-1 pb-1 mt-3">
             {/* Column headers — shown once */}
             <div className="guess-grid-header sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
               {COMPARISON_COLUMNS.map(({ label }) => (
