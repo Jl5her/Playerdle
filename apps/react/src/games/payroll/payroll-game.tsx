@@ -125,10 +125,12 @@ function comparisonSymbol(result: ComparisonResult): string {
 
 function ComparisonTile({
   result,
+  salary,
   animate,
   delayIndex,
 }: {
   result: ComparisonResult
+  salary: number
   animate?: boolean
   delayIndex?: number
 }) {
@@ -154,13 +156,20 @@ function ComparisonTile({
   return (
     <div
       className={clsx(
-        "grid-cell-size flex items-center justify-center font-bold rounded-md text-primary-50",
+        "grid-cell-size flex flex-col items-center justify-center gap-px font-bold rounded-md text-primary-50",
         bgClass,
         animate && "animate-cell-flip",
         animate && delayClass,
       )}
     >
-      <span className="grid-cell-text">{revealed ? comparisonSymbol(result) : ""}</span>
+      {revealed && (
+        <>
+          <span className="grid-cell-text font-black leading-none">{formatSalary(salary)}</span>
+          <span className="grid-cell-top-text leading-none opacity-90">
+            {comparisonSymbol(result)}
+          </span>
+        </>
+      )}
     </div>
   )
 }
@@ -168,10 +177,12 @@ function ComparisonTile({
 function ComparisonRow({
   teamName,
   comparison,
+  guessedSalaries,
   animate,
 }: {
   teamName: string
   comparison: PayrollComparison
+  guessedSalaries: Record<keyof PayrollComparison, number>
   animate?: boolean
 }) {
   return (
@@ -181,7 +192,13 @@ function ComparisonRow({
       </div>
       <div className="flex gap-1 justify-center">
         {COMPARISON_COLUMNS.map(({ key }, i) => (
-          <ComparisonTile key={key} result={comparison[key]} animate={animate} delayIndex={i} />
+          <ComparisonTile
+            key={key}
+            result={comparison[key]}
+            salary={guessedSalaries[key]}
+            animate={animate}
+            delayIndex={i}
+          />
         ))}
       </div>
     </div>
@@ -635,6 +652,17 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
                   <ComparisonRow
                     teamName={guesses[i].teamName}
                     comparison={comparisons[i]}
+                    guessedSalaries={(() => {
+                      const t = teamsById.get(guesses[i].teamId)
+                      if (!t) return { QB: 0, RB: 0, TE: 0, WR: 0, OL: 0 }
+                      return {
+                        QB: t.offense.QB.salary,
+                        RB: t.offense.RB.salary,
+                        TE: t.offense.TE.salary,
+                        WR: t.offense.WR.reduce((s, p) => s + p.salary, 0),
+                        OL: t.offense.OL.reduce((s, p) => s + p.salary, 0),
+                      }
+                    })()}
                     animate={i === latestIndex}
                   />
                 </div>
