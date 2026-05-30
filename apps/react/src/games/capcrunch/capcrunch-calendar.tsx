@@ -2,20 +2,20 @@ import clsx from "clsx"
 import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import {
-  getPayrollHistory,
-  getPayrollPuzzleByDateKey,
-  PAYROLL_EPOCH,
-  type PayrollLeague,
-  type PayrollPuzzle,
-  type PayrollResult,
-} from "@/games/payroll/utils/payroll-daily"
+  getCapCrunchHistory,
+  getCapCrunchPuzzleByDateKey,
+  CAPCRUNCH_EPOCH,
+  type CapCrunchLeague,
+  type CapCrunchPuzzle,
+  type CapCrunchResult,
+} from "@/games/capcrunch/utils/capcrunch-daily"
 import { ArchiveCalendar, Panel } from "@/shared/components"
 import { usePanelContext } from "@/shared/hooks/use-panel-context"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
 
-const EPOCH = parseDateKey(PAYROLL_EPOCH)
+const EPOCH = parseDateKey(CAPCRUNCH_EPOCH)
 
 function DayDetail({
   puzzle,
@@ -24,8 +24,8 @@ function DayDetail({
   onPlay,
   inProgressCount,
 }: {
-  puzzle: PayrollPuzzle
-  result?: PayrollResult
+  puzzle: CapCrunchPuzzle
+  result?: CapCrunchResult
   canPlay: boolean
   onPlay?: () => void
   inProgressCount?: number
@@ -84,7 +84,7 @@ function DayDetail({
 }
 
 interface Props {
-  league: PayrollLeague
+  league: CapCrunchLeague
   /** Render as a panel driven by panel context instead of a standalone page. */
   panel?: boolean
   /** Panel ID in context; required when panel=true. */
@@ -93,7 +93,7 @@ interface Props {
   historyVersion?: number
 }
 
-export default function PayrollCalendar({ league, panel = false, id, historyVersion = 0 }: Props) {
+export default function CapCrunchCalendar({ league, panel = false, id, historyVersion = 0 }: Props) {
   const ctx = usePanelContext()
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
@@ -101,15 +101,15 @@ export default function PayrollCalendar({ league, panel = false, id, historyVers
   const [selected, setSelected] = useState<string>(todayKey)
 
   const history = useMemo(() => {
-    const map = new Map<string, PayrollResult>()
-    for (const r of getPayrollHistory(league)) map.set(r.date, r)
+    const map = new Map<string, CapCrunchResult>()
+    for (const r of getCapCrunchHistory(league)) map.set(r.date, r)
     return map
   }, [league, historyVersion])
 
-  const inProgressDates = useInProgressDates(`playerdle-payroll-state:${league}:`, [historyVersion])
+  const inProgressDates = useInProgressDates(`playerdle-capcrunch-state:${league}:`, [historyVersion])
 
   const selectedPuzzle = useMemo(
-    () => getPayrollPuzzleByDateKey(league, selected),
+    () => getCapCrunchPuzzleByDateKey(league, selected),
     [league, selected],
   )
   const selectedResult = history.get(selected)

@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 /**
- * Builds NFL offensive payroll data and writes to
- * packages/data/src/payroll/nfl-payroll.json
+ * Builds NFL Cap Crunch data and writes to
+ * packages/data/src/capcrunch/nfl-capcrunch.json
  *
  * Data source: nflverse historical_contracts.csv.gz (GitHub release, publicly
  * accessible). The dataset covers contracts through 2022; POST_2022_OVERRIDES
@@ -11,9 +11,9 @@
  * QB, RB, TE, and OL fall through to nflverse where not overridden.
  *
  * Usage:
- *   pnpm scrape:nfl:payroll                  # build/update nfl-payroll.json
- *   pnpm scrape:nfl:payroll -- --year=2025   # tag output with specific season
- *   pnpm scrape:nfl:payroll -- --dry-run     # print result, don't write file
+ *   pnpm scrape:nfl:capcrunch                  # build/update nfl-capcrunch.json
+ *   pnpm scrape:nfl:capcrunch -- --year=2025   # tag output with specific season
+ *   pnpm scrape:nfl:capcrunch -- --dry-run     # print result, don't write file
  */
 
 import { existsSync, readFileSync, writeFileSync } from "node:fs"
@@ -534,10 +534,10 @@ async function main() {
   const { year, dryRun } = parseArgs()
   const __dirname = dirname(fileURLToPath(import.meta.url))
   const outputPath = resolve(
-    __dirname, "..", "packages", "data", "src", "payroll", "nfl-payroll.json",
+    __dirname, "..", "packages", "data", "src", "capcrunch", "nfl-capcrunch.json",
   )
 
-  console.log(`NFL Payroll Builder — ${year} season`)
+  console.log(`NFL Cap Crunch Builder — ${year} season`)
   console.log("=".repeat(50))
   if (dryRun) console.log("DRY RUN — no file will be written\n")
 

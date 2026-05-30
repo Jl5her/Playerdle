@@ -3,26 +3,26 @@ import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
-  calculatePayrollStats,
+  calculateCapCrunchStats,
   compareTeamToAnswer,
-  getPayrollArcadePuzzle,
-  getPayrollDailyPuzzle,
-  getPayrollPuzzleByDateKey,
-  getPayrollTeams,
-  loadPayrollDailyGuesses,
-  markPayrollPlayed,
-  PAYROLL_MAX_GUESSES,
-  savePayrollDailyGuesses,
-  savePayrollResult,
+  getCapCrunchArcadePuzzle,
+  getCapCrunchDailyPuzzle,
+  getCapCrunchPuzzleByDateKey,
+  getCapCrunchTeams,
+  loadCapCrunchDailyGuesses,
+  markCapCrunchPlayed,
+  CAPCRUNCH_MAX_GUESSES,
+  saveCapCrunchDailyGuesses,
+  saveCapCrunchResult,
   type ComparisonResult,
-  type PayrollComparison,
-  type PayrollGuessRecord,
-  type PayrollLeague,
-  type PayrollOffense,
-  type PayrollPlayer,
-  type PayrollPuzzle,
-  type PayrollStats,
-} from "@/games/payroll/utils/payroll-daily"
+  type CapCrunchComparison,
+  type CapCrunchGuessRecord,
+  type CapCrunchLeague,
+  type CapCrunchOffense,
+  type CapCrunchPlayer,
+  type CapCrunchPuzzle,
+  type CapCrunchStats,
+} from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   DailyGameShell,
   PlayAgainButton,
@@ -35,12 +35,12 @@ import { useClipboardShare } from "@/shared/hooks/use-clipboard-share"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
 import { getTodayKey } from "@/shared/utils/time"
 
-export type PayrollGameMode = "daily" | "arcade"
+export type CapCrunchGameMode = "daily" | "arcade"
 
 interface Props {
-  league: PayrollLeague
-  mode: PayrollGameMode
-  onModeChange?: (mode: PayrollGameMode) => void
+  league: CapCrunchLeague
+  mode: CapCrunchGameMode
+  onModeChange?: (mode: CapCrunchGameMode) => void
   onGameOver?: (won: boolean, guessCount: number) => void
   archiveDateKey?: string
 }
@@ -58,7 +58,7 @@ function PlayerSlot({
   revealed,
 }: {
   position: string
-  player: PayrollPlayer
+  player: CapCrunchPlayer
   revealed: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -133,7 +133,7 @@ function PlayerSlot({
   )
 }
 
-function Formation({ offense, revealed }: { offense: PayrollOffense; revealed: boolean }) {
+function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed: boolean }) {
   return (
     <div className="flex flex-col items-center gap-3 py-4 px-2 select-none">
       {/* WRs */}
@@ -165,7 +165,7 @@ function Formation({ offense, revealed }: { offense: PayrollOffense; revealed: b
 
 // ---- Comparison tiles ----
 
-const COMPARISON_COLUMNS: Array<{ label: string; key: keyof PayrollComparison }> = [
+const COMPARISON_COLUMNS: Array<{ label: string; key: keyof CapCrunchComparison }> = [
   { label: "QB", key: "QB" },
   { label: "RB", key: "RB" },
   { label: "TE", key: "TE" },
@@ -245,8 +245,8 @@ function ComparisonRow({
   animate,
 }: {
   teamName: string
-  comparison: PayrollComparison
-  guessedSalaries: Record<keyof PayrollComparison, number>
+  comparison: CapCrunchComparison
+  guessedSalaries: Record<keyof CapCrunchComparison, number>
   animate?: boolean
 }) {
   return (
@@ -415,12 +415,12 @@ function TeamInput({
 // ---- Results panel ----
 
 function buildShareText(
-  puzzle: PayrollPuzzle,
-  guesses: PayrollGuessRecord[],
+  puzzle: CapCrunchPuzzle,
+  guesses: CapCrunchGuessRecord[],
   won: boolean,
-  comparisons: PayrollComparison[],
+  comparisons: CapCrunchComparison[],
 ): string {
-  const score = won ? `${guesses.length}/${PAYROLL_MAX_GUESSES}` : `X/${PAYROLL_MAX_GUESSES}`
+  const score = won ? `${guesses.length}/${CAPCRUNCH_MAX_GUESSES}` : `X/${CAPCRUNCH_MAX_GUESSES}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
@@ -429,7 +429,7 @@ function buildShareText(
 
   const emojiGrid = comparisons
     .map(c => {
-      const keys: Array<keyof PayrollComparison> = ["QB", "RB", "TE", "WR", "OL"]
+      const keys: Array<keyof CapCrunchComparison> = ["QB", "RB", "TE", "WR", "OL"]
       return keys
         .map(k => {
           const v = c[k]
@@ -455,12 +455,12 @@ function ResultsPanel({
   onClose,
   onPlayAgain,
 }: {
-  puzzle: PayrollPuzzle
-  guesses: PayrollGuessRecord[]
-  comparisons: PayrollComparison[]
+  puzzle: CapCrunchPuzzle
+  guesses: CapCrunchGuessRecord[]
+  comparisons: CapCrunchComparison[]
   won: boolean
-  mode: PayrollGameMode
-  stats: PayrollStats | null
+  mode: CapCrunchGameMode
+  stats: CapCrunchStats | null
   onClose: () => void
   onPlayAgain: () => void
 }) {
@@ -507,7 +507,7 @@ function ResultsPanel({
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
               Guess Distribution
             </h3>
-            {Array.from({ length: PAYROLL_MAX_GUESSES }, (_, i) => i + 1).map(num => {
+            {Array.from({ length: CAPCRUNCH_MAX_GUESSES }, (_, i) => i + 1).map(num => {
               const count = stats.guessDistribution[num] || 0
               const scaledWidth = maxBar > 0 ? (count / maxBar) * 100 : 0
               const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
@@ -549,38 +549,38 @@ function ResultsPanel({
 
 // ---- Main game ----
 
-export default function PayrollGame({ league, mode, onModeChange, onGameOver, archiveDateKey }: Props) {
-  const [activeMode, setActiveMode] = useState<PayrollGameMode>(mode)
-  const teams = useMemo(() => getPayrollTeams(league), [league])
+export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, archiveDateKey }: Props) {
+  const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
+  const teams = useMemo(() => getCapCrunchTeams(league), [league])
   const teamOptions: TeamOption[] = useMemo(
     () => teams.map(t => ({ id: t.id, name: t.name, abbr: t.abbr })),
     [teams],
   )
   const teamsById = useMemo(() => new Map(teams.map(t => [t.id, t])), [teams])
 
-  const [puzzle, setPuzzle] = useState<PayrollPuzzle>(() =>
+  const [puzzle, setPuzzle] = useState<CapCrunchPuzzle>(() =>
     mode === "daily"
       ? archiveDateKey
-        ? getPayrollPuzzleByDateKey(league, archiveDateKey)
-        : getPayrollDailyPuzzle(league)
-      : getPayrollArcadePuzzle(league),
+        ? getCapCrunchPuzzleByDateKey(league, archiveDateKey)
+        : getCapCrunchDailyPuzzle(league)
+      : getCapCrunchArcadePuzzle(league),
   )
 
-  const [guesses, setGuesses] = useState<PayrollGuessRecord[]>(() =>
-    mode === "daily" ? loadPayrollDailyGuesses(league, puzzle.dateKey) : [],
+  const [guesses, setGuesses] = useState<CapCrunchGuessRecord[]>(() =>
+    mode === "daily" ? loadCapCrunchDailyGuesses(league, puzzle.dateKey) : [],
   )
 
   const usedIds = useMemo(() => new Set(guesses.map(g => g.teamId)), [guesses])
 
   const won = guesses.some(g => g.teamId === puzzle.team.id)
-  const lost = !won && guesses.length >= PAYROLL_MAX_GUESSES
+  const lost = !won && guesses.length >= CAPCRUNCH_MAX_GUESSES
   const gameOver = won || lost
 
-  const comparisons: PayrollComparison[] = useMemo(
+  const comparisons: CapCrunchComparison[] = useMemo(
     () =>
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
-        if (!guessedTeam) return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as PayrollComparison
+        if (!guessedTeam) return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as CapCrunchComparison
         const cmp = compareTeamToAnswer(guessedTeam, puzzle.team)
         if (guessedTeam.id === puzzle.team.id) {
           return { QB: "correct", RB: "correct", TE: "correct", WR: "correct", OL: "correct" }
@@ -590,14 +590,14 @@ export default function PayrollGame({ league, mode, onModeChange, onGameOver, ar
     [guesses, puzzle.team, teamsById],
   )
 
-  const [stats, setStats] = useState<PayrollStats | null>(() =>
-    gameOver && activeMode === "daily" ? calculatePayrollStats(league) : null,
+  const [stats, setStats] = useState<CapCrunchStats | null>(() =>
+    gameOver && activeMode === "daily" ? calculateCapCrunchStats(league) : null,
   )
 
   useEffect(() => {
     if (activeMode === "daily" && gameOver) {
-      if (puzzle.dateKey === getTodayKey()) markPayrollPlayed(league)
-      savePayrollResult(league, puzzle.dateKey, won, guesses.length)
+      if (puzzle.dateKey === getTodayKey()) markCapCrunchPlayed(league)
+      saveCapCrunchResult(league, puzzle.dateKey, won, guesses.length)
     }
   }, [league, activeMode, gameOver, puzzle.dateKey, won, guesses.length])
 
@@ -607,7 +607,7 @@ export default function PayrollGame({ league, mode, onModeChange, onGameOver, ar
       return
     }
     if (activeMode === "daily" && stats === null) {
-      setStats(calculatePayrollStats(league))
+      setStats(calculateCapCrunchStats(league))
     }
   }, [gameOver, activeMode, stats, league])
 
@@ -628,13 +628,13 @@ export default function PayrollGame({ league, mode, onModeChange, onGameOver, ar
   function handleGuess(team: TeamOption) {
     if (gameOver) return
     if (usedIds.has(team.id)) return
-    const next: PayrollGuessRecord[] = [...guesses, { teamId: team.id, teamName: team.name }]
+    const next: CapCrunchGuessRecord[] = [...guesses, { teamId: team.id, teamName: team.name }]
     setGuesses(next)
-    if (activeMode === "daily") savePayrollDailyGuesses(league, puzzle.dateKey, next)
+    if (activeMode === "daily") saveCapCrunchDailyGuesses(league, puzzle.dateKey, next)
   }
 
   function handlePlayAgain() {
-    const fresh = getPayrollArcadePuzzle(league, puzzle.team.id)
+    const fresh = getCapCrunchArcadePuzzle(league, puzzle.team.id)
     setPuzzle(fresh)
     setGuesses([])
     setStats(null)
@@ -716,7 +716,7 @@ export default function PayrollGame({ league, mode, onModeChange, onGameOver, ar
             </div>
 
             {/* Filled and empty guess rows */}
-            {Array.from({ length: PAYROLL_MAX_GUESSES }).map((_, i) =>
+            {Array.from({ length: CAPCRUNCH_MAX_GUESSES }).map((_, i) =>
               i < guesses.length ? (
                 <div
                   key={i}
