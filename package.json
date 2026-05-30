@@ -23,6 +23,7 @@
     "generate:answer-pool:nba": "tsx scripts/generate-nba-answer-pool.ts",
     "generate:answer-pool:nhl": "tsx scripts/generate-nhl-answer-pool.ts",
     "scrape:nfl:fanatic": "tsx scripts/scrape-nfl-flex-fanatic.ts",
+    "scrape:nfl:payroll": "tsx scripts/scrape-nfl-payroll.ts",
     "scrape:nhl:fanatic": "tsx scripts/scrape-nhl-fanatic.ts",
     "scrape:nba:fanatic": "tsx scripts/scrape-nba-season-averages.ts",
     "scrape:mlb:fanatic": "tsx scripts/scrape-mlb-fanatic.ts",
