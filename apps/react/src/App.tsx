@@ -11,6 +11,7 @@ import {
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
+import { hasPlayedPayrollToday } from "@/games/payroll/utils/payroll-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -41,6 +42,8 @@ const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-ca
 const TeamColorsKey = lazy(() =>
   import("@/games/playerdle/screens/team-colors-key").then(m => ({ default: m.TeamColorsKey })),
 )
+const PayrollShell = lazy(() => import("@/games/payroll/payroll-shell"))
+const PayrollCalendar = lazy(() => import("@/games/payroll/payroll-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -277,20 +280,27 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const isMenuView = screen === "menu" || screen === "help"
 
   const journeymanLeague: JourneyLeague | null = isJourneyLeague(sportId) ? sportId : null
-  const extraGames: ExtraGame[] | undefined = journeymanLeague
-    ? [
-        {
-          label: "Journeyman",
-          played: hasPlayedJourneyDailyToday(journeymanLeague),
-          onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
-          onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
-          onShowStats: () =>
-            navigate(`/journeyman/${journeymanLeague}/daily`, {
-              state: { showStats: true },
-            }),
-        },
-      ]
-    : undefined
+  const builtExtraGames: ExtraGame[] = []
+  if (journeymanLeague) {
+    builtExtraGames.push({
+      label: "Journeyman",
+      played: hasPlayedJourneyDailyToday(journeymanLeague),
+      onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
+      onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
+      onShowStats: () =>
+        navigate(`/journeyman/${journeymanLeague}/daily`, { state: { showStats: true } }),
+    })
+  }
+  if (sportId === "nfl") {
+    builtExtraGames.push({
+      label: "Cap Crunch",
+      played: hasPlayedPayrollToday("nfl"),
+      onPlayDaily: () => navigate("/payroll"),
+      onPlayArcade: () => navigate("/payroll/arcade"),
+      onShowStats: () => navigate("/payroll"),
+    })
+  }
+  const extraGames: ExtraGame[] | undefined = builtExtraGames.length > 0 ? builtExtraGames : undefined
 
   if (sportLoadFailed && !sport) {
     return (
@@ -424,6 +434,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       )}
     </>
   )
+}
+
+function PayrollArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return <PayrollShell league="nfl" screen="daily" archiveDateKey={dateKey} />
 }
 
 interface SportRouteProps {
@@ -801,6 +816,39 @@ function App() {
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+          </Suspense>
+        }
+      />
+      {/* Cap Crunch payroll game — NFL only for now */}
+      <Route
+        path="/payroll"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollShell league="nfl" screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payroll/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollShell league="nfl" screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payroll/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollCalendar league="nfl" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payroll/archive/:dateKey"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollArchiveRoute />
           </Suspense>
         }
       />

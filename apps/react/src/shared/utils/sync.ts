@@ -23,6 +23,10 @@ const SYNC_KEY_PREFIXES = [
   "playerdle-colors-collegiate-played-day",
   "statehue-tutorial-seen",
   "statehue-collegiate-tutorial-seen",
+  "playerdle-payroll-state:",
+  "playerdle-payroll-history:",
+  "playerdle-payroll-played-day:",
+  "payroll-tutorial-seen:",
 ]
 
 export interface SyncPayload {
@@ -290,13 +294,14 @@ export function analyzeMerge(
 
   const allKeys = new Set([...Object.keys(localData), ...Object.keys(remoteData)])
 
-  // Pass 1: merge completed-game history arrays (stats + journey + statehue history)
+  // Pass 1: merge completed-game history arrays (stats + journey + statehue + payroll history)
   for (const key of allKeys) {
     if (
       key.startsWith("playerdle-stats:") ||
       key.startsWith("playerdle-journey-history:") ||
       key.startsWith("playerdle-colors-history:") ||
-      key.startsWith("playerdle-colors-collegiate-history:")
+      key.startsWith("playerdle-colors-collegiate-history:") ||
+      key.startsWith("playerdle-payroll-history:")
     ) {
       easyMerged[key] = mergeStatsArrays(localData[key], remoteData[key])
     }
@@ -349,6 +354,28 @@ export function analyzeMerge(
         conflictLocal,
         conflictRemote,
       )
+    } else if (key.startsWith("playerdle-payroll-state:")) {
+      // playerdle-payroll-state:<league>:<dateKey>
+      const parts = key.split(":")
+      const league = parts[1]
+      const dateKey = parts[2]
+      if (!league || !dateKey) {
+        easyMerged[key] = localData[key] ?? remoteData[key]
+        continue
+      }
+      const historyKey = `playerdle-payroll-history:v1:${league}`
+      mergeStateKey(
+        key,
+        `Cap Crunch ${league.toUpperCase()} puzzle (${dateKey})`,
+        localData[key],
+        remoteData[key],
+        completedDatesSet(localData[historyKey]).has(dateKey),
+        completedDatesSet(remoteData[historyKey]).has(dateKey),
+        easyMerged,
+        conflicts,
+        conflictLocal,
+        conflictRemote,
+      )
     } else if (
       key.startsWith("playerdle-colors-state:") ||
       key.startsWith("playerdle-colors-collegiate-state:")
@@ -387,7 +414,8 @@ export function analyzeMerge(
       key.startsWith("playerdle-stats:") ||
       key.startsWith("playerdle-journey-history:") ||
       key.startsWith("playerdle-colors-history:") ||
-      key.startsWith("playerdle-colors-collegiate-history:")
+      key.startsWith("playerdle-colors-collegiate-history:") ||
+      key.startsWith("playerdle-payroll-history:")
     )
       continue
 
@@ -403,6 +431,7 @@ export function analyzeMerge(
           : (localData[key] ?? remoteData[key] ?? "false")
     } else if (
       key.startsWith("playerdle-journey-played-day:") ||
+      key.startsWith("playerdle-payroll-played-day:") ||
       key === "playerdle-colors-played-day" ||
       key === "playerdle-colors-collegiate-played-day"
     ) {
