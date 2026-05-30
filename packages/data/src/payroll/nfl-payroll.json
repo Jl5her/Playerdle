@@ -9,24 +9,29 @@
       "offense": {
         "QB": {
           "name": "Kyler Murray",
-          "salary": 46100000
+          "salary": 46100000,
+          "number": 1
         },
         "RB": {
           "name": "James Conner",
-          "salary": 7000000
+          "salary": 7000000,
+          "number": 6
         },
         "TE": {
           "name": "Trey McBride",
-          "salary": 14900000
+          "salary": 14900000,
+          "number": 85
         },
         "WR": [
           {
             "name": "Marvin Harrison Jr.",
-            "salary": 7600000
+            "salary": 7600000,
+            "number": 18
           },
           {
             "name": "Michael Wilson",
-            "salary": 3000000
+            "salary": 3000000,
+            "number": 14
           },
           {
             "name": "Rondale Moore",
@@ -64,7 +69,8 @@
       "offense": {
         "QB": {
           "name": "Kirk Cousins",
-          "salary": 45000000
+          "salary": 45000000,
+          "number": 18
         },
         "RB": {
           "name": "Cordarrelle Patterson",
@@ -72,16 +78,19 @@
         },
         "TE": {
           "name": "Kyle Pitts",
-          "salary": 8227624
+          "salary": 8227624,
+          "number": 8
         },
         "WR": [
           {
             "name": "Drake London",
-            "salary": 23500000
+            "salary": 23500000,
+            "number": 5
           },
           {
             "name": "Darnell Mooney",
-            "salary": 6000000
+            "salary": 6000000,
+            "number": 1
           },
           {
             "name": "Ray-Ray McCloud III",
@@ -91,11 +100,13 @@
         "OL": [
           {
             "name": "Jake Matthews",
-            "salary": 18500000
+            "salary": 18500000,
+            "number": 70
           },
           {
             "name": "Chris Lindstrom",
-            "salary": 23000000
+            "salary": 23000000,
+            "number": 63
           },
           {
             "name": "Matt Hennessy",
@@ -103,11 +114,13 @@
           },
           {
             "name": "Matthew Bergeron",
-            "salary": 1400000
+            "salary": 1400000,
+            "number": 65
           },
           {
             "name": "Kaleb McGary",
-            "salary": 2566436
+            "salary": 2566436,
+            "number": 76
           }
         ]
       }
@@ -119,24 +132,29 @@
       "offense": {
         "QB": {
           "name": "Lamar Jackson",
-          "salary": 52000000
+          "salary": 52000000,
+          "number": 8
         },
         "RB": {
           "name": "Derrick Henry",
-          "salary": 8000000
+          "salary": 8000000,
+          "number": 22
         },
         "TE": {
           "name": "Mark Andrews",
-          "salary": 14000000
+          "salary": 14000000,
+          "number": 89
         },
         "WR": [
           {
             "name": "Zay Flowers",
-            "salary": 8000000
+            "salary": 8000000,
+            "number": 4
           },
           {
             "name": "Rashod Bateman",
-            "salary": 3200000
+            "salary": 3200000,
+            "number": 7
           },
           {
             "name": "Nelson Agholor",
@@ -146,7 +164,8 @@
         "OL": [
           {
             "name": "Ronnie Stanley",
-            "salary": 19750000
+            "salary": 19750000,
+            "number": 79
           },
           {
             "name": "Ben Cleveland",
@@ -154,7 +173,8 @@
           },
           {
             "name": "Tyler Linderbaum",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 64
           },
           {
             "name": "Kevin Zeitler",
@@ -174,11 +194,13 @@
       "offense": {
         "QB": {
           "name": "Josh Allen",
-          "salary": 43000000
+          "salary": 43000000,
+          "number": 17
         },
         "RB": {
           "name": "James Cook",
-          "salary": 1458016
+          "salary": 1458016,
+          "number": 4
         },
         "TE": {
           "name": "O.J. Howard",
@@ -187,21 +209,25 @@
         "WR": [
           {
             "name": "Khalil Shakir",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 10
           },
           {
             "name": "Curtis Samuel",
-            "salary": 5000000
+            "salary": 5000000,
+            "number": 1
           },
           {
             "name": "Keon Coleman",
-            "salary": 1900000
+            "salary": 1900000,
+            "number": 0
           }
         ],
         "OL": [
           {
             "name": "Dion Dawkins",
-            "salary": 14575000
+            "salary": 14575000,
+            "number": 73
           },
           {
             "name": "Ryan Bates",
@@ -256,7 +282,8 @@
         "OL": [
           {
             "name": "Ikem Ekwonu",
-            "salary": 6892013
+            "salary": 6892013,
+            "number": 79
           },
           {
             "name": "Pat Elflein",
@@ -268,11 +295,13 @@
           },
           {
             "name": "Austin Corbett",
-            "salary": 8750000
+            "salary": 8750000,
+            "number": 63
           },
           {
             "name": "Taylor Moton",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 72
           }
         ]
       }
@@ -284,7 +313,8 @@
       "offense": {
         "QB": {
           "name": "Caleb Williams",
-          "salary": 11400000
+          "salary": 11400000,
+          "number": 18
         },
         "RB": {
           "name": "Darrynton Evans",
@@ -297,11 +327,13 @@
         "WR": [
           {
             "name": "D.J. Moore",
-            "salary": 18000000
+            "salary": 18000000,
+            "number": 2
           },
           {
             "name": "Rome Odunze",
-            "salary": 4200000
+            "salary": 4200000,
+            "number": 15
           },
           {
             "name": "Velus Jones Jr.",
@@ -339,7 +371,8 @@
       "offense": {
         "QB": {
           "name": "Joe Burrow",
-          "salary": 55000000
+          "salary": 55000000,
+          "number": 9
         },
         "RB": {
           "name": "Joe Mixon",
@@ -352,15 +385,18 @@
         "WR": [
           {
             "name": "Ja'Marr Chase",
-            "salary": 35000000
+            "salary": 35000000,
+            "number": 1
           },
           {
             "name": "Tee Higgins",
-            "salary": 21600000
+            "salary": 21600000,
+            "number": 5
           },
           {
             "name": "Andrei Iosivas",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 80
           }
         ],
         "OL": [
@@ -394,7 +430,8 @@
       "offense": {
         "QB": {
           "name": "Deshaun Watson",
-          "salary": 46000000
+          "salary": 46000000,
+          "number": 4
         },
         "RB": {
           "name": "Nick Chubb",
@@ -402,12 +439,14 @@
         },
         "TE": {
           "name": "David Njoku",
-          "salary": 10931000
+          "salary": 10931000,
+          "number": 85
         },
         "WR": [
           {
             "name": "Jerry Jeudy",
-            "salary": 12000000
+            "salary": 12000000,
+            "number": 3
           },
           {
             "name": "Elijah Moore",
@@ -415,7 +454,8 @@
           },
           {
             "name": "Cedric Tillman",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 19
           }
         ],
         "OL": [
@@ -425,7 +465,8 @@
           },
           {
             "name": "Joel Bitonio",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 75
           },
           {
             "name": "Dawson Deaton",
@@ -433,11 +474,13 @@
           },
           {
             "name": "Wyatt Teller",
-            "salary": 14200000
+            "salary": 14200000,
+            "number": 77
           },
           {
             "name": "Jack Conklin",
-            "salary": 8000000
+            "salary": 8000000,
+            "number": 78
           }
         ]
       }
@@ -449,7 +492,8 @@
       "offense": {
         "QB": {
           "name": "Dak Prescott",
-          "salary": 60000000
+          "salary": 60000000,
+          "number": 4
         },
         "RB": {
           "name": "Ezekiel Elliott",
@@ -462,7 +506,8 @@
         "WR": [
           {
             "name": "CeeDee Lamb",
-            "salary": 34000000
+            "salary": 34000000,
+            "number": 88
           },
           {
             "name": "Brandin Cooks",
@@ -470,17 +515,20 @@
           },
           {
             "name": "Jalen Tolbert",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 1
           }
         ],
         "OL": [
           {
             "name": "Tyron Smith",
-            "salary": 12200000
+            "salary": 12200000,
+            "number": 77
           },
           {
             "name": "Tyler Smith",
-            "salary": 4000000
+            "salary": 4000000,
+            "number": 73
           },
           {
             "name": "Tyler Biadasz",
@@ -504,7 +552,8 @@
       "offense": {
         "QB": {
           "name": "Bo Nix",
-          "salary": 8200000
+          "salary": 8200000,
+          "number": 10
         },
         "RB": {
           "name": "Melvin Gordon",
@@ -517,21 +566,25 @@
         "WR": [
           {
             "name": "Courtland Sutton",
-            "salary": 13000000
+            "salary": 13000000,
+            "number": 14
           },
           {
             "name": "Marvin Mims Jr.",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 19
           },
           {
             "name": "Troy Franklin",
-            "salary": 1200000
+            "salary": 1200000,
+            "number": 11
           }
         ],
         "OL": [
           {
             "name": "Garett Bolles",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 72
           },
           {
             "name": "Dalton Risner",
@@ -559,7 +612,8 @@
       "offense": {
         "QB": {
           "name": "Jared Goff",
-          "salary": 53000000
+          "salary": 53000000,
+          "number": 16
         },
         "RB": {
           "name": "Jamaal Williams",
@@ -572,11 +626,13 @@
         "WR": [
           {
             "name": "Amon-Ra St. Brown",
-            "salary": 28000000
+            "salary": 28000000,
+            "number": 14
           },
           {
             "name": "Jameson Williams",
-            "salary": 4400000
+            "salary": 4400000,
+            "number": 1
           },
           {
             "name": "Josh Reynolds",
@@ -586,7 +642,8 @@
         "OL": [
           {
             "name": "Taylor Decker",
-            "salary": 14912500
+            "salary": 14912500,
+            "number": 68
           },
           {
             "name": "Jonah Jackson",
@@ -594,7 +651,8 @@
           },
           {
             "name": "Frank Ragnow",
-            "salary": 14000000
+            "salary": 14000000,
+            "number": 77
           },
           {
             "name": "Halapoulivaati Vaitai",
@@ -602,7 +660,8 @@
           },
           {
             "name": "Penei Sewell",
-            "salary": 22000000
+            "salary": 22000000,
+            "number": 58
           }
         ]
       }
@@ -614,11 +673,13 @@
       "offense": {
         "QB": {
           "name": "Jordan Love",
-          "salary": 55000000
+          "salary": 55000000,
+          "number": 10
         },
         "RB": {
           "name": "Josh Jacobs",
-          "salary": 12000000
+          "salary": 12000000,
+          "number": 8
         },
         "TE": {
           "name": "Marcedes Lewis",
@@ -627,15 +688,18 @@
         "WR": [
           {
             "name": "Christian Watson",
-            "salary": 4000000
+            "salary": 4000000,
+            "number": 9
           },
           {
             "name": "Romeo Doubs",
-            "salary": 2500000
+            "salary": 2500000,
+            "number": 87
           },
           {
             "name": "Jayden Reed",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 11
           }
         ],
         "OL": [
@@ -645,7 +709,8 @@
           },
           {
             "name": "Elgton Jenkins",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 74
           },
           {
             "name": "Josh Myers",
@@ -653,7 +718,8 @@
           },
           {
             "name": "Zach Tom",
-            "salary": 1041084
+            "salary": 1041084,
+            "number": 50
           },
           {
             "name": "Caleb Jones",
@@ -669,7 +735,8 @@
       "offense": {
         "QB": {
           "name": "C.J. Stroud",
-          "salary": 9600000
+          "salary": 9600000,
+          "number": 7
         },
         "RB": {
           "name": "Rex Burkhead",
@@ -682,7 +749,8 @@
         "WR": [
           {
             "name": "Nico Collins",
-            "salary": 28000000
+            "salary": 28000000,
+            "number": 12
           },
           {
             "name": "Stefon Diggs",
@@ -690,7 +758,8 @@
           },
           {
             "name": "Tank Dell",
-            "salary": 1200000
+            "salary": 1200000,
+            "number": 3
           }
         ],
         "OL": [
@@ -724,38 +793,46 @@
       "offense": {
         "QB": {
           "name": "Anthony Richardson",
-          "salary": 12200000
+          "salary": 12200000,
+          "number": 5
         },
         "RB": {
           "name": "Jonathan Taylor",
-          "salary": 21000000
+          "salary": 21000000,
+          "number": 28
         },
         "TE": {
           "name": "Mo Alie-Cox",
-          "salary": 5850000
+          "salary": 5850000,
+          "number": 81
         },
         "WR": [
           {
             "name": "Michael Pittman Jr.",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 11
           },
           {
             "name": "Josh Downs",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 2
           },
           {
             "name": "Alec Pierce",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 14
           }
         ],
         "OL": [
           {
             "name": "Bernhard Raimann",
-            "salary": 1325490
+            "salary": 1325490,
+            "number": 79
           },
           {
             "name": "Quenton Nelson",
-            "salary": 22000000
+            "salary": 22000000,
+            "number": 56
           },
           {
             "name": "Ryan Kelly",
@@ -767,7 +844,8 @@
           },
           {
             "name": "Braden Smith",
-            "salary": 17500000
+            "salary": 17500000,
+            "number": 72
           }
         ]
       }
@@ -779,11 +857,13 @@
       "offense": {
         "QB": {
           "name": "Trevor Lawrence",
-          "salary": 55000000
+          "salary": 55000000,
+          "number": 16
         },
         "RB": {
           "name": "Travis Etienne Jr.",
-          "salary": 17000000
+          "salary": 17000000,
+          "number": 1
         },
         "TE": {
           "name": "Evan Engram",
@@ -800,7 +880,8 @@
           },
           {
             "name": "Parker Washington",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 11
           }
         ],
         "OL": [
@@ -834,20 +915,24 @@
       "offense": {
         "QB": {
           "name": "Patrick Mahomes",
-          "salary": 45000000
+          "salary": 45000000,
+          "number": 15
         },
         "RB": {
           "name": "Clyde Edwards-Helaire",
-          "salary": 2705394
+          "salary": 2705394,
+          "number": 26
         },
         "TE": {
           "name": "Travis Kelce",
-          "salary": 14312500
+          "salary": 14312500,
+          "number": 87
         },
         "WR": [
           {
             "name": "Rashee Rice",
-            "salary": 3000000
+            "salary": 3000000,
+            "number": 4
           },
           {
             "name": "Mecole Hardman Jr.",
@@ -855,7 +940,8 @@
           },
           {
             "name": "Xavier Worthy",
-            "salary": 1500000
+            "salary": 1500000,
+            "number": 1
           }
         ],
         "OL": [
@@ -869,15 +955,18 @@
           },
           {
             "name": "Creed Humphrey",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 52
           },
           {
             "name": "Trey Smith",
-            "salary": 20000000
+            "salary": 20000000,
+            "number": 65
           },
           {
             "name": "Jawaan Taylor",
-            "salary": 15000000
+            "salary": 15000000,
+            "number": 74
           }
         ]
       }
@@ -889,7 +978,8 @@
       "offense": {
         "QB": {
           "name": "Justin Herbert",
-          "salary": 52500000
+          "salary": 52500000,
+          "number": 10
         },
         "RB": {
           "name": "Austin Ekeler",
@@ -902,7 +992,8 @@
         "WR": [
           {
             "name": "Quentin Johnston",
-            "salary": 2200000
+            "salary": 2200000,
+            "number": 1
           },
           {
             "name": "Joshua Palmer",
@@ -910,13 +1001,15 @@
           },
           {
             "name": "Ladd McConkey",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 15
           }
         ],
         "OL": [
           {
             "name": "Rashawn Slater",
-            "salary": 24000000
+            "salary": 24000000,
+            "number": 70
           },
           {
             "name": "Matt Feiler",
@@ -928,7 +1021,8 @@
           },
           {
             "name": "Zion Johnson",
-            "salary": 4168275
+            "salary": 4168275,
+            "number": 77
           },
           {
             "name": "Storm Norton",
@@ -944,7 +1038,8 @@
       "offense": {
         "QB": {
           "name": "Matthew Stafford",
-          "salary": 40000000
+          "salary": 40000000,
+          "number": 9
         },
         "RB": {
           "name": "Cam Akers",
@@ -952,7 +1047,8 @@
         },
         "TE": {
           "name": "Tyler Higbee",
-          "salary": 7250000
+          "salary": 7250000,
+          "number": 89
         },
         "WR": [
           {
@@ -961,11 +1057,13 @@
           },
           {
             "name": "Puka Nacua",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 12
           },
           {
             "name": "Tutu Atwell",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 5
           }
         ],
         "OL": [
@@ -987,7 +1085,8 @@
           },
           {
             "name": "Rob Havenstein",
-            "salary": 8125000
+            "salary": 8125000,
+            "number": 79
           }
         ]
       }
@@ -1016,17 +1115,20 @@
           },
           {
             "name": "Tre Tucker",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 1
           },
           {
             "name": "DJ Turner II",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 19
           }
         ],
         "OL": [
           {
             "name": "Kolton Miller",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 74
           },
           {
             "name": "Alex Bars",
@@ -1054,7 +1156,8 @@
       "offense": {
         "QB": {
           "name": "Tua Tagovailoa",
-          "salary": 53100000
+          "salary": 53100000,
+          "number": 1
         },
         "RB": {
           "name": "Chase Edmonds",
@@ -1067,11 +1170,13 @@
         "WR": [
           {
             "name": "Tyreek Hill",
-            "salary": 30000000
+            "salary": 30000000,
+            "number": 10
           },
           {
             "name": "Jaylen Waddle",
-            "salary": 23000000
+            "salary": 23000000,
+            "number": 17
           },
           {
             "name": "Braxton Berrios",
@@ -1081,11 +1186,13 @@
         "OL": [
           {
             "name": "Terron Armstead",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 72
           },
           {
             "name": "Austin Jackson",
-            "salary": 3410088
+            "salary": 3410088,
+            "number": 73
           },
           {
             "name": "Michael Deiter",
@@ -1097,7 +1204,8 @@
           },
           {
             "name": "Kion Smith",
-            "salary": 787500
+            "salary": 787500,
+            "number": 71
           }
         ]
       }
@@ -1122,11 +1230,13 @@
         "WR": [
           {
             "name": "Justin Jefferson",
-            "salary": 35000000
+            "salary": 35000000,
+            "number": 18
           },
           {
             "name": "Jordan Addison",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 3
           },
           {
             "name": "K.J. Osborn",
@@ -1136,7 +1246,8 @@
         "OL": [
           {
             "name": "Christian Darrisaw",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 71
           },
           {
             "name": "Chris Reed",
@@ -1152,7 +1263,8 @@
           },
           {
             "name": "Brian O'Neill",
-            "salary": 14000000
+            "salary": 14000000,
+            "number": 75
           }
         ]
       }
@@ -1164,7 +1276,8 @@
       "offense": {
         "QB": {
           "name": "Drake Maye",
-          "salary": 8200000
+          "salary": 8200000,
+          "number": 10
         },
         "RB": {
           "name": "James White",
@@ -1172,7 +1285,8 @@
         },
         "TE": {
           "name": "Hunter Henry",
-          "salary": 12500000
+          "salary": 12500000,
+          "number": 85
         },
         "WR": [
           {
@@ -1185,7 +1299,8 @@
           },
           {
             "name": "DeMario Douglas",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 3
           }
         ],
         "OL": [
@@ -1219,20 +1334,24 @@
       "offense": {
         "QB": {
           "name": "Derek Carr",
-          "salary": 37500000
+          "salary": 37500000,
+          "number": 4
         },
         "RB": {
           "name": "Alvin Kamara",
-          "salary": 15000000
+          "salary": 15000000,
+          "number": 41
         },
         "TE": {
           "name": "Taysom Hill",
-          "salary": 10000000
+          "salary": 10000000,
+          "number": 7
         },
         "WR": [
           {
             "name": "Chris Olave",
-            "salary": 18000000
+            "salary": 18000000,
+            "number": 12
           },
           {
             "name": "Rashid Shaheed",
@@ -1254,7 +1373,8 @@
           },
           {
             "name": "Cesar Ruiz",
-            "salary": 3169800
+            "salary": 3169800,
+            "number": 51
           },
           {
             "name": "Calvin Throckmorton",
@@ -1262,7 +1382,8 @@
           },
           {
             "name": "Ryan Ramczyk",
-            "salary": 19200000
+            "salary": 19200000,
+            "number": 71
           }
         ]
       }
@@ -1274,7 +1395,8 @@
       "offense": {
         "QB": {
           "name": "Russell Wilson",
-          "salary": 21000000
+          "salary": 21000000,
+          "number": 3
         },
         "RB": {
           "name": "Saquon Barkley",
@@ -1287,21 +1409,25 @@
         "WR": [
           {
             "name": "Malik Nabers",
-            "salary": 4200000
+            "salary": 4200000,
+            "number": 1
           },
           {
             "name": "Wan'Dale Robinson",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 17
           },
           {
             "name": "Darius Slayton",
-            "salary": 3000000
+            "salary": 3000000,
+            "number": 18
           }
         ],
         "OL": [
           {
             "name": "Andrew Thomas",
-            "salary": 22000000
+            "salary": 22000000,
+            "number": 78
           },
           {
             "name": "Jon Feliciano",
@@ -1317,7 +1443,8 @@
           },
           {
             "name": "Evan Neal",
-            "salary": 6137814
+            "salary": 6137814,
+            "number": 73
           }
         ]
       }
@@ -1333,7 +1460,8 @@
         },
         "RB": {
           "name": "Breece Hall",
-          "salary": 2481324
+          "salary": 2481324,
+          "number": 20
         },
         "TE": {
           "name": "C.J. Uzomah",
@@ -1346,11 +1474,13 @@
           },
           {
             "name": "Garrett Wilson",
-            "salary": 24000000
+            "salary": 24000000,
+            "number": 5
           },
           {
             "name": "Allen Lazard",
-            "salary": 5000000
+            "salary": 5000000,
+            "number": 10
           }
         ],
         "OL": [
@@ -1384,38 +1514,46 @@
       "offense": {
         "QB": {
           "name": "Jalen Hurts",
-          "salary": 51000000
+          "salary": 51000000,
+          "number": 1
         },
         "RB": {
           "name": "Saquon Barkley",
-          "salary": 12600000
+          "salary": 12600000,
+          "number": 26
         },
         "TE": {
           "name": "Dallas Goedert",
-          "salary": 14250000
+          "salary": 14250000,
+          "number": 88
         },
         "WR": [
           {
             "name": "A.J. Brown",
-            "salary": 32000000
+            "salary": 32000000,
+            "number": 11
           },
           {
             "name": "DeVonta Smith",
-            "salary": 25000000
+            "salary": 25000000,
+            "number": 6
           },
           {
             "name": "Jahan Dotson",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 2
           }
         ],
         "OL": [
           {
             "name": "Jordan Mailata",
-            "salary": 18000000
+            "salary": 18000000,
+            "number": 68
           },
           {
             "name": "Landon Dickerson",
-            "salary": 13000000
+            "salary": 13000000,
+            "number": 69
           },
           {
             "name": "Jason Kelce",
@@ -1427,7 +1565,8 @@
           },
           {
             "name": "Lane Johnson",
-            "salary": 18000000
+            "salary": 18000000,
+            "number": 65
           }
         ]
       }
@@ -1447,7 +1586,8 @@
         },
         "TE": {
           "name": "Pat Freiermuth",
-          "salary": 1507045
+          "salary": 1507045,
+          "number": 88
         },
         "WR": [
           {
@@ -1460,7 +1600,8 @@
           },
           {
             "name": "Calvin Austin III",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 19
           }
         ],
         "OL": [
@@ -1470,7 +1611,8 @@
           },
           {
             "name": "Isaac Seumalo",
-            "salary": 14000000
+            "salary": 14000000,
+            "number": 73
           },
           {
             "name": "Mason Cole",
@@ -1515,13 +1657,15 @@
           },
           {
             "name": "Jaxon Smith-Njigba",
-            "salary": 2000000
+            "salary": 2000000,
+            "number": 11
           }
         ],
         "OL": [
           {
             "name": "Charles Cross",
-            "salary": 5345933
+            "salary": 5345933,
+            "number": 67
           },
           {
             "name": "Phil Haynes",
@@ -1537,7 +1681,8 @@
           },
           {
             "name": "Abraham Lucas",
-            "salary": 1415011
+            "salary": 1415011,
+            "number": 72
           }
         ]
       }
@@ -1549,20 +1694,24 @@
       "offense": {
         "QB": {
           "name": "Brock Purdy",
-          "salary": 60000000
+          "salary": 60000000,
+          "number": 13
         },
         "RB": {
           "name": "Christian McCaffrey",
-          "salary": 19000000
+          "salary": 19000000,
+          "number": 23
         },
         "TE": {
           "name": "George Kittle",
-          "salary": 15000000
+          "salary": 15000000,
+          "number": 85
         },
         "WR": [
           {
             "name": "Brandon Aiyuk",
-            "salary": 30000000
+            "salary": 30000000,
+            "number": 11
           },
           {
             "name": "Deebo Samuel",
@@ -1570,13 +1719,15 @@
           },
           {
             "name": "Jauan Jennings",
-            "salary": 4000000
+            "salary": 4000000,
+            "number": 15
           }
         ],
         "OL": [
           {
             "name": "Trent Williams",
-            "salary": 25000000
+            "salary": 25000000,
+            "number": 71
           },
           {
             "name": "Aaron Banks",
@@ -1604,7 +1755,8 @@
       "offense": {
         "QB": {
           "name": "Baker Mayfield",
-          "salary": 40000000
+          "salary": 40000000,
+          "number": 6
         },
         "RB": {
           "name": "Leonard Fournette",
@@ -1617,11 +1769,13 @@
         "WR": [
           {
             "name": "Mike Evans",
-            "salary": 27000000
+            "salary": 27000000,
+            "number": 13
           },
           {
             "name": "Chris Godwin",
-            "salary": 18000000
+            "salary": 18000000,
+            "number": 14
           },
           {
             "name": "Trey Palmer",
@@ -1647,7 +1801,8 @@
           },
           {
             "name": "Tristan Wirfs",
-            "salary": 30000000
+            "salary": 30000000,
+            "number": 78
           }
         ]
       }
@@ -1659,7 +1814,8 @@
       "offense": {
         "QB": {
           "name": "Will Levis",
-          "salary": 6000000
+          "salary": 6000000,
+          "number": 8
         },
         "RB": {
           "name": "Derrick Henry",
@@ -1672,7 +1828,8 @@
         "WR": [
           {
             "name": "Calvin Ridley",
-            "salary": 16000000
+            "salary": 16000000,
+            "number": 0
           },
           {
             "name": "DeAndre Hopkins",
@@ -1714,7 +1871,8 @@
       "offense": {
         "QB": {
           "name": "Jayden Daniels",
-          "salary": 10200000
+          "salary": 10200000,
+          "number": 5
         },
         "RB": {
           "name": "Brian Robinson Jr.",
@@ -1727,7 +1885,8 @@
         "WR": [
           {
             "name": "Terry McLaurin",
-            "salary": 17000000
+            "salary": 17000000,
+            "number": 17
           },
           {
             "name": "Dyami Brown",
@@ -1735,7 +1894,8 @@
           },
           {
             "name": "Luke McCaffrey",
-            "salary": 1000000
+            "salary": 1000000,
+            "number": 11
           }
         ],
         "OL": [

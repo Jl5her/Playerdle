@@ -5,6 +5,7 @@ import { getDateKey, getTodayKey } from "@/shared/utils/time"
 export interface PayrollPlayer {
   name: string
   salary: number
+  number?: number
 }
 
 export interface PayrollOffense {

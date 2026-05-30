@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 import {
   calculatePayrollStats,
   compareTeamToAnswer,
@@ -59,39 +60,65 @@ function PlayerSlot({
   player: PayrollPlayer
   revealed: boolean
 }) {
-  const [hovered, setHovered] = useState(false)
-  const [tapped, setTapped] = useState(false)
-  const showTooltip = !revealed && (hovered || tapped)
+  const ref = useRef<HTMLDivElement>(null)
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
+
+  function computePos() {
+    const rect = ref.current?.getBoundingClientRect()
+    return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
+  }
+
+  useEffect(() => {
+    if (!tooltipPos) return
+    const dismiss = () => setTooltipPos(null)
+    window.addEventListener("scroll", dismiss, { capture: true, passive: true })
+    return () => window.removeEventListener("scroll", dismiss, { capture: true })
+  }, [tooltipPos])
+
+  const tooltipLabel = player.number != null
+    ? `${player.name} #${player.number}`
+    : player.name
 
   return (
-    <div
-      className="relative flex flex-col items-center gap-0.5 min-w-[3.5rem]"
-      onMouseEnter={() => { if (!revealed) setHovered(true) }}
-      onMouseLeave={() => setHovered(false)}
-      onClick={() => { if (!revealed) setTapped(t => !t) }}
-    >
-      <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
-        {position}
-      </div>
+    <>
       <div
-        className={clsx(
-          "w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5",
-          !revealed && "cursor-pointer",
-        )}
+        ref={ref}
+        className="flex flex-col items-center gap-0.5 min-w-[3.5rem] select-none"
+        onPointerEnter={e => { if (e.pointerType === "mouse") setTooltipPos(computePos()) }}
+        onPointerLeave={e => { if (e.pointerType === "mouse") setTooltipPos(null) }}
+        onPointerDown={e => {
+          if (e.pointerType !== "mouse") setTooltipPos(prev => (prev ? null : computePos()))
+        }}
       >
-        <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
-          {revealed ? player.name : "?"}
-        </span>
-        <span className="text-[11px] font-black text-primary-800 dark:text-primary-100 tabular-nums">
-          {formatSalary(player.salary)}
-        </span>
-      </div>
-      {showTooltip && (
-        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 z-50 pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg">
-          {player.name}
+        <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
+          {position}
         </div>
-      )}
-    </div>
+        <div className="w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5 cursor-pointer">
+          <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
+            {revealed ? player.name : "?"}
+          </span>
+          <span className="text-[11px] font-black text-primary-800 dark:text-primary-100 tabular-nums">
+            {formatSalary(player.salary)}
+          </span>
+        </div>
+      </div>
+      {tooltipPos &&
+        createPortal(
+          <div
+            className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
+            style={{
+              position: "fixed",
+              left: tooltipPos.x,
+              top: tooltipPos.y - 8,
+              transform: "translate(-50%, -100%)",
+              zIndex: 9999,
+            }}
+          >
+            {tooltipLabel}
+          </div>,
+          document.body,
+        )}
+    </>
   )
 }
 

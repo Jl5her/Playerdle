@@ -373,11 +373,71 @@ async function fetchAndParseCsv(): Promise<ContractRow[]> {
   return rows
 }
 
+// ---- Roster / jersey numbers -----------------------------------------------
+
+function normalizeName(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[,\s]+(jr\.?|sr\.?|ii|iii|iv)$/i, "")
+    .replace(/\./g, "")
+    .replace(/'/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+async function fetchJerseyNumbers(): Promise<Map<string, Map<string, number>>> {
+  const url =
+    "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_2025.csv"
+  process.stdout.write("  Downloading nflverse roster (jersey numbers)... ")
+
+  const res = await fetch(url, {
+    headers: { "User-Agent": "Playerdle-data-builder/1.0" },
+    redirect: "follow",
+    signal: AbortSignal.timeout(60_000),
+  })
+  if (!res.ok) throw new Error(`HTTP ${res.status}`)
+
+  const text = await res.text()
+  const lines = text.split("\n")
+  const header = (lines[0] ?? "").split(",")
+  const iTeam = header.indexOf("team")
+  const iJersey = header.indexOf("jersey_number")
+  const iName = header.indexOf("full_name")
+
+  if (iTeam < 0 || iJersey < 0 || iName < 0) {
+    throw new Error(`Roster CSV missing expected columns. Got: ${header.slice(0, 10).join(",")}`)
+  }
+
+  const byTeam = new Map<string, Map<string, number>>()
+  let count = 0
+  for (let i = 1; i < lines.length; i++) {
+    const cells = (lines[i] ?? "").split(",")
+    const teamRaw = cells[iTeam]?.trim() ?? ""
+    const jerseyRaw = cells[iJersey]?.trim() ?? ""
+    const nameRaw = cells[iName]?.trim() ?? ""
+    if (!teamRaw || !jerseyRaw || !nameRaw) continue
+    const teamId = TEAM_NAME_TO_ID[teamRaw] ?? null
+    if (!teamId) continue
+    const jersey = parseInt(jerseyRaw, 10)
+    if (!Number.isFinite(jersey)) continue
+    const key = normalizeName(nameRaw)
+    if (!byTeam.has(teamId)) byTeam.set(teamId, new Map())
+    const teamMap = byTeam.get(teamId)!
+    if (!teamMap.has(key)) {
+      teamMap.set(key, jersey)
+      count++
+    }
+  }
+  console.log(`${count} roster entries with jersey numbers`)
+  return byTeam
+}
+
 // ---- Build team offenses ---------------------------------------------------
 
 interface OffensePlayer {
   name: string
   salary: number
+  number?: number
 }
 
 interface TeamOffense {
@@ -388,27 +448,18 @@ interface TeamOffense {
   OL: [OffensePlayer, OffensePlayer, OffensePlayer, OffensePlayer, OffensePlayer]
 }
 
-function best(rows: ContractRow[], teamId: string, pos: string): ContractRow | null {
-  return (
-    rows
-      .filter(r => r.teamId === teamId && r.position === pos)
-      .sort((a, b) => b.apy - a.apy)[0] ?? null
-  )
-}
-
-function fromRow(row: ContractRow | null): OffensePlayer | null {
-  if (!row) return null
-  return { name: row.player, salary: row.apy }
-}
-
-function fromOverride(ov: Override | undefined | null): OffensePlayer | null {
-  if (!ov) return null
-  return { name: ov.name, salary: ov.apy }
-}
-
-function buildTeamOffense(teamId: string, rows: ContractRow[]): TeamOffense | null {
+function buildTeamOffense(
+  teamId: string,
+  rows: ContractRow[],
+  jerseyMap: Map<string, Map<string, number>>,
+): TeamOffense | null {
   const ov = POST_2022_OVERRIDES[teamId] ?? {}
   const usedNames = new Set<string>()
+  const teamJerseys = jerseyMap.get(teamId) ?? new Map<string, number>()
+
+  function lookupJersey(name: string): number | undefined {
+    return teamJerseys.get(normalizeName(name)) ?? undefined
+  }
 
   function resolve(
     ovEntry: Override | undefined | null,
@@ -417,7 +468,7 @@ function buildTeamOffense(teamId: string, rows: ContractRow[]): TeamOffense | nu
   ): OffensePlayer | null {
     if (ovEntry) {
       usedNames.add(ovEntry.name)
-      return { name: ovEntry.name, salary: ovEntry.apy }
+      return { name: ovEntry.name, salary: ovEntry.apy, number: lookupJersey(ovEntry.name) }
     }
     // Find the highest-APY player at this position not already used
     const candidate = rows
@@ -425,20 +476,20 @@ function buildTeamOffense(teamId: string, rows: ContractRow[]): TeamOffense | nu
       .sort((a, b) => b.apy - a.apy)[0]
     if (!candidate) return null
     usedNames.add(candidate.player)
-    return { name: candidate.player, salary: candidate.apy }
+    return { name: candidate.player, salary: candidate.apy, number: lookupJersey(candidate.player) }
   }
 
-  const qb  = resolve(ov.QB,  "QB",  usedNames)
-  const rb  = resolve(ov.RB,  "RB",  usedNames)
-  const te  = resolve(ov.TE,  "TE",  usedNames)
-  const wr1 = resolve(ov.WR,  "WR",  usedNames)
-  const wr2 = resolve(ov.WR2, "WR",  usedNames)
-  const wr3 = resolve(ov.WR3, "WR",  usedNames)
-  const lt  = resolve(ov.LT,  "LT",  usedNames)
-  const lg  = resolve(ov.LG,  "LG",  usedNames)
-  const c   = resolve(ov.C,   "C",   usedNames)
-  const rg  = resolve(ov.RG,  "RG",  usedNames)
-  const rt  = resolve(ov.RT,  "RT",  usedNames)
+  const qb  = resolve(ov.QB,  "QB", usedNames)
+  const rb  = resolve(ov.RB,  "RB", usedNames)
+  const te  = resolve(ov.TE,  "TE", usedNames)
+  const wr1 = resolve(ov.WR,  "WR", usedNames)
+  const wr2 = resolve(ov.WR2, "WR", usedNames)
+  const wr3 = resolve(ov.WR3, "WR", usedNames)
+  const lt  = resolve(ov.LT,  "LT", usedNames)
+  const lg  = resolve(ov.LG,  "LG", usedNames)
+  const c   = resolve(ov.C,   "C",  usedNames)
+  const rg  = resolve(ov.RG,  "RG", usedNames)
+  const rt  = resolve(ov.RT,  "RT", usedNames)
 
   if (!qb || !rb || !te || !wr1 || !wr2 || !wr3 || !lt || !lg || !c || !rg || !rt) {
     const slots = { qb, rb, te, wr1, wr2, wr3, lt, lg, c, rg, rt }
@@ -498,6 +549,14 @@ async function main() {
     console.warn("  Continuing with overrides + existing data only...")
   }
 
+  let jerseyMap = new Map<string, Map<string, number>>()
+  try {
+    jerseyMap = await fetchJerseyNumbers()
+  } catch (err) {
+    console.warn(`  ⚠ Could not fetch roster data: ${err}`)
+    console.warn("  Jersey numbers will be omitted.")
+  }
+
   const existing = loadExisting(outputPath)
   const existingById = new Map(existing?.teams.map(t => [t.id, t]) ?? [])
 
@@ -513,7 +572,7 @@ async function main() {
   let kept = 0
 
   for (const teamId of allTeamIds) {
-    const offense = buildTeamOffense(teamId, rows)
+    const offense = buildTeamOffense(teamId, rows, jerseyMap)
     const prev = existingById.get(teamId)
 
     if (!offense) {
