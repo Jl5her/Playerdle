@@ -143,33 +143,39 @@ function ComparisonTile({
     return () => clearTimeout(timer)
   }, [animate, delayIndex])
 
-  const bgClass = !revealed
-    ? "bg-primary-200 dark:bg-primary-700"
-    : result === "correct"
-      ? "bg-success-500 dark:bg-success-600"
-      : result === "close"
-        ? "bg-warning-500 dark:bg-warning-600"
-        : "bg-error-500 dark:bg-error-600"
+  let bgClass: string
+  let textClass: string
+  if (!revealed) {
+    bgClass = "bg-primary-200 dark:bg-primary-700"
+    textClass = "text-primary-200 dark:text-primary-700"
+  } else if (result === "correct") {
+    bgClass = "bg-success-500 dark:bg-success-600"
+    textClass = "text-primary-50"
+  } else if (result === "close") {
+    bgClass = "bg-warning-500 dark:bg-warning-600"
+    textClass = "text-primary-50"
+  } else {
+    bgClass = "bg-error-500 dark:bg-error-600"
+    textClass = "text-primary-50"
+  }
 
+  const symbol = comparisonSymbol(result)
   const delayClass = `tile-delay-${Math.min(delayIndex ?? 0, 9)}`
 
   return (
     <div
       className={clsx(
-        "grid-cell-size flex flex-col items-center justify-center gap-px font-bold rounded-md text-primary-50",
+        "group grid-cell-size relative flex items-center justify-center font-bold leading-tight p-1 rounded-md transition-colors duration-150 cursor-default",
         bgClass,
+        textClass,
         animate && "animate-cell-flip",
         animate && delayClass,
       )}
     >
-      {revealed && (
-        <>
-          <span className="grid-cell-text font-black leading-none">{formatSalary(salary)}</span>
-          <span className="grid-cell-top-text leading-none opacity-90">
-            {comparisonSymbol(result)}
-          </span>
-        </>
-      )}
+      <span className="relative z-10 grid-cell-text text-center wrap-break-words">
+        {revealed ? formatSalary(salary) : ""}
+        {revealed && <span className="ml-0.5 grid-cell-text">{symbol}</span>}
+      </span>
     </div>
   )
 }
@@ -629,9 +635,9 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
           </div>
 
           {/* Guess grid */}
-          <div className="flex flex-col items-center gap-1 pt-4 pb-1">
+          <div className="guess-grid-shell flex flex-col items-center px-2 pt-1 pb-1 mt-3">
             {/* Column headers — shown once */}
-            <div className="sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
+            <div className="guess-grid-header sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
               {COMPARISON_COLUMNS.map(({ label }) => (
                 <div
                   key={label}
@@ -642,7 +648,7 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
               ))}
             </div>
 
-            {/* Filled guess rows */}
+            {/* Filled and empty guess rows */}
             {Array.from({ length: PAYROLL_MAX_GUESSES }).map((_, i) =>
               i < guesses.length ? (
                 <div
@@ -670,19 +676,15 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
                 <div
                   key={`empty-${i}`}
                   ref={el => { rowRefs.current[i] = el }}
-                  className="flex gap-1 justify-center"
                 >
-                  {COMPARISON_COLUMNS.map(({ key }) => (
-                    <div
-                      key={key}
-                      className={clsx(
-                        "grid-cell-size rounded-md border",
-                        i === guesses.length && !gameOver
-                          ? "border-dashed border-2 border-primary-300 dark:border-primary-600"
-                          : "border-primary-200 bg-primary-50 dark:bg-primary-900 dark:border-primary-600",
-                      )}
-                    />
-                  ))}
+                  <div className="flex gap-1 justify-center">
+                    {COMPARISON_COLUMNS.map(({ key }) => (
+                      <div
+                        key={key}
+                        className="grid-cell-size rounded-md bg-primary-50 border border-primary-200 dark:bg-primary-900 dark:border-primary-600"
+                      />
+                    ))}
+                  </div>
                 </div>
               ),
             )}
