@@ -169,7 +169,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
   const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
 
   useEffect(() => {
-    document.title = "Cap Crunch NFL"
+    document.title = "Cap Crunch · NFL"
   }, [])
 
   useEffect(() => {
