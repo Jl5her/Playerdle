@@ -116,14 +116,12 @@ const COMPARISON_COLUMNS: Array<{ label: string; key: keyof PayrollComparison }>
   { label: "OL", key: "OL" },
 ]
 
-// Arrow points TOWARD the answer (Playerdle convention):
-// "high" = guessed > answer → answer is lower → ↓
-// "low"  = guessed < answer → answer is higher → ↑
+// Arrow points TOWARD the answer (Playerdle convention).
+// close-* uses same direction but renders in yellow instead of red.
 function comparisonSymbol(result: ComparisonResult): string {
   if (result === "correct") return "✓"
-  if (result === "close") return "≈"
-  if (result === "high") return "↓"
-  return "↑"
+  if (result === "close-high" || result === "high") return "↓"
+  return "↑" // close-low | low
 }
 
 function ComparisonTile({
@@ -154,7 +152,7 @@ function ComparisonTile({
   } else if (result === "correct") {
     bgClass = "bg-success-500 dark:bg-success-600"
     textClass = "text-primary-50"
-  } else if (result === "close") {
+  } else if (result === "close-high" || result === "close-low") {
     bgClass = "bg-warning-500 dark:bg-warning-600"
     textClass = "text-primary-50"
   } else {
@@ -378,7 +376,8 @@ function buildShareText(
       return keys
         .map(k => {
           const v = c[k]
-          if (v === "correct" || v === "close") return "🟩"
+          if (v === "correct") return "🟩"
+          if (v === "close-high" || v === "close-low") return "🟨"
           return "🟥"
         })
         .join("")

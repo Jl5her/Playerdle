@@ -213,7 +213,9 @@ export function calculatePayrollStats(league: PayrollLeague): PayrollStats {
 
 // ---- Comparison logic ----
 
-export type ComparisonResult = "correct" | "close" | "high" | "low"
+// "close-high" = within threshold, guessed > answer (answer is lower → ↓)
+// "close-low"  = within threshold, guessed < answer (answer is higher → ↑)
+export type ComparisonResult = "correct" | "close-high" | "close-low" | "high" | "low"
 
 const CLOSE_THRESHOLDS = {
   QB: 5_000_000,
@@ -242,7 +244,7 @@ export function compareTeamToAnswer(guessed: PayrollTeam, answer: PayrollTeam): 
     threshold: number,
   ): ComparisonResult {
     const diff = guessedVal - answerVal
-    if (Math.abs(diff) <= threshold) return "close"
+    if (Math.abs(diff) <= threshold) return diff >= 0 ? "close-high" : "close-low"
     return diff > 0 ? "high" : "low"
   }
 

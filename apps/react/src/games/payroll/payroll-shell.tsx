@@ -57,14 +57,14 @@ function HowToPlayPanel() {
         </div>
         <ul className="space-y-1">
           <li>
-            <strong>≈ Close</strong> — within the close threshold (QB ±$5M, RB/TE ±$2-2.5M, WR
-            ±$7M, OL ±$10M)
+            <strong>Green ✓</strong> — correct team
           </li>
           <li>
-            <strong>↑ Higher</strong> — the answer team pays more at that position
+            <strong>Yellow ↑↓</strong> — within close range (QB ±$5M, RB/TE ±$2-2.5M, WR ±$7M,
+            OL ±$10M); arrow still points toward the answer
           </li>
           <li>
-            <strong>↓ Lower</strong> — the answer team pays less at that position
+            <strong>Red ↑↓</strong> — far off; ↑ means answer pays more, ↓ means answer pays less
           </li>
         </ul>
       </div>
