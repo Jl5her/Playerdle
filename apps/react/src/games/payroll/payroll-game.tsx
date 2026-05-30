@@ -116,11 +116,14 @@ const COMPARISON_COLUMNS: Array<{ label: string; key: keyof PayrollComparison }>
   { label: "OL", key: "OL" },
 ]
 
+// Arrow points TOWARD the answer (Playerdle convention):
+// "high" = guessed > answer → answer is lower → ↓
+// "low"  = guessed < answer → answer is higher → ↑
 function comparisonSymbol(result: ComparisonResult): string {
   if (result === "correct") return "✓"
   if (result === "close") return "≈"
-  if (result === "high") return "↑"
-  return "↓"
+  if (result === "high") return "↓"
+  return "↑"
 }
 
 function ComparisonTile({

@@ -61,10 +61,10 @@ function HowToPlayPanel() {
             ±$7M, OL ±$10M)
           </li>
           <li>
-            <strong>↑ Higher</strong> — guessed team pays more at that position
+            <strong>↑ Higher</strong> — the answer team pays more at that position
           </li>
           <li>
-            <strong>↓ Lower</strong> — guessed team pays less at that position
+            <strong>↓ Lower</strong> — the answer team pays less at that position
           </li>
         </ul>
       </div>
