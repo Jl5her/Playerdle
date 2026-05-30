@@ -1,4 +1,4 @@
-import { faAngleLeft, faCalendarDays, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
@@ -217,17 +217,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
           </h1>
           <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-            {!panels.isAnyOpen && !isArchive && (
-              <button
-                onClick={() => panels.push("calendar")}
-                aria-label="Archive"
-                title="Archive"
-                className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
-              >
-                <FontAwesomeIcon icon={faCalendarDays} className="text-[1.1rem]" aria-hidden="true" />
-              </button>
-            )}
-            {!panels.isAnyOpen && (
+{!panels.isAnyOpen && (
               <button
                 onClick={() => panels.push("stats")}
                 aria-label="Show stats"
