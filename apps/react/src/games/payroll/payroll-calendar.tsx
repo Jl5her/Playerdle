@@ -9,7 +9,8 @@ import {
   type PayrollPuzzle,
   type PayrollResult,
 } from "@/games/payroll/utils/payroll-daily"
-import { ArchiveCalendar } from "@/shared/components"
+import { ArchiveCalendar, Panel } from "@/shared/components"
+import { usePanelContext } from "@/shared/hooks/use-panel-context"
 import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { getTodayKey } from "@/shared/utils/time"
@@ -84,9 +85,16 @@ function DayDetail({
 
 interface Props {
   league: PayrollLeague
+  /** Render as a panel driven by panel context instead of a standalone page. */
+  panel?: boolean
+  /** Panel ID in context; required when panel=true. */
+  id?: string
+  /** Bump to force a re-read of saved history after an archive play. */
+  historyVersion?: number
 }
 
-export default function PayrollCalendar({ league }: Props) {
+export default function PayrollCalendar({ league, panel = false, id, historyVersion = 0 }: Props) {
+  const ctx = usePanelContext()
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
   const todayKey = useMemo(() => formatDateKey(today), [today])
@@ -96,9 +104,9 @@ export default function PayrollCalendar({ league }: Props) {
     const map = new Map<string, PayrollResult>()
     for (const r of getPayrollHistory(league)) map.set(r.date, r)
     return map
-  }, [league])
+  }, [league, historyVersion])
 
-  const inProgressDates = useInProgressDates(`playerdle-payroll-state:${league}:`)
+  const inProgressDates = useInProgressDates(`playerdle-payroll-state:${league}:`, [historyVersion])
 
   const selectedPuzzle = useMemo(
     () => getPayrollPuzzleByDateKey(league, selected),
@@ -118,10 +126,11 @@ export default function PayrollCalendar({ league }: Props) {
     }
   }
 
-  return (
+  const calendar = (
     <ArchiveCalendar
       title="Cap Crunch Archive"
-      onBack={() => navigate("/payroll")}
+      onBack={panel ? undefined : () => navigate("/payroll")}
+      panel={panel}
       epoch={EPOCH}
       history={history}
       inProgress={inProgressDates}
@@ -137,4 +146,14 @@ export default function PayrollCalendar({ league }: Props) {
       />
     </ArchiveCalendar>
   )
+
+  if (panel && ctx && id) {
+    return (
+      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title="Cap Crunch Archive" layout="full">
+        {calendar}
+      </Panel>
+    )
+  }
+
+  return calendar
 }

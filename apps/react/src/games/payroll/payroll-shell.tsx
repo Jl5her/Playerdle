@@ -9,6 +9,7 @@ import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { formatLongDate } from "@/shared/utils/time"
+import PayrollCalendar from "./payroll-calendar"
 import PayrollGame, { type PayrollGameMode } from "./payroll-game"
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
   archiveDateKey?: string
 }
 
-type PayrollPanel = "how-to-play" | "stats"
+type PayrollPanel = "how-to-play" | "stats" | "calendar"
 
 function HowToPlayPanel() {
   return (
@@ -77,7 +78,17 @@ function HowToPlayPanel() {
   )
 }
 
-function StatsPanel({ stats, guesses, won }: { stats: PayrollStats | null; guesses: number; won: boolean }) {
+function StatsPanel({
+  stats,
+  guesses,
+  won,
+  onViewArchive,
+}: {
+  stats: PayrollStats | null
+  guesses: number
+  won: boolean
+  onViewArchive?: () => void
+}) {
   if (!stats) {
     return (
       <div className="flex-1 flex items-center justify-center text-primary-400 dark:text-primary-500 text-sm">
@@ -134,6 +145,17 @@ function StatsPanel({ stats, guesses, won }: { stats: PayrollStats | null; guess
           </div>
         )
       })}
+      {onViewArchive && (
+        <div className="mt-6 flex justify-center">
+          <button
+            type="button"
+            onClick={onViewArchive}
+            className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
+          >
+            View Archive
+          </button>
+        </div>
+      )}
     </div>
   )
 }
@@ -163,7 +185,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
 
   function goBack() {
     if (isArchive) {
-      navigate("/payroll/calendar")
+      navigate(-1)
     } else {
       navigate("/")
     }
@@ -197,7 +219,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {!panels.isAnyOpen && !isArchive && (
               <button
-                onClick={() => navigate("/payroll/calendar")}
+                onClick={() => panels.push("calendar")}
                 aria-label="Archive"
                 title="Archive"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
@@ -251,8 +273,15 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
             </Panel>
 
             <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
-              <StatsPanel stats={stats} guesses={gameResult?.guessCount ?? 0} won={gameResult?.won ?? false} />
+              <StatsPanel
+                stats={stats}
+                guesses={gameResult?.guessCount ?? 0}
+                won={gameResult?.won ?? false}
+                onViewArchive={isArchive ? undefined : () => panels.push("calendar")}
+              />
             </Panel>
+
+            <PayrollCalendar league={league} panel id="calendar" />
           </div>
         </div>
       </div>
