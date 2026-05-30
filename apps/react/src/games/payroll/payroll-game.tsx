@@ -59,12 +59,26 @@ function PlayerSlot({
   player: PayrollPlayer
   revealed: boolean
 }) {
+  const [hovered, setHovered] = useState(false)
+  const [tapped, setTapped] = useState(false)
+  const showTooltip = !revealed && (hovered || tapped)
+
   return (
-    <div className="flex flex-col items-center gap-0.5 min-w-[3.5rem]">
+    <div
+      className="relative flex flex-col items-center gap-0.5 min-w-[3.5rem]"
+      onMouseEnter={() => { if (!revealed) setHovered(true) }}
+      onMouseLeave={() => setHovered(false)}
+      onClick={() => { if (!revealed) setTapped(t => !t) }}
+    >
       <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
         {position}
       </div>
-      <div className="w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5">
+      <div
+        className={clsx(
+          "w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5",
+          !revealed && "cursor-pointer",
+        )}
+      >
         <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
           {revealed ? player.name : "?"}
         </span>
@@ -72,6 +86,11 @@ function PlayerSlot({
           {formatSalary(player.salary)}
         </span>
       </div>
+      {showTooltip && (
+        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 z-50 pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg">
+          {player.name}
+        </div>
+      )}
     </div>
   )
 }
@@ -627,8 +646,8 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1 overflow-hidden">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700">
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
+            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
               <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
                 Offensive Payroll — Which Team?
               </span>
