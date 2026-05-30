@@ -43,6 +43,7 @@ const TeamColorsKey = lazy(() =>
   import("@/games/playerdle/screens/team-colors-key").then(m => ({ default: m.TeamColorsKey })),
 )
 const PayrollShell = lazy(() => import("@/games/payroll/payroll-shell"))
+const PayrollCalendar = lazy(() => import("@/games/payroll/payroll-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -433,6 +434,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       )}
     </>
   )
+}
+
+function PayrollArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return <PayrollShell league="nfl" screen="daily" archiveDateKey={dateKey} />
 }
 
 interface SportRouteProps {
@@ -827,6 +833,22 @@ function App() {
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <PayrollShell league="nfl" screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payroll/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollCalendar league="nfl" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/payroll/archive/:dateKey"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <PayrollArchiveRoute />
           </Suspense>
         }
       />

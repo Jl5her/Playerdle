@@ -1,4 +1,4 @@
-import { faAngleLeft, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
+import { faAngleLeft, faCalendarDays, faChartSimple, faCircleQuestion } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
@@ -14,6 +14,7 @@ import PayrollGame, { type PayrollGameMode } from "./payroll-game"
 interface Props {
   league: PayrollLeague
   screen: "daily" | "arcade"
+  archiveDateKey?: string
 }
 
 type PayrollPanel = "how-to-play" | "stats"
@@ -137,9 +138,10 @@ function StatsPanel({ stats, guesses, won }: { stats: PayrollStats | null; guess
   )
 }
 
-export default function PayrollShell({ league, screen }: Props) {
+export default function PayrollShell({ league, screen, archiveDateKey }: Props) {
   const navigate = useNavigate()
   const panels = usePanelStack<PayrollPanel>()
+  const isArchive = !!archiveDateKey
   const mode: PayrollGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<PayrollGameMode>(mode)
 
@@ -148,21 +150,32 @@ export default function PayrollShell({ league, screen }: Props) {
   }, [])
 
   useEffect(() => {
-    if (screen !== "daily") return
+    if (screen !== "daily" || isArchive) return
     const seen = localStorage.getItem("payroll-tutorial-seen:nfl")
     if (!seen) {
       panels.push("how-to-play")
       localStorage.setItem("payroll-tutorial-seen:nfl", "true")
     }
-  }, [screen])
+  }, [screen, isArchive])
 
   const stats = calculatePayrollStats(league)
 
   function goBack() {
-    navigate("/")
+    if (isArchive) {
+      navigate("/payroll/calendar")
+    } else {
+      navigate("/")
+    }
   }
 
-  const subtitle = activeMode === "arcade" ? "Arcade mode" : formatLongDate()
+  let subtitle: string
+  if (isArchive && archiveDateKey) {
+    subtitle = `Archive · ${formatLongDate(new Date(archiveDateKey + "T12:00:00"))}`
+  } else if (activeMode === "arcade") {
+    subtitle = "Arcade mode"
+  } else {
+    subtitle = formatLongDate()
+  }
 
   return (
     <PanelStackContext.Provider value={panels}>
@@ -170,7 +183,7 @@ export default function PayrollShell({ league, screen }: Props) {
         <header className="game-header bg-primary-50 dark:bg-primary-900 px-4 py-2 text-center border-b-2 border-primary-300 dark:border-primary-700">
           <button
             onClick={goBack}
-            aria-label="Back to menu"
+            aria-label={isArchive ? "Back to calendar" : "Back to menu"}
             title="Back"
             className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
           >
@@ -181,6 +194,16 @@ export default function PayrollShell({ league, screen }: Props) {
           </h1>
           <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
+            {!panels.isAnyOpen && !isArchive && (
+              <button
+                onClick={() => navigate("/payroll/calendar")}
+                aria-label="Archive"
+                title="Archive"
+                className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
+              >
+                <FontAwesomeIcon icon={faCalendarDays} className="text-[1.1rem]" aria-hidden="true" />
+              </button>
+            )}
             {!panels.isAnyOpen && (
               <button
                 onClick={() => panels.push("stats")}
@@ -213,9 +236,10 @@ export default function PayrollShell({ league, screen }: Props) {
               )}
             >
               <PayrollGame
-                key={`${league}:${mode}`}
+                key={`${league}:${mode}:${archiveDateKey ?? "today"}`}
                 league={league}
                 mode={mode}
+                archiveDateKey={archiveDateKey}
                 onModeChange={setActiveMode}
               />
             </div>

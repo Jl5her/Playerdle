@@ -61,6 +61,7 @@ function PlayerSlot({
   revealed: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
+  const lastPointerTypeRef = useRef<string>("mouse")
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
 
   function computePos() {
@@ -68,26 +69,30 @@ function PlayerSlot({
     return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
   }
 
+  // Dismiss when tapping/clicking anywhere outside this slot
   useEffect(() => {
     if (!tooltipPos) return
-    const dismiss = () => setTooltipPos(null)
-    window.addEventListener("scroll", dismiss, { capture: true, passive: true })
-    return () => window.removeEventListener("scroll", dismiss, { capture: true })
+    const dismiss = (e: PointerEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setTooltipPos(null)
+    }
+    document.addEventListener("pointerdown", dismiss, true)
+    return () => document.removeEventListener("pointerdown", dismiss, true)
   }, [tooltipPos])
 
-  const tooltipLabel = player.number != null
-    ? `${player.name} #${player.number}`
-    : player.name
+  const tooltipLabel = player.number != null ? `${player.name} #${player.number}` : player.name
 
   return (
     <>
       <div
         ref={ref}
         className="flex flex-col items-center gap-0.5 min-w-[3.5rem] select-none"
+        onPointerDown={e => { lastPointerTypeRef.current = e.pointerType }}
         onPointerEnter={e => { if (e.pointerType === "mouse") setTooltipPos(computePos()) }}
         onPointerLeave={e => { if (e.pointerType === "mouse") setTooltipPos(null) }}
-        onPointerDown={e => {
-          if (e.pointerType !== "mouse") setTooltipPos(prev => (prev ? null : computePos()))
+        onClick={() => {
+          if (lastPointerTypeRef.current !== "mouse") {
+            setTooltipPos(prev => (prev ? null : computePos()))
+          }
         }}
       >
         <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
@@ -97,6 +102,11 @@ function PlayerSlot({
           <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
             {revealed ? player.name : "?"}
           </span>
+          {revealed && player.number != null && (
+            <span className="text-[10px] font-semibold text-primary-500 dark:text-primary-400 tabular-nums leading-none">
+              #{player.number}
+            </span>
+          )}
           <span className="text-[11px] font-black text-primary-800 dark:text-primary-100 tabular-nums">
             {formatSalary(player.salary)}
           </span>
