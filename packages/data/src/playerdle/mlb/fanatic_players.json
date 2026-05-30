@@ -216,6 +216,24 @@
     "ops": 0.737
   },
   {
+    "id": "mlb:4626239",
+    "name": "Ben Williamson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "2B",
+    "number": 15,
+    "league": "AL",
+    "gp": 85,
+    "pa": 295,
+    "avg": 0.253,
+    "hr": 1,
+    "rbi": 21,
+    "sb": 5,
+    "ops": 0.604
+  },
+  {
     "id": "mlb:41345",
     "name": "Blaze Alexander",
     "conference": "AL",
@@ -394,24 +412,6 @@
     "rbi": 50,
     "sb": 2,
     "ops": 0.761
-  },
-  {
-    "id": "mlb:4872692",
-    "name": "Carson Williams",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SS",
-    "number": 7,
-    "league": "AL",
-    "gp": 32,
-    "pa": 106,
-    "avg": 0.172,
-    "hr": 5,
-    "rbi": 12,
-    "sb": 2,
-    "ops": 0.573
   },
   {
     "id": "mlb:4301949",
@@ -1980,6 +1980,24 @@
     "ops": 0.739
   },
   {
+    "id": "mlb:41307",
+    "name": "Noelvi Marte",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "RF",
+    "number": 4,
+    "league": "NL",
+    "gp": 90,
+    "pa": 360,
+    "avg": 0.263,
+    "hr": 14,
+    "rbi": 51,
+    "sb": 10,
+    "ops": 0.748
+  },
+  {
     "id": "mlb:31261",
     "name": "Nolan Arenado",
     "conference": "NL",
@@ -2214,6 +2232,24 @@
     "ops": 0.729
   },
   {
+    "id": "mlb:39924",
+    "name": "Santiago Espinal",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "3B",
+    "number": 21,
+    "league": "NL",
+    "gp": 114,
+    "pa": 328,
+    "avg": 0.243,
+    "hr": 0,
+    "rbi": 16,
+    "sb": 2,
+    "ops": 0.575
+  },
+  {
     "id": "mlb:4142424",
     "name": "Seiya Suzuki",
     "conference": "NL",
@@ -2320,24 +2356,6 @@
     "rbi": 103,
     "sb": 4,
     "ops": 0.792
-  },
-  {
-    "id": "mlb:33377",
-    "name": "Teoscar Hernandez",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "LF",
-    "number": 37,
-    "league": "NL",
-    "gp": 134,
-    "pa": 546,
-    "avg": 0.247,
-    "hr": 25,
-    "rbi": 89,
-    "sb": 5,
-    "ops": 0.738
   },
   {
     "id": "mlb:4999876",
@@ -2626,24 +2644,6 @@
     "rbi": 83,
     "sb": 3,
     "ops": 0.848
-  },
-  {
-    "id": "mlb:35675",
-    "name": "Yohel Pozo",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "C",
-    "number": 63,
-    "league": "NL",
-    "gp": 67,
-    "pa": 168,
-    "avg": 0.231,
-    "hr": 5,
-    "rbi": 19,
-    "sb": 0,
-    "ops": 0.637
   },
   {
     "id": "mlb:5137883",
