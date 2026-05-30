@@ -106,59 +106,83 @@ function Formation({ offense, revealed }: { offense: PayrollOffense; revealed: b
   )
 }
 
-// ---- Comparison bar ----
+// ---- Comparison tiles ----
 
-function comparisonLabel(result: ComparisonResult): string {
-  if (result === "correct") return "✓ Match"
-  if (result === "close") return "≈ Close"
-  if (result === "high") return "↑ Higher"
-  return "↓ Lower"
+const COMPARISON_COLUMNS: Array<{ label: string; key: keyof PayrollComparison }> = [
+  { label: "QB", key: "QB" },
+  { label: "RB", key: "RB" },
+  { label: "TE", key: "TE" },
+  { label: "WR", key: "WR" },
+  { label: "OL", key: "OL" },
+]
+
+function comparisonSymbol(result: ComparisonResult): string {
+  if (result === "correct") return "✓"
+  if (result === "close") return "≈"
+  if (result === "high") return "↑"
+  return "↓"
 }
 
-function comparisonColor(result: ComparisonResult): string {
-  if (result === "correct" || result === "close")
-    return "bg-success-500/20 border-success-500/60 text-success-600 dark:text-success-400"
-  return "bg-primary-100 dark:bg-primary-800 border-primary-300 dark:border-primary-700 text-primary-700 dark:text-primary-200"
+function ComparisonTile({
+  result,
+  animate,
+  delayIndex,
+}: {
+  result: ComparisonResult
+  animate?: boolean
+  delayIndex?: number
+}) {
+  const [revealed, setRevealed] = useState(!animate)
+
+  useEffect(() => {
+    if (!animate) return
+    const revealAt = ((delayIndex ?? 0) * 0.07 + 0.15) * 1000
+    const timer = setTimeout(() => setRevealed(true), revealAt)
+    return () => clearTimeout(timer)
+  }, [animate, delayIndex])
+
+  const bgClass = !revealed
+    ? "bg-primary-200 dark:bg-primary-700"
+    : result === "correct"
+      ? "bg-success-500 dark:bg-success-600"
+      : result === "close"
+        ? "bg-warning-500 dark:bg-warning-600"
+        : "bg-error-500 dark:bg-error-600"
+
+  const delayClass = `tile-delay-${Math.min(delayIndex ?? 0, 9)}`
+
+  return (
+    <div
+      className={clsx(
+        "grid-cell-size flex items-center justify-center font-bold rounded-md text-primary-50",
+        bgClass,
+        animate && "animate-cell-flip",
+        animate && delayClass,
+      )}
+    >
+      <span className="grid-cell-text">{revealed ? comparisonSymbol(result) : ""}</span>
+    </div>
+  )
 }
 
 function ComparisonRow({
   teamName,
   comparison,
+  animate,
 }: {
   teamName: string
   comparison: PayrollComparison
+  animate?: boolean
 }) {
-  const positions: Array<{ label: string; key: keyof PayrollComparison }> = [
-    { label: "QB", key: "QB" },
-    { label: "RB", key: "RB" },
-    { label: "TE", key: "TE" },
-    { label: "WR (×3)", key: "WR" },
-    { label: "OL (×5)", key: "OL" },
-  ]
-
   return (
-    <div className="rounded-xl border-2 border-primary-200 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 overflow-hidden">
-      <div className="px-3 py-1.5 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700">
-        <span className="text-xs font-bold uppercase tracking-wider text-primary-700 dark:text-primary-200">
-          {teamName}
-        </span>
+    <div>
+      <div className="px-2 py-1 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none">
+        {teamName}
       </div>
-      <div className="grid grid-cols-5 gap-px bg-primary-200 dark:bg-primary-700 text-[10px]">
-        {positions.map(({ label, key }) => {
-          const result = comparison[key]
-          return (
-            <div
-              key={key}
-              className={clsx(
-                "flex flex-col items-center gap-0.5 px-1 py-2 border",
-                comparisonColor(result),
-              )}
-            >
-              <span className="font-bold opacity-70">{label}</span>
-              <span className="font-black">{comparisonLabel(result)}</span>
-            </div>
-          )
-        })}
+      <div className="flex gap-1 justify-center">
+        {COMPARISON_COLUMNS.map(({ key }, i) => (
+          <ComparisonTile key={key} result={comparison[key]} animate={animate} delayIndex={i} />
+        ))}
       </div>
     </div>
   )
@@ -529,9 +553,23 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
   }
 
   const gameScrollRef = useRef<HTMLDivElement>(null)
+  const rowRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [latestIndex, setLatestIndex] = useState<number>(-1)
 
-  // Show remaining guess slots
-  const emptySlots = Math.max(0, PAYROLL_MAX_GUESSES - guesses.length - (gameOver ? 0 : 1))
+  useEffect(() => {
+    if (latestIndex < 0) return
+    const el = rowRefs.current[latestIndex]
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest" })
+  }, [latestIndex])
+
+  const prevGuessCount = useRef(guesses.length)
+  useEffect(() => {
+    if (guesses.length > prevGuessCount.current) {
+      setLatestIndex(guesses.length - 1)
+    }
+    prevGuessCount.current = guesses.length
+  }, [guesses.length])
+
 
   return (
     <DailyGameShell
@@ -573,38 +611,54 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
             <Formation offense={puzzle.team.offense} revealed={gameOver} />
           </div>
 
-          {/* Guess history */}
-          {guesses.length > 0 && (
-            <div className="mt-4 flex flex-col gap-2">
-              {guesses.map((guess, i) => (
-                <ComparisonRow
-                  key={`${guess.teamId}-${i}`}
-                  teamName={guess.teamName}
-                  comparison={comparisons[i]}
-                />
-              ))}
-            </div>
-          )}
-
-          {/* Empty guess slots */}
-          {!gameOver && (
-            <div className="mt-3 flex flex-col gap-2">
-              {/* Active slot indicator */}
-              <div className="rounded-xl border-2 border-dashed border-primary-300 dark:border-primary-600 py-2 px-3 text-center">
-                <span className="text-xs text-primary-400 dark:text-primary-500">
-                  Guess {guesses.length + 1} of {PAYROLL_MAX_GUESSES}
-                </span>
-              </div>
-              {Array.from({ length: emptySlots }).map((_, i) => (
+          {/* Guess grid */}
+          <div className="flex flex-col items-center gap-1 pt-4 pb-1">
+            {/* Column headers — shown once */}
+            <div className="sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
+              {COMPARISON_COLUMNS.map(({ label }) => (
                 <div
-                  key={i}
-                  className="rounded-xl border border-primary-200 dark:border-primary-800 py-2 px-3 opacity-40"
+                  key={label}
+                  className="grid-cell-width text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
                 >
-                  <div className="h-4" />
+                  {label}
                 </div>
               ))}
             </div>
-          )}
+
+            {/* Filled guess rows */}
+            {Array.from({ length: PAYROLL_MAX_GUESSES }).map((_, i) =>
+              i < guesses.length ? (
+                <div
+                  key={i}
+                  ref={el => { rowRefs.current[i] = el }}
+                >
+                  <ComparisonRow
+                    teamName={guesses[i].teamName}
+                    comparison={comparisons[i]}
+                    animate={i === latestIndex}
+                  />
+                </div>
+              ) : (
+                <div
+                  key={`empty-${i}`}
+                  ref={el => { rowRefs.current[i] = el }}
+                  className="flex gap-1 justify-center"
+                >
+                  {COMPARISON_COLUMNS.map(({ key }) => (
+                    <div
+                      key={key}
+                      className={clsx(
+                        "grid-cell-size rounded-md border",
+                        i === guesses.length && !gameOver
+                          ? "border-dashed border-2 border-primary-300 dark:border-primary-600"
+                          : "border-primary-200 bg-primary-50 dark:bg-primary-900 dark:border-primary-600",
+                      )}
+                    />
+                  ))}
+                </div>
+              ),
+            )}
+          </div>
         </div>
       </div>
       <ScrollHint scrollRef={gameScrollRef} />
