@@ -41,6 +41,7 @@ interface Props {
   league: PayrollLeague
   mode: PayrollGameMode
   onModeChange?: (mode: PayrollGameMode) => void
+  onGameOver?: (won: boolean, guessCount: number) => void
   archiveDateKey?: string
 }
 
@@ -548,7 +549,7 @@ function ResultsPanel({
 
 // ---- Main game ----
 
-export default function PayrollGame({ league, mode, onModeChange, archiveDateKey }: Props) {
+export default function PayrollGame({ league, mode, onModeChange, onGameOver, archiveDateKey }: Props) {
   const [activeMode, setActiveMode] = useState<PayrollGameMode>(mode)
   const teams = useMemo(() => getPayrollTeams(league), [league])
   const teamOptions: TeamOption[] = useMemo(
@@ -609,6 +610,14 @@ export default function PayrollGame({ league, mode, onModeChange, archiveDateKey
       setStats(calculatePayrollStats(league))
     }
   }, [gameOver, activeMode, stats, league])
+
+  const prevGameOverRef = useRef(false)
+  useEffect(() => {
+    if (gameOver && !prevGameOverRef.current) {
+      prevGameOverRef.current = true
+      onGameOver?.(won, guesses.length)
+    }
+  }, [gameOver, won, guesses.length, onGameOver])
 
   useWinConfetti({
     won,

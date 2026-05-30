@@ -144,6 +144,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
   const isArchive = !!archiveDateKey
   const mode: PayrollGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<PayrollGameMode>(mode)
+  const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
 
   useEffect(() => {
     document.title = "Cap Crunch NFL"
@@ -241,6 +242,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
                 mode={mode}
                 archiveDateKey={archiveDateKey}
                 onModeChange={setActiveMode}
+                onGameOver={(won, guessCount) => setGameResult({ won, guessCount })}
               />
             </div>
 
@@ -249,7 +251,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
             </Panel>
 
             <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
-              <StatsPanel stats={stats} guesses={0} won={false} />
+              <StatsPanel stats={stats} guesses={gameResult?.guessCount ?? 0} won={gameResult?.won ?? false} />
             </Panel>
           </div>
         </div>
