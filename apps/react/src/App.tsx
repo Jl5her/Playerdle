@@ -32,7 +32,16 @@ import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/co
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
 import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
+import {
+  checkAndApplyMigration,
+  resolveMigrationConflict,
+  type MigrationConflictData,
+} from "@/shared/utils/migration"
+import { MigrationConflictOverlay } from "@/shared/components/migration-conflict-overlay"
 import { trackPanelOpened } from "@/lib/analytics"
+
+// Run migration check once at module init so data is applied before any React render.
+const _initialMigrationConflict = checkAndApplyMigration()
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -546,9 +555,26 @@ function App() {
   useViewportHeight()
   useEffect(() => startAutoSync(), [])
   const [showWelcome, setShowWelcome] = useState(() => !hasSeenWelcome())
+  const [migrationConflict, setMigrationConflict] = useState<MigrationConflictData | null>(
+    _initialMigrationConflict,
+  )
+
+  function handleMigrationResolve(winner: "local" | "remote") {
+    if (!migrationConflict) return
+    resolveMigrationConflict(migrationConflict.analysis, winner)
+    setMigrationConflict(null)
+  }
+
   return (
     <>
     <PWAUpdateToast />
+    {migrationConflict && (
+      <MigrationConflictOverlay
+        conflicts={migrationConflict.analysis.conflicts}
+        onKeepNew={() => handleMigrationResolve("local")}
+        onKeepOld={() => handleMigrationResolve("remote")}
+      />
+    )}
     {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
     <Routes>
       <Route
