@@ -11,7 +11,7 @@ import {
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import { hasPlayedPayrollToday } from "@/games/payroll/utils/payroll-daily"
+import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -42,8 +42,8 @@ const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-ca
 const TeamColorsKey = lazy(() =>
   import("@/games/playerdle/screens/team-colors-key").then(m => ({ default: m.TeamColorsKey })),
 )
-const PayrollShell = lazy(() => import("@/games/payroll/payroll-shell"))
-const PayrollCalendar = lazy(() => import("@/games/payroll/payroll-calendar"))
+const CapCrunchShell = lazy(() => import("@/games/capcrunch/capcrunch-shell"))
+const CapCrunchCalendar = lazy(() => import("@/games/capcrunch/capcrunch-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -294,7 +294,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (sportId === "nfl") {
     builtExtraGames.push({
       label: "Cap Crunch",
-      played: hasPlayedPayrollToday("nfl"),
+      played: hasPlayedCapCrunchToday("nfl"),
       onPlayDaily: () => navigate("/capcrunch"),
       onPlayArcade: () => navigate("/capcrunch/arcade"),
       onShowStats: () => navigate("/capcrunch"),
@@ -436,9 +436,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   )
 }
 
-function PayrollArchiveRoute() {
+function CapCrunchArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
-  return <PayrollShell league="nfl" screen="daily" archiveDateKey={dateKey} />
+  return <CapCrunchShell league="nfl" screen="daily" archiveDateKey={dateKey} />
 }
 
 interface SportRouteProps {
@@ -819,12 +819,12 @@ function App() {
           </Suspense>
         }
       />
-      {/* Cap Crunch payroll game — NFL only for now */}
+      {/* Cap Crunch game — NFL only for now */}
       <Route
         path="/capcrunch"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <PayrollShell league="nfl" screen="daily" />
+            <CapCrunchShell league="nfl" screen="daily" />
           </Suspense>
         }
       />
@@ -832,7 +832,7 @@ function App() {
         path="/capcrunch/arcade"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <PayrollShell league="nfl" screen="arcade" />
+            <CapCrunchShell league="nfl" screen="arcade" />
           </Suspense>
         }
       />
@@ -840,7 +840,7 @@ function App() {
         path="/capcrunch/calendar"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <PayrollCalendar league="nfl" />
+            <CapCrunchCalendar league="nfl" />
           </Suspense>
         }
       />
@@ -848,7 +848,7 @@ function App() {
         path="/capcrunch/archive/:dateKey"
         element={
           <Suspense fallback={<div className="app-viewport" />}>
-            <PayrollArchiveRoute />
+            <CapCrunchArchiveRoute />
           </Suspense>
         }
       />

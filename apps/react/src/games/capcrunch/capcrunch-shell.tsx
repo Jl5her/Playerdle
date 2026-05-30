@@ -3,22 +3,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import type { PayrollLeague } from "@/games/payroll/utils/payroll-daily"
-import { calculatePayrollStats, type PayrollStats } from "@/games/payroll/utils/payroll-daily"
+import type { CapCrunchLeague } from "@/games/capcrunch/utils/capcrunch-daily"
+import { calculateCapCrunchStats, type CapCrunchStats } from "@/games/capcrunch/utils/capcrunch-daily"
 import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
 import { formatLongDate } from "@/shared/utils/time"
-import PayrollCalendar from "./payroll-calendar"
-import PayrollGame, { type PayrollGameMode } from "./payroll-game"
+import CapCrunchCalendar from "./capcrunch-calendar"
+import CapCrunchGame, { type CapCrunchGameMode } from "./capcrunch-game"
 
 interface Props {
-  league: PayrollLeague
+  league: CapCrunchLeague
   screen: "daily" | "arcade"
   archiveDateKey?: string
 }
 
-type PayrollPanel = "how-to-play" | "stats" | "calendar"
+type CapCrunchPanel = "how-to-play" | "stats" | "calendar"
 
 function HowToPlayPanel() {
   return (
@@ -84,7 +84,7 @@ function StatsPanel({
   won,
   onViewArchive,
 }: {
-  stats: PayrollStats | null
+  stats: CapCrunchStats | null
   guesses: number
   won: boolean
   onViewArchive?: () => void
@@ -160,12 +160,12 @@ function StatsPanel({
   )
 }
 
-export default function PayrollShell({ league, screen, archiveDateKey }: Props) {
+export default function CapCrunchShell({ league, screen, archiveDateKey }: Props) {
   const navigate = useNavigate()
-  const panels = usePanelStack<PayrollPanel>()
+  const panels = usePanelStack<CapCrunchPanel>()
   const isArchive = !!archiveDateKey
-  const mode: PayrollGameMode = screen === "arcade" ? "arcade" : "daily"
-  const [activeMode, setActiveMode] = useState<PayrollGameMode>(mode)
+  const mode: CapCrunchGameMode = screen === "arcade" ? "arcade" : "daily"
+  const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
   const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
 
   useEffect(() => {
@@ -174,14 +174,14 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
 
   useEffect(() => {
     if (screen !== "daily" || isArchive) return
-    const seen = localStorage.getItem("payroll-tutorial-seen:nfl")
+    const seen = localStorage.getItem("capcrunch-tutorial-seen:nfl")
     if (!seen) {
       panels.push("how-to-play")
-      localStorage.setItem("payroll-tutorial-seen:nfl", "true")
+      localStorage.setItem("capcrunch-tutorial-seen:nfl", "true")
     }
   }, [screen, isArchive])
 
-  const stats = calculatePayrollStats(league)
+  const stats = calculateCapCrunchStats(league)
 
   function goBack() {
     if (isArchive) {
@@ -248,7 +248,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
                 panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
               )}
             >
-              <PayrollGame
+              <CapCrunchGame
                 key={`${league}:${mode}:${archiveDateKey ?? "today"}`}
                 league={league}
                 mode={mode}
@@ -271,7 +271,7 @@ export default function PayrollShell({ league, screen, archiveDateKey }: Props) 
               />
             </Panel>
 
-            <PayrollCalendar league={league} panel id="calendar" />
+            <CapCrunchCalendar league={league} panel id="calendar" />
           </div>
         </div>
       </div>

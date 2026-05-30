@@ -1,85 +1,85 @@
-import nflPayrollData from "@playerdle/data/payroll/nfl-payroll.json"
+import nflCapCrunchData from "@playerdle/data/capcrunch/nfl-capcrunch.json"
 import { minHashPick } from "@/shared/utils/daily-select"
 import { getDateKey, getTodayKey } from "@/shared/utils/time"
 
-export interface PayrollPlayer {
+export interface CapCrunchPlayer {
   name: string
   salary: number
   number?: number
 }
 
-export interface PayrollOffense {
-  QB: PayrollPlayer
-  RB: PayrollPlayer
-  TE: PayrollPlayer
-  WR: [PayrollPlayer, PayrollPlayer, PayrollPlayer]
-  OL: [PayrollPlayer, PayrollPlayer, PayrollPlayer, PayrollPlayer, PayrollPlayer]
+export interface CapCrunchOffense {
+  QB: CapCrunchPlayer
+  RB: CapCrunchPlayer
+  TE: CapCrunchPlayer
+  WR: [CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer]
+  OL: [CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer]
 }
 
-export interface PayrollTeam {
+export interface CapCrunchTeam {
   id: string
   name: string
   abbr: string
-  offense: PayrollOffense
+  offense: CapCrunchOffense
 }
 
-export type PayrollLeague = "nfl"
+export type CapCrunchLeague = "nfl"
 
-const TEAM_DATA: Record<PayrollLeague, PayrollTeam[]> = {
-  nfl: nflPayrollData.teams as unknown as PayrollTeam[],
+const TEAM_DATA: Record<CapCrunchLeague, CapCrunchTeam[]> = {
+  nfl: nflCapCrunchData.teams as unknown as CapCrunchTeam[],
 }
 
-export function getPayrollTeams(league: PayrollLeague): PayrollTeam[] {
+export function getCapCrunchTeams(league: CapCrunchLeague): CapCrunchTeam[] {
   return TEAM_DATA[league]
 }
 
-export function getPayrollTeamById(league: PayrollLeague, id: string): PayrollTeam | undefined {
+export function getCapCrunchTeamById(league: CapCrunchLeague, id: string): CapCrunchTeam | undefined {
   return TEAM_DATA[league].find(t => t.id === id)
 }
 
-const PAYROLL_EPOCH = "2025-01-01"
-const STORAGE_STATE_PREFIX = "playerdle-payroll-state"
-const STORAGE_HISTORY_PREFIX = "playerdle-payroll-history:v1"
-const STORAGE_PLAYED_PREFIX = "playerdle-payroll-played-day"
+const CAPCRUNCH_EPOCH = "2025-01-01"
+const STORAGE_STATE_PREFIX = "playerdle-capcrunch-state"
+const STORAGE_HISTORY_PREFIX = "playerdle-capcrunch-history:v1"
+const STORAGE_PLAYED_PREFIX = "playerdle-capcrunch-played-day"
 
-export interface PayrollPuzzle {
-  team: PayrollTeam
+export interface CapCrunchPuzzle {
+  team: CapCrunchTeam
   dateKey: string
-  league: PayrollLeague
+  league: CapCrunchLeague
 }
 
-function playedKey(league: PayrollLeague): string {
+function playedKey(league: CapCrunchLeague): string {
   return `${STORAGE_PLAYED_PREFIX}:${league}`
 }
 
-function historyKey(league: PayrollLeague): string {
+function historyKey(league: CapCrunchLeague): string {
   return `${STORAGE_HISTORY_PREFIX}:${league}`
 }
 
-function stateKey(league: PayrollLeague, dateKey: string): string {
+function stateKey(league: CapCrunchLeague, dateKey: string): string {
   return `${STORAGE_STATE_PREFIX}:${league}:${dateKey}`
 }
 
-export function getPayrollDailyPuzzle(league: PayrollLeague, date?: Date): PayrollPuzzle {
+export function getCapCrunchDailyPuzzle(league: CapCrunchLeague, date?: Date): CapCrunchPuzzle {
   const dateKey = date ? getDateKey(date) : getTodayKey()
-  const teams = getPayrollTeams(league)
-  const team = minHashPick(teams, t => t.id, `payroll:${league}:${dateKey}`)
+  const teams = getCapCrunchTeams(league)
+  const team = minHashPick(teams, t => t.id, `capcrunch:${league}:${dateKey}`)
   return { team, dateKey, league }
 }
 
-export function getPayrollPuzzleByDateKey(league: PayrollLeague, dateKey: string): PayrollPuzzle {
-  const teams = getPayrollTeams(league)
-  const team = minHashPick(teams, t => t.id, `payroll:${league}:${dateKey}`)
+export function getCapCrunchPuzzleByDateKey(league: CapCrunchLeague, dateKey: string): CapCrunchPuzzle {
+  const teams = getCapCrunchTeams(league)
+  const team = minHashPick(teams, t => t.id, `capcrunch:${league}:${dateKey}`)
   return { team, dateKey, league }
 }
 
-export function getPayrollArcadePuzzle(league: PayrollLeague, excludeId?: string): PayrollPuzzle {
-  const teams = getPayrollTeams(league).filter(t => t.id !== excludeId)
-  const team = teams[Math.floor(Math.random() * teams.length)] ?? getPayrollTeams(league)[0]
+export function getCapCrunchArcadePuzzle(league: CapCrunchLeague, excludeId?: string): CapCrunchPuzzle {
+  const teams = getCapCrunchTeams(league).filter(t => t.id !== excludeId)
+  const team = teams[Math.floor(Math.random() * teams.length)] ?? getCapCrunchTeams(league)[0]
   return { team, dateKey: "arcade", league }
 }
 
-export function hasPlayedPayrollToday(league: PayrollLeague): boolean {
+export function hasPlayedCapCrunchToday(league: CapCrunchLeague): boolean {
   try {
     return localStorage.getItem(playedKey(league)) === getTodayKey()
   } catch {
@@ -87,7 +87,7 @@ export function hasPlayedPayrollToday(league: PayrollLeague): boolean {
   }
 }
 
-export function markPayrollPlayed(league: PayrollLeague) {
+export function markCapCrunchPlayed(league: CapCrunchLeague) {
   try {
     localStorage.setItem(playedKey(league), getTodayKey())
   } catch {
@@ -95,12 +95,12 @@ export function markPayrollPlayed(league: PayrollLeague) {
   }
 }
 
-export interface PayrollGuessRecord {
+export interface CapCrunchGuessRecord {
   teamId: string
   teamName: string
 }
 
-export function loadPayrollDailyGuesses(league: PayrollLeague, dateKey: string): PayrollGuessRecord[] {
+export function loadCapCrunchDailyGuesses(league: CapCrunchLeague, dateKey: string): CapCrunchGuessRecord[] {
   try {
     const raw = localStorage.getItem(stateKey(league, dateKey))
     if (!raw) return []
@@ -111,10 +111,10 @@ export function loadPayrollDailyGuesses(league: PayrollLeague, dateKey: string):
   }
 }
 
-export function savePayrollDailyGuesses(
-  league: PayrollLeague,
+export function saveCapCrunchDailyGuesses(
+  league: CapCrunchLeague,
   dateKey: string,
-  guesses: PayrollGuessRecord[],
+  guesses: CapCrunchGuessRecord[],
 ) {
   try {
     localStorage.setItem(stateKey(league, dateKey), JSON.stringify(guesses))
@@ -123,14 +123,14 @@ export function savePayrollDailyGuesses(
   }
 }
 
-export interface PayrollResult {
+export interface CapCrunchResult {
   date: string
   won: boolean
   guesses: number
   archive?: boolean
 }
 
-export function getPayrollHistory(league: PayrollLeague): PayrollResult[] {
+export function getCapCrunchHistory(league: CapCrunchLeague): CapCrunchResult[] {
   try {
     const raw = localStorage.getItem(historyKey(league))
     if (!raw) return []
@@ -141,17 +141,17 @@ export function getPayrollHistory(league: PayrollLeague): PayrollResult[] {
   }
 }
 
-export function savePayrollResult(
-  league: PayrollLeague,
+export function saveCapCrunchResult(
+  league: CapCrunchLeague,
   date: string,
   won: boolean,
   guesses: number,
 ) {
   try {
     const archive = date !== getTodayKey()
-    const history = getPayrollHistory(league)
+    const history = getCapCrunchHistory(league)
     const idx = history.findIndex(r => r.date === date)
-    const result: PayrollResult = { date, won, guesses, archive: archive || undefined }
+    const result: CapCrunchResult = { date, won, guesses, archive: archive || undefined }
     if (idx >= 0) history[idx] = result
     else history.push(result)
     localStorage.setItem(historyKey(league), JSON.stringify(history))
@@ -160,7 +160,7 @@ export function savePayrollResult(
   }
 }
 
-export interface PayrollStats {
+export interface CapCrunchStats {
   played: number
   winPercentage: number
   currentStreak: number
@@ -171,8 +171,8 @@ export interface PayrollStats {
 
 const MAX_GUESSES = 5
 
-export function calculatePayrollStats(league: PayrollLeague): PayrollStats {
-  const history = getPayrollHistory(league)
+export function calculateCapCrunchStats(league: CapCrunchLeague): CapCrunchStats {
+  const history = getCapCrunchHistory(league)
   if (history.length === 0) {
     return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {}, losses: 0 }
   }
@@ -226,11 +226,11 @@ const CLOSE_THRESHOLDS = {
   OL: 10_000_000,
 }
 
-function combinedSalary(players: PayrollPlayer[]): number {
+function combinedSalary(players: CapCrunchPlayer[]): number {
   return players.reduce((s, p) => s + p.salary, 0)
 }
 
-export interface PayrollComparison {
+export interface CapCrunchComparison {
   QB: ComparisonResult
   RB: ComparisonResult
   TE: ComparisonResult
@@ -238,7 +238,7 @@ export interface PayrollComparison {
   OL: ComparisonResult
 }
 
-export function compareTeamToAnswer(guessed: PayrollTeam, answer: PayrollTeam): PayrollComparison {
+export function compareTeamToAnswer(guessed: CapCrunchTeam, answer: CapCrunchTeam): CapCrunchComparison {
   function compare(
     guessedVal: number,
     answerVal: number,
@@ -266,5 +266,5 @@ export function compareTeamToAnswer(guessed: PayrollTeam, answer: PayrollTeam): 
   }
 }
 
-export { PAYROLL_EPOCH }
-export { MAX_GUESSES as PAYROLL_MAX_GUESSES }
+export { CAPCRUNCH_EPOCH }
+export { MAX_GUESSES as CAPCRUNCH_MAX_GUESSES }
