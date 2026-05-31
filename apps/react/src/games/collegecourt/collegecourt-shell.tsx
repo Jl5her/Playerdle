@@ -27,7 +27,7 @@ function HowToPlayPanel() {
   return (
     <div className="flex-1 overflow-y-auto px-5 py-4 text-sm text-primary-800 dark:text-primary-100 space-y-4">
       <p>
-        <strong>CollegeCourt</strong> shows you the college logos of an NBA team's starting lineup —
+        <strong>Schooled</strong> shows you the college logos of an NBA team's starting lineup —
         one badge per position on a half-court diagram.
       </p>
       <p>
@@ -170,7 +170,7 @@ export default function CollegeCourtShell({ screen, archiveDateKey }: Props) {
   const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
 
   useEffect(() => {
-    document.title = "CollegeCourt · NBA"
+    document.title = "Schooled · NBA"
   }, [])
 
   useEffect(() => {
@@ -214,7 +214,7 @@ export default function CollegeCourtShell({ screen, archiveDateKey }: Props) {
             <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
           </button>
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-            CollegeCourt
+            Schooled
           </h1>
           <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">

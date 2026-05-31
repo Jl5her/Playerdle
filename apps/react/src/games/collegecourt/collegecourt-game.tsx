@@ -176,10 +176,10 @@ function CollegeBadge({
 
 function HalfCourt({ team }: { team: CollegeCourtTeam }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
-    { pos: "PG", x: "24%", y: "18%" },
-    { pos: "SG", x: "76%", y: "18%" },
-    { pos: "SF", x: "10%", y: "50%" },
-    { pos: "PF", x: "90%", y: "50%" },
+    { pos: "PG", x: "50%", y: "35%" },
+    { pos: "SG", x: "76%", y: "43%" },
+    { pos: "SF", x: "21%", y: "43%" },
+    { pos: "PF", x: "65%", y: "62%" },
     { pos: "C",  x: "50%", y: "72%" },
   ]
 
@@ -458,7 +458,7 @@ function buildShareText(
     .map(c => POSITIONS.map(p => (c[p] === "correct" ? "🟩" : "⬜")).join(""))
     .join("\n")
 
-  return `CollegeCourt NBA (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegecourt`
+  return `Schooled NBA (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegecourt`
 }
 
 // ---- Results panel ----
@@ -488,7 +488,7 @@ function ResultsPanel({
 
   function handleShare() {
     share({
-      title: "CollegeCourt",
+      title: "Schooled",
       text: buildShareText(guesses, comparisons, won),
     })
   }

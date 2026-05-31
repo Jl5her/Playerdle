@@ -320,7 +320,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
   if (sportId === "nba") {
     builtExtraGames.push({
-      label: "CollegeCourt",
+      label: "Schooled",
       description: "Guess the NBA team from college logos on the court",
       icon: faGraduationCap,
       played: hasPlayedCollegeCourtToday(),
