@@ -2,6 +2,7 @@ import clsx from "clsx"
 import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
+import { getSchoolLogoUrl, isFlag } from "@/games/collegecourt/utils/college-logos"
 import {
   calculateCollegeCourtStats,
   compareTeamToAnswer,
@@ -46,14 +47,6 @@ interface Props {
 
 // ---- College badge (used on court + in guess rows) ----
 
-function getContrastColor(hex: string): string {
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
-  const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
-  return luminance > 0.5 ? "#000000" : "#FFFFFF"
-}
-
 function CollegeBadge({
   starter,
   size = "md",
@@ -68,6 +61,7 @@ function CollegeBadge({
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
+  const [imgFailed, setImgFailed] = useState(false)
 
   useEffect(() => {
     if (!tooltipPos) return
@@ -84,36 +78,43 @@ function CollegeBadge({
   }
 
   const sizeClasses = {
-    sm: "w-9 h-9 text-[9px]",
-    md: "w-12 h-12 text-[10px]",
-    lg: "w-14 h-14 text-[11px]",
+    sm: "w-9 h-9",
+    md: "w-12 h-12",
+    lg: "w-14 h-14",
   }
 
-  let bgColor = starter.colors[0]
-  let textColor = getContrastColor(bgColor)
+  const logoUrl = getSchoolLogoUrl(starter.schoolAbbr)
+  const flag = isFlag(starter.schoolAbbr)
+  const showLogo = logoUrl && !imgFailed
 
-  if (matchResult === "correct") {
-    bgColor = "#16a34a"
-    textColor = "#FFFFFF"
-  } else if (matchResult === "incorrect") {
-    bgColor = "#374151"
-    textColor = "#FFFFFF"
-  }
+  // Border color drives match feedback; background stays white for logo clarity
+  const borderClass = matchResult === "correct"
+    ? "border-green-500 ring-2 ring-green-400/50"
+    : matchResult === "incorrect"
+      ? "border-gray-500"
+      : "border-white/40"
+
+  const bgClass = matchResult === "correct"
+    ? "bg-green-50"
+    : matchResult === "incorrect"
+      ? "bg-gray-700/60"
+      : "bg-white"
 
   return (
     <>
       <div
         ref={ref}
         className={clsx(
-          "rounded-full flex items-center justify-center font-black tracking-tight select-none cursor-pointer border-2 transition-colors",
+          "rounded-full flex items-center justify-center select-none cursor-pointer border-2 transition-colors overflow-hidden",
           sizeClasses[size],
-          matchResult === "correct"
-            ? "border-green-400"
-            : matchResult === "incorrect"
-              ? "border-gray-500"
-              : "border-white/30",
+          borderClass,
+          showLogo ? bgClass : "bg-primary-800",
         )}
-        style={{ backgroundColor: bgColor, color: textColor }}
+        style={
+          !showLogo
+            ? { backgroundColor: starter.colors[0] }
+            : undefined
+        }
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -129,7 +130,26 @@ function CollegeBadge({
           }
         }}
       >
-        {starter.schoolAbbr}
+        {showLogo ? (
+          <img
+            src={logoUrl}
+            alt={starter.school}
+            className={clsx(
+              "object-contain select-none pointer-events-none",
+              flag ? "w-full h-full" : "w-[78%] h-[78%]",
+              matchResult === "incorrect" && "opacity-60",
+            )}
+            onError={() => setImgFailed(true)}
+            draggable={false}
+          />
+        ) : (
+          <span
+            className="font-black tracking-tight text-white leading-none"
+            style={{ fontSize: size === "lg" ? 11 : size === "md" ? 10 : 9 }}
+          >
+            {starter.schoolAbbr}
+          </span>
+        )}
       </div>
       {tooltipPos &&
         showTooltip &&
