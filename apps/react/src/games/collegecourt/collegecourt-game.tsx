@@ -506,17 +506,24 @@ function ResultsPanel({
             {puzzle.team.name} — Starting Five
           </div>
           <div className="flex gap-3 justify-center py-3 px-2 flex-wrap">
-            {POSITIONS.map(pos => (
-              <div key={pos} className="flex flex-col items-center gap-1">
-                <span className="text-[8px] font-bold uppercase tracking-wider text-primary-500 dark:text-primary-400">
-                  {pos}
-                </span>
-                <CollegeBadge starter={puzzle.team.starters[pos]} size="lg" showTooltip />
-                <span className="text-[8px] text-primary-500 dark:text-primary-400 max-w-[3.5rem] text-center leading-tight truncate">
-                  {puzzle.team.starters[pos].school}
-                </span>
-              </div>
-            ))}
+            {POSITIONS.map(pos => {
+              const starter = puzzle.team.starters[pos]
+              const lastName = starter.name.split(" ").pop()
+              return (
+                <div key={pos} className="flex flex-col items-center gap-0.5">
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-primary-500 dark:text-primary-400">
+                    {pos}
+                  </span>
+                  <CollegeBadge starter={starter} size="lg" showTooltip />
+                  <span className="text-[9px] font-semibold text-primary-800 dark:text-primary-100 max-w-[3.5rem] text-center leading-tight">
+                    {lastName}
+                  </span>
+                  <span className="text-[8px] text-primary-500 dark:text-primary-400 max-w-[3.5rem] text-center leading-tight line-clamp-2">
+                    {starter.school}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         </div>
 
