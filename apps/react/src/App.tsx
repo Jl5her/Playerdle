@@ -12,6 +12,7 @@ import {
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
 import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
+import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -44,6 +45,8 @@ const TeamColorsKey = lazy(() =>
 )
 const CapCrunchShell = lazy(() => import("@/games/capcrunch/capcrunch-shell"))
 const CapCrunchCalendar = lazy(() => import("@/games/capcrunch/capcrunch-calendar"))
+const CollegeCourtShell = lazy(() => import("@/games/collegecourt/collegecourt-shell"))
+const CollegeCourtCalendar = lazy(() => import("@/games/collegecourt/collegecourt-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -300,6 +303,15 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       onShowStats: () => navigate("/capcrunch"),
     })
   }
+  if (sportId === "nba") {
+    builtExtraGames.push({
+      label: "CollegeCourt",
+      played: hasPlayedCollegeCourtToday(),
+      onPlayDaily: () => navigate("/collegecourt"),
+      onPlayArcade: () => navigate("/collegecourt/arcade"),
+      onShowStats: () => navigate("/collegecourt"),
+    })
+  }
   const extraGames: ExtraGame[] | undefined = builtExtraGames.length > 0 ? builtExtraGames : undefined
 
   if (sportLoadFailed && !sport) {
@@ -439,6 +451,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 function CapCrunchArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
   return <CapCrunchShell league="nfl" screen="daily" archiveDateKey={dateKey} />
+}
+
+function CollegeCourtArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return <CollegeCourtShell screen="daily" archiveDateKey={dateKey} />
 }
 
 interface SportRouteProps {
@@ -849,6 +866,39 @@ function App() {
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <CapCrunchArchiveRoute />
+          </Suspense>
+        }
+      />
+      {/* CollegeCourt game — NBA only */}
+      <Route
+        path="/collegecourt"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeCourtShell screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegecourt/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeCourtShell screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegecourt/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeCourtCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegecourt/archive/:dateKey"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeCourtArchiveRoute />
           </Suspense>
         }
       />
