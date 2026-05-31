@@ -9,9 +9,15 @@ const COLLEGE_LOGOS: Record<string, string> = {
   ARK:  `${ESPN}/8.png`,     // Arkansas
   AUB:  `${ESPN}/2.png`,     // Auburn
   BAY:  `${ESPN}/239.png`,   // Baylor
+  BC:   `${ESPN}/103.png`,   // Boston College
   BSU:  `${ESPN}/68.png`,    // Boise State
+  BYU:  `${ESPN}/252.png`,   // BYU
   CAL:  `${ESPN}/25.png`,    // California
+  CINC: `${ESPN}/2132.png`,  // Cincinnati
+  CLEM: `${ESPN}/228.png`,   // Clemson
+  CMU:  `${ESPN}/2117.png`,  // Central Michigan
   COL:  `${ESPN}/38.png`,    // Colorado
+  CSU:  `${ESPN}/36.png`,    // Colorado State
   DAV:  `${ESPN}/2429.png`,  // Davidson
   DUKE: `${ESPN}/150.png`,   // Duke
   FLA:  `${ESPN}/57.png`,    // Florida
@@ -39,25 +45,49 @@ const COLLEGE_LOGOS: Record<string, string> = {
   MRST: `${ESPN}/93.png`,    // Murray State
   NEV:  `${ESPN}/2440.png`,  // Nevada
   NMS:  `${ESPN}/166.png`,   // New Mexico State
+  EWU:  `${ESPN}/331.png`,   // Eastern Washington
+  FAU:  `${ESPN}/2226.png`,  // Florida Atlantic
+  FIU:  `${ESPN}/2229.png`,  // Florida International
+  GT:   `${ESPN}/59.png`,    // Georgia Tech
+  LIB:  `${ESPN}/2335.png`,  // Liberty
+  MD:   `${ESPN}/120.png`,   // Maryland
+  MIAMI:`${ESPN}/2390.png`,  // Miami (FL)
+  MINN: `${ESPN}/135.png`,   // Minnesota
+  MISS: `${ESPN}/145.png`,   // Ole Miss
+  MST:  `${ESPN}/344.png`,   // Mississippi State
+  NEB:  `${ESPN}/158.png`,   // Nebraska
+  NCST: `${ESPN}/152.png`,   // NC State
+  ND:   `${ESPN}/87.png`,    // Notre Dame
+  NDST: `${ESPN}/2449.png`,  // North Dakota State
   UNC:  `${ESPN}/153.png`,   // North Carolina
+  ORST: `${ESPN}/204.png`,   // Oregon State
   OSU:  `${ESPN}/194.png`,   // Ohio State
   OU:   `${ESPN}/201.png`,   // Oklahoma
   OkSt: `${ESPN}/197.png`,   // Oklahoma State
   ORE:  `${ESPN}/2483.png`,  // Oregon
   PITT: `${ESPN}/221.png`,   // Pittsburgh
+  PSU:  `${ESPN}/213.png`,   // Penn State
   PUR:  `${ESPN}/2509.png`,  // Purdue
+  RUT:  `${ESPN}/164.png`,   // Rutgers
+  SC:   `${ESPN}/2579.png`,  // South Carolina
+  SDST: `${ESPN}/2571.png`,  // South Dakota State
   SDSU: `${ESPN}/21.png`,    // San Diego State
   SCU:  `${ESPN}/2608.png`,  // Santa Clara
+  SMU:  `${ESPN}/2567.png`,  // SMU
   STAN: `${ESPN}/24.png`,    // Stanford
   SYR:  `${ESPN}/183.png`,   // Syracuse
   TCU:  `${ESPN}/2628.png`,  // TCU
   TENN: `${ESPN}/2633.png`,  // Tennessee
   TEX:  `${ESPN}/251.png`,   // Texas
   TAM:  `${ESPN}/245.png`,   // Texas A&M
+  TTU:  `${ESPN}/2641.png`,  // Texas Tech
   TOL:  `${ESPN}/325.png`,   // Toledo
+  TUL:  `${ESPN}/2655.png`,  // Tulane
+  UCF:  `${ESPN}/2116.png`,  // UCF
   UCLA: `${ESPN}/26.png`,    // UCLA
   UNLV: `${ESPN}/2439.png`,  // UNLV
   USC:  `${ESPN}/30.png`,    // USC
+  UTEP: `${ESPN}/2638.png`,  // UTEP
   UTA:  `${ESPN}/254.png`,   // Utah
   USU:  `${ESPN}/328.png`,   // Utah State
   VAN:  `${ESPN}/238.png`,   // Vanderbilt
@@ -68,7 +98,13 @@ const COLLEGE_LOGOS: Record<string, string> = {
   UW:   `${ESPN}/264.png`,   // Washington
   WSU:  `${ESPN}/265.png`,   // Washington State
   WEB:  `${ESPN}/2692.png`,  // Weber State
+  WIS:  `${ESPN}/275.png`,   // Wisconsin
+  WKU:  `${ESPN}/98.png`,    // Western Kentucky
   WST:  `${ESPN}/2691.png`,  // Wichita State
+  WVU:  `${ESPN}/276.png`,   // West Virginia
+  WYO:  `${ESPN}/277.png`,   // Wyoming
+  YALE: `${ESPN}/43.png`,    // Yale
+  HCROSS:`${ESPN}/107.png`,  // Holy Cross
 }
 
 // Country flags (ISO 3166-1 alpha-2 codes via flagcdn.com)
