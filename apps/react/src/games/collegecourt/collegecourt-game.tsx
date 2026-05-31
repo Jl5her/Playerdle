@@ -174,79 +174,6 @@ function CollegeBadge({
   )
 }
 
-// ---- Court position marker (numbered placeholder, reveals logo after win) ----
-
-function CourtMarker({
-  number,
-  pos,
-  starter,
-  won,
-}: {
-  number: number
-  pos: string
-  starter: CollegeStarter
-  won: boolean
-}) {
-  const ref = useRef<HTMLDivElement>(null)
-  const lastPointerTypeRef = useRef<string>("mouse")
-  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
-
-  useEffect(() => {
-    if (!tooltipPos) return
-    const dismiss = (e: PointerEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) setTooltipPos(null)
-    }
-    document.addEventListener("pointerdown", dismiss, true)
-    return () => document.removeEventListener("pointerdown", dismiss, true)
-  }, [tooltipPos])
-
-  function computePos() {
-    const rect = ref.current?.getBoundingClientRect()
-    return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
-  }
-
-  if (won) {
-    return (
-      <div className="flex flex-col items-center gap-0.5">
-        <CollegeBadge starter={starter} size="lg" showTooltip showPlayerName />
-        <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
-      </div>
-    )
-  }
-
-  return (
-    <>
-      <div className="flex flex-col items-center gap-0.5">
-        <div
-          ref={ref}
-          className="w-14 h-14 rounded-full flex items-center justify-center select-none cursor-pointer border-2"
-          style={{ backgroundColor: "rgba(30,20,10,0.72)", borderColor: "rgba(30,20,10,0.45)" }}
-          onPointerDown={e => { lastPointerTypeRef.current = e.pointerType }}
-          onPointerEnter={e => { if (e.pointerType === "mouse") setTooltipPos(computePos()) }}
-          onPointerLeave={e => { if (e.pointerType === "mouse") setTooltipPos(null) }}
-          onClick={() => {
-            if (lastPointerTypeRef.current !== "mouse") {
-              setTooltipPos(prev => (prev ? null : computePos()))
-            }
-          }}
-        >
-          <span className="text-white font-black text-xl leading-none">{number}</span>
-        </div>
-        <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
-      </div>
-      {tooltipPos && createPortal(
-        <div
-          className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
-          style={{ position: "fixed", left: tooltipPos.x, top: tooltipPos.y - 8, transform: "translate(-50%, -100%)", zIndex: 9999 }}
-        >
-          {starter.school}
-        </div>,
-        document.body,
-      )}
-    </>
-  )
-}
-
 // ---- Half-court diagram ----
 
 function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
@@ -299,13 +226,16 @@ function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolea
         </svg>
       </div>
 
-      {positions.map(({ pos, x, y }, i) => (
+      {positions.map(({ pos, x, y }) => (
         <div
           key={pos}
           className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
           style={{ left: x, top: y }}
         >
-          <CourtMarker number={i + 1} pos={pos} starter={team.starters[pos]} won={won} />
+          <div className="flex flex-col items-center gap-0.5">
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip showPlayerName={won} />
+            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
+          </div>
         </div>
       ))}
     </div>
