@@ -2,12 +2,15 @@ import {
   faBaseball,
   faBasketball,
   faChartBar,
+  faCircleCheck,
   faCircleInfo,
   faFootball,
   faGear,
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { GameModeButton, MenuOverlay, SettingsPanel } from "@/shared/components"
 import SyncPanel from "@/shared/components/sync-panel"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
@@ -35,6 +38,10 @@ export interface NavigationOptions {
 
 export interface ExtraGame {
   label: string
+  description?: string
+  icon?: IconDefinition
+  /** If true, renders as a direct button on the main menu instead of inside More Games */
+  featured?: boolean
   played: boolean
   onPlayDaily: () => void
   onPlayArcade: () => void
@@ -137,10 +144,18 @@ export default function MainMenu({
                   onClick={() => onNavigate("daily", { variantId: row.variantId })}
                 />
               ))}
-              {extraGames && extraGames.length > 0 && (
+              {extraGames?.filter(g => g.featured).map(game => (
+                <GameModeButton
+                  key={game.label}
+                  label={game.label}
+                  played={game.played}
+                  onClick={game.onPlayDaily}
+                />
+              ))}
+              {extraGames?.some(g => !g.featured) && (
                 <GameModeButton
                   label="More Games"
-                  played={extraGames.every(g => g.played)}
+                  played={extraGames!.filter(g => !g.featured).every(g => g.played)}
                   onClick={() => push("more-games")}
                 />
               )}
@@ -207,38 +222,53 @@ export default function MainMenu({
           onBack={pop}
         >
           <div className="-mt-1 flex-1 overflow-y-auto pb-4 flex flex-col gap-3 pt-4">
-            {extraGames?.map(game => (
-              <div
+            {extraGames?.filter(g => !g.featured).map(game => (
+              <button
                 key={game.label}
-                className="rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden"
+                type="button"
+                onClick={game.onPlayDaily}
+                className={clsx(
+                  "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
+                  game.played
+                    ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
+                    : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
+                )}
               >
-                <div className="flex items-center justify-between px-4 py-2.5 bg-primary-100 dark:bg-primary-800">
-                  <span className="font-bold text-sm uppercase tracking-wider text-primary-700 dark:text-primary-100">
+                <div className={clsx(
+                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center",
+                  game.played ? "bg-primary-100 dark:bg-primary-800" : "bg-white/20 dark:bg-black/15",
+                )}>
+                  <FontAwesomeIcon
+                    icon={game.icon!}
+                    className={clsx(
+                      "text-xl",
+                      game.played ? "text-primary-600 dark:text-primary-200" : "text-white dark:text-primary-800",
+                    )}
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className={clsx(
+                    "font-bold text-sm leading-tight",
+                    game.played ? "text-primary-800 dark:text-primary-100" : "text-white dark:text-primary-800",
+                  )}>
                     {game.label}
-                  </span>
-                  {game.played && (
-                    <span className="text-[10px] font-semibold uppercase tracking-wider text-primary-500 dark:text-primary-400">
-                      Completed
-                    </span>
-                  )}
+                  </div>
+                  <div className={clsx(
+                    "text-xs mt-0.5 leading-snug",
+                    game.played ? "text-primary-500 dark:text-primary-400" : "text-white/80 dark:text-primary-700",
+                  )}>
+                    {game.description}
+                  </div>
                 </div>
-                <div className="flex gap-2 px-3 py-3">
-                  <button
-                    type="button"
-                    onClick={game.onPlayDaily}
-                    className="flex-1 py-2 rounded-lg text-sm font-semibold bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 hover:bg-primary-700 dark:hover:bg-primary-200 transition-colors cursor-pointer"
-                  >
-                    Daily
-                  </button>
-                  <button
-                    type="button"
-                    onClick={game.onPlayArcade}
-                    className="flex-1 py-2 rounded-lg text-sm font-semibold border border-primary-300 dark:border-primary-600 text-primary-700 dark:text-primary-200 hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors cursor-pointer"
-                  >
-                    Arcade
-                  </button>
-                </div>
-              </div>
+                {game.played && (
+                  <FontAwesomeIcon
+                    icon={faCircleCheck}
+                    className="shrink-0 text-xl text-green-500 dark:text-green-400"
+                    aria-label="Completed today"
+                  />
+                )}
+              </button>
             ))}
           </div>
         </MenuOverlay>

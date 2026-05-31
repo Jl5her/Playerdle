@@ -1,4 +1,4 @@
-import { faMap } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faGraduationCap, faMap } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -290,6 +290,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (journeymanLeague) {
     builtExtraGames.push({
       label: "Journeyman",
+      featured: true,
       played: hasPlayedJourneyDailyToday(journeymanLeague),
       onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
       onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
@@ -300,6 +301,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (sportId === "nfl") {
     builtExtraGames.push({
       label: "Cap Crunch",
+      description: "Guess the NFL team from their salary cap numbers",
+      icon: faDollarSign,
       played: hasPlayedCapCrunchToday("nfl"),
       onPlayDaily: () => navigate("/capcrunch"),
       onPlayArcade: () => navigate("/capcrunch/arcade"),
@@ -307,6 +310,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     })
     builtExtraGames.push({
       label: "CollegeField",
+      description: "Guess the NFL team from college logos on the field",
+      icon: faGraduationCap,
       played: hasPlayedCollegeFieldToday(),
       onPlayDaily: () => navigate("/collegefield"),
       onPlayArcade: () => navigate("/collegefield/arcade"),
@@ -316,6 +321,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (sportId === "nba") {
     builtExtraGames.push({
       label: "CollegeCourt",
+      description: "Guess the NBA team from college logos on the court",
+      icon: faGraduationCap,
       played: hasPlayedCollegeCourtToday(),
       onPlayDaily: () => navigate("/collegecourt"),
       onPlayArcade: () => navigate("/collegecourt/arcade"),
