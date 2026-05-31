@@ -174,9 +174,82 @@ function CollegeBadge({
   )
 }
 
+// ---- Court position marker (numbered placeholder, reveals logo after win) ----
+
+function CourtMarker({
+  number,
+  pos,
+  starter,
+  won,
+}: {
+  number: number
+  pos: string
+  starter: CollegeStarter
+  won: boolean
+}) {
+  const ref = useRef<HTMLDivElement>(null)
+  const lastPointerTypeRef = useRef<string>("mouse")
+  const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
+
+  useEffect(() => {
+    if (!tooltipPos) return
+    const dismiss = (e: PointerEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setTooltipPos(null)
+    }
+    document.addEventListener("pointerdown", dismiss, true)
+    return () => document.removeEventListener("pointerdown", dismiss, true)
+  }, [tooltipPos])
+
+  function computePos() {
+    const rect = ref.current?.getBoundingClientRect()
+    return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
+  }
+
+  if (won) {
+    return (
+      <div className="flex flex-col items-center gap-0.5">
+        <CollegeBadge starter={starter} size="lg" showTooltip showPlayerName />
+        <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
+      </div>
+    )
+  }
+
+  return (
+    <>
+      <div className="flex flex-col items-center gap-0.5">
+        <div
+          ref={ref}
+          className="w-14 h-14 rounded-full flex items-center justify-center select-none cursor-pointer border-2"
+          style={{ backgroundColor: "rgba(30,20,10,0.72)", borderColor: "rgba(30,20,10,0.45)" }}
+          onPointerDown={e => { lastPointerTypeRef.current = e.pointerType }}
+          onPointerEnter={e => { if (e.pointerType === "mouse") setTooltipPos(computePos()) }}
+          onPointerLeave={e => { if (e.pointerType === "mouse") setTooltipPos(null) }}
+          onClick={() => {
+            if (lastPointerTypeRef.current !== "mouse") {
+              setTooltipPos(prev => (prev ? null : computePos()))
+            }
+          }}
+        >
+          <span className="text-white font-black text-xl leading-none">{number}</span>
+        </div>
+        <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
+      </div>
+      {tooltipPos && createPortal(
+        <div
+          className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
+          style={{ position: "fixed", left: tooltipPos.x, top: tooltipPos.y - 8, transform: "translate(-50%, -100%)", zIndex: 9999 }}
+        >
+          {starter.school}
+        </div>,
+        document.body,
+      )}
+    </>
+  )
+}
+
 // ---- Half-court diagram ----
 
-function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; showTooltip?: boolean }) {
+function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
     { pos: "PG", x: "50%", y: "34%" },
     { pos: "SG", x: "15%", y: "51%" },
@@ -188,7 +261,7 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
   return (
     <div className="relative w-full" style={{ paddingBottom: "70%" }}>
       {/* Hardwood court surface — parent card clips rounded corners */}
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#c49868" }}>
+      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#d6a96a" }}>
         <svg
           viewBox="0 0 300 186"
           className="absolute inset-0 w-full h-full"
@@ -198,47 +271,41 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
             {/* Vertical plank pattern: tiles every 16px horizontally, full 186px tall */}
             <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="16" height="186">
               {/* Plank A — lighter maple */}
-              <rect x="0" y="0" width="8" height="186" fill="#d2a87a"/>
-              <line x1="2"   y1="0" x2="2.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
-              <line x1="5"   y1="0" x2="5.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
+              <rect x="0" y="0" width="8" height="186" fill="#e2b87c"/>
+              <line x1="2"    y1="0" x2="2.8"  y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
+              <line x1="5"    y1="0" x2="5.6"  y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
               {/* Plank B — slightly darker maple */}
-              <rect x="8" y="0" width="8" height="186" fill="#c49868"/>
-              <line x1="10"  y1="0" x2="10.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
-              <line x1="13"  y1="0" x2="13.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
+              <rect x="8" y="0" width="8" height="186" fill="#d6a96a"/>
+              <line x1="10"   y1="0" x2="10.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
+              <line x1="13"   y1="0" x2="13.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
               {/* Board separators */}
-              <line x1="7.5" y1="0" x2="7.5"  y2="186" stroke="rgba(40,20,0,0.22)" strokeWidth="0.6"/>
-              <line x1="15.5" y1="0" x2="15.5" y2="186" stroke="rgba(40,20,0,0.22)" strokeWidth="0.6"/>
+              <line x1="7.5"  y1="0" x2="7.5"  y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
+              <line x1="15.5" y1="0" x2="15.5" y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
             </pattern>
           </defs>
-          {/* Wood plank fill behind all court markings */}
           <rect width="300" height="186" fill="url(#wood-planks)"/>
-          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <rect x="102" y="130" width="96" height="56" fill="rgba(40,20,0,0.08)" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(40,20,0,0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
-          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(40,20,0,0.4)" strokeWidth="1.2" />
-          <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(40,20,0,0.7)" strokeWidth="2.5" />
-          <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(40,20,0,0.85)" strokeWidth="1.8" />
-          <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(40,20,0,0.3)" strokeWidth="1" />
+          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <rect x="102" y="130" width="96" height="56" fill="rgba(40,20,0,0.06)" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(40,20,0,0.45)" strokeWidth="1.5" />
+          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(40,20,0,0.2)"  strokeWidth="1.5" strokeDasharray="4 4" />
+          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(40,20,0,0.35)" strokeWidth="1.2" />
+          <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(40,20,0,0.65)" strokeWidth="2.5" />
+          <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(40,20,0,0.8)" strokeWidth="1.8" />
+          <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(40,20,0,0.25)" strokeWidth="1" />
         </svg>
       </div>
 
-      {positions.map(({ pos, x, y }) => (
+      {positions.map(({ pos, x, y }, i) => (
         <div
           key={pos}
           className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
           style={{ left: x, top: y }}
         >
-          <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip showPlayerName={showTooltip} />
-            <span className="text-[11px] font-black text-white drop-shadow leading-none">
-              {POSITIONS.indexOf(pos) + 1}
-            </span>
-          </div>
+          <CourtMarker number={i + 1} pos={pos} starter={team.starters[pos]} won={won} />
         </div>
       ))}
     </div>
@@ -750,16 +817,16 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Half-court diagram — overflow-hidden lets parent card clip the rounded corners */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
-            <HalfCourt team={puzzle.team} showTooltip={won} />
+            <HalfCourt team={puzzle.team} won={won} />
           </div>
 
           {/* Guess grid */}
           <div className="mt-4">
             {/* Single column header row */}
             <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
-              {POSITIONS.map((pos, i) => (
-                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide text-primary-900 dark:text-primary-50">
-                  {i + 1}
+              {POSITIONS.map(pos => (
+                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
+                  {pos}
                 </div>
               ))}
             </div>
