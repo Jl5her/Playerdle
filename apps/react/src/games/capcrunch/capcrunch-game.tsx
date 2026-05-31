@@ -693,11 +693,6 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
-              <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Offensive Payroll — Which Team?
-              </span>
-            </div>
             <Formation offense={puzzle.team.offense} revealed={gameOver} />
           </div>
 

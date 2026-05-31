@@ -226,7 +226,7 @@ function FootballField({ team, revealPlayers = false }: { team: CollegeFieldTeam
         >
           <div className="flex flex-col items-center gap-0.5">
             <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip revealPlayer={revealPlayers} />
-            <span className="text-[8px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
+            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
           </div>
@@ -456,7 +456,7 @@ function buildShareText(
     .map(c => POSITIONS.map(p => (c[p] === "correct" ? "🟩" : "⬜")).join(""))
     .join("\n")
 
-  return `CollegeField NFL (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegefield`
+  return `Schooled NFL (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegefield`
 }
 
 // ---- Results panel ----
@@ -730,11 +730,6 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Football field diagram */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700">
-              <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Which NFL Team?
-              </span>
-            </div>
             <FootballField team={puzzle.team} revealPlayers={gameOver} />
           </div>
 

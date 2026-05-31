@@ -1,4 +1,4 @@
-import { faDollarSign, faGraduationCap, faMap } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faGraduationCap, faMap, faScroll } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -309,9 +309,9 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       onShowStats: () => navigate("/capcrunch"),
     })
     builtExtraGames.push({
-      label: "CollegeField",
-      description: "Guess the NFL team from college logos on the field",
-      icon: faGraduationCap,
+      label: "Schooled",
+      description: "Guess the NFL team from their players' college logos",
+      icon: faScroll,
       played: hasPlayedCollegeFieldToday(),
       onPlayDaily: () => navigate("/collegefield"),
       onPlayArcade: () => navigate("/collegefield/arcade"),

@@ -27,7 +27,7 @@ function HowToPlayPanel() {
   return (
     <div className="flex-1 overflow-y-auto px-5 py-4 text-sm text-primary-800 dark:text-primary-100 space-y-4">
       <p>
-        <strong>CollegeField</strong> shows you the college logos of an NFL team's starting offense —
+        <strong>Schooled</strong> shows you the college logos of an NFL team's starting offense —
         one badge per position on a football field diagram.
       </p>
       <p>
@@ -168,7 +168,7 @@ export default function CollegeFieldShell({ screen, archiveDateKey }: Props) {
   const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
 
   useEffect(() => {
-    document.title = "CollegeField · NFL"
+    document.title = "Schooled · NFL"
   }, [])
 
   useEffect(() => {
@@ -212,7 +212,7 @@ export default function CollegeFieldShell({ screen, archiveDateKey }: Props) {
             <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
           </button>
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
-            CollegeField
+            Schooled
           </h1>
           <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
