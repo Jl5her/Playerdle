@@ -175,94 +175,54 @@ function CollegeBadge({
 // ---- Half-court diagram ----
 
 function HalfCourt({ team }: { team: CollegeCourtTeam }) {
-  const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; label: string; x: string; y: string }> = [
-    { pos: "PG", label: "PG", x: "22%", y: "14%" },
-    { pos: "SG", label: "SG", x: "78%", y: "14%" },
-    { pos: "SF", label: "SF", x: "8%", y: "48%" },
-    { pos: "PF", label: "PF", x: "92%", y: "48%" },
-    { pos: "C", label: "C", x: "50%", y: "70%" },
+  const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
+    { pos: "PG", x: "24%", y: "18%" },
+    { pos: "SG", x: "76%", y: "18%" },
+    { pos: "SF", x: "10%", y: "50%" },
+    { pos: "PF", x: "90%", y: "50%" },
+    { pos: "C",  x: "50%", y: "72%" },
   ]
 
   return (
-    <div className="relative w-full" style={{ paddingBottom: "62%" }}>
-      {/* Court surface */}
+    // Outer container: position:relative, no overflow-hidden so badges aren't clipped
+    <div className="relative w-full" style={{ paddingBottom: "70%" }}>
+      {/* Green court surface — overflow-hidden only for its own rounded corners */}
       <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#2d5a27" }}>
         <svg
           viewBox="0 0 300 186"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Court boundary */}
           <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-
-          {/* Three-point arc (semicircle centered at basket) */}
-          {/* Basket is at (150, 183), arc radius ~120 */}
-          <path
-            d="M 22 183 A 128 128 0 0 1 278 183"
-            fill="none"
-            stroke="rgba(255,255,255,0.5)"
-            strokeWidth="1.5"
-          />
-          {/* Three-point straight lines */}
+          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
           <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
           <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-
-          {/* Paint / key */}
           <rect x="102" y="130" width="96" height="56" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-
-          {/* Free throw line */}
           <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-
-          {/* Free throw circle (top half) */}
-          <path
-            d="M 102 130 A 48 48 0 0 1 198 130"
-            fill="none"
-            stroke="rgba(255,255,255,0.5)"
-            strokeWidth="1.5"
-          />
-          {/* Free throw circle (bottom half, dashed) */}
-          <path
-            d="M 102 130 A 48 48 0 0 0 198 130"
-            fill="none"
-            stroke="rgba(255,255,255,0.25)"
-            strokeWidth="1.5"
-            strokeDasharray="4 4"
-          />
-
-          {/* Restricted area arc */}
-          <path
-            d="M 124 183 A 26 26 0 0 1 176 183"
-            fill="none"
-            stroke="rgba(255,255,255,0.4)"
-            strokeWidth="1.2"
-          />
-
-          {/* Basket backboard */}
+          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
+          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" />
           <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" />
-
-          {/* Basket hoop */}
           <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8" />
-
-          {/* Center court dot (at top, represents half-court line) */}
           <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
         </svg>
-
-        {/* Position badges overlaid on court */}
-        {positions.map(({ pos, label, x, y }) => (
-          <div
-            key={pos}
-            className="absolute -translate-x-1/2 -translate-y-1/2"
-            style={{ left: x, top: y }}
-          >
-            <div className="flex flex-col items-center gap-0.5">
-              <span className="text-[8px] font-black uppercase tracking-widest text-white/80 leading-none">
-                {label}
-              </span>
-              <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
-            </div>
-          </div>
-        ))}
       </div>
+
+      {/* Badges sit outside the overflow-hidden court so they never clip */}
+      {positions.map(({ pos, x, y }) => (
+        <div
+          key={pos}
+          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+          style={{ left: x, top: y }}
+        >
+          <div className="flex flex-col items-center gap-0.5">
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
+            <span className="text-[8px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
+              {pos}
+            </span>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
@@ -270,13 +230,11 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
 // ---- Guess row ----
 
 function PositionCell({
-  pos,
   starter,
   matchResult,
   delayMs,
   animate,
 }: {
-  pos: string
   starter: CollegeStarter
   matchResult: PositionResult
   delayMs: number
@@ -289,17 +247,10 @@ function PositionCell({
     return () => clearTimeout(t)
   }, [animate, delayMs])
 
-  return (
-    <div className="flex flex-col items-center gap-0.5">
-      <span className="text-[8px] font-bold uppercase tracking-wider text-primary-500 dark:text-primary-400">
-        {pos}
-      </span>
-      {revealed ? (
-        <CollegeBadge starter={starter} size="md" matchResult={matchResult} showTooltip />
-      ) : (
-        <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
-      )}
-    </div>
+  return revealed ? (
+    <CollegeBadge starter={starter} size="md" matchResult={matchResult} showTooltip />
+  ) : (
+    <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
   )
 }
 
@@ -319,11 +270,10 @@ function GuessRow({
       <div className="px-2 py-0.5 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none truncate">
         {teamName}
       </div>
-      <div className="flex gap-1.5 justify-center mt-1">
+      <div className="flex gap-1.5 justify-center">
         {POSITIONS.map((pos, i) => (
           <PositionCell
             key={pos}
-            pos={pos}
             starter={guessedTeam.starters[pos]}
             matchResult={comparison[pos]}
             delayMs={i * 80 + 150}
@@ -339,18 +289,10 @@ function GuessRow({
 
 function EmptyRow() {
   return (
-    <div>
-      <div className="h-4" />
-      <div className="flex gap-1.5 justify-center mt-1">
-        {POSITIONS.map(pos => (
-          <div key={pos} className="flex flex-col items-center gap-0.5">
-            <span className="text-[8px] font-bold uppercase tracking-wider text-primary-400/50 dark:text-primary-600">
-              {pos}
-            </span>
-            <div className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700" />
-          </div>
-        ))}
-      </div>
+    <div className="flex gap-1.5 justify-center">
+      {POSITIONS.map(pos => (
+        <div key={pos} className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700" />
+      ))}
     </div>
   )
 }
@@ -782,42 +724,53 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
-          {/* Half-court diagram */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden mt-3 mx-1">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700">
+          {/* Half-court diagram — outer card has no overflow-hidden so badges can breathe */}
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1">
+            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
               <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
                 Which NBA Team? — Tap a badge for player details
               </span>
             </div>
-            <div className="p-2">
+            <div className="px-5 pt-1 pb-3">
               <HalfCourt team={puzzle.team} />
             </div>
           </div>
 
           {/* Guess grid */}
-          <div className="flex flex-col gap-4 pt-2 pb-1 mt-2">
-            {Array.from({ length: COLLEGECOURT_MAX_GUESSES }).map((_, i) =>
-              i < guesses.length ? (
-                <div key={i} ref={el => { rowRefs.current[i] = el }}>
-                  {(() => {
-                    const guessedTeam = teamsById.get(guesses[i].teamId)
-                    if (!guessedTeam) return null
-                    return (
-                      <GuessRow
-                        teamName={guesses[i].teamName}
-                        guessedTeam={guessedTeam}
-                        comparison={comparisons[i]}
-                        animate={i === latestIndex}
-                      />
-                    )
-                  })()}
+          <div className="mt-4">
+            {/* Single column header row */}
+            <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
+              {POSITIONS.map(pos => (
+                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
+                  {pos}
                 </div>
-              ) : (
-                <div key={`empty-${i}`} ref={el => { rowRefs.current[i] = el }}>
-                  <EmptyRow />
-                </div>
-              ),
-            )}
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-3">
+              {Array.from({ length: COLLEGECOURT_MAX_GUESSES }).map((_, i) =>
+                i < guesses.length ? (
+                  <div key={i} ref={el => { rowRefs.current[i] = el }}>
+                    {(() => {
+                      const guessedTeam = teamsById.get(guesses[i].teamId)
+                      if (!guessedTeam) return null
+                      return (
+                        <GuessRow
+                          teamName={guesses[i].teamName}
+                          guessedTeam={guessedTeam}
+                          comparison={comparisons[i]}
+                          animate={i === latestIndex}
+                        />
+                      )
+                    })()}
+                  </div>
+                ) : (
+                  <div key={`empty-${i}`} ref={el => { rowRefs.current[i] = el }}>
+                    <EmptyRow />
+                  </div>
+                ),
+              )}
+            </div>
           </div>
         </div>
       </div>
