@@ -27,13 +27,12 @@ function HowToPlayPanel() {
   return (
     <div className="flex-1 overflow-y-auto px-5 py-4 text-sm text-primary-800 dark:text-primary-100 space-y-4">
       <p>
-        <strong>CollegeCourt</strong> shows you the college logos of an NBA team's starting lineup —
-        one badge per position on a half-court diagram.
+        <strong>CollegeCourt</strong> shows you the college alma maters of an NBA team's starting
+        lineup — one badge per position on a half-court diagram.
       </p>
       <p>
-        Guess which NBA team it is in <strong>5 tries</strong>. Each badge shows the college logo
-        (or country flag for international players). Tap any badge to see the player's name and
-        school.
+        Guess which NBA team it is in <strong>5 tries</strong>. Each badge shows the college or
+        country of origin for that player, color-coded with school colors.
       </p>
       <div className="space-y-2">
         <div className="font-semibold uppercase tracking-wider text-xs text-primary-500 dark:text-primary-300">
@@ -72,8 +71,8 @@ function HowToPlayPanel() {
         </ul>
       </div>
       <p className="text-primary-500 dark:text-primary-300 text-xs">
-        International players show their country flag. Players who skipped college show a text badge:
-        "G-LG" (G League Ignite) or "HS" (high school).
+        International players show their country code. Players who skipped college show "G-LG"
+        (G League Ignite) or "HS" (high school). Tap any badge to see the player name and school.
       </p>
     </div>
   )
