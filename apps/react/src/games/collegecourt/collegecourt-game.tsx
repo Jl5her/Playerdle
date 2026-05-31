@@ -187,25 +187,25 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
 
   return (
     <div className="relative w-full" style={{ paddingBottom: "70%" }}>
-      {/* Dark chalkboard court surface — parent card clips rounded corners */}
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#0d2416" }}>
+      {/* Hardwood court surface — parent card clips rounded corners */}
+      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#c8820a" }}>
         <svg
           viewBox="0 0 300 186"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <rect x="102" y="130" width="96" height="56" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
-          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" />
-          <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" />
-          <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8" />
-          <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <rect x="102" y="130" width="96" height="56" fill="rgba(40,20,0,0.08)" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
+          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(40,20,0,0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
+          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(40,20,0,0.4)" strokeWidth="1.2" />
+          <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(40,20,0,0.7)" strokeWidth="2.5" />
+          <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(40,20,0,0.85)" strokeWidth="1.8" />
+          <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(40,20,0,0.3)" strokeWidth="1" />
         </svg>
       </div>
 
