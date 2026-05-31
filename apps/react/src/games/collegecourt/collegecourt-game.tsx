@@ -178,38 +178,36 @@ function CollegeBadge({
 
 function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; showTooltip?: boolean }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
-    { pos: "PG", x: "50%", y: "35%" },
-    { pos: "SG", x: "76%", y: "43%" },
-    { pos: "SF", x: "21%", y: "43%" },
-    { pos: "PF", x: "65%", y: "62%" },
-    { pos: "C",  x: "50%", y: "72%" },
+    { pos: "PG", x: "50%", y: "34%" },
+    { pos: "SG", x: "15%", y: "51%" },
+    { pos: "SF", x: "78%", y: "44%" },
+    { pos: "PF", x: "30%", y: "64%" },
+    { pos: "C",  x: "50%", y: "73%" },
   ]
 
   return (
     <div className="relative w-full" style={{ paddingBottom: "70%" }}>
       {/* Hardwood court surface — parent card clips rounded corners */}
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#c8820a" }}>
+      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#c49868" }}>
         <svg
           viewBox="0 0 300 186"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            {/* Two-plank repeating tile: alternating shades + grain marks + board separator */}
-            <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="300" height="18">
-              {/* Plank A — base tone */}
-              <rect y="0" width="300" height="9" fill="#c8820a"/>
-              <rect y="0" width="300" height="4" fill="rgba(255,210,80,0.07)"/>
-              <line x1="0" y1="3" x2="300" y2="3" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
-              <line x1="0" y1="6" x2="300" y2="6" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
-              {/* Plank B — slightly darker */}
-              <rect y="9" width="300" height="9" fill="#be7808"/>
-              <rect y="9" width="300" height="4" fill="rgba(255,210,80,0.05)"/>
-              <line x1="0" y1="12" x2="300" y2="12" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
-              <line x1="0" y1="15" x2="300" y2="15" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
+            {/* Vertical plank pattern: tiles every 16px horizontally, full 186px tall */}
+            <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="16" height="186">
+              {/* Plank A — lighter maple */}
+              <rect x="0" y="0" width="8" height="186" fill="#d2a87a"/>
+              <line x1="2"   y1="0" x2="2.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
+              <line x1="5"   y1="0" x2="5.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
+              {/* Plank B — slightly darker maple */}
+              <rect x="8" y="0" width="8" height="186" fill="#c49868"/>
+              <line x1="10"  y1="0" x2="10.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
+              <line x1="13"  y1="0" x2="13.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
               {/* Board separators */}
-              <line x1="0" y1="8.5" x2="300" y2="8.5" stroke="rgba(30,15,0,0.28)" strokeWidth="0.6"/>
-              <line x1="0" y1="17.5" x2="300" y2="17.5" stroke="rgba(30,15,0,0.28)" strokeWidth="0.6"/>
+              <line x1="7.5" y1="0" x2="7.5"  y2="186" stroke="rgba(40,20,0,0.22)" strokeWidth="0.6"/>
+              <line x1="15.5" y1="0" x2="15.5" y2="186" stroke="rgba(40,20,0,0.22)" strokeWidth="0.6"/>
             </pattern>
           </defs>
           {/* Wood plank fill behind all court markings */}
@@ -229,7 +227,6 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
         </svg>
       </div>
 
-      {/* Badges sit outside the overflow-hidden court so they never clip */}
       {positions.map(({ pos, x, y }) => (
         <div
           key={pos}
@@ -238,8 +235,8 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
         >
           <div className="flex flex-col items-center gap-0.5">
             <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip showPlayerName={showTooltip} />
-            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
-              {pos}
+            <span className="text-[11px] font-black text-white drop-shadow leading-none">
+              {POSITIONS.indexOf(pos) + 1}
             </span>
           </div>
         </div>
@@ -760,9 +757,9 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
           <div className="mt-4">
             {/* Single column header row */}
             <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
-              {POSITIONS.map(pos => (
-                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
-                  {pos}
+              {POSITIONS.map((pos, i) => (
+                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide text-primary-900 dark:text-primary-50">
+                  {i + 1}
                 </div>
               ))}
             </div>
