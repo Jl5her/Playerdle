@@ -52,11 +52,13 @@ function CollegeBadge({
   size = "md",
   matchResult,
   showTooltip = false,
+  showPlayerName = true,
 }: {
   starter: CollegeStarter
   size?: "sm" | "md" | "lg"
   matchResult?: PositionResult
   showTooltip?: boolean
+  showPlayerName?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
@@ -164,7 +166,7 @@ function CollegeBadge({
               zIndex: 9999,
             }}
           >
-            {starter.name} · {starter.school}
+            {showPlayerName ? `${starter.name} · ${starter.school}` : starter.school}
           </div>,
           document.body,
         )}
@@ -215,7 +217,7 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip={showTooltip} />
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip showPlayerName={showTooltip} />
             <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
