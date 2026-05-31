@@ -177,7 +177,6 @@ function CollegeBadge({
 // ---- Half-court diagram ----
 
 function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
-  // Basket at TOP, matching the reference image orientation
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
     { pos: "PG", x: "50%", y: "80%" },
     { pos: "SG", x: "17%", y: "63%" },
@@ -196,49 +195,39 @@ function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolea
         >
           <defs>
             <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="16" height="186">
-              <rect x="0"  y="0" width="8" height="186" fill="#e2b87c"/>
+              <rect x="0" y="0" width="8" height="186" fill="#e2b87c"/>
               <line x1="2"    y1="0" x2="2.8"  y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
               <line x1="5"    y1="0" x2="5.6"  y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
-              <rect x="8"  y="0" width="8" height="186" fill="#d6a96a"/>
+              <rect x="8" y="0" width="8" height="186" fill="#d6a96a"/>
               <line x1="10"   y1="0" x2="10.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
               <line x1="13"   y1="0" x2="13.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
               <line x1="7.5"  y1="0" x2="7.5"  y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
               <line x1="15.5" y1="0" x2="15.5" y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
             </pattern>
           </defs>
-
           <rect width="300" height="186" fill="url(#wood-planks)"/>
-
           {/* Court boundary */}
           <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-
-          {/* 3pt arc — basket at top (y=3), arc opens downward */}
+          {/* Three-point arc (basket at top) */}
           <path d="M 22 3 A 128 128 0 0 0 278 3" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          <line x1="22"  y1="3" x2="22"  y2="46" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
+          <line x1="22" y1="3" x2="22" y2="46" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
           <line x1="278" y1="3" x2="278" y2="46" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-
           {/* Paint / key */}
           <rect x="102" y="3" width="96" height="53" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-
           {/* Free throw line */}
           <line x1="102" y1="56" x2="198" y2="56" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-
-          {/* FT circle — solid half opens away from basket (downward) */}
+          {/* Free throw circle — solid top half, dashed bottom half */}
           <path d="M 102 56 A 48 48 0 0 0 198 56" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          {/* FT circle — dashed half inside the paint (upward) */}
           <path d="M 102 56 A 48 48 0 0 1 198 56" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="4 4"/>
-
-          {/* Restricted area arc */}
+          {/* Restricted arc */}
           <path d="M 124 3 A 26 26 0 0 0 176 3" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2"/>
-
           {/* Backboard */}
           <line x1="127" y1="3" x2="173" y2="3" stroke="rgba(255,255,255,0.75)" strokeWidth="2.5"/>
-
-          {/* Basket rim */}
+          {/* Basket / hoop */}
           <ellipse cx="150" cy="6" rx="10" ry="3.5" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8"/>
-
-          {/* Half-court line + top arc of center circle */}
+          {/* Half-court line */}
           <line x1="3" y1="183" x2="297" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
+          {/* Center circle arc at bottom */}
           <path d="M 114 183 A 36 36 0 0 0 186 183" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2"/>
         </svg>
       </div>
@@ -282,6 +271,268 @@ function PositionCell({
   return revealed ? (
     <CollegeBadge starter={starter} size="md" matchResult={matchResult} showTooltip />
   ) : (
+    <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
+  )
+}
+
+function GuessRow({
+  teamName,
+  guessedTeam,
+  comparison,
+  animate,
+}: {
+  teamName: string
+  guessedTeam: CollegeCourtTeam
+  comparison: CollegeCourtComparison
+  animate?: boolean
+}) {
+  return (
+    <div>
+      <div className="px-2 py-0.5 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none truncate">
+        {teamName}
+      </div>
+      <div className="flex gap-1.5 justify-center">
+        {POSITIONS.map((pos, i) => (
+          <PositionCell
+            key={pos}
+            starter={guessedTeam.starters[pos]}
+            matchResult={comparison[pos]}
+            delayMs={i * 80 + 150}
+            animate={animate ?? false}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+// ---- Empty guess row placeholder ----
+
+function EmptyRow() {
+  return (
+    <div className="flex gap-1.5 justify-center">
+      {POSITIONS.map(pos => (
+        <div key={pos} className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700" />
+      ))}
+    </div>
+  )
+}
+
+// ---- Team autocomplete ----
+
+interface TeamOption {
+  id: string
+  name: string
+  abbr: string
+}
+
+function TeamInput({
+  onGuess,
+  disabled,
+  usedIds,
+  teams,
+}: {
+  onGuess: (team: TeamOption) => void
+  disabled: boolean
+  usedIds: Set<string>
+  teams: TeamOption[]
+}) {
+  const [query, setQuery] = useState("")
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [highlightIndex, setHighlightIndex] = useState(0)
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    if (!disabled) inputRef.current?.focus()
+  }, [disabled])
+
+  const fuse = useMemo(
+    () =>
+      new Fuse(teams, {
+        keys: ["name", "abbr"],
+        threshold: 0.35,
+        distance: 50,
+      }),
+    [teams],
+  )
+
+  const trimmed = query.trim()
+  const filtered = useMemo(() => {
+    if (!trimmed) return []
+    const q = trimmed.toLowerCase()
+    const seen = new Set<string>()
+    const result: TeamOption[] = []
+    for (const t of teams) {
+      if (usedIds.has(t.id)) continue
+      if (t.name.toLowerCase().includes(q) || t.abbr.toLowerCase().includes(q)) {
+        result.push(t)
+        seen.add(t.id)
+        if (result.length >= 10) break
+      }
+    }
+    if (result.length < 10) {
+      for (const r of fuse.search(trimmed, { limit: 10 })) {
+        if (seen.has(r.item.id)) continue
+        if (usedIds.has(r.item.id)) continue
+        result.push(r.item)
+        seen.add(r.item.id)
+        if (result.length >= 10) break
+      }
+    }
+    return result.slice(0, 10)
+  }, [trimmed, usedIds, fuse, teams])
+
+  function handleSelect(option: TeamOption) {
+    onGuess(option)
+    setQuery("")
+    setShowDropdown(false)
+    setHighlightIndex(0)
+  }
+
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "ArrowDown") {
+      e.preventDefault()
+      setHighlightIndex(p => Math.min(p + 1, filtered.length - 1))
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault()
+      setHighlightIndex(p => Math.max(p - 1, 0))
+    } else if (e.key === "Enter") {
+      e.preventDefault()
+      if (filtered[highlightIndex]) handleSelect(filtered[highlightIndex])
+    } else if (e.key === "Escape") {
+      setShowDropdown(false)
+    }
+  }
+
+  if (disabled) return null
+
+  return (
+    <div className="shrink-0 mx-3 mb-3 pb-[max(0rem,env(safe-area-inset-bottom))] bg-primary-50 dark:bg-primary-900">
+      <div className="relative max-w-xs mx-auto">
+        <input
+          ref={inputRef}
+          type="text"
+          name="team-search"
+          value={query}
+          onChange={e => {
+            setQuery(e.currentTarget.value)
+            setShowDropdown(true)
+            setHighlightIndex(0)
+          }}
+          onFocus={() => query.trim() && setShowDropdown(true)}
+          onBlur={() => setShowDropdown(false)}
+          onKeyDown={handleKeyDown}
+          placeholder="Type a team name..."
+          className="w-full px-4 py-3 text-base rounded-lg border-2 border-primary-300 bg-secondary-50 text-primary-900 outline-none dark:bg-secondary-900 dark:text-primary-50 dark:border-primary-700"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          inputMode="search"
+          enterKeyHint="search"
+        />
+        {showDropdown && filtered.length > 0 && (
+          <div className="absolute bottom-full left-0 right-0 max-h-64 overflow-y-auto bg-secondary-50 border border-primary-300 rounded-lg mb-1 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] z-30 dark:bg-secondary-900 dark:border-primary-700">
+            {filtered.map((option, i) => (
+              <button
+                key={option.id}
+                className={clsx(
+                  "flex justify-between items-center w-full px-3 py-2.5 border-none bg-none text-primary-900 text-left cursor-pointer transition-colors dark:text-primary-50",
+                  i === highlightIndex
+                    ? "bg-primary-100 dark:bg-primary-800"
+                    : "hover:bg-primary-50 dark:hover:bg-primary-900",
+                )}
+                onPointerDown={e => {
+                  e.preventDefault()
+                  handleSelect(option)
+                }}
+                onMouseEnter={() => setHighlightIndex(i)}
+              >
+                <span className="font-semibold text-sm">{option.name}</span>
+                <span className="text-xs text-primary-500 dark:text-primary-200 ml-2 font-mono">
+                  {option.abbr}
+                </span>
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+// ---- Share text ----
+
+function buildShareText(
+  guesses: CollegeCourtGuessRecord[],
+  comparisons: CollegeCourtComparison[],
+  won: boolean,
+): string {
+  const score = won ? `${guesses.length}/${COLLEGECOURT_MAX_GUESSES}` : `X/${COLLEGECOURT_MAX_GUESSES}`
+  const dateStr = new Intl.DateTimeFormat("en-US", {
+    month: "numeric",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date())
+
+  const emojiGrid = comparisons
+    .map(c => POSITIONS.map(p => (c[p] === "correct" ? "🟩" : "⬜")).join(""))
+    .join("\n")
+
+  return `Schooled NBA (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegecourt`
+}
+
+// ---- Results panel ----
+
+function ResultsPanel({
+  puzzle,
+  guesses,
+  comparisons,
+  won,
+  mode,
+  stats,
+  onClose,
+  onPlayAgain,
+}: {
+  puzzle: CollegeCourtPuzzle
+  guesses: CollegeCourtGuessRecord[]
+  comparisons: CollegeCourtComparison[]
+  won: boolean
+  mode: CollegeCourtGameMode
+  stats: CollegeCourtStats | null
+  onClose: () => void
+  onPlayAgain: () => void
+}) {
+  const { share, copied } = useClipboardShare()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
+
+  function handleShare() {
+    share({
+      title: "Schooled",
+      text: buildShareText(guesses, comparisons, won),
+    })
+  }
+
+  return (
+    <div className="flex-1 min-h-0 flex flex-col pb-4">
+      <Popup visible={copied} message="Copied to clipboard!" durationMs={3000} />
+      <div
+        ref={scrollRef}
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
+      >
+        {/* Answer reveal */}
+        <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
+          <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
+            {puzzle.team.name} — Starting Five
+          </div>
+          <div className="flex gap-3 justify-center py-3 px-2 flex-wrap">
+            {POSITIONS.map(pos => {
+              const starter = puzzle.team.starters[pos]
+              return (
+                <div key={pos} className="flex flex-col items-center gap-0.5">
+                  <span className="text-[8px] font-bold uppercase tracking-wider text-primary-500 dark:text-primary-400">
+                    {pos}
                   </span>
                   <CollegeBadge starter={starter} size="lg" showTooltip />
                   <span className="text-[9px] font-semibold text-primary-800 dark:text-primary-100 max-w-[3.5rem] text-center leading-tight line-clamp-2">
