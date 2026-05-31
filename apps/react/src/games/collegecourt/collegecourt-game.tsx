@@ -154,7 +154,7 @@ function CollegeBadge({
 
 // ---- Half-court diagram ----
 
-function HalfCourt({ team, revealed }: { team: CollegeCourtTeam; revealed: boolean }) {
+function HalfCourt({ team }: { team: CollegeCourtTeam }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; label: string; x: string; y: string }> = [
     { pos: "PG", label: "PG", x: "22%", y: "14%" },
     { pos: "SG", label: "SG", x: "78%", y: "14%" },
@@ -238,13 +238,7 @@ function HalfCourt({ team, revealed }: { team: CollegeCourtTeam; revealed: boole
               <span className="text-[8px] font-black uppercase tracking-widest text-white/80 leading-none">
                 {label}
               </span>
-              {revealed ? (
-                <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
-              ) : (
-                <div className="w-14 h-14 rounded-full bg-white/10 border-2 border-white/25 flex items-center justify-center">
-                  <span className="text-white/40 text-xl font-black">?</span>
-                </div>
-              )}
+              <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
             </div>
           </div>
         ))}
@@ -772,11 +766,11 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden mt-3 mx-1">
             <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700">
               <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Which NBA Team? — Tap badges for clues
+                Which NBA Team? — Tap a badge for player details
               </span>
             </div>
             <div className="p-2">
-              <HalfCourt team={puzzle.team} revealed={gameOver} />
+              <HalfCourt team={puzzle.team} />
             </div>
           </div>
 
