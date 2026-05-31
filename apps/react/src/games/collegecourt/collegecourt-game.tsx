@@ -184,10 +184,9 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
   ]
 
   return (
-    // Outer container: position:relative, no overflow-hidden so badges aren't clipped
     <div className="relative w-full" style={{ paddingBottom: "70%" }}>
-      {/* Green court surface — overflow-hidden only for its own rounded corners */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#2d5a27" }}>
+      {/* Dark chalkboard court surface — parent card clips rounded corners */}
+      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#0d2416" }}>
         <svg
           viewBox="0 0 300 186"
           className="absolute inset-0 w-full h-full"
@@ -217,7 +216,7 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
         >
           <div className="flex flex-col items-center gap-0.5">
             <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
-            <span className="text-[8px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
+            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
           </div>
@@ -730,16 +729,9 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
-          {/* Half-court diagram — outer card has no overflow-hidden so badges can breathe */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
-              <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Which NBA Team? — Tap a badge for player details
-              </span>
-            </div>
-            <div className="px-5 pt-1 pb-3">
-              <HalfCourt team={puzzle.team} />
-            </div>
+          {/* Half-court diagram — overflow-hidden lets parent card clip the rounded corners */}
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
+            <HalfCourt team={puzzle.team} />
           </div>
 
           {/* Guess grid */}
