@@ -52,11 +52,13 @@ function CollegeBadge({
   size = "md",
   matchResult,
   showTooltip = false,
+  revealPlayer = true,
 }: {
   starter: CollegeStarter
   size?: "sm" | "md" | "lg"
   matchResult?: PositionResult
   showTooltip?: boolean
+  revealPlayer?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
@@ -156,7 +158,7 @@ function CollegeBadge({
               zIndex: 9999,
             }}
           >
-            {starter.name} · {starter.school}
+            {revealPlayer ? `${starter.name} · ${starter.school}` : starter.school}
           </div>,
           document.body,
         )}
@@ -164,54 +166,51 @@ function CollegeBadge({
   )
 }
 
-// ---- Football field diagram ----
+// ---- Playbook formation diagram ----
 
-function FootballField({ team }: { team: CollegeFieldTeam }) {
+function FootballField({ team, revealPlayers = false }: { team: CollegeFieldTeam; revealPlayers?: boolean }) {
+  // Spread formation: WRs wide on LOS, TE tight right, QB in shotgun, RB behind
   const positions: Array<{ pos: "QB" | "RB" | "TE" | "WR1" | "WR2"; x: string; y: string }> = [
-    { pos: "WR1", x: "8%",  y: "44%" },
-    { pos: "WR2", x: "92%", y: "44%" },
-    { pos: "TE",  x: "74%", y: "54%" },
-    { pos: "QB",  x: "50%", y: "66%" },
-    { pos: "RB",  x: "50%", y: "80%" },
+    { pos: "WR1", x: "8%",  y: "43%" },
+    { pos: "WR2", x: "92%", y: "43%" },
+    { pos: "TE",  x: "74%", y: "50%" },
+    { pos: "QB",  x: "50%", y: "63%" },
+    { pos: "RB",  x: "50%", y: "84%" },
   ]
 
   return (
     <div className="relative w-full" style={{ paddingBottom: "66%" }}>
-      {/* Field surface — overflow-hidden for rounded corners */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#2d5a27" }}>
+      {/* Playbook background — dark chalkboard style */}
+      <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#0d2416" }}>
         <svg
           viewBox="0 0 300 198"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* End zone */}
-          <rect x="0" y="0" width="300" height="32" fill="rgba(0,0,0,0.18)" />
-          <text x="150" y="21" textAnchor="middle" fill="rgba(255,255,255,0.35)" fontSize="12" fontWeight="bold" letterSpacing="4">TOUCHDOWN</text>
-          {/* Yard lines */}
-          <line x1="0" y1="32"  x2="300" y2="32"  stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" />
-          <line x1="0" y1="64"  x2="300" y2="64"  stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-          <line x1="0" y1="96"  x2="300" y2="96"  stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-          <line x1="0" y1="128" x2="300" y2="128" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-          <line x1="0" y1="160" x2="300" y2="160" stroke="rgba(255,255,255,0.25)" strokeWidth="1" />
-          {/* Left hash marks */}
-          <line x1="97"  y1="32"  x2="97"  y2="36"  stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="97"  y1="64"  x2="97"  y2="68"  stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="97"  y1="96"  x2="97"  y2="100" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="97"  y1="128" x2="97"  y2="132" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="97"  y1="160" x2="97"  y2="164" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          {/* Right hash marks */}
-          <line x1="203" y1="32"  x2="203" y2="36"  stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="203" y1="64"  x2="203" y2="68"  stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="203" y1="96"  x2="203" y2="100" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="203" y1="128" x2="203" y2="132" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          <line x1="203" y1="160" x2="203" y2="164" stroke="rgba(255,255,255,0.45)" strokeWidth="1" />
-          {/* Goal post */}
-          <line x1="150" y1="0"  x2="150" y2="18" stroke="rgba(255,215,0,0.8)" strokeWidth="2.5" />
-          <line x1="134" y1="6"  x2="166" y2="6"  stroke="rgba(255,215,0,0.8)" strokeWidth="2.5" />
-          <line x1="134" y1="0"  x2="134" y2="6"  stroke="rgba(255,215,0,0.8)" strokeWidth="2" />
-          <line x1="166" y1="0"  x2="166" y2="6"  stroke="rgba(255,215,0,0.8)" strokeWidth="2" />
-          {/* Field border */}
-          <rect x="2" y="2" width="296" height="194" rx="4" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.5" />
+          {/* Subtle outer border */}
+          <rect x="2" y="2" width="296" height="194" rx="6" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+
+          {/* Line of scrimmage — solid white chalk line */}
+          <line x1="8" y1="91" x2="292" y2="91" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+
+          {/* Center snap indicator (bold segment at LOS midpoint) */}
+          <line x1="136" y1="91" x2="164" y2="91" stroke="rgba(255,255,255,0.85)" strokeWidth="3" />
+
+          {/* WR1 (x=8%=24, y=43%=85): go route straight up */}
+          <line x1="24" y1="85" x2="24" y2="14" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="24,8 20,18 28,18" fill="rgba(255,255,255,0.38)" />
+
+          {/* WR2 (x=92%=276, y=43%=85): go route straight up */}
+          <line x1="276" y1="85" x2="276" y2="14" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="276,8 272,18 280,18" fill="rgba(255,255,255,0.38)" />
+
+          {/* TE (x=74%=222, y=50%=99): out-and-up / dig route */}
+          <polyline points="222,99 222,62 136,38" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="131,36 140,32 141,42" fill="rgba(255,255,255,0.32)" />
+
+          {/* RB (x=50%=150, y=84%=166): swing/flare route left */}
+          <path d="M 150 166 Q 110 162 88 150" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="4 3.5" />
+          <polygon points="83,148 91,143 93,153" fill="rgba(255,255,255,0.28)" />
         </svg>
       </div>
 
@@ -223,7 +222,7 @@ function FootballField({ team }: { team: CollegeFieldTeam }) {
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip revealPlayer={revealPlayers} />
             <span className="text-[8px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
@@ -734,7 +733,7 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
               </span>
             </div>
             <div className="px-5 pt-1 pb-3">
-              <FootballField team={puzzle.team} />
+              <FootballField team={puzzle.team} revealPlayers={gameOver} />
             </div>
           </div>
 
