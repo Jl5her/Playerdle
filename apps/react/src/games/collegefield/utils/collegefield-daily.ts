@@ -2,8 +2,8 @@ import nflData from "@playerdle/data/collegecourt/nfl-college-field.json"
 import { minHashPick } from "@/shared/utils/daily-select"
 import { getDateKey, getTodayKey } from "@/shared/utils/time"
 
-export type Position = "QB" | "RB" | "TE" | "WR1" | "WR2"
-export const POSITIONS: Position[] = ["QB", "RB", "TE", "WR1", "WR2"]
+export type Position = "QB" | "RB" | "TE" | "WR1" | "WR2" | "WR3"
+export const POSITIONS: Position[] = ["QB", "RB", "TE", "WR1", "WR2", "WR3"]
 
 export interface CollegeStarter {
   name: string
@@ -202,6 +202,7 @@ export interface CollegeFieldComparison {
   TE: PositionResult
   WR1: PositionResult
   WR2: PositionResult
+  WR3: PositionResult
 }
 
 export function compareTeamToAnswer(

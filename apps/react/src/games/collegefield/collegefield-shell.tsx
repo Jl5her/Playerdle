@@ -51,7 +51,9 @@ function HowToPlayPanel() {
                     ? "— Tight End"
                     : p === "WR1"
                       ? "— Wide Receiver 1"
-                      : "— Wide Receiver 2"}
+                      : p === "WR2"
+                        ? "— Wide Receiver 2"
+                        : "— Wide Receiver 3"}
             </li>
           ))}
         </ul>

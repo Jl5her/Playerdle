@@ -22,6 +22,7 @@ import {
   type CollegeFieldStats,
   type CollegeFieldTeam,
   type CollegeStarter,
+  type Position,
   type PositionResult,
 } from "@/games/collegefield/utils/collegefield-daily"
 import {
@@ -169,48 +170,53 @@ function CollegeBadge({
 // ---- Playbook formation diagram ----
 
 function FootballField({ team, revealPlayers = false }: { team: CollegeFieldTeam; revealPlayers?: boolean }) {
-  // Spread formation: WRs wide on LOS, TE tight right, QB in shotgun, RB behind
-  const positions: Array<{ pos: "QB" | "RB" | "TE" | "WR1" | "WR2"; x: string; y: string }> = [
-    { pos: "WR1", x: "8%",  y: "43%" },
+  // 3x1 spread: WR1 wide left, WR3 slot left, TE tight right, WR2 wide right, QB shotgun offset left, RB offset right
+  const positions: Array<{ pos: Position; x: string; y: string }> = [
+    { pos: "WR1", x: "5%",  y: "43%" },
+    { pos: "WR3", x: "27%", y: "43%" },
+    { pos: "TE",  x: "70%", y: "49%" },
     { pos: "WR2", x: "92%", y: "43%" },
-    { pos: "TE",  x: "74%", y: "50%" },
-    { pos: "QB",  x: "50%", y: "63%" },
-    { pos: "RB",  x: "50%", y: "84%" },
+    { pos: "QB",  x: "46%", y: "63%" },
+    { pos: "RB",  x: "62%", y: "84%" },
   ]
 
   return (
-    <div className="relative w-full" style={{ paddingBottom: "66%" }}>
+    <div className="relative w-full" style={{ paddingBottom: "76%" }}>
       {/* Playbook background — dark chalkboard style */}
       <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#0d2416" }}>
         <svg
-          viewBox="0 0 300 198"
+          viewBox="0 0 300 228"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Subtle outer border */}
-          <rect x="2" y="2" width="296" height="194" rx="6" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+          <rect x="2" y="2" width="296" height="224" rx="6" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
 
-          {/* Line of scrimmage — solid white chalk line */}
-          <line x1="8" y1="91" x2="292" y2="91" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+          {/* Line of scrimmage */}
+          <line x1="8" y1="107" x2="292" y2="107" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
 
-          {/* Center snap indicator (bold segment at LOS midpoint) */}
-          <line x1="136" y1="91" x2="164" y2="91" stroke="rgba(255,255,255,0.85)" strokeWidth="3" />
+          {/* Center snap indicator (in front of QB at x≈46%) */}
+          <line x1="120" y1="107" x2="156" y2="107" stroke="rgba(255,255,255,0.85)" strokeWidth="3" />
 
-          {/* WR1 (x=8%=24, y=43%=85): go route straight up */}
-          <line x1="24" y1="85" x2="24" y2="14" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="24,8 20,18 28,18" fill="rgba(255,255,255,0.38)" />
+          {/* WR1 (x=5%=15, y=43%=98): go route straight up */}
+          <line x1="15" y1="98" x2="15" y2="22" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="15,16 11,26 19,26" fill="rgba(255,255,255,0.38)" />
 
-          {/* WR2 (x=92%=276, y=43%=85): go route straight up */}
-          <line x1="276" y1="85" x2="276" y2="14" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="276,8 272,18 280,18" fill="rgba(255,255,255,0.38)" />
+          {/* WR3 (x=27%=81, y=43%=98): in-route — up then cut inside */}
+          <polyline points="81,98 81,56 162,32" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="162,32 154,39 152,31" fill="rgba(255,255,255,0.38)" />
 
-          {/* TE (x=74%=222, y=50%=99): out-and-up / dig route */}
-          <polyline points="222,99 222,62 136,38" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="131,36 140,32 141,42" fill="rgba(255,255,255,0.32)" />
+          {/* WR2 (x=92%=276, y=43%=98): go route straight up */}
+          <line x1="276" y1="98" x2="276" y2="22" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="276,16 272,26 280,26" fill="rgba(255,255,255,0.38)" />
 
-          {/* RB (x=50%=150, y=84%=166): swing/flare route left */}
-          <path d="M 150 166 Q 110 162 88 150" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="4 3.5" />
-          <polygon points="83,148 91,143 93,153" fill="rgba(255,255,255,0.28)" />
+          {/* TE (x=70%=210, y=49%=112): cross route — up then cut inside */}
+          <polyline points="210,112 210,72 132,46" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" strokeDasharray="5 3.5" />
+          <polygon points="132,46 142,45 140,53" fill="rgba(255,255,255,0.32)" />
+
+          {/* RB (x=62%=186, y=84%=191): swing route right */}
+          <path d="M 186 191 Q 226 184 248 170" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="4 3.5" />
+          <polygon points="248,170 242,178 238,172" fill="rgba(255,255,255,0.28)" />
         </svg>
       </div>
 
@@ -254,9 +260,9 @@ function PositionCell({
   }, [animate, delayMs])
 
   return revealed ? (
-    <CollegeBadge starter={starter} size="md" matchResult={matchResult} showTooltip />
+    <CollegeBadge starter={starter} size="sm" matchResult={matchResult} showTooltip />
   ) : (
-    <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
+    <div className="w-9 h-9 rounded-full bg-primary-200 dark:bg-primary-700" />
   )
 }
 
@@ -276,7 +282,7 @@ function GuessRow({
       <div className="px-2 py-0.5 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none truncate">
         {teamName}
       </div>
-      <div className="flex gap-1.5 justify-center">
+      <div className="flex gap-1.5 justify-center flex-wrap">
         {POSITIONS.map((pos, i) => (
           <PositionCell
             key={pos}
@@ -295,7 +301,7 @@ function EmptyRow() {
   return (
     <div className="flex gap-1.5 justify-center">
       {POSITIONS.map(pos => (
-        <div key={pos} className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700" />
+        <div key={pos} className="w-9 h-9 rounded-full border border-primary-200 dark:border-primary-700" />
       ))}
     </div>
   )
@@ -618,9 +624,9 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
         if (!guessedTeam)
-          return { QB: "incorrect", RB: "incorrect", TE: "incorrect", WR1: "incorrect", WR2: "incorrect" } as CollegeFieldComparison
+          return { QB: "incorrect", RB: "incorrect", TE: "incorrect", WR1: "incorrect", WR2: "incorrect", WR3: "incorrect" } as CollegeFieldComparison
         if (guessedTeam.id === puzzle.team.id)
-          return { QB: "correct", RB: "correct", TE: "correct", WR1: "correct", WR2: "correct" } as CollegeFieldComparison
+          return { QB: "correct", RB: "correct", TE: "correct", WR1: "correct", WR2: "correct", WR3: "correct" } as CollegeFieldComparison
         return compareTeamToAnswer(guessedTeam, puzzle.team)
       }),
     [guesses, puzzle.team, teamsById],
@@ -729,7 +735,7 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1">
             <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
               <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Which NFL Team? — Tap a badge for player details
+                Which NFL Team?
               </span>
             </div>
             <div className="px-5 pt-1 pb-3">
@@ -741,7 +747,7 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
           <div className="mt-4">
             <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
               {POSITIONS.map(pos => (
-                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
+                <div key={pos} className="w-9 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
                   {pos}
                 </div>
               ))}
