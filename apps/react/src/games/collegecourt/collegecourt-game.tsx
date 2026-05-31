@@ -215,7 +215,7 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
+            <CollegeBadge starter={team.starters[pos]} size="lg" />
             <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
