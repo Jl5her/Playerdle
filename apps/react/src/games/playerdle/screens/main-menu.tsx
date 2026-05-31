@@ -7,7 +7,9 @@ import {
   faGear,
   faHockeyPuck,
 } from "@fortawesome/free-solid-svg-icons"
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import clsx from "clsx"
 import { GameModeButton, MenuOverlay, SettingsPanel } from "@/shared/components"
 import SyncPanel from "@/shared/components/sync-panel"
 import type { JourneyLeague } from "@/games/journeyman/utils/journey-daily"
@@ -35,6 +37,10 @@ export interface NavigationOptions {
 
 export interface ExtraGame {
   label: string
+  description?: string
+  icon?: IconDefinition
+  /** If true, renders as a direct button on the main menu instead of inside More Games */
+  featured?: boolean
   played: boolean
   onPlayDaily: () => void
   onPlayArcade: () => void
@@ -137,7 +143,7 @@ export default function MainMenu({
                   onClick={() => onNavigate("daily", { variantId: row.variantId })}
                 />
               ))}
-              {extraGames?.map(game => (
+              {extraGames?.filter(g => g.featured).map(game => (
                 <GameModeButton
                   key={game.label}
                   label={game.label}
@@ -145,6 +151,13 @@ export default function MainMenu({
                   onClick={game.onPlayDaily}
                 />
               ))}
+              {extraGames?.some(g => !g.featured) && (
+                <GameModeButton
+                  label="More Games"
+                  played={extraGames!.filter(g => !g.featured).every(g => g.played)}
+                  onClick={() => push("more-games")}
+                />
+              )}
               <div className="flex justify-center gap-4 mt-3">
                 {(
                   [
@@ -200,6 +213,56 @@ export default function MainMenu({
           ) : (
             <div className="-mt-1 flex-1" />
           )}
+        </MenuOverlay>
+        <MenuOverlay
+          open={peek === "more-games"}
+          title="More Games"
+          onClose={popAll}
+          onBack={pop}
+        >
+          <div className="-mt-1 flex-1 overflow-y-auto pb-4 flex flex-col gap-3 pt-4">
+            {extraGames?.filter(g => !g.featured).map(game => (
+              <button
+                key={game.label}
+                type="button"
+                onClick={game.onPlayDaily}
+                className={clsx(
+                  "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
+                  game.played
+                    ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
+                    : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
+                )}
+              >
+                <div className={clsx(
+                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center",
+                  game.played ? "bg-primary-100 dark:bg-primary-800" : "bg-white/20 dark:bg-black/15",
+                )}>
+                  <FontAwesomeIcon
+                    icon={game.icon!}
+                    className={clsx(
+                      "text-xl",
+                      game.played ? "text-primary-600 dark:text-primary-200" : "text-white dark:text-primary-800",
+                    )}
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className={clsx(
+                    "font-bold text-sm leading-tight",
+                    game.played ? "text-primary-800 dark:text-primary-100" : "text-white dark:text-primary-800",
+                  )}>
+                    {game.label}
+                  </div>
+                  <div className={clsx(
+                    "text-xs mt-0.5 leading-snug",
+                    game.played ? "text-primary-500 dark:text-primary-400" : "text-white/80 dark:text-primary-700",
+                  )}>
+                    {game.description}
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
         </MenuOverlay>
         <MenuOverlay
           open={peek === "settings"}

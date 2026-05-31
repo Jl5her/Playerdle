@@ -1,4 +1,4 @@
-import { faMap } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faGraduationCap, faMap, faScroll } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -13,6 +13,7 @@ import {
 } from "@/games/journeyman/utils/journey-daily"
 import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
 import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
+import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -47,6 +48,8 @@ const CapCrunchShell = lazy(() => import("@/games/capcrunch/capcrunch-shell"))
 const CapCrunchCalendar = lazy(() => import("@/games/capcrunch/capcrunch-calendar"))
 const CollegeCourtShell = lazy(() => import("@/games/collegecourt/collegecourt-shell"))
 const CollegeCourtCalendar = lazy(() => import("@/games/collegecourt/collegecourt-calendar"))
+const CollegeFieldShell = lazy(() => import("@/games/collegefield/collegefield-shell"))
+const CollegeFieldCalendar = lazy(() => import("@/games/collegefield/collegefield-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
@@ -287,6 +290,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (journeymanLeague) {
     builtExtraGames.push({
       label: "Journeyman",
+      featured: true,
       played: hasPlayedJourneyDailyToday(journeymanLeague),
       onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
       onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
@@ -297,15 +301,28 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   if (sportId === "nfl") {
     builtExtraGames.push({
       label: "Cap Crunch",
+      description: "Guess the NFL team from their salary cap numbers",
+      icon: faDollarSign,
       played: hasPlayedCapCrunchToday("nfl"),
       onPlayDaily: () => navigate("/capcrunch"),
       onPlayArcade: () => navigate("/capcrunch/arcade"),
       onShowStats: () => navigate("/capcrunch"),
     })
+    builtExtraGames.push({
+      label: "Schooled",
+      description: "Guess the NFL team from their players' college logos",
+      icon: faScroll,
+      played: hasPlayedCollegeFieldToday(),
+      onPlayDaily: () => navigate("/collegefield"),
+      onPlayArcade: () => navigate("/collegefield/arcade"),
+      onShowStats: () => navigate("/collegefield"),
+    })
   }
   if (sportId === "nba") {
     builtExtraGames.push({
       label: "CollegeCourt",
+      description: "Guess the NBA team from college logos on the court",
+      icon: faGraduationCap,
       played: hasPlayedCollegeCourtToday(),
       onPlayDaily: () => navigate("/collegecourt"),
       onPlayArcade: () => navigate("/collegecourt/arcade"),
@@ -456,6 +473,11 @@ function CapCrunchArchiveRoute() {
 function CollegeCourtArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
   return <CollegeCourtShell screen="daily" archiveDateKey={dateKey} />
+}
+
+function CollegeFieldArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return <CollegeFieldShell screen="daily" archiveDateKey={dateKey} />
 }
 
 interface SportRouteProps {
@@ -866,6 +888,39 @@ function App() {
         element={
           <Suspense fallback={<div className="app-viewport" />}>
             <CapCrunchArchiveRoute />
+          </Suspense>
+        }
+      />
+      {/* CollegeField game — NFL only */}
+      <Route
+        path="/collegefield"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeFieldShell screen="daily" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegefield/arcade"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeFieldShell screen="arcade" />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegefield/calendar"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeFieldCalendar />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/collegefield/archive/:dateKey"
+        element={
+          <Suspense fallback={<div className="app-viewport" />}>
+            <CollegeFieldArchiveRoute />
           </Suspense>
         }
       />

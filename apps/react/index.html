@@ -25,6 +25,13 @@
   <meta name="twitter:description" content="Daily sports guessing games — NFL, NHL, MLB, NBA, and more." />
   <meta name="twitter:image" content="https://playerdle.jackp.me/og-image.png" />
   <script>
+    document.addEventListener('touchmove', function(e) {
+      if (e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, false);
+    document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, false);
+  </script>
+  <script>
     (function () {
       var theme = localStorage.getItem('playerdle-theme') || 'system';
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
