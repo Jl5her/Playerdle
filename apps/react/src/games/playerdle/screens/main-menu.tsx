@@ -2,7 +2,6 @@ import {
   faBaseball,
   faBasketball,
   faChartBar,
-  faCircleCheck,
   faCircleInfo,
   faFootball,
   faGear,
@@ -261,13 +260,6 @@ export default function MainMenu({
                     {game.description}
                   </div>
                 </div>
-                {game.played && (
-                  <FontAwesomeIcon
-                    icon={faCircleCheck}
-                    className="shrink-0 text-xl text-green-500 dark:text-green-400"
-                    aria-label="Completed today"
-                  />
-                )}
               </button>
             ))}
           </div>
