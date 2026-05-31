@@ -194,6 +194,26 @@ function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; show
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
+          <defs>
+            {/* Two-plank repeating tile: alternating shades + grain marks + board separator */}
+            <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="300" height="18">
+              {/* Plank A — base tone */}
+              <rect y="0" width="300" height="9" fill="#c8820a"/>
+              <rect y="0" width="300" height="4" fill="rgba(255,210,80,0.07)"/>
+              <line x1="0" y1="3" x2="300" y2="3" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
+              <line x1="0" y1="6" x2="300" y2="6" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
+              {/* Plank B — slightly darker */}
+              <rect y="9" width="300" height="9" fill="#be7808"/>
+              <rect y="9" width="300" height="4" fill="rgba(255,210,80,0.05)"/>
+              <line x1="0" y1="12" x2="300" y2="12" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
+              <line x1="0" y1="15" x2="300" y2="15" stroke="rgba(30,15,0,0.04)" strokeWidth="0.4"/>
+              {/* Board separators */}
+              <line x1="0" y1="8.5" x2="300" y2="8.5" stroke="rgba(30,15,0,0.28)" strokeWidth="0.6"/>
+              <line x1="0" y1="17.5" x2="300" y2="17.5" stroke="rgba(30,15,0,0.28)" strokeWidth="0.6"/>
+            </pattern>
+          </defs>
+          {/* Wood plank fill behind all court markings */}
+          <rect width="300" height="186" fill="url(#wood-planks)"/>
           <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
           <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
           <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(40,20,0,0.5)" strokeWidth="1.5" />
