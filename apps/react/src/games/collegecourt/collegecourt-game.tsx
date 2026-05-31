@@ -174,7 +174,7 @@ function CollegeBadge({
 
 // ---- Half-court diagram ----
 
-function HalfCourt({ team }: { team: CollegeCourtTeam }) {
+function HalfCourt({ team, showTooltip = false }: { team: CollegeCourtTeam; showTooltip?: boolean }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
     { pos: "PG", x: "50%", y: "35%" },
     { pos: "SG", x: "76%", y: "43%" },
@@ -215,7 +215,7 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" />
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip={showTooltip} />
             <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
@@ -731,7 +731,7 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Half-court diagram — overflow-hidden lets parent card clip the rounded corners */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
-            <HalfCourt team={puzzle.team} />
+            <HalfCourt team={puzzle.team} showTooltip={won} />
           </div>
 
           {/* Guess grid */}
