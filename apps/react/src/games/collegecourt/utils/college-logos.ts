@@ -8,18 +8,25 @@ const COLLEGE_LOGOS: Record<string, string> = {
   ASU:  `${ESPN}/9.png`,     // Arizona State
   ARK:  `${ESPN}/8.png`,     // Arkansas
   AUB:  `${ESPN}/2.png`,     // Auburn
+  BAY:  `${ESPN}/239.png`,   // Baylor
   BSU:  `${ESPN}/68.png`,    // Boise State
   CAL:  `${ESPN}/25.png`,    // California
+  COL:  `${ESPN}/38.png`,    // Colorado
   DAV:  `${ESPN}/2429.png`,  // Davidson
   DUKE: `${ESPN}/150.png`,   // Duke
   FLA:  `${ESPN}/57.png`,    // Florida
   FSU:  `${ESPN}/52.png`,    // Florida State
   FRES: `${ESPN}/278.png`,   // Fresno State
+  GBAY: `${ESPN}/2750.png`,  // Green Bay (UWGB)
   UGA:  `${ESPN}/61.png`,    // Georgia
   GONZ: `${ESPN}/2250.png`,  // Gonzaga
+  HOU:  `${ESPN}/248.png`,   // Houston
+  ILL:  `${ESPN}/356.png`,   // Illinois
+  IU:   `${ESPN}/84.png`,    // Indiana
   UI:   `${ESPN}/2294.png`,  // Iowa
   ISU:  `${ESPN}/66.png`,    // Iowa State
   KU:   `${ESPN}/2305.png`,  // Kansas
+  KSU:  `${ESPN}/2306.png`,  // Kansas State
   UK:   `${ESPN}/96.png`,    // Kentucky
   LEH:  `${ESPN}/2352.png`,  // Lehigh
   LSU:  `${ESPN}/99.png`,    // LSU
@@ -37,6 +44,7 @@ const COLLEGE_LOGOS: Record<string, string> = {
   OU:   `${ESPN}/201.png`,   // Oklahoma
   OkSt: `${ESPN}/197.png`,   // Oklahoma State
   ORE:  `${ESPN}/2483.png`,  // Oregon
+  PITT: `${ESPN}/221.png`,   // Pittsburgh
   PUR:  `${ESPN}/2509.png`,  // Purdue
   SDSU: `${ESPN}/21.png`,    // San Diego State
   SCU:  `${ESPN}/2608.png`,  // Santa Clara
@@ -46,13 +54,16 @@ const COLLEGE_LOGOS: Record<string, string> = {
   TENN: `${ESPN}/2633.png`,  // Tennessee
   TEX:  `${ESPN}/251.png`,   // Texas
   TAM:  `${ESPN}/245.png`,   // Texas A&M
+  TOL:  `${ESPN}/325.png`,   // Toledo
   UCLA: `${ESPN}/26.png`,    // UCLA
   UNLV: `${ESPN}/2439.png`,  // UNLV
   USC:  `${ESPN}/30.png`,    // USC
   UTA:  `${ESPN}/254.png`,   // Utah
+  USU:  `${ESPN}/328.png`,   // Utah State
   VAN:  `${ESPN}/238.png`,   // Vanderbilt
   NOVA: `${ESPN}/222.png`,   // Villanova
   UVA:  `${ESPN}/258.png`,   // Virginia
+  VT:   `${ESPN}/259.png`,   // Virginia Tech
   WFU:  `${ESPN}/154.png`,   // Wake Forest
   UW:   `${ESPN}/264.png`,   // Washington
   WSU:  `${ESPN}/265.png`,   // Washington State
@@ -75,6 +86,7 @@ const COUNTRY_FLAGS: Record<string, string> = {
   SLO: `${FLAG}/si.png`,   // Slovenia
   SRB: `${FLAG}/rs.png`,   // Serbia
   SUI: `${FLAG}/ch.png`,   // Switzerland
+  SWE: `${FLAG}/se.png`,   // Sweden
   TUR: `${FLAG}/tr.png`,   // Turkey
 }
 

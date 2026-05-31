@@ -9,30 +9,30 @@
       "division": "Southeast",
       "starters": {
         "PG": {
-          "name": "Trae Young",
-          "school": "Oklahoma",
-          "schoolAbbr": "OU",
+          "name": "CJ McCollum",
+          "school": "Lehigh",
+          "schoolAbbr": "LEH",
           "colors": [
-            "#841617",
-            "#FDF9D8"
+            "#532B08",
+            "#8B5E3C"
           ]
         },
         "SG": {
+          "name": "Nickeil Alexander-Walker",
+          "school": "Virginia Tech",
+          "schoolAbbr": "VT",
+          "colors": [
+            "#660000",
+            "#E57200"
+          ]
+        },
+        "SF": {
           "name": "Dyson Daniels",
           "school": "Australia",
           "schoolAbbr": "AUS",
           "colors": [
             "#00008B",
             "#FFCD00"
-          ]
-        },
-        "SF": {
-          "name": "De'Andre Hunter",
-          "school": "Virginia",
-          "schoolAbbr": "UVA",
-          "colors": [
-            "#232D4B",
-            "#E57200"
           ]
         },
         "PF": {
@@ -45,12 +45,12 @@
           ]
         },
         "C": {
-          "name": "Clint Capela",
-          "school": "Switzerland",
-          "schoolAbbr": "SUI",
+          "name": "Onyeka Okongwu",
+          "school": "USC",
+          "schoolAbbr": "USC",
           "colors": [
-            "#FF0000",
-            "#FFFFFF"
+            "#990000",
+            "#FFC72C"
           ]
         }
       }
@@ -63,15 +63,24 @@
       "division": "Atlantic",
       "starters": {
         "PG": {
-          "name": "Jrue Holiday",
-          "school": "UCLA",
-          "schoolAbbr": "UCLA",
+          "name": "Derrick White",
+          "school": "Colorado",
+          "schoolAbbr": "COL",
           "colors": [
-            "#2774AE",
-            "#FFD100"
+            "#1E4D2B",
+            "#CFB87C"
           ]
         },
         "SG": {
+          "name": "Payton Pritchard",
+          "school": "Oregon",
+          "schoolAbbr": "ORE",
+          "colors": [
+            "#154733",
+            "#FEE123"
+          ]
+        },
+        "SF": {
           "name": "Jaylen Brown",
           "school": "California",
           "schoolAbbr": "CAL",
@@ -80,30 +89,21 @@
             "#FDB515"
           ]
         },
-        "SF": {
-          "name": "Jayson Tatum",
-          "school": "Duke",
-          "schoolAbbr": "DUKE",
-          "colors": [
-            "#003087",
-            "#FFFFFF"
-          ]
-        },
         "PF": {
-          "name": "Al Horford",
-          "school": "Florida",
-          "schoolAbbr": "FLA",
+          "name": "Sam Hauser",
+          "school": "Virginia",
+          "schoolAbbr": "UVA",
           "colors": [
-            "#0021A5",
-            "#FA4616"
+            "#232D4B",
+            "#E57200"
           ]
         },
         "C": {
-          "name": "Kristaps Porzingis",
-          "school": "Latvia",
-          "schoolAbbr": "LAT",
+          "name": "Neemias Queta",
+          "school": "Utah State",
+          "schoolAbbr": "USU",
           "colors": [
-            "#9E3039",
+            "#0F2439",
             "#FFFFFF"
           ]
         }
@@ -117,21 +117,21 @@
       "division": "Atlantic",
       "starters": {
         "PG": {
+          "name": "Nolan Traore",
+          "school": "France",
+          "schoolAbbr": "FRA",
+          "colors": [
+            "#002395",
+            "#ED2939"
+          ]
+        },
+        "SG": {
           "name": "Cam Thomas",
           "school": "LSU",
           "schoolAbbr": "LSU",
           "colors": [
             "#461D7C",
             "#FDD023"
-          ]
-        },
-        "SG": {
-          "name": "Dennis Schroder",
-          "school": "Germany",
-          "schoolAbbr": "GER",
-          "colors": [
-            "#000000",
-            "#FF0000"
           ]
         },
         "SF": {
@@ -144,11 +144,11 @@
           ]
         },
         "PF": {
-          "name": "Cameron Johnson",
-          "school": "North Carolina",
-          "schoolAbbr": "UNC",
+          "name": "Noah Clowney",
+          "school": "Alabama",
+          "schoolAbbr": "ALA",
           "colors": [
-            "#4B9CD3",
+            "#9E1B32",
             "#FFFFFF"
           ]
         },
@@ -180,15 +180,6 @@
           ]
         },
         "SG": {
-          "name": "Miles Bridges",
-          "school": "Michigan State",
-          "schoolAbbr": "MSU",
-          "colors": [
-            "#18453B",
-            "#FFFFFF"
-          ]
-        },
-        "SF": {
           "name": "Brandon Miller",
           "school": "Alabama",
           "schoolAbbr": "ALA",
@@ -197,22 +188,31 @@
             "#FFFFFF"
           ]
         },
-        "PF": {
-          "name": "Grant Williams",
-          "school": "Tennessee",
-          "schoolAbbr": "TENN",
-          "colors": [
-            "#FF8200",
-            "#FFFFFF"
-          ]
-        },
-        "C": {
-          "name": "Mark Williams",
+        "SF": {
+          "name": "Kon Knueppel",
           "school": "Duke",
           "schoolAbbr": "DUKE",
           "colors": [
             "#003087",
             "#FFFFFF"
+          ]
+        },
+        "PF": {
+          "name": "Miles Bridges",
+          "school": "Michigan State",
+          "schoolAbbr": "MSU",
+          "colors": [
+            "#18453B",
+            "#FFFFFF"
+          ]
+        },
+        "C": {
+          "name": "Moussa Diabate",
+          "school": "Michigan",
+          "schoolAbbr": "MICH",
+          "colors": [
+            "#00274C",
+            "#FFCB05"
           ]
         }
       }
@@ -234,39 +234,39 @@
           ]
         },
         "SG": {
-          "name": "Zach LaVine",
-          "school": "UCLA",
-          "schoolAbbr": "UCLA",
+          "name": "Ayo Dosunmu",
+          "school": "Illinois",
+          "schoolAbbr": "ILL",
           "colors": [
-            "#2774AE",
-            "#FFD100"
+            "#13294B",
+            "#E84A27"
           ]
         },
         "SF": {
-          "name": "Patrick Williams",
-          "school": "Florida State",
-          "schoolAbbr": "FSU",
+          "name": "Matas Buzelis",
+          "school": "Lithuania",
+          "schoolAbbr": "LTU",
           "colors": [
-            "#782F40",
-            "#CEB888"
+            "#006A44",
+            "#C1272D"
           ]
         },
         "PF": {
-          "name": "Nikola Vucevic",
-          "school": "Montenegro",
-          "schoolAbbr": "MNE",
-          "colors": [
-            "#D4AF37",
-            "#D8201C"
-          ]
-        },
-        "C": {
           "name": "Josh Giddey",
           "school": "Australia",
           "schoolAbbr": "AUS",
           "colors": [
             "#00008B",
             "#FFCD00"
+          ]
+        },
+        "C": {
+          "name": "Nikola Vucevic",
+          "school": "USC",
+          "schoolAbbr": "USC",
+          "colors": [
+            "#990000",
+            "#FFC72C"
           ]
         }
       }
@@ -279,15 +279,6 @@
       "division": "Central",
       "starters": {
         "PG": {
-          "name": "Darius Garland",
-          "school": "Vanderbilt",
-          "schoolAbbr": "VAN",
-          "colors": [
-            "#866D4B",
-            "#000000"
-          ]
-        },
-        "SG": {
           "name": "Donovan Mitchell",
           "school": "Louisville",
           "schoolAbbr": "UofL",
@@ -296,13 +287,22 @@
             "#000000"
           ]
         },
-        "SF": {
-          "name": "Isaac Okoro",
-          "school": "Auburn",
-          "schoolAbbr": "AUB",
+        "SG": {
+          "name": "Jaylon Tyson",
+          "school": "California",
+          "schoolAbbr": "CAL",
           "colors": [
-            "#0C2340",
-            "#E87722"
+            "#003262",
+            "#FDB515"
+          ]
+        },
+        "SF": {
+          "name": "Dean Wade",
+          "school": "Kansas State",
+          "schoolAbbr": "KSU",
+          "colors": [
+            "#512888",
+            "#A7A9AC"
           ]
         },
         "PF": {
@@ -468,12 +468,12 @@
           ]
         },
         "PF": {
-          "name": "Isaiah Stewart",
-          "school": "Washington",
-          "schoolAbbr": "UW",
+          "name": "Tobias Harris",
+          "school": "Tennessee",
+          "schoolAbbr": "TENN",
           "colors": [
-            "#4B2E83",
-            "#E8E3D5"
+            "#FF8200",
+            "#FFFFFF"
           ]
         },
         "C": {
@@ -481,7 +481,7 @@
           "school": "Memphis",
           "schoolAbbr": "MEM",
           "colors": [
-            "#003087",
+            "#7A0A2E",
             "#898D8D"
           ]
         }
@@ -603,24 +603,15 @@
       "division": "Central",
       "starters": {
         "PG": {
-          "name": "Tyrese Haliburton",
-          "school": "Iowa State",
-          "schoolAbbr": "ISU",
-          "colors": [
-            "#C8102E",
-            "#F1BE48"
-          ]
-        },
-        "SG": {
           "name": "Andrew Nembhard",
           "school": "Gonzaga",
           "schoolAbbr": "GONZ",
           "colors": [
-            "#002F6C",
-            "#CF0A2C"
+            "#002060",
+            "#C8A960"
           ]
         },
-        "SF": {
+        "SG": {
           "name": "Aaron Nesmith",
           "school": "Vanderbilt",
           "schoolAbbr": "VAN",
@@ -629,22 +620,31 @@
             "#000000"
           ]
         },
+        "SF": {
+          "name": "Jarace Walker",
+          "school": "Houston",
+          "schoolAbbr": "HOU",
+          "colors": [
+            "#C8102E",
+            "#FFFFFF"
+          ]
+        },
         "PF": {
           "name": "Pascal Siakam",
-          "school": "New Mexico St.",
-          "schoolAbbr": "NMS",
+          "school": "Gonzaga",
+          "schoolAbbr": "GONZ",
           "colors": [
-            "#8B1727",
-            "#000000"
+            "#002060",
+            "#C8A960"
           ]
         },
         "C": {
-          "name": "Myles Turner",
-          "school": "Texas",
-          "schoolAbbr": "TEX",
+          "name": "Ivica Zubac",
+          "school": "Bosnia & Herzegovina",
+          "schoolAbbr": "BIH",
           "colors": [
-            "#BF5700",
-            "#FFFFFF"
+            "#002395",
+            "#FCDD09"
           ]
         }
       }
@@ -819,39 +819,39 @@
       "division": "Southeast",
       "starters": {
         "PG": {
-          "name": "Terry Rozier",
-          "school": "Louisville",
-          "schoolAbbr": "UofL",
+          "name": "Davion Mitchell",
+          "school": "Baylor",
+          "schoolAbbr": "BAY",
           "colors": [
-            "#AD0000",
-            "#000000"
+            "#154734",
+            "#FFB81C"
           ]
         },
         "SG": {
-          "name": "Tyler Herro",
-          "school": "Kentucky",
-          "schoolAbbr": "UK",
+          "name": "Norman Powell",
+          "school": "UCLA",
+          "schoolAbbr": "UCLA",
           "colors": [
-            "#0033A0",
-            "#FFFFFF"
+            "#2774AE",
+            "#FFD100"
           ]
         },
         "SF": {
-          "name": "Caleb Martin",
-          "school": "Nevada",
-          "schoolAbbr": "NEV",
+          "name": "Pelle Larsson",
+          "school": "Sweden",
+          "schoolAbbr": "SWE",
           "colors": [
-            "#003366",
-            "#807F84"
+            "#006AA7",
+            "#FECC02"
           ]
         },
         "PF": {
-          "name": "Duncan Robinson",
-          "school": "Michigan",
-          "schoolAbbr": "MICH",
+          "name": "Andrew Wiggins",
+          "school": "Kansas",
+          "schoolAbbr": "KU",
           "colors": [
-            "#00274C",
-            "#FFCB05"
+            "#0051A5",
+            "#E8000D"
           ]
         },
         "C": {
@@ -873,30 +873,30 @@
       "division": "Central",
       "starters": {
         "PG": {
-          "name": "Damian Lillard",
-          "school": "Weber State",
-          "schoolAbbr": "WEB",
+          "name": "Ryan Rollins",
+          "school": "Toledo",
+          "schoolAbbr": "TOL",
           "colors": [
-            "#492F92",
-            "#FFFFFF"
+            "#003366",
+            "#FFCC00"
           ]
         },
         "SG": {
-          "name": "Khris Middleton",
-          "school": "Texas A&M",
-          "schoolAbbr": "TAM",
+          "name": "Gary Trent Jr.",
+          "school": "Duke",
+          "schoolAbbr": "DUKE",
           "colors": [
-            "#500000",
+            "#003087",
             "#FFFFFF"
           ]
         },
         "SF": {
-          "name": "Malik Beasley",
-          "school": "Florida",
-          "schoolAbbr": "FLA",
+          "name": "A.J. Green",
+          "school": "Green Bay",
+          "schoolAbbr": "GBAY",
           "colors": [
-            "#0021A5",
-            "#FA4616"
+            "#004427",
+            "#FFFFFF"
           ]
         },
         "PF": {
@@ -909,11 +909,11 @@
           ]
         },
         "C": {
-          "name": "Brook Lopez",
-          "school": "Stanford",
-          "schoolAbbr": "STAN",
+          "name": "Myles Turner",
+          "school": "Texas",
+          "schoolAbbr": "TEX",
           "colors": [
-            "#8C1515",
+            "#BF5700",
             "#FFFFFF"
           ]
         }
@@ -1039,35 +1039,35 @@
           "school": "Villanova",
           "schoolAbbr": "NOVA",
           "colors": [
-            "#003E7E",
+            "#003087",
             "#13B5EA"
           ]
         },
         "SG": {
-          "name": "Josh Hart",
-          "school": "Villanova",
-          "schoolAbbr": "NOVA",
-          "colors": [
-            "#003E7E",
-            "#13B5EA"
-          ]
-        },
-        "SF": {
           "name": "Mikal Bridges",
           "school": "Villanova",
           "schoolAbbr": "NOVA",
           "colors": [
-            "#003E7E",
+            "#003087",
             "#13B5EA"
           ]
         },
-        "PF": {
+        "SF": {
           "name": "OG Anunoby",
-          "school": "Kansas",
-          "schoolAbbr": "KU",
+          "school": "Indiana",
+          "schoolAbbr": "IU",
           "colors": [
-            "#0051A5",
-            "#E8000D"
+            "#7D0000",
+            "#FFFFFF"
+          ]
+        },
+        "PF": {
+          "name": "Josh Hart",
+          "school": "Villanova",
+          "schoolAbbr": "NOVA",
+          "colors": [
+            "#003087",
+            "#13B5EA"
           ]
         },
         "C": {
@@ -1143,21 +1143,21 @@
       "division": "Southeast",
       "starters": {
         "PG": {
-          "name": "Cole Anthony",
-          "school": "North Carolina",
-          "schoolAbbr": "UNC",
-          "colors": [
-            "#4B9CD3",
-            "#FFFFFF"
-          ]
-        },
-        "SG": {
           "name": "Jalen Suggs",
           "school": "Gonzaga",
           "schoolAbbr": "GONZ",
           "colors": [
-            "#002F6C",
-            "#CF0A2C"
+            "#002060",
+            "#C8A960"
+          ]
+        },
+        "SG": {
+          "name": "Desmond Bane",
+          "school": "TCU",
+          "schoolAbbr": "TCU",
+          "colors": [
+            "#4D1979",
+            "#A3A9AC"
           ]
         },
         "SF": {
@@ -1170,12 +1170,12 @@
           ]
         },
         "PF": {
-          "name": "Jonathan Isaac",
-          "school": "Florida State",
-          "schoolAbbr": "FSU",
+          "name": "Paolo Banchero",
+          "school": "Duke",
+          "schoolAbbr": "DUKE",
           "colors": [
-            "#782F40",
-            "#CEB888"
+            "#003087",
+            "#FFFFFF"
           ]
         },
         "C": {
@@ -1206,12 +1206,12 @@
           ]
         },
         "SG": {
-          "name": "Paul George",
-          "school": "Fresno State",
-          "schoolAbbr": "FRES",
+          "name": "VJ Edgecombe",
+          "school": "Baylor",
+          "schoolAbbr": "BAY",
           "colors": [
-            "#C41230",
-            "#002469"
+            "#154734",
+            "#FFB81C"
           ]
         },
         "SF": {
@@ -1224,12 +1224,12 @@
           ]
         },
         "PF": {
-          "name": "Tobias Harris",
-          "school": "Tennessee",
-          "schoolAbbr": "TENN",
+          "name": "Paul George",
+          "school": "Fresno State",
+          "schoolAbbr": "FRES",
           "colors": [
-            "#FF8200",
-            "#FFFFFF"
+            "#CC0000",
+            "#003399"
           ]
         },
         "C": {
@@ -1485,6 +1485,15 @@
           ]
         },
         "SF": {
+          "name": "Brandon Ingram",
+          "school": "Duke",
+          "schoolAbbr": "DUKE",
+          "colors": [
+            "#003087",
+            "#FFFFFF"
+          ]
+        },
+        "PF": {
           "name": "Scottie Barnes",
           "school": "Florida State",
           "schoolAbbr": "FSU",
@@ -1493,21 +1502,12 @@
             "#CEB888"
           ]
         },
-        "PF": {
-          "name": "Precious Achiuwa",
-          "school": "Memphis",
-          "schoolAbbr": "MEM",
-          "colors": [
-            "#003087",
-            "#898D8D"
-          ]
-        },
         "C": {
           "name": "Jakob Poeltl",
-          "school": "Austria",
-          "schoolAbbr": "AUT",
+          "school": "Utah",
+          "schoolAbbr": "UTA",
           "colors": [
-            "#ED2939",
+            "#CC0000",
             "#FFFFFF"
           ]
         }
@@ -1575,15 +1575,33 @@
       "division": "Southeast",
       "starters": {
         "PG": {
-          "name": "Jordan Poole",
-          "school": "Michigan",
-          "schoolAbbr": "MICH",
+          "name": "Bub Carrington",
+          "school": "Pittsburgh",
+          "schoolAbbr": "PITT",
           "colors": [
-            "#00274C",
-            "#FFCB05"
+            "#003594",
+            "#FFB81C"
           ]
         },
         "SG": {
+          "name": "Tre Johnson",
+          "school": "Texas",
+          "schoolAbbr": "TEX",
+          "colors": [
+            "#BF5700",
+            "#FFFFFF"
+          ]
+        },
+        "SF": {
+          "name": "Kyshawn George",
+          "school": "UNLV",
+          "schoolAbbr": "UNLV",
+          "colors": [
+            "#B10202",
+            "#807F84"
+          ]
+        },
+        "PF": {
           "name": "Bilal Coulibaly",
           "school": "France",
           "schoolAbbr": "FRA",
@@ -1592,31 +1610,13 @@
             "#ED2939"
           ]
         },
-        "SF": {
-          "name": "Corey Kispert",
-          "school": "Gonzaga",
-          "schoolAbbr": "GONZ",
-          "colors": [
-            "#002F6C",
-            "#CF0A2C"
-          ]
-        },
-        "PF": {
-          "name": "Kyle Kuzma",
-          "school": "Utah",
-          "schoolAbbr": "UTA",
-          "colors": [
-            "#CC0000",
-            "#808080"
-          ]
-        },
         "C": {
-          "name": "Jonas Valanciunas",
-          "school": "Lithuania",
-          "schoolAbbr": "LTU",
+          "name": "Alex Sarr",
+          "school": "France",
+          "schoolAbbr": "FRA",
           "colors": [
-            "#006A44",
-            "#FDB913"
+            "#002395",
+            "#ED2939"
           ]
         }
       }
