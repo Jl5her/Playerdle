@@ -177,58 +177,111 @@ function CollegeBadge({
 // ---- Half-court diagram ----
 
 function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
+  // Positions calibrated to reference image (basket at top, viewBox 300×250)
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
-    { pos: "PG", x: "50%", y: "72%" },
-    { pos: "SG", x: "13%", y: "52%" },
-    { pos: "SF", x: "78%", y: "40%" },
-    { pos: "PF", x: "26%", y: "20%" },
-    { pos: "C",  x: "57%", y: "15%" },
+    { pos: "PG", x: "51%", y: "78%" },
+    { pos: "SG", x: "13%", y: "55%" },
+    { pos: "SF", x: "80%", y: "43%" },
+    { pos: "PF", x: "25%", y: "22%" },
+    { pos: "C",  x: "57%", y: "16%" },
   ]
 
   return (
-    <div className="relative w-full" style={{ paddingBottom: "70%" }}>
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#d6a96a" }}>
+    <div className="relative w-full" style={{ paddingBottom: "83.3%" }}>
+      <div className="absolute inset-0 overflow-hidden">
         <svg
-          viewBox="0 0 300 186"
+          viewBox="0 0 300 250"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
-            <pattern id="wood-planks" patternUnits="userSpaceOnUse" x="0" y="0" width="16" height="186">
-              <rect x="0" y="0" width="8" height="186" fill="#e2b87c"/>
-              <line x1="2"    y1="0" x2="2.8"  y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
-              <line x1="5"    y1="0" x2="5.6"  y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
-              <rect x="8" y="0" width="8" height="186" fill="#d6a96a"/>
-              <line x1="10"   y1="0" x2="10.8" y2="186" stroke="rgba(60,30,0,0.06)" strokeWidth="0.5"/>
-              <line x1="13"   y1="0" x2="13.6" y2="186" stroke="rgba(60,30,0,0.04)" strokeWidth="0.35"/>
-              <line x1="7.5"  y1="0" x2="7.5"  y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
-              <line x1="15.5" y1="0" x2="15.5" y2="186" stroke="rgba(40,20,0,0.18)" strokeWidth="0.5"/>
+            {/* 5-colour maple hardwood — 90 px wide, full-height repeat */}
+            <pattern id="hardwood" patternUnits="userSpaceOnUse" x="0" y="0" width="90" height="250">
+              {/* Plank 1 — light golden maple */}
+              <rect x="0"  y="0" width="18" height="250" fill="#efd082"/>
+              <line x1="3.0"  y1="0" x2="3.8"  y2="250" stroke="rgba(110,55,0,0.07)" strokeWidth="0.7"/>
+              <line x1="8.0"  y1="0" x2="8.7"  y2="250" stroke="rgba(110,55,0,0.04)" strokeWidth="0.5"/>
+              <line x1="14.0" y1="0" x2="14.6" y2="250" stroke="rgba(110,55,0,0.05)" strokeWidth="0.5"/>
+              {/* Plank 2 — deep amber */}
+              <rect x="18" y="0" width="18" height="250" fill="#c08638"/>
+              <line x1="21.0" y1="0" x2="21.8" y2="250" stroke="rgba(80,40,0,0.08)" strokeWidth="0.7"/>
+              <line x1="26.0" y1="0" x2="26.6" y2="250" stroke="rgba(80,40,0,0.05)" strokeWidth="0.5"/>
+              <line x1="32.0" y1="0" x2="32.6" y2="250" stroke="rgba(80,40,0,0.04)" strokeWidth="0.5"/>
+              {/* Plank 3 — warm honey */}
+              <rect x="36" y="0" width="18" height="250" fill="#e4c060"/>
+              <line x1="39.0" y1="0" x2="39.8" y2="250" stroke="rgba(100,50,0,0.06)" strokeWidth="0.7"/>
+              <line x1="44.0" y1="0" x2="44.6" y2="250" stroke="rgba(100,50,0,0.04)" strokeWidth="0.5"/>
+              <line x1="50.0" y1="0" x2="50.6" y2="250" stroke="rgba(100,50,0,0.05)" strokeWidth="0.5"/>
+              {/* Plank 4 — medium amber */}
+              <rect x="54" y="0" width="18" height="250" fill="#cfa045"/>
+              <line x1="57.0" y1="0" x2="57.8" y2="250" stroke="rgba(80,40,0,0.08)" strokeWidth="0.7"/>
+              <line x1="62.0" y1="0" x2="62.6" y2="250" stroke="rgba(80,40,0,0.05)" strokeWidth="0.5"/>
+              <line x1="68.0" y1="0" x2="68.6" y2="250" stroke="rgba(80,40,0,0.04)" strokeWidth="0.5"/>
+              {/* Plank 5 — medium golden */}
+              <rect x="72" y="0" width="18" height="250" fill="#e0b858"/>
+              <line x1="75.0" y1="0" x2="75.8" y2="250" stroke="rgba(100,50,0,0.06)" strokeWidth="0.7"/>
+              <line x1="80.0" y1="0" x2="80.6" y2="250" stroke="rgba(100,50,0,0.04)" strokeWidth="0.5"/>
+              <line x1="86.0" y1="0" x2="86.6" y2="250" stroke="rgba(100,50,0,0.05)" strokeWidth="0.5"/>
+              {/* Board separators */}
+              <line x1="17.5" y1="0" x2="17.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="35.5" y1="0" x2="35.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="53.5" y1="0" x2="53.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="71.5" y1="0" x2="71.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="89.5" y1="0" x2="89.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
             </pattern>
+            {/* Soft court spotlight */}
+            <radialGradient id="court-light" cx="50%" cy="42%" r="68%">
+              <stop offset="0%"   stopColor="rgba(255,240,180,0.10)"/>
+              <stop offset="55%"  stopColor="rgba(0,0,0,0.00)"/>
+              <stop offset="100%" stopColor="rgba(0,0,0,0.12)"/>
+            </radialGradient>
           </defs>
-          <rect width="300" height="186" fill="url(#wood-planks)"/>
+
+          {/* Floor */}
+          <rect width="300" height="250" fill="url(#hardwood)"/>
+          <rect width="300" height="250" fill="url(#court-light)"/>
+
           {/* Court boundary */}
-          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          {/* Three-point arc (basket at top) */}
-          <path d="M 22 3 A 128 128 0 0 0 278 3" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          <line x1="22" y1="3" x2="22" y2="46" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          <line x1="278" y1="3" x2="278" y2="46" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          {/* Paint / key */}
-          <rect x="102" y="3" width="96" height="53" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
+          <rect x="3" y="4" width="294" height="242" rx="3"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
+          {/* Three-point line: corner straights + elliptical arc */}
+          <line x1="22"  y1="4" x2="22"  y2="60" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <line x1="278" y1="4" x2="278" y2="60" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <path d="M 22 60 A 128 82 0 0 0 278 60"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
+          {/* Key / paint */}
+          <rect x="102" y="4" width="96" height="71"
+                fill="rgba(255,255,255,0.06)" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
           {/* Free throw line */}
-          <line x1="102" y1="56" x2="198" y2="56" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          {/* Free throw circle — solid top half, dashed bottom half */}
-          <path d="M 102 56 A 48 48 0 0 0 198 56" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5"/>
-          <path d="M 102 56 A 48 48 0 0 1 198 56" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="4 4"/>
+          <line x1="102" y1="75" x2="198" y2="75" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          {/* FT circle — solid half toward basket, dashed half away */}
+          <path d="M 102 75 A 48 48 0 0 0 198 75"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <path d="M 102 75 A 48 48 0 0 1 198 75"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.38" strokeDasharray="5 4"/>
+
+          {/* Lane tick marks */}
+          <line x1="94"  y1="31" x2="102" y2="31" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="198" y1="31" x2="206" y2="31" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="94"  y1="53" x2="102" y2="53" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="198" y1="53" x2="206" y2="53" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+
+          {/* Backboard & hoop */}
+          <line x1="127" y1="4" x2="173" y2="4" stroke="white" strokeWidth="2.5" strokeOpacity="0.92"/>
+          <ellipse cx="150" cy="9" rx="10" ry="4"
+                   fill="none" stroke="white" strokeWidth="1.8" strokeOpacity="0.95"/>
           {/* Restricted arc */}
-          <path d="M 124 3 A 26 26 0 0 0 176 3" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="1.2"/>
-          {/* Backboard */}
-          <line x1="127" y1="3" x2="173" y2="3" stroke="rgba(255,255,255,0.75)" strokeWidth="2.5"/>
-          {/* Basket / hoop */}
-          <ellipse cx="150" cy="6" rx="10" ry="3.5" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8"/>
-          {/* Half-court line */}
-          <line x1="3" y1="183" x2="297" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1"/>
-          {/* Center circle arc at bottom */}
-          <path d="M 114 183 A 36 36 0 0 0 186 183" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.2"/>
+          <path d="M 127 4 A 23 23 0 0 0 173 4"
+                fill="none" stroke="white" strokeWidth="1.2" strokeOpacity="0.48"/>
+
+          {/* Half-court line + center circle arc */}
+          <line x1="3" y1="246" x2="297" y2="246"
+                stroke="white" strokeWidth="1.2" strokeOpacity="0.60"/>
+          <path d="M 105 246 A 45 45 0 0 0 195 246"
+                fill="none" stroke="white" strokeWidth="1.2" strokeOpacity="0.60"/>
         </svg>
       </div>
 
