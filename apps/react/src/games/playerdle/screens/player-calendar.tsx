@@ -152,7 +152,11 @@ function ArchiveGameView({
                 archiveDateKey={archiveDateKey}
               />
             </div>
-            <GameGuideContent id="guide" sport={sport} mode="manual" />
+            <GameGuideContent
+              id="guide"
+              sport={sport}
+              mode="manual"
+            />
           </div>
         </div>
       </div>
@@ -271,7 +275,12 @@ export default function PlayerCalendar({
 
   if (panel && ctx && id) {
     return (
-      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title={calendarTitle} layout="full">
+      <Panel
+        open={ctx.isOpen(id)}
+        onClose={ctx.pop}
+        title={calendarTitle}
+        layout="full"
+      >
         {calendar}
       </Panel>
     )

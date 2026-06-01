@@ -158,8 +158,8 @@ export function GameGuideBody({ sport, mode, className, onOpenCalendar }: GameGu
               </span>
             </span>
             <p className="text-primary-500 dark:text-primary-200 leading-relaxed text-sm m-0">
-              As soon as you guess a player who shares the same position as the mystery player, their
-              position is revealed in the{" "}
+              As soon as you guess a player who shares the same position as the mystery player,
+              their position is revealed in the{" "}
               <strong className="text-primary-700 dark:text-primary-50">?</strong> badge above the
               grid.
             </p>
@@ -209,8 +209,16 @@ export function GameGuideContent({
   }
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
-      <GameGuideBody sport={sport} mode={mode} onOpenCalendar={onOpenCalendar} />
+    <Panel
+      open={ctx?.isOpen(id) ?? false}
+      onClose={handleClose}
+      title="How to Play"
+    >
+      <GameGuideBody
+        sport={sport}
+        mode={mode}
+        onOpenCalendar={onOpenCalendar}
+      />
     </Panel>
   )
 }

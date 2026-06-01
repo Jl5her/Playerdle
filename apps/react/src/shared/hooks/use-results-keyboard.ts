@@ -18,9 +18,7 @@ export function useResultsKeyboard({ active, onClose, onPlayAgain }: Options) {
       const target = e.target as HTMLElement | null
       const isEditable =
         !!target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.isContentEditable)
+        (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable)
       if (isEditable) return
       e.preventDefault()
       onPlayAgain?.()

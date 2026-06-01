@@ -42,7 +42,13 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
     if (initialShowStats) return
     if (localStorage.getItem(colorsTutorialSeenKey(variant))) return
     panels.push("guide")
-    trackPanelOpened({ panel: "guide", game: "statehue", variant, mode: "daily", is_onboarding: true })
+    trackPanelOpened({
+      panel: "guide",
+      game: "statehue",
+      variant,
+      mode: "daily",
+      is_onboarding: true,
+    })
   }, [screen, initialShowStats, variant])
 
   function goToMenu() {
@@ -96,9 +102,7 @@ export default function ColorsShell({ screen, variant = "pro" }: Props) {
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
             {variant === "collegiate" ? "Collegiate" : "Statehue"}
           </h1>
-          <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
-            {subtitle}
-          </p>
+          <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {!panels.isAnyOpen && (
               <button

@@ -19,10 +19,13 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {}
 
 export const WithShareSibling: Story = {
-  render: (args) => (
+  render: args => (
     <div className="flex items-center gap-3">
       <PlayAgainButton {...args} />
-      <ShareButton onClick={fn()} copied={false} />
+      <ShareButton
+        onClick={fn()}
+        copied={false}
+      />
     </div>
   ),
 }

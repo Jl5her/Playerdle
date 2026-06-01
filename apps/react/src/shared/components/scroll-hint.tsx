@@ -30,9 +30,7 @@ export default function ScrollHint({ scrollRef }: Props) {
       }
       const elWithCheck = el as ElWithCheck
       if (typeof elWithCheck.checkVisibility === "function") {
-        if (
-          !elWithCheck.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })
-        ) {
+        if (!elWithCheck.checkVisibility({ checkOpacity: true, checkVisibilityCSS: true })) {
           return false
         }
       } else if (!el.offsetParent && getComputedStyle(el).position !== "fixed") {

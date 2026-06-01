@@ -59,11 +59,7 @@ function parseEnvelope(raw: string | null): Envelope | null {
   return { payload: parsed, devices: [] }
 }
 
-async function writeEnvelope(
-  kv: KVNamespace,
-  hash: string,
-  envelope: Envelope,
-): Promise<void> {
+async function writeEnvelope(kv: KVNamespace, hash: string, envelope: Envelope): Promise<void> {
   const ttl = envelope.devices.length > 0 ? ACTIVE_TTL_SECONDS : INACTIVE_TTL_SECONDS
   await kv.put(hash, JSON.stringify(envelope), { expirationTtl: ttl })
 }

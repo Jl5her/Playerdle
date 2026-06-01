@@ -25,7 +25,7 @@ const meta = {
     docs: { story: { height: "500px" } },
   },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative h-[500px] bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>

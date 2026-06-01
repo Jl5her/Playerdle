@@ -13,7 +13,7 @@ html.high-contrast {
   --color-success-200: #8ab4e0;
   --color-success-300: #5190cf;
   --color-success-400: #2770be;
-  --color-success-500: #0057a8;  /* 7.2:1 with white */
+  --color-success-500: #0057a8; /* 7.2:1 with white */
   --color-success-600: #00468a;
   --color-success-700: #00356b;
   --color-success-800: #00244d;
@@ -23,7 +23,7 @@ html.high-contrast {
   --color-warning-200: #f5c07a;
   --color-warning-300: #e89f3a;
   --color-warning-400: #d07b0e;
-  --color-warning-500: #b45309;  /* 5.1:1 with white */
+  --color-warning-500: #b45309; /* 5.1:1 with white */
   --color-warning-600: #923e06;
   --color-warning-700: #712e05;
   --color-warning-800: #501f03;
@@ -33,13 +33,12 @@ html.high-contrast {
   --color-error-200: #c2c2c2;
   --color-error-300: #a5a5a5;
   --color-error-400: #888888;
-  --color-error-500: #525252;  /* 9.7:1 with white */
+  --color-error-500: #525252; /* 9.7:1 with white */
   --color-error-600: #404040;
   --color-error-700: #2e2e2e;
   --color-error-800: #1c1c1c;
   --color-error-900: #0a0a0a;
 }
-
 
 @keyframes scrollHintBounce {
   0%,
@@ -130,7 +129,6 @@ input::-webkit-clear-button {
     transform: perspective(400px) rotateX(0deg);
   }
 }
-
 
 body {
   color: var(--color-primary-900);

@@ -98,7 +98,11 @@ export default function PaletteHub() {
                         aria-label={label}
                         className="w-11 h-11 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
                       >
-                        <FontAwesomeIcon icon={icon} className="text-lg" aria-hidden="true" />
+                        <FontAwesomeIcon
+                          icon={icon}
+                          className="text-lg"
+                          aria-hidden="true"
+                        />
                       </button>
                     ))}
                   </div>

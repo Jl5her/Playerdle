@@ -13,9 +13,18 @@ export default function RootLayout() {
           contentStyle: { backgroundColor: "#18263c" },
         }}
       >
-        <Stack.Screen name="index" options={{ title: "Playerdle" }} />
-        <Stack.Screen name="daily" options={{ title: "Daily" }} />
-        <Stack.Screen name="arcade" options={{ title: "Arcade" }} />
+        <Stack.Screen
+          name="index"
+          options={{ title: "Playerdle" }}
+        />
+        <Stack.Screen
+          name="daily"
+          options={{ title: "Daily" }}
+        />
+        <Stack.Screen
+          name="arcade"
+          options={{ title: "Arcade" }}
+        />
       </Stack>
     </>
   )

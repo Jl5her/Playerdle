@@ -3,11 +3,41 @@ import type { Player, SportColumn } from "@/games/playerdle/sports"
 import GuessRow from "@/games/playerdle/components/guess-row"
 
 const mockColumns: SportColumn[] = [
-  { id: "conference", label: "CONF", key: "conference", evaluator: { type: "match" }, example: { value: "AFC", status: "correct" } },
-  { id: "division", label: "DIV", key: "division", evaluator: { type: "match" }, example: { value: "AFC West", status: "incorrect" } },
-  { id: "team", label: "TEAM", key: "team", evaluator: { type: "match" }, example: { value: "KC", status: "correct" } },
-  { id: "position", label: "POS", key: "position", evaluator: { type: "match" }, example: { value: "QB", status: "incorrect" } },
-  { id: "number", label: "#", key: "number", evaluator: { type: "comparison", closeWithin: 5, showDirection: true }, example: { value: "15", status: "close", arrow: "↑" } },
+  {
+    id: "conference",
+    label: "CONF",
+    key: "conference",
+    evaluator: { type: "match" },
+    example: { value: "AFC", status: "correct" },
+  },
+  {
+    id: "division",
+    label: "DIV",
+    key: "division",
+    evaluator: { type: "match" },
+    example: { value: "AFC West", status: "incorrect" },
+  },
+  {
+    id: "team",
+    label: "TEAM",
+    key: "team",
+    evaluator: { type: "match" },
+    example: { value: "KC", status: "correct" },
+  },
+  {
+    id: "position",
+    label: "POS",
+    key: "position",
+    evaluator: { type: "match" },
+    example: { value: "QB", status: "incorrect" },
+  },
+  {
+    id: "number",
+    label: "#",
+    key: "number",
+    evaluator: { type: "comparison", closeWithin: 5, showDirection: true },
+    example: { value: "15", status: "close", arrow: "↑" },
+  },
 ]
 
 const mockAnswer: Player = {

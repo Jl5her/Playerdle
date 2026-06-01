@@ -5,11 +5,7 @@ import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 import { GuessGrid, GuessInput } from "@/games/playerdle/components"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
 import type { Player, SportConfig } from "@/games/playerdle/sports"
-import {
-  getDailyPlayer,
-  getRandomArcadePlayer,
-  getTodayKey,
-} from "@/games/playerdle/utils/daily"
+import { getDailyPlayer, getRandomArcadePlayer, getTodayKey } from "@/games/playerdle/utils/daily"
 import { saveGameResult } from "@/games/playerdle/utils/stats"
 import { DailyGameShell, Popup, ResultBanner, ScrollHint } from "@/shared/components"
 import { useWinConfetti } from "@/shared/hooks/use-win-confetti"
@@ -103,7 +99,9 @@ function PositionBadge({ position, revealed }: { position: string; revealed: boo
         <span
           className={clsx(
             "absolute inset-0 -rotate-45 flex items-center justify-center text-sm font-black tracking-wider transition-colors duration-500",
-            revealed ? "text-success-500 dark:text-success-400" : "text-primary-300 dark:text-primary-600",
+            revealed
+              ? "text-success-500 dark:text-success-400"
+              : "text-primary-300 dark:text-primary-600",
           )}
         >
           {position}

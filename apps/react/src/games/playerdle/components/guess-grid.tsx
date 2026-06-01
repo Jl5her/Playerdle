@@ -57,7 +57,11 @@ export default function GuessGrid({
             ref={el => {
               rowRefs.current[i] = el
             }}
-            className={clsx(hideAnswer && guesses[i].id === answer.id && "blur select-none opacity-40 transition-[filter,opacity] duration-200")}
+            className={clsx(
+              hideAnswer &&
+                guesses[i].id === answer.id &&
+                "blur select-none opacity-40 transition-[filter,opacity] duration-200",
+            )}
           >
             <GuessRow
               result={{ guess: guesses[i], answer }}

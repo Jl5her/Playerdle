@@ -133,7 +133,9 @@ export function getJourneyPuzzleByDateKey(league: JourneyLeague, dateKey: string
 
 export function getArcadeJourneyPuzzle(league: JourneyLeague, excludeId?: string): JourneyPuzzle {
   const data = getLeagueJourneyData(league)
-  const pool = excludeId ? data.eligiblePlayers.filter(p => p.id !== excludeId) : data.eligiblePlayers
+  const pool = excludeId
+    ? data.eligiblePlayers.filter(p => p.id !== excludeId)
+    : data.eligiblePlayers
   const player = pool[Math.floor(Math.random() * pool.length)] ?? data.eligiblePlayers[0]
   return { player, dateKey: "arcade", index: 0, league }
 }

@@ -12,7 +12,10 @@
     },
     "./theme.css": "./src/theme.css"
   },
-  "files": ["dist", "src/theme.css"],
+  "files": [
+    "dist",
+    "src/theme.css"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch --preserveWatchOutput",

@@ -24,7 +24,7 @@ const meta = {
     ),
   },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative h-96 w-full bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>

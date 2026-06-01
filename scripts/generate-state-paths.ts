@@ -2,11 +2,56 @@ import { writeFileSync } from "node:fs"
 import { resolve } from "node:path"
 
 const TARGET_IDS = [
-  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY",
+  "AL",
+  "AK",
+  "AZ",
+  "AR",
+  "CA",
+  "CO",
+  "CT",
+  "DE",
+  "FL",
+  "GA",
+  "HI",
+  "ID",
+  "IL",
+  "IN",
+  "IA",
+  "KS",
+  "KY",
+  "LA",
+  "ME",
+  "MD",
+  "MA",
+  "MI",
+  "MN",
+  "MS",
+  "MO",
+  "MT",
+  "NE",
+  "NV",
+  "NH",
+  "NJ",
+  "NM",
+  "NY",
+  "NC",
+  "ND",
+  "OH",
+  "OK",
+  "OR",
+  "PA",
+  "RI",
+  "SC",
+  "SD",
+  "TN",
+  "TX",
+  "UT",
+  "VT",
+  "VA",
+  "WA",
+  "WV",
+  "WI",
+  "WY",
 ]
 
 interface Location {
@@ -85,7 +130,10 @@ function parsePathBbox(d: string): { minX: number; minY: number; maxX: number; m
         break
       }
       case "c": {
-        readNum(); readNum(); readNum(); readNum()
+        readNum()
+        readNum()
+        readNum()
+        readNum()
         const dx = readNum()
         const dy = readNum()
         x = rel ? x + dx : dx
@@ -95,7 +143,8 @@ function parsePathBbox(d: string): { minX: number; minY: number; maxX: number; m
       }
       case "s":
       case "q": {
-        readNum(); readNum()
+        readNum()
+        readNum()
         const dx = readNum()
         const dy = readNum()
         x = rel ? x + dx : dx
@@ -112,7 +161,11 @@ function parsePathBbox(d: string): { minX: number; minY: number; maxX: number; m
         break
       }
       case "a": {
-        readNum(); readNum(); readNum(); readNum(); readNum()
+        readNum()
+        readNum()
+        readNum()
+        readNum()
+        readNum()
         const dx = readNum()
         const dy = readNum()
         x = rel ? x + dx : dx

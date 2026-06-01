@@ -325,7 +325,9 @@ async function buildSportData(target: TargetSport, testMode: boolean) {
 
   console.log(`  Wrote ${teams.length} teams to ${teamsPath}`)
   console.log(`  Wrote ${players.length} players to ${playersPath}`)
-  console.log(`  Wrote ${answerPoolIds.length} answer pool IDs to ${answerPoolPath} (excluded ${backfilledIds.size} backfilled)`)
+  console.log(
+    `  Wrote ${answerPoolIds.length} answer pool IDs to ${answerPoolPath} (excluded ${backfilledIds.size} backfilled)`,
+  )
 }
 
 async function main() {

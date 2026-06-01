@@ -44,7 +44,13 @@ interface StatBarProps {
 }
 
 /** A single guess-distribution row that grows its bar from 0 → target width on mount. */
-export function StatBar({ count, maxCount, label, isLoss = false, highlight = false }: StatBarProps) {
+export function StatBar({
+  count,
+  maxCount,
+  label,
+  isLoss = false,
+  highlight = false,
+}: StatBarProps) {
   const [animated, setAnimated] = useState(false)
   useEffect(() => {
     const raf = requestAnimationFrame(() => setAnimated(true))

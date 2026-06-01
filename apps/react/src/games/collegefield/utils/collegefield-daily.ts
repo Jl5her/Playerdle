@@ -156,7 +156,14 @@ export interface CollegeFieldStats {
 export function calculateCollegeFieldStats(): CollegeFieldStats {
   const history = getCollegeFieldHistory()
   if (history.length === 0) {
-    return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {}, losses: 0 }
+    return {
+      played: 0,
+      winPercentage: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+      guessDistribution: {},
+      losses: 0,
+    }
   }
   const played = history.length
   const wins = history.filter(r => r.won).length
@@ -212,9 +219,7 @@ export function compareTeamToAnswer(
   const result = {} as CollegeFieldComparison
   for (const pos of POSITIONS) {
     result[pos] =
-      guessed.starters[pos].schoolAbbr === answer.starters[pos].schoolAbbr
-        ? "correct"
-        : "incorrect"
+      guessed.starters[pos].schoolAbbr === answer.starters[pos].schoolAbbr ? "correct" : "incorrect"
   }
   return result
 }

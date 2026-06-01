@@ -48,11 +48,7 @@ function toNum(value: SportValue): number | null {
   return null
 }
 
-export function evaluateColumn(
-  guess: Player,
-  answer: Player,
-  column: SportColumn,
-): EvaluatedCell {
+export function evaluateColumn(guess: Player, answer: Player, column: SportColumn): EvaluatedCell {
   const g = guess[column.key]
   const a = answer[column.key]
 
@@ -78,7 +74,6 @@ export function evaluateColumn(
   return {
     value: toDisplay(g),
     status: isMatch ? "correct" : isClose ? "close" : "incorrect",
-    arrow:
-      column.evaluator.showDirection && !isMatch ? (gn < an ? "↑" : "↓") : undefined,
+    arrow: column.evaluator.showDirection && !isMatch ? (gn < an ? "↑" : "↓") : undefined,
   }
 }

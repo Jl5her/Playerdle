@@ -67,10 +67,7 @@ export function GameScreen({ mode }: { mode: Mode }) {
   const lost = !won && guesses.length >= MAX_GUESSES
   const finished = won || lost
 
-  const alreadyGuessedIds = useMemo(
-    () => new Set(guesses.map(g => g.id)),
-    [guesses],
-  )
+  const alreadyGuessedIds = useMemo(() => new Set(guesses.map(g => g.id)), [guesses])
 
   const handleSubmit = useCallback(
     (player: Player) => {
@@ -119,9 +116,7 @@ export function GameScreen({ mode }: { mode: Mode }) {
                 onPress={handlePlayAgain}
                 className="mt-4 self-start bg-accent-500 active:bg-accent-600 px-5 py-3 rounded-lg"
               >
-                <Text className="text-primary-900 font-extrabold tracking-wider">
-                  PLAY AGAIN
-                </Text>
+                <Text className="text-primary-900 font-extrabold tracking-wider">PLAY AGAIN</Text>
               </Pressable>
             )}
           </View>

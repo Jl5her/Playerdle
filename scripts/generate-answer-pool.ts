@@ -174,7 +174,16 @@ async function scrapeFantasyProsRankings(position: string, topN: number): Promis
 
 function loadNFLPlayers(): NFLPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "players.json")
+  const playersPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nfl",
+    "players.json",
+  )
   const data = readFileSync(playersPath, "utf-8")
   return JSON.parse(data)
 }
@@ -275,7 +284,16 @@ function buildAnswerPoolIds(fantasyPlayers: FantasyPlayer[], nflPlayers: NFLPlay
 
 async function main() {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const outputPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nfl", "answer_pool.json")
+  const outputPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nfl",
+    "answer_pool.json",
+  )
 
   console.log("NFL Answer Pool Generator")
   console.log("=".repeat(50))

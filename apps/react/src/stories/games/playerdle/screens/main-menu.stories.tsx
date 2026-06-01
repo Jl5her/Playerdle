@@ -11,11 +11,41 @@ const nflInfo: SportInfo = {
 }
 
 const nflColumns: SportColumn[] = [
-  { id: "conference", label: "CONF", key: "conference", evaluator: { type: "match" as const }, example: { value: "AFC", status: "correct" as const } },
-  { id: "division", label: "DIV", key: "division", evaluator: { type: "match" as const }, example: { value: "NFC West", status: "close" as const } },
-  { id: "team", label: "TEAM", key: "team", evaluator: { type: "match" as const }, example: { value: "SF", status: "incorrect" as const } },
-  { id: "position", label: "POS", key: "position", evaluator: { type: "match" as const }, example: { value: "QB", status: "correct" as const } },
-  { id: "number", label: "#", key: "number", evaluator: { type: "comparison" as const, closeWithin: 5, showDirection: true }, example: { value: "10", status: "close" as const, arrow: "↑" } },
+  {
+    id: "conference",
+    label: "CONF",
+    key: "conference",
+    evaluator: { type: "match" as const },
+    example: { value: "AFC", status: "correct" as const },
+  },
+  {
+    id: "division",
+    label: "DIV",
+    key: "division",
+    evaluator: { type: "match" as const },
+    example: { value: "NFC West", status: "close" as const },
+  },
+  {
+    id: "team",
+    label: "TEAM",
+    key: "team",
+    evaluator: { type: "match" as const },
+    example: { value: "SF", status: "incorrect" as const },
+  },
+  {
+    id: "position",
+    label: "POS",
+    key: "position",
+    evaluator: { type: "match" as const },
+    example: { value: "QB", status: "correct" as const },
+  },
+  {
+    id: "number",
+    label: "#",
+    key: "number",
+    evaluator: { type: "comparison" as const, closeWithin: 5, showDirection: true },
+    example: { value: "10", status: "close" as const, arrow: "↑" },
+  },
 ]
 
 const nflConfig: SportConfig = {
@@ -35,7 +65,7 @@ const meta = {
   component: MainMenu,
   parameters: { layout: "fullscreen" },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="app-viewport flex flex-col bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>

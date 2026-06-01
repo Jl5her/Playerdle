@@ -93,12 +93,18 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
             title="Close"
             className="w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors shrink-0 ml-3"
           >
-            <FontAwesomeIcon icon={faXmark} className="text-2xl" />
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="text-2xl"
+            />
           </button>
         </div>
 
         {/* Scrollable content */}
-        <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto">
+        <div
+          ref={scrollRef}
+          className="flex-1 min-h-0 overflow-y-auto"
+        >
           <div className="px-5 pt-5 pb-8 flex flex-col gap-6">
             {/* Game Modes */}
             <section className="flex flex-col gap-3">
@@ -190,7 +196,10 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
                 </p>
                 <div className="flex items-center justify-center gap-3">
                   {sportTabs.map((tab, i) => (
-                    <div key={tab.label} className="flex flex-col items-center gap-1">
+                    <div
+                      key={tab.label}
+                      className="flex flex-col items-center gap-1"
+                    >
                       <div
                         className={clsx(
                           "w-10 h-10 rounded-full flex items-center justify-center",
@@ -199,7 +208,10 @@ export default function WelcomeScreen({ onDismiss }: WelcomeScreenProps) {
                             : "bg-primary-200 dark:bg-primary-700 text-primary-500 dark:text-primary-300",
                         )}
                       >
-                        <FontAwesomeIcon icon={tab.icon} className="text-lg" />
+                        <FontAwesomeIcon
+                          icon={tab.icon}
+                          className="text-lg"
+                        />
                       </div>
                       <span className="text-[10px] font-semibold text-primary-500 dark:text-primary-400 uppercase tracking-wide">
                         {tab.label}
@@ -246,7 +258,10 @@ function Card({ icon, title, description }: CardProps) {
   return (
     <div className="rounded-xl bg-primary-100 dark:bg-primary-800 p-4 flex gap-3 items-start">
       <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 bg-primary-200 dark:bg-primary-700 text-primary-600 dark:text-primary-300">
-        <FontAwesomeIcon icon={icon} className="text-base" />
+        <FontAwesomeIcon
+          icon={icon}
+          className="text-base"
+        />
       </div>
       <div>
         <p className="font-bold text-sm text-primary-700 dark:text-primary-100 mb-1">{title}</p>

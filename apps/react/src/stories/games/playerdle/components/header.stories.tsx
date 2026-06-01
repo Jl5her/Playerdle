@@ -23,7 +23,7 @@ const meta = {
   tags: ["autodocs"],
   parameters: { layout: "padded" },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative h-16 bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>

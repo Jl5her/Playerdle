@@ -20,8 +20,7 @@ export function hexToColorName(hex: string): string {
   if (l < 0.07) return "Black"
   if (l > 0.91) return "White"
 
-  const s =
-    max === min ? 0 : l < 0.5 ? (max - min) / (max + min) : (max - min) / (2 - max - min)
+  const s = max === min ? 0 : l < 0.5 ? (max - min) / (max + min) : (max - min) / (2 - max - min)
 
   if (s < 0.12) {
     if (l < 0.38) return "Charcoal"
@@ -38,13 +37,13 @@ export function hexToColorName(hex: string): string {
   } else {
     h = 4 + (r - g) / (max - min)
   }
-  h = ((h * 60) + 360) % 360
+  h = (h * 60 + 360) % 360
 
   // Red family (0–20° and 340–360°)
   if (h < 20 || h >= 340) {
     if (l < 0.22) return "Maroon"
     // Warm orange-reds (h 8–20°) with moderate saturation are burnt orange, not crimson
-    if (h > 8 && h < 20 && s > 0.50 && l > 0.28) return "Orange"
+    if (h > 8 && h < 20 && s > 0.5 && l > 0.28) return "Orange"
     if (l < 0.42) return "Crimson"
     // Bright saturated orangereds (e.g. Broncos #FB4F14, Browns #FF3C00) — only h<20 side
     if (h < 20 && s > 0.85 && l > 0.44) return "Orange"
@@ -71,7 +70,7 @@ export function hexToColorName(hex: string): string {
     if (l < 0.22) return "Brown"
     if (l < 0.38 && s > 0.45) return "Rust"
     if (s > 0.55 && l > 0.44) return "Orange"
-    if (l > 0.60) return "Tan"
+    if (l > 0.6) return "Tan"
     return "Tan"
   }
 

@@ -7,7 +7,7 @@ const meta = {
   component: ArcadeDifficulty,
   parameters: { layout: "fullscreen" },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative flex flex-col min-h-screen bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>

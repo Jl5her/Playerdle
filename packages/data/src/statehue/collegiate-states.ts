@@ -43,8 +43,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   "South Florida": ["#006747", "#CFC493", "#FFFFFF"],
   "Florida Atlantic": ["#003366", "#BC0007", "#FFFFFF"],
   "Florida Gulf Coast": ["#002D62", "#009B5B", "#FFFFFF"],
-  "Jacksonville": ["#004B87", "#BE9C35", "#FFFFFF"],
-  "Stetson": ["#006E51", "#B5A36A", "#FFFFFF"],
+  Jacksonville: ["#004B87", "#BE9C35", "#FFFFFF"],
+  Stetson: ["#006E51", "#B5A36A", "#FFFFFF"],
 
   // New York
   Syracuse: ["#F76900", "#000E54", "#FFFFFF"],
@@ -53,8 +53,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   Columbia: ["#B9D9EB", "#002060", "#FFFFFF"],
   Iona: ["#800000", "#C9B274", "#FFFFFF"],
   Army: ["#000000", "#C5B783", "#FFFFFF"],
-  "Niagara": ["#582C83", "#A8996E", "#FFFFFF"],
-  "Wagner": ["#003087", "#B5A36A", "#FFFFFF"],
+  Niagara: ["#582C83", "#A8996E", "#FFFFFF"],
+  Wagner: ["#003087", "#B5A36A", "#FFFFFF"],
 
   // Ohio
   "Ohio State": ["#BB0000", "#666666", "#FFFFFF"],
@@ -73,8 +73,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   Temple: ["#9E1B32", "#FFFFFF", "#000000"],
   "Saint Joseph's": ["#A2002D", "#5D6770", "#FFFFFF"],
   Duquesne: ["#C8102E", "#003087", "#FFFFFF"],
-  "Penn": ["#011F5B", "#990000", "#FFFFFF"],
-  "Bucknell": ["#E87722", "#002B5C", "#FFFFFF"],
+  Penn: ["#011F5B", "#990000", "#FFFFFF"],
+  Bucknell: ["#E87722", "#002B5C", "#FFFFFF"],
   "La Salle": ["#003DA5", "#D4AF37", "#FFFFFF"],
 
   // Virginia
@@ -85,7 +85,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   "George Mason": ["#006633", "#FFCC33", "#FFFFFF"],
   "Old Dominion": ["#00507D", "#7BAFD4", "#FFFFFF"],
   "William & Mary": ["#115740", "#F0C040", "#000000"],
-  "Liberty": ["#002868", "#C41230", "#FFFFFF"],
+  Liberty: ["#002868", "#C41230", "#FFFFFF"],
 
   // Indiana
   Indiana: ["#990000", "#EEEDEB", "#FFFFFF"],
@@ -94,8 +94,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   Butler: ["#13294B", "#FFFFFF", "#000000"],
   "Indiana State": ["#0033A0", "#FFFFFF", "#000000"],
   "Ball State": ["#BA0C2F", "#FFFFFF", "#000000"],
-  "IUPUI": ["#990000", "#B5A36A", "#FFFFFF"],
-  "Valparaiso": ["#4D1979", "#D4AF37", "#FFFFFF"],
+  IUPUI: ["#990000", "#B5A36A", "#FFFFFF"],
+  Valparaiso: ["#4D1979", "#D4AF37", "#FFFFFF"],
 
   // Massachusetts
   "Boston College": ["#8B0000", "#BC9B6A", "#FFFFFF"],
@@ -104,8 +104,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   Northeastern: ["#C8102E", "#000000", "#FFFFFF"],
   "Boston University": ["#CC0000", "#FFFFFF", "#000000"],
   "Holy Cross": ["#602D89", "#FFFFFF", "#000000"],
-  "Merrimack": ["#002868", "#CE1126", "#FFFFFF"],
-  "Bryant": ["#000000", "#B5A36A", "#FFFFFF"],
+  Merrimack: ["#002868", "#CE1126", "#FFFFFF"],
+  Bryant: ["#000000", "#B5A36A", "#FFFFFF"],
 
   // Illinois
   Illinois: ["#E84A27", "#13294B", "#FFFFFF"],
@@ -114,8 +114,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   "Loyola Chicago": ["#8C2332", "#C8A748", "#FFFFFF"],
   "Illinois State": ["#CC0000", "#FFFFFF", "#000000"],
   "Northern Illinois": ["#C8102E", "#000000", "#FFFFFF"],
-  "UIC": ["#002147", "#E31837", "#FFFFFF"],
-  "Bradley": ["#CC0000", "#FFFFFF", "#000000"],
+  UIC: ["#002147", "#E31837", "#FFFFFF"],
+  Bradley: ["#CC0000", "#FFFFFF", "#000000"],
   "Southern Illinois": ["#6C0030", "#FFFFFF", "#000000"],
 
   // Iowa
@@ -131,7 +131,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   "Murray State": ["#002147", "#FFC72C", "#FFFFFF"],
   "Morehead State": ["#002147", "#FFD200", "#FFFFFF"],
   "Eastern Kentucky": ["#8C1C13", "#FFFFFF", "#B09A5B"],
-  "Bellarmine": ["#003087", "#E8B500", "#FFFFFF"],
+  Bellarmine: ["#003087", "#E8B500", "#FFFFFF"],
 
   // Louisiana
   LSU: ["#461D7C", "#FDD023", "#FFFFFF"],
@@ -139,7 +139,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   Louisiana: ["#CE181E", "#FFFFFF", "#000000"],
   "Louisiana Tech": ["#002F8B", "#CE0E2D", "#FFFFFF"],
   "Southeastern Louisiana": ["#006747", "#FFFFFF", "#000000"],
-  "McNeese": ["#003087", "#F0A500", "#FFFFFF"],
+  McNeese: ["#003087", "#F0A500", "#FFFFFF"],
   "New Orleans": ["#002D62", "#FFFFFF", "#000000"],
 
   // Mississippi
@@ -154,14 +154,14 @@ const PALETTES: Record<string, [string, string, string]> = {
   "Oklahoma State": ["#FF7300", "#000000", "#FFFFFF"],
   Tulsa: ["#003366", "#DAA900", "#C8102E"],
   "Oral Roberts": ["#002956", "#DAA900", "#FFFFFF"],
-  "Lamar": ["#C8102E", "#FFFFFF", "#000000"],
+  Lamar: ["#C8102E", "#FFFFFF", "#000000"],
 
   // South Carolina
   "South Carolina": ["#73000A", "#000000", "#FFFFFF"],
   Clemson: ["#F66733", "#522D80", "#FFFFFF"],
   "College of Charleston": ["#6D1F2C", "#ABA677", "#FFFFFF"],
   "Coastal Carolina": ["#006F71", "#876829", "#FFFFFF"],
-  "Winthrop": ["#C8102E", "#FFD700", "#FFFFFF"],
+  Winthrop: ["#C8102E", "#FFD700", "#FFFFFF"],
   "South Carolina State": ["#006E51", "#CC0000", "#FFFFFF"],
 
   // Tennessee
@@ -169,7 +169,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   Memphis: ["#003087", "#898D8D", "#FFFFFF"],
   Vanderbilt: ["#000000", "#866D4B", "#FFFFFF"],
   "Middle Tennessee": ["#0066CC", "#FFFFFF", "#000000"],
-  "ETSU": ["#041E42", "#FAB733", "#FFFFFF"],
+  ETSU: ["#041E42", "#FAB733", "#FFFFFF"],
   Belmont: ["#003DA5", "#A89968", "#FFFFFF"],
   "Tennessee State": ["#006E51", "#003087", "#FFFFFF"],
   "Tennessee Tech": ["#4C2C92", "#E8B500", "#FFFFFF"],
@@ -191,7 +191,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   Troy: ["#8A1538", "#B5A36A", "#FFFFFF"],
   Samford: ["#002D62", "#B07C35", "#FFFFFF"],
   "Jacksonville State": ["#CC0000", "#FFFFFF", "#000000"],
-  "Montevallo": ["#5B2D8E", "#F4C300", "#FFFFFF"],
+  Montevallo: ["#5B2D8E", "#F4C300", "#FFFFFF"],
 
   // Arizona
   Arizona: ["#CC0033", "#003366", "#FFFFFF"],
@@ -212,7 +212,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   Quinnipiac: ["#001E62", "#B58500", "#FFFFFF"],
   "Central Connecticut": ["#003087", "#1C85C7", "#FFFFFF"],
   "Sacred Heart": ["#CE1126", "#FFFFFF", "#000000"],
-  "Fairfield": ["#CC0000", "#FFFFFF", "#000000"],
+  Fairfield: ["#CC0000", "#FFFFFF", "#000000"],
 
   // Georgia
   Georgia: ["#BA0C2F", "#000000", "#FFFFFF"],
@@ -228,7 +228,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   "Kansas State": ["#512888", "#A7A9AC", "#FFFFFF"],
   "Wichita State": ["#FDBB30", "#000000", "#FFFFFF"],
   "Fort Hays State": ["#000000", "#F4C300", "#FFFFFF"],
-  "Washburn": ["#004B8D", "#FFCC00", "#FFFFFF"],
+  Washburn: ["#004B8D", "#FFCC00", "#FFFFFF"],
 
   // Michigan
   Michigan: ["#FFCB05", "#00274C", "#FFFFFF"],
@@ -249,8 +249,8 @@ const PALETTES: Record<string, [string, string, string]> = {
   Rutgers: ["#CC0033", "#000000", "#FFFFFF"],
   "Seton Hall": ["#003ECC", "#898D8D", "#FFFFFF"],
   Princeton: ["#E77500", "#000000", "#FFFFFF"],
-  "Rider": ["#8C1515", "#FFFFFF", "#000000"],
-  "Monmouth": ["#003366", "#CCAB00", "#FFFFFF"],
+  Rider: ["#8C1515", "#FFFFFF", "#000000"],
+  Monmouth: ["#003366", "#CCAB00", "#FFFFFF"],
   "Saint Peter's": ["#003087", "#C4AF4D", "#FFFFFF"],
   "Fairleigh Dickinson": ["#003087", "#B5A36A", "#FFFFFF"],
 
@@ -273,7 +273,7 @@ const PALETTES: Record<string, [string, string, string]> = {
   "Oregon State": ["#DC4405", "#000000", "#FFFFFF"],
   Portland: ["#582C83", "#F4CD00", "#FFFFFF"],
   "Portland State": ["#6E3796", "#FFFFFF", "#B5B5B5"],
-  "Pacific": ["#FF6600", "#000000", "#FFFFFF"],
+  Pacific: ["#FF6600", "#000000", "#FFFFFF"],
   "Southern Oregon": ["#CC0000", "#000000", "#FFFFFF"],
 
   // Maryland (new state)
@@ -507,7 +507,7 @@ const CONFERENCES: Record<string, string> = {
 
   // West Coast Conference
   Gonzaga: "WCC",
-  "Portland": "WCC",
+  Portland: "WCC",
   "Saint Mary's": "WCC",
   "Seattle U": "WAC",
 
@@ -568,16 +568,16 @@ const CONFERENCES: Record<string, string> = {
   Monmouth: "MAAC",
   Rider: "MAAC",
   "Saint Peter's": "MAAC",
-  "Fairfield": "MAAC",
-  "Niagara": "MAAC",
+  Fairfield: "MAAC",
+  Niagara: "MAAC",
   Siena: "MAAC",
 
   // ASUN
   "Florida Gulf Coast": "ASUN",
-  "Jacksonville": "ASUN",
+  Jacksonville: "ASUN",
   "Jacksonville State": "ASUN",
   "Kennesaw State": "ASUN",
-  "Liberty": "ASUN",
+  Liberty: "ASUN",
   Stetson: "ASUN",
 
   // Pac-12 (post-2024 holdouts)
@@ -773,12 +773,7 @@ export const COLLEGIATE_STATES: ColorsState[] = [
   {
     id: "OK",
     name: "Oklahoma",
-    teams: [
-      team("Oklahoma"),
-      team("Oklahoma State"),
-      team("Tulsa"),
-      team("Oral Roberts"),
-    ],
+    teams: [team("Oklahoma"), team("Oklahoma State"), team("Tulsa"), team("Oral Roberts")],
   },
   {
     id: "SC",
@@ -836,12 +831,7 @@ export const COLLEGIATE_STATES: ColorsState[] = [
   {
     id: "CO",
     name: "Colorado",
-    teams: [
-      team("Colorado"),
-      team("Colorado State"),
-      team("Air Force"),
-      team("Denver"),
-    ],
+    teams: [team("Colorado"), team("Colorado State"), team("Air Force"), team("Denver")],
   },
   {
     id: "CT",
@@ -924,12 +914,7 @@ export const COLLEGIATE_STATES: ColorsState[] = [
   {
     id: "OR",
     name: "Oregon",
-    teams: [
-      team("Oregon"),
-      team("Oregon State"),
-      team("Portland"),
-      team("Portland State"),
-    ],
+    teams: [team("Oregon"), team("Oregon State"), team("Portland"), team("Portland State")],
   },
   {
     id: "MD",
@@ -946,11 +931,7 @@ export const COLLEGIATE_STATES: ColorsState[] = [
   {
     id: "NE",
     name: "Nebraska",
-    teams: [
-      team("Nebraska"),
-      team("Creighton"),
-      team("Nebraska-Omaha"),
-    ],
+    teams: [team("Nebraska"), team("Creighton"), team("Nebraska-Omaha")],
   },
   {
     id: "AR",
@@ -965,11 +946,7 @@ export const COLLEGIATE_STATES: ColorsState[] = [
   {
     id: "ID",
     name: "Idaho",
-    teams: [
-      team("Boise State"),
-      team("Idaho"),
-      team("Idaho State"),
-    ],
+    teams: [team("Boise State"), team("Idaho"), team("Idaho State")],
   },
   {
     id: "WI",

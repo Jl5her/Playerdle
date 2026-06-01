@@ -41,11 +41,26 @@ export const FullWidth: Story = {
 }
 
 export const AllVariants: Story = {
-  render: (args) => (
+  render: args => (
     <div className="flex flex-col gap-3 p-4">
-      <Button {...args} variant="primary">Primary</Button>
-      <Button {...args} variant="secondary">Secondary</Button>
-      <Button {...args} variant="accent">Accent</Button>
+      <Button
+        {...args}
+        variant="primary"
+      >
+        Primary
+      </Button>
+      <Button
+        {...args}
+        variant="secondary"
+      >
+        Secondary
+      </Button>
+      <Button
+        {...args}
+        variant="accent"
+      >
+        Accent
+      </Button>
     </div>
   ),
 }

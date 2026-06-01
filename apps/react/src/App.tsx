@@ -71,13 +71,23 @@ interface AppShellProps {
 function HelpRedirect() {
   const { sport } = useParams<{ sport?: string }>()
   const to = sport ? `/${sport}?m=help` : `/?m=help`
-  return <Navigate to={to} replace />
+  return (
+    <Navigate
+      to={to}
+      replace
+    />
+  )
 }
 
 function LegacySportRedirect({ to }: { to: string }) {
   const { sport } = useParams<{ sport?: string }>()
   const prefix = sport ? `/${sport}` : ""
-  return <Navigate to={`${prefix}${to}`} replace />
+  return (
+    <Navigate
+      to={`${prefix}${to}`}
+      replace
+    />
+  )
 }
 
 function getSportIdFromRouteParam(sport?: string): SportConfig["id"] | null {
@@ -121,11 +131,10 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   const [sport, setSport] = useState<SportConfig | null>(null)
   const [sportLoadFailed, setSportLoadFailed] = useState(false)
   const [statsModalConfig, setStatsModalConfig] = useState<StatsModalConfig>({ mode: "daily" })
-  const initialGuideMode = screen === "playerdle" ? getGuideModeFromState(location.state) : undefined
+  const initialGuideMode =
+    screen === "playerdle" ? getGuideModeFromState(location.state) : undefined
   const [gameGuideMode, setGameGuideMode] = useState<GuideMode>(initialGuideMode ?? "manual")
-  const panels = usePanelStack<AppPanel>(
-    initialGuideMode ? "guide" : undefined,
-  )
+  const panels = usePanelStack<AppPanel>(initialGuideMode ? "guide" : undefined)
   const [calendarHistoryVersion, setCalendarHistoryVersion] = useState(0)
   const [archiveDateKey, setArchiveDateKey] = useState<string | null>(null)
   const isArchive = !!archiveDateKey
@@ -329,7 +338,8 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       onShowStats: () => navigate("/collegecourt"),
     })
   }
-  const extraGames: ExtraGame[] | undefined = builtExtraGames.length > 0 ? builtExtraGames : undefined
+  const extraGames: ExtraGame[] | undefined =
+    builtExtraGames.length > 0 ? builtExtraGames : undefined
 
   if (sportLoadFailed && !sport) {
     return (
@@ -361,84 +371,93 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       )}
       {isPlayerdleScreen && (
         <PanelStackContext.Provider value={panels}>
-        <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
-          <Header
-            onShowTutorial={
-              isPlayerdleScreen && !panels.isAnyOpen
-                ? isArchive
-                  ? () => panels.push("archive-guide")
-                  : handleShowTutorial
-                : undefined
-            }
-            onShowStats={
-              isPlayerdleScreen && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
-            }
-            onBack={isArchive ? exitArchive : goToMenu}
-            sport={activeSport ?? sportMeta}
-            subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
-          />
-          <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
-            <Suspense fallback={<div className="flex-1 min-h-0" />}>
-              {isPlayerdleScreen && activeSport && (
-                <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
-                  <div
-                    className={clsx(
-                      "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
-                      panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
-                    )}
-                  >
-                    {isArchive ? (
-                      <Game
-                        key={`archive:${activeSport.id}:${archiveDateKey}`}
-                        mode="daily"
-                        sport={activeSport}
-                        variantId={activeVariantId}
-                        archiveDateKey={archiveDateKey!}
-                      />
-                    ) : (
-                      <Game
-                        key={`playerdle-${gameKey}`}
-                        mode="daily"
-                        sport={activeSport}
-                        variantId={activeVariantId}
-                        onBackToToday={() => setGameKey(k => k + 1)}
-                      />
-                    )}
-                  </div>
-                  <GameGuideContent
-                    id="guide"
-                    tutorialKey={gameGuideMode === "onboarding" ? getTutorialStorageKey(sportId, activeVariantId) : undefined}
-                    sport={activeSport}
-                    mode={gameGuideMode}
-                    onOpenCalendar={() => panels.push("calendar")}
-                  />
-                  <Panel open={panels.isOpen("stats")} onClose={panels.pop} title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"} layout="scroll">
-                    <StatsContent
-                      {...statsModalConfig}
+          <div className="app-viewport flex min-h-0 flex-col overflow-hidden">
+            <Header
+              onShowTutorial={
+                isPlayerdleScreen && !panels.isAnyOpen
+                  ? isArchive
+                    ? () => panels.push("archive-guide")
+                    : handleShowTutorial
+                  : undefined
+              }
+              onShowStats={
+                isPlayerdleScreen && !panels.isAnyOpen && !isArchive ? handleShowStats : undefined
+              }
+              onBack={isArchive ? exitArchive : goToMenu}
+              sport={activeSport ?? sportMeta}
+              subtitle={archiveDateKey ? formatLongDate(parseDateKey(archiveDateKey)) : undefined}
+            />
+            <div className="flex flex-1 min-h-0 overflow-hidden pt-[3.75rem]">
+              <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                {isPlayerdleScreen && activeSport && (
+                  <div className="relative flex flex-1 min-h-0 flex-col overflow-hidden">
+                    <div
+                      className={clsx(
+                        "crossfade-panel h-full min-h-0 flex flex-1 overflow-hidden",
+                        panels.isAnyOpen ? "crossfade-inactive" : "crossfade-active",
+                      )}
+                    >
+                      {isArchive ? (
+                        <Game
+                          key={`archive:${activeSport.id}:${archiveDateKey}`}
+                          mode="daily"
+                          sport={activeSport}
+                          variantId={activeVariantId}
+                          archiveDateKey={archiveDateKey!}
+                        />
+                      ) : (
+                        <Game
+                          key={`playerdle-${gameKey}`}
+                          mode="daily"
+                          sport={activeSport}
+                          variantId={activeVariantId}
+                          onBackToToday={() => setGameKey(k => k + 1)}
+                        />
+                      )}
+                    </div>
+                    <GameGuideContent
+                      id="guide"
+                      tutorialKey={
+                        gameGuideMode === "onboarding"
+                          ? getTutorialStorageKey(sportId, activeVariantId)
+                          : undefined
+                      }
                       sport={activeSport}
-                      variantId={activeVariantId}
-                      onViewArchive={() => panels.push("calendar")}
+                      mode={gameGuideMode}
+                      onOpenCalendar={() => panels.push("calendar")}
                     />
-                  </Panel>
-                  <GameGuideContent
-                    id="archive-guide"
-                    sport={activeSport}
-                    mode="manual"
-                  />
-                  <Suspense fallback={<div className="flex-1 min-h-0" />}>
-                    <PlayerCalendar
-                      id="calendar"
-                      panel
-                      variantId={activeVariantId}
-                      onPlayArchive={handlePlayArchive}
-                      historyVersion={calendarHistoryVersion}
+                    <Panel
+                      open={panels.isOpen("stats")}
+                      onClose={panels.pop}
+                      title={statsModalConfig.showStatsOnly ? "Statistics" : "Results"}
+                      layout="scroll"
+                    >
+                      <StatsContent
+                        {...statsModalConfig}
+                        sport={activeSport}
+                        variantId={activeVariantId}
+                        onViewArchive={() => panels.push("calendar")}
+                      />
+                    </Panel>
+                    <GameGuideContent
+                      id="archive-guide"
+                      sport={activeSport}
+                      mode="manual"
                     />
-                  </Suspense>
-                </div>
-              )}
-            </Suspense>
+                    <Suspense fallback={<div className="flex-1 min-h-0" />}>
+                      <PlayerCalendar
+                        id="calendar"
+                        panel
+                        variantId={activeVariantId}
+                        onPlayArchive={handlePlayArchive}
+                        historyVersion={calendarHistoryVersion}
+                      />
+                    </Suspense>
+                  </div>
+                )}
+              </Suspense>
+            </div>
           </div>
-        </div>
         </PanelStackContext.Provider>
       )}
       {isMenuView && (
@@ -467,17 +486,33 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
 function CapCrunchArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
-  return <CapCrunchShell league="nfl" screen="daily" archiveDateKey={dateKey} />
+  return (
+    <CapCrunchShell
+      league="nfl"
+      screen="daily"
+      archiveDateKey={dateKey}
+    />
+  )
 }
 
 function CollegeCourtArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
-  return <CollegeCourtShell screen="daily" archiveDateKey={dateKey} />
+  return (
+    <CollegeCourtShell
+      screen="daily"
+      archiveDateKey={dateKey}
+    />
+  )
 }
 
 function CollegeFieldArchiveRoute() {
   const { dateKey } = useParams<{ dateKey: string }>()
-  return <CollegeFieldShell screen="daily" archiveDateKey={dateKey} />
+  return (
+    <CollegeFieldShell
+      screen="daily"
+      archiveDateKey={dateKey}
+    />
+  )
 }
 
 interface SportRouteProps {
@@ -548,425 +583,472 @@ function App() {
   const [showWelcome, setShowWelcome] = useState(() => !hasSeenWelcome())
   return (
     <>
-    <PWAUpdateToast />
-    {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
-    <Routes>
-      <Route
-        path="/"
-        element={<SportRoute screen="menu" />}
-      />
-      <Route
-        path="/help"
-        element={<HelpRedirect />}
-      />
-      <Route
-        path="/playerdle"
-        element={<SportRoute screen="playerdle" />}
-      />
-      <Route
-        path="/fanatic"
-        element={
-          <SportRoute
-            screen="playerdle"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
-      />
-      {/* Legacy /daily and /arcade paths redirect to the unified /playerdle URL. */}
-      <Route path="/daily" element={<Navigate to="/playerdle" replace />} />
-      <Route path="/arcade" element={<Navigate to="/playerdle" replace />} />
-      <Route path="/arcade/fanatic" element={<Navigate to="/fanatic" replace />} />
-      <Route path="/team-colors-key" element={<Navigate to="/team-colors-key/nfl" replace />} />
-      <Route
-        path="/team-colors-key/:sport"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <TeamColorsKey />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/:sport"
-        element={<SportRoute screen="menu" />}
-      />
-      <Route
-        path="/:sport/help"
-        element={<HelpRedirect />}
-      />
-      <Route
-        path="/:sport/playerdle"
-        element={<SportRoute screen="playerdle" />}
-      />
-      <Route
-        path="/:sport/fanatic"
-        element={
-          <SportRoute
-            screen="playerdle"
-            variantId={FANATIC_VARIANT_ID}
-          />
-        }
-      />
-      <Route path="/:sport/daily" element={<LegacySportRedirect to="/playerdle" />} />
-      <Route path="/:sport/arcade" element={<LegacySportRedirect to="/playerdle" />} />
-      <Route path="/:sport/arcade/fanatic" element={<LegacySportRedirect to="/fanatic" />} />
-      {/* Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. */}
-      <Route
-        path="/statehue"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <PaletteHub />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/geo"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
-      />
-      {/* Statehue game routes live under /statehue/*. Old /palette/states/* redirects for backwards compatibility. */}
-      <Route
-        path="/statehue/daily"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell screen="daily" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/statehue/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell screen="arcade" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/statehue/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsCalendar />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/statehue/collegiate"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell
-              screen="daily"
-              variant="collegiate"
+      <PWAUpdateToast />
+      {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
+      <Routes>
+        <Route
+          path="/"
+          element={<SportRoute screen="menu" />}
+        />
+        <Route
+          path="/help"
+          element={<HelpRedirect />}
+        />
+        <Route
+          path="/playerdle"
+          element={<SportRoute screen="playerdle" />}
+        />
+        <Route
+          path="/fanatic"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={FANATIC_VARIANT_ID}
             />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/statehue/collegiate/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsShell
-              screen="arcade"
-              variant="collegiate"
+          }
+        />
+        {/* Legacy /daily and /arcade paths redirect to the unified /playerdle URL. */}
+        <Route
+          path="/daily"
+          element={
+            <Navigate
+              to="/playerdle"
+              replace
             />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/statehue/collegiate/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <ColorsCalendar variant="collegiate" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/palette/states"
-        element={
-          <Navigate
-            to="/statehue"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/states/daily"
-        element={
-          <Navigate
-            to="/statehue/daily"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/states/arcade"
-        element={
-          <Navigate
-            to="/statehue/arcade"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/states/calendar"
-        element={
-          <Navigate
-            to="/statehue/calendar"
-            replace
-          />
-        }
-      />
-      {/* Journeyman lives under /journeyman/:league. Plain /journeyman/* paths
+          }
+        />
+        <Route
+          path="/arcade"
+          element={
+            <Navigate
+              to="/playerdle"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/arcade/fanatic"
+          element={
+            <Navigate
+              to="/fanatic"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/team-colors-key"
+          element={
+            <Navigate
+              to="/team-colors-key/nfl"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/team-colors-key/:sport"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <TeamColorsKey />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport"
+          element={<SportRoute screen="menu" />}
+        />
+        <Route
+          path="/:sport/help"
+          element={<HelpRedirect />}
+        />
+        <Route
+          path="/:sport/playerdle"
+          element={<SportRoute screen="playerdle" />}
+        />
+        <Route
+          path="/:sport/fanatic"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={FANATIC_VARIANT_ID}
+            />
+          }
+        />
+        <Route
+          path="/:sport/daily"
+          element={<LegacySportRedirect to="/playerdle" />}
+        />
+        <Route
+          path="/:sport/arcade"
+          element={<LegacySportRedirect to="/playerdle" />}
+        />
+        <Route
+          path="/:sport/arcade/fanatic"
+          element={<LegacySportRedirect to="/fanatic" />}
+        />
+        {/* Statehue hub at /statehue. /geo and /palette redirect for backwards compatibility. */}
+        <Route
+          path="/statehue"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PaletteHub />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/geo"
+          element={
+            <Navigate
+              to="/statehue"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette"
+          element={
+            <Navigate
+              to="/statehue"
+              replace
+            />
+          }
+        />
+        {/* Statehue game routes live under /statehue/*. Old /palette/states/* redirects for backwards compatibility. */}
+        <Route
+          path="/statehue/daily"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/statehue/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/statehue/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/statehue/collegiate"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsShell
+                screen="daily"
+                variant="collegiate"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/statehue/collegiate/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsShell
+                screen="arcade"
+                variant="collegiate"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/statehue/collegiate/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <ColorsCalendar variant="collegiate" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/palette/states"
+          element={
+            <Navigate
+              to="/statehue"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/states/daily"
+          element={
+            <Navigate
+              to="/statehue/daily"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/states/arcade"
+          element={
+            <Navigate
+              to="/statehue/arcade"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/states/calendar"
+          element={
+            <Navigate
+              to="/statehue/calendar"
+              replace
+            />
+          }
+        />
+        {/* Journeyman lives under /journeyman/:league. Plain /journeyman/* paths
           default to NFL for backwards compatibility with bookmarks and shared
           links from the original single-league launch. */}
-      <Route
-        path="/journeyman"
-        element={
-          <Navigate
-            to="/"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/journeyman/daily"
-        element={
-          <Navigate
-            to="/journeyman/nfl/daily"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/journeyman/arcade"
-        element={
-          <Navigate
-            to="/journeyman/nfl/arcade"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/journeyman/calendar"
-        element={
-          <Navigate
-            to="/journeyman/nfl/calendar"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/journeyman/:league/daily"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyRoute screen="daily" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/journeyman/:league/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyRoute screen="arcade" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/journeyman/:league/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <JourneyCalendarRoute />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/palette/journey"
-        element={
-          <Navigate
-            to="/"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/journey/daily"
-        element={
-          <Navigate
-            to="/journeyman/nfl/daily"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/journey/arcade"
-        element={
-          <Navigate
-            to="/journeyman/nfl/arcade"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/palette/journey/calendar"
-        element={
-          <Navigate
-            to="/journeyman/nfl/calendar"
-            replace
-          />
-        }
-      />
-      <Route
-        path="/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <PlayerCalendar />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/fanatic/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/:sport/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <PlayerCalendar />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/:sport/fanatic/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
-          </Suspense>
-        }
-      />
-      {/* Cap Crunch game — NFL only for now */}
-      <Route
-        path="/capcrunch"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CapCrunchShell league="nfl" screen="daily" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/capcrunch/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CapCrunchShell league="nfl" screen="arcade" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/capcrunch/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CapCrunchCalendar league="nfl" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/capcrunch/archive/:dateKey"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CapCrunchArchiveRoute />
-          </Suspense>
-        }
-      />
-      {/* CollegeField game — NFL only */}
-      <Route
-        path="/collegefield"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeFieldShell screen="daily" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegefield/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeFieldShell screen="arcade" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegefield/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeFieldCalendar />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegefield/archive/:dateKey"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeFieldArchiveRoute />
-          </Suspense>
-        }
-      />
-      {/* CollegeCourt game — NBA only */}
-      <Route
-        path="/collegecourt"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeCourtShell screen="daily" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegecourt/arcade"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeCourtShell screen="arcade" />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegecourt/calendar"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeCourtCalendar />
-          </Suspense>
-        }
-      />
-      <Route
-        path="/collegecourt/archive/:dateKey"
-        element={
-          <Suspense fallback={<div className="app-viewport" />}>
-            <CollegeCourtArchiveRoute />
-          </Suspense>
-        }
-      />
-      <Route
-        path="*"
-        element={
-          <Navigate
-            to="/"
-            replace
-          />
-        }
-      />
-    </Routes>
+        <Route
+          path="/journeyman"
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/journeyman/daily"
+          element={
+            <Navigate
+              to="/journeyman/nfl/daily"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/journeyman/arcade"
+          element={
+            <Navigate
+              to="/journeyman/nfl/arcade"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/journeyman/calendar"
+          element={
+            <Navigate
+              to="/journeyman/nfl/calendar"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/journeyman/:league/daily"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <JourneyRoute screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/journeyman/:league/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <JourneyRoute screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/journeyman/:league/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <JourneyCalendarRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/palette/journey"
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/journey/daily"
+          element={
+            <Navigate
+              to="/journeyman/nfl/daily"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/journey/arcade"
+          element={
+            <Navigate
+              to="/journeyman/nfl/arcade"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/palette/journey/calendar"
+          element={
+            <Navigate
+              to="/journeyman/nfl/calendar"
+              replace
+            />
+          }
+        />
+        <Route
+          path="/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/fanatic/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/fanatic/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        {/* Cap Crunch game — NFL only for now */}
+        <Route
+          path="/capcrunch"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nfl"
+                screen="daily"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/capcrunch/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nfl"
+                screen="arcade"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/capcrunch/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchCalendar league="nfl" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/capcrunch/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchArchiveRoute />
+            </Suspense>
+          }
+        />
+        {/* CollegeField game — NFL only */}
+        <Route
+          path="/collegefield"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeFieldShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegefield/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeFieldShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegefield/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeFieldCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegefield/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeFieldArchiveRoute />
+            </Suspense>
+          }
+        />
+        {/* CollegeCourt game — NBA only */}
+        <Route
+          path="/collegecourt"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeCourtShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegecourt/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeCourtShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegecourt/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeCourtCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/collegecourt/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CollegeCourtArchiveRoute />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Navigate
+              to="/"
+              replace
+            />
+          }
+        />
+      </Routes>
     </>
   )
 }

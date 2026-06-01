@@ -13,7 +13,7 @@ const closedContext: PanelStackApi = {
   pop: fn(),
 }
 
-const withOpenPanel: Decorator = (Story) => (
+const withOpenPanel: Decorator = Story => (
   <PanelStackContext.Provider value={openContext}>
     <div className="relative h-[600px]">
       <Story />
@@ -21,7 +21,7 @@ const withOpenPanel: Decorator = (Story) => (
   </PanelStackContext.Provider>
 )
 
-const withClosedPanel: Decorator = (Story) => (
+const withClosedPanel: Decorator = Story => (
   <PanelStackContext.Provider value={closedContext}>
     <div className="relative h-[600px]">
       <Story />

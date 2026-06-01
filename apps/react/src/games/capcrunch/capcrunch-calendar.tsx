@@ -51,7 +51,11 @@ function DayDetail({
             {result.won ? `Solved in ${result.guesses}/5` : "Missed it"}
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Replay
             </button>
           )}
@@ -62,7 +66,11 @@ function DayDetail({
             In progress · {inProgressCount}/5 guesses
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Continue
             </button>
           )}
@@ -73,7 +81,11 @@ function DayDetail({
             Not yet played
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Play this day
             </button>
           )}
@@ -93,7 +105,12 @@ interface Props {
   historyVersion?: number
 }
 
-export default function CapCrunchCalendar({ league, panel = false, id, historyVersion = 0 }: Props) {
+export default function CapCrunchCalendar({
+  league,
+  panel = false,
+  id,
+  historyVersion = 0,
+}: Props) {
   const ctx = usePanelContext()
   const navigate = useNavigate()
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
@@ -106,7 +123,9 @@ export default function CapCrunchCalendar({ league, panel = false, id, historyVe
     return map
   }, [league, historyVersion])
 
-  const inProgressDates = useInProgressDates(`playerdle-capcrunch-state:${league}:`, [historyVersion])
+  const inProgressDates = useInProgressDates(`playerdle-capcrunch-state:${league}:`, [
+    historyVersion,
+  ])
 
   const selectedPuzzle = useMemo(
     () => getCapCrunchPuzzleByDateKey(league, selected),
@@ -149,7 +168,12 @@ export default function CapCrunchCalendar({ league, panel = false, id, historyVe
 
   if (panel && ctx && id) {
     return (
-      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title="Cap Crunch Archive" layout="full">
+      <Panel
+        open={ctx.isOpen(id)}
+        onClose={ctx.pop}
+        title="Cap Crunch Archive"
+        layout="full"
+      >
         {calendar}
       </Panel>
     )

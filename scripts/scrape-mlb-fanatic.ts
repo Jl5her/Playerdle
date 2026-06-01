@@ -145,13 +145,31 @@ async function fetchBatterRows(season: number): Promise<BaseballReferenceBatterR
 
 function loadMlbPlayers(): MlbPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "mlb", "players.json")
+  const playersPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "mlb",
+    "players.json",
+  )
   return JSON.parse(readFileSync(playersPath, "utf-8")) as MlbPlayer[]
 }
 
 function loadClassicAnswerPoolIds(): Set<string> {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "mlb", "answer_pool.json")
+  const answerPoolPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "mlb",
+    "answer_pool.json",
+  )
   return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
 }
 
@@ -226,8 +244,26 @@ function buildCuratedAnswerPool(
 
 function writeData(players: FanaticBatter[], answerPoolIds: string[]) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "mlb", "fanatic_players.json")
-  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "mlb", "fanatic_answer_pool.json")
+  const playersPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "mlb",
+    "fanatic_players.json",
+  )
+  const answerPoolPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "mlb",
+    "fanatic_answer_pool.json",
+  )
 
   writeFileSync(playersPath, `${JSON.stringify(players, null, 2)}\n`, "utf-8")
   writeFileSync(answerPoolPath, `${JSON.stringify(answerPoolIds, null, 2)}\n`, "utf-8")

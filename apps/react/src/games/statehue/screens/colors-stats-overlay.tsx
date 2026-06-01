@@ -33,10 +33,22 @@ function ColorsStatsBlock({
   return (
     <>
       <div className="grid grid-cols-4 gap-2 mb-6">
-        <Stat value={stats.played} label="Played" />
-        <Stat value={stats.winPercentage} label="Win %" />
-        <Stat value={stats.currentStreak} label={"Current\nStreak"} />
-        <Stat value={stats.maxStreak} label={"Max\nStreak"} />
+        <Stat
+          value={stats.played}
+          label="Played"
+        />
+        <Stat
+          value={stats.winPercentage}
+          label="Win %"
+        />
+        <Stat
+          value={stats.currentStreak}
+          label={"Current\nStreak"}
+        />
+        <Stat
+          value={stats.maxStreak}
+          label={"Max\nStreak"}
+        />
       </div>
 
       <div className="mt-4 text-left">
@@ -77,14 +89,22 @@ interface ColorsStatsBodyProps {
 }
 
 /** Single-variant stats body — used inside in-game overlays where the active variant is fixed. */
-export function ColorsStatsBody({ variant = "pro", className, onViewArchive }: ColorsStatsBodyProps) {
+export function ColorsStatsBody({
+  variant = "pro",
+  className,
+  onViewArchive,
+}: ColorsStatsBodyProps) {
   const stats = calculateColorsStats(variant)
   const todayResult = getColorsHistory(variant).find(r => r.date === getTodayKey())
   const highlightKey = todayResult?.won ? String(todayResult.guesses) : undefined
 
   return (
     <div className={clsx("text-center px-6 py-6 overflow-x-hidden", className)}>
-      <ColorsStatsBlock stats={stats} onViewArchive={onViewArchive} highlightKey={highlightKey} />
+      <ColorsStatsBlock
+        stats={stats}
+        onViewArchive={onViewArchive}
+        highlightKey={highlightKey}
+      />
     </div>
   )
 }
@@ -107,7 +127,10 @@ export function ColorsStatsTabbedBody({ className }: ColorsStatsTabbedBodyProps)
       label: "Statehue",
       content: (
         <div className="text-center pt-2 pb-6 px-2">
-          <ColorsStatsBlock stats={calculateColorsStats("pro")} highlightKey={colorsHighlightKey("pro")} />
+          <ColorsStatsBlock
+            stats={calculateColorsStats("pro")}
+            highlightKey={colorsHighlightKey("pro")}
+          />
         </div>
       ),
     },
@@ -116,7 +139,10 @@ export function ColorsStatsTabbedBody({ className }: ColorsStatsTabbedBodyProps)
       label: "Collegiate",
       content: (
         <div className="text-center pt-2 pb-6 px-2">
-          <ColorsStatsBlock stats={calculateColorsStats("collegiate")} highlightKey={colorsHighlightKey("collegiate")} />
+          <ColorsStatsBlock
+            stats={calculateColorsStats("collegiate")}
+            highlightKey={colorsHighlightKey("collegiate")}
+          />
         </div>
       ),
     },
@@ -142,8 +168,16 @@ export default function ColorsStatsOverlay({ id, variant = "pro", onViewArchive 
   const ctx = usePanelContext()
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={() => ctx?.pop()} title="Statistics" layout="scroll">
-      <ColorsStatsBody variant={variant} onViewArchive={onViewArchive} />
+    <Panel
+      open={ctx?.isOpen(id) ?? false}
+      onClose={() => ctx?.pop()}
+      title="Statistics"
+      layout="scroll"
+    >
+      <ColorsStatsBody
+        variant={variant}
+        onViewArchive={onViewArchive}
+      />
     </Panel>
   )
 }

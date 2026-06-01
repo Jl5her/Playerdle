@@ -1,9 +1,4 @@
-import {
-  faArrowsRotate,
-  faCheck,
-  faCopy,
-  faLinkSlash,
-} from "@fortawesome/free-solid-svg-icons"
+import { faArrowsRotate, faCheck, faCopy, faLinkSlash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
 import MenuLinkButton from "./menu-link-button"
@@ -299,8 +294,7 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
       {status.type === "import-confirm" ? (
         <div className="flex flex-col gap-3">
           <p className="text-sm text-primary-700 dark:text-primary-200">
-            Found data saved on{" "}
-            <span className="font-semibold">{status.lastUpdated}</span>.{" "}
+            Found data saved on <span className="font-semibold">{status.lastUpdated}</span>.{" "}
             {passphrase
               ? "This will switch your sync code and replace your current progress on this device."
               : "This will replace your current progress on this device."}
@@ -443,9 +437,7 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
               aria-hidden="true"
             />
           </button>
-          <p className="text-xs text-primary-500 dark:text-primary-400">
-            Tap the phrase to copy
-          </p>
+          <p className="text-xs text-primary-500 dark:text-primary-400">Tap the phrase to copy</p>
         </div>
         <div className="flex justify-center">
           {linked ? (

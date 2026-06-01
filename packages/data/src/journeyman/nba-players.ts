@@ -151,12 +151,7 @@ export const NBA_JOURNEY_PLAYERS: JourneyPlayer[] = [
     name: "Paul George",
     position: "F",
     college: "Fresno State",
-    teams: [
-      "Indiana Pacers",
-      "Oklahoma City Thunder",
-      "LA Clippers",
-      "Philadelphia 76ers",
-    ],
+    teams: ["Indiana Pacers", "Oklahoma City Thunder", "LA Clippers", "Philadelphia 76ers"],
   },
   {
     id: "journey:nba:anthony-davis",
@@ -170,12 +165,7 @@ export const NBA_JOURNEY_PLAYERS: JourneyPlayer[] = [
     name: "Kyrie Irving",
     position: "G",
     college: "Duke",
-    teams: [
-      "Cleveland Cavaliers",
-      "Boston Celtics",
-      "Brooklyn Nets",
-      "Dallas Mavericks",
-    ],
+    teams: ["Cleveland Cavaliers", "Boston Celtics", "Brooklyn Nets", "Dallas Mavericks"],
   },
   {
     id: "journey:nba:kyle-lowry",
@@ -195,23 +185,13 @@ export const NBA_JOURNEY_PLAYERS: JourneyPlayer[] = [
     name: "Blake Griffin",
     position: "F",
     college: "Oklahoma",
-    teams: [
-      "LA Clippers",
-      "Detroit Pistons",
-      "Brooklyn Nets",
-      "Boston Celtics",
-    ],
+    teams: ["LA Clippers", "Detroit Pistons", "Brooklyn Nets", "Boston Celtics"],
   },
   {
     id: "journey:nba:pau-gasol",
     name: "Pau Gasol",
     position: "F",
-    teams: [
-      "Memphis Grizzlies",
-      "Los Angeles Lakers",
-      "Chicago Bulls",
-      "San Antonio Spurs",
-    ],
+    teams: ["Memphis Grizzlies", "Los Angeles Lakers", "Chicago Bulls", "San Antonio Spurs"],
   },
   {
     id: "journey:nba:andre-iguodala",
@@ -230,12 +210,7 @@ export const NBA_JOURNEY_PLAYERS: JourneyPlayer[] = [
     id: "journey:nba:kristaps-porzingis",
     name: "Kristaps Porzingis",
     position: "F",
-    teams: [
-      "New York Knicks",
-      "Dallas Mavericks",
-      "Washington Wizards",
-      "Boston Celtics",
-    ],
+    teams: ["New York Knicks", "Dallas Mavericks", "Washington Wizards", "Boston Celtics"],
   },
   {
     id: "journey:nba:deandre-jordan",

@@ -29,42 +29,59 @@ export default function JourneyStatsOverlay({ id, league, onViewArchive }: Props
   ]
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={() => ctx?.pop()} title="Statistics" layout="scroll">
+    <Panel
+      open={ctx?.isOpen(id) ?? false}
+      onClose={() => ctx?.pop()}
+      title="Statistics"
+      layout="scroll"
+    >
       <div className="text-center px-6 py-6 overflow-x-hidden">
-      <div className="grid grid-cols-4 gap-2 mb-6">
-        <Stat value={stats.played} label="Played" />
-        <Stat value={stats.winPercentage} label="Win %" />
-        <Stat value={stats.currentStreak} label={"Current\nStreak"} />
-        <Stat value={stats.maxStreak} label={"Max\nStreak"} />
-      </div>
-
-      <div className="mt-4 text-left">
-        <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
-          Guess Distribution
-        </h3>
-        {rows.map(row => (
-          <StatBar
-            key={row.key}
-            label={row.label}
-            count={row.count}
-            maxCount={maxGuessCount}
-            isLoss={row.isLoss}
-            highlight={row.key === highlightKey}
+        <div className="grid grid-cols-4 gap-2 mb-6">
+          <Stat
+            value={stats.played}
+            label="Played"
           />
-        ))}
-      </div>
-
-      {onViewArchive && (
-        <div className="mt-6 flex justify-center">
-          <button
-            type="button"
-            onClick={onViewArchive}
-            className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
-          >
-            View Archive
-          </button>
+          <Stat
+            value={stats.winPercentage}
+            label="Win %"
+          />
+          <Stat
+            value={stats.currentStreak}
+            label={"Current\nStreak"}
+          />
+          <Stat
+            value={stats.maxStreak}
+            label={"Max\nStreak"}
+          />
         </div>
-      )}
+
+        <div className="mt-4 text-left">
+          <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
+            Guess Distribution
+          </h3>
+          {rows.map(row => (
+            <StatBar
+              key={row.key}
+              label={row.label}
+              count={row.count}
+              maxCount={maxGuessCount}
+              isLoss={row.isLoss}
+              highlight={row.key === highlightKey}
+            />
+          ))}
+        </div>
+
+        {onViewArchive && (
+          <div className="mt-6 flex justify-center">
+            <button
+              type="button"
+              onClick={onViewArchive}
+              className="px-4 py-2 text-sm font-semibold text-primary-500 dark:text-primary-200 border border-primary-300 dark:border-primary-700 rounded hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors uppercase tracking-wider"
+            >
+              View Archive
+            </button>
+          </div>
+        )}
       </div>
     </Panel>
   )

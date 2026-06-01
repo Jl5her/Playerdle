@@ -60,7 +60,13 @@ export default function JourneyShell({ league, screen }: Props) {
     migrateLegacyTutorialFlagIfNeeded(league)
     if (localStorage.getItem(journeyTutorialSeenKey(league))) return
     panels.push("guide")
-    trackPanelOpened({ panel: "guide", game: "journeyman", sport: league, mode: "daily", is_onboarding: true })
+    trackPanelOpened({
+      panel: "guide",
+      game: "journeyman",
+      sport: league,
+      mode: "daily",
+      is_onboarding: true,
+    })
   }, [screen, initialShowStats, league])
 
   function goToMenu() {
@@ -118,15 +124,18 @@ export default function JourneyShell({ league, screen }: Props) {
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
             Journeyman {leagueData.label}
           </h1>
-          <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">
-            {subtitle}
-          </p>
+          <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
             {!panels.isAnyOpen && (
               <button
                 onClick={() => {
                   panels.push("stats")
-                  trackPanelOpened({ panel: "stats", game: "journeyman", sport: league, mode: activeMode })
+                  trackPanelOpened({
+                    panel: "stats",
+                    game: "journeyman",
+                    sport: league,
+                    mode: activeMode,
+                  })
                 }}
                 aria-label="Show stats"
                 title="Stats"
@@ -143,7 +152,12 @@ export default function JourneyShell({ league, screen }: Props) {
               <button
                 onClick={() => {
                   panels.push("guide")
-                  trackPanelOpened({ panel: "guide", game: "journeyman", sport: league, mode: activeMode })
+                  trackPanelOpened({
+                    panel: "guide",
+                    game: "journeyman",
+                    sport: league,
+                    mode: activeMode,
+                  })
                 }}
                 aria-label="Show tutorial"
                 title="How to play"

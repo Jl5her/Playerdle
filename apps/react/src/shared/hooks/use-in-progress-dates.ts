@@ -24,9 +24,7 @@ export function useInProgressDates(prefix: string, deps: ReadonlyArray<unknown> 
         const raw = localStorage.getItem(k)
         if (!raw) continue
         const parsed = JSON.parse(raw)
-        const list = Array.isArray(parsed)
-          ? parsed
-          : (parsed?.guesses ?? parsed?.guessIds ?? [])
+        const list = Array.isArray(parsed) ? parsed : (parsed?.guesses ?? parsed?.guessIds ?? [])
         if (Array.isArray(list) && list.length > 0) counts.set(dateKey, list.length)
       } catch {
         // ignore malformed entries

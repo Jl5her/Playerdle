@@ -15,7 +15,7 @@ const meta = {
     durationMs: { control: { type: "number", min: 500, max: 30000, step: 500 } },
   },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative h-48 w-full bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>
@@ -35,7 +35,12 @@ export const Visible: Story = {
     message: "Game over! Better luck tomorrow",
     durationMs: 30000,
   },
-  render: (args) => <Popup key={String(args.visible) + args.message} {...args} />,
+  render: args => (
+    <Popup
+      key={String(args.visible) + args.message}
+      {...args}
+    />
+  ),
 }
 
 export const Hidden: Story = {
@@ -52,7 +57,12 @@ export const LongMessage: Story = {
       "Congratulations! You guessed the player correctly in just 2 tries. Amazing work — come back tomorrow for a new challenge!",
     durationMs: 30000,
   },
-  render: (args) => <Popup key={String(args.visible) + args.message} {...args} />,
+  render: args => (
+    <Popup
+      key={String(args.visible) + args.message}
+      {...args}
+    />
+  ),
 }
 
 export const CustomDuration: Story = {
@@ -61,5 +71,10 @@ export const CustomDuration: Story = {
     message: "This popup disappears after 2 seconds",
     durationMs: 2000,
   },
-  render: (args) => <Popup key={String(args.visible) + args.message} {...args} />,
+  render: args => (
+    <Popup
+      key={String(args.visible) + args.message}
+      {...args}
+    />
+  ),
 }

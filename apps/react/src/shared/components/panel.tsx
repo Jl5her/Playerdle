@@ -68,9 +68,7 @@ export default function Panel({ open, onClose, title = "Results", layout, childr
           </div>
         ) : (
           <div className="w-full max-w-2xl mx-auto flex-1 min-h-0 flex flex-col overflow-hidden px-4 pb-4">
-            <div className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden">
-              {children}
-            </div>
+            <div className="mt-2 flex-1 min-h-0 overflow-y-auto overflow-x-hidden">{children}</div>
           </div>
         )}
       </div>
