@@ -16,11 +16,7 @@ interface StatsTabsProps {
 const FADE_OUT_MS = 180
 type Direction = "forward" | "backward"
 
-export default function StatsTabs({
-  tabs,
-  className,
-  ariaLabel = "Stats tabs",
-}: StatsTabsProps) {
+export default function StatsTabs({ tabs, className, ariaLabel = "Stats tabs" }: StatsTabsProps) {
   const [requestedId, setRequestedId] = useState(tabs[0]?.id)
   const [displayedId, setDisplayedId] = useState(tabs[0]?.id)
   const [direction, setDirection] = useState<Direction>("forward")

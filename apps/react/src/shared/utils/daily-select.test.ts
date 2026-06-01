@@ -68,8 +68,15 @@ describe("minHashPick", () => {
     const winner = minHashPick(pool, getId, seed).id
 
     // Remove a non-winner and re-pick — winner should be unchanged
-    const poolMinusOther = pool.filter(p => p.id !== winner).slice(1).concat(pool.filter(p => p.id === winner))
-    const stillWinner = minHashPick(pool.filter(p => p.id !== poolMinusOther[0]?.id), getId, seed)
+    const poolMinusOther = pool
+      .filter(p => p.id !== winner)
+      .slice(1)
+      .concat(pool.filter(p => p.id === winner))
+    const stillWinner = minHashPick(
+      pool.filter(p => p.id !== poolMinusOther[0]?.id),
+      getId,
+      seed,
+    )
     expect([winner, expect.any(String)]).toContain(stillWinner.id)
   })
 })
@@ -99,8 +106,12 @@ describe("minHashPickN", () => {
     const pool = items("a", "b", "c", "d", "e")
     const shuffled = [...pool].reverse()
     const seed = "test-seed"
-    const fromPool = minHashPickN(pool, getId, seed, 3).map(i => i.id).sort()
-    const fromShuffled = minHashPickN(shuffled, getId, seed, 3).map(i => i.id).sort()
+    const fromPool = minHashPickN(pool, getId, seed, 3)
+      .map(i => i.id)
+      .sort()
+    const fromShuffled = minHashPickN(shuffled, getId, seed, 3)
+      .map(i => i.id)
+      .sort()
     expect(fromPool).toEqual(fromShuffled)
   })
 

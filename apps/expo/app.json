@@ -18,10 +18,7 @@
       "bundler": "metro",
       "output": "static"
     },
-    "plugins": [
-      "expo-router",
-      "expo-system-ui"
-    ],
+    "plugins": ["expo-router", "expo-system-ui"],
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true

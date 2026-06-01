@@ -18,7 +18,10 @@ function MiniDiamond({ color }: { color: string }) {
   const isTransparent = color === "transparent"
   return (
     <span
-      className={clsx("inline-block w-5 h-5 rounded-[2px] rotate-45", isTransparent && "diamond-transparent")}
+      className={clsx(
+        "inline-block w-5 h-5 rounded-[2px] rotate-45",
+        isTransparent && "diamond-transparent",
+      )}
       style={
         isTransparent
           ? { border: "1px solid rgba(0,0,0,0.25)" }
@@ -29,13 +32,7 @@ function MiniDiamond({ color }: { color: string }) {
   )
 }
 
-function ExampleRow({
-  colors,
-  label,
-}: {
-  colors: [string, string, string]
-  label: string
-}) {
+function ExampleRow({ colors, label }: { colors: [string, string, string]; label: string }) {
   return (
     <>
       <div className="flex items-center gap-3 justify-self-end py-1">
@@ -119,7 +116,11 @@ export default function JourneyHowToPlay({ id, league, onOpenCalendar }: Props) 
   }
 
   return (
-    <Panel open={ctx?.isOpen(id) ?? false} onClose={handleClose} title="How to Play">
+    <Panel
+      open={ctx?.isOpen(id) ?? false}
+      onClose={handleClose}
+      title="How to Play"
+    >
       <p className="text-primary-500 dark:text-primary-200 leading-relaxed my-2">
         Guess the {playerType} from the chronological list of teams they've played for. You have 5
         guesses.

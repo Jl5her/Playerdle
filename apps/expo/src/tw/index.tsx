@@ -1,7 +1,4 @@
-import {
-  useCssElement,
-  useNativeVariable as useFunctionalVariable,
-} from "react-native-css"
+import { useCssElement, useNativeVariable as useFunctionalVariable } from "react-native-css"
 import type React from "react"
 import {
   View as RNView,
@@ -13,17 +10,14 @@ import {
 } from "react-native"
 
 export const useCSSVariable =
-  process.env.EXPO_OS !== "web"
-    ? useFunctionalVariable
-    : (variable: string) => `var(${variable})`
+  process.env.EXPO_OS !== "web" ? useFunctionalVariable : (variable: string) => `var(${variable})`
 
 export type ViewProps = React.ComponentProps<typeof RNView> & { className?: string }
 export const View = (props: ViewProps) => useCssElement(RNView, props, { className: "style" })
 View.displayName = "CSS(View)"
 
-export const Text = (
-  props: React.ComponentProps<typeof RNText> & { className?: string },
-) => useCssElement(RNText, props, { className: "style" })
+export const Text = (props: React.ComponentProps<typeof RNText> & { className?: string }) =>
+  useCssElement(RNText, props, { className: "style" })
 Text.displayName = "CSS(Text)"
 
 export const ScrollView = (
@@ -54,7 +48,11 @@ export const FlatList = <ItemT,>(
     contentContainerClassName?: string
   },
 ) =>
-  useCssElement(RNFlatList as React.ComponentType<React.ComponentProps<typeof RNFlatList<ItemT>>>, props, {
-    className: "style",
-    contentContainerClassName: "contentContainerStyle",
-  })
+  useCssElement(
+    RNFlatList as React.ComponentType<React.ComponentProps<typeof RNFlatList<ItemT>>>,
+    props,
+    {
+      className: "style",
+      contentContainerClassName: "contentContainerStyle",
+    },
+  )

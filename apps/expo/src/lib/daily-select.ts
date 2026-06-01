@@ -28,11 +28,7 @@ export function pickRandom<T>(
   return source[Math.floor(Math.random() * source.length)]!
 }
 
-export function minHashPick<T>(
-  items: readonly T[],
-  getId: (item: T) => string,
-  seed: string,
-): T {
+export function minHashPick<T>(items: readonly T[], getId: (item: T) => string, seed: string): T {
   if (items.length === 0) throw new Error("minHashPick: empty pool")
   let bestIdx = 0
   let bestId = getId(items[0]!)

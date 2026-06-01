@@ -53,7 +53,11 @@ function DayDetail({
             {result.won ? `Solved in ${result.guesses}/5` : "Missed it"}
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Replay
             </button>
           )}
@@ -64,7 +68,11 @@ function DayDetail({
             In progress · {inProgressCount}/5 guesses
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Continue
             </button>
           )}
@@ -75,7 +83,11 @@ function DayDetail({
             Not yet played
           </div>
           {canPlay && onPlay && (
-            <button type="button" onClick={onPlay} className={buttonClass}>
+            <button
+              type="button"
+              onClick={onPlay}
+              className={buttonClass}
+            >
               Play this day
             </button>
           )}
@@ -144,7 +156,12 @@ export default function CollegeFieldCalendar({ panel = false, id, historyVersion
 
   if (panel && ctx && id) {
     return (
-      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title="Schooled Archive" layout="full">
+      <Panel
+        open={ctx.isOpen(id)}
+        onClose={ctx.pop}
+        title="Schooled Archive"
+        layout="full"
+      >
         {calendar}
       </Panel>
     )

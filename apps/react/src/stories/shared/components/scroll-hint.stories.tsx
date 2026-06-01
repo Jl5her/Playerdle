@@ -25,9 +25,15 @@ function ScrollHintDemo({ itemCount }: { itemCount: number }) {
   const scrollRef = useRef<HTMLDivElement>(null)
   return (
     <div className="h-64 w-72 relative">
-      <div ref={scrollRef} className="h-full overflow-y-auto border rounded p-3">
+      <div
+        ref={scrollRef}
+        className="h-full overflow-y-auto border rounded p-3"
+      >
         {Array.from({ length: itemCount }, (_, i) => (
-          <div key={i} className="py-2 border-b text-sm">
+          <div
+            key={i}
+            className="py-2 border-b text-sm"
+          >
             Item {i + 1}
           </div>
         ))}

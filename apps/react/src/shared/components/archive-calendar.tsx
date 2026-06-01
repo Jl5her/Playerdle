@@ -1,4 +1,9 @@
-import { faAngleLeft, faChevronLeft, faChevronRight, faXmark } from "@fortawesome/free-solid-svg-icons"
+import {
+  faAngleLeft,
+  faChevronLeft,
+  faChevronRight,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import clsx from "clsx"
 import { type ReactNode, useMemo, useRef, useState } from "react"
@@ -156,9 +161,7 @@ export default function ArchiveCalendar<R extends CalendarResult>({
                           : "text-primary-900 dark:text-primary-50 hover:bg-primary-200/60 dark:hover:bg-primary-700/60",
                   )}
                 >
-                  {result &&
-                    !disabled &&
-                    renderCellDecoration?.({ dateKey: key, isSelected })}
+                  {result && !disabled && renderCellDecoration?.({ dateKey: key, isSelected })}
                   <span className="relative z-10">{cell.getDate()}</span>
                   {result && !disabled && (
                     <span
@@ -205,7 +208,11 @@ export default function ArchiveCalendar<R extends CalendarResult>({
             title="Back"
             className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
           >
-            <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
+            <FontAwesomeIcon
+              icon={faAngleLeft}
+              className="text-[1.7rem]"
+              aria-hidden="true"
+            />
           </button>
         )}
         {onClose && (
@@ -216,7 +223,11 @@ export default function ArchiveCalendar<R extends CalendarResult>({
             title="Close (Esc)"
             className="absolute right-3 top-1/2 -translate-y-1/2 w-11 h-11 inline-flex items-center justify-center rounded-full text-primary-700 dark:text-primary-100 hover:bg-primary-200/80 dark:hover:bg-primary-700/80 transition-colors"
           >
-            <FontAwesomeIcon icon={faXmark} className="text-2xl" aria-hidden="true" />
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="text-2xl"
+              aria-hidden="true"
+            />
           </button>
         )}
         <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">

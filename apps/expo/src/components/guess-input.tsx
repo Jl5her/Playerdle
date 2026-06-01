@@ -54,9 +54,7 @@ export function GuessInput({ pool, alreadyGuessedIds, disabled, onSubmit }: Gues
               }}
               className="px-4 py-3 border-b border-primary-100 dark:border-primary-700 active:bg-primary-50 dark:active:bg-primary-700"
             >
-              <Text className="text-primary-900 dark:text-primary-50 font-medium">
-                {p.name}
-              </Text>
+              <Text className="text-primary-900 dark:text-primary-50 font-medium">{p.name}</Text>
               <Text className="text-primary-500 dark:text-primary-300 text-xs mt-0.5">
                 {String(p.teamAbbr ?? "")} · {String(p.position ?? "")}
               </Text>

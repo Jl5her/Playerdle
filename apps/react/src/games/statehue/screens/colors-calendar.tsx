@@ -169,7 +169,12 @@ export default function ColorsCalendar({
 
   if (panel && ctx && id) {
     return (
-      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title={calendarTitle} layout="full">
+      <Panel
+        open={ctx.isOpen(id)}
+        onClose={ctx.pop}
+        title={calendarTitle}
+        layout="full"
+      >
         {calendar}
       </Panel>
     )

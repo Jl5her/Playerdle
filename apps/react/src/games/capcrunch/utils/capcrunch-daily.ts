@@ -33,7 +33,10 @@ export function getCapCrunchTeams(league: CapCrunchLeague): CapCrunchTeam[] {
   return TEAM_DATA[league]
 }
 
-export function getCapCrunchTeamById(league: CapCrunchLeague, id: string): CapCrunchTeam | undefined {
+export function getCapCrunchTeamById(
+  league: CapCrunchLeague,
+  id: string,
+): CapCrunchTeam | undefined {
   return TEAM_DATA[league].find(t => t.id === id)
 }
 
@@ -67,13 +70,19 @@ export function getCapCrunchDailyPuzzle(league: CapCrunchLeague, date?: Date): C
   return { team, dateKey, league }
 }
 
-export function getCapCrunchPuzzleByDateKey(league: CapCrunchLeague, dateKey: string): CapCrunchPuzzle {
+export function getCapCrunchPuzzleByDateKey(
+  league: CapCrunchLeague,
+  dateKey: string,
+): CapCrunchPuzzle {
   const teams = getCapCrunchTeams(league)
   const team = minHashPick(teams, t => t.id, `capcrunch:${league}:${dateKey}`)
   return { team, dateKey, league }
 }
 
-export function getCapCrunchArcadePuzzle(league: CapCrunchLeague, excludeId?: string): CapCrunchPuzzle {
+export function getCapCrunchArcadePuzzle(
+  league: CapCrunchLeague,
+  excludeId?: string,
+): CapCrunchPuzzle {
   const teams = getCapCrunchTeams(league).filter(t => t.id !== excludeId)
   const team = teams[Math.floor(Math.random() * teams.length)] ?? getCapCrunchTeams(league)[0]
   return { team, dateKey: "arcade", league }
@@ -100,7 +109,10 @@ export interface CapCrunchGuessRecord {
   teamName: string
 }
 
-export function loadCapCrunchDailyGuesses(league: CapCrunchLeague, dateKey: string): CapCrunchGuessRecord[] {
+export function loadCapCrunchDailyGuesses(
+  league: CapCrunchLeague,
+  dateKey: string,
+): CapCrunchGuessRecord[] {
   try {
     const raw = localStorage.getItem(stateKey(league, dateKey))
     if (!raw) return []
@@ -174,7 +186,14 @@ const MAX_GUESSES = 5
 export function calculateCapCrunchStats(league: CapCrunchLeague): CapCrunchStats {
   const history = getCapCrunchHistory(league)
   if (history.length === 0) {
-    return { played: 0, winPercentage: 0, currentStreak: 0, maxStreak: 0, guessDistribution: {}, losses: 0 }
+    return {
+      played: 0,
+      winPercentage: 0,
+      currentStreak: 0,
+      maxStreak: 0,
+      guessDistribution: {},
+      losses: 0,
+    }
   }
   const played = history.length
   const wins = history.filter(r => r.won).length
@@ -238,12 +257,11 @@ export interface CapCrunchComparison {
   OL: ComparisonResult
 }
 
-export function compareTeamToAnswer(guessed: CapCrunchTeam, answer: CapCrunchTeam): CapCrunchComparison {
-  function compare(
-    guessedVal: number,
-    answerVal: number,
-    threshold: number,
-  ): ComparisonResult {
+export function compareTeamToAnswer(
+  guessed: CapCrunchTeam,
+  answer: CapCrunchTeam,
+): CapCrunchComparison {
+  function compare(guessedVal: number, answerVal: number, threshold: number): ComparisonResult {
     const diff = guessedVal - answerVal
     if (Math.abs(diff) <= threshold) return diff >= 0 ? "close-high" : "close-low"
     return diff > 0 ? "high" : "low"

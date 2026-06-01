@@ -173,13 +173,31 @@ async function fetchSkaterRows(season: number): Promise<HockeyReferenceSkaterRow
 
 function loadNhlPlayers(): NhlPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nhl", "players.json")
+  const playersPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nhl",
+    "players.json",
+  )
   return JSON.parse(readFileSync(playersPath, "utf-8")) as NhlPlayer[]
 }
 
 function loadClassicAnswerPoolIds(): Set<string> {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nhl", "answer_pool.json")
+  const answerPoolPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nhl",
+    "answer_pool.json",
+  )
   return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
 }
 
@@ -247,8 +265,26 @@ function buildCuratedAnswerPool(
 
 function writeData(players: FanaticSkater[], answerPoolIds: string[]) {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nhl", "fanatic_players.json")
-  const answerPoolPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nhl", "fanatic_answer_pool.json")
+  const playersPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nhl",
+    "fanatic_players.json",
+  )
+  const answerPoolPath = resolve(
+    __dirname,
+    "..",
+    "packages",
+    "data",
+    "src",
+    "playerdle",
+    "nhl",
+    "fanatic_answer_pool.json",
+  )
 
   writeFileSync(playersPath, `${JSON.stringify(players, null, 2)}\n`, "utf-8")
   writeFileSync(answerPoolPath, `${JSON.stringify(answerPoolIds, null, 2)}\n`, "utf-8")

@@ -90,17 +90,19 @@ function CollegeBadge({
   const flag = isFlag(starter.schoolAbbr)
   const showLogo = logoUrl && !imgFailed
 
-  const borderClass = matchResult === "correct"
-    ? "border-green-500 ring-2 ring-green-400/50"
-    : matchResult === "incorrect"
-      ? "border-gray-500"
-      : "border-white/40"
+  const borderClass =
+    matchResult === "correct"
+      ? "border-green-500 ring-2 ring-green-400/50"
+      : matchResult === "incorrect"
+        ? "border-gray-500"
+        : "border-white/40"
 
-  const bgClass = matchResult === "correct"
-    ? "bg-green-50"
-    : matchResult === "incorrect"
-      ? "bg-gray-700/60"
-      : "bg-white"
+  const bgClass =
+    matchResult === "correct"
+      ? "bg-green-50"
+      : matchResult === "incorrect"
+        ? "bg-gray-700/60"
+        : "bg-white"
 
   return (
     <>
@@ -113,7 +115,9 @@ function CollegeBadge({
           showLogo ? bgClass : "bg-primary-800",
         )}
         style={!showLogo ? { backgroundColor: starter.colors[0] } : undefined}
-        onPointerDown={e => { lastPointerTypeRef.current = e.pointerType }}
+        onPointerDown={e => {
+          lastPointerTypeRef.current = e.pointerType
+        }}
         onPointerEnter={e => {
           if (e.pointerType === "mouse" && showTooltip) setTooltipPos(computePos())
         }}
@@ -147,7 +151,8 @@ function CollegeBadge({
           </span>
         )}
       </div>
-      {tooltipPos && showTooltip &&
+      {tooltipPos &&
+        showTooltip &&
         createPortal(
           <div
             className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
@@ -169,51 +174,126 @@ function CollegeBadge({
 
 // ---- Playbook formation diagram ----
 
-function FootballField({ team, revealPlayers = false }: { team: CollegeFieldTeam; revealPlayers?: boolean }) {
+function FootballField({
+  team,
+  revealPlayers = false,
+}: {
+  team: CollegeFieldTeam
+  revealPlayers?: boolean
+}) {
   // 3x1 spread: WR1 wide left, WR3 slot left, TE tight right, WR2 wide right, QB shotgun offset left, RB offset right
   const positions: Array<{ pos: Position; x: string; y: string }> = [
     { pos: "WR1", x: "10%", y: "43%" },
     { pos: "WR3", x: "27%", y: "43%" },
-    { pos: "TE",  x: "70%", y: "49%" },
+    { pos: "TE", x: "70%", y: "49%" },
     { pos: "WR2", x: "90%", y: "43%" },
-    { pos: "QB",  x: "46%", y: "63%" },
-    { pos: "RB",  x: "62%", y: "82%" },
+    { pos: "QB", x: "46%", y: "63%" },
+    { pos: "RB", x: "62%", y: "82%" },
   ]
 
   return (
-    <div className="relative w-full" style={{ paddingBottom: "76%" }}>
+    <div
+      className="relative w-full"
+      style={{ paddingBottom: "76%" }}
+    >
       {/* Playbook background — dark chalkboard style, no rounded corners (parent card clips them) */}
-      <div className="absolute inset-0 overflow-hidden" style={{ backgroundColor: "#0d2416" }}>
+      <div
+        className="absolute inset-0 overflow-hidden"
+        style={{ backgroundColor: "#0d2416" }}
+      >
         <svg
           viewBox="0 0 300 228"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Line of scrimmage */}
-          <line x1="8" y1="107" x2="292" y2="107" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
+          <line
+            x1="8"
+            y1="107"
+            x2="292"
+            y2="107"
+            stroke="rgba(255,255,255,0.5)"
+            strokeWidth="1.5"
+          />
 
           {/* Center snap indicator (in front of QB at x≈46%) */}
-          <line x1="120" y1="107" x2="156" y2="107" stroke="rgba(255,255,255,0.85)" strokeWidth="3" />
+          <line
+            x1="120"
+            y1="107"
+            x2="156"
+            y2="107"
+            stroke="rgba(255,255,255,0.85)"
+            strokeWidth="3"
+          />
 
           {/* WR1 (x=10%=30, y=43%=98): go route straight up */}
-          <line x1="30" y1="98" x2="30" y2="22" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="30,16 26,26 34,26" fill="rgba(255,255,255,0.38)" />
+          <line
+            x1="30"
+            y1="98"
+            x2="30"
+            y2="22"
+            stroke="rgba(255,255,255,0.38)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3.5"
+          />
+          <polygon
+            points="30,16 26,26 34,26"
+            fill="rgba(255,255,255,0.38)"
+          />
 
           {/* WR3 (x=27%=81, y=43%=98): in-route — up then cut inside */}
-          <polyline points="81,98 81,56 162,32" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="162,32 154,39 152,31" fill="rgba(255,255,255,0.38)" />
+          <polyline
+            points="81,98 81,56 162,32"
+            fill="none"
+            stroke="rgba(255,255,255,0.38)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3.5"
+          />
+          <polygon
+            points="162,32 154,39 152,31"
+            fill="rgba(255,255,255,0.38)"
+          />
 
           {/* WR2 (x=90%=270, y=43%=98): go route straight up */}
-          <line x1="270" y1="98" x2="270" y2="22" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="270,16 266,26 274,26" fill="rgba(255,255,255,0.38)" />
+          <line
+            x1="270"
+            y1="98"
+            x2="270"
+            y2="22"
+            stroke="rgba(255,255,255,0.38)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3.5"
+          />
+          <polygon
+            points="270,16 266,26 274,26"
+            fill="rgba(255,255,255,0.38)"
+          />
 
           {/* TE (x=70%=210, y=49%=112): cross route — up then cut inside */}
-          <polyline points="210,112 210,72 132,46" fill="none" stroke="rgba(255,255,255,0.32)" strokeWidth="1.5" strokeDasharray="5 3.5" />
-          <polygon points="132,46 142,45 140,53" fill="rgba(255,255,255,0.32)" />
+          <polyline
+            points="210,112 210,72 132,46"
+            fill="none"
+            stroke="rgba(255,255,255,0.32)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3.5"
+          />
+          <polygon
+            points="132,46 142,45 140,53"
+            fill="rgba(255,255,255,0.32)"
+          />
 
           {/* RB (x=62%=186, y=82%=187): swing route right */}
-          <path d="M 186 187 Q 226 180 248 166" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="4 3.5" />
-          <polygon points="248,166 242,174 238,168" fill="rgba(255,255,255,0.28)" />
+          <path
+            d="M 186 187 Q 226 180 248 166"
+            fill="none"
+            stroke="rgba(255,255,255,0.28)"
+            strokeWidth="1.5"
+            strokeDasharray="4 3.5"
+          />
+          <polygon
+            points="248,166 242,174 238,168"
+            fill="rgba(255,255,255,0.28)"
+          />
         </svg>
       </div>
 
@@ -225,7 +305,12 @@ function FootballField({ team, revealPlayers = false }: { team: CollegeFieldTeam
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip revealPlayer={revealPlayers} />
+            <CollegeBadge
+              starter={team.starters[pos]}
+              size="lg"
+              showTooltip
+              revealPlayer={revealPlayers}
+            />
             <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
               {pos}
             </span>
@@ -257,7 +342,12 @@ function PositionCell({
   }, [animate, delayMs])
 
   return revealed ? (
-    <CollegeBadge starter={starter} size="md" matchResult={matchResult} showTooltip />
+    <CollegeBadge
+      starter={starter}
+      size="md"
+      matchResult={matchResult}
+      showTooltip
+    />
   ) : (
     <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
   )
@@ -298,7 +388,10 @@ function EmptyRow() {
   return (
     <div className="flex gap-1.5 justify-center">
       {POSITIONS.map(pos => (
-        <div key={pos} className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700" />
+        <div
+          key={pos}
+          className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700"
+        />
       ))}
     </div>
   )
@@ -422,7 +515,10 @@ function TeamInput({
                     ? "bg-primary-100 dark:bg-primary-800"
                     : "hover:bg-primary-50 dark:hover:bg-primary-900",
                 )}
-                onPointerDown={e => { e.preventDefault(); handleSelect(option) }}
+                onPointerDown={e => {
+                  e.preventDefault()
+                  handleSelect(option)
+                }}
                 onMouseEnter={() => setHighlightIndex(i)}
               >
                 <span className="font-semibold text-sm">{option.name}</span>
@@ -445,7 +541,9 @@ function buildShareText(
   comparisons: CollegeFieldComparison[],
   won: boolean,
 ): string {
-  const score = won ? `${guesses.length}/${COLLEGEFIELD_MAX_GUESSES}` : `X/${COLLEGEFIELD_MAX_GUESSES}`
+  const score = won
+    ? `${guesses.length}/${COLLEGEFIELD_MAX_GUESSES}`
+    : `X/${COLLEGEFIELD_MAX_GUESSES}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
@@ -493,7 +591,11 @@ function ResultsPanel({
 
   return (
     <div className="flex-1 min-h-0 flex flex-col pb-4">
-      <Popup visible={copied} message="Copied to clipboard!" durationMs={3000} />
+      <Popup
+        visible={copied}
+        message="Copied to clipboard!"
+        durationMs={3000}
+      />
       <div
         ref={scrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
@@ -507,11 +609,18 @@ function ResultsPanel({
             {POSITIONS.map(pos => {
               const starter = puzzle.team.starters[pos]
               return (
-                <div key={pos} className="flex flex-col items-center gap-0.5">
+                <div
+                  key={pos}
+                  className="flex flex-col items-center gap-0.5"
+                >
                   <span className="text-[8px] font-bold uppercase tracking-wider text-primary-500 dark:text-primary-400">
                     {pos}
                   </span>
-                  <CollegeBadge starter={starter} size="lg" showTooltip />
+                  <CollegeBadge
+                    starter={starter}
+                    size="lg"
+                    showTooltip
+                  />
                   <span className="text-[9px] font-semibold text-primary-800 dark:text-primary-100 max-w-[3.5rem] text-center leading-tight line-clamp-2">
                     {starter.name}
                   </span>
@@ -536,8 +645,13 @@ function ResultsPanel({
                 { value: stats.currentStreak, label: "Current\nStreak" },
                 { value: stats.maxStreak, label: "Max\nStreak" },
               ].map(({ value, label }) => (
-                <div key={label} className="text-center">
-                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{value}</div>
+                <div
+                  key={label}
+                  className="text-center"
+                >
+                  <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
+                    {value}
+                  </div>
                   <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 font-light leading-tight whitespace-pre-line">
                     {label}
                   </div>
@@ -553,7 +667,10 @@ function ResultsPanel({
               const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
               const isHighlighted = won && num === guesses.length
               return (
-                <div key={num} className="flex items-center mb-1 gap-2">
+                <div
+                  key={num}
+                  className="flex items-center mb-1 gap-2"
+                >
                   <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
                     {num}
                   </div>
@@ -578,8 +695,18 @@ function ResultsPanel({
           </div>
         )}
         <div className="flex gap-3 justify-center mt-6 flex-wrap">
-          {mode === "daily" && <ShareButton copied={copied} onClick={handleShare} />}
-          <PlayAgainButton onClick={() => { onPlayAgain(); onClose() }} />
+          {mode === "daily" && (
+            <ShareButton
+              copied={copied}
+              onClick={handleShare}
+            />
+          )}
+          <PlayAgainButton
+            onClick={() => {
+              onPlayAgain()
+              onClose()
+            }}
+          />
         </div>
       </div>
       <ScrollHint scrollRef={scrollRef} />
@@ -589,7 +716,12 @@ function ResultsPanel({
 
 // ---- Main game ----
 
-export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archiveDateKey }: Props) {
+export default function CollegeFieldGame({
+  mode,
+  onModeChange,
+  onGameOver,
+  archiveDateKey,
+}: Props) {
   const [activeMode, setActiveMode] = useState<CollegeFieldGameMode>(mode)
   const allTeams = useMemo(() => getCollegeFieldTeams(), [])
   const teamOptions: TeamOption[] = useMemo(
@@ -621,9 +753,23 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
         if (!guessedTeam)
-          return { QB: "incorrect", RB: "incorrect", TE: "incorrect", WR1: "incorrect", WR2: "incorrect", WR3: "incorrect" } as CollegeFieldComparison
+          return {
+            QB: "incorrect",
+            RB: "incorrect",
+            TE: "incorrect",
+            WR1: "incorrect",
+            WR2: "incorrect",
+            WR3: "incorrect",
+          } as CollegeFieldComparison
         if (guessedTeam.id === puzzle.team.id)
-          return { QB: "correct", RB: "correct", TE: "correct", WR1: "correct", WR2: "correct", WR3: "correct" } as CollegeFieldComparison
+          return {
+            QB: "correct",
+            RB: "correct",
+            TE: "correct",
+            WR1: "correct",
+            WR2: "correct",
+            WR3: "correct",
+          } as CollegeFieldComparison
         return compareTeamToAnswer(guessedTeam, puzzle.team)
       }),
     [guesses, puzzle.team, teamsById],
@@ -730,14 +876,20 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Football field diagram */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
-            <FootballField team={puzzle.team} revealPlayers={gameOver} />
+            <FootballField
+              team={puzzle.team}
+              revealPlayers={gameOver}
+            />
           </div>
 
           {/* Guess grid */}
           <div className="mt-4">
             <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
               {POSITIONS.map(pos => (
-                <div key={pos} className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50">
+                <div
+                  key={pos}
+                  className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
+                >
                   {pos}
                 </div>
               ))}
@@ -746,7 +898,12 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
             <div className="flex flex-col gap-3">
               {Array.from({ length: COLLEGEFIELD_MAX_GUESSES }).map((_, i) =>
                 i < guesses.length ? (
-                  <div key={i} ref={el => { rowRefs.current[i] = el }}>
+                  <div
+                    key={i}
+                    ref={el => {
+                      rowRefs.current[i] = el
+                    }}
+                  >
                     {(() => {
                       const guessedTeam = teamsById.get(guesses[i].teamId)
                       if (!guessedTeam) return null
@@ -761,7 +918,12 @@ export default function CollegeFieldGame({ mode, onModeChange, onGameOver, archi
                     })()}
                   </div>
                 ) : (
-                  <div key={`empty-${i}`} ref={el => { rowRefs.current[i] = el }}>
+                  <div
+                    key={`empty-${i}`}
+                    ref={el => {
+                      rowRefs.current[i] = el
+                    }}
+                  >
                     <EmptyRow />
                   </div>
                 ),

@@ -32,10 +32,7 @@ export function StatsBlock({
   maxGuesses: number
   highlightKey?: string
 }) {
-  const maxGuessCount = Math.max(
-    ...Object.values<number>(stats.guessDistribution),
-    1,
-  )
+  const maxGuessCount = Math.max(...Object.values<number>(stats.guessDistribution), 1)
   const rows: Array<{ key: string; label: string; count: number; isLoss: boolean }> = [
     ...Array.from({ length: maxGuesses }, (_, i) => ({
       key: String(i + 1),
@@ -48,10 +45,34 @@ export function StatsBlock({
   return (
     <section>
       <div className="grid grid-cols-4 gap-2 mb-4">
-        <Tile value={stats.played} label="Played" />
-        <Tile value={stats.winPercentage} label="Win %" />
-        <Tile value={stats.currentStreak} label={<>Current<br />Streak</>} />
-        <Tile value={stats.maxStreak} label={<>Max<br />Streak</>} />
+        <Tile
+          value={stats.played}
+          label="Played"
+        />
+        <Tile
+          value={stats.winPercentage}
+          label="Win %"
+        />
+        <Tile
+          value={stats.currentStreak}
+          label={
+            <>
+              Current
+              <br />
+              Streak
+            </>
+          }
+        />
+        <Tile
+          value={stats.maxStreak}
+          label={
+            <>
+              Max
+              <br />
+              Streak
+            </>
+          }
+        />
       </div>
       <h4 className="text-xs font-semibold text-primary-700 dark:text-primary-200 mb-2 uppercase text-left tracking-wide">
         Guess Distribution

@@ -108,8 +108,15 @@ function Diamond({ color }: { color: string }) {
   const displayColor = color
   return (
     <span
-      className={clsx("inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm", isTransparent && "diamond-transparent")}
-      style={isTransparent ? { border: "1px solid #a0a0a0" } : { backgroundColor: displayColor, border: `1px solid ${diamondBorder(displayColor)}` }}
+      className={clsx(
+        "inline-block w-7 h-7 rounded-[3px] rotate-45 shadow-sm",
+        isTransparent && "diamond-transparent",
+      )}
+      style={
+        isTransparent
+          ? { border: "1px solid #a0a0a0" }
+          : { backgroundColor: displayColor, border: `1px solid ${diamondBorder(displayColor)}` }
+      }
       aria-hidden="true"
     />
   )
@@ -161,8 +168,18 @@ function DiamondWithPreview({ color }: { color: string }) {
         >
           <span
             aria-hidden="true"
-            className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${diamondBorder(displayColor)}` }}
+            className={clsx(
+              "inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md",
+              isTransparent && "diamond-transparent",
+            )}
+            style={
+              isTransparent
+                ? { border: "2px solid #a0a0a0" }
+                : {
+                    backgroundColor: displayColor,
+                    border: `2px solid ${diamondBorder(displayColor)}`,
+                  }
+            }
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
@@ -304,7 +321,9 @@ function GuessSlots({ guesses, answer, maxGuesses, hideAnswer = false }: GuessSl
                   ? "bg-success-500/20 border-success-500/60 text-success-500 dark:text-success-400"
                   : "bg-error-500/20 border-error-500/60 text-error-500 dark:text-error-400"
                 : "bg-transparent border-primary-300 dark:border-primary-700 text-primary-300 dark:text-primary-600",
-              hideAnswer && isCorrect && "blur select-none opacity-40 transition-[filter,opacity] duration-200",
+              hideAnswer &&
+                isCorrect &&
+                "blur select-none opacity-40 transition-[filter,opacity] duration-200",
             )}
           >
             <StateBadge

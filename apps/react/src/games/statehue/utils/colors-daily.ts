@@ -112,10 +112,7 @@ function pickWeightedStateForDate(dateKey: string, variant: ColorsVariant): Colo
   return STATE_FOR_DATE_CACHE.get(cacheKey)!
 }
 
-function pickWeightedStateRandom(
-  variant: ColorsVariant,
-  excludeStateId?: string,
-): ColorsState {
+function pickWeightedStateRandom(variant: ColorsVariant, excludeStateId?: string): ColorsState {
   const all = datasetFor(variant)
   const pool = excludeStateId ? all.filter(s => s.id !== excludeStateId) : all
   const totalWeight = pool.reduce((sum, s) => sum + s.teams.length, 0)
@@ -145,10 +142,7 @@ function daysSinceEpoch(dateKey: string): number {
   return Math.floor((target - epoch) / 86_400_000)
 }
 
-export function getDailyColorsPuzzle(
-  date?: Date,
-  variant: ColorsVariant = "pro",
-): ColorsPuzzle {
+export function getDailyColorsPuzzle(date?: Date, variant: ColorsVariant = "pro"): ColorsPuzzle {
   const dateKey = date ? getDateKey(date) : getTodayKey()
   return getColorsPuzzleByDateKey(dateKey, variant)
 }

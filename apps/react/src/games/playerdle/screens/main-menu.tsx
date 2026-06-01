@@ -143,14 +143,16 @@ export default function MainMenu({
                   onClick={() => onNavigate("daily", { variantId: row.variantId })}
                 />
               ))}
-              {extraGames?.filter(g => g.featured).map(game => (
-                <GameModeButton
-                  key={game.label}
-                  label={game.label}
-                  played={game.played}
-                  onClick={game.onPlayDaily}
-                />
-              ))}
+              {extraGames
+                ?.filter(g => g.featured)
+                .map(game => (
+                  <GameModeButton
+                    key={game.label}
+                    label={game.label}
+                    played={game.played}
+                    onClick={game.onPlayDaily}
+                  />
+                ))}
               {extraGames?.some(g => !g.featured) && (
                 <GameModeButton
                   label="More Games"
@@ -173,7 +175,11 @@ export default function MainMenu({
                     aria-label={label}
                     className="w-11 h-11 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 text-primary-600 dark:text-primary-300 hover:bg-primary-200 dark:hover:bg-primary-700 hover:text-primary-800 dark:hover:text-primary-100 transition-colors cursor-pointer"
                   >
-                    <FontAwesomeIcon icon={icon} className="text-lg" aria-hidden="true" />
+                    <FontAwesomeIcon
+                      icon={icon}
+                      className="text-lg"
+                      aria-hidden="true"
+                    />
                   </button>
                 ))}
               </div>
@@ -221,47 +227,63 @@ export default function MainMenu({
           onBack={pop}
         >
           <div className="-mt-1 flex-1 overflow-y-auto pb-4 flex flex-col gap-3 pt-4">
-            {extraGames?.filter(g => !g.featured).map(game => (
-              <button
-                key={game.label}
-                type="button"
-                onClick={game.onPlayDaily}
-                className={clsx(
-                  "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
-                  game.played
-                    ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
-                    : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
-                )}
-              >
-                <div className={clsx(
-                  "shrink-0 w-11 h-11 rounded-full flex items-center justify-center",
-                  game.played ? "bg-primary-100 dark:bg-primary-800" : "bg-white/20 dark:bg-black/15",
-                )}>
-                  <FontAwesomeIcon
-                    icon={game.icon!}
+            {extraGames
+              ?.filter(g => !g.featured)
+              .map(game => (
+                <button
+                  key={game.label}
+                  type="button"
+                  onClick={game.onPlayDaily}
+                  className={clsx(
+                    "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
+                    game.played
+                      ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
+                      : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
+                  )}
+                >
+                  <div
                     className={clsx(
-                      "text-xl",
-                      game.played ? "text-primary-600 dark:text-primary-200" : "text-white dark:text-primary-800",
+                      "shrink-0 w-11 h-11 rounded-full flex items-center justify-center",
+                      game.played
+                        ? "bg-primary-100 dark:bg-primary-800"
+                        : "bg-white/20 dark:bg-black/15",
                     )}
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className={clsx(
-                    "font-bold text-sm leading-tight",
-                    game.played ? "text-primary-800 dark:text-primary-100" : "text-white dark:text-primary-800",
-                  )}>
-                    {game.label}
+                  >
+                    <FontAwesomeIcon
+                      icon={game.icon!}
+                      className={clsx(
+                        "text-xl",
+                        game.played
+                          ? "text-primary-600 dark:text-primary-200"
+                          : "text-white dark:text-primary-800",
+                      )}
+                      aria-hidden="true"
+                    />
                   </div>
-                  <div className={clsx(
-                    "text-xs mt-0.5 leading-snug",
-                    game.played ? "text-primary-500 dark:text-primary-400" : "text-white/80 dark:text-primary-700",
-                  )}>
-                    {game.description}
+                  <div className="flex-1 min-w-0">
+                    <div
+                      className={clsx(
+                        "font-bold text-sm leading-tight",
+                        game.played
+                          ? "text-primary-800 dark:text-primary-100"
+                          : "text-white dark:text-primary-800",
+                      )}
+                    >
+                      {game.label}
+                    </div>
+                    <div
+                      className={clsx(
+                        "text-xs mt-0.5 leading-snug",
+                        game.played
+                          ? "text-primary-500 dark:text-primary-400"
+                          : "text-white/80 dark:text-primary-700",
+                      )}
+                    >
+                      {game.description}
+                    </div>
                   </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              ))}
           </div>
         </MenuOverlay>
         <MenuOverlay
@@ -277,7 +299,10 @@ export default function MainMenu({
           onClose={pop}
           onBack={pop}
         >
-          <div className="-mt-1 flex-1 overflow-auto pb-32" style={{ scrollPaddingBottom: "8rem" }}>
+          <div
+            className="-mt-1 flex-1 overflow-auto pb-32"
+            style={{ scrollPaddingBottom: "8rem" }}
+          >
             <SyncPanel open={peek === "sync"} />
           </div>
         </MenuOverlay>

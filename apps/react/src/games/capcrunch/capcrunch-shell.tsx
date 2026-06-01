@@ -4,7 +4,10 @@ import clsx from "clsx"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import type { CapCrunchLeague } from "@/games/capcrunch/utils/capcrunch-daily"
-import { calculateCapCrunchStats, type CapCrunchStats } from "@/games/capcrunch/utils/capcrunch-daily"
+import {
+  calculateCapCrunchStats,
+  type CapCrunchStats,
+} from "@/games/capcrunch/utils/capcrunch-daily"
 import { Panel } from "@/shared/components"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import { PanelStackContext } from "@/shared/hooks/use-panel-context"
@@ -62,8 +65,8 @@ function HowToPlayPanel() {
             <strong>Green ✓</strong> — correct team
           </li>
           <li>
-            <strong>Yellow ↑↓</strong> — within close range (QB ±$5M, RB/TE ±$2-2.5M, WR ±$7M,
-            OL ±$10M); arrow still points toward the answer
+            <strong>Yellow ↑↓</strong> — within close range (QB ±$5M, RB/TE ±$2-2.5M, WR ±$7M, OL
+            ±$10M); arrow still points toward the answer
           </li>
           <li>
             <strong>Red ↑↓</strong> — far off; ↑ means answer pays more, ↓ means answer pays less
@@ -106,7 +109,10 @@ function StatsPanel({
           { value: stats.currentStreak, label: "Current\nStreak" },
           { value: stats.maxStreak, label: "Max\nStreak" },
         ].map(({ value, label }) => (
-          <div key={label} className="text-center">
+          <div
+            key={label}
+            className="text-center"
+          >
             <div className="text-4xl font-light text-primary-900 dark:text-primary-50">{value}</div>
             <div className="text-xs text-primary-500 dark:text-primary-200 mt-1 font-light leading-tight whitespace-pre-line">
               {label}
@@ -123,7 +129,10 @@ function StatsPanel({
         const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
         const isHighlighted = won && num === guesses
         return (
-          <div key={num} className="flex items-center mb-1 gap-2">
+          <div
+            key={num}
+            className="flex items-center mb-1 gap-2"
+          >
             <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
               {num}
             </div>
@@ -210,21 +219,29 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
             title="Back"
             className="absolute left-3 top-1/2 -translate-y-1/2 p-2 text-primary-900 dark:text-primary-50 bg-transparent rounded cursor-pointer z-20 hover:bg-primary-900 hover:text-primary-50 dark:hover:bg-primary-50 dark:hover:text-primary-900 transition-colors"
           >
-            <FontAwesomeIcon icon={faAngleLeft} className="text-[1.7rem]" aria-hidden="true" />
+            <FontAwesomeIcon
+              icon={faAngleLeft}
+              className="text-[1.7rem]"
+              aria-hidden="true"
+            />
           </button>
           <h1 className="fa5-title text-xl font-black tracking-widest uppercase text-primary-900 dark:text-primary-50">
             Cap Crunch
           </h1>
           <p className="text-[10px] text-primary-500 dark:text-primary-200 mt-0.5">{subtitle}</p>
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1">
-{!panels.isAnyOpen && (
+            {!panels.isAnyOpen && (
               <button
                 onClick={() => panels.push("stats")}
                 aria-label="Show stats"
                 title="Stats"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
               >
-                <FontAwesomeIcon icon={faChartSimple} className="text-[1.15rem]" aria-hidden="true" />
+                <FontAwesomeIcon
+                  icon={faChartSimple}
+                  className="text-[1.15rem]"
+                  aria-hidden="true"
+                />
               </button>
             )}
             {!panels.isAnyOpen && (
@@ -234,7 +251,11 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
                 title="How to play"
                 className="p-2 bg-transparent text-primary-500 dark:text-primary-200 cursor-pointer flex items-center justify-center transition-colors hover:text-primary-900 dark:hover:text-primary-50 rounded"
               >
-                <FontAwesomeIcon icon={faCircleQuestion} className="text-[1.2rem]" aria-hidden="true" />
+                <FontAwesomeIcon
+                  icon={faCircleQuestion}
+                  className="text-[1.2rem]"
+                  aria-hidden="true"
+                />
               </button>
             )}
           </div>
@@ -258,11 +279,21 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
               />
             </div>
 
-            <Panel open={panels.isOpen("how-to-play")} onClose={panels.pop} title="How to Play" layout="scroll">
+            <Panel
+              open={panels.isOpen("how-to-play")}
+              onClose={panels.pop}
+              title="How to Play"
+              layout="scroll"
+            >
               <HowToPlayPanel />
             </Panel>
 
-            <Panel open={panels.isOpen("stats")} onClose={panels.pop} title="Statistics" layout="scroll">
+            <Panel
+              open={panels.isOpen("stats")}
+              onClose={panels.pop}
+              title="Statistics"
+              layout="scroll"
+            >
               <StatsPanel
                 stats={stats}
                 guesses={gameResult?.guessCount ?? 0}
@@ -271,7 +302,11 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
               />
             </Panel>
 
-            <CapCrunchCalendar league={league} panel id="calendar" />
+            <CapCrunchCalendar
+              league={league}
+              panel
+              id="calendar"
+            />
           </div>
         </div>
       </div>

@@ -45,9 +45,11 @@ export function TeamColorsKey() {
   const conferences = Object.keys(grouped).sort()
 
   useEffect(() => {
-    const targets = [document.documentElement, document.body, document.getElementById("root")].filter(
-      Boolean,
-    ) as HTMLElement[]
+    const targets = [
+      document.documentElement,
+      document.body,
+      document.getElementById("root"),
+    ].filter(Boolean) as HTMLElement[]
     const prev = targets.map(el => ({ overflow: el.style.overflow, height: el.style.height }))
     for (const el of targets) {
       el.style.overflow = "visible"
@@ -87,7 +89,10 @@ export function TeamColorsKey() {
       {conferences.map(conference => {
         const divisions = Object.keys(grouped[conference]).sort()
         return (
-          <div key={conference} className="mb-10">
+          <div
+            key={conference}
+            className="mb-10"
+          >
             <h2 className="text-lg font-black uppercase tracking-widest text-primary-700 dark:text-primary-200 border-b-2 border-primary-200 dark:border-primary-700 pb-2 mb-4">
               {conference}
             </h2>
@@ -102,7 +107,10 @@ export function TeamColorsKey() {
                   </h3>
                   <div className="flex flex-col gap-2.5">
                     {grouped[conference][division].map(team => (
-                      <div key={team.id} className="flex items-center gap-2.5">
+                      <div
+                        key={team.id}
+                        className="flex items-center gap-2.5"
+                      >
                         <div className="flex gap-1 shrink-0">
                           {(team.colors ?? []).map((color, i) => (
                             <div

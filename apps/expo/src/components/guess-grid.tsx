@@ -15,12 +15,18 @@ export function GuessGrid({ sport, answer, guesses, maxGuesses }: GuessGridProps
     <View className="px-3 py-2">
       <View className="flex-row">
         {sport.columns.map(c => (
-          <HeaderTile key={c.id} label={c.label} />
+          <HeaderTile
+            key={c.id}
+            label={c.label}
+          />
         ))}
       </View>
 
       {guesses.map((guess, rowIdx) => (
-        <View key={`${guess.id}-${rowIdx}`} className="mt-1">
+        <View
+          key={`${guess.id}-${rowIdx}`}
+          className="mt-1"
+        >
           <Text className="text-primary-700 dark:text-primary-100 font-semibold text-sm mb-1 px-1">
             {guess.name}
           </Text>
@@ -41,7 +47,10 @@ export function GuessGrid({ sport, answer, guesses, maxGuesses }: GuessGridProps
       ))}
 
       {Array.from({ length: emptyRows }).map((_, i) => (
-        <View key={`empty-${i}`} className="mt-1 flex-row">
+        <View
+          key={`empty-${i}`}
+          className="mt-1 flex-row"
+        >
           {sport.columns.map(c => (
             <View
               key={c.id}

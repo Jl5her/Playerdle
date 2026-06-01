@@ -34,7 +34,10 @@ export function useClipboardShare() {
 
   function copyText(text: string) {
     if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(text).then(showCopiedPill).catch(() => legacyCopyText(text))
+      navigator.clipboard
+        .writeText(text)
+        .then(showCopiedPill)
+        .catch(() => legacyCopyText(text))
       return
     }
     legacyCopyText(text)

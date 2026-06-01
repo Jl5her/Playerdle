@@ -57,9 +57,8 @@ async function searchNhlId(name: string): Promise<string | undefined> {
     `https://search.d3.nhle.com/api/v1/search/player` +
     `?culture=en-us&limit=10&q=${encodeURIComponent(name)}&active=null`
   try {
-    const data = await fetchJson<
-      Array<{ playerId: string | number; name?: string; lastTeamId?: string }>
-    >(url)
+    const data =
+      await fetchJson<Array<{ playerId: string | number; name?: string; lastTeamId?: string }>>(url)
     if (!Array.isArray(data) || data.length === 0) return undefined
     // Bail on no exact match or ambiguous duplicates rather than silently
     // assigning the wrong player ID — the caller already handles undefined.

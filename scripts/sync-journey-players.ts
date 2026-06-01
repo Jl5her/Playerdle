@@ -199,7 +199,10 @@ function generatePlayersTs(players: SyncPlayer[]): string {
     ["Wide Receivers", byPos("WR")],
     ["Running Backs", byPos("RB")],
     ["Tight Ends", byPos("TE")],
-    ["Defensive players", byPos(players.map(p => p.position).filter(p => !["QB", "WR", "RB", "TE"].includes(p)))],
+    [
+      "Defensive players",
+      byPos(players.map(p => p.position).filter(p => !["QB", "WR", "RB", "TE"].includes(p))),
+    ],
   ] as [string, SyncPlayer[]][]
 
   const body = sections
@@ -316,9 +319,7 @@ async function main() {
 
     // ── 3. Verify college (log mismatch; do not auto-correct) ───────────────
     if (profile.college && profile.college !== p.college) {
-      warnings.push(
-        `${p.name}: college mismatch — stored="${p.college}" ESPN="${profile.college}"`,
-      )
+      warnings.push(`${p.name}: college mismatch — stored="${p.college}" ESPN="${profile.college}"`)
       process.stdout.write(` [college:mismatch]`)
     }
 
@@ -348,9 +349,7 @@ async function main() {
           teamsAdded++
           process.stdout.write(` [team:+${profile.currentTeam}]`)
         } else {
-          warnings.push(
-            `${p.name}: ESPN reports unknown team "${profile.currentTeam}" — skipped`,
-          )
+          warnings.push(`${p.name}: ESPN reports unknown team "${profile.currentTeam}" — skipped`)
           process.stdout.write(` [team:unrecognized "${profile.currentTeam}"]`)
         }
       }

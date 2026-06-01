@@ -20,10 +20,12 @@ const meta = {
     open: true,
     title: "Menu",
     onClose: fn(),
-    children: <p className="text-sm text-primary-700 dark:text-primary-200">Menu content goes here.</p>,
+    children: (
+      <p className="text-sm text-primary-700 dark:text-primary-200">Menu content goes here.</p>
+    ),
   },
   decorators: [
-    (Story) => (
+    Story => (
       <div className="relative h-96 w-full bg-primary-50 dark:bg-primary-900">
         <Story />
       </div>
@@ -48,10 +50,22 @@ export const WithContent: Story = {
     title: "Settings",
     children: (
       <div className="flex flex-col items-center gap-3 mt-6">
-        <MenuLinkButton label="How to Play" onClick={fn()} />
-        <MenuLinkButton label="Statistics" onClick={fn()} />
-        <MenuLinkButton label="Settings" onClick={fn()} />
-        <MenuLinkButton label="About" onClick={fn()} />
+        <MenuLinkButton
+          label="How to Play"
+          onClick={fn()}
+        />
+        <MenuLinkButton
+          label="Statistics"
+          onClick={fn()}
+        />
+        <MenuLinkButton
+          label="Settings"
+          onClick={fn()}
+        />
+        <MenuLinkButton
+          label="About"
+          onClick={fn()}
+        />
       </div>
     ),
   },

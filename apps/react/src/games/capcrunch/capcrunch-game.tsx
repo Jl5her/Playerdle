@@ -87,9 +87,15 @@ function PlayerSlot({
       <div
         ref={ref}
         className="flex flex-col items-center gap-0.5 min-w-[3.5rem] select-none"
-        onPointerDown={e => { lastPointerTypeRef.current = e.pointerType }}
-        onPointerEnter={e => { if (e.pointerType === "mouse") setTooltipPos(computePos()) }}
-        onPointerLeave={e => { if (e.pointerType === "mouse") setTooltipPos(null) }}
+        onPointerDown={e => {
+          lastPointerTypeRef.current = e.pointerType
+        }}
+        onPointerEnter={e => {
+          if (e.pointerType === "mouse") setTooltipPos(computePos())
+        }}
+        onPointerLeave={e => {
+          if (e.pointerType === "mouse") setTooltipPos(null)
+        }}
         onClick={() => {
           if (lastPointerTypeRef.current !== "mouse") {
             setTooltipPos(prev => (prev ? null : computePos()))
@@ -138,26 +144,70 @@ function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed:
     <div className="flex flex-col items-center gap-3 py-4 px-2 select-none">
       {/* WRs */}
       <div className="flex justify-center gap-2">
-        <PlayerSlot position="WR" player={offense.WR[0]} revealed={revealed} />
-        <PlayerSlot position="WR" player={offense.WR[1]} revealed={revealed} />
-        <PlayerSlot position="WR" player={offense.WR[2]} revealed={revealed} />
+        <PlayerSlot
+          position="WR"
+          player={offense.WR[0]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="WR"
+          player={offense.WR[1]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="WR"
+          player={offense.WR[2]}
+          revealed={revealed}
+        />
       </div>
       {/* OL */}
       <div className="flex justify-center gap-1.5">
-        <PlayerSlot position="LT" player={offense.OL[0]} revealed={revealed} />
-        <PlayerSlot position="LG" player={offense.OL[1]} revealed={revealed} />
-        <PlayerSlot position="C" player={offense.OL[2]} revealed={revealed} />
-        <PlayerSlot position="RG" player={offense.OL[3]} revealed={revealed} />
-        <PlayerSlot position="RT" player={offense.OL[4]} revealed={revealed} />
+        <PlayerSlot
+          position="LT"
+          player={offense.OL[0]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="LG"
+          player={offense.OL[1]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="C"
+          player={offense.OL[2]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="RG"
+          player={offense.OL[3]}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="RT"
+          player={offense.OL[4]}
+          revealed={revealed}
+        />
       </div>
       {/* QB */}
       <div className="flex justify-center">
-        <PlayerSlot position="QB" player={offense.QB} revealed={revealed} />
+        <PlayerSlot
+          position="QB"
+          player={offense.QB}
+          revealed={revealed}
+        />
       </div>
       {/* RB + TE */}
       <div className="flex justify-center gap-6">
-        <PlayerSlot position="RB" player={offense.RB} revealed={revealed} />
-        <PlayerSlot position="TE" player={offense.TE} revealed={revealed} />
+        <PlayerSlot
+          position="RB"
+          player={offense.RB}
+          revealed={revealed}
+        />
+        <PlayerSlot
+          position="TE"
+          player={offense.TE}
+          revealed={revealed}
+        />
       </div>
     </div>
   )
@@ -477,7 +527,11 @@ function ResultsPanel({
 
   return (
     <div className="flex-1 min-h-0 flex flex-col pb-4">
-      <Popup visible={copied} message="Copied to clipboard!" durationMs={3000} />
+      <Popup
+        visible={copied}
+        message="Copied to clipboard!"
+        durationMs={3000}
+      />
       <div
         ref={scrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
@@ -494,7 +548,10 @@ function ResultsPanel({
                 { value: stats.currentStreak, label: "Current\nStreak" },
                 { value: stats.maxStreak, label: "Max\nStreak" },
               ].map(({ value, label }) => (
-                <div key={label} className="text-center">
+                <div
+                  key={label}
+                  className="text-center"
+                >
                   <div className="text-4xl font-light text-primary-900 dark:text-primary-50">
                     {value}
                   </div>
@@ -513,7 +570,10 @@ function ResultsPanel({
               const barWidth = count === 0 ? "2.25rem" : `${Math.max(scaledWidth, 12)}%`
               const isHighlighted = won && num === guesses.length
               return (
-                <div key={num} className="flex items-center mb-1 gap-2">
+                <div
+                  key={num}
+                  className="flex items-center mb-1 gap-2"
+                >
                   <div className="text-sm font-semibold text-primary-900 dark:text-primary-50 w-4 shrink-0">
                     {num}
                   </div>
@@ -538,8 +598,18 @@ function ResultsPanel({
           </div>
         )}
         <div className="flex gap-3 justify-center mt-6 flex-wrap">
-          {mode === "daily" && <ShareButton copied={copied} onClick={handleShare} />}
-          <PlayAgainButton onClick={() => { onPlayAgain(); onClose() }} />
+          {mode === "daily" && (
+            <ShareButton
+              copied={copied}
+              onClick={handleShare}
+            />
+          )}
+          <PlayAgainButton
+            onClick={() => {
+              onPlayAgain()
+              onClose()
+            }}
+          />
         </div>
       </div>
       <ScrollHint scrollRef={scrollRef} />
@@ -549,7 +619,13 @@ function ResultsPanel({
 
 // ---- Main game ----
 
-export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, archiveDateKey }: Props) {
+export default function CapCrunchGame({
+  league,
+  mode,
+  onModeChange,
+  onGameOver,
+  archiveDateKey,
+}: Props) {
   const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
   const teams = useMemo(() => getCapCrunchTeams(league), [league])
   const teamOptions: TeamOption[] = useMemo(
@@ -580,7 +656,8 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
     () =>
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
-        if (!guessedTeam) return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as CapCrunchComparison
+        if (!guessedTeam)
+          return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as CapCrunchComparison
         const cmp = compareTeamToAnswer(guessedTeam, puzzle.team)
         if (guessedTeam.id === puzzle.team.id) {
           return { QB: "correct", RB: "correct", TE: "correct", WR: "correct", OL: "correct" }
@@ -660,7 +737,6 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
     prevGuessCount.current = guesses.length
   }, [guesses.length])
 
-
   return (
     <DailyGameShell
       gameOver={gameOver}
@@ -693,7 +769,10 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
-            <Formation offense={puzzle.team.offense} revealed={gameOver} />
+            <Formation
+              offense={puzzle.team.offense}
+              revealed={gameOver}
+            />
           </div>
 
           {/* Guess grid */}
@@ -715,7 +794,9 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
               i < guesses.length ? (
                 <div
                   key={i}
-                  ref={el => { rowRefs.current[i] = el }}
+                  ref={el => {
+                    rowRefs.current[i] = el
+                  }}
                 >
                   <ComparisonRow
                     teamName={guesses[i].teamName}
@@ -737,7 +818,9 @@ export default function CapCrunchGame({ league, mode, onModeChange, onGameOver, 
               ) : (
                 <div
                   key={`empty-${i}`}
-                  ref={el => { rowRefs.current[i] = el }}
+                  ref={el => {
+                    rowRefs.current[i] = el
+                  }}
                 >
                   <div className="flex gap-1 justify-center">
                     {COMPARISON_COLUMNS.map(({ key }) => (

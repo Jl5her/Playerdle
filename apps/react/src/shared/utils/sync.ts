@@ -214,10 +214,7 @@ function completedDatesSet(statsJson: string | undefined): Set<string> {
   }
 }
 
-function mergeStatsArrays(
-  localJson: string | undefined,
-  remoteJson: string | undefined,
-): string {
+function mergeStatsArrays(localJson: string | undefined, remoteJson: string | undefined): string {
   try {
     const local: Array<{ date: string }> = localJson ? JSON.parse(localJson) : []
     const remote: Array<{ date: string }> = remoteJson ? JSON.parse(remoteJson) : []
@@ -444,7 +441,13 @@ export function analyzeMerge(
     }
   }
 
-  return { easyMerged, conflicts, conflictLocal, conflictRemote, hasConflicts: conflicts.length > 0 }
+  return {
+    easyMerged,
+    conflicts,
+    conflictLocal,
+    conflictRemote,
+    hasConflicts: conflicts.length > 0,
+  }
 }
 
 /**
@@ -455,8 +458,7 @@ export function resolveMerge(
   analysis: MergeAnalysis,
   winner: "local" | "remote",
 ): Record<string, string> {
-  const conflictValues =
-    winner === "local" ? analysis.conflictLocal : analysis.conflictRemote
+  const conflictValues = winner === "local" ? analysis.conflictLocal : analysis.conflictRemote
   return { ...analysis.easyMerged, ...conflictValues }
 }
 
@@ -529,9 +531,7 @@ export async function backgroundSync(): Promise<void> {
   const localData = collectSyncData().data
   const analysis = analyzeMerge(localData, payload.data)
   if (analysis.hasConflicts) return
-  const localIsBehind = Object.entries(analysis.easyMerged).some(
-    ([k, v]) => localData[k] !== v,
-  )
+  const localIsBehind = Object.entries(analysis.easyMerged).some(([k, v]) => localData[k] !== v)
   const remoteIsBehind = Object.keys({ ...localData, ...payload.data }).some(
     k => analysis.easyMerged[k] !== payload.data[k],
   )

@@ -47,7 +47,7 @@ export const Panel: Story = {
   parameters: {
     layout: "padded",
   },
-  render: (args) => (
+  render: args => (
     <div className="h-[600px] w-full max-w-md mx-auto border rounded overflow-hidden flex flex-col">
       <ArchiveCalendar {...args} />
     </div>
@@ -87,7 +87,7 @@ export const WithInProgress: Story = {
   parameters: {
     layout: "padded",
   },
-  render: (args) => (
+  render: args => (
     <div className="h-[600px] w-full max-w-md mx-auto border rounded overflow-hidden flex flex-col">
       <ArchiveCalendar {...args} />
     </div>
@@ -103,7 +103,7 @@ export const EmptyHistory: Story = {
   parameters: {
     layout: "padded",
   },
-  render: (args) => (
+  render: args => (
     <div className="h-[600px] w-full max-w-md mx-auto border rounded overflow-hidden flex flex-col">
       <ArchiveCalendar {...args} />
     </div>

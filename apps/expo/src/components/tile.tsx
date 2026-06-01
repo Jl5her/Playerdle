@@ -18,14 +18,15 @@ export function Tile({ value, status, arrow, label }: TileProps) {
   return (
     <View className="flex-1 items-center justify-center aspect-square m-0.5 rounded-md border border-primary-700">
       {label ? (
-        <Text className="text-[10px] font-bold uppercase text-primary-300 mb-0.5">
-          {label}
-        </Text>
+        <Text className="text-[10px] font-bold uppercase text-primary-300 mb-0.5">{label}</Text>
       ) : null}
       <View
         className={`flex-1 self-stretch items-center justify-center rounded-md ${STATUS_BG[status]}`}
       >
-        <Text className="text-white font-bold text-sm" numberOfLines={1}>
+        <Text
+          className="text-white font-bold text-sm"
+          numberOfLines={1}
+        >
           {value}
           {arrow ? ` ${arrow}` : ""}
         </Text>

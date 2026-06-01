@@ -66,7 +66,10 @@ export const ScrollLayout: Story = {
     children: (
       <div className="space-y-4">
         {Array.from({ length: 20 }, (_, i) => (
-          <div key={i} className="p-3 rounded bg-primary-100 dark:bg-primary-800 text-sm">
+          <div
+            key={i}
+            className="p-3 rounded bg-primary-100 dark:bg-primary-800 text-sm"
+          >
             Stat row {i + 1}
           </div>
         ))}

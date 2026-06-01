@@ -7,6 +7,8 @@
     "./*.json": "./src/*.json",
     "./*": "./src/*.ts"
   },
-  "files": ["src"],
+  "files": [
+    "src"
+  ],
   "scripts": {}
 }

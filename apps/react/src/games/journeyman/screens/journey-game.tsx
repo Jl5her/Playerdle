@@ -56,10 +56,7 @@ interface PlayerOption {
 
 // Per-league active-roster autocomplete pool. Add new leagues by adding their
 // playerdle/{league}/players.json import here.
-const LEAGUE_PLAYER_SOURCES: Record<
-  JourneyLeague,
-  Array<{ name: string; position: string }>
-> = {
+const LEAGUE_PLAYER_SOURCES: Record<JourneyLeague, Array<{ name: string; position: string }>> = {
   nfl: nflPlayers as Array<{ name: string; position: string }>,
   mlb: mlbPlayers as Array<{ name: string; position: string }>,
   nba: nbaPlayers as Array<{ name: string; position: string }>,
@@ -159,7 +156,11 @@ function FlipDiamond({
   const frontStyle: React.CSSProperties = { transitionDelay: `${delayMs}ms` }
   const backStyle: React.CSSProperties = isTransparent
     ? { borderColor: "#a0a0a0", transitionDelay: `${delayMs + 300}ms` }
-    : { backgroundColor: displayColor, borderColor: diamondBorder(displayColor), transitionDelay: `${delayMs + 300}ms` }
+    : {
+        backgroundColor: displayColor,
+        borderColor: diamondBorder(displayColor),
+        transitionDelay: `${delayMs + 300}ms`,
+      }
   return (
     <span
       className={clsx("flip-diamond", revealed ? "revealed" : "")}
@@ -170,7 +171,10 @@ function FlipDiamond({
         style={frontStyle}
       />
       <span
-        className={clsx("flip-diamond-face flip-diamond-back", isTransparent && "diamond-transparent")}
+        className={clsx(
+          "flip-diamond-face flip-diamond-back",
+          isTransparent && "diamond-transparent",
+        )}
         style={backStyle}
       />
     </span>
@@ -236,8 +240,18 @@ function FlipDiamondWithPreview({
         >
           <span
             aria-hidden="true"
-            className={clsx("inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md", isTransparent && "diamond-transparent")}
-            style={isTransparent ? { border: "2px solid #a0a0a0" } : { backgroundColor: displayColor, border: `2px solid ${diamondBorder(displayColor)}` }}
+            className={clsx(
+              "inline-block w-10 h-10 rounded-[4px] rotate-45 shadow-md",
+              isTransparent && "diamond-transparent",
+            )}
+            style={
+              isTransparent
+                ? { border: "2px solid #a0a0a0" }
+                : {
+                    backgroundColor: displayColor,
+                    border: `2px solid ${diamondBorder(displayColor)}`,
+                  }
+            }
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
@@ -337,9 +351,21 @@ function GuessSlots({
               tone,
             )}
           >
-            <span className={clsx("block text-center transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>{guess ?? "—"}</span>
+            <span
+              className={clsx(
+                "block text-center transition-[filter,opacity] duration-200",
+                hideAnswer && isCorrect && "blur select-none opacity-40",
+              )}
+            >
+              {guess ?? "—"}
+            </span>
             {position && (
-              <span className={clsx("absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70 transition-[filter,opacity] duration-200", hideAnswer && isCorrect && "blur select-none opacity-40")}>
+              <span
+                className={clsx(
+                  "absolute right-3 top-1/2 -translate-y-1/2 text-xs opacity-70 transition-[filter,opacity] duration-200",
+                  hideAnswer && isCorrect && "blur select-none opacity-40",
+                )}
+              >
                 {position}
               </span>
             )}
@@ -720,9 +746,7 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     ? puzzle.player.teams.length
     : Math.min(
         Math.ceil(
-          (puzzle.player.teams.length *
-            (Math.min(wrongCount, REVEAL_STEPS) + 1)) /
-            TOTAL_BUCKETS,
+          (puzzle.player.teams.length * (Math.min(wrongCount, REVEAL_STEPS) + 1)) / TOTAL_BUCKETS,
         ),
         puzzle.player.teams.length,
       )
