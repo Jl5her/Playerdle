@@ -178,11 +178,11 @@ function CollegeBadge({
 
 function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
-    { pos: "PG", x: "50%", y: "80%" },
-    { pos: "SG", x: "17%", y: "63%" },
-    { pos: "SF", x: "80%", y: "50%" },
-    { pos: "PF", x: "32%", y: "30%" },
-    { pos: "C",  x: "52%", y: "18%" },
+    { pos: "PG", x: "50%", y: "72%" },
+    { pos: "SG", x: "13%", y: "52%" },
+    { pos: "SF", x: "78%", y: "40%" },
+    { pos: "PF", x: "26%", y: "20%" },
+    { pos: "C",  x: "57%", y: "15%" },
   ]
 
   return (
