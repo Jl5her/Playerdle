@@ -7,6 +7,7 @@ import {
   compareTeamToAnswer,
   getCapCrunchArcadePuzzle,
   getCapCrunchDailyPuzzle,
+  getCapCrunchLeagueConfig,
   getCapCrunchPuzzleByDateKey,
   getCapCrunchTeams,
   loadCapCrunchDailyGuesses,
@@ -14,14 +15,18 @@ import {
   CAPCRUNCH_MAX_GUESSES,
   saveCapCrunchDailyGuesses,
   saveCapCrunchResult,
+  teamColumnSalaries,
+  uniformComparison,
   type ComparisonResult,
+  type CapCrunchColumn,
   type CapCrunchComparison,
+  type CapCrunchFormationSlot,
   type CapCrunchGuessRecord,
   type CapCrunchLeague,
-  type CapCrunchOffense,
   type CapCrunchPlayer,
   type CapCrunchPuzzle,
   type CapCrunchStats,
+  type CapCrunchTeam,
 } from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   DailyGameShell,
@@ -139,89 +144,39 @@ function PlayerSlot({
   )
 }
 
-function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed: boolean }) {
+function Formation({
+  team,
+  formation,
+  revealed,
+}: {
+  team: CapCrunchTeam
+  formation: CapCrunchFormationSlot[][]
+  revealed: boolean
+}) {
   return (
     <div className="flex flex-col items-center gap-3 py-4 px-2 select-none">
-      {/* WRs */}
-      <div className="flex justify-center gap-2">
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[0]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[1]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[2]}
-          revealed={revealed}
-        />
-      </div>
-      {/* OL */}
-      <div className="flex justify-center gap-1.5">
-        <PlayerSlot
-          position="LT"
-          player={offense.OL[0]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="LG"
-          player={offense.OL[1]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="C"
-          player={offense.OL[2]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="RG"
-          player={offense.OL[3]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="RT"
-          player={offense.OL[4]}
-          revealed={revealed}
-        />
-      </div>
-      {/* QB */}
-      <div className="flex justify-center">
-        <PlayerSlot
-          position="QB"
-          player={offense.QB}
-          revealed={revealed}
-        />
-      </div>
-      {/* RB + TE */}
-      <div className="flex justify-center gap-6">
-        <PlayerSlot
-          position="RB"
-          player={offense.RB}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="TE"
-          player={offense.TE}
-          revealed={revealed}
-        />
-      </div>
+      {formation.map((row, rowIdx) => (
+        <div
+          key={rowIdx}
+          className="flex justify-center gap-2"
+        >
+          {row.map((slot, slotIdx) => {
+            const player = team.groups[slot.group]?.[slot.index]
+            if (!player) return null
+            return (
+              <PlayerSlot
+                key={`${slot.group}-${slot.index}-${slotIdx}`}
+                position={slot.label}
+                player={player}
+                revealed={revealed}
+              />
+            )
+          })}
+        </div>
+      ))}
     </div>
   )
 }
-
-// ---- Comparison tiles ----
-
-const COMPARISON_COLUMNS: Array<{ label: string; key: keyof CapCrunchComparison }> = [
-  { label: "QB", key: "QB" },
-  { label: "RB", key: "RB" },
-  { label: "TE", key: "TE" },
-  { label: "WR", key: "WR" },
-  { label: "OL", key: "OL" },
-]
 
 // Arrow points TOWARD the answer (Playerdle convention).
 // close-* uses same direction but renders in yellow instead of red.
@@ -290,13 +245,15 @@ function ComparisonTile({
 
 function ComparisonRow({
   teamName,
+  columns,
   comparison,
   guessedSalaries,
   animate,
 }: {
   teamName: string
+  columns: CapCrunchColumn[]
   comparison: CapCrunchComparison
-  guessedSalaries: Record<keyof CapCrunchComparison, number>
+  guessedSalaries: Record<string, number>
   animate?: boolean
 }) {
   return (
@@ -305,11 +262,11 @@ function ComparisonRow({
         {teamName}
       </div>
       <div className="flex gap-1 justify-center">
-        {COMPARISON_COLUMNS.map(({ key }, i) => (
+        {columns.map(({ id }, i) => (
           <ComparisonTile
-            key={key}
-            result={comparison[key]}
-            salary={guessedSalaries[key]}
+            key={id}
+            result={comparison[id]}
+            salary={guessedSalaries[id]}
             animate={animate}
             delayIndex={i}
           />
@@ -477,22 +434,21 @@ function buildShareText(
     year: "numeric",
   }).format(new Date())
 
+  const config = getCapCrunchLeagueConfig(puzzle.league)
   const emojiGrid = comparisons
-    .map(c => {
-      const keys: Array<keyof CapCrunchComparison> = ["QB", "RB", "TE", "WR", "OL"]
-      return keys
-        .map(k => {
-          const v = c[k]
+    .map(c =>
+      config.columns
+        .map(col => {
+          const v = c[col.id]
           if (v === "correct") return "🟩"
           if (v === "close-high" || v === "close-low") return "🟨"
           return "🟥"
         })
-        .join("")
-    })
+        .join(""),
+    )
     .join("\n")
 
-  const league = puzzle.league.toUpperCase()
-  return `Cap Crunch ${league} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/capcrunch`
+  return `Cap Crunch ${config.shortLabel} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}${config.basePath}`
 }
 
 function ResultsPanel({
@@ -627,6 +583,8 @@ export default function CapCrunchGame({
   archiveDateKey,
 }: Props) {
   const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
+  const config = useMemo(() => getCapCrunchLeagueConfig(league), [league])
+  const columns = config.columns
   const teams = useMemo(() => getCapCrunchTeams(league), [league])
   const teamOptions: TeamOption[] = useMemo(
     () => teams.map(t => ({ id: t.id, name: t.name, abbr: t.abbr })),
@@ -656,15 +614,11 @@ export default function CapCrunchGame({
     () =>
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
-        if (!guessedTeam)
-          return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as CapCrunchComparison
-        const cmp = compareTeamToAnswer(guessedTeam, puzzle.team)
-        if (guessedTeam.id === puzzle.team.id) {
-          return { QB: "correct", RB: "correct", TE: "correct", WR: "correct", OL: "correct" }
-        }
-        return cmp
+        if (!guessedTeam) return uniformComparison(league, "low")
+        if (guessedTeam.id === puzzle.team.id) return uniformComparison(league, "correct")
+        return compareTeamToAnswer(league, guessedTeam, puzzle.team)
       }),
-    [guesses, puzzle.team, teamsById],
+    [guesses, puzzle.team, teamsById, league],
   )
 
   const [stats, setStats] = useState<CapCrunchStats | null>(() =>
@@ -770,7 +724,8 @@ export default function CapCrunchGame({
           {/* Formation */}
           <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
             <Formation
-              offense={puzzle.team.offense}
+              team={puzzle.team}
+              formation={config.formation}
               revealed={gameOver}
             />
           </div>
@@ -779,9 +734,9 @@ export default function CapCrunchGame({
           <div className="guess-grid-shell flex flex-col items-center gap-3 px-2 pt-1 pb-1 mt-3">
             {/* Column headers — shown once */}
             <div className="guess-grid-header sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
-              {COMPARISON_COLUMNS.map(({ label }) => (
+              {columns.map(({ id, label }) => (
                 <div
-                  key={label}
+                  key={id}
                   className="grid-cell-width text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
                 >
                   {label}
@@ -800,17 +755,12 @@ export default function CapCrunchGame({
                 >
                   <ComparisonRow
                     teamName={guesses[i].teamName}
+                    columns={columns}
                     comparison={comparisons[i]}
                     guessedSalaries={(() => {
                       const t = teamsById.get(guesses[i].teamId)
-                      if (!t) return { QB: 0, RB: 0, TE: 0, WR: 0, OL: 0 }
-                      return {
-                        QB: t.offense.QB.salary,
-                        RB: t.offense.RB.salary,
-                        TE: t.offense.TE.salary,
-                        WR: t.offense.WR.reduce((s, p) => s + p.salary, 0),
-                        OL: t.offense.OL.reduce((s, p) => s + p.salary, 0),
-                      }
+                      if (!t) return {}
+                      return teamColumnSalaries(league, t)
                     })()}
                     animate={i === latestIndex}
                   />
@@ -823,9 +773,9 @@ export default function CapCrunchGame({
                   }}
                 >
                   <div className="flex gap-1 justify-center">
-                    {COMPARISON_COLUMNS.map(({ key }) => (
+                    {columns.map(({ id }) => (
                       <div
-                        key={key}
+                        key={id}
                         className="grid-cell-size rounded-md bg-primary-50 border border-primary-200 dark:bg-primary-900 dark:border-primary-600"
                       />
                     ))}

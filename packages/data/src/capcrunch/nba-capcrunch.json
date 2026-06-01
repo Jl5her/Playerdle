@@ -1,0 +1,102 @@
+{
+  "season": "2026",
+  "description": "PLACEHOLDER NBA starting-five salaries (approximate 2025-26). Hand-seeded sample for a subset of teams — replace with a real scraped dataset before launch.",
+  "teams": [
+    {
+      "id": "lal",
+      "name": "Los Angeles Lakers",
+      "abbr": "LAL",
+      "lineup": {
+        "PG": { "name": "Luka Dončić", "salary": 43031940, "number": 77 },
+        "SG": { "name": "Austin Reaves", "salary": 13937148, "number": 15 },
+        "SF": { "name": "LeBron James", "salary": 52627153, "number": 23 },
+        "PF": { "name": "Rui Hachimura", "salary": 18259259, "number": 28 },
+        "C": { "name": "Deandre Ayton", "salary": 8108000, "number": 5 }
+      }
+    },
+    {
+      "id": "gsw",
+      "name": "Golden State Warriors",
+      "abbr": "GSW",
+      "lineup": {
+        "PG": { "name": "Stephen Curry", "salary": 59606817, "number": 30 },
+        "SG": { "name": "Brandin Podziemski", "salary": 3825360, "number": 2 },
+        "SF": { "name": "Jimmy Butler", "salary": 54126450, "number": 10 },
+        "PF": { "name": "Draymond Green", "salary": 25348357, "number": 23 },
+        "C": { "name": "Al Horford", "salary": 5400000, "number": 42 }
+      }
+    },
+    {
+      "id": "bos",
+      "name": "Boston Celtics",
+      "abbr": "BOS",
+      "lineup": {
+        "PG": { "name": "Derrick White", "salary": 28103500, "number": 9 },
+        "SG": { "name": "Anfernee Simons", "salary": 27677419, "number": 1 },
+        "SF": { "name": "Jaylen Brown", "salary": 53142264, "number": 7 },
+        "PF": { "name": "Jayson Tatum", "salary": 54126450, "number": 0 },
+        "C": { "name": "Neemias Queta", "salary": 2296274, "number": 88 }
+      }
+    },
+    {
+      "id": "den",
+      "name": "Denver Nuggets",
+      "abbr": "DEN",
+      "lineup": {
+        "PG": { "name": "Jamal Murray", "salary": 46395876, "number": 27 },
+        "SG": { "name": "Christian Braun", "salary": 4005720, "number": 0 },
+        "SF": { "name": "Cameron Johnson", "salary": 22505047, "number": 2 },
+        "PF": { "name": "Aaron Gordon", "salary": 22841455, "number": 50 },
+        "C": { "name": "Nikola Jokić", "salary": 55224526, "number": 15 }
+      }
+    },
+    {
+      "id": "nyk",
+      "name": "New York Knicks",
+      "abbr": "NYK",
+      "lineup": {
+        "PG": { "name": "Jalen Brunson", "salary": 34944001, "number": 11 },
+        "SG": { "name": "Josh Hart", "salary": 19750000, "number": 3 },
+        "SF": { "name": "Mikal Bridges", "salary": 24920000, "number": 25 },
+        "PF": { "name": "OG Anunoby", "salary": 39612840, "number": 8 },
+        "C": { "name": "Karl-Anthony Towns", "salary": 53142264, "number": 32 }
+      }
+    },
+    {
+      "id": "mil",
+      "name": "Milwaukee Bucks",
+      "abbr": "MIL",
+      "lineup": {
+        "PG": { "name": "Ryan Rollins", "salary": 1955377, "number": 13 },
+        "SG": { "name": "Gary Trent Jr.", "salary": 3600000, "number": 5 },
+        "SF": { "name": "Giannis Antetokounmpo", "salary": 54126450, "number": 34 },
+        "PF": { "name": "Bobby Portis", "salary": 13448276, "number": 9 },
+        "C": { "name": "Myles Turner", "salary": 24150000, "number": 18 }
+      }
+    },
+    {
+      "id": "okc",
+      "name": "Oklahoma City Thunder",
+      "abbr": "OKC",
+      "lineup": {
+        "PG": { "name": "Shai Gilgeous-Alexander", "salary": 38333050, "number": 2 },
+        "SG": { "name": "Luguentz Dort", "salary": 17739130, "number": 5 },
+        "SF": { "name": "Jalen Williams", "salary": 6628440, "number": 8 },
+        "PF": { "name": "Chet Holmgren", "salary": 11377440, "number": 7 },
+        "C": { "name": "Isaiah Hartenstein", "salary": 28500000, "number": 55 }
+      }
+    },
+    {
+      "id": "dal",
+      "name": "Dallas Mavericks",
+      "abbr": "DAL",
+      "lineup": {
+        "PG": { "name": "Kyrie Irving", "salary": 43000000, "number": 11 },
+        "SG": { "name": "Klay Thompson", "salary": 15873016, "number": 31 },
+        "SF": { "name": "Cooper Flagg", "salary": 13800000, "number": 32 },
+        "PF": { "name": "Anthony Davis", "salary": 54126450, "number": 3 },
+        "C": { "name": "Dereck Lively II", "salary": 4775640, "number": 2 }
+      }
+    }
+  ]
+}

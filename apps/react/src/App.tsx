@@ -11,7 +11,10 @@ import {
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
+import {
+  hasPlayedCapCrunchToday,
+  type CapCrunchLeague,
+} from "@/games/capcrunch/utils/capcrunch-daily"
 import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
 import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
 import { Header } from "@/games/playerdle/components"
@@ -329,6 +332,15 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
   if (sportId === "nba") {
     builtExtraGames.push({
+      label: "Cap Crunch",
+      description: "Guess the NBA team from their salary cap numbers",
+      icon: faDollarSign,
+      played: hasPlayedCapCrunchToday("nba"),
+      onPlayDaily: () => navigate("/nba/capcrunch"),
+      onPlayArcade: () => navigate("/nba/capcrunch/arcade"),
+      onShowStats: () => navigate("/nba/capcrunch"),
+    })
+    builtExtraGames.push({
       label: "Schooled",
       description: "Guess the NBA team from college logos on the court",
       icon: faGraduationCap,
@@ -490,11 +502,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   )
 }
 
-function CapCrunchArchiveRoute() {
+function CapCrunchArchiveRoute({ league }: { league: CapCrunchLeague }) {
   const { dateKey } = useParams<{ dateKey: string }>()
   return (
     <CapCrunchShell
-      league="nfl"
+      league={league}
       screen="daily"
       archiveDateKey={dateKey}
     />
@@ -940,7 +952,7 @@ function App() {
             </Suspense>
           }
         />
-        {/* Cap Crunch game — NFL only for now */}
+        {/* Cap Crunch game — NFL */}
         <Route
           path="/capcrunch"
           element={
@@ -975,7 +987,46 @@ function App() {
           path="/capcrunch/archive/:dateKey"
           element={
             <Suspense fallback={<div className="app-viewport" />}>
-              <CapCrunchArchiveRoute />
+              <CapCrunchArchiveRoute league="nfl" />
+            </Suspense>
+          }
+        />
+        {/* Cap Crunch game — NBA */}
+        <Route
+          path="/nba/capcrunch"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nba"
+                screen="daily"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nba"
+                screen="arcade"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchCalendar league="nba" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchArchiveRoute league="nba" />
             </Suspense>
           }
         />
