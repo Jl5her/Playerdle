@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { collectSyncData } from "@/shared/utils/sync"
 
-const OLD_DOMAIN = "playerdle.jackp.me"
+const NEW_DOMAIN = "playerdle.app"
 const NEW_ORIGIN = "https://playerdle.app"
 
 function buildMigrationUrl(): string {
@@ -18,7 +18,7 @@ function buildMigrationUrl(): string {
 export function DomainMigrationBanner() {
   const [dismissed, setDismissed] = useState(false)
 
-  if (location.hostname !== OLD_DOMAIN || dismissed) return null
+  if (location.hostname === NEW_DOMAIN || dismissed) return null
 
   return (
     <div className="relative z-40 flex items-center gap-3 px-4 py-2.5 bg-amber-400 dark:bg-amber-500 text-amber-950">
