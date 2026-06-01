@@ -33,34 +33,6 @@
   </script>
   <script>
     (function () {
-      if (location.hostname !== 'playerdle.jackp.me') return;
-      var prefixes = [
-        'playerdle-stats:', 'playerdle-state:', 'playerdle-tutorial-seen-v2:',
-        'playerdle-journey-played-day:', 'playerdle-journey-history:',
-        'playerdle-journey-state:', 'journey-tutorial-seen:',
-        'playerdle-colors-state:', 'playerdle-colors-collegiate-state:',
-        'playerdle-colors-history:', 'playerdle-colors-collegiate-history:',
-        'playerdle-colors-played-day', 'playerdle-colors-collegiate-played-day',
-        'statehue-tutorial-seen', 'statehue-collegiate-tutorial-seen'
-      ];
-      var data = {};
-      for (var i = 0; i < localStorage.length; i++) {
-        var key = localStorage.key(i);
-        if (!key) continue;
-        for (var j = 0; j < prefixes.length; j++) {
-          if (key.indexOf(prefixes[j]) === 0) { data[key] = localStorage.getItem(key); break; }
-        }
-      }
-      try {
-        var encoded = btoa(JSON.stringify(data));
-        location.replace('https://playerdle.app' + location.pathname + location.search + '#migrate=' + encoded);
-      } catch (e) {
-        location.replace('https://playerdle.app' + location.pathname + location.search);
-      }
-    })();
-  </script>
-  <script>
-    (function () {
       var theme = localStorage.getItem('playerdle-theme') || 'system';
       var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (theme === 'dark' || (theme === 'system' && prefersDark)) {

@@ -38,6 +38,7 @@ import {
   type MigrationConflictData,
 } from "@/shared/utils/migration"
 import { MigrationConflictOverlay } from "@/shared/components/migration-conflict-overlay"
+import { DomainMigrationBanner } from "@/shared/components/domain-migration-banner"
 import { trackPanelOpened } from "@/lib/analytics"
 
 // Run migration check once at module init so data is applied before any React render.
@@ -567,6 +568,7 @@ function App() {
 
   return (
     <>
+    <DomainMigrationBanner />
     <PWAUpdateToast />
     {migrationConflict && (
       <MigrationConflictOverlay
