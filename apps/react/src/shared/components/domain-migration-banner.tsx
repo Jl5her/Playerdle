@@ -21,8 +21,8 @@ export function DomainMigrationBanner() {
   if (location.hostname === NEW_DOMAIN || dismissed) return null
 
   return (
-    <div className="relative z-40 flex flex-col items-center gap-2 px-10 py-3 bg-primary-100 dark:bg-primary-800 border-b border-primary-300 dark:border-primary-700">
-      <p className="text-sm font-medium leading-snug text-center text-primary-900 dark:text-primary-50">
+    <div className="relative z-40 flex items-center justify-center gap-3 px-10 py-2.5 bg-primary-100 dark:bg-primary-800 border-b border-primary-300 dark:border-primary-700">
+      <p className="text-sm font-medium leading-snug text-primary-900 dark:text-primary-50">
         Playerdle has a new home at{" "}
         <span className="font-bold">playerdle.app</span>
       </p>
