@@ -60,6 +60,8 @@ export interface CapCrunchLeagueConfig {
   columns: CapCrunchColumn[]
   /** Rows of slots rendered in the formation diagram. */
   formation: CapCrunchFormationSlot[][]
+  /** Use narrower slot cards (e.g. when 5 slots fit in a single row). */
+  compactSlots?: boolean
   howTo: {
     intro: string
     groupsTitle: string
@@ -195,13 +197,12 @@ const NBA_CONFIG: CapCrunchLeagueConfig = {
     [
       { label: "PG", group: "PG", index: 0 },
       { label: "SG", group: "SG", index: 0 },
-    ],
-    [
       { label: "SF", group: "SF", index: 0 },
       { label: "PF", group: "PF", index: 0 },
+      { label: "C", group: "C", index: 0 },
     ],
-    [{ label: "C", group: "C", index: 0 }],
   ],
+  compactSlots: true,
   howTo: {
     intro: "shows you the starting-five payroll of an NBA team",
     groupsTitle: "Positions",

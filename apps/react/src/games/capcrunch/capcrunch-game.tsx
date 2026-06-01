@@ -61,10 +61,12 @@ function PlayerSlot({
   position,
   player,
   revealed,
+  compact,
 }: {
   position: string
   player: CapCrunchPlayer
   revealed: boolean
+  compact?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
@@ -91,7 +93,10 @@ function PlayerSlot({
     <>
       <div
         ref={ref}
-        className="flex flex-col items-center gap-0.5 min-w-[3.5rem] select-none"
+        className={clsx(
+          "flex flex-col items-center gap-0.5 select-none",
+          compact ? "min-w-[2.75rem]" : "min-w-[3.5rem]",
+        )}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -110,8 +115,18 @@ function PlayerSlot({
         <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
           {position}
         </div>
-        <div className="w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5 cursor-pointer">
-          <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
+        <div
+          className={clsx(
+            "rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5 cursor-pointer",
+            compact ? "w-11" : "w-14",
+          )}
+        >
+          <span
+            className={clsx(
+              "font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1",
+              compact ? "text-[9px]" : "text-[11px]",
+            )}
+          >
             {revealed ? player.name : "?"}
           </span>
           {revealed && player.number != null && (
@@ -119,7 +134,12 @@ function PlayerSlot({
               #{player.number}
             </span>
           )}
-          <span className="text-[11px] font-black text-primary-800 dark:text-primary-100 tabular-nums">
+          <span
+            className={clsx(
+              "font-black text-primary-800 dark:text-primary-100 tabular-nums",
+              compact ? "text-[10px]" : "text-[11px]",
+            )}
+          >
             {formatSalary(player.salary)}
           </span>
         </div>
@@ -148,17 +168,24 @@ function Formation({
   team,
   formation,
   revealed,
+  compact,
 }: {
   team: CapCrunchTeam
   formation: CapCrunchFormationSlot[][]
   revealed: boolean
+  compact?: boolean
 }) {
   return (
-    <div className="flex flex-col items-center gap-3 py-4 px-2 select-none">
+    <div
+      className={clsx(
+        "flex flex-col items-center px-2 select-none",
+        compact ? "gap-2 py-2" : "gap-3 py-4",
+      )}
+    >
       {formation.map((row, rowIdx) => (
         <div
           key={rowIdx}
-          className="flex justify-center gap-2"
+          className={clsx("flex justify-center", compact ? "gap-1.5" : "gap-2")}
         >
           {row.map((slot, slotIdx) => {
             const player = team.groups[slot.group]?.[slot.index]
@@ -169,6 +196,7 @@ function Formation({
                 position={slot.label}
                 player={player}
                 revealed={revealed}
+                compact={compact}
               />
             )
           })}
@@ -727,6 +755,7 @@ export default function CapCrunchGame({
               team={puzzle.team}
               formation={config.formation}
               revealed={gameOver}
+              compact={config.compactSlots}
             />
           </div>
 
