@@ -6692,6 +6692,16 @@
     "number": 35
   },
   {
+    "id": "nfl:2974348",
+    "name": "Dean Lowry",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Pittsburgh Steelers",
+    "teamAbbr": "PIT",
+    "position": "DT",
+    "number": 94
+  },
+  {
     "id": "nfl:4690171",
     "name": "Deane Leonard",
     "conference": "AFC",
@@ -6730,16 +6740,6 @@
     "teamAbbr": "LV",
     "position": "CB",
     "number": 25
-  },
-  {
-    "id": "nfl:5081149",
-    "name": "DeCarlos Nicholson",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "CB",
-    "number": 47
   },
   {
     "id": "nfl:4401823",
@@ -10007,12 +10007,13 @@
   {
     "id": "nfl:3929636",
     "name": "Irvin Charles",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
     "position": "WR",
-    "number": 19
+    "number": 19,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4686629",
@@ -12775,16 +12776,6 @@
     "teamAbbr": "CHI",
     "position": "DE",
     "number": 69
-  },
-  {
-    "id": "nfl:4880841",
-    "name": "Jeremiah McClendon",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "CB",
-    "number": 48
   },
   {
     "id": "nfl:4258599",
@@ -20388,16 +20379,6 @@
     "number": 11
   },
   {
-    "id": "nfl:3121410",
-    "name": "Parris Campbell",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Dallas Cowboys",
-    "teamAbbr": "DAL",
-    "position": "WR",
-    "number": 11
-  },
-  {
     "id": "nfl:5279356",
     "name": "Paschal Ekeji",
     "conference": "AFC",
@@ -21207,16 +21188,6 @@
     "teamAbbr": "BUF",
     "position": "LS",
     "number": 69
-  },
-  {
-    "id": "nfl:4429951",
-    "name": "Reid Holskey",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "OT",
-    "number": 67
   },
   {
     "id": "nfl:4880362",
