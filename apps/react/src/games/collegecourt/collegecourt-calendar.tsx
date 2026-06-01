@@ -123,7 +123,7 @@ export default function CollegeCourtCalendar({ panel = false, id, historyVersion
 
   const calendar = (
     <ArchiveCalendar
-      title="CollegeCourt Archive"
+      title="Schooled Archive"
       onBack={panel ? undefined : () => navigate("/collegecourt")}
       panel={panel}
       epoch={EPOCH}
@@ -144,7 +144,7 @@ export default function CollegeCourtCalendar({ panel = false, id, historyVersion
 
   if (panel && ctx && id) {
     return (
-      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title="CollegeCourt Archive" layout="full">
+      <Panel open={ctx.isOpen(id)} onClose={ctx.pop} title="Schooled Archive" layout="full">
         {calendar}
       </Panel>
     )

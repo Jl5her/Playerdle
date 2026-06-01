@@ -52,11 +52,13 @@ function CollegeBadge({
   size = "md",
   matchResult,
   showTooltip = false,
+  showPlayerName = true,
 }: {
   starter: CollegeStarter
   size?: "sm" | "md" | "lg"
   matchResult?: PositionResult
   showTooltip?: boolean
+  showPlayerName?: boolean
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
@@ -164,7 +166,7 @@ function CollegeBadge({
               zIndex: 9999,
             }}
           >
-            {starter.name} · {starter.school}
+            {showPlayerName ? `${starter.name} · ${starter.school}` : starter.school}
           </div>,
           document.body,
         )}
@@ -174,41 +176,115 @@ function CollegeBadge({
 
 // ---- Half-court diagram ----
 
-function HalfCourt({ team }: { team: CollegeCourtTeam }) {
+function HalfCourt({ team, won = false }: { team: CollegeCourtTeam; won?: boolean }) {
+  // Positions calibrated to reference image (basket at top, viewBox 300×250)
   const positions: Array<{ pos: "PG" | "SG" | "SF" | "PF" | "C"; x: string; y: string }> = [
-    { pos: "PG", x: "24%", y: "18%" },
-    { pos: "SG", x: "76%", y: "18%" },
-    { pos: "SF", x: "10%", y: "50%" },
-    { pos: "PF", x: "90%", y: "50%" },
-    { pos: "C",  x: "50%", y: "72%" },
+    { pos: "PG", x: "51%", y: "78%" },
+    { pos: "SG", x: "13%", y: "55%" },
+    { pos: "SF", x: "80%", y: "43%" },
+    { pos: "PF", x: "25%", y: "22%" },
+    { pos: "C",  x: "57%", y: "16%" },
   ]
 
   return (
-    // Outer container: position:relative, no overflow-hidden so badges aren't clipped
-    <div className="relative w-full" style={{ paddingBottom: "70%" }}>
-      {/* Green court surface — overflow-hidden only for its own rounded corners */}
-      <div className="absolute inset-0 rounded-xl overflow-hidden" style={{ backgroundColor: "#2d5a27" }}>
+    <div className="relative w-full" style={{ paddingBottom: "83.3%" }}>
+      <div className="absolute inset-0 overflow-hidden">
         <svg
-          viewBox="0 0 300 186"
+          viewBox="0 0 300 250"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect x="3" y="3" width="294" height="180" rx="4" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 22 183 A 128 128 0 0 1 278 183" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="22" y1="140" x2="22" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="278" y1="140" x2="278" y2="183" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <rect x="102" y="130" width="96" height="56" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <line x1="102" y1="130" x2="198" y2="130" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 1 198 130" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="1.5" />
-          <path d="M 102 130 A 48 48 0 0 0 198 130" fill="none" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeDasharray="4 4" />
-          <path d="M 124 183 A 26 26 0 0 1 176 183" fill="none" stroke="rgba(255,255,255,0.4)" strokeWidth="1.2" />
-          <line x1="127" y1="183" x2="173" y2="183" stroke="rgba(255,255,255,0.7)" strokeWidth="2.5" />
-          <ellipse cx="150" cy="181" rx="10" ry="3.5" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8" />
-          <line x1="3" y1="3" x2="297" y2="3" stroke="rgba(255,255,255,0.3)" strokeWidth="1" />
+          <defs>
+            {/* 5-colour maple hardwood — 90 px wide, full-height repeat */}
+            <pattern id="hardwood" patternUnits="userSpaceOnUse" x="0" y="0" width="90" height="250">
+              {/* Plank 1 — light golden maple */}
+              <rect x="0"  y="0" width="18" height="250" fill="#efd082"/>
+              <line x1="3.0"  y1="0" x2="3.8"  y2="250" stroke="rgba(110,55,0,0.07)" strokeWidth="0.7"/>
+              <line x1="8.0"  y1="0" x2="8.7"  y2="250" stroke="rgba(110,55,0,0.04)" strokeWidth="0.5"/>
+              <line x1="14.0" y1="0" x2="14.6" y2="250" stroke="rgba(110,55,0,0.05)" strokeWidth="0.5"/>
+              {/* Plank 2 — deep amber */}
+              <rect x="18" y="0" width="18" height="250" fill="#c08638"/>
+              <line x1="21.0" y1="0" x2="21.8" y2="250" stroke="rgba(80,40,0,0.08)" strokeWidth="0.7"/>
+              <line x1="26.0" y1="0" x2="26.6" y2="250" stroke="rgba(80,40,0,0.05)" strokeWidth="0.5"/>
+              <line x1="32.0" y1="0" x2="32.6" y2="250" stroke="rgba(80,40,0,0.04)" strokeWidth="0.5"/>
+              {/* Plank 3 — warm honey */}
+              <rect x="36" y="0" width="18" height="250" fill="#e4c060"/>
+              <line x1="39.0" y1="0" x2="39.8" y2="250" stroke="rgba(100,50,0,0.06)" strokeWidth="0.7"/>
+              <line x1="44.0" y1="0" x2="44.6" y2="250" stroke="rgba(100,50,0,0.04)" strokeWidth="0.5"/>
+              <line x1="50.0" y1="0" x2="50.6" y2="250" stroke="rgba(100,50,0,0.05)" strokeWidth="0.5"/>
+              {/* Plank 4 — medium amber */}
+              <rect x="54" y="0" width="18" height="250" fill="#cfa045"/>
+              <line x1="57.0" y1="0" x2="57.8" y2="250" stroke="rgba(80,40,0,0.08)" strokeWidth="0.7"/>
+              <line x1="62.0" y1="0" x2="62.6" y2="250" stroke="rgba(80,40,0,0.05)" strokeWidth="0.5"/>
+              <line x1="68.0" y1="0" x2="68.6" y2="250" stroke="rgba(80,40,0,0.04)" strokeWidth="0.5"/>
+              {/* Plank 5 — medium golden */}
+              <rect x="72" y="0" width="18" height="250" fill="#e0b858"/>
+              <line x1="75.0" y1="0" x2="75.8" y2="250" stroke="rgba(100,50,0,0.06)" strokeWidth="0.7"/>
+              <line x1="80.0" y1="0" x2="80.6" y2="250" stroke="rgba(100,50,0,0.04)" strokeWidth="0.5"/>
+              <line x1="86.0" y1="0" x2="86.6" y2="250" stroke="rgba(100,50,0,0.05)" strokeWidth="0.5"/>
+              {/* Board separators */}
+              <line x1="17.5" y1="0" x2="17.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="35.5" y1="0" x2="35.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="53.5" y1="0" x2="53.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="71.5" y1="0" x2="71.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+              <line x1="89.5" y1="0" x2="89.5" y2="250" stroke="rgba(55,22,0,0.22)" strokeWidth="0.6"/>
+            </pattern>
+            {/* Soft court spotlight */}
+            <radialGradient id="court-light" cx="50%" cy="42%" r="68%">
+              <stop offset="0%"   stopColor="rgba(255,240,180,0.10)"/>
+              <stop offset="55%"  stopColor="rgba(0,0,0,0.00)"/>
+              <stop offset="100%" stopColor="rgba(0,0,0,0.12)"/>
+            </radialGradient>
+          </defs>
+
+          {/* Floor */}
+          <rect width="300" height="250" fill="url(#hardwood)"/>
+          <rect width="300" height="250" fill="url(#court-light)"/>
+
+          {/* Court boundary */}
+          <rect x="3" y="4" width="294" height="242" rx="3"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
+          {/* Three-point line: corner straights + elliptical arc */}
+          <line x1="22"  y1="4" x2="22"  y2="60" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <line x1="278" y1="4" x2="278" y2="60" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <path d="M 22 60 A 128 82 0 0 0 278 60"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
+          {/* Key / paint */}
+          <rect x="102" y="4" width="96" height="71"
+                fill="rgba(255,255,255,0.06)" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+
+          {/* Free throw line */}
+          <line x1="102" y1="75" x2="198" y2="75" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          {/* FT circle — solid half toward basket, dashed half away */}
+          <path d="M 102 75 A 48 48 0 0 0 198 75"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.88"/>
+          <path d="M 102 75 A 48 48 0 0 1 198 75"
+                fill="none" stroke="white" strokeWidth="1.5" strokeOpacity="0.38" strokeDasharray="5 4"/>
+
+          {/* Lane tick marks */}
+          <line x1="94"  y1="31" x2="102" y2="31" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="198" y1="31" x2="206" y2="31" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="94"  y1="53" x2="102" y2="53" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+          <line x1="198" y1="53" x2="206" y2="53" stroke="white" strokeWidth="1.2" strokeOpacity="0.75"/>
+
+          {/* Backboard & hoop */}
+          <line x1="127" y1="4" x2="173" y2="4" stroke="white" strokeWidth="2.5" strokeOpacity="0.92"/>
+          <ellipse cx="150" cy="9" rx="10" ry="4"
+                   fill="none" stroke="white" strokeWidth="1.8" strokeOpacity="0.95"/>
+          {/* Restricted arc */}
+          <path d="M 127 4 A 23 23 0 0 0 173 4"
+                fill="none" stroke="white" strokeWidth="1.2" strokeOpacity="0.48"/>
+
+          {/* Half-court line + center circle arc */}
+          <line x1="3" y1="246" x2="297" y2="246"
+                stroke="white" strokeWidth="1.2" strokeOpacity="0.60"/>
+          <path d="M 105 246 A 45 45 0 0 0 195 246"
+                fill="none" stroke="white" strokeWidth="1.2" strokeOpacity="0.60"/>
         </svg>
       </div>
 
-      {/* Badges sit outside the overflow-hidden court so they never clip */}
       {positions.map(({ pos, x, y }) => (
         <div
           key={pos}
@@ -216,10 +292,8 @@ function HalfCourt({ team }: { team: CollegeCourtTeam }) {
           style={{ left: x, top: y }}
         >
           <div className="flex flex-col items-center gap-0.5">
-            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip />
-            <span className="text-[8px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
-              {pos}
-            </span>
+            <CollegeBadge starter={team.starters[pos]} size="lg" showTooltip showPlayerName={won} />
+            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">{pos}</span>
           </div>
         </div>
       ))}
@@ -458,7 +532,7 @@ function buildShareText(
     .map(c => POSITIONS.map(p => (c[p] === "correct" ? "🟩" : "⬜")).join(""))
     .join("\n")
 
-  return `CollegeCourt NBA (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegecourt`
+  return `Schooled NBA (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/collegecourt`
 }
 
 // ---- Results panel ----
@@ -488,7 +562,7 @@ function ResultsPanel({
 
   function handleShare() {
     share({
-      title: "CollegeCourt",
+      title: "Schooled",
       text: buildShareText(guesses, comparisons, won),
     })
   }
@@ -730,16 +804,9 @@ export default function CollegeCourtGame({ mode, onModeChange, onGameOver, archi
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
-          {/* Half-court diagram — outer card has no overflow-hidden so badges can breathe */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1">
-            <div className="text-center py-2 bg-primary-100 dark:bg-primary-800 border-b border-primary-200 dark:border-primary-700 rounded-t-2xl">
-              <span className="text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                Which NBA Team? — Tap a badge for player details
-              </span>
-            </div>
-            <div className="px-5 pt-1 pb-3">
-              <HalfCourt team={puzzle.team} />
-            </div>
+          {/* Half-court diagram — overflow-hidden lets parent card clip the rounded corners */}
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
+            <HalfCourt team={puzzle.team} won={won} />
           </div>
 
           {/* Guess grid */}
