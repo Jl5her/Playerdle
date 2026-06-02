@@ -1,6 +1,6 @@
 {
-  "season": "2026",
-  "description": "NBA starting-five salaries (annual value). Salary data: hardcoded — update each offseason. Jersey numbers: ESPN public roster API.",
+  "season": "2025",
+  "description": "NBA starting-five salaries (annual value). Source: edwinjeon/NBA-Salary-Prediction (2024-25 salaries + per-game stats); starters derived by games started per position. Jersey numbers: ESPN public roster API (best-effort).",
   "teams": [
     {
       "id": "atl",
@@ -9,23 +9,23 @@
       "lineup": {
         "PG": {
           "name": "Trae Young",
-          "salary": 44800000
+          "salary": 43031940
         },
         "SG": {
           "name": "Dyson Daniels",
-          "salary": 7200000
+          "salary": 6059520
         },
         "SF": {
-          "name": "De'Andre Hunter",
-          "salary": 22000000
+          "name": "Zaccharie Risacher",
+          "salary": 12569040
         },
         "PF": {
-          "name": "Jalen Johnson",
-          "salary": 25000000
+          "name": "Mouhamed Gueye",
+          "salary": 1891857
         },
         "C": {
           "name": "Clint Capela",
-          "salary": 14000000
+          "salary": 22265280
         }
       }
     },
@@ -35,24 +35,24 @@
       "abbr": "BKN",
       "lineup": {
         "PG": {
-          "name": "Dennis Schröder",
-          "salary": 13000000
+          "name": "D'Angelo Russell",
+          "salary": 18692307
         },
         "SG": {
-          "name": "Cam Thomas",
-          "salary": 14000000
+          "name": "Keon Johnson",
+          "salary": 2162606
         },
         "SF": {
-          "name": "Dorian Finney-Smith",
-          "salary": 15000000
+          "name": "Ziaire Williams",
+          "salary": 6133005
         },
         "PF": {
-          "name": "Day'Ron Sharpe",
-          "salary": 5000000
+          "name": "Cameron Johnson",
+          "salary": 22500000
         },
         "C": {
           "name": "Nic Claxton",
-          "salary": 19700000
+          "salary": 27556817
         }
       }
     },
@@ -63,23 +63,23 @@
       "lineup": {
         "PG": {
           "name": "Jrue Holiday",
-          "salary": 37700000
+          "salary": 30000000
         },
         "SG": {
           "name": "Derrick White",
-          "salary": 28100000
+          "salary": 20071429
         },
         "SF": {
           "name": "Jaylen Brown",
-          "salary": 53100000
+          "salary": 49205800
         },
         "PF": {
           "name": "Jayson Tatum",
-          "salary": 54100000
+          "salary": 34848340
         },
         "C": {
           "name": "Kristaps Porzingis",
-          "salary": 31600000
+          "salary": 29268293
         }
       }
     },
@@ -90,23 +90,23 @@
       "lineup": {
         "PG": {
           "name": "LaMelo Ball",
-          "salary": 32500000
+          "salary": 35147000
         },
         "SG": {
-          "name": "Miles Bridges",
-          "salary": 21000000
+          "name": "Josh Green",
+          "salary": 12654321
         },
         "SF": {
           "name": "Brandon Miller",
-          "salary": 9200000
+          "salary": 11424600
         },
         "PF": {
-          "name": "Grant Williams",
-          "salary": 14000000
+          "name": "Miles Bridges",
+          "salary": 27173913
         },
         "C": {
           "name": "Mark Williams",
-          "salary": 9000000
+          "salary": 4094280
         }
       }
     },
@@ -116,24 +116,24 @@
       "abbr": "CHI",
       "lineup": {
         "PG": {
-          "name": "Ayo Dosunmu",
-          "salary": 10000000
+          "name": "Josh Giddey",
+          "salary": 8352367
         },
         "SG": {
-          "name": "Zach LaVine",
-          "salary": 44200000
+          "name": "Coby White",
+          "salary": 12000000
         },
         "SF": {
-          "name": "Coby White",
-          "salary": 24000000
+          "name": "Zach LaVine",
+          "salary": 44531940
         },
         "PF": {
           "name": "Patrick Williams",
-          "salary": 16000000
+          "salary": 18000000
         },
         "C": {
           "name": "Nikola Vucevic",
-          "salary": 19500000
+          "salary": 20000000
         }
       }
     },
@@ -144,23 +144,23 @@
       "lineup": {
         "PG": {
           "name": "Darius Garland",
-          "salary": 43000000
+          "salary": 36725670
         },
         "SG": {
           "name": "Donovan Mitchell",
-          "salary": 35000000
+          "salary": 35410310
         },
         "SF": {
-          "name": "Isaac Okoro",
-          "salary": 14000000
+          "name": "Max Strus",
+          "salary": 15212068
         },
         "PF": {
           "name": "Evan Mobley",
-          "salary": 22600000
+          "salary": 11227657
         },
         "C": {
           "name": "Jarrett Allen",
-          "salary": 19800000
+          "salary": 20000000
         }
       }
     },
@@ -170,24 +170,24 @@
       "abbr": "DAL",
       "lineup": {
         "PG": {
-          "name": "Kyrie Irving",
-          "salary": 43000000
+          "name": "Spencer Dinwiddie",
+          "salary": 2087519
         },
         "SG": {
-          "name": "Klay Thompson",
-          "salary": 15900000
+          "name": "Kyrie Irving",
+          "salary": 41000000
         },
         "SF": {
-          "name": "Cooper Flagg",
-          "salary": 13800000
+          "name": "Klay Thompson",
+          "salary": 15873016
         },
         "PF": {
-          "name": "Anthony Davis",
-          "salary": 54100000
+          "name": "P.J. Washington",
+          "salary": 15500000
         },
         "C": {
-          "name": "Dereck Lively II",
-          "salary": 4800000
+          "name": "Daniel Gafford",
+          "salary": 13394160
         }
       }
     },
@@ -198,23 +198,23 @@
       "lineup": {
         "PG": {
           "name": "Jamal Murray",
-          "salary": 46400000
+          "salary": 36016200
         },
         "SG": {
           "name": "Christian Braun",
-          "salary": 4000000
+          "salary": 3089640
         },
         "SF": {
           "name": "Michael Porter Jr.",
-          "salary": 33000000
+          "salary": 35859950
         },
         "PF": {
           "name": "Aaron Gordon",
-          "salary": 22800000
+          "salary": 22841455
         },
         "C": {
-          "name": "Nikola Jokić",
-          "salary": 55200000
+          "name": "Nikola Jokic",
+          "salary": 51415938
         }
       }
     },
@@ -225,23 +225,23 @@
       "lineup": {
         "PG": {
           "name": "Cade Cunningham",
-          "salary": 32600000
+          "salary": 13940809
         },
         "SG": {
-          "name": "Jaden Ivey",
-          "salary": 9500000
+          "name": "Tim Hardaway Jr.",
+          "salary": 16193183
         },
         "SF": {
           "name": "Ausar Thompson",
-          "salary": 7700000
+          "salary": 8376000
         },
         "PF": {
-          "name": "Isaiah Stewart",
-          "salary": 12000000
+          "name": "Tobias Harris",
+          "salary": 25365854
         },
         "C": {
           "name": "Jalen Duren",
-          "salary": 11000000
+          "salary": 4536840
         }
       }
     },
@@ -252,23 +252,23 @@
       "lineup": {
         "PG": {
           "name": "Stephen Curry",
-          "salary": 59600000
+          "salary": 55761216
         },
         "SG": {
-          "name": "Brandin Podziemski",
-          "salary": 3800000
+          "name": "Moses Moody",
+          "salary": 5803269
         },
         "SF": {
-          "name": "Jimmy Butler",
-          "salary": 54100000
+          "name": "Andrew Wiggins",
+          "salary": 26276786
         },
         "PF": {
           "name": "Draymond Green",
-          "salary": 25300000
+          "salary": 24107143
         },
         "C": {
-          "name": "Jonathan Kuminga",
-          "salary": 29000000
+          "name": "Trayce Jackson-Davis",
+          "salary": 1891857
         }
       }
     },
@@ -279,23 +279,23 @@
       "lineup": {
         "PG": {
           "name": "Fred VanVleet",
-          "salary": 42300000
+          "salary": 42846615
         },
         "SG": {
           "name": "Jalen Green",
-          "salary": 40000000
+          "salary": 12483048
         },
         "SF": {
           "name": "Dillon Brooks",
-          "salary": 19200000
+          "salary": 22255493
         },
         "PF": {
           "name": "Jabari Smith Jr.",
-          "salary": 9000000
+          "salary": 9770880
         },
         "C": {
-          "name": "Alperen Şengün",
-          "salary": 28900000
+          "name": "Alperen Sengun",
+          "salary": 5424654
         }
       }
     },
@@ -306,23 +306,23 @@
       "lineup": {
         "PG": {
           "name": "Tyrese Haliburton",
-          "salary": 41500000
+          "salary": 42176400
         },
         "SG": {
           "name": "Andrew Nembhard",
-          "salary": 20000000
+          "salary": 2019699
         },
         "SF": {
-          "name": "Aaron Nesmith",
-          "salary": 18000000
+          "name": "Bennedict Mathurin",
+          "salary": 7245720
         },
         "PF": {
           "name": "Pascal Siakam",
-          "salary": 37900000
+          "salary": 42176400
         },
         "C": {
           "name": "Myles Turner",
-          "salary": 24200000
+          "salary": 19928500
         }
       }
     },
@@ -333,23 +333,23 @@
       "lineup": {
         "PG": {
           "name": "James Harden",
-          "salary": 35600000
+          "salary": 33653846
         },
         "SG": {
           "name": "Norman Powell",
-          "salary": 27000000
+          "salary": 19241379
         },
         "SF": {
-          "name": "Kawhi Leonard",
-          "salary": 52500000
+          "name": "Derrick Jones Jr.",
+          "salary": 9523810
         },
         "PF": {
           "name": "Nicolas Batum",
-          "salary": 10000000
+          "salary": 4668000
         },
         "C": {
           "name": "Ivica Zubac",
-          "salary": 17100000
+          "salary": 11743210
         }
       }
     },
@@ -359,24 +359,24 @@
       "abbr": "LAL",
       "lineup": {
         "PG": {
-          "name": "Luka Dončić",
-          "salary": 43000000
+          "name": "Luka Doncic",
+          "salary": 43031940
         },
         "SG": {
           "name": "Austin Reaves",
-          "salary": 13900000
+          "salary": 12976362
         },
         "SF": {
           "name": "LeBron James",
-          "salary": 52600000
+          "salary": 48728845
         },
         "PF": {
           "name": "Rui Hachimura",
-          "salary": 18300000
+          "salary": 17000000
         },
         "C": {
-          "name": "Deandre Ayton",
-          "salary": 8100000
+          "name": "Anthony Davis",
+          "salary": 43219440
         }
       }
     },
@@ -387,23 +387,23 @@
       "lineup": {
         "PG": {
           "name": "Ja Morant",
-          "salary": 43700000
+          "salary": 36725670
         },
         "SG": {
-          "name": "Desmond Bane",
-          "salary": 26000000
+          "name": "Jaylen Wells",
+          "salary": 1157153
         },
         "SF": {
-          "name": "Jaylen Wells",
-          "salary": 5000000
+          "name": "Jaren Jackson Jr.",
+          "salary": 25257798
         },
         "PF": {
-          "name": "Jaren Jackson Jr.",
-          "salary": 35000000
+          "name": "Brandon Clarke",
+          "salary": 12500000
         },
         "C": {
           "name": "Zach Edey",
-          "salary": 5500000
+          "salary": 5756880
         }
       }
     },
@@ -414,23 +414,23 @@
       "lineup": {
         "PG": {
           "name": "Terry Rozier",
-          "salary": 26600000
+          "salary": 24924126
         },
         "SG": {
           "name": "Tyler Herro",
-          "salary": 34400000
+          "salary": 29000000
         },
         "SF": {
-          "name": "Nikola Jović",
-          "salary": 11000000
+          "name": "Haywood Highsmith",
+          "salary": 5200000
         },
         "PF": {
-          "name": "Haywood Highsmith",
-          "salary": 8000000
+          "name": "Jimmy Butler",
+          "salary": 48798677
         },
         "C": {
           "name": "Bam Adebayo",
-          "salary": 34700000
+          "salary": 34848340
         }
       }
     },
@@ -441,23 +441,23 @@
       "lineup": {
         "PG": {
           "name": "Damian Lillard",
-          "salary": 48800000
+          "salary": 48787676
         },
         "SG": {
-          "name": "Gary Trent Jr.",
-          "salary": 3600000
+          "name": "Andre Jackson Jr.",
+          "salary": 1891857
         },
         "SF": {
-          "name": "Giannis Antetokounmpo",
-          "salary": 54100000
+          "name": "Taurean Prince",
+          "salary": 2087519
         },
         "PF": {
-          "name": "Bobby Portis",
-          "salary": 13400000
+          "name": "Giannis Antetokounmpo",
+          "salary": 48787676
         },
         "C": {
           "name": "Brook Lopez",
-          "salary": 23500000
+          "salary": 23000000
         }
       }
     },
@@ -468,23 +468,23 @@
       "lineup": {
         "PG": {
           "name": "Mike Conley",
-          "salary": 21000000
+          "salary": 9975962
         },
         "SG": {
           "name": "Anthony Edwards",
-          "salary": 35000000
+          "salary": 42176400
         },
         "SF": {
-          "name": "Jaden McDaniels",
-          "salary": 19000000
+          "name": "Joe Ingles",
+          "salary": 2087519
         },
         "PF": {
-          "name": "Julius Randle",
-          "salary": 30700000
+          "name": "Jaden McDaniels",
+          "salary": 23017242
         },
         "C": {
           "name": "Rudy Gobert",
-          "salary": 41000000
+          "salary": 43827586
         }
       }
     },
@@ -495,23 +495,23 @@
       "lineup": {
         "PG": {
           "name": "CJ McCollum",
-          "salary": 30000000
+          "salary": 33333333
         },
         "SG": {
-          "name": "Trey Murphy III",
-          "salary": 12000000
+          "name": "Javonte Green",
+          "salary": 2328350
         },
         "SF": {
-          "name": "Brandon Ingram",
-          "salary": 38600000
+          "name": "Trey Murphy III",
+          "salary": 5159854
         },
         "PF": {
           "name": "Zion Williamson",
-          "salary": 35700000
+          "salary": 36725670
         },
         "C": {
-          "name": "Jonas Valanciunas",
-          "salary": 15000000
+          "name": "Yves Missi",
+          "salary": 3193200
         }
       }
     },
@@ -522,23 +522,23 @@
       "lineup": {
         "PG": {
           "name": "Jalen Brunson",
-          "salary": 34900000
+          "salary": 24960001
         },
         "SG": {
           "name": "Josh Hart",
-          "salary": 19800000
+          "salary": 18144000
         },
         "SF": {
           "name": "Mikal Bridges",
-          "salary": 24900000
+          "salary": 23300000
         },
         "PF": {
           "name": "OG Anunoby",
-          "salary": 39600000
+          "salary": 36637932
         },
         "C": {
           "name": "Karl-Anthony Towns",
-          "salary": 53100000
+          "salary": 49205800
         }
       }
     },
@@ -549,23 +549,23 @@
       "lineup": {
         "PG": {
           "name": "Shai Gilgeous-Alexander",
-          "salary": 38300000
+          "salary": 35859950
         },
         "SG": {
-          "name": "Luguentz Dort",
-          "salary": 17700000
+          "name": "Jalen Williams",
+          "salary": 4775760
         },
         "SF": {
-          "name": "Jalen Williams",
-          "salary": 6600000
+          "name": "Luguentz Dort",
+          "salary": 16500000
         },
         "PF": {
-          "name": "Chet Holmgren",
-          "salary": 11400000
+          "name": "Jaylin Williams",
+          "salary": 2019699
         },
         "C": {
           "name": "Isaiah Hartenstein",
-          "salary": 28500000
+          "salary": 30000000
         }
       }
     },
@@ -575,24 +575,24 @@
       "abbr": "ORL",
       "lineup": {
         "PG": {
-          "name": "Cole Anthony",
-          "salary": 17000000
+          "name": "Jalen Suggs",
+          "salary": 9188385
         },
         "SG": {
           "name": "Kentavious Caldwell-Pope",
-          "salary": 22500000
+          "salary": 22757000
         },
         "SF": {
           "name": "Franz Wagner",
-          "salary": 29500000
+          "salary": 7007092
         },
         "PF": {
           "name": "Paolo Banchero",
-          "salary": 38000000
+          "salary": 12160800
         },
         "C": {
           "name": "Wendell Carter Jr.",
-          "salary": 17000000
+          "salary": 11950000
         }
       }
     },
@@ -603,23 +603,23 @@
       "lineup": {
         "PG": {
           "name": "Tyrese Maxey",
-          "salary": 35000000
+          "salary": 35147000
         },
         "SG": {
-          "name": "Paul George",
-          "salary": 51400000
+          "name": "Quentin Grimes",
+          "salary": 4296682
         },
         "SF": {
           "name": "Kelly Oubre Jr.",
-          "salary": 13000000
+          "salary": 7983000
         },
         "PF": {
-          "name": "Andre Drummond",
-          "salary": 15000000
+          "name": "Paul George",
+          "salary": 49205800
         },
         "C": {
-          "name": "Joel Embiid",
-          "salary": 47600000
+          "name": "Guerschon Yabusele",
+          "salary": 2087519
         }
       }
     },
@@ -629,24 +629,24 @@
       "abbr": "PHX",
       "lineup": {
         "PG": {
-          "name": "Bradley Beal",
-          "salary": 46700000
+          "name": "Tyus Jones",
+          "salary": 2087519
         },
         "SG": {
           "name": "Devin Booker",
-          "salary": 35300000
+          "salary": 49205800
         },
         "SF": {
-          "name": "Kevin Durant",
-          "salary": 51200000
+          "name": "Ryan Dunn",
+          "salary": 2530800
         },
         "PF": {
-          "name": "Grayson Allen",
-          "salary": 20000000
+          "name": "Kevin Durant",
+          "salary": 51179021
         },
         "C": {
-          "name": "Jusuf Nurkić",
-          "salary": 17000000
+          "name": "Nick Richards",
+          "salary": 5000000
         }
       }
     },
@@ -656,24 +656,24 @@
       "abbr": "POR",
       "lineup": {
         "PG": {
-          "name": "Anfernee Simons",
-          "salary": 28800000
+          "name": "Scoot Henderson",
+          "salary": 10259160
         },
         "SG": {
-          "name": "Jerami Grant",
-          "salary": 25700000
+          "name": "Anfernee Simons",
+          "salary": 25892857
         },
         "SF": {
-          "name": "Shaedon Sharpe",
-          "salary": 6000000
+          "name": "Deni Avdija",
+          "salary": 15625000
         },
         "PF": {
-          "name": "Jabari Walker",
-          "salary": 3000000
+          "name": "Toumani Camara",
+          "salary": 1891857
         },
         "C": {
-          "name": "Robert Williams III",
-          "salary": 12000000
+          "name": "Deandre Ayton",
+          "salary": 34005126
         }
       }
     },
@@ -683,24 +683,24 @@
       "abbr": "SAC",
       "lineup": {
         "PG": {
-          "name": "Malik Monk",
-          "salary": 13000000
+          "name": "De'Aaron Fox",
+          "salary": 34848340
         },
         "SG": {
-          "name": "Kevin Huerter",
-          "salary": 16000000
+          "name": "Malik Monk",
+          "salary": 17405203
         },
         "SF": {
-          "name": "Harrison Barnes",
-          "salary": 18000000
+          "name": "DeMar DeRozan",
+          "salary": 23400000
         },
         "PF": {
           "name": "Keegan Murray",
-          "salary": 14000000
+          "salary": 8809560
         },
         "C": {
           "name": "Domantas Sabonis",
-          "salary": 37500000
+          "salary": 40500000
         }
       }
     },
@@ -710,24 +710,24 @@
       "abbr": "SAS",
       "lineup": {
         "PG": {
-          "name": "De'Aaron Fox",
-          "salary": 35000000
+          "name": "Chris Paul",
+          "salary": 10460000
         },
         "SG": {
           "name": "Devin Vassell",
-          "salary": 21600000
+          "salary": 29347826
         },
         "SF": {
-          "name": "Keldon Johnson",
-          "salary": 13000000
+          "name": "Julian Champagnie",
+          "salary": 3000000
         },
         "PF": {
-          "name": "Jeremy Sochan",
-          "salary": 10500000
+          "name": "Harrison Barnes",
+          "salary": 18000000
         },
         "C": {
           "name": "Victor Wembanyama",
-          "salary": 13800000
+          "salary": 12768960
         }
       }
     },
@@ -738,23 +738,23 @@
       "lineup": {
         "PG": {
           "name": "Immanuel Quickley",
-          "salary": 33200000
+          "salary": 32500000
         },
         "SG": {
-          "name": "RJ Barrett",
-          "salary": 25800000
+          "name": "Gradey Dick",
+          "salary": 4763760
         },
         "SF": {
-          "name": "Scottie Barnes",
-          "salary": 39200000
+          "name": "RJ Barrett",
+          "salary": 25794643
         },
         "PF": {
-          "name": "Gradey Dick",
-          "salary": 5000000
+          "name": "Scottie Barnes",
+          "salary": 10130980
         },
         "C": {
           "name": "Jakob Poeltl",
-          "salary": 22000000
+          "salary": 19500000
         }
       }
     },
@@ -764,24 +764,24 @@
       "abbr": "UTA",
       "lineup": {
         "PG": {
-          "name": "Collin Sexton",
-          "salary": 18500000
+          "name": "Isaiah Collier",
+          "salary": 2512680
         },
         "SG": {
-          "name": "Jordan Clarkson",
-          "salary": 14000000
+          "name": "Collin Sexton",
+          "salary": 18350000
         },
         "SF": {
-          "name": "Lauri Markkanen",
-          "salary": 34000000
+          "name": "Brice Sensabaugh",
+          "salary": 2571480
         },
         "PF": {
-          "name": "John Collins",
-          "salary": 26600000
+          "name": "Lauri Markkanen",
+          "salary": 42176400
         },
         "C": {
           "name": "Walker Kessler",
-          "salary": 5000000
+          "salary": 2965920
         }
       }
     },
@@ -791,24 +791,24 @@
       "abbr": "WAS",
       "lineup": {
         "PG": {
-          "name": "Jordan Poole",
-          "salary": 28700000
+          "name": "Bub Carrington",
+          "salary": 4454880
         },
         "SG": {
-          "name": "Corey Kispert",
-          "salary": 14000000
+          "name": "Jordan Poole",
+          "salary": 29651786
         },
         "SF": {
           "name": "Bilal Coulibaly",
-          "salary": 6000000
+          "salary": 6945240
         },
         "PF": {
-          "name": "Deni Avdija",
-          "salary": 22000000
+          "name": "Kyle Kuzma",
+          "salary": 24456061
         },
         "C": {
           "name": "Alex Sarr",
-          "salary": 10400000
+          "salary": 11245680
         }
       }
     }
