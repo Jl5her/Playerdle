@@ -343,10 +343,16 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
 
   if (sportLoadFailed && !sport) {
     return (
-      <div className="app-viewport flex items-center justify-center p-8 text-center">
+      <div className="app-viewport flex flex-col items-center justify-center gap-4 p-8 text-center">
         <p className="text-primary-500 dark:text-primary-400 text-sm">
           Failed to load game data. Please refresh the page.
         </p>
+        <button
+          onClick={() => window.location.reload()}
+          className="px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 active:bg-primary-800 text-white text-sm font-medium transition-colors"
+        >
+          Refresh
+        </button>
       </div>
     )
   }
