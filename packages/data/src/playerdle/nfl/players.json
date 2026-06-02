@@ -2,12 +2,13 @@
   {
     "id": "nfl:4047646",
     "name": "A.J. Brown",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
     "position": "WR",
-    "number": 11
+    "number": 11,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4038437",
@@ -6392,16 +6393,6 @@
     "number": 22
   },
   {
-    "id": "nfl:4691005",
-    "name": "Daryl Porter Jr.",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Buffalo Bills",
-    "teamAbbr": "BUF",
-    "position": "CB",
-    "number": 46
-  },
-  {
     "id": "nfl:4685439",
     "name": "Dasan McCullough",
     "conference": "AFC",
@@ -9705,16 +9696,6 @@
     "number": 84
   },
   {
-    "id": "nfl:4424106",
-    "name": "Gunner Olszewski",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 80
-  },
-  {
     "id": "nfl:4432237",
     "name": "Gus Hartwig",
     "conference": "AFC",
@@ -12020,12 +12001,13 @@
   {
     "id": "nfl:4578085",
     "name": "Jared Verse",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Los Angeles Rams",
-    "teamAbbr": "LAR",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
     "position": "LB",
-    "number": 8
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4430681",
@@ -16221,16 +16203,6 @@
     "number": 41
   },
   {
-    "id": "nfl:4588300",
-    "name": "Kobe King",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "LB",
-    "number": 45
-  },
-  {
     "id": "nfl:4869965",
     "name": "Kobe Prentice",
     "conference": "NFC",
@@ -16651,16 +16623,6 @@
     "number": 94
   },
   {
-    "id": "nfl:4427448",
-    "name": "LaDarius Henderson",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "G",
-    "number": 69
-  },
-  {
     "id": "nfl:4612826",
     "name": "Ladd McConkey",
     "conference": "AFC",
@@ -16909,16 +16871,6 @@
     "teamAbbr": "CAR",
     "position": "DT",
     "number": 92
-  },
-  {
-    "id": "nfl:5277116",
-    "name": "Lenny Krieg",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "PK",
-    "number": 48
   },
   {
     "id": "nfl:4426901",
@@ -19307,12 +19259,13 @@
   {
     "id": "nfl:3122132",
     "name": "Myles Garrett",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
     "position": "DE",
-    "number": 95
+    "number": 95,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4695783",
@@ -20097,6 +20050,16 @@
     "position": "LB",
     "number": 98,
     "numberBackfilled": true
+  },
+  {
+    "id": "nfl:16733",
+    "name": "Odell Beckham Jr.",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 13
   },
   {
     "id": "nfl:4832793",
@@ -22082,6 +22045,16 @@
     "number": 34
   },
   {
+    "id": "nfl:4027873",
+    "name": "Samori Toure",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "WR",
+    "number": 89
+  },
+  {
     "id": "nfl:3045527",
     "name": "Samson Ebukam",
     "conference": "NFC",
@@ -22282,16 +22255,6 @@
     "number": 58
   },
   {
-    "id": "nfl:4606194",
-    "name": "Seth Henigan",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "QB",
-    "number": 4
-  },
-  {
     "id": "nfl:4429187",
     "name": "Seth McLaughlin",
     "conference": "NFC",
@@ -22450,16 +22413,6 @@
     "teamAbbr": "WSH",
     "position": "DT",
     "number": 79
-  },
-  {
-    "id": "nfl:4244826",
-    "name": "Sidy Sow",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "G",
-    "number": 62
   },
   {
     "id": "nfl:4880219",
@@ -25695,16 +25648,6 @@
     "number": 31
   },
   {
-    "id": "nfl:4608604",
-    "name": "Wyett Ekeler",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "CB",
-    "number": 42
-  },
-  {
     "id": "nfl:4431570",
     "name": "Xavian Sorey Jr.",
     "conference": "AFC",
@@ -25984,16 +25927,6 @@
     "teamAbbr": "GB",
     "position": "OT",
     "number": 50
-  },
-  {
-    "id": "nfl:3065813",
-    "name": "Zach Triner",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "LS",
-    "number": 55
   },
   {
     "id": "nfl:4361259",
