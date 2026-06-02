@@ -186,7 +186,7 @@
     "division": "Central",
     "team": "Minnesota Twins",
     "teamAbbr": "MIN",
-    "position": "LF",
+    "position": "RF",
     "number": 16,
     "league": "AL",
     "gp": 50,
@@ -538,6 +538,24 @@
     "rbi": 28,
     "sb": 3,
     "ops": 0.687
+  },
+  {
+    "id": "mlb:42925",
+    "name": "Cody Freeman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "3B",
+    "number": 39,
+    "league": "AL",
+    "gp": 36,
+    "pa": 121,
+    "avg": 0.228,
+    "hr": 3,
+    "rbi": 15,
+    "sb": 1,
+    "ops": 0.6
   },
   {
     "id": "mlb:4662616",
@@ -2356,24 +2374,6 @@
     "rbi": 25,
     "sb": 3,
     "ops": 0.641
-  },
-  {
-    "id": "mlb:4345192",
-    "name": "Tim Tawa",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "LF",
-    "number": 13,
-    "league": "NL",
-    "gp": 74,
-    "pa": 225,
-    "avg": 0.201,
-    "hr": 7,
-    "rbi": 18,
-    "sb": 8,
-    "ops": 0.62
   },
   {
     "id": "mlb:33710",
