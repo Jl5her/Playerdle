@@ -15,6 +15,7 @@ export default function PWAUpdateToast() {
         return
       }
       setUpdated(true)
+      window.location.reload()
     }
     navigator.serviceWorker.addEventListener("controllerchange", handleChange)
     return () => {
