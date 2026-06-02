@@ -5,9 +5,11 @@
     "abbr": "ARI",
     "conference": "NL",
     "division": "West",
+    "state": "AZ",
     "colors": [
       "#aa182c",
-      "#000000"
+      "#000000",
+      "#e3d4ad"
     ]
   },
   {
@@ -16,9 +18,11 @@
     "abbr": "ATH",
     "conference": "AL",
     "division": "West",
+    "state": "CA",
     "colors": [
       "#003831",
-      "#efb21e"
+      "#efb21e",
+      "transparent"
     ]
   },
   {
@@ -27,9 +31,11 @@
     "abbr": "ATL",
     "conference": "NL",
     "division": "East",
+    "state": "GA",
     "colors": [
       "#0c2340",
-      "#ba0c2f"
+      "#ba0c2f",
+      "transparent"
     ]
   },
   {
@@ -38,9 +44,11 @@
     "abbr": "BAL",
     "conference": "AL",
     "division": "East",
+    "state": "MD",
     "colors": [
       "#df4601",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -49,9 +57,11 @@
     "abbr": "BOS",
     "conference": "AL",
     "division": "East",
+    "state": "MA",
     "colors": [
       "#0d2b56",
-      "#bd3039"
+      "#bd3039",
+      "transparent"
     ]
   },
   {
@@ -60,9 +70,11 @@
     "abbr": "CHC",
     "conference": "NL",
     "division": "Central",
+    "state": "IL",
     "colors": [
       "#0e3386",
-      "#cc3433"
+      "#cc3433",
+      "transparent"
     ]
   },
   {
@@ -71,9 +83,11 @@
     "abbr": "CHW",
     "conference": "AL",
     "division": "Central",
+    "state": "IL",
     "colors": [
       "#000000",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -82,9 +96,11 @@
     "abbr": "CIN",
     "conference": "NL",
     "division": "Central",
+    "state": "OH",
     "colors": [
       "#c6011f",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -93,9 +109,11 @@
     "abbr": "CLE",
     "conference": "AL",
     "division": "Central",
+    "state": "OH",
     "colors": [
       "#002b5c",
-      "#e31937"
+      "#e31937",
+      "transparent"
     ]
   },
   {
@@ -104,9 +122,11 @@
     "abbr": "COL",
     "conference": "NL",
     "division": "West",
+    "state": "CO",
     "colors": [
       "#33006f",
-      "#000000"
+      "#000000",
+      "#c4ced4"
     ]
   },
   {
@@ -115,9 +135,11 @@
     "abbr": "DET",
     "conference": "AL",
     "division": "Central",
+    "state": "MI",
     "colors": [
       "#0a2240",
-      "#ff4713"
+      "#ff4713",
+      "transparent"
     ]
   },
   {
@@ -126,9 +148,11 @@
     "abbr": "HOU",
     "conference": "AL",
     "division": "West",
+    "state": "TX",
     "colors": [
       "#002d62",
-      "#eb6e1f"
+      "#eb6e1f",
+      "transparent"
     ]
   },
   {
@@ -137,9 +161,11 @@
     "abbr": "KC",
     "conference": "AL",
     "division": "Central",
+    "state": "MO",
     "colors": [
       "#004687",
-      "#7ab2dd"
+      "#7ab2dd",
+      "transparent"
     ]
   },
   {
@@ -148,9 +174,11 @@
     "abbr": "LAA",
     "conference": "AL",
     "division": "West",
+    "state": "CA",
     "colors": [
       "#ba0021",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -159,9 +187,11 @@
     "abbr": "LAD",
     "conference": "NL",
     "division": "West",
+    "state": "CA",
     "colors": [
       "#005a9c",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -170,9 +200,11 @@
     "abbr": "MIA",
     "conference": "NL",
     "division": "East",
+    "state": "FL",
     "colors": [
       "#00a3e0",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -181,9 +213,11 @@
     "abbr": "MIL",
     "conference": "NL",
     "division": "Central",
+    "state": "WI",
     "colors": [
       "#13294b",
-      "#ffc72c"
+      "#ffc72c",
+      "transparent"
     ]
   },
   {
@@ -192,9 +226,11 @@
     "abbr": "MIN",
     "conference": "AL",
     "division": "Central",
+    "state": "MN",
     "colors": [
       "#031f40",
-      "#e20e32"
+      "#e20e32",
+      "transparent"
     ]
   },
   {
@@ -203,9 +239,11 @@
     "abbr": "NYM",
     "conference": "NL",
     "division": "East",
+    "state": "NY",
     "colors": [
       "#002d72",
-      "#ff5910"
+      "#ff5910",
+      "transparent"
     ]
   },
   {
@@ -214,9 +252,11 @@
     "abbr": "NYY",
     "conference": "AL",
     "division": "East",
+    "state": "NY",
     "colors": [
       "#132448",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -225,9 +265,11 @@
     "abbr": "PHI",
     "conference": "NL",
     "division": "East",
+    "state": "PA",
     "colors": [
       "#e81828",
-      "#003278"
+      "#003278",
+      "transparent"
     ]
   },
   {
@@ -236,9 +278,11 @@
     "abbr": "PIT",
     "conference": "NL",
     "division": "Central",
+    "state": "PA",
     "colors": [
       "#000000",
-      "#fdb827"
+      "#fdb827",
+      "transparent"
     ]
   },
   {
@@ -247,9 +291,11 @@
     "abbr": "SD",
     "conference": "NL",
     "division": "West",
+    "state": "CA",
     "colors": [
       "#2f241d",
-      "#ffc425"
+      "#ffc425",
+      "transparent"
     ]
   },
   {
@@ -258,9 +304,11 @@
     "abbr": "SF",
     "conference": "NL",
     "division": "West",
+    "state": "CA",
     "colors": [
       "#000000",
-      "#fd5a1e"
+      "#fd5a1e",
+      "transparent"
     ]
   },
   {
@@ -269,9 +317,11 @@
     "abbr": "SEA",
     "conference": "AL",
     "division": "West",
+    "state": "WA",
     "colors": [
       "#005c5c",
-      "#0c2c56"
+      "#0c2c56",
+      "#c4ced4"
     ]
   },
   {
@@ -280,9 +330,11 @@
     "abbr": "STL",
     "conference": "NL",
     "division": "Central",
+    "state": "MO",
     "colors": [
       "#be0a14",
-      "#001541"
+      "#001541",
+      "transparent"
     ]
   },
   {
@@ -291,9 +343,11 @@
     "abbr": "TB",
     "conference": "AL",
     "division": "East",
+    "state": "FL",
     "colors": [
       "#092c5c",
-      "#8fbce6"
+      "#8fbce6",
+      "transparent"
     ]
   },
   {
@@ -302,9 +356,11 @@
     "abbr": "TEX",
     "conference": "AL",
     "division": "West",
+    "state": "TX",
     "colors": [
       "#003278",
-      "#c0111f"
+      "#c0111f",
+      "transparent"
     ]
   },
   {
@@ -313,9 +369,11 @@
     "abbr": "TOR",
     "conference": "AL",
     "division": "East",
+    "state": null,
     "colors": [
       "#134a8e",
-      "#6cace5"
+      "#6cace5",
+      "transparent"
     ]
   },
   {
@@ -324,9 +382,11 @@
     "abbr": "WSH",
     "conference": "NL",
     "division": "East",
+    "state": null,
     "colors": [
       "#ab0003",
-      "#11225b"
+      "#11225b",
+      "transparent"
     ]
   }
 ]

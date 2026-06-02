@@ -115,8 +115,13 @@ export function TeamColorsKey() {
                           {(team.colors ?? []).map((color, i) => (
                             <div
                               key={i}
-                              className="w-5 h-5 rounded border border-black/10 dark:border-white/10 shrink-0"
-                              style={{ backgroundColor: color }}
+                              className={clsx(
+                                "w-5 h-5 rounded border shrink-0",
+                                color === "transparent"
+                                  ? "diamond-transparent border-black/10 dark:border-white/10"
+                                  : "border-black/10 dark:border-white/10",
+                              )}
+                              style={color !== "transparent" ? { backgroundColor: color } : undefined}
                               title={color}
                             />
                           ))}

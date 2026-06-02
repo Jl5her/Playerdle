@@ -741,7 +741,10 @@ export default function ColorsGame({
     }
   }, [gameOver, activeMode, stats, variant])
 
-  const confettiColors = useMemo(() => puzzle.teams.flatMap(t => t.colors), [puzzle.teams])
+  const confettiColors = useMemo(
+    () => puzzle.teams.flatMap(t => t.colors).filter(c => c !== "transparent"),
+    [puzzle.teams],
+  )
   useWinConfetti({
     won,
     colors: confettiColors,

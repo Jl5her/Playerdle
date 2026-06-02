@@ -105,6 +105,9 @@ Each team in `packages/data/src/playerdle/<sport>/teams.json` has a `colors` arr
 **Third slot rules:**
 - Use a real hex color only if the team genuinely has a 3rd distinct brand color that appears on their uniforms — not just a minor logo accent.
 - Use `"transparent"` when the team only has 2 primary brand colors. The `FlipDiamond` component renders transparent as a checkered/empty diamond.
+- White (`#ffffff`) counts as a real brand color only when it is part of the team's official named 3-color identity (e.g. Montreal Canadiens "bleu-blanc-rouge"), not when it is simply the home jersey fabric background.
+
+**No color may appear more than once in a team's `colors` array.** Every entry must be distinct. If you have fewer than 3 distinct brand colors, fill remaining slots with `"transparent"` — never repeat an existing color to fill the slot.
 
 ## Adding a New Sport or Variant
 

@@ -782,7 +782,7 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
   }
 
   const confettiColors = useMemo(
-    () => puzzle.player.teams.flatMap(t => getPaletteOrFallback(t)),
+    () => puzzle.player.teams.flatMap(t => getPaletteOrFallback(t)).filter(c => c !== "transparent"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [puzzle.player.teams, leagueData],
   )

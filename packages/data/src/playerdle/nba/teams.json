@@ -5,9 +5,11 @@
     "abbr": "ATL",
     "conference": "East",
     "division": "Southeast",
+    "state": "GA",
     "colors": [
       "#c8102e",
-      "#fdb927"
+      "#fdb927",
+      "transparent"
     ]
   },
   {
@@ -16,9 +18,11 @@
     "abbr": "BOS",
     "conference": "East",
     "division": "Atlantic",
+    "state": "MA",
     "colors": [
       "#008348",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -27,9 +31,11 @@
     "abbr": "BKN",
     "conference": "East",
     "division": "Atlantic",
+    "state": "NY",
     "colors": [
       "#000000",
-      "#ffffff"
+      "#ffffff",
+      "transparent"
     ]
   },
   {
@@ -38,9 +44,11 @@
     "abbr": "CHA",
     "conference": "East",
     "division": "Southeast",
+    "state": "NC",
     "colors": [
       "#008ca8",
-      "#1d1060"
+      "#1d1060",
+      "transparent"
     ]
   },
   {
@@ -49,9 +57,11 @@
     "abbr": "CHI",
     "conference": "East",
     "division": "Central",
+    "state": "IL",
     "colors": [
       "#ce1141",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -60,9 +70,11 @@
     "abbr": "CLE",
     "conference": "East",
     "division": "Central",
+    "state": "OH",
     "colors": [
       "#860038",
-      "#bc945c"
+      "#bc945c",
+      "transparent"
     ]
   },
   {
@@ -71,9 +83,11 @@
     "abbr": "DAL",
     "conference": "West",
     "division": "Southwest",
+    "state": "TX",
     "colors": [
       "#0064b1",
-      "#bbc4ca"
+      "#bbc4ca",
+      "transparent"
     ]
   },
   {
@@ -82,9 +96,11 @@
     "abbr": "DEN",
     "conference": "West",
     "division": "Northwest",
+    "state": "CO",
     "colors": [
       "#0e2240",
-      "#fec524"
+      "#fec524",
+      "transparent"
     ]
   },
   {
@@ -93,9 +109,11 @@
     "abbr": "DET",
     "conference": "East",
     "division": "Central",
+    "state": "MI",
     "colors": [
       "#1d428a",
-      "#c8102e"
+      "#c8102e",
+      "transparent"
     ]
   },
   {
@@ -104,9 +122,11 @@
     "abbr": "GS",
     "conference": "West",
     "division": "Pacific",
+    "state": "CA",
     "colors": [
       "#fdb927",
-      "#1d428a"
+      "#1d428a",
+      "transparent"
     ]
   },
   {
@@ -115,9 +135,11 @@
     "abbr": "HOU",
     "conference": "West",
     "division": "Southwest",
+    "state": "TX",
     "colors": [
       "#ce1141",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -126,9 +148,11 @@
     "abbr": "IND",
     "conference": "East",
     "division": "Central",
+    "state": "IN",
     "colors": [
       "#0c2340",
-      "#ffd520"
+      "#ffd520",
+      "transparent"
     ]
   },
   {
@@ -137,9 +161,11 @@
     "abbr": "LAC",
     "conference": "West",
     "division": "Pacific",
+    "state": "CA",
     "colors": [
       "#12173f",
-      "#c8102e"
+      "#c8102e",
+      "transparent"
     ]
   },
   {
@@ -148,9 +174,11 @@
     "abbr": "LAL",
     "conference": "West",
     "division": "Pacific",
+    "state": "CA",
     "colors": [
       "#552583",
-      "#fdb927"
+      "#fdb927",
+      "transparent"
     ]
   },
   {
@@ -159,9 +187,11 @@
     "abbr": "MEM",
     "conference": "West",
     "division": "Southwest",
+    "state": "TN",
     "colors": [
       "#5d76a9",
-      "#12173f"
+      "#12173f",
+      "#f5b112"
     ]
   },
   {
@@ -170,9 +200,11 @@
     "abbr": "MIA",
     "conference": "East",
     "division": "Southeast",
+    "state": "FL",
     "colors": [
       "#98002e",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -181,9 +213,11 @@
     "abbr": "MIL",
     "conference": "East",
     "division": "Central",
+    "state": "WI",
     "colors": [
       "#00471b",
-      "#eee1c6"
+      "#eee1c6",
+      "transparent"
     ]
   },
   {
@@ -192,9 +226,11 @@
     "abbr": "MIN",
     "conference": "West",
     "division": "Northwest",
+    "state": "MN",
     "colors": [
       "#266092",
-      "#79bc43"
+      "#79bc43",
+      "transparent"
     ]
   },
   {
@@ -203,9 +239,11 @@
     "abbr": "NO",
     "conference": "West",
     "division": "Southwest",
+    "state": "LA",
     "colors": [
       "#0a2240",
-      "#b4975a"
+      "#b4975a",
+      "transparent"
     ]
   },
   {
@@ -214,9 +252,11 @@
     "abbr": "NY",
     "conference": "East",
     "division": "Atlantic",
+    "state": "NY",
     "colors": [
       "#1d428a",
-      "#f58426"
+      "#f58426",
+      "transparent"
     ]
   },
   {
@@ -225,9 +265,11 @@
     "abbr": "OKC",
     "conference": "West",
     "division": "Northwest",
+    "state": "OK",
     "colors": [
       "#007ac1",
-      "#ef3b24"
+      "#ef3b24",
+      "transparent"
     ]
   },
   {
@@ -236,9 +278,11 @@
     "abbr": "ORL",
     "conference": "East",
     "division": "Southeast",
+    "state": "FL",
     "colors": [
       "#0150b5",
-      "#9ca0a3"
+      "#9ca0a3",
+      "transparent"
     ]
   },
   {
@@ -247,9 +291,11 @@
     "abbr": "PHI",
     "conference": "East",
     "division": "Atlantic",
+    "state": "PA",
     "colors": [
       "#1d428a",
-      "#e01234"
+      "#e01234",
+      "transparent"
     ]
   },
   {
@@ -258,9 +304,11 @@
     "abbr": "PHX",
     "conference": "West",
     "division": "Pacific",
+    "state": "AZ",
     "colors": [
       "#29127a",
-      "#e56020"
+      "#e56020",
+      "transparent"
     ]
   },
   {
@@ -269,9 +317,11 @@
     "abbr": "POR",
     "conference": "West",
     "division": "Northwest",
+    "state": "OR",
     "colors": [
       "#e03a3e",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -280,9 +330,11 @@
     "abbr": "SAC",
     "conference": "West",
     "division": "Pacific",
+    "state": "CA",
     "colors": [
       "#5a2d81",
-      "#6a7a82"
+      "#6a7a82",
+      "transparent"
     ]
   },
   {
@@ -291,9 +343,11 @@
     "abbr": "SA",
     "conference": "West",
     "division": "Southwest",
+    "state": "TX",
     "colors": [
       "#000000",
-      "#c4ced4"
+      "#c4ced4",
+      "transparent"
     ]
   },
   {
@@ -302,9 +356,11 @@
     "abbr": "TOR",
     "conference": "East",
     "division": "Atlantic",
+    "state": null,
     "colors": [
       "#d91244",
-      "#000000"
+      "#000000",
+      "transparent"
     ]
   },
   {
@@ -313,9 +369,11 @@
     "abbr": "UTAH",
     "conference": "West",
     "division": "Northwest",
+    "state": "UT",
     "colors": [
       "#4e008e",
-      "#79a3dc"
+      "#79a3dc",
+      "transparent"
     ]
   },
   {
@@ -324,9 +382,11 @@
     "abbr": "WSH",
     "conference": "East",
     "division": "Southeast",
+    "state": null,
     "colors": [
       "#e31837",
-      "#002b5c"
+      "#002b5c",
+      "transparent"
     ]
   }
 ]

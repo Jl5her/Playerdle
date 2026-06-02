@@ -28,7 +28,7 @@ function buildPaletteLookup(
   for (const t of teams) {
     const c = t.colors
     if (!c || c.length < 2) continue
-    map.set(t.name, [c[0], c[1], c[2] ?? c[0]])
+    map.set(t.name, [c[0], c[1], c[2] ?? "transparent"])
   }
   return name => map.get(name)
 }
