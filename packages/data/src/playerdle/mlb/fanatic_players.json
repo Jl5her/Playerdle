@@ -954,6 +954,24 @@
     "ops": 0.959
   },
   {
+    "id": "mlb:33804",
+    "name": "Gleyber Torres",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "2B",
+    "number": 25,
+    "league": "AL",
+    "gp": 145,
+    "pa": 628,
+    "avg": 0.256,
+    "hr": 16,
+    "rbi": 74,
+    "sb": 4,
+    "ops": 0.745
+  },
+  {
     "id": "mlb:4418683",
     "name": "Henry Davis",
     "conference": "NL",
@@ -2104,24 +2122,6 @@
     "rbi": 126,
     "sb": 1,
     "ops": 0.871
-  },
-  {
-    "id": "mlb:35142",
-    "name": "Ramon Laureano",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "LF",
-    "number": 5,
-    "league": "NL",
-    "gp": 50,
-    "pa": 198,
-    "avg": 0.269,
-    "hr": 9,
-    "rbi": 30,
-    "sb": 3,
-    "ops": 0.812
   },
   {
     "id": "mlb:31399",
