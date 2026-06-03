@@ -840,6 +840,25 @@ export default function ColorsGame({
                 revealName={gameOver && !hideAnswer}
               />
             ))}
+            {won &&
+              !hideAnswer &&
+              (() => {
+                const puzzleTeamNames = new Set(puzzle.teams.map(t => t.name))
+                const otherTeams = puzzle.state.teams.filter(t => !puzzleTeamNames.has(t.name))
+                if (otherTeams.length === 0) return null
+                return (
+                  <>
+                    <div className="mx-3 my-1 border-t border-primary-200 dark:border-primary-700" />
+                    {otherTeams.map((team, i) => (
+                      <TeamRow
+                        key={`other-${team.name}-${i}`}
+                        team={team}
+                        revealName={true}
+                      />
+                    ))}
+                  </>
+                )
+              })()}
           </div>
 
           <div className="mt-2">
