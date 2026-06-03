@@ -248,7 +248,9 @@ export default function MainMenu({
                     "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
                     game.played
                       ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
-                      : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
+                      : game.inProgress
+                        ? "border-primary-400 dark:border-primary-500 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,#fff_6px,#fff_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-300)_0px,var(--color-primary-300)_6px,var(--color-primary-900)_6px,var(--color-primary-900)_12px)] hover:border-primary-600 dark:hover:border-primary-300"
+                        : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
                   )}
                 >
                   <div
@@ -265,35 +267,34 @@ export default function MainMenu({
                         "text-xl",
                         game.played
                           ? "text-primary-600 dark:text-primary-200"
-                          : "text-white dark:text-primary-800",
+                          : game.inProgress
+                            ? "text-primary-700 dark:text-primary-800"
+                            : "text-white dark:text-primary-800",
                       )}
                       aria-hidden="true"
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={clsx(
-                          "font-bold text-sm leading-tight",
-                          game.played
-                            ? "text-primary-800 dark:text-primary-100"
+                    <div
+                      className={clsx(
+                        "font-bold text-sm leading-tight",
+                        game.played
+                          ? "text-primary-800 dark:text-primary-100"
+                          : game.inProgress
+                            ? "text-primary-700 dark:text-primary-100"
                             : "text-white dark:text-primary-800",
-                        )}
-                      >
-                        {game.label}
-                      </span>
-                      {!game.played && game.inProgress && (
-                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-white/25 dark:bg-black/20 text-white dark:text-primary-800 leading-none">
-                          In Progress
-                        </span>
                       )}
+                    >
+                      {game.label}
                     </div>
                     <div
                       className={clsx(
                         "text-xs mt-0.5 leading-snug",
                         game.played
                           ? "text-primary-500 dark:text-primary-400"
-                          : "text-white/80 dark:text-primary-700",
+                          : game.inProgress
+                            ? "text-primary-600 dark:text-primary-300"
+                            : "text-white/80 dark:text-primary-700",
                       )}
                     >
                       {game.description}
