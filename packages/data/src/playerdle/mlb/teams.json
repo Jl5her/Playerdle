@@ -135,11 +135,13 @@
     "id": "7",
     "name": "Kansas City Royals",
     "abbr": "KC",
+    "state": "MO",
     "conference": "AL",
     "division": "Central",
     "colors": [
       "#004687",
-      "#7ab2dd"
+      "#7ab2dd",
+      "transparent"
     ]
   },
   {
@@ -278,11 +280,13 @@
     "id": "24",
     "name": "St. Louis Cardinals",
     "abbr": "STL",
+    "state": "MO",
     "conference": "NL",
     "division": "Central",
     "colors": [
       "#be0a14",
-      "#001541"
+      "#001541",
+      "transparent"
     ]
   },
   {

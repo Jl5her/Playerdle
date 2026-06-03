@@ -267,11 +267,13 @@
     "id": "19",
     "name": "St. Louis Blues",
     "abbr": "STL",
+    "state": "MO",
     "conference": "West",
     "division": "Central Division",
     "colors": [
       "#0070b9",
-      "#fdb71a"
+      "#fdb71a",
+      "transparent"
     ]
   },
   {
