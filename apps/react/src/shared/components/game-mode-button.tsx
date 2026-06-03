@@ -25,7 +25,7 @@ export default function GameModeButton({ label, played, inProgress, onClick, tit
         played
           ? "border-2 border-primary-400 dark:border-primary-500 bg-transparent text-primary-700 dark:text-primary-50 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300"
           : inProgress
-            ? "border-2 border-primary-400 dark:border-primary-500 text-primary-700 dark:text-primary-100 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,#fff_6px,#fff_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-300)_0px,var(--color-primary-300)_6px,var(--color-primary-900)_6px,var(--color-primary-900)_12px)]"
+            ? "border-2 border-primary-400 dark:border-primary-500 text-primary-50 dark:text-primary-900 cursor-pointer hover:border-primary-600 dark:hover:border-primary-300 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,var(--color-primary-300)_6px,var(--color-primary-300)_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-400)_0px,var(--color-primary-400)_6px,var(--color-primary-200)_6px,var(--color-primary-200)_12px)]"
             : "border-none bg-primary-600 dark:bg-primary-300 text-primary-50 dark:text-primary-800 cursor-pointer hover:bg-primary-700 dark:hover:bg-primary-200",
       )}
       title={computedTitle}

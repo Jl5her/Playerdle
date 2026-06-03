@@ -249,7 +249,7 @@ export default function MainMenu({
                     game.played
                       ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
                       : game.inProgress
-                        ? "border-primary-400 dark:border-primary-500 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,#fff_6px,#fff_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-300)_0px,var(--color-primary-300)_6px,var(--color-primary-900)_6px,var(--color-primary-900)_12px)] hover:border-primary-600 dark:hover:border-primary-300"
+                        ? "border-primary-400 dark:border-primary-500 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,var(--color-primary-300)_6px,var(--color-primary-300)_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-400)_0px,var(--color-primary-400)_6px,var(--color-primary-200)_6px,var(--color-primary-200)_12px)] hover:border-primary-600 dark:hover:border-primary-300"
                         : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
                   )}
                 >
@@ -268,7 +268,7 @@ export default function MainMenu({
                         game.played
                           ? "text-primary-600 dark:text-primary-200"
                           : game.inProgress
-                            ? "text-primary-700 dark:text-primary-800"
+                            ? "text-primary-50 dark:text-primary-900"
                             : "text-white dark:text-primary-800",
                       )}
                       aria-hidden="true"
@@ -281,7 +281,7 @@ export default function MainMenu({
                         game.played
                           ? "text-primary-800 dark:text-primary-100"
                           : game.inProgress
-                            ? "text-primary-700 dark:text-primary-100"
+                            ? "text-primary-50 dark:text-primary-900"
                             : "text-white dark:text-primary-800",
                       )}
                     >
@@ -293,7 +293,7 @@ export default function MainMenu({
                         game.played
                           ? "text-primary-500 dark:text-primary-400"
                           : game.inProgress
-                            ? "text-primary-600 dark:text-primary-300"
+                            ? "text-primary-100 dark:text-primary-800"
                             : "text-white/80 dark:text-primary-700",
                       )}
                     >
