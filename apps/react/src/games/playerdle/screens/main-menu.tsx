@@ -17,7 +17,7 @@ import { AllStatsContent } from "@/games/playerdle/modals/all-stats-content"
 import { GameGuideBody } from "@/games/playerdle/modals/game-guide-content"
 import AboutSection from "@/games/playerdle/screens/about-section"
 import type { SportConfig, SportInfo } from "@/games/playerdle/sports"
-import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
+import { hasPlayedTodaysDaily, isInProgressTodaysDaily } from "@/games/playerdle/utils/stats"
 import { useMenuStack } from "@/shared/hooks/use-menu-stack"
 
 export type Screen =
@@ -42,6 +42,7 @@ export interface ExtraGame {
   /** If true, renders as a direct button on the main menu instead of inside More Games */
   featured?: boolean
   played: boolean
+  inProgress?: boolean
   onPlayDaily: () => void
   onPlayArcade: () => void
   onShowStats: () => void
@@ -87,6 +88,7 @@ export default function MainMenu({
     variantLabel: string
     variantId?: string
     played: boolean
+    inProgress: boolean
   }
 
   const variantRows: VariantRow[] = [
@@ -94,11 +96,13 @@ export default function MainMenu({
       variantLabel: "Playerdle",
       variantId: undefined,
       played: hasPlayedTodaysDaily(sport.id, undefined),
+      inProgress: isInProgressTodaysDaily(sport.id, undefined),
     },
     ...variants.map(variant => ({
       variantLabel: variant.label,
       variantId: variant.id,
       played: hasPlayedTodaysDaily(sport.id, variant.id),
+      inProgress: isInProgressTodaysDaily(sport.id, variant.id),
     })),
   ]
 
@@ -140,6 +144,7 @@ export default function MainMenu({
                   key={`row:${row.variantId ?? "classic"}`}
                   label={row.variantLabel}
                   played={row.played}
+                  inProgress={row.inProgress}
                   onClick={() => onNavigate("daily", { variantId: row.variantId })}
                 />
               ))}
@@ -150,6 +155,7 @@ export default function MainMenu({
                     key={game.label}
                     label={game.label}
                     played={game.played}
+                    inProgress={game.inProgress}
                     onClick={game.onPlayDaily}
                   />
                 ))}
@@ -157,6 +163,10 @@ export default function MainMenu({
                 <GameModeButton
                   label="More Games"
                   played={extraGames!.filter(g => !g.featured).every(g => g.played)}
+                  inProgress={
+                    !extraGames!.filter(g => !g.featured).every(g => g.played) &&
+                    extraGames!.filter(g => !g.featured).some(g => g.inProgress)
+                  }
                   onClick={() => push("more-games")}
                 />
               )}
@@ -261,15 +271,22 @@ export default function MainMenu({
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div
-                      className={clsx(
-                        "font-bold text-sm leading-tight",
-                        game.played
-                          ? "text-primary-800 dark:text-primary-100"
-                          : "text-white dark:text-primary-800",
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={clsx(
+                          "font-bold text-sm leading-tight",
+                          game.played
+                            ? "text-primary-800 dark:text-primary-100"
+                            : "text-white dark:text-primary-800",
+                        )}
+                      >
+                        {game.label}
+                      </span>
+                      {!game.played && game.inProgress && (
+                        <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full bg-white/25 dark:bg-black/20 text-white dark:text-primary-800 leading-none">
+                          In Progress
+                        </span>
                       )}
-                    >
-                      {game.label}
                     </div>
                     <div
                       className={clsx(

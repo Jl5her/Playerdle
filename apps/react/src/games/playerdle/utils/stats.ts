@@ -138,3 +138,18 @@ export function hasPlayedTodaysDaily(sportId: string, variantId?: string): boole
   const history = getGameHistory(sportId, variantId)
   return history.some(r => r.date === today)
 }
+
+export function isInProgressTodaysDaily(sportId: string, variantId?: string): boolean {
+  if (hasPlayedTodaysDaily(sportId, variantId)) return false
+  const today = getTodayKey()
+  const stateKey = `playerdle-state:${sportId}:${variantId ?? "classic"}:${today}`
+  try {
+    const raw = localStorage.getItem(stateKey)
+    if (!raw) return false
+    const parsed = JSON.parse(raw)
+    const list = Array.isArray(parsed) ? parsed : (parsed?.guesses ?? parsed?.guessIds ?? [])
+    return Array.isArray(list) && list.length > 0
+  } catch {
+    return false
+  }
+}

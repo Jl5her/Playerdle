@@ -3,12 +3,19 @@ import clsx from "clsx"
 interface Props {
   label: string
   played: boolean
+  inProgress?: boolean
   onClick: () => void
   title?: string
 }
 
-export default function GameModeButton({ label, played, onClick, title }: Props) {
-  const computedTitle = title ?? (played ? `${label} — completed today` : `Play ${label}`)
+export default function GameModeButton({ label, played, inProgress, onClick, title }: Props) {
+  const computedTitle =
+    title ??
+    (played
+      ? `${label} — completed today`
+      : inProgress
+        ? `${label} — in progress`
+        : `Play ${label}`)
 
   return (
     <button
@@ -24,8 +31,14 @@ export default function GameModeButton({ label, played, onClick, title }: Props)
     >
       <span className="flex flex-col items-center justify-center leading-tight">
         <span className="text-base">{label}</span>
-        <span className={clsx("text-[10px] font-medium -mt-0.5 opacity-75", !played && "hidden")}>
-          Completed
+        <span
+          className={clsx(
+            "text-[10px] font-medium -mt-0.5",
+            !played && !inProgress && "hidden",
+            played ? "opacity-75" : "opacity-90",
+          )}
+        >
+          {played ? "Completed" : "In Progress"}
         </span>
       </span>
     </button>

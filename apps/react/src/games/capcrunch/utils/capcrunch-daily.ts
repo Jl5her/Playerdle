@@ -96,6 +96,19 @@ export function hasPlayedCapCrunchToday(league: CapCrunchLeague): boolean {
   }
 }
 
+export function isInProgressCapCrunchToday(league: CapCrunchLeague): boolean {
+  try {
+    if (hasPlayedCapCrunchToday(league)) return false
+    const today = getTodayKey()
+    const raw = localStorage.getItem(stateKey(league, today))
+    if (!raw) return false
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) && parsed.length > 0
+  } catch {
+    return false
+  }
+}
+
 export function markCapCrunchPlayed(league: CapCrunchLeague) {
   try {
     localStorage.setItem(playedKey(league), getTodayKey())

@@ -8,12 +8,22 @@ import { formatLongDate } from "@/shared/utils/time"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
 import {
   hasPlayedJourneyDailyToday,
+  isInProgressJourneyDailyToday,
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
-import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
-import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
+import {
+  hasPlayedCapCrunchToday,
+  isInProgressCapCrunchToday,
+} from "@/games/capcrunch/utils/capcrunch-daily"
+import {
+  hasPlayedCollegeCourtToday,
+  isInProgressCollegeCourtToday,
+} from "@/games/collegecourt/utils/collegecourt-daily"
+import {
+  hasPlayedCollegeFieldToday,
+  isInProgressCollegeFieldToday,
+} from "@/games/collegefield/utils/collegefield-daily"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -301,6 +311,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       label: "Journeyman",
       featured: true,
       played: hasPlayedJourneyDailyToday(journeymanLeague),
+      inProgress: isInProgressJourneyDailyToday(journeymanLeague),
       onPlayDaily: () => navigate(`/journeyman/${journeymanLeague}/daily`),
       onPlayArcade: () => navigate(`/journeyman/${journeymanLeague}/arcade`),
       onShowStats: () =>
@@ -313,6 +324,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       description: "Guess the NFL team from their salary cap numbers",
       icon: faDollarSign,
       played: hasPlayedCapCrunchToday("nfl"),
+      inProgress: isInProgressCapCrunchToday("nfl"),
       onPlayDaily: () => navigate("/capcrunch"),
       onPlayArcade: () => navigate("/capcrunch/arcade"),
       onShowStats: () => navigate("/capcrunch"),
@@ -322,6 +334,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       description: "Guess the NFL team from their players' college logos",
       icon: faScroll,
       played: hasPlayedCollegeFieldToday(),
+      inProgress: isInProgressCollegeFieldToday(),
       onPlayDaily: () => navigate("/collegefield"),
       onPlayArcade: () => navigate("/collegefield/arcade"),
       onShowStats: () => navigate("/collegefield"),
@@ -333,6 +346,7 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
       description: "Guess the NBA team from college logos on the court",
       icon: faGraduationCap,
       played: hasPlayedCollegeCourtToday(),
+      inProgress: isInProgressCollegeCourtToday(),
       onPlayDaily: () => navigate("/collegecourt"),
       onPlayArcade: () => navigate("/collegecourt/arcade"),
       onShowStats: () => navigate("/collegecourt"),
