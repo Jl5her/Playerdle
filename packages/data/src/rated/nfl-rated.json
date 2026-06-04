@@ -1,0 +1,1028 @@
+{
+  "season": "2025-26",
+  "teams": [
+    {
+      "id": "ARI",
+      "name": "Arizona Cardinals",
+      "abbr": "ARI",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Jacoby Brissett",
+          "ovr": 72
+        },
+        "RB": {
+          "name": "James Conner",
+          "ovr": 83
+        },
+        "WR1": {
+          "name": "Marvin Harrison Jr.",
+          "ovr": 85
+        },
+        "WR2": {
+          "name": "Michael Wilson",
+          "ovr": 73
+        },
+        "WR3": {
+          "name": "Greg Dortch",
+          "ovr": 70
+        },
+        "TE": {
+          "name": "Trey McBride",
+          "ovr": 91
+        }
+      }
+    },
+    {
+      "id": "ATL",
+      "name": "Atlanta Falcons",
+      "abbr": "ATL",
+      "conference": "NFC",
+      "division": "NFC South",
+      "starters": {
+        "QB": {
+          "name": "Michael Penix Jr.",
+          "ovr": 75
+        },
+        "RB": {
+          "name": "Bijan Robinson",
+          "ovr": 92
+        },
+        "WR1": {
+          "name": "Drake London",
+          "ovr": 87
+        },
+        "WR2": {
+          "name": "Darnell Mooney",
+          "ovr": 75
+        },
+        "WR3": {
+          "name": "Mack Hollins",
+          "ovr": 68
+        },
+        "TE": {
+          "name": "Kyle Pitts Sr.",
+          "ovr": 85
+        }
+      }
+    },
+    {
+      "id": "BAL",
+      "name": "Baltimore Ravens",
+      "abbr": "BAL",
+      "conference": "AFC",
+      "division": "AFC North",
+      "starters": {
+        "QB": {
+          "name": "Lamar Jackson",
+          "ovr": 99
+        },
+        "RB": {
+          "name": "Derrick Henry",
+          "ovr": 95
+        },
+        "WR1": {
+          "name": "Zay Flowers",
+          "ovr": 86
+        },
+        "WR2": {
+          "name": "Rashod Bateman",
+          "ovr": 74
+        },
+        "WR3": {
+          "name": "Nelson Agholor",
+          "ovr": 71
+        },
+        "TE": {
+          "name": "Mark Andrews",
+          "ovr": 93
+        }
+      }
+    },
+    {
+      "id": "BUF",
+      "name": "Buffalo Bills",
+      "abbr": "BUF",
+      "conference": "AFC",
+      "division": "AFC East",
+      "starters": {
+        "QB": {
+          "name": "Josh Allen",
+          "ovr": 99
+        },
+        "RB": {
+          "name": "James Cook III",
+          "ovr": 87
+        },
+        "WR1": {
+          "name": "Khalil Shakir",
+          "ovr": 82
+        },
+        "WR2": {
+          "name": "Keon Coleman",
+          "ovr": 78
+        },
+        "WR3": {
+          "name": "Khalil Shakir",
+          "ovr": 72
+        },
+        "TE": {
+          "name": "Dalton Kincaid",
+          "ovr": 79
+        }
+      }
+    },
+    {
+      "id": "CAR",
+      "name": "Carolina Panthers",
+      "abbr": "CAR",
+      "conference": "NFC",
+      "division": "NFC South",
+      "starters": {
+        "QB": {
+          "name": "Bryce Young",
+          "ovr": 73
+        },
+        "RB": {
+          "name": "Chuba Hubbard",
+          "ovr": 77
+        },
+        "WR1": {
+          "name": "Tetairoa McMillan",
+          "ovr": 78
+        },
+        "WR2": {
+          "name": "Jalen Coker",
+          "ovr": 71
+        },
+        "WR3": {
+          "name": "Diontae Johnson",
+          "ovr": 72
+        },
+        "TE": {
+          "name": "Ian Thomas",
+          "ovr": 68
+        }
+      }
+    },
+    {
+      "id": "CHI",
+      "name": "Chicago Bears",
+      "abbr": "CHI",
+      "conference": "NFC",
+      "division": "NFC North",
+      "starters": {
+        "QB": {
+          "name": "Caleb Williams",
+          "ovr": 81
+        },
+        "RB": {
+          "name": "D'Andre Swift",
+          "ovr": 83
+        },
+        "WR1": {
+          "name": "Rome Odunze",
+          "ovr": 81
+        },
+        "WR2": {
+          "name": "Luther Burden III",
+          "ovr": 72
+        },
+        "WR3": {
+          "name": "Velus Jones Jr.",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Colston Loveland",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "CIN",
+      "name": "Cincinnati Bengals",
+      "abbr": "CIN",
+      "conference": "AFC",
+      "division": "AFC North",
+      "starters": {
+        "QB": {
+          "name": "Joe Burrow",
+          "ovr": 96
+        },
+        "RB": {
+          "name": "Chase Brown",
+          "ovr": 79
+        },
+        "WR1": {
+          "name": "Ja'Marr Chase",
+          "ovr": 99
+        },
+        "WR2": {
+          "name": "Tee Higgins",
+          "ovr": 89
+        },
+        "WR3": {
+          "name": "Andrei Iosivas",
+          "ovr": 71
+        },
+        "TE": {
+          "name": "Drew Sample",
+          "ovr": 68
+        }
+      }
+    },
+    {
+      "id": "CLE",
+      "name": "Cleveland Browns",
+      "abbr": "CLE",
+      "conference": "AFC",
+      "division": "AFC North",
+      "starters": {
+        "QB": {
+          "name": "Shedeur Sanders",
+          "ovr": 79
+        },
+        "RB": {
+          "name": "Quinshon Judkins",
+          "ovr": 72
+        },
+        "WR1": {
+          "name": "Jerry Jeudy",
+          "ovr": 83
+        },
+        "WR2": {
+          "name": "Amari Cooper",
+          "ovr": 79
+        },
+        "WR3": {
+          "name": "Jamari Thrash",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Harold Fannin Jr.",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "DAL",
+      "name": "Dallas Cowboys",
+      "abbr": "DAL",
+      "conference": "NFC",
+      "division": "NFC East",
+      "starters": {
+        "QB": {
+          "name": "Dak Prescott",
+          "ovr": 91
+        },
+        "RB": {
+          "name": "Javonte Williams",
+          "ovr": 76
+        },
+        "WR1": {
+          "name": "CeeDee Lamb",
+          "ovr": 99
+        },
+        "WR2": {
+          "name": "George Pickens",
+          "ovr": 89
+        },
+        "WR3": {
+          "name": "KaVontae Turpin",
+          "ovr": 72
+        },
+        "TE": {
+          "name": "Jake Ferguson",
+          "ovr": 83
+        }
+      }
+    },
+    {
+      "id": "DEN",
+      "name": "Denver Broncos",
+      "abbr": "DEN",
+      "conference": "AFC",
+      "division": "AFC West",
+      "starters": {
+        "QB": {
+          "name": "Bo Nix",
+          "ovr": 77
+        },
+        "RB": {
+          "name": "J.K. Dobbins",
+          "ovr": 80
+        },
+        "WR1": {
+          "name": "Courtland Sutton",
+          "ovr": 84
+        },
+        "WR2": {
+          "name": "Marvin Mims Jr.",
+          "ovr": 76
+        },
+        "WR3": {
+          "name": "Troy Franklin",
+          "ovr": 74
+        },
+        "TE": {
+          "name": "Adam Trautman",
+          "ovr": 68
+        }
+      }
+    },
+    {
+      "id": "DET",
+      "name": "Detroit Lions",
+      "abbr": "DET",
+      "conference": "NFC",
+      "division": "NFC North",
+      "starters": {
+        "QB": {
+          "name": "Jared Goff",
+          "ovr": 89
+        },
+        "RB": {
+          "name": "Jahmyr Gibbs",
+          "ovr": 90
+        },
+        "WR1": {
+          "name": "Amon-Ra St. Brown",
+          "ovr": 95
+        },
+        "WR2": {
+          "name": "Jameson Williams",
+          "ovr": 82
+        },
+        "WR3": {
+          "name": "Isaac TeSlaa",
+          "ovr": 68
+        },
+        "TE": {
+          "name": "Sam LaPorta",
+          "ovr": 83
+        }
+      }
+    },
+    {
+      "id": "GB",
+      "name": "Green Bay Packers",
+      "abbr": "GB",
+      "conference": "NFC",
+      "division": "NFC North",
+      "starters": {
+        "QB": {
+          "name": "Jordan Love",
+          "ovr": 87
+        },
+        "RB": {
+          "name": "Josh Jacobs",
+          "ovr": 86
+        },
+        "WR1": {
+          "name": "Christian Watson",
+          "ovr": 77
+        },
+        "WR2": {
+          "name": "Jayden Reed",
+          "ovr": 77
+        },
+        "WR3": {
+          "name": "Bo Melton",
+          "ovr": 67
+        },
+        "TE": {
+          "name": "Tucker Kraft",
+          "ovr": 79
+        }
+      }
+    },
+    {
+      "id": "HOU",
+      "name": "Houston Texans",
+      "abbr": "HOU",
+      "conference": "AFC",
+      "division": "AFC South",
+      "starters": {
+        "QB": {
+          "name": "C.J. Stroud",
+          "ovr": 86
+        },
+        "RB": {
+          "name": "Woody Marks",
+          "ovr": 71
+        },
+        "WR1": {
+          "name": "Nico Collins",
+          "ovr": 89
+        },
+        "WR2": {
+          "name": "Jayden Higgins",
+          "ovr": 74
+        },
+        "WR3": {
+          "name": "Xavier Hutchinson",
+          "ovr": 73
+        },
+        "TE": {
+          "name": "Dalton Schultz",
+          "ovr": 79
+        }
+      }
+    },
+    {
+      "id": "IND",
+      "name": "Indianapolis Colts",
+      "abbr": "IND",
+      "conference": "AFC",
+      "division": "AFC South",
+      "starters": {
+        "QB": {
+          "name": "Daniel Jones",
+          "ovr": 73
+        },
+        "RB": {
+          "name": "Jonathan Taylor",
+          "ovr": 94
+        },
+        "WR1": {
+          "name": "Michael Pittman Jr.",
+          "ovr": 82
+        },
+        "WR2": {
+          "name": "Josh Downs",
+          "ovr": 79
+        },
+        "WR3": {
+          "name": "Alec Pierce",
+          "ovr": 75
+        },
+        "TE": {
+          "name": "Tyler Warren",
+          "ovr": 82
+        }
+      }
+    },
+    {
+      "id": "JAX",
+      "name": "Jacksonville Jaguars",
+      "abbr": "JAX",
+      "conference": "AFC",
+      "division": "AFC South",
+      "starters": {
+        "QB": {
+          "name": "Trevor Lawrence",
+          "ovr": 84
+        },
+        "RB": {
+          "name": "Bhayshul Tuten",
+          "ovr": 70
+        },
+        "WR1": {
+          "name": "Brian Thomas Jr.",
+          "ovr": 83
+        },
+        "WR2": {
+          "name": "Jakobi Meyers",
+          "ovr": 79
+        },
+        "WR3": {
+          "name": "Parker Washington",
+          "ovr": 73
+        },
+        "TE": {
+          "name": "Brenton Strange",
+          "ovr": 73
+        }
+      }
+    },
+    {
+      "id": "KC",
+      "name": "Kansas City Chiefs",
+      "abbr": "KC",
+      "conference": "AFC",
+      "division": "AFC West",
+      "starters": {
+        "QB": {
+          "name": "Patrick Mahomes",
+          "ovr": 99
+        },
+        "RB": {
+          "name": "Brashard Smith",
+          "ovr": 70
+        },
+        "WR1": {
+          "name": "Rashee Rice",
+          "ovr": 86
+        },
+        "WR2": {
+          "name": "Xavier Worthy",
+          "ovr": 80
+        },
+        "WR3": {
+          "name": "Tyquan Thornton",
+          "ovr": 70
+        },
+        "TE": {
+          "name": "Travis Kelce",
+          "ovr": 97
+        }
+      }
+    },
+    {
+      "id": "LV",
+      "name": "Las Vegas Raiders",
+      "abbr": "LV",
+      "conference": "AFC",
+      "division": "AFC West",
+      "starters": {
+        "QB": {
+          "name": "Geno Smith",
+          "ovr": 76
+        },
+        "RB": {
+          "name": "Ashton Jeanty",
+          "ovr": 84
+        },
+        "WR1": {
+          "name": "Davante Adams",
+          "ovr": 88
+        },
+        "WR2": {
+          "name": "Tre Tucker",
+          "ovr": 70
+        },
+        "WR3": {
+          "name": "Jakobi Meyers",
+          "ovr": 75
+        },
+        "TE": {
+          "name": "Brock Bowers",
+          "ovr": 91
+        }
+      }
+    },
+    {
+      "id": "LAC",
+      "name": "Los Angeles Chargers",
+      "abbr": "LAC",
+      "conference": "AFC",
+      "division": "AFC West",
+      "starters": {
+        "QB": {
+          "name": "Justin Herbert",
+          "ovr": 93
+        },
+        "RB": {
+          "name": "Omarion Hampton",
+          "ovr": 75
+        },
+        "WR1": {
+          "name": "Ladd McConkey",
+          "ovr": 82
+        },
+        "WR2": {
+          "name": "Quentin Johnston",
+          "ovr": 77
+        },
+        "WR3": {
+          "name": "Quentin Johnston",
+          "ovr": 73
+        },
+        "TE": {
+          "name": "Oronde Gadsden",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "LAR",
+      "name": "Los Angeles Rams",
+      "abbr": "LAR",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Matthew Stafford",
+          "ovr": 85
+        },
+        "RB": {
+          "name": "Kyren Williams",
+          "ovr": 86
+        },
+        "WR1": {
+          "name": "Davante Adams",
+          "ovr": 91
+        },
+        "WR2": {
+          "name": "Puka Nacua",
+          "ovr": 85
+        },
+        "WR3": {
+          "name": "Van Jefferson",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Colby Parkinson",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "MIA",
+      "name": "Miami Dolphins",
+      "abbr": "MIA",
+      "conference": "AFC",
+      "division": "AFC East",
+      "starters": {
+        "QB": {
+          "name": "Quinn Ewers",
+          "ovr": 74
+        },
+        "RB": {
+          "name": "De'Von Achane",
+          "ovr": 88
+        },
+        "WR1": {
+          "name": "Malik Washington",
+          "ovr": 71
+        },
+        "WR2": {
+          "name": "Jaylen Waddle",
+          "ovr": 86
+        },
+        "WR3": {
+          "name": "Tyreek Hill",
+          "ovr": 92
+        },
+        "TE": {
+          "name": "Durham Smythe",
+          "ovr": 69
+        }
+      }
+    },
+    {
+      "id": "MIN",
+      "name": "Minnesota Vikings",
+      "abbr": "MIN",
+      "conference": "NFC",
+      "division": "NFC North",
+      "starters": {
+        "QB": {
+          "name": "J.J. McCarthy",
+          "ovr": 77
+        },
+        "RB": {
+          "name": "Aaron Jones Sr.",
+          "ovr": 83
+        },
+        "WR1": {
+          "name": "Justin Jefferson",
+          "ovr": 99
+        },
+        "WR2": {
+          "name": "Jordan Addison",
+          "ovr": 82
+        },
+        "WR3": {
+          "name": "Jalen Nailor",
+          "ovr": 74
+        },
+        "TE": {
+          "name": "T.J. Hockenson",
+          "ovr": 85
+        }
+      }
+    },
+    {
+      "id": "NE",
+      "name": "New England Patriots",
+      "abbr": "NE",
+      "conference": "AFC",
+      "division": "AFC East",
+      "starters": {
+        "QB": {
+          "name": "Drake Maye",
+          "ovr": 79
+        },
+        "RB": {
+          "name": "Rhamondre Stevenson",
+          "ovr": 83
+        },
+        "WR1": {
+          "name": "DeMario Douglas",
+          "ovr": 74
+        },
+        "WR2": {
+          "name": "Mack Hollins",
+          "ovr": 71
+        },
+        "WR3": {
+          "name": "Kayshon Boutte",
+          "ovr": 70
+        },
+        "TE": {
+          "name": "Hunter Henry",
+          "ovr": 81
+        }
+      }
+    },
+    {
+      "id": "NO",
+      "name": "New Orleans Saints",
+      "abbr": "NO",
+      "conference": "NFC",
+      "division": "NFC South",
+      "starters": {
+        "QB": {
+          "name": "Tyler Shough",
+          "ovr": 70
+        },
+        "RB": {
+          "name": "Alvin Kamara",
+          "ovr": 88
+        },
+        "WR1": {
+          "name": "Chris Olave",
+          "ovr": 87
+        },
+        "WR2": {
+          "name": "Rashid Shaheed",
+          "ovr": 77
+        },
+        "WR3": {
+          "name": "Cedrick Wilson",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Juwan Johnson",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "NYG",
+      "name": "New York Giants",
+      "abbr": "NYG",
+      "conference": "NFC",
+      "division": "NFC East",
+      "starters": {
+        "QB": {
+          "name": "Jaxson Dart",
+          "ovr": 72
+        },
+        "RB": {
+          "name": "Devin Singletary",
+          "ovr": 78
+        },
+        "WR1": {
+          "name": "Darius Slayton",
+          "ovr": 74
+        },
+        "WR2": {
+          "name": "Jalin Hyatt",
+          "ovr": 71
+        },
+        "WR3": {
+          "name": "Wan'Dale Robinson",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Theo Johnson",
+          "ovr": 73
+        }
+      }
+    },
+    {
+      "id": "NYJ",
+      "name": "New York Jets",
+      "abbr": "NYJ",
+      "conference": "AFC",
+      "division": "AFC East",
+      "starters": {
+        "QB": {
+          "name": "Tyrod Taylor",
+          "ovr": 71
+        },
+        "RB": {
+          "name": "Breece Hall",
+          "ovr": 88
+        },
+        "WR1": {
+          "name": "Garrett Wilson",
+          "ovr": 89
+        },
+        "WR2": {
+          "name": "Adonai Mitchell",
+          "ovr": 78
+        },
+        "WR3": {
+          "name": "Allen Lazard",
+          "ovr": 71
+        },
+        "TE": {
+          "name": "Jeremy Ruckert",
+          "ovr": 70
+        }
+      }
+    },
+    {
+      "id": "PHI",
+      "name": "Philadelphia Eagles",
+      "abbr": "PHI",
+      "conference": "NFC",
+      "division": "NFC East",
+      "starters": {
+        "QB": {
+          "name": "Jalen Hurts",
+          "ovr": 94
+        },
+        "RB": {
+          "name": "Saquon Barkley",
+          "ovr": 97
+        },
+        "WR1": {
+          "name": "DeVonta Smith",
+          "ovr": 90
+        },
+        "WR2": {
+          "name": "Jahan Dotson",
+          "ovr": 79
+        },
+        "WR3": {
+          "name": "Britain Covey",
+          "ovr": 67
+        },
+        "TE": {
+          "name": "Dallas Goedert",
+          "ovr": 91
+        }
+      }
+    },
+    {
+      "id": "PIT",
+      "name": "Pittsburgh Steelers",
+      "abbr": "PIT",
+      "conference": "AFC",
+      "division": "AFC North",
+      "starters": {
+        "QB": {
+          "name": "Aaron Rodgers",
+          "ovr": 82
+        },
+        "RB": {
+          "name": "Jaylen Warren",
+          "ovr": 77
+        },
+        "WR1": {
+          "name": "DK Metcalf",
+          "ovr": 93
+        },
+        "WR2": {
+          "name": "Mike Williams",
+          "ovr": 70
+        },
+        "WR3": {
+          "name": "Scotty Miller",
+          "ovr": 67
+        },
+        "TE": {
+          "name": "Pat Freiermuth",
+          "ovr": 82
+        }
+      }
+    },
+    {
+      "id": "SF",
+      "name": "San Francisco 49ers",
+      "abbr": "SF",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Brock Purdy",
+          "ovr": 87
+        },
+        "RB": {
+          "name": "Christian McCaffrey",
+          "ovr": 99
+        },
+        "WR1": {
+          "name": "Brandon Aiyuk",
+          "ovr": 90
+        },
+        "WR2": {
+          "name": "Mike Evans",
+          "ovr": 84
+        },
+        "WR3": {
+          "name": "Ricky Pearsall",
+          "ovr": 73
+        },
+        "TE": {
+          "name": "George Kittle",
+          "ovr": 97
+        }
+      }
+    },
+    {
+      "id": "SEA",
+      "name": "Seattle Seahawks",
+      "abbr": "SEA",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Sam Darnold",
+          "ovr": 80
+        },
+        "RB": {
+          "name": "Zach Charbonnet",
+          "ovr": 80
+        },
+        "WR1": {
+          "name": "Jaxon Smith-Njigba",
+          "ovr": 88
+        },
+        "WR2": {
+          "name": "Cooper Kupp",
+          "ovr": 87
+        },
+        "WR3": {
+          "name": "Rashid Shaheed",
+          "ovr": 76
+        },
+        "TE": {
+          "name": "AJ Barner",
+          "ovr": 71
+        }
+      }
+    },
+    {
+      "id": "TB",
+      "name": "Tampa Bay Buccaneers",
+      "abbr": "TB",
+      "conference": "NFC",
+      "division": "NFC South",
+      "starters": {
+        "QB": {
+          "name": "Baker Mayfield",
+          "ovr": 80
+        },
+        "RB": {
+          "name": "Bucky Irving",
+          "ovr": 80
+        },
+        "WR1": {
+          "name": "Chris Godwin",
+          "ovr": 83
+        },
+        "WR2": {
+          "name": "Mike Evans",
+          "ovr": 89
+        },
+        "WR3": {
+          "name": "Emeka Egbuka",
+          "ovr": 77
+        },
+        "TE": {
+          "name": "Cade Otton",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "TEN",
+      "name": "Tennessee Titans",
+      "abbr": "TEN",
+      "conference": "AFC",
+      "division": "AFC South",
+      "starters": {
+        "QB": {
+          "name": "Cam Ward",
+          "ovr": 72
+        },
+        "RB": {
+          "name": "Tony Pollard",
+          "ovr": 86
+        },
+        "WR1": {
+          "name": "Chimere Dike",
+          "ovr": 70
+        },
+        "WR2": {
+          "name": "Elic Ayomanor",
+          "ovr": 70
+        },
+        "WR3": {
+          "name": "Treylon Burks",
+          "ovr": 69
+        },
+        "TE": {
+          "name": "Chig Okonkwo",
+          "ovr": 74
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "season": "2025-26",
+  "teams": [
+    {
+      "id": "ATL",
+      "name": "Atlanta Hawks",
+      "abbr": "ATL",
+      "conference": "East",
+      "division": "Southeast",
+      "starters": {
+        "PG": {
+          "name": "Dyson Daniels",
+          "ovr": 78
+        },
+        "SG": {
+          "name": "CJ McCollum",
+          "ovr": 80
+        },
+        "SF": {
+          "name": "Jalen Johnson",
+          "ovr": 78
+        },
+        "PF": {
+          "name": "Zaccharie Risacher",
+          "ovr": 74
+        },
+        "C": {
+          "name": "Clint Capela",
+          "ovr": 78
+        }
+      }
+    },
+    {
+      "id": "BOS",
+      "name": "Boston Celtics",
+      "abbr": "BOS",
+      "conference": "East",
+      "division": "Atlantic",
+      "starters": {
+        "PG": {
+          "name": "Jaylen Brown",
+          "ovr": 91
+        },
+        "SG": {
+          "name": "Derrick White",
+          "ovr": 78
+        },
+        "SF": {
+          "name": "Jayson Tatum",
+          "ovr": 95
+        },
+        "PF": {
+          "name": "Sam Hauser",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Nikola Vucevic",
+          "ovr": 81
+        }
+      }
+    },
+    {
+      "id": "BKN",
+      "name": "Brooklyn Nets",
+      "abbr": "BKN",
+      "conference": "East",
+      "division": "Atlantic",
+      "starters": {
+        "PG": {
+          "name": "Ben Simmons",
+          "ovr": 76
+        },
+        "SG": {
+          "name": "Cam Thomas",
+          "ovr": 82
+        },
+        "SF": {
+          "name": "Mikal Bridges",
+          "ovr": 82
+        },
+        "PF": {
+          "name": "Dorian Finney-Smith",
+          "ovr": 74
+        },
+        "C": {
+          "name": "Nic Claxton",
+          "ovr": 78
+        }
+      }
+    },
+    {
+      "id": "CHA",
+      "name": "Charlotte Hornets",
+      "abbr": "CHA",
+      "conference": "East",
+      "division": "Southeast",
+      "starters": {
+        "PG": {
+          "name": "LaMelo Ball",
+          "ovr": 85
+        },
+        "SG": {
+          "name": "Brandon Miller",
+          "ovr": 81
+        },
+        "SF": {
+          "name": "Miles Bridges",
+          "ovr": 79
+        },
+        "PF": {
+          "name": "Nick Richards",
+          "ovr": 74
+        },
+        "C": {
+          "name": "Mark Williams",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "CHI",
+      "name": "Chicago Bulls",
+      "abbr": "CHI",
+      "conference": "East",
+      "division": "Central",
+      "starters": {
+        "PG": {
+          "name": "Coby White",
+          "ovr": 83
+        },
+        "SG": {
+          "name": "Zach LaVine",
+          "ovr": 87
+        },
+        "SF": {
+          "name": "Dalen Terry",
+          "ovr": 73
+        },
+        "PF": {
+          "name": "Patrick Williams",
+          "ovr": 75
+        },
+        "C": {
+          "name": "Nikola Vucevic",
+          "ovr": 78
+        }
+      }
+    },
+    {
+      "id": "CLE",
+      "name": "Cleveland Cavaliers",
+      "abbr": "CLE",
+      "conference": "East",
+      "division": "Central",
+      "starters": {
+        "PG": {
+          "name": "Donovan Mitchell",
+          "ovr": 91
+        },
+        "SG": {
+          "name": "James Harden",
+          "ovr": 86
+        },
+        "SF": {
+          "name": "Evan Mobley",
+          "ovr": 88
+        },
+        "PF": {
+          "name": "Max Strus",
+          "ovr": 78
+        },
+        "C": {
+          "name": "Jarrett Allen",
+          "ovr": 80
+        }
+      }
+    },
+    {
+      "id": "DAL",
+      "name": "Dallas Mavericks",
+      "abbr": "DAL",
+      "conference": "West",
+      "division": "Southwest",
+      "starters": {
+        "PG": {
+          "name": "Kyrie Irving",
+          "ovr": 86
+        },
+        "SG": {
+          "name": "Klay Thompson",
+          "ovr": 82
+        },
+        "SF": {
+          "name": "Cooper Flagg",
+          "ovr": 81
+        },
+        "PF": {
+          "name": "Daniel Gafford",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Khris Middleton",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "DEN",
+      "name": "Denver Nuggets",
+      "abbr": "DEN",
+      "conference": "West",
+      "division": "Northwest",
+      "starters": {
+        "PG": {
+          "name": "Jamal Murray",
+          "ovr": 86
+        },
+        "SG": {
+          "name": "Tyus Jones",
+          "ovr": 77
+        },
+        "SF": {
+          "name": "Nikola Jokic",
+          "ovr": 98
+        },
+        "PF": {
+          "name": "Aaron Gordon",
+          "ovr": 80
+        },
+        "C": {
+          "name": "Cameron Johnson",
+          "ovr": 80
+        }
+      }
+    },
+    {
+      "id": "DET",
+      "name": "Detroit Pistons",
+      "abbr": "DET",
+      "conference": "East",
+      "division": "Central",
+      "starters": {
+        "PG": {
+          "name": "Cade Cunningham",
+          "ovr": 87
+        },
+        "SG": {
+          "name": "Caris LeVert",
+          "ovr": 76
+        },
+        "SF": {
+          "name": "Ausar Thompson",
+          "ovr": 75
+        },
+        "PF": {
+          "name": "Jalen Duren",
+          "ovr": 75
+        },
+        "C": {
+          "name": "Tobias Harris",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "GS",
+      "name": "Golden State Warriors",
+      "abbr": "GSW",
+      "conference": "West",
+      "division": "Pacific",
+      "starters": {
+        "PG": {
+          "name": "Stephen Curry",
+          "ovr": 96
+        },
+        "SG": {
+          "name": "Brandin Podziemski",
+          "ovr": 76
+        },
+        "SF": {
+          "name": "Jimmy Butler III",
+          "ovr": 86
+        },
+        "PF": {
+          "name": "Draymond Green",
+          "ovr": 83
+        },
+        "C": {
+          "name": "Kristaps Porzingis",
+          "ovr": 82
+        }
+      }
+    },
+    {
+      "id": "HOU",
+      "name": "Houston Rockets",
+      "abbr": "HOU",
+      "conference": "West",
+      "division": "Southwest",
+      "starters": {
+        "PG": {
+          "name": "Amen Thompson",
+          "ovr": 76
+        },
+        "SG": {
+          "name": "Reed Sheppard",
+          "ovr": 72
+        },
+        "SF": {
+          "name": "Kevin Durant",
+          "ovr": 95
+        },
+        "PF": {
+          "name": "Alperen Sengun",
+          "ovr": 85
+        },
+        "C": {
+          "name": "Jabari Smith Jr.",
+          "ovr": 80
+        }
+      }
+    },
+    {
+      "id": "IND",
+      "name": "Indiana Pacers",
+      "abbr": "IND",
+      "conference": "East",
+      "division": "Central",
+      "starters": {
+        "PG": {
+          "name": "Aaron Nesmith",
+          "ovr": 79
+        },
+        "SG": {
+          "name": "Andrew Nembhard",
+          "ovr": 75
+        },
+        "SF": {
+          "name": "Pascal Siakam",
+          "ovr": 86
+        },
+        "PF": {
+          "name": "Obi Toppin",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Ivica Zubac",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "LAC",
+      "name": "LA Clippers",
+      "abbr": "LAC",
+      "conference": "West",
+      "division": "Pacific",
+      "starters": {
+        "PG": {
+          "name": "Darius Garland",
+          "ovr": 87
+        },
+        "SG": {
+          "name": "Bradley Beal",
+          "ovr": 84
+        },
+        "SF": {
+          "name": "Kawhi Leonard",
+          "ovr": 93
+        },
+        "PF": {
+          "name": "Brook Lopez",
+          "ovr": 80
+        },
+        "C": {
+          "name": "Bennedict Mathurin",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "LAL",
+      "name": "Los Angeles Lakers",
+      "abbr": "LAL",
+      "conference": "West",
+      "division": "Pacific",
+      "starters": {
+        "PG": {
+          "name": "Luka Doncic",
+          "ovr": 96
+        },
+        "SG": {
+          "name": "Austin Reaves",
+          "ovr": 80
+        },
+        "SF": {
+          "name": "LeBron James",
+          "ovr": 96
+        },
+        "PF": {
+          "name": "Deandre Ayton",
+          "ovr": 78
+        },
+        "C": {
+          "name": "Rui Hachimura",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "MEM",
+      "name": "Memphis Grizzlies",
+      "abbr": "MEM",
+      "conference": "West",
+      "division": "Southwest",
+      "starters": {
+        "PG": {
+          "name": "Ja Morant",
+          "ovr": 91
+        },
+        "SG": {
+          "name": "Kentavious Caldwell-Pope",
+          "ovr": 77
+        },
+        "SF": {
+          "name": "Santi Aldama",
+          "ovr": 77
+        },
+        "PF": {
+          "name": "Scotty Pippen Jr.",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Ty Jerome",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "MIA",
+      "name": "Miami Heat",
+      "abbr": "MIA",
+      "conference": "East",
+      "division": "Southeast",
+      "starters": {
+        "PG": {
+          "name": "Tyler Herro",
+          "ovr": 84
+        },
+        "SG": {
+          "name": "Norman Powell",
+          "ovr": 79
+        },
+        "SF": {
+          "name": "Bam Adebayo",
+          "ovr": 89
+        },
+        "PF": {
+          "name": "Andrew Wiggins",
+          "ovr": 81
+        },
+        "C": {
+          "name": "Nikola Jovic",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "MIL",
+      "name": "Milwaukee Bucks",
+      "abbr": "MIL",
+      "conference": "East",
+      "division": "Central",
+      "starters": {
+        "PG": {
+          "name": "Gary Trent Jr.",
+          "ovr": 76
+        },
+        "SG": {
+          "name": "Kevin Porter Jr.",
+          "ovr": 73
+        },
+        "SF": {
+          "name": "Kyle Kuzma",
+          "ovr": 79
+        },
+        "PF": {
+          "name": "Giannis Antetokounmpo",
+          "ovr": 97
+        },
+        "C": {
+          "name": "Myles Turner",
+          "ovr": 79
+        }
+      }
+    },
+    {
+      "id": "MIN",
+      "name": "Minnesota Timberwolves",
+      "abbr": "MIN",
+      "conference": "West",
+      "division": "Northwest",
+      "starters": {
+        "PG": {
+          "name": "Anthony Edwards",
+          "ovr": 95
+        },
+        "SG": {
+          "name": "Ayo Dosunmu",
+          "ovr": 76
+        },
+        "SF": {
+          "name": "Rudy Gobert",
+          "ovr": 85
+        },
+        "PF": {
+          "name": "Julius Randle",
+          "ovr": 81
+        },
+        "C": {
+          "name": "Jaden McDaniels",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "NOP",
+      "name": "New Orleans Pelicans",
+      "abbr": "NOP",
+      "conference": "West",
+      "division": "Southwest",
+      "starters": {
+        "PG": {
+          "name": "Dejounte Murray",
+          "ovr": 83
+        },
+        "SG": {
+          "name": "Jordan Poole",
+          "ovr": 81
+        },
+        "SF": {
+          "name": "Zion Williamson",
+          "ovr": 86
+        },
+        "PF": {
+          "name": "Trey Murphy III",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Herbert Jones",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "NY",
+      "name": "New York Knicks",
+      "abbr": "NYK",
+      "conference": "East",
+      "division": "Atlantic",
+      "starters": {
+        "PG": {
+          "name": "Jalen Brunson",
+          "ovr": 92
+        },
+        "SG": {
+          "name": "Mikal Bridges",
+          "ovr": 85
+        },
+        "SF": {
+          "name": "Karl-Anthony Towns",
+          "ovr": 91
+        },
+        "PF": {
+          "name": "OG Anunoby",
+          "ovr": 88
+        },
+        "C": {
+          "name": "Jordan Clarkson",
+          "ovr": 79
+        }
+      }
+    },
+    {
+      "id": "OKC",
+      "name": "Oklahoma City Thunder",
+      "abbr": "OKC",
+      "conference": "West",
+      "division": "Northwest",
+      "starters": {
+        "PG": {
+          "name": "Shai Gilgeous-Alexander",
+          "ovr": 97
+        },
+        "SG": {
+          "name": "Jalen Williams",
+          "ovr": 86
+        },
+        "SF": {
+          "name": "Chet Holmgren",
+          "ovr": 86
+        },
+        "PF": {
+          "name": "Alex Caruso",
+          "ovr": 78
+        },
+        "C": {
+          "name": "Isaiah Hartenstein",
+          "ovr": 75
+        }
+      }
+    },
+    {
+      "id": "ORL",
+      "name": "Orlando Magic",
+      "abbr": "ORL",
+      "conference": "East",
+      "division": "Southeast",
+      "starters": {
+        "PG": {
+          "name": "Desmond Bane",
+          "ovr": 81
+        },
+        "SG": {
+          "name": "Jalen Suggs",
+          "ovr": 77
+        },
+        "SF": {
+          "name": "Paolo Banchero",
+          "ovr": 91
+        },
+        "PF": {
+          "name": "Franz Wagner",
+          "ovr": 88
+        },
+        "C": {
+          "name": "Wendell Carter Jr.",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "PHI",
+      "name": "Philadelphia 76ers",
+      "abbr": "PHI",
+      "conference": "East",
+      "division": "Atlantic",
+      "starters": {
+        "PG": {
+          "name": "Tyrese Maxey",
+          "ovr": 89
+        },
+        "SG": {
+          "name": "Kelly Oubre Jr.",
+          "ovr": 77
+        },
+        "SF": {
+          "name": "Joel Embiid",
+          "ovr": 95
+        },
+        "PF": {
+          "name": "Paul George",
+          "ovr": 84
+        },
+        "C": {
+          "name": "Quentin Grimes",
+          "ovr": 72
+        }
+      }
+    },
+    {
+      "id": "PHX",
+      "name": "Phoenix Suns",
+      "abbr": "PHX",
+      "conference": "West",
+      "division": "Pacific",
+      "starters": {
+        "PG": {
+          "name": "Devin Booker",
+          "ovr": 93
+        },
+        "SG": {
+          "name": "Jalen Green",
+          "ovr": 84
+        },
+        "SF": {
+          "name": "Dillon Brooks",
+          "ovr": 78
+        },
+        "PF": {
+          "name": "Grayson Allen",
+          "ovr": 76
+        },
+        "C": {
+          "name": "Royce O'Neale",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "POR",
+      "name": "Portland Trail Blazers",
+      "abbr": "POR",
+      "conference": "West",
+      "division": "Northwest",
+      "starters": {
+        "PG": {
+          "name": "Jrue Holiday",
+          "ovr": 83
+        },
+        "SG": {
+          "name": "Shaedon Sharpe",
+          "ovr": 78
+        },
+        "SF": {
+          "name": "Deni Avdija",
+          "ovr": 77
+        },
+        "PF": {
+          "name": "Jerami Grant",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Scoot Henderson",
+          "ovr": 77
+        }
+      }
+    },
+    {
+      "id": "SAC",
+      "name": "Sacramento Kings",
+      "abbr": "SAC",
+      "conference": "West",
+      "division": "Pacific",
+      "starters": {
+        "PG": {
+          "name": "De'Aaron Fox",
+          "ovr": 89
+        },
+        "SG": {
+          "name": "DeMar DeRozan",
+          "ovr": 82
+        },
+        "SF": {
+          "name": "Domantas Sabonis",
+          "ovr": 88
+        },
+        "PF": {
+          "name": "Keegan Murray",
+          "ovr": 78
+        },
+        "C": {
+          "name": "Zach LaVine",
+          "ovr": 76
+        }
+      }
+    },
+    {
+      "id": "SA",
+      "name": "San Antonio Spurs",
+      "abbr": "SAS",
+      "conference": "West",
+      "division": "Southwest",
+      "starters": {
+        "PG": {
+          "name": "De'Aaron Fox",
+          "ovr": 89
+        },
+        "SG": {
+          "name": "Stephon Castle",
+          "ovr": 76
+        },
+        "SF": {
+          "name": "Keldon Johnson",
+          "ovr": 76
+        },
+        "PF": {
+          "name": "Devin Vassell",
+          "ovr": 77
+        },
+        "C": {
+          "name": "Victor Wembanyama",
+          "ovr": 97
+        }
+      }
+    },
+    {
+      "id": "TOR",
+      "name": "Toronto Raptors",
+      "abbr": "TOR",
+      "conference": "East",
+      "division": "Atlantic",
+      "starters": {
+        "PG": {
+          "name": "Immanuel Quickley",
+          "ovr": 80
+        },
+        "SG": {
+          "name": "Gradey Dick",
+          "ovr": 72
+        },
+        "SF": {
+          "name": "Scottie Barnes",
+          "ovr": 87
+        },
+        "PF": {
+          "name": "Brandon Ingram",
+          "ovr": 84
+        },
+        "C": {
+          "name": "RJ Barrett",
+          "ovr": 82
+        }
+      }
+    },
+    {
+      "id": "UTA",
+      "name": "Utah Jazz",
+      "abbr": "UTA",
+      "conference": "West",
+      "division": "Northwest",
+      "starters": {
+        "PG": {
+          "name": "Keyonte George",
+          "ovr": 75
+        },
+        "SG": {
+          "name": "Isaiah Collier",
+          "ovr": 73
+        },
+        "SF": {
+          "name": "Jaren Jackson Jr.",
+          "ovr": 88
+        },
+        "PF": {
+          "name": "Lauri Markkanen",
+          "ovr": 85
+        },
+        "C": {
+          "name": "Walker Kessler",
+          "ovr": 74
+        }
+      }
+    },
+    {
+      "id": "WAS",
+      "name": "Washington Wizards",
+      "abbr": "WAS",
+      "conference": "East",
+      "division": "Southeast",
+      "starters": {
+        "PG": {
+          "name": "Trae Young",
+          "ovr": 91
+        },
+        "SG": {
+          "name": "D'Angelo Russell",
+          "ovr": 81
+        },
+        "SF": {
+          "name": "Anthony Davis",
+          "ovr": 84
+        },
+        "PF": {
+          "name": "Bilal Coulibaly",
+          "ovr": 76
+        },
+        "C": {
+          "name": "Alex Sarr",
+          "ovr": 74
+        }
+      }
+    }
+  ]
+}
