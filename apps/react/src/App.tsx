@@ -1,4 +1,4 @@
-import { faDollarSign, faGraduationCap, faMap, faScroll } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faGraduationCap, faMap, faScroll, faStar } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -14,6 +14,7 @@ import {
 import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
 import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
 import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
+import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -311,6 +312,21 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
   if (sportId === "nfl") {
     builtExtraGames.push({
+      label: "Madden",
+      description: "Guess the NFL player from their Madden 26 ratings",
+      icon: faStar,
+      played: hasPlayedTodaysDaily("nfl", MADDEN_VARIANT_ID),
+      onPlayDaily: () => navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID)),
+      onPlayArcade: () => {
+        setGameKey(k => k + 1)
+        navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID))
+      },
+      onShowStats: () =>
+        navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID), {
+          state: { showStats: true } as DailyRouteState,
+        }),
+    })
+    builtExtraGames.push({
       label: "Cap Crunch",
       description: "Guess the NFL team from their salary cap numbers",
       icon: faDollarSign,
@@ -330,6 +346,21 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     })
   }
   if (sportId === "nba") {
+    builtExtraGames.push({
+      label: "NBA 2K",
+      description: "Guess the NBA player from their NBA 2K26 ratings",
+      icon: faStar,
+      played: hasPlayedTodaysDaily("nba", NBA2K_VARIANT_ID),
+      onPlayDaily: () => navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID)),
+      onPlayArcade: () => {
+        setGameKey(k => k + 1)
+        navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID))
+      },
+      onShowStats: () =>
+        navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID), {
+          state: { showStats: true } as DailyRouteState,
+        }),
+    })
     builtExtraGames.push({
       label: "Schooled",
       description: "Guess the NBA team from college logos on the court",

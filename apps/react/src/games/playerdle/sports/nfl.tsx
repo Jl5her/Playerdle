@@ -130,6 +130,7 @@ const nflConfig: SportConfig = {
       id: "madden",
       label: "Madden",
       subtitle: "Guess the NFL player from their Madden 26 ratings in 6 tries",
+      moreGames: true,
       players: maddenPlayersData,
       answerPool: maddenPlayersData.filter(player => maddenAnswerPoolIdSet.has(player.id)),
       columns: [

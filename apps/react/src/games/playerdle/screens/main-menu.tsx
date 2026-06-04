@@ -95,7 +95,7 @@ export default function MainMenu({
       variantId: undefined,
       played: hasPlayedTodaysDaily(sport.id, undefined),
     },
-    ...variants.map(variant => ({
+    ...variants.filter(v => !v.moreGames).map(variant => ({
       variantLabel: variant.label,
       variantId: variant.id,
       played: hasPlayedTodaysDaily(sport.id, variant.id),

@@ -131,6 +131,7 @@ const nbaConfig: SportConfig = {
       id: "nba2k",
       label: "NBA 2K",
       subtitle: "Guess the NBA player from their NBA 2K26 ratings in 6 tries",
+      moreGames: true,
       players: nba2kPlayersData,
       answerPool: nba2kPlayersData.filter(player => nba2kAnswerPoolIdSet.has(player.id)),
       columns: [
