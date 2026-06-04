@@ -407,17 +407,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5266690",
-    "name": "Andrew Morris",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RP",
-    "number": 78,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4872683",
     "name": "Andrew Painter",
     "conference": "NL",
@@ -514,6 +503,17 @@
     "teamAbbr": "BAL",
     "position": "RP",
     "number": 66,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:41194",
+    "name": "Anthony Seigler",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "2B",
+    "number": 48,
     "league": "AL"
   },
   {
@@ -1672,17 +1672,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4084958",
-    "name": "Chris Murphy",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RP",
-    "number": 38,
-    "league": "AL"
-  },
-  {
     "id": "mlb:35999",
     "name": "Chris Paddack",
     "conference": "NL",
@@ -2483,6 +2472,17 @@
     "teamAbbr": "ATL",
     "position": "RP",
     "number": 52,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4414123",
+    "name": "Dylan Smith",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 66,
     "league": "NL"
   },
   {
@@ -4070,6 +4070,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41375",
+    "name": "Joey Gerber",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 56,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42958",
     "name": "Joey Ortiz",
     "conference": "NL",
@@ -4134,17 +4145,6 @@
     "position": "C",
     "number": 15,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5214984",
-    "name": "Jonah Tong",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "SP",
-    "number": 21,
-    "league": "NL"
   },
   {
     "id": "mlb:40810",
@@ -5302,7 +5302,7 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5195197",
+    "id": "mlb:5048843",
     "name": "Mason Barnett",
     "conference": "AL",
     "division": "West",
@@ -5321,6 +5321,17 @@
     "teamAbbr": "KC",
     "position": "RP",
     "number": 47,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:41386",
+    "name": "Mason Englert",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 59,
     "league": "AL"
   },
   {
@@ -5399,17 +5410,6 @@
     "position": "RP",
     "number": 52,
     "league": "AL"
-  },
-  {
-    "id": "mlb:40337",
-    "name": "Matt Gage",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 93,
-    "league": "NL"
   },
   {
     "id": "mlb:4422899",
@@ -5918,17 +5918,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:31187",
-    "name": "Nick Castellanos",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RF",
-    "number": 21,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41674",
     "name": "Nick Fortes",
     "conference": "AL",
@@ -6006,17 +5995,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42979",
-    "name": "Nick Sogard",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "3B",
-    "number": 20,
-    "league": "AL"
-  },
-  {
     "id": "mlb:38106",
     "name": "Nicky Lopez",
     "conference": "AL",
@@ -6056,7 +6034,7 @@
     "division": "Central",
     "team": "Cincinnati Reds",
     "teamAbbr": "CIN",
-    "position": "RF",
+    "position": "OF",
     "number": 4,
     "league": "NL"
   },
@@ -6600,17 +6578,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:36025",
-    "name": "Rob Zastryzny",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 58,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32175",
     "name": "Robbie Ray",
     "conference": "NL",
@@ -6631,6 +6598,17 @@
     "position": "RP",
     "number": 54,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4918251",
+    "name": "Robert Gasser",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "SP",
+    "number": 54,
+    "league": "NL"
   },
   {
     "id": "mlb:4148749",
@@ -6908,17 +6886,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5221123",
-    "name": "Sam Aldegheri",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 61,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5207167",
     "name": "Sam Antonacci",
     "conference": "AL",
@@ -6960,6 +6927,17 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 50,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:39710",
+    "name": "Samad Taylor",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "2B",
+    "number": 0,
     "league": "NL"
   },
   {
@@ -7139,6 +7117,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:39681",
+    "name": "Shaun Anderson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "RP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33499",
     "name": "Shawn Armstrong",
     "conference": "AL",
@@ -7167,7 +7156,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "DH",
+    "position": "SP",
     "number": 17,
     "league": "NL"
   },
@@ -7557,17 +7546,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36020",
-    "name": "TJ Friedl",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "CF",
-    "number": 29,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5014349",
     "name": "TJ Rumfield",
     "conference": "NL",
@@ -7686,17 +7664,6 @@
     "teamAbbr": "MIN",
     "position": "LF",
     "number": 9,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5201553",
-    "name": "Trevor Martin",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RP",
-    "number": 70,
     "league": "AL"
   },
   {
