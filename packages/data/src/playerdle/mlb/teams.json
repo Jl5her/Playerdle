@@ -14,11 +14,13 @@
     "id": "11",
     "name": "Athletics",
     "abbr": "ATH",
+    "state": "NV",
     "conference": "AL",
     "division": "West",
     "colors": [
       "#003831",
-      "#efb21e"
+      "#efb21e",
+      "transparent"
     ]
   },
   {
