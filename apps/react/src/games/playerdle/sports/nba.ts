@@ -1,6 +1,8 @@
 import nbaAnswerPoolIds from "@playerdle/data/playerdle/nba/answer_pool.json"
 import nbaFanaticAnswerPoolIds from "@playerdle/data/playerdle/nba/fanatic_answer_pool.json"
 import nbaFanaticPlayers from "@playerdle/data/playerdle/nba/fanatic_players.json"
+import nbaNba2kAnswerPoolIds from "@playerdle/data/playerdle/nba/nba2k_answer_pool.json"
+import nbaNba2kPlayers from "@playerdle/data/playerdle/nba/nba2k_players.json"
 import nbaPlayers from "@playerdle/data/playerdle/nba/players.json"
 import nbaTeams from "@playerdle/data/playerdle/nba/teams.json"
 import type { Player, SportConfig, SportTeam, TeamJson } from "./types"
@@ -10,6 +12,8 @@ const playersData = nbaPlayers as unknown as Player[]
 const answerPoolIdSet = new Set(nbaAnswerPoolIds as unknown as string[])
 const fanaticPlayersData = nbaFanaticPlayers as unknown as Player[]
 const fanaticAnswerPoolIdSet = new Set(nbaFanaticAnswerPoolIds as unknown as string[])
+const nba2kPlayersData = nbaNba2kPlayers as unknown as Player[]
+const nba2kAnswerPoolIdSet = new Set(nbaNba2kAnswerPoolIds as unknown as string[])
 
 const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
@@ -120,6 +124,50 @@ const nbaConfig: SportConfig = {
           key: "ftPct",
           evaluator: { type: "comparison", closeWithin: 2, showDirection: true },
           example: { value: "84.1", arrow: "\u2191", status: "close" },
+        },
+      ],
+    },
+    {
+      id: "nba2k",
+      label: "NBA 2K",
+      subtitle: "Guess the NBA player from their NBA 2K26 ratings in 6 tries",
+      players: nba2kPlayersData,
+      answerPool: nba2kPlayersData.filter(player => nba2kAnswerPoolIdSet.has(player.id)),
+      columns: [
+        {
+          id: "nba2k-ovr",
+          label: "OVR",
+          key: "ovr",
+          evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
+          example: { value: "91", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "nba2k-out",
+          label: "OUT",
+          key: "out",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "84", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "nba2k-ath",
+          label: "ATH",
+          key: "ath",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "88", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "nba2k-ply",
+          label: "PLY",
+          key: "ply",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "82", arrow: "\u2193", status: "close" },
+        },
+        {
+          id: "nba2k-def",
+          label: "DEF",
+          key: "def",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "79", arrow: "\u2191", status: "correct" },
         },
       ],
     },
