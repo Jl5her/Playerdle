@@ -301,7 +301,8 @@
       "#a3dce4",
       "#e9072b"
     ],
-    "state": "WA"
+    "state": "WA",
+    "colorNames": ["Navy", "Ice Blue", "Red"]
   },
   {
     "id": "19",
@@ -375,7 +376,8 @@
       "#344043",
       "#b4975a",
       "transparent"
-    ]
+    ],
+    "colorNames": ["Steel Gray", "Gold", ""]
   },
   {
     "id": "23",

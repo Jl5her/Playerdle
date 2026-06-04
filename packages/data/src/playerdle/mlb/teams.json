@@ -23,7 +23,8 @@
       "#003831",
       "#efb21e",
       "transparent"
-    ]
+    ],
+    "colorNames": ["Green", "Gold", ""]
   },
   {
     "id": "15",
@@ -205,7 +206,8 @@
       "#000000",
       "#ef3340"
     ],
-    "state": "FL"
+    "state": "FL",
+    "colorNames": ["Blue", "Black", "Red"]
   },
   {
     "id": "8",
