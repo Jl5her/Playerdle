@@ -53,6 +53,8 @@ const CollegeFieldCalendar = lazy(() => import("@/games/collegefield/collegefiel
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
+const MADDEN_VARIANT_ID = "madden"
+const NBA2K_VARIANT_ID = "nba2k"
 
 type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
 type RouteScreen = "menu" | "playerdle" | "help"
@@ -104,8 +106,8 @@ function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: 
   if (screen === "menu") {
     return prefix || "/"
   }
-  if (variantId === FANATIC_VARIANT_ID) {
-    return `${prefix}/${FANATIC_VARIANT_ID}`
+  if (variantId) {
+    return `${prefix}/${variantId}`
   }
   return `${prefix}/playerdle`
 }
@@ -613,6 +615,15 @@ function App() {
             />
           }
         />
+        <Route
+          path="/madden"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={MADDEN_VARIANT_ID}
+            />
+          }
+        />
         {/* Legacy /daily and /arcade paths redirect to the unified /playerdle URL. */}
         <Route
           path="/daily"
@@ -676,6 +687,24 @@ function App() {
             <SportRoute
               screen="playerdle"
               variantId={FANATIC_VARIANT_ID}
+            />
+          }
+        />
+        <Route
+          path="/:sport/madden"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={MADDEN_VARIANT_ID}
+            />
+          }
+        />
+        <Route
+          path="/:sport/nba2k"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={NBA2K_VARIANT_ID}
             />
           }
         />
@@ -925,6 +954,14 @@ function App() {
           }
         />
         <Route
+          path="/madden/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={MADDEN_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
           path="/:sport/calendar"
           element={
             <Suspense fallback={<div className="app-viewport" />}>
@@ -937,6 +974,22 @@ function App() {
           element={
             <Suspense fallback={<div className="app-viewport" />}>
               <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/madden/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={MADDEN_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/nba2k/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={NBA2K_VARIANT_ID} />
             </Suspense>
           }
         />
