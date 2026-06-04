@@ -7,8 +7,10 @@
     "division": "West",
     "colors": [
       "#aa182c",
-      "#000000"
-    ]
+      "#000000",
+      "#e3d4ad"
+    ],
+    "state": "AZ"
   },
   {
     "id": "11",
@@ -31,8 +33,10 @@
     "division": "East",
     "colors": [
       "#0c2340",
-      "#ba0c2f"
-    ]
+      "#ba0c2f",
+      "transparent"
+    ],
+    "state": "GA"
   },
   {
     "id": "1",
@@ -42,8 +46,10 @@
     "division": "East",
     "colors": [
       "#df4601",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "MD"
   },
   {
     "id": "2",
@@ -53,8 +59,10 @@
     "division": "East",
     "colors": [
       "#0d2b56",
-      "#bd3039"
-    ]
+      "#bd3039",
+      "transparent"
+    ],
+    "state": "MA"
   },
   {
     "id": "16",
@@ -64,8 +72,10 @@
     "division": "Central",
     "colors": [
       "#0e3386",
-      "#cc3433"
-    ]
+      "#cc3433",
+      "transparent"
+    ],
+    "state": "IL"
   },
   {
     "id": "4",
@@ -75,8 +85,10 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#c4ced4"
-    ]
+      "#c4ced4",
+      "transparent"
+    ],
+    "state": "IL"
   },
   {
     "id": "17",
@@ -86,8 +98,10 @@
     "division": "Central",
     "colors": [
       "#c6011f",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "OH"
   },
   {
     "id": "5",
@@ -97,8 +111,10 @@
     "division": "Central",
     "colors": [
       "#002b5c",
-      "#e31937"
-    ]
+      "#e31937",
+      "transparent"
+    ],
+    "state": "OH"
   },
   {
     "id": "27",
@@ -108,8 +124,10 @@
     "division": "West",
     "colors": [
       "#33006f",
-      "#000000"
-    ]
+      "#000000",
+      "#c4ced4"
+    ],
+    "state": "CO"
   },
   {
     "id": "6",
@@ -119,8 +137,10 @@
     "division": "Central",
     "colors": [
       "#0a2240",
-      "#ff4713"
-    ]
+      "#ff4713",
+      "transparent"
+    ],
+    "state": "MI"
   },
   {
     "id": "18",
@@ -130,8 +150,10 @@
     "division": "West",
     "colors": [
       "#002d62",
-      "#eb6e1f"
-    ]
+      "#eb6e1f",
+      "transparent"
+    ],
+    "state": "TX"
   },
   {
     "id": "7",
@@ -154,8 +176,10 @@
     "division": "West",
     "colors": [
       "#ba0021",
-      "#c4ced4"
-    ]
+      "#c4ced4",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "19",
@@ -165,8 +189,10 @@
     "division": "West",
     "colors": [
       "#005a9c",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "28",
@@ -176,8 +202,10 @@
     "division": "East",
     "colors": [
       "#00a3e0",
-      "#000000"
-    ]
+      "#000000",
+      "#ef3340"
+    ],
+    "state": "FL"
   },
   {
     "id": "8",
@@ -187,8 +215,10 @@
     "division": "Central",
     "colors": [
       "#13294b",
-      "#ffc72c"
-    ]
+      "#ffc72c",
+      "transparent"
+    ],
+    "state": "WI"
   },
   {
     "id": "9",
@@ -198,8 +228,10 @@
     "division": "Central",
     "colors": [
       "#031f40",
-      "#e20e32"
-    ]
+      "#e20e32",
+      "#b9975b"
+    ],
+    "state": "MN"
   },
   {
     "id": "21",
@@ -209,8 +241,10 @@
     "division": "East",
     "colors": [
       "#002d72",
-      "#ff5910"
-    ]
+      "#ff5910",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "10",
@@ -220,8 +254,10 @@
     "division": "East",
     "colors": [
       "#132448",
-      "#c4ced4"
-    ]
+      "#c4ced4",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "22",
@@ -231,8 +267,10 @@
     "division": "East",
     "colors": [
       "#e81828",
-      "#003278"
-    ]
+      "#003278",
+      "transparent"
+    ],
+    "state": "PA"
   },
   {
     "id": "23",
@@ -242,8 +280,10 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#fdb827"
-    ]
+      "#fdb827",
+      "transparent"
+    ],
+    "state": "PA"
   },
   {
     "id": "25",
@@ -253,8 +293,10 @@
     "division": "West",
     "colors": [
       "#2f241d",
-      "#ffc425"
-    ]
+      "#ffc425",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "26",
@@ -264,8 +306,10 @@
     "division": "West",
     "colors": [
       "#000000",
-      "#fd5a1e"
-    ]
+      "#fd5a1e",
+      "#ae8f6f"
+    ],
+    "state": "CA"
   },
   {
     "id": "12",
@@ -275,8 +319,10 @@
     "division": "West",
     "colors": [
       "#005c5c",
-      "#0c2c56"
-    ]
+      "#0c2c56",
+      "#c4ced4"
+    ],
+    "state": "WA"
   },
   {
     "id": "24",
@@ -299,8 +345,10 @@
     "division": "East",
     "colors": [
       "#092c5c",
-      "#8fbce6"
-    ]
+      "#8fbce6",
+      "#f5d130"
+    ],
+    "state": "FL"
   },
   {
     "id": "13",
@@ -310,8 +358,10 @@
     "division": "West",
     "colors": [
       "#003278",
-      "#c0111f"
-    ]
+      "#c0111f",
+      "transparent"
+    ],
+    "state": "TX"
   },
   {
     "id": "14",
