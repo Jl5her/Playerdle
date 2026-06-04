@@ -86,27 +86,26 @@ function OvrBadge({
   }
 
   const sizeDim = {
-    sm: { width: 36, height: 44, fontSize: 11 },
-    md: { width: 48, height: 56, fontSize: 14 },
-    lg: { width: 56, height: 68, fontSize: 17 },
+    sm: { diameter: 36, fontSize: 11 },
+    md: { diameter: 48, fontSize: 14 },
+    lg: { diameter: 56, fontSize: 17 },
   }
-  const { width, height, fontSize } = sizeDim[size]
-  const fillPct = Math.max(2, Math.min(100, ((starter.ovr - 50) / 49) * 100))
+  const { diameter, fontSize } = sizeDim[size]
   const color = ovrColor(starter.ovr)
 
   const borderStyle =
     matchResult === "correct"
-      ? { border: "2px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
+      ? { border: "3px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
       : matchResult === "incorrect"
-        ? { border: "2px solid #6b7280", opacity: 0.55 }
-        : { border: "2px solid rgba(255,255,255,0.35)" }
+        ? { border: "3px solid #4b5563", opacity: 0.45 }
+        : { border: `3px solid ${color}` }
 
   return (
     <>
       <div
         ref={ref}
-        className="relative overflow-hidden rounded-md select-none cursor-pointer transition-opacity"
-        style={{ width, height, backgroundColor: "#111827", ...borderStyle }}
+        className="relative flex items-center justify-center select-none cursor-pointer transition-opacity"
+        style={{ width: diameter, height: diameter, borderRadius: "50%", backgroundColor: "#0f172a", ...borderStyle }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -122,20 +121,12 @@ function OvrBadge({
           }
         }}
       >
-        {/* Gauge fill — rises from bottom */}
-        <div
-          className="absolute bottom-0 left-0 right-0 transition-all duration-500"
-          style={{ height: `${fillPct}%`, backgroundColor: color, opacity: 0.85 }}
-        />
-        {/* OVR number */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="font-black text-white leading-none"
-            style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-          >
-            {starter.ovr}
-          </span>
-        </div>
+        <span
+          className="font-black text-white leading-none"
+          style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+        >
+          {starter.ovr}
+        </span>
       </div>
       {tooltipPos &&
         showTooltip &&
@@ -164,110 +155,62 @@ type FormationPosition = (typeof POSITIONS)[number]
 
 function FootballFormation({ team }: { team: RatedTeam }) {
   const positions: Array<{ pos: FormationPosition; x: string; y: string }> = [
-    { pos: "WR1", x: "10%", y: "43%" },
-    { pos: "WR3", x: "27%", y: "43%" },
-    { pos: "TE", x: "70%", y: "49%" },
-    { pos: "WR2", x: "90%", y: "43%" },
-    { pos: "QB", x: "46%", y: "63%" },
-    { pos: "RB", x: "62%", y: "82%" },
+    { pos: "WR1", x: "8%", y: "39%" },
+    { pos: "WR3", x: "30%", y: "39%" },
+    { pos: "TE", x: "72%", y: "45%" },
+    { pos: "WR2", x: "92%", y: "39%" },
+    { pos: "QB", x: "47%", y: "65%" },
+    { pos: "RB", x: "63%", y: "82%" },
   ]
 
   return (
     <div
       className="relative w-full"
-      style={{ paddingBottom: "76%" }}
+      style={{ paddingBottom: "80%" }}
     >
-      <div
-        className="absolute inset-0 overflow-hidden"
-        style={{ backgroundColor: "#0d2416" }}
-      >
+      <div className="absolute inset-0 overflow-hidden">
         <svg
-          viewBox="0 0 300 228"
+          viewBox="0 0 300 240"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Field stripes */}
+          <rect width="300" height="240" fill="#14472d" />
+          <rect x="0" y="0" width="300" height="48" fill="#1a5c3a" />
+          <rect x="0" y="96" width="300" height="48" fill="#1a5c3a" />
+          <rect x="0" y="192" width="300" height="48" fill="#1a5c3a" />
+          {/* Yard lines */}
+          <line x1="0" y1="48" x2="300" y2="48" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="96" x2="300" y2="96" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="144" x2="300" y2="144" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="192" x2="300" y2="192" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          {/* Hash marks — left (x=96) */}
+          <line x1="96" y1="44" x2="96" y2="52" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="92" x2="96" y2="100" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="140" x2="96" y2="148" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="188" x2="96" y2="196" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          {/* Hash marks — right (x=204) */}
+          <line x1="204" y1="44" x2="204" y2="52" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="92" x2="204" y2="100" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="140" x2="204" y2="148" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="188" x2="204" y2="196" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
           {/* Line of scrimmage */}
-          <line
-            x1="8"
-            y1="107"
-            x2="292"
-            y2="107"
-            stroke="rgba(255,255,255,0.5)"
-            strokeWidth="1.5"
-          />
-          {/* Center snap indicator */}
-          <line
-            x1="120"
-            y1="107"
-            x2="156"
-            y2="107"
-            stroke="rgba(255,255,255,0.85)"
-            strokeWidth="3"
-          />
+          <line x1="0" y1="114" x2="300" y2="114" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
           {/* WR1 go route */}
-          <line
-            x1="30"
-            y1="98"
-            x2="30"
-            y2="22"
-            stroke="rgba(255,255,255,0.38)"
-            strokeWidth="1.5"
-            strokeDasharray="5 3.5"
-          />
-          <polygon
-            points="30,16 26,26 34,26"
-            fill="rgba(255,255,255,0.38)"
-          />
-          {/* WR3 in-route */}
-          <polyline
-            points="81,98 81,56 162,32"
-            fill="none"
-            stroke="rgba(255,255,255,0.38)"
-            strokeWidth="1.5"
-            strokeDasharray="5 3.5"
-          />
-          <polygon
-            points="162,32 154,39 152,31"
-            fill="rgba(255,255,255,0.38)"
-          />
+          <line x1="24" y1="93" x2="24" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="24,14 20,22 28,22" fill="rgba(255,255,255,0.35)" />
+          {/* WR3 in-cut */}
+          <polyline points="90,93 90,52 160,30" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="160,30 153,37 151,29" fill="rgba(255,255,255,0.3)" />
+          {/* TE cross */}
+          <polyline points="216,108 216,68 138,46" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="138,46 148,46 145,55" fill="rgba(255,255,255,0.28)" />
           {/* WR2 go route */}
-          <line
-            x1="270"
-            y1="98"
-            x2="270"
-            y2="22"
-            stroke="rgba(255,255,255,0.38)"
-            strokeWidth="1.5"
-            strokeDasharray="5 3.5"
-          />
-          <polygon
-            points="270,16 266,26 274,26"
-            fill="rgba(255,255,255,0.38)"
-          />
-          {/* TE cross route */}
-          <polyline
-            points="210,112 210,72 132,46"
-            fill="none"
-            stroke="rgba(255,255,255,0.32)"
-            strokeWidth="1.5"
-            strokeDasharray="5 3.5"
-          />
-          <polygon
-            points="132,46 142,45 140,53"
-            fill="rgba(255,255,255,0.32)"
-          />
-          {/* RB swing route */}
-          <path
-            d="M 186 187 Q 226 180 248 166"
-            fill="none"
-            stroke="rgba(255,255,255,0.28)"
-            strokeWidth="1.5"
-            strokeDasharray="4 3.5"
-          />
-          <polygon
-            points="248,166 242,174 238,168"
-            fill="rgba(255,255,255,0.28)"
-          />
+          <line x1="276" y1="93" x2="276" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="276,14 272,22 280,22" fill="rgba(255,255,255,0.35)" />
+          {/* RB swing */}
+          <path d="M 189 197 Q 236 188 256 172" fill="none" stroke="rgba(255,255,255,0.26)" strokeWidth="1.5" strokeDasharray="4 3" />
+          <polygon points="256,172 250,180 246,173" fill="rgba(255,255,255,0.26)" />
         </svg>
       </div>
 
@@ -283,7 +226,10 @@ function FootballFormation({ team }: { team: RatedTeam }) {
               size="lg"
               showTooltip
             />
-            <span className="text-[11px] font-black uppercase tracking-widest text-white drop-shadow leading-none">
+            <span
+              className="text-[10px] font-black uppercase tracking-widest text-white leading-none"
+              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
+            >
               {pos}
             </span>
           </div>
@@ -320,7 +266,7 @@ function PositionCell({
       matchResult={matchResult}
     />
   ) : (
-    <div className="rounded-md bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 56 }} />
+    <div className="bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 48, borderRadius: "50%" }} />
   )
 }
 
@@ -361,8 +307,8 @@ function EmptyRow() {
       {POSITIONS.map(pos => (
         <div
           key={pos}
-          className="rounded-md border border-primary-200 dark:border-primary-700"
-          style={{ width: 48, height: 56 }}
+          className="border border-primary-200 dark:border-primary-700"
+          style={{ width: 48, height: 48, borderRadius: "50%" }}
         />
       ))}
     </div>
@@ -593,9 +539,6 @@ function ResultsPanel({
                   />
                   <span className="text-[9px] font-semibold text-primary-800 dark:text-primary-100 max-w-[3.5rem] text-center leading-tight line-clamp-2">
                     {starter.name}
-                  </span>
-                  <span className="text-[8px] text-primary-500 dark:text-primary-400 font-mono">
-                    {starter.ovr}
                   </span>
                 </div>
               )

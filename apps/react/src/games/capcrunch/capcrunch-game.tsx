@@ -55,7 +55,7 @@ function formatSalary(amount: number): string {
 function PlayerSlot({
   position,
   player,
-  revealed,
+  revealed: _revealed,
 }: {
   position: string
   player: CapCrunchPlayer
@@ -70,7 +70,6 @@ function PlayerSlot({
     return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
   }
 
-  // Dismiss when tapping/clicking anywhere outside this slot
   useEffect(() => {
     if (!tooltipPos) return
     const dismiss = (e: PointerEvent) => {
@@ -86,7 +85,7 @@ function PlayerSlot({
     <>
       <div
         ref={ref}
-        className="flex flex-col items-center gap-0.5 min-w-[3.5rem] select-none"
+        className="flex flex-col items-center gap-0.5 select-none"
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -102,22 +101,26 @@ function PlayerSlot({
           }
         }}
       >
-        <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
-          {position}
-        </div>
-        <div className="w-14 rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5 cursor-pointer">
-          <span className="text-[11px] font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1">
-            {revealed ? player.name : "?"}
-          </span>
-          {revealed && player.number != null && (
-            <span className="text-[10px] font-semibold text-primary-500 dark:text-primary-400 tabular-nums leading-none">
-              #{player.number}
-            </span>
-          )}
-          <span className="text-[11px] font-black text-primary-800 dark:text-primary-100 tabular-nums">
+        <div
+          className="relative flex items-center justify-center cursor-pointer"
+          style={{
+            width: 42,
+            height: 42,
+            borderRadius: "50%",
+            backgroundColor: "#0f172a",
+            border: "2.5px solid rgba(255,255,255,0.55)",
+          }}
+        >
+          <span className="font-black text-white text-[10px] leading-none tabular-nums">
             {formatSalary(player.salary)}
           </span>
         </div>
+        <span
+          className="text-[9px] font-black uppercase tracking-widest text-white leading-none"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
+        >
+          {position}
+        </span>
       </div>
       {tooltipPos &&
         createPortal(
@@ -141,73 +144,60 @@ function PlayerSlot({
 
 function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed: boolean }) {
   return (
-    <div className="flex flex-col items-center gap-3 py-4 px-2 select-none">
-      {/* WRs */}
-      <div className="flex justify-center gap-2">
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[0]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[1]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="WR"
-          player={offense.WR[2]}
-          revealed={revealed}
-        />
+    <div className="relative w-full" style={{ paddingBottom: "75%" }}>
+      {/* Football field background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <svg
+          viewBox="0 0 300 225"
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="300" height="225" fill="#14472d" />
+          <rect x="0" y="0" width="300" height="45" fill="#1a5c3a" />
+          <rect x="0" y="90" width="300" height="45" fill="#1a5c3a" />
+          <rect x="0" y="180" width="300" height="45" fill="#1a5c3a" />
+          <line x1="0" y1="45" x2="300" y2="45" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="90" x2="300" y2="90" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="135" x2="300" y2="135" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="180" x2="300" y2="180" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="96" y1="41" x2="96" y2="49" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="86" x2="96" y2="94" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="131" x2="96" y2="139" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="176" x2="96" y2="184" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="41" x2="204" y2="49" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="86" x2="204" y2="94" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="131" x2="204" y2="139" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="176" x2="204" y2="184" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          {/* Line of scrimmage */}
+          <line x1="0" y1="107" x2="300" y2="107" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
+        </svg>
       </div>
-      {/* OL */}
-      <div className="flex justify-center gap-1.5">
-        <PlayerSlot
-          position="LT"
-          player={offense.OL[0]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="LG"
-          player={offense.OL[1]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="C"
-          player={offense.OL[2]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="RG"
-          player={offense.OL[3]}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="RT"
-          player={offense.OL[4]}
-          revealed={revealed}
-        />
-      </div>
-      {/* QB */}
-      <div className="flex justify-center">
-        <PlayerSlot
-          position="QB"
-          player={offense.QB}
-          revealed={revealed}
-        />
-      </div>
-      {/* RB + TE */}
-      <div className="flex justify-center gap-6">
-        <PlayerSlot
-          position="RB"
-          player={offense.RB}
-          revealed={revealed}
-        />
-        <PlayerSlot
-          position="TE"
-          player={offense.TE}
-          revealed={revealed}
-        />
+
+      {/* Formation rows overlaid on field */}
+      <div className="absolute inset-0 flex flex-col items-center justify-around py-2">
+        {/* WRs */}
+        <div className="flex justify-center gap-3">
+          <PlayerSlot position="WR" player={offense.WR[0]} revealed={revealed} />
+          <PlayerSlot position="WR" player={offense.WR[1]} revealed={revealed} />
+          <PlayerSlot position="WR" player={offense.WR[2]} revealed={revealed} />
+        </div>
+        {/* OL */}
+        <div className="flex justify-center gap-1.5">
+          <PlayerSlot position="LT" player={offense.OL[0]} revealed={revealed} />
+          <PlayerSlot position="LG" player={offense.OL[1]} revealed={revealed} />
+          <PlayerSlot position="C" player={offense.OL[2]} revealed={revealed} />
+          <PlayerSlot position="RG" player={offense.OL[3]} revealed={revealed} />
+          <PlayerSlot position="RT" player={offense.OL[4]} revealed={revealed} />
+        </div>
+        {/* QB */}
+        <div className="flex justify-center">
+          <PlayerSlot position="QB" player={offense.QB} revealed={revealed} />
+        </div>
+        {/* RB + TE */}
+        <div className="flex justify-center gap-8">
+          <PlayerSlot position="RB" player={offense.RB} revealed={revealed} />
+          <PlayerSlot position="TE" player={offense.TE} revealed={revealed} />
+        </div>
       </div>
     </div>
   )
@@ -768,7 +758,7 @@ export default function CapCrunchGame({
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden mt-4 mx-1">
             <Formation
               offense={puzzle.team.offense}
               revealed={gameOver}

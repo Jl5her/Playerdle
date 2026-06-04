@@ -86,27 +86,26 @@ function OvrBadge({
   }
 
   const sizeDim = {
-    sm: { width: 36, height: 44, fontSize: 11 },
-    md: { width: 48, height: 56, fontSize: 14 },
-    lg: { width: 56, height: 68, fontSize: 17 },
+    sm: { diameter: 36, fontSize: 11 },
+    md: { diameter: 48, fontSize: 14 },
+    lg: { diameter: 56, fontSize: 17 },
   }
-  const { width, height, fontSize } = sizeDim[size]
-  const fillPct = Math.max(2, Math.min(100, ((starter.ovr - 50) / 49) * 100))
+  const { diameter, fontSize } = sizeDim[size]
   const color = ovrColor(starter.ovr)
 
   const borderStyle =
     matchResult === "correct"
-      ? { border: "2px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
+      ? { border: "3px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
       : matchResult === "incorrect"
-        ? { border: "2px solid #6b7280", opacity: 0.55 }
-        : { border: "2px solid rgba(255,255,255,0.35)" }
+        ? { border: "3px solid #4b5563", opacity: 0.45 }
+        : { border: `3px solid ${color}` }
 
   return (
     <>
       <div
         ref={ref}
-        className="relative overflow-hidden rounded-md select-none cursor-pointer transition-opacity"
-        style={{ width, height, backgroundColor: "#111827", ...borderStyle }}
+        className="relative flex items-center justify-center select-none cursor-pointer transition-opacity"
+        style={{ width: diameter, height: diameter, borderRadius: "50%", backgroundColor: "#0f172a", ...borderStyle }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -122,20 +121,12 @@ function OvrBadge({
           }
         }}
       >
-        {/* Gauge fill — rises from bottom */}
-        <div
-          className="absolute bottom-0 left-0 right-0 transition-all duration-500"
-          style={{ height: `${fillPct}%`, backgroundColor: color, opacity: 0.85 }}
-        />
-        {/* OVR number */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="font-black text-white leading-none"
-            style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
-          >
-            {starter.ovr}
-          </span>
-        </div>
+        <span
+          className="font-black text-white leading-none"
+          style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+        >
+          {starter.ovr}
+        </span>
       </div>
       {tooltipPos &&
         showTooltip &&
@@ -642,7 +633,7 @@ function PositionCell({
       matchResult={matchResult}
     />
   ) : (
-    <div className="rounded-md bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 56 }} />
+    <div className="bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 48, borderRadius: "50%" }} />
   )
 }
 
@@ -685,8 +676,8 @@ function EmptyRow() {
       {POSITIONS.map(pos => (
         <div
           key={pos}
-          className="rounded-md border border-primary-200 dark:border-primary-700"
-          style={{ width: 48, height: 56 }}
+          className="border border-primary-200 dark:border-primary-700"
+          style={{ width: 48, height: 48, borderRadius: "50%" }}
         />
       ))}
     </div>
