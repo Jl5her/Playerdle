@@ -324,11 +324,13 @@
     "id": "37",
     "name": "Vegas Golden Knights",
     "abbr": "VGK",
+    "state": "NV",
     "conference": "West",
     "division": "Pacific Division",
     "colors": [
       "#344043",
-      "#b4975a"
+      "#b4975a",
+      "transparent"
     ]
   },
   {
