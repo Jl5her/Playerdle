@@ -46,12 +46,12 @@ interface Props {
 
 // ---- OVR badge ----
 
-function ovrBg(ovr: number): string {
-  if (ovr >= 95) return "#f59e0b"
-  if (ovr >= 85) return "#3b82f6"
-  if (ovr >= 75) return "#16a34a"
-  if (ovr >= 65) return "#6b7280"
-  return "#9ca3af"
+function ovrColor(ovr: number): string {
+  if (ovr >= 95) return "#16a34a"
+  if (ovr >= 85) return "#84cc16"
+  if (ovr >= 75) return "#eab308"
+  if (ovr >= 65) return "#f97316"
+  return "#ef4444"
 }
 
 function OvrBadge({
@@ -85,27 +85,28 @@ function OvrBadge({
     return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
   }
 
-  const sizeClasses = { sm: "w-9 h-9", md: "w-12 h-12", lg: "w-14 h-14" }
-  const fontSizes = { lg: 17, md: 14, sm: 11 }
+  const sizeDim = {
+    sm: { width: 36, height: 44, fontSize: 11 },
+    md: { width: 48, height: 56, fontSize: 14 },
+    lg: { width: 56, height: 68, fontSize: 17 },
+  }
+  const { width, height, fontSize } = sizeDim[size]
+  const fillPct = Math.max(2, Math.min(100, ((starter.ovr - 50) / 49) * 100))
+  const color = ovrColor(starter.ovr)
 
-  const borderClass =
+  const borderStyle =
     matchResult === "correct"
-      ? "border-green-500 ring-2 ring-green-400/50"
+      ? { border: "2px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
       : matchResult === "incorrect"
-        ? "border-gray-500"
-        : "border-white/40"
+        ? { border: "2px solid #6b7280", opacity: 0.55 }
+        : { border: "2px solid rgba(255,255,255,0.35)" }
 
   return (
     <>
       <div
         ref={ref}
-        className={clsx(
-          "rounded-full flex items-center justify-center select-none cursor-pointer border-2 transition-colors",
-          sizeClasses[size],
-          borderClass,
-          matchResult === "incorrect" && "opacity-60",
-        )}
-        style={{ backgroundColor: ovrBg(starter.ovr) }}
+        className="relative overflow-hidden rounded-md select-none cursor-pointer transition-opacity"
+        style={{ width, height, backgroundColor: "#111827", ...borderStyle }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -121,12 +122,20 @@ function OvrBadge({
           }
         }}
       >
-        <span
-          className="font-black text-white leading-none"
-          style={{ fontSize: fontSizes[size] }}
-        >
-          {starter.ovr}
-        </span>
+        {/* Gauge fill — rises from bottom */}
+        <div
+          className="absolute bottom-0 left-0 right-0 transition-all duration-500"
+          style={{ height: `${fillPct}%`, backgroundColor: color, opacity: 0.85 }}
+        />
+        {/* OVR number */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span
+            className="font-black text-white leading-none"
+            style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+          >
+            {starter.ovr}
+          </span>
+        </div>
       </div>
       {tooltipPos &&
         showTooltip &&
@@ -311,7 +320,7 @@ function PositionCell({
       matchResult={matchResult}
     />
   ) : (
-    <div className="w-12 h-12 rounded-full bg-primary-200 dark:bg-primary-700" />
+    <div className="rounded-md bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 56 }} />
   )
 }
 
@@ -352,7 +361,8 @@ function EmptyRow() {
       {POSITIONS.map(pos => (
         <div
           key={pos}
-          className="w-12 h-12 rounded-full border border-primary-200 dark:border-primary-700"
+          className="rounded-md border border-primary-200 dark:border-primary-700"
+          style={{ width: 48, height: 56 }}
         />
       ))}
     </div>
