@@ -7,8 +7,10 @@
     "division": "Southeast",
     "colors": [
       "#c8102e",
-      "#fdb927"
-    ]
+      "#fdb927",
+      "#25282a"
+    ],
+    "state": "GA"
   },
   {
     "id": "2",
@@ -18,8 +20,10 @@
     "division": "Atlantic",
     "colors": [
       "#008348",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "MA"
   },
   {
     "id": "17",
@@ -29,8 +33,10 @@
     "division": "Atlantic",
     "colors": [
       "#000000",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "30",
@@ -40,8 +46,10 @@
     "division": "Southeast",
     "colors": [
       "#008ca8",
-      "#1d1060"
-    ]
+      "#1d1060",
+      "#888b8d"
+    ],
+    "state": "NC"
   },
   {
     "id": "4",
@@ -51,8 +59,10 @@
     "division": "Central",
     "colors": [
       "#ce1141",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "IL"
   },
   {
     "id": "5",
@@ -62,8 +72,10 @@
     "division": "Central",
     "colors": [
       "#860038",
-      "#bc945c"
-    ]
+      "#bc945c",
+      "#041e42"
+    ],
+    "state": "OH"
   },
   {
     "id": "6",
@@ -73,8 +85,10 @@
     "division": "Southwest",
     "colors": [
       "#0064b1",
-      "#bbc4ca"
-    ]
+      "#bbc4ca",
+      "#002b5e"
+    ],
+    "state": "TX"
   },
   {
     "id": "7",
@@ -84,8 +98,10 @@
     "division": "Northwest",
     "colors": [
       "#0e2240",
-      "#fec524"
-    ]
+      "#fec524",
+      "#1d428a"
+    ],
+    "state": "CO"
   },
   {
     "id": "8",
@@ -95,8 +111,10 @@
     "division": "Central",
     "colors": [
       "#1d428a",
-      "#c8102e"
-    ]
+      "#c8102e",
+      "transparent"
+    ],
+    "state": "MI"
   },
   {
     "id": "9",
@@ -106,8 +124,10 @@
     "division": "Pacific",
     "colors": [
       "#fdb927",
-      "#1d428a"
-    ]
+      "#1d428a",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "10",
@@ -117,8 +137,10 @@
     "division": "Southwest",
     "colors": [
       "#ce1141",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "TX"
   },
   {
     "id": "11",
@@ -128,8 +150,10 @@
     "division": "Central",
     "colors": [
       "#0c2340",
-      "#ffd520"
-    ]
+      "#ffd520",
+      "transparent"
+    ],
+    "state": "IN"
   },
   {
     "id": "12",
@@ -139,8 +163,10 @@
     "division": "Pacific",
     "colors": [
       "#12173f",
-      "#c8102e"
-    ]
+      "#c8102e",
+      "#003da5"
+    ],
+    "state": "CA"
   },
   {
     "id": "13",
@@ -150,8 +176,10 @@
     "division": "Pacific",
     "colors": [
       "#552583",
-      "#fdb927"
-    ]
+      "#fdb927",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "29",
@@ -161,8 +189,10 @@
     "division": "Southwest",
     "colors": [
       "#5d76a9",
-      "#12173f"
-    ]
+      "#12173f",
+      "#f5b112"
+    ],
+    "state": "TN"
   },
   {
     "id": "14",
@@ -172,8 +202,10 @@
     "division": "Southeast",
     "colors": [
       "#98002e",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "FL"
   },
   {
     "id": "15",
@@ -183,8 +215,10 @@
     "division": "Central",
     "colors": [
       "#00471b",
-      "#eee1c6"
-    ]
+      "#eee1c6",
+      "transparent"
+    ],
+    "state": "WI"
   },
   {
     "id": "16",
@@ -194,8 +228,10 @@
     "division": "Northwest",
     "colors": [
       "#266092",
-      "#79bc43"
-    ]
+      "#79bc43",
+      "#0c2340"
+    ],
+    "state": "MN"
   },
   {
     "id": "3",
@@ -205,8 +241,10 @@
     "division": "Southwest",
     "colors": [
       "#0a2240",
-      "#b4975a"
-    ]
+      "#b4975a",
+      "#c8102e"
+    ],
+    "state": "LA"
   },
   {
     "id": "18",
@@ -216,8 +254,10 @@
     "division": "Atlantic",
     "colors": [
       "#1d428a",
-      "#f58426"
-    ]
+      "#f58426",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "25",
@@ -227,8 +267,10 @@
     "division": "Northwest",
     "colors": [
       "#007ac1",
-      "#ef3b24"
-    ]
+      "#ef3b24",
+      "transparent"
+    ],
+    "state": "OK"
   },
   {
     "id": "19",
@@ -238,8 +280,10 @@
     "division": "Southeast",
     "colors": [
       "#0150b5",
-      "#9ca0a3"
-    ]
+      "#9ca0a3",
+      "transparent"
+    ],
+    "state": "FL"
   },
   {
     "id": "20",
@@ -249,8 +293,10 @@
     "division": "Atlantic",
     "colors": [
       "#1d428a",
-      "#e01234"
-    ]
+      "#e01234",
+      "transparent"
+    ],
+    "state": "PA"
   },
   {
     "id": "21",
@@ -260,8 +306,10 @@
     "division": "Pacific",
     "colors": [
       "#29127a",
-      "#e56020"
-    ]
+      "#e56020",
+      "transparent"
+    ],
+    "state": "AZ"
   },
   {
     "id": "22",
@@ -271,8 +319,10 @@
     "division": "Northwest",
     "colors": [
       "#e03a3e",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "OR"
   },
   {
     "id": "23",
@@ -282,8 +332,10 @@
     "division": "Pacific",
     "colors": [
       "#5a2d81",
-      "#6a7a82"
-    ]
+      "#6a7a82",
+      "#000000"
+    ],
+    "state": "CA"
   },
   {
     "id": "24",
@@ -293,8 +345,10 @@
     "division": "Southwest",
     "colors": [
       "#000000",
-      "#c4ced4"
-    ]
+      "#c4ced4",
+      "transparent"
+    ],
+    "state": "TX"
   },
   {
     "id": "28",
@@ -315,8 +369,10 @@
     "division": "Northwest",
     "colors": [
       "#4e008e",
-      "#79a3dc"
-    ]
+      "#79a3dc",
+      "#000000"
+    ],
+    "state": "UT"
   },
   {
     "id": "27",

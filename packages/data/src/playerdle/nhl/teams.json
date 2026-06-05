@@ -7,8 +7,10 @@
     "division": "Pacific Division",
     "colors": [
       "#fc4c02",
-      "#000000"
-    ]
+      "#000000",
+      "#b9975b"
+    ],
+    "state": "CA"
   },
   {
     "id": "1",
@@ -18,8 +20,10 @@
     "division": "Atlantic Division",
     "colors": [
       "#231f20",
-      "#fdb71a"
-    ]
+      "#fdb71a",
+      "transparent"
+    ],
+    "state": "MA"
   },
   {
     "id": "2",
@@ -29,8 +33,10 @@
     "division": "Atlantic Division",
     "colors": [
       "#00468b",
-      "#fdb71a"
-    ]
+      "#fdb71a",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "3",
@@ -51,8 +57,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#e30426",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "NC"
   },
   {
     "id": "4",
@@ -62,8 +70,10 @@
     "division": "Central Division",
     "colors": [
       "#e31937",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "IL"
   },
   {
     "id": "17",
@@ -73,8 +83,10 @@
     "division": "Central Division",
     "colors": [
       "#860038",
-      "#005ea3"
-    ]
+      "#005ea3",
+      "#a2aaad"
+    ],
+    "state": "CO"
   },
   {
     "id": "29",
@@ -84,8 +96,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#002d62",
-      "#e31937"
-    ]
+      "#e31937",
+      "#a4a9ad"
+    ],
+    "state": "OH"
   },
   {
     "id": "9",
@@ -95,8 +109,10 @@
     "division": "Central Division",
     "colors": [
       "#20864c",
-      "#000000"
-    ]
+      "#000000",
+      "#8f8f8c"
+    ],
+    "state": "TX"
   },
   {
     "id": "5",
@@ -106,8 +122,10 @@
     "division": "Atlantic Division",
     "colors": [
       "#e30526",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "MI"
   },
   {
     "id": "6",
@@ -128,8 +146,10 @@
     "division": "Atlantic Division",
     "colors": [
       "#e51937",
-      "#002d62"
-    ]
+      "#002d62",
+      "#b9975b"
+    ],
+    "state": "FL"
   },
   {
     "id": "8",
@@ -139,8 +159,10 @@
     "division": "Pacific Division",
     "colors": [
       "#121212",
-      "#a2aaad"
-    ]
+      "#a2aaad",
+      "transparent"
+    ],
+    "state": "CA"
   },
   {
     "id": "30",
@@ -150,8 +172,10 @@
     "division": "Central Division",
     "colors": [
       "#124734",
-      "#ae122a"
-    ]
+      "#ae122a",
+      "#eaaa00"
+    ],
+    "state": "MN"
   },
   {
     "id": "10",
@@ -172,8 +196,10 @@
     "division": "Central Division",
     "colors": [
       "#fdba31",
-      "#002d62"
-    ]
+      "#002d62",
+      "transparent"
+    ],
+    "state": "TN"
   },
   {
     "id": "11",
@@ -183,8 +209,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#e30b2b",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "NJ"
   },
   {
     "id": "12",
@@ -194,8 +222,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#00529b",
-      "#f47d31"
-    ]
+      "#f47d31",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "13",
@@ -205,8 +235,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#0056ae",
-      "#e51937"
-    ]
+      "#e51937",
+      "transparent"
+    ],
+    "state": "NY"
   },
   {
     "id": "14",
@@ -227,8 +259,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#fe5823",
-      "#000000"
-    ]
+      "#000000",
+      "transparent"
+    ],
+    "state": "PA"
   },
   {
     "id": "16",
@@ -238,8 +272,10 @@
     "division": "Metropolitan Division",
     "colors": [
       "#000000",
-      "#fdb71a"
-    ]
+      "#fdb71a",
+      "transparent"
+    ],
+    "state": "PA"
   },
   {
     "id": "18",
@@ -249,8 +285,10 @@
     "division": "Pacific Division",
     "colors": [
       "#00788a",
-      "#070707"
-    ]
+      "#070707",
+      "#ea7200"
+    ],
+    "state": "CA"
   },
   {
     "id": "124292",
@@ -260,18 +298,23 @@
     "division": "Pacific Division",
     "colors": [
       "#000d33",
-      "#a3dce4"
-    ]
+      "#a3dce4",
+      "#e9072b"
+    ],
+    "state": "WA",
+    "colorNames": ["Navy", "Ice Blue", "Red"]
   },
   {
     "id": "19",
     "name": "St. Louis Blues",
     "abbr": "STL",
+    "state": "MO",
     "conference": "West",
     "division": "Central Division",
     "colors": [
       "#0070b9",
-      "#fdb71a"
+      "#fdb71a",
+      "transparent"
     ]
   },
   {
@@ -282,8 +325,10 @@
     "division": "Atlantic Division",
     "colors": [
       "#003e7e",
-      "#ffffff"
-    ]
+      "#ffffff",
+      "transparent"
+    ],
+    "state": "FL"
   },
   {
     "id": "21",
@@ -304,8 +349,10 @@
     "division": "Central Division",
     "colors": [
       "#000000",
-      "#7ab2e1"
-    ]
+      "#7ab2e1",
+      "transparent"
+    ],
+    "state": "UT"
   },
   {
     "id": "22",
@@ -322,12 +369,15 @@
     "id": "37",
     "name": "Vegas Golden Knights",
     "abbr": "VGK",
+    "state": "NV",
     "conference": "West",
     "division": "Pacific Division",
     "colors": [
       "#344043",
-      "#b4975a"
-    ]
+      "#b4975a",
+      "transparent"
+    ],
+    "colorNames": ["Steel Gray", "Gold", ""]
   },
   {
     "id": "23",
