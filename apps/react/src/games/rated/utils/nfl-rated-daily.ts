@@ -5,6 +5,9 @@ import { getDateKey, getTodayKey } from "@/shared/utils/time"
 export const POSITIONS = ["QB", "RB", "WR1", "WR2", "WR3", "TE"] as const
 export type Position = (typeof POSITIONS)[number]
 
+export const OL_POSITIONS = ["LT", "LG", "C", "RG", "RT"] as const
+export type OlPosition = (typeof OL_POSITIONS)[number]
+
 export interface RatedStarter {
   name: string
   ovr: number
@@ -16,7 +19,7 @@ export interface RatedTeam {
   abbr: string
   conference: string
   division: string
-  starters: Record<Position, RatedStarter>
+  starters: Record<Position, RatedStarter> & Partial<Record<OlPosition, RatedStarter>>
 }
 
 const NFL_TEAMS: RatedTeam[] = nflData.teams as unknown as RatedTeam[]

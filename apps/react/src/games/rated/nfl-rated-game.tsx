@@ -14,6 +14,7 @@ import {
   saveNflRatedDailyGuesses,
   saveNflRatedResult,
   NFL_RATED_MAX_GUESSES,
+  OL_POSITIONS,
   POSITIONS,
   type NflRatedGuessRecord,
   type NflRatedPuzzle,
@@ -86,26 +87,37 @@ function OvrBadge({
   }
 
   const sizeDim = {
-    sm: { diameter: 36, fontSize: 11 },
-    md: { diameter: 48, fontSize: 14 },
-    lg: { diameter: 56, fontSize: 17 },
+    sm: { diameter: 36, fontSize: 11, strokeWidth: 3.5 },
+    md: { diameter: 48, fontSize: 14, strokeWidth: 4.5 },
+    lg: { diameter: 56, fontSize: 17, strokeWidth: 5 },
   }
-  const { diameter, fontSize } = sizeDim[size]
-  const color = ovrColor(starter.ovr)
+  const { diameter, fontSize, strokeWidth } = sizeDim[size]
+  const r = (diameter - strokeWidth) / 2
+  const circumference = 2 * Math.PI * r
+  const clampedOvr = Math.min(Math.max(starter.ovr, 50), 99)
+  const arcFraction = 0.5 + ((clampedOvr - 50) / 49) * 0.5
+  const arcLength = arcFraction * circumference
 
-  const borderStyle =
+  const arcColor =
     matchResult === "correct"
-      ? { border: "3px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
+      ? "#22c55e"
       : matchResult === "incorrect"
-        ? { border: "3px solid #4b5563", opacity: 0.45 }
-        : { border: `3px solid ${color}` }
+        ? "#6b7280"
+        : ovrColor(starter.ovr)
 
   return (
     <>
       <div
         ref={ref}
         className="relative flex items-center justify-center select-none cursor-pointer transition-opacity"
-        style={{ width: diameter, height: diameter, borderRadius: "50%", backgroundColor: "#0f172a", ...borderStyle }}
+        style={{
+          width: diameter,
+          height: diameter,
+          borderRadius: "50%",
+          backgroundColor: "#0f172a",
+          boxShadow: matchResult === "correct" ? "0 0 0 2px rgba(34,197,94,0.3)" : undefined,
+          opacity: matchResult === "incorrect" ? 0.45 : undefined,
+        }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -121,8 +133,33 @@ function OvrBadge({
           }
         }}
       >
+        <svg
+          width={diameter}
+          height={diameter}
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+        >
+          <circle
+            cx={diameter / 2}
+            cy={diameter / 2}
+            r={r}
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth={strokeWidth}
+          />
+          <circle
+            cx={diameter / 2}
+            cy={diameter / 2}
+            r={r}
+            fill="none"
+            stroke={arcColor}
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
+            strokeDasharray={`${arcLength} ${circumference}`}
+            transform={`rotate(-90 ${diameter / 2} ${diameter / 2})`}
+          />
+        </svg>
         <span
-          className="font-black text-white leading-none"
+          className="font-black text-white leading-none relative"
           style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
         >
           {starter.ovr}
@@ -151,90 +188,94 @@ function OvrBadge({
 
 // ---- Football formation diagram ----
 
-type FormationPosition = (typeof POSITIONS)[number]
+type FormationPosition = (typeof POSITIONS)[number] | (typeof OL_POSITIONS)[number]
 
 function FootballFormation({ team }: { team: RatedTeam }) {
   const positions: Array<{ pos: FormationPosition; x: string; y: string }> = [
-    { pos: "WR1", x: "8%", y: "39%" },
-    { pos: "WR3", x: "30%", y: "39%" },
-    { pos: "TE", x: "72%", y: "45%" },
-    { pos: "WR2", x: "92%", y: "39%" },
-    { pos: "QB", x: "47%", y: "65%" },
-    { pos: "RB", x: "63%", y: "82%" },
+    { pos: "WR1", x: "5%",  y: "42%" },
+    { pos: "WR3", x: "17%", y: "42%" },
+    { pos: "LT",  x: "28%", y: "42%" },
+    { pos: "LG",  x: "39%", y: "42%" },
+    { pos: "C",   x: "50%", y: "42%" },
+    { pos: "RG",  x: "61%", y: "42%" },
+    { pos: "RT",  x: "72%", y: "42%" },
+    { pos: "TE",  x: "83%", y: "46%" },
+    { pos: "WR2", x: "95%", y: "42%" },
+    { pos: "QB",  x: "50%", y: "64%" },
+    { pos: "RB",  x: "63%", y: "81%" },
   ]
+  const starterMap = team.starters as Record<FormationPosition, RatedStarter | undefined>
 
   return (
     <div
       className="relative w-full"
-      style={{ paddingBottom: "80%" }}
+      style={{ paddingBottom: "66.7%" }}
     >
       <div className="absolute inset-0 overflow-hidden">
         <svg
-          viewBox="0 0 300 240"
+          viewBox="0 0 300 200"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Field stripes */}
-          <rect width="300" height="240" fill="#14472d" />
-          <rect x="0" y="0" width="300" height="48" fill="#1a5c3a" />
-          <rect x="0" y="96" width="300" height="48" fill="#1a5c3a" />
-          <rect x="0" y="192" width="300" height="48" fill="#1a5c3a" />
+          <rect width="300" height="200" fill="#14472d" />
+          <rect x="0" y="0" width="300" height="40" fill="#1a5c3a" />
+          <rect x="0" y="80" width="300" height="40" fill="#1a5c3a" />
+          <rect x="0" y="160" width="300" height="40" fill="#1a5c3a" />
           {/* Yard lines */}
-          <line x1="0" y1="48" x2="300" y2="48" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="96" x2="300" y2="96" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="144" x2="300" y2="144" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="192" x2="300" y2="192" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="40" x2="300" y2="40" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="80" x2="300" y2="80" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="120" x2="300" y2="120" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line x1="0" y1="160" x2="300" y2="160" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
           {/* Hash marks — left (x=96) */}
-          <line x1="96" y1="44" x2="96" y2="52" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="92" x2="96" y2="100" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="140" x2="96" y2="148" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="188" x2="96" y2="196" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="36" x2="96" y2="44" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="76" x2="96" y2="84" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="116" x2="96" y2="124" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="96" y1="156" x2="96" y2="164" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
           {/* Hash marks — right (x=204) */}
-          <line x1="204" y1="44" x2="204" y2="52" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="92" x2="204" y2="100" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="140" x2="204" y2="148" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="188" x2="204" y2="196" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="36" x2="204" y2="44" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="76" x2="204" y2="84" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="116" x2="204" y2="124" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line x1="204" y1="156" x2="204" y2="164" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
           {/* Line of scrimmage */}
-          <line x1="0" y1="114" x2="300" y2="114" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
+          <line x1="0" y1="95" x2="300" y2="95" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
           {/* WR1 go route */}
-          <line x1="24" y1="93" x2="24" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="24,14 20,22 28,22" fill="rgba(255,255,255,0.35)" />
-          {/* WR3 in-cut */}
-          <polyline points="90,93 90,52 160,30" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="160,30 153,37 151,29" fill="rgba(255,255,255,0.3)" />
-          {/* TE cross */}
-          <polyline points="216,108 216,68 138,46" fill="none" stroke="rgba(255,255,255,0.28)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="138,46 148,46 145,55" fill="rgba(255,255,255,0.28)" />
+          <line x1="15" y1="80" x2="15" y2="12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="15,8 11,16 19,16" fill="rgba(255,255,255,0.35)" />
           {/* WR2 go route */}
-          <line x1="276" y1="93" x2="276" y2="18" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="276,14 272,22 280,22" fill="rgba(255,255,255,0.35)" />
+          <line x1="285" y1="80" x2="285" y2="12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
+          <polygon points="285,8 281,16 289,16" fill="rgba(255,255,255,0.35)" />
           {/* RB swing */}
-          <path d="M 189 197 Q 236 188 256 172" fill="none" stroke="rgba(255,255,255,0.26)" strokeWidth="1.5" strokeDasharray="4 3" />
-          <polygon points="256,172 250,180 246,173" fill="rgba(255,255,255,0.26)" />
+          <path d="M 189 162 Q 228 150 246 136" fill="none" stroke="rgba(255,255,255,0.26)" strokeWidth="1.5" strokeDasharray="4 3" />
+          <polygon points="246,136 240,144 236,136" fill="rgba(255,255,255,0.26)" />
         </svg>
       </div>
 
-      {positions.map(({ pos, x, y }) => (
-        <div
-          key={pos}
-          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
-          style={{ left: x, top: y }}
-        >
-          <div className="flex flex-col items-center gap-0.5">
-            <OvrBadge
-              starter={team.starters[pos]}
-              size="lg"
-              showTooltip
-            />
-            <span
-              className="text-[10px] font-black uppercase tracking-widest text-white leading-none"
-              style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
-            >
-              {pos}
-            </span>
+      {positions.map(({ pos, x, y }) => {
+        const starter = starterMap[pos]
+        if (!starter) return null
+        return (
+          <div
+            key={pos}
+            className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+            style={{ left: x, top: y }}
+          >
+            <div className="flex flex-col items-center gap-0.5">
+              <OvrBadge
+                starter={starter}
+                size="sm"
+                showTooltip
+              />
+              <span
+                className="text-[9px] font-black uppercase tracking-widest text-white leading-none"
+                style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
+              >
+                {pos}
+              </span>
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

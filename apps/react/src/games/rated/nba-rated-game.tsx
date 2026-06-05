@@ -86,26 +86,37 @@ function OvrBadge({
   }
 
   const sizeDim = {
-    sm: { diameter: 36, fontSize: 11 },
-    md: { diameter: 48, fontSize: 14 },
-    lg: { diameter: 56, fontSize: 17 },
+    sm: { diameter: 36, fontSize: 11, strokeWidth: 3.5 },
+    md: { diameter: 48, fontSize: 14, strokeWidth: 4.5 },
+    lg: { diameter: 56, fontSize: 17, strokeWidth: 5 },
   }
-  const { diameter, fontSize } = sizeDim[size]
-  const color = ovrColor(starter.ovr)
+  const { diameter, fontSize, strokeWidth } = sizeDim[size]
+  const r = (diameter - strokeWidth) / 2
+  const circumference = 2 * Math.PI * r
+  const clampedOvr = Math.min(Math.max(starter.ovr, 50), 99)
+  const arcFraction = 0.5 + ((clampedOvr - 50) / 49) * 0.5
+  const arcLength = arcFraction * circumference
 
-  const borderStyle =
+  const arcColor =
     matchResult === "correct"
-      ? { border: "3px solid #22c55e", boxShadow: "0 0 0 2px rgba(34,197,94,0.3)" }
+      ? "#22c55e"
       : matchResult === "incorrect"
-        ? { border: "3px solid #4b5563", opacity: 0.45 }
-        : { border: `3px solid ${color}` }
+        ? "#6b7280"
+        : ovrColor(starter.ovr)
 
   return (
     <>
       <div
         ref={ref}
         className="relative flex items-center justify-center select-none cursor-pointer transition-opacity"
-        style={{ width: diameter, height: diameter, borderRadius: "50%", backgroundColor: "#0f172a", ...borderStyle }}
+        style={{
+          width: diameter,
+          height: diameter,
+          borderRadius: "50%",
+          backgroundColor: "#0f172a",
+          boxShadow: matchResult === "correct" ? "0 0 0 2px rgba(34,197,94,0.3)" : undefined,
+          opacity: matchResult === "incorrect" ? 0.45 : undefined,
+        }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
         }}
@@ -121,8 +132,33 @@ function OvrBadge({
           }
         }}
       >
+        <svg
+          width={diameter}
+          height={diameter}
+          style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }}
+        >
+          <circle
+            cx={diameter / 2}
+            cy={diameter / 2}
+            r={r}
+            fill="none"
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth={strokeWidth}
+          />
+          <circle
+            cx={diameter / 2}
+            cy={diameter / 2}
+            r={r}
+            fill="none"
+            stroke={arcColor}
+            strokeWidth={strokeWidth}
+            strokeLinecap="round"
+            strokeDasharray={`${arcLength} ${circumference}`}
+            transform={`rotate(-90 ${diameter / 2} ${diameter / 2})`}
+          />
+        </svg>
         <span
-          className="font-black text-white leading-none"
+          className="font-black text-white leading-none relative"
           style={{ fontSize, textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
         >
           {starter.ovr}
