@@ -31,7 +31,12 @@ export default function GameModeButton({ label, played, inProgress, onClick, tit
       title={computedTitle}
       onClick={onClick}
     >
-      <span className="flex flex-col items-center justify-center leading-tight">
+      <span
+        className={clsx(
+          "flex flex-col items-center justify-center leading-tight",
+          inProgress && "bg-primary-900/30 dark:bg-primary-900/40 rounded-full px-3 py-0.5",
+        )}
+      >
         <span className="text-base">{label}</span>
         <span
           className={clsx(

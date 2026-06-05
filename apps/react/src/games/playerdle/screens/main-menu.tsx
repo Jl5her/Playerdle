@@ -274,15 +274,20 @@ export default function MainMenu({
                       aria-hidden="true"
                     />
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div
+                    className={clsx(
+                      "flex-1 min-w-0",
+                      game.inProgress &&
+                        !game.played &&
+                        "bg-primary-900/30 dark:bg-primary-900/40 rounded-xl px-2 py-1 -mx-1",
+                    )}
+                  >
                     <div
                       className={clsx(
                         "font-bold text-sm leading-tight",
                         game.played
                           ? "text-primary-800 dark:text-primary-100"
-                          : game.inProgress
-                            ? "text-primary-50 dark:text-primary-900"
-                            : "text-white dark:text-primary-800",
+                          : "text-white dark:text-primary-800",
                       )}
                     >
                       {game.label}
@@ -292,9 +297,7 @@ export default function MainMenu({
                         "text-xs mt-0.5 leading-snug",
                         game.played
                           ? "text-primary-500 dark:text-primary-400"
-                          : game.inProgress
-                            ? "text-primary-100 dark:text-primary-800"
-                            : "text-white/80 dark:text-primary-700",
+                          : "text-white/80 dark:text-primary-700",
                       )}
                     >
                       {game.description}
