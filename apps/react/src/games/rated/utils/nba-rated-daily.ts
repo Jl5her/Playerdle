@@ -32,6 +32,7 @@ export function getNbaRatedTeamById(id: string): RatedTeam | undefined {
 export const NBA_RATED_EPOCH = "2025-10-01"
 export const NBA_RATED_MAX_GUESSES = 5
 export const OVR_MATCH_THRESHOLD = 7
+export const OVR_CLOSE_MARGIN = 3
 
 const STORAGE_STATE_PREFIX = "playerdle-nba-rated-state"
 const STORAGE_HISTORY_PREFIX = "playerdle-nba-rated-history:v1"
@@ -200,7 +201,7 @@ export function calculateRatedStats(): NbaRatedStats {
   return { played, winPercentage, currentStreak, maxStreak, guessDistribution, losses }
 }
 
-export type PositionResult = "correct" | "incorrect"
+export type PositionResult = "correct" | "close-up" | "close-down" | "incorrect-up" | "incorrect-down"
 
 export interface RatedComparison {
   PG: PositionResult
@@ -213,10 +214,15 @@ export interface RatedComparison {
 export function compareTeamToAnswer(guessed: RatedTeam, answer: RatedTeam): RatedComparison {
   const result = {} as RatedComparison
   for (const pos of POSITIONS) {
-    result[pos] =
-      Math.abs(guessed.starters[pos].ovr - answer.starters[pos].ovr) <= OVR_MATCH_THRESHOLD
-        ? "correct"
-        : "incorrect"
+    const diff = guessed.starters[pos].ovr - answer.starters[pos].ovr
+    const abs = Math.abs(diff)
+    if (abs <= OVR_MATCH_THRESHOLD) {
+      result[pos] = "correct"
+    } else if (abs <= OVR_MATCH_THRESHOLD + OVR_CLOSE_MARGIN) {
+      result[pos] = diff < 0 ? "close-up" : "close-down"
+    } else {
+      result[pos] = diff < 0 ? "incorrect-up" : "incorrect-down"
+    }
   }
   return result
 }

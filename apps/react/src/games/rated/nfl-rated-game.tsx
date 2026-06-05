@@ -98,10 +98,11 @@ function OvrBadge({
   const arcFraction = 0.5 + ((clampedOvr - 50) / 49) * 0.5
   const arcLength = arcFraction * circumference
 
+  const isNonCorrect = matchResult !== undefined && matchResult !== "correct"
   const arcColor =
     matchResult === "correct"
       ? "#22c55e"
-      : matchResult === "incorrect"
+      : isNonCorrect
         ? "#6b7280"
         : ovrColor(starter.ovr)
 
@@ -116,7 +117,7 @@ function OvrBadge({
           borderRadius: "50%",
           backgroundColor: "#0f172a",
           boxShadow: matchResult === "correct" ? "0 0 0 2px rgba(34,197,94,0.3)" : undefined,
-          opacity: matchResult === "incorrect" ? 0.45 : undefined,
+          opacity: isNonCorrect ? 0.45 : undefined,
         }}
         onPointerDown={e => {
           lastPointerTypeRef.current = e.pointerType
@@ -282,6 +283,17 @@ function FootballFormation({ team }: { team: RatedTeam }) {
 
 // ---- Guess row ----
 
+function resultBg(result: PositionResult): string {
+  if (result === "correct") return "bg-success-500 dark:bg-success-600"
+  if (result === "close-up" || result === "close-down") return "bg-warning-500 dark:bg-warning-600"
+  return "bg-error-500 dark:bg-error-600"
+}
+
+function resultArrow(result: PositionResult): string | undefined {
+  if (result === "correct") return undefined
+  return result.endsWith("-up") ? "↑" : "↓"
+}
+
 function PositionCell({
   starter,
   matchResult,
@@ -300,14 +312,24 @@ function PositionCell({
     return () => clearTimeout(t)
   }, [animate, delayMs])
 
-  return revealed ? (
-    <OvrBadge
-      starter={starter}
-      size="md"
-      matchResult={matchResult}
-    />
-  ) : (
-    <div className="bg-primary-200 dark:bg-primary-700" style={{ width: 48, height: 48, borderRadius: "50%" }} />
+  const bgClass = revealed ? resultBg(matchResult) : "bg-primary-200 dark:bg-primary-700"
+  const arrow = revealed ? resultArrow(matchResult) : undefined
+
+  return (
+    <div
+      className={clsx(
+        "flex flex-col items-center justify-center rounded-md select-none transition-colors leading-none",
+        bgClass,
+      )}
+      style={{ width: 48, height: 48 }}
+    >
+      {revealed && (
+        <>
+          <span className="text-sm font-black text-primary-50">{starter.ovr}</span>
+          {arrow && <span className="text-xs text-primary-50 mt-0.5">{arrow}</span>}
+        </>
+      )}
+    </div>
   )
 }
 
@@ -348,8 +370,8 @@ function EmptyRow() {
       {POSITIONS.map(pos => (
         <div
           key={pos}
-          className="border border-primary-200 dark:border-primary-700"
-          style={{ width: 48, height: 48, borderRadius: "50%" }}
+          className="border border-primary-200 dark:border-primary-700 rounded-md"
+          style={{ width: 48, height: 48 }}
         />
       ))}
     </div>
@@ -510,7 +532,14 @@ function buildShareText(
   }).format(new Date())
 
   const emojiGrid = comparisons
-    .map(c => POSITIONS.map(p => (c[p] === "correct" ? "🟩" : "⬜")).join(""))
+    .map(c =>
+      POSITIONS.map(p => {
+        const r = c[p]
+        if (r === "correct") return "🟩"
+        if (r === "close-up" || r === "close-down") return "🟨"
+        return "⬜"
+      }).join(""),
+    )
     .join("\n")
 
   return `Rated NFL (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/rated`
@@ -702,7 +731,7 @@ export default function NflRatedGame({ mode, onModeChange, onGameOver, archiveDa
         const guessedTeam = teamsById.get(g.teamId)
         if (!guessedTeam) {
           return Object.fromEntries(
-            POSITIONS.map(p => [p, "incorrect"]),
+            POSITIONS.map(p => [p, "incorrect-down"]),
           ) as unknown as RatedComparison
         }
         if (guessedTeam.id === puzzle.team.id) {
