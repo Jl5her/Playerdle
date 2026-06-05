@@ -7,8 +7,7 @@
     "team": "New England Patriots",
     "teamAbbr": "NE",
     "position": "WR",
-    "number": 11,
-    "numberBackfilled": true,
+    "number": 1,
     "gp": 15,
     "fppg": 12.1,
     "tgtPerGame": 8.1,
@@ -2214,6 +2213,22 @@
     "tdPerGame": 0.13
   },
   {
+    "id": "nfl:4424106",
+    "name": "Gunner Olszewski",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 80,
+    "gp": 16,
+    "fppg": 1.8,
+    "tgtPerGame": 0.8,
+    "recPerGame": 0.6,
+    "ydsPerGame": 9.1,
+    "tdPerGame": 0.06
+  },
+  {
     "id": "nfl:5083076",
     "name": "Harold Fannin Jr.",
     "conference": "AFC",
@@ -3334,6 +3349,22 @@
     "recPerGame": 1.8,
     "ydsPerGame": 25.3,
     "tdPerGame": 0
+  },
+  {
+    "id": "nfl:3120348",
+    "name": "JuJu Smith-Schuster",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 8,
+    "gp": 17,
+    "fppg": 3.4,
+    "tgtPerGame": 2.6,
+    "recPerGame": 1.9,
+    "ydsPerGame": 20.3,
+    "tdPerGame": 0.06
   },
   {
     "id": "nfl:4365395",
@@ -4762,6 +4793,22 @@
     "recPerGame": 2.8,
     "ydsPerGame": 52.7,
     "tdPerGame": 0.71
+  },
+  {
+    "id": "nfl:2975674",
+    "name": "Robert Tonyan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Pittsburgh Steelers",
+    "teamAbbr": "PIT",
+    "position": "TE",
+    "number": 85,
+    "gp": 16,
+    "fppg": 0,
+    "tgtPerGame": 0.1,
+    "recPerGame": 0.1,
+    "ydsPerGame": 0.1,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4431492",

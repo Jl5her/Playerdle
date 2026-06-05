@@ -53,6 +53,8 @@ export type ColumnEvaluator =
 export interface SportColumn {
   id: string
   label: string
+  /** Optional hover tooltip explaining the column abbreviation (e.g. "SPD → Speed"). */
+  description?: string
   key: string
   renderValue?: ColumnValueRenderer
   evaluator: ColumnEvaluator
@@ -66,6 +68,8 @@ export interface SportVariant {
   players: Player[]
   answerPool: Player[]
   columns: SportColumn[]
+  /** If true, this variant appears in "More Games" instead of the main menu button list */
+  moreGames?: boolean
 }
 
 export interface SportConfig extends SportInfo {

@@ -1,4 +1,4 @@
-import { faDollarSign, faGraduationCap, faMap, faScroll } from "@fortawesome/free-solid-svg-icons"
+import { faDollarSign, faGraduationCap, faMap, faScroll, faStar } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -14,6 +14,9 @@ import {
 import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
 import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
 import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
+import { hasPlayedNflRatedToday } from "@/games/rated/utils/nfl-rated-daily"
+import { hasPlayedNbaRatedToday } from "@/games/rated/utils/nba-rated-daily"
+import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -50,9 +53,15 @@ const CollegeCourtShell = lazy(() => import("@/games/collegecourt/collegecourt-s
 const CollegeCourtCalendar = lazy(() => import("@/games/collegecourt/collegecourt-calendar"))
 const CollegeFieldShell = lazy(() => import("@/games/collegefield/collegefield-shell"))
 const CollegeFieldCalendar = lazy(() => import("@/games/collegefield/collegefield-calendar"))
+const NflRatedShell = lazy(() => import("@/games/rated/nfl-rated-shell"))
+const NbaRatedShell = lazy(() => import("@/games/rated/nba-rated-shell"))
+const NflRatedCalendar = lazy(() => import("@/games/rated/nfl-rated-calendar"))
+const NbaRatedCalendar = lazy(() => import("@/games/rated/nba-rated-calendar"))
 
 const TUTORIAL_SEEN_KEY = "playerdle-tutorial-seen-v2"
 const FANATIC_VARIANT_ID = "fanatic"
+const MADDEN_VARIANT_ID = "madden"
+const NBA2K_VARIANT_ID = "nba2k"
 
 type AppPanel = "guide" | "stats" | "calendar" | "archive-guide"
 type RouteScreen = "menu" | "playerdle" | "help"
@@ -104,8 +113,8 @@ function buildPath(sportId: SportConfig["id"], screen: RouteScreen, variantId?: 
   if (screen === "menu") {
     return prefix || "/"
   }
-  if (variantId === FANATIC_VARIANT_ID) {
-    return `${prefix}/${FANATIC_VARIANT_ID}`
+  if (variantId) {
+    return `${prefix}/${variantId}`
   }
   return `${prefix}/playerdle`
 }
@@ -309,6 +318,30 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
   if (sportId === "nfl") {
     builtExtraGames.push({
+      label: "Madden",
+      description: "Guess the NFL player from their Madden 26 ratings",
+      icon: faStar,
+      played: hasPlayedTodaysDaily("nfl", MADDEN_VARIANT_ID),
+      onPlayDaily: () => navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID)),
+      onPlayArcade: () => {
+        setGameKey(k => k + 1)
+        navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID))
+      },
+      onShowStats: () =>
+        navigate(buildPath("nfl", "playerdle", MADDEN_VARIANT_ID), {
+          state: { showStats: true } as DailyRouteState,
+        }),
+    })
+    builtExtraGames.push({
+      label: "Formation",
+      description: "Guess the NFL team from their Madden 26 starting lineup ratings",
+      icon: faStar,
+      played: hasPlayedNflRatedToday(),
+      onPlayDaily: () => navigate("/rated"),
+      onPlayArcade: () => navigate("/rated/arcade"),
+      onShowStats: () => navigate("/rated"),
+    })
+    builtExtraGames.push({
       label: "Cap Crunch",
       description: "Guess the NFL team from their salary cap numbers",
       icon: faDollarSign,
@@ -328,6 +361,30 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
     })
   }
   if (sportId === "nba") {
+    builtExtraGames.push({
+      label: "NBA 2K",
+      description: "Guess the NBA player from their NBA 2K26 ratings",
+      icon: faStar,
+      played: hasPlayedTodaysDaily("nba", NBA2K_VARIANT_ID),
+      onPlayDaily: () => navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID)),
+      onPlayArcade: () => {
+        setGameKey(k => k + 1)
+        navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID))
+      },
+      onShowStats: () =>
+        navigate(buildPath("nba", "playerdle", NBA2K_VARIANT_ID), {
+          state: { showStats: true } as DailyRouteState,
+        }),
+    })
+    builtExtraGames.push({
+      label: "Lineup",
+      description: "Guess the NBA team from their NBA 2K26 starting lineup ratings",
+      icon: faStar,
+      played: hasPlayedNbaRatedToday(),
+      onPlayDaily: () => navigate("/nba/rated"),
+      onPlayArcade: () => navigate("/nba/rated/arcade"),
+      onShowStats: () => navigate("/nba/rated"),
+    })
     builtExtraGames.push({
       label: "Schooled",
       description: "Guess the NBA team from college logos on the court",
@@ -521,6 +578,26 @@ function CollegeFieldArchiveRoute() {
   )
 }
 
+function NflRatedArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return (
+    <NflRatedShell
+      screen="daily"
+      archiveDateKey={dateKey}
+    />
+  )
+}
+
+function NbaRatedArchiveRoute() {
+  const { dateKey } = useParams<{ dateKey: string }>()
+  return (
+    <NbaRatedShell
+      screen="daily"
+      archiveDateKey={dateKey}
+    />
+  )
+}
+
 interface SportRouteProps {
   screen: RouteScreen
   variantId?: string
@@ -613,6 +690,15 @@ function App() {
             />
           }
         />
+        <Route
+          path="/madden"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={MADDEN_VARIANT_ID}
+            />
+          }
+        />
         {/* Legacy /daily and /arcade paths redirect to the unified /playerdle URL. */}
         <Route
           path="/daily"
@@ -676,6 +762,24 @@ function App() {
             <SportRoute
               screen="playerdle"
               variantId={FANATIC_VARIANT_ID}
+            />
+          }
+        />
+        <Route
+          path="/:sport/madden"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={MADDEN_VARIANT_ID}
+            />
+          }
+        />
+        <Route
+          path="/:sport/nba2k"
+          element={
+            <SportRoute
+              screen="playerdle"
+              variantId={NBA2K_VARIANT_ID}
             />
           }
         />
@@ -925,6 +1029,14 @@ function App() {
           }
         />
         <Route
+          path="/madden/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={MADDEN_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
           path="/:sport/calendar"
           element={
             <Suspense fallback={<div className="app-viewport" />}>
@@ -937,6 +1049,22 @@ function App() {
           element={
             <Suspense fallback={<div className="app-viewport" />}>
               <PlayerCalendar variantId={FANATIC_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/madden/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={MADDEN_VARIANT_ID} />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/:sport/nba2k/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <PlayerCalendar variantId={NBA2K_VARIANT_ID} />
             </Suspense>
           }
         />
@@ -1009,6 +1137,72 @@ function App() {
           element={
             <Suspense fallback={<div className="app-viewport" />}>
               <CollegeFieldArchiveRoute />
+            </Suspense>
+          }
+        />
+        {/* Rated NFL (Formation) game */}
+        <Route
+          path="/rated"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NflRatedShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/rated/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NflRatedShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/rated/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NflRatedCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/rated/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NflRatedArchiveRoute />
+            </Suspense>
+          }
+        />
+        {/* Rated NBA (Lineup) game */}
+        <Route
+          path="/nba/rated"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NbaRatedShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/rated/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NbaRatedShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/rated/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NbaRatedCalendar />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/rated/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <NbaRatedArchiveRoute />
             </Suspense>
           }
         />
