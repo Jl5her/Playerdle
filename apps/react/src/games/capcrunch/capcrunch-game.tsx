@@ -398,7 +398,7 @@ function TeamInput({
   if (disabled) return null
 
   return (
-    <div className="shrink-0 mx-3 mb-3 pb-[max(0rem,env(safe-area-inset-bottom))] bg-primary-50 dark:bg-primary-900">
+    <div className="guess-input-shell shrink-0 mx-3 bg-primary-50 dark:bg-primary-900">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
