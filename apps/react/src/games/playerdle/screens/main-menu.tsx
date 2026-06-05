@@ -245,19 +245,19 @@ export default function MainMenu({
                   type="button"
                   onClick={game.onPlayDaily}
                   className={clsx(
-                    "w-full text-left rounded-2xl border-2 p-4 flex items-center gap-4 transition-colors cursor-pointer",
+                    "w-full text-left rounded-2xl border-2 flex items-center gap-3 transition-colors cursor-pointer",
                     game.played
-                      ? "border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
+                      ? "p-4 border-primary-300 dark:border-primary-600 bg-transparent hover:border-primary-500 dark:hover:border-primary-400"
                       : game.inProgress
-                        ? "border-primary-400 dark:border-primary-500 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,var(--color-primary-300)_6px,var(--color-primary-300)_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-400)_0px,var(--color-primary-400)_6px,var(--color-primary-200)_6px,var(--color-primary-200)_12px)] hover:border-primary-600 dark:hover:border-primary-300"
-                        : "border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
+                        ? "p-2 border-primary-400 dark:border-primary-500 bg-[repeating-linear-gradient(45deg,var(--color-primary-600)_0px,var(--color-primary-600)_6px,var(--color-primary-300)_6px,var(--color-primary-300)_12px)] dark:bg-[repeating-linear-gradient(45deg,var(--color-primary-400)_0px,var(--color-primary-400)_6px,var(--color-primary-200)_6px,var(--color-primary-200)_12px)] hover:border-primary-600 dark:hover:border-primary-300"
+                        : "p-4 border-transparent bg-primary-600 dark:bg-primary-300 hover:bg-primary-700 dark:hover:bg-primary-200",
                   )}
                 >
                   <div
                     className={clsx(
                       "shrink-0 w-11 h-11 rounded-full flex items-center justify-center",
-                      game.played
-                        ? "bg-primary-100 dark:bg-primary-800"
+                      game.played || game.inProgress
+                        ? "bg-primary-50 dark:bg-primary-900"
                         : "bg-white/20 dark:bg-black/15",
                     )}
                   >
@@ -268,7 +268,7 @@ export default function MainMenu({
                         game.played
                           ? "text-primary-600 dark:text-primary-200"
                           : game.inProgress
-                            ? "text-primary-50 dark:text-primary-900"
+                            ? "text-primary-600 dark:text-primary-300"
                             : "text-white dark:text-primary-800",
                       )}
                       aria-hidden="true"
@@ -276,10 +276,10 @@ export default function MainMenu({
                   </div>
                   <div
                     className={clsx(
-                      "flex-1 min-w-0",
-                      game.inProgress &&
-                        !game.played &&
-                        "bg-primary-900/30 dark:bg-primary-900/40 rounded-xl px-2 py-1 -mx-1",
+                      "flex-1 min-w-0 rounded-xl px-3 py-1.5",
+                      game.played || game.inProgress
+                        ? "bg-primary-50 dark:bg-primary-900"
+                        : "bg-white/10 dark:bg-black/10",
                     )}
                   >
                     <div
@@ -287,7 +287,9 @@ export default function MainMenu({
                         "font-bold text-sm leading-tight",
                         game.played
                           ? "text-primary-800 dark:text-primary-100"
-                          : "text-white dark:text-primary-800",
+                          : game.inProgress
+                            ? "text-primary-700 dark:text-primary-100"
+                            : "text-white dark:text-primary-800",
                       )}
                     >
                       {game.label}
@@ -297,7 +299,9 @@ export default function MainMenu({
                         "text-xs mt-0.5 leading-snug",
                         game.played
                           ? "text-primary-500 dark:text-primary-400"
-                          : "text-white/80 dark:text-primary-700",
+                          : game.inProgress
+                            ? "text-primary-500 dark:text-primary-400"
+                            : "text-white/80 dark:text-primary-700",
                       )}
                     >
                       {game.description}
