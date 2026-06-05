@@ -7,24 +7,19 @@
     "division": "West",
     "colors": [
       "#aa182c",
-      "#000000",
-      "#e3d4ad"
-    ],
-    "state": "AZ"
+      "#000000"
+    ]
   },
   {
     "id": "11",
     "name": "Athletics",
     "abbr": "ATH",
-    "state": "NV",
     "conference": "AL",
     "division": "West",
     "colors": [
       "#003831",
-      "#efb21e",
-      "transparent"
-    ],
-    "colorNames": ["Green", "Gold", ""]
+      "#efb21e"
+    ]
   },
   {
     "id": "15",
@@ -34,10 +29,8 @@
     "division": "East",
     "colors": [
       "#0c2340",
-      "#ba0c2f",
-      "transparent"
-    ],
-    "state": "GA"
+      "#ba0c2f"
+    ]
   },
   {
     "id": "1",
@@ -47,10 +40,8 @@
     "division": "East",
     "colors": [
       "#df4601",
-      "#000000",
-      "transparent"
-    ],
-    "state": "MD"
+      "#000000"
+    ]
   },
   {
     "id": "2",
@@ -60,10 +51,8 @@
     "division": "East",
     "colors": [
       "#0d2b56",
-      "#bd3039",
-      "transparent"
-    ],
-    "state": "MA"
+      "#bd3039"
+    ]
   },
   {
     "id": "16",
@@ -73,10 +62,8 @@
     "division": "Central",
     "colors": [
       "#0e3386",
-      "#cc3433",
-      "transparent"
-    ],
-    "state": "IL"
+      "#cc3433"
+    ]
   },
   {
     "id": "4",
@@ -86,10 +73,8 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#c4ced4",
-      "transparent"
-    ],
-    "state": "IL"
+      "#c4ced4"
+    ]
   },
   {
     "id": "17",
@@ -99,10 +84,8 @@
     "division": "Central",
     "colors": [
       "#c6011f",
-      "#ffffff",
-      "transparent"
-    ],
-    "state": "OH"
+      "#ffffff"
+    ]
   },
   {
     "id": "5",
@@ -112,10 +95,8 @@
     "division": "Central",
     "colors": [
       "#002b5c",
-      "#e31937",
-      "transparent"
-    ],
-    "state": "OH"
+      "#e31937"
+    ]
   },
   {
     "id": "27",
@@ -125,10 +106,8 @@
     "division": "West",
     "colors": [
       "#33006f",
-      "#000000",
-      "#c4ced4"
-    ],
-    "state": "CO"
+      "#000000"
+    ]
   },
   {
     "id": "6",
@@ -138,10 +117,8 @@
     "division": "Central",
     "colors": [
       "#0a2240",
-      "#ff4713",
-      "transparent"
-    ],
-    "state": "MI"
+      "#ff4713"
+    ]
   },
   {
     "id": "18",
@@ -151,22 +128,18 @@
     "division": "West",
     "colors": [
       "#002d62",
-      "#eb6e1f",
-      "transparent"
-    ],
-    "state": "TX"
+      "#eb6e1f"
+    ]
   },
   {
     "id": "7",
     "name": "Kansas City Royals",
     "abbr": "KC",
-    "state": "MO",
     "conference": "AL",
     "division": "Central",
     "colors": [
       "#004687",
-      "#7ab2dd",
-      "transparent"
+      "#7ab2dd"
     ]
   },
   {
@@ -177,10 +150,8 @@
     "division": "West",
     "colors": [
       "#ba0021",
-      "#c4ced4",
-      "transparent"
-    ],
-    "state": "CA"
+      "#c4ced4"
+    ]
   },
   {
     "id": "19",
@@ -190,10 +161,8 @@
     "division": "West",
     "colors": [
       "#005a9c",
-      "#ffffff",
-      "transparent"
-    ],
-    "state": "CA"
+      "#ffffff"
+    ]
   },
   {
     "id": "28",
@@ -203,11 +172,8 @@
     "division": "East",
     "colors": [
       "#00a3e0",
-      "#000000",
-      "#ef3340"
-    ],
-    "state": "FL",
-    "colorNames": ["Blue", "Black", "Red"]
+      "#000000"
+    ]
   },
   {
     "id": "8",
@@ -217,10 +183,8 @@
     "division": "Central",
     "colors": [
       "#13294b",
-      "#ffc72c",
-      "transparent"
-    ],
-    "state": "WI"
+      "#ffc72c"
+    ]
   },
   {
     "id": "9",
@@ -230,10 +194,8 @@
     "division": "Central",
     "colors": [
       "#031f40",
-      "#e20e32",
-      "#b9975b"
-    ],
-    "state": "MN"
+      "#e20e32"
+    ]
   },
   {
     "id": "21",
@@ -243,10 +205,8 @@
     "division": "East",
     "colors": [
       "#002d72",
-      "#ff5910",
-      "transparent"
-    ],
-    "state": "NY"
+      "#ff5910"
+    ]
   },
   {
     "id": "10",
@@ -256,10 +216,8 @@
     "division": "East",
     "colors": [
       "#132448",
-      "#c4ced4",
-      "transparent"
-    ],
-    "state": "NY"
+      "#c4ced4"
+    ]
   },
   {
     "id": "22",
@@ -269,10 +227,8 @@
     "division": "East",
     "colors": [
       "#e81828",
-      "#003278",
-      "transparent"
-    ],
-    "state": "PA"
+      "#003278"
+    ]
   },
   {
     "id": "23",
@@ -282,10 +238,8 @@
     "division": "Central",
     "colors": [
       "#000000",
-      "#fdb827",
-      "transparent"
-    ],
-    "state": "PA"
+      "#fdb827"
+    ]
   },
   {
     "id": "25",
@@ -295,10 +249,8 @@
     "division": "West",
     "colors": [
       "#2f241d",
-      "#ffc425",
-      "transparent"
-    ],
-    "state": "CA"
+      "#ffc425"
+    ]
   },
   {
     "id": "26",
@@ -308,10 +260,8 @@
     "division": "West",
     "colors": [
       "#000000",
-      "#fd5a1e",
-      "#ae8f6f"
-    ],
-    "state": "CA"
+      "#fd5a1e"
+    ]
   },
   {
     "id": "12",
@@ -321,22 +271,18 @@
     "division": "West",
     "colors": [
       "#005c5c",
-      "#0c2c56",
-      "#c4ced4"
-    ],
-    "state": "WA"
+      "#0c2c56"
+    ]
   },
   {
     "id": "24",
     "name": "St. Louis Cardinals",
     "abbr": "STL",
-    "state": "MO",
     "conference": "NL",
     "division": "Central",
     "colors": [
       "#be0a14",
-      "#001541",
-      "transparent"
+      "#001541"
     ]
   },
   {
@@ -347,10 +293,8 @@
     "division": "East",
     "colors": [
       "#092c5c",
-      "#8fbce6",
-      "#f5d130"
-    ],
-    "state": "FL"
+      "#8fbce6"
+    ]
   },
   {
     "id": "13",
@@ -360,10 +304,8 @@
     "division": "West",
     "colors": [
       "#003278",
-      "#c0111f",
-      "transparent"
-    ],
-    "state": "TX"
+      "#c0111f"
+    ]
   },
   {
     "id": "14",
