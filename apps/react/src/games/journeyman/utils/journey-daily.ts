@@ -184,6 +184,22 @@ export function hasPlayedJourneyDailyToday(league: JourneyLeague): boolean {
   return localStorage.getItem(playedKey(league)) === getTodayKey()
 }
 
+export function isInProgressJourneyDailyToday(league: JourneyLeague): boolean {
+  migrateLegacyIfNeeded()
+  if (hasPlayedJourneyDailyToday(league)) return false
+  const today = getTodayKey()
+  const stateKey = `playerdle-journey-state:v1:${league}:${today}`
+  try {
+    const raw = localStorage.getItem(stateKey)
+    if (!raw) return false
+    const parsed = JSON.parse(raw)
+    const list = Array.isArray(parsed) ? parsed : (parsed?.guesses ?? [])
+    return Array.isArray(list) && list.length > 0
+  } catch {
+    return false
+  }
+}
+
 export interface JourneyResult {
   date: string
   won: boolean

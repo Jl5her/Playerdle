@@ -82,6 +82,19 @@ export function hasPlayedCollegeCourtToday(): boolean {
   }
 }
 
+export function isInProgressCollegeCourtToday(): boolean {
+  try {
+    if (hasPlayedCollegeCourtToday()) return false
+    const today = getTodayKey()
+    const raw = localStorage.getItem(stateKey(today))
+    if (!raw) return false
+    const parsed = JSON.parse(raw)
+    return Array.isArray(parsed) && parsed.length > 0
+  } catch {
+    return false
+  }
+}
+
 export function markCollegeCourtPlayed() {
   try {
     localStorage.setItem(playedKey(), getTodayKey())
