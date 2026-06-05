@@ -230,3 +230,46 @@ export function compareTeamToAnswer(guessed: RatedTeam, answer: RatedTeam): Rate
   }
   return result
 }
+
+// ---- Grouped comparison (QB | RB | TE | WR avg | OL avg) ----
+
+export const COMPARISON_POSITIONS = ["QB", "RB", "TE", "WR", "OL"] as const
+export type ComparisonPosition = (typeof COMPARISON_POSITIONS)[number]
+
+export function getGroupedOvr(team: RatedTeam, pos: ComparisonPosition): number {
+  if (pos === "QB") return team.starters.QB.ovr
+  if (pos === "RB") return team.starters.RB.ovr
+  if (pos === "TE") return team.starters.TE.ovr
+  if (pos === "WR") {
+    const { WR1, WR2, WR3 } = team.starters
+    return Math.round((WR1.ovr + WR2.ovr + WR3.ovr) / 3)
+  }
+  // OL: average of available OL starters
+  const olMap = team.starters as Record<OlPosition, RatedStarter | undefined>
+  const ovrs = OL_POSITIONS.map(p => olMap[p]?.ovr ?? 0).filter(v => v > 0)
+  return ovrs.length > 0 ? Math.round(ovrs.reduce((a, b) => a + b, 0) / ovrs.length) : 0
+}
+
+export interface GroupedComparison {
+  QB: PositionResult
+  RB: PositionResult
+  TE: PositionResult
+  WR: PositionResult
+  OL: PositionResult
+}
+
+export function compareGroupedToAnswer(guessed: RatedTeam, answer: RatedTeam): GroupedComparison {
+  const result = {} as GroupedComparison
+  for (const pos of COMPARISON_POSITIONS) {
+    const diff = getGroupedOvr(guessed, pos) - getGroupedOvr(answer, pos)
+    const abs = Math.abs(diff)
+    if (abs <= OVR_MATCH_THRESHOLD) {
+      result[pos] = "correct"
+    } else if (abs <= OVR_MATCH_THRESHOLD + OVR_CLOSE_MARGIN) {
+      result[pos] = diff < 0 ? "close-up" : "close-down"
+    } else {
+      result[pos] = diff < 0 ? "incorrect-up" : "incorrect-down"
+    }
+  }
+  return result
+}

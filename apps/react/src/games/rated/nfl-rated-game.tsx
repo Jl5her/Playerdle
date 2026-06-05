@@ -4,7 +4,9 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
   calculateRatedStats,
-  compareTeamToAnswer,
+  COMPARISON_POSITIONS,
+  compareGroupedToAnswer,
+  getGroupedOvr,
   getNflRatedArcadePuzzle,
   getNflRatedDailyPuzzle,
   getNflRatedPuzzleByDateKey,
@@ -19,7 +21,7 @@ import {
   type NflRatedGuessRecord,
   type NflRatedPuzzle,
   type NflRatedStats,
-  type RatedComparison,
+  type GroupedComparison,
   type RatedTeam,
   type RatedStarter,
   type PositionResult,
@@ -295,12 +297,12 @@ function resultArrow(result: PositionResult): string | undefined {
 }
 
 function PositionCell({
-  starter,
+  ovr,
   matchResult,
   delayMs,
   animate,
 }: {
-  starter: RatedStarter
+  ovr: number
   matchResult: PositionResult
   delayMs: number
   animate: boolean
@@ -325,7 +327,7 @@ function PositionCell({
     >
       {revealed && (
         <>
-          <span className="text-sm font-black text-primary-50">{starter.ovr}</span>
+          <span className="text-sm font-black text-primary-50">{ovr}</span>
           {arrow && <span className="text-xs text-primary-50 mt-0.5">{arrow}</span>}
         </>
       )}
@@ -341,7 +343,7 @@ function GuessRow({
 }: {
   teamName: string
   guessedTeam: RatedTeam
-  comparison: RatedComparison
+  comparison: GroupedComparison
   animate?: boolean
 }) {
   return (
@@ -350,10 +352,10 @@ function GuessRow({
         {teamName}
       </div>
       <div className="flex gap-1.5 justify-center">
-        {POSITIONS.map((pos, i) => (
+        {COMPARISON_POSITIONS.map((pos, i) => (
           <PositionCell
             key={pos}
-            starter={guessedTeam.starters[pos]}
+            ovr={getGroupedOvr(guessedTeam, pos)}
             matchResult={comparison[pos]}
             delayMs={i * 80 + 150}
             animate={animate ?? false}
@@ -367,7 +369,7 @@ function GuessRow({
 function EmptyRow() {
   return (
     <div className="flex gap-1.5 justify-center">
-      {POSITIONS.map(pos => (
+      {COMPARISON_POSITIONS.map(pos => (
         <div
           key={pos}
           className="border border-primary-200 dark:border-primary-700 rounded-md"
@@ -519,7 +521,7 @@ function TeamInput({
 
 function buildShareText(
   guesses: NflRatedGuessRecord[],
-  comparisons: RatedComparison[],
+  comparisons: GroupedComparison[],
   won: boolean,
 ): string {
   const score = won
@@ -533,7 +535,7 @@ function buildShareText(
 
   const emojiGrid = comparisons
     .map(c =>
-      POSITIONS.map(p => {
+      COMPARISON_POSITIONS.map(p => {
         const r = c[p]
         if (r === "correct") return "🟩"
         if (r === "close-up" || r === "close-down") return "🟨"
@@ -559,7 +561,7 @@ function ResultsPanel({
 }: {
   puzzle: NflRatedPuzzle
   guesses: NflRatedGuessRecord[]
-  comparisons: RatedComparison[]
+  comparisons: GroupedComparison[]
   won: boolean
   mode: NflRatedGameMode
   stats: NflRatedStats | null
@@ -725,21 +727,21 @@ export default function NflRatedGame({ mode, onModeChange, onGameOver, archiveDa
   const lost = !won && guesses.length >= NFL_RATED_MAX_GUESSES
   const gameOver = won || lost
 
-  const comparisons: RatedComparison[] = useMemo(
+  const comparisons: GroupedComparison[] = useMemo(
     () =>
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
         if (!guessedTeam) {
           return Object.fromEntries(
-            POSITIONS.map(p => [p, "incorrect-down"]),
-          ) as unknown as RatedComparison
+            COMPARISON_POSITIONS.map(p => [p, "incorrect-down"]),
+          ) as unknown as GroupedComparison
         }
         if (guessedTeam.id === puzzle.team.id) {
           return Object.fromEntries(
-            POSITIONS.map(p => [p, "correct"]),
-          ) as unknown as RatedComparison
+            COMPARISON_POSITIONS.map(p => [p, "correct"]),
+          ) as unknown as GroupedComparison
         }
-        return compareTeamToAnswer(guessedTeam, puzzle.team)
+        return compareGroupedToAnswer(guessedTeam, puzzle.team)
       }),
     [guesses, puzzle.team, teamsById],
   )
@@ -846,7 +848,7 @@ export default function NflRatedGame({ mode, onModeChange, onGameOver, archiveDa
 
           <div className="mt-4">
             <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
-              {POSITIONS.map(pos => (
+              {COMPARISON_POSITIONS.map(pos => (
                 <div
                   key={pos}
                   className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
