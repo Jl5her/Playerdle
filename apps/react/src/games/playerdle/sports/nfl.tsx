@@ -137,6 +137,7 @@ const nflConfig: SportConfig = {
         {
           id: "madden-ovr",
           label: "OVR",
+          description: "Overall \u2014 the player's Madden 26 overall rating",
           key: "ovr",
           evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
           example: { value: "94", arrow: "\u2191", status: "close" },
@@ -144,6 +145,7 @@ const nflConfig: SportConfig = {
         {
           id: "madden-spd",
           label: "SPD",
+          description: "Speed \u2014 how fast the player runs",
           key: "spd",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "88", arrow: "\u2193", status: "incorrect" },
@@ -151,6 +153,7 @@ const nflConfig: SportConfig = {
         {
           id: "madden-awr",
           label: "AWR",
+          description: "Awareness \u2014 the player's on-field recognition and decision-making",
           key: "awr",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "85", arrow: "\u2191", status: "close" },
@@ -158,6 +161,7 @@ const nflConfig: SportConfig = {
         {
           id: "madden-str",
           label: "STR",
+          description: "Strength \u2014 the player's physical power",
           key: "str",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "74", arrow: "\u2193", status: "close" },

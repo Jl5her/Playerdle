@@ -53,6 +53,8 @@ export type ColumnEvaluator =
 export interface SportColumn {
   id: string
   label: string
+  /** Optional hover tooltip explaining the column abbreviation (e.g. "SPD → Speed"). */
+  description?: string
   key: string
   renderValue?: ColumnValueRenderer
   evaluator: ColumnEvaluator

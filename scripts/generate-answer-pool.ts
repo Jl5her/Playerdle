@@ -1,7 +1,7 @@
 #!/usr/bin/env tsx
 
-import { writeFileSync, readFileSync } from "node:fs"
-import { resolve, dirname } from "node:path"
+import { readFileSync, writeFileSync } from "node:fs"
+import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import * as cheerio from "cheerio"
 
@@ -221,14 +221,10 @@ function validateAgainstNFLDatabase(
       nflMatches = nflLookup.get(NICKNAME_MAP[name])
     }
 
-    if (
-      nflMatches &&
-      nflMatches.some(
-        p =>
-          positionsAreCompatible(p.position, fantasyPosition) &&
-          teamsAreCompatible(p.teamAbbr, fp.team),
-      )
-    ) {
+    // Match on name + position. Team is only a tiebreaker (used in
+    // buildAnswerPoolIds), not a hard requirement — offseason moves mean a
+    // player's stats-season team often differs from their current roster team.
+    if (nflMatches?.some(p => positionsAreCompatible(p.position, fantasyPosition))) {
       validatedPlayers.push(fp)
     } else {
       unmatchedPlayers.push(fp)
@@ -269,11 +265,14 @@ function buildAnswerPoolIds(fantasyPlayers: FantasyPlayer[], nflPlayers: NFLPlay
     }
     if (!matches) continue
 
-    const selected = matches.find(
-      match =>
-        positionsAreCompatible(match.position, fantasyPosition) &&
-        teamsAreCompatible(match.teamAbbr, fp.team),
+    const positionMatches = matches.filter(match =>
+      positionsAreCompatible(match.position, fantasyPosition),
     )
+    // Prefer the candidate whose team also matches; otherwise take the first
+    // position match (handles players who changed teams since the stats season).
+    const selected =
+      positionMatches.find(match => teamsAreCompatible(match.teamAbbr, fp.team)) ??
+      positionMatches[0]
     if (selected) {
       ids.add(selected.id)
     }

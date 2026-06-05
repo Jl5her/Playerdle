@@ -138,6 +138,7 @@ const nbaConfig: SportConfig = {
         {
           id: "nba2k-ovr",
           label: "OVR",
+          description: "Overall \u2014 the player's NBA 2K26 overall rating",
           key: "ovr",
           evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
           example: { value: "91", arrow: "\u2191", status: "close" },
@@ -145,6 +146,7 @@ const nbaConfig: SportConfig = {
         {
           id: "nba2k-out",
           label: "OUT",
+          description: "Outside Scoring \u2014 shooting and perimeter offense",
           key: "out",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "84", arrow: "\u2193", status: "incorrect" },
@@ -152,6 +154,7 @@ const nbaConfig: SportConfig = {
         {
           id: "nba2k-ath",
           label: "ATH",
+          description: "Athleticism \u2014 speed, vertical and physical tools",
           key: "ath",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "88", arrow: "\u2191", status: "close" },
@@ -159,6 +162,7 @@ const nbaConfig: SportConfig = {
         {
           id: "nba2k-ply",
           label: "PLY",
+          description: "Playmaking \u2014 ball handling and passing",
           key: "ply",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "82", arrow: "\u2193", status: "close" },
@@ -166,6 +170,7 @@ const nbaConfig: SportConfig = {
         {
           id: "nba2k-def",
           label: "DEF",
+          description: "Defense & Rebounding \u2014 defensive ability and rebounding",
           key: "def",
           evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
           example: { value: "79", arrow: "\u2191", status: "correct" },

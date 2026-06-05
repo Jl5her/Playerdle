@@ -6,7 +6,7 @@ import {
   type Player,
   type SportColumn,
 } from "@/games/playerdle/sports"
-import Tile from "./tile"
+import { type GuessCell, GuessTile } from "@/shared/components"
 
 interface GuessResult {
   guess: Player
@@ -127,22 +127,30 @@ function buildTooltip(column: SportColumn, evaluated: EvaluatedCell): ReactNode 
   return buildComparisonTooltip(evaluated.status, evaluated.arrow, label, value)
 }
 
+/** Evaluate each column of a guess into shared {@link GuessCell}s (value, status, arrow, tooltip). */
+export function buildGuessCells(
+  guess: Player,
+  answer: Player,
+  columns: SportColumn[],
+): GuessCell[] {
+  return columns.map(column => {
+    const evaluated = evaluateColumn(guess, answer, column)
+    return {
+      value: evaluated.value,
+      renderedValue: column.renderValue?.(evaluated.value, { player: guess }),
+      arrow: evaluated.arrow,
+      status: evaluated.status,
+      tooltip: buildTooltip(column, evaluated),
+    }
+  })
+}
+
 export default function GuessRow({ result, columns, animate }: Props) {
   if (!result?.guess || !result?.answer) {
     return null
   }
 
-  const cells = columns.map(column => {
-    const evaluated = evaluateColumn(result.guess, result.answer, column)
-    return {
-      value: evaluated.value,
-      renderedValue: column.renderValue?.(evaluated.value, { player: result.guess }),
-      arrow: evaluated.arrow,
-      correct: evaluated.status === "correct",
-      close: evaluated.status === "close",
-      tooltip: buildTooltip(column, evaluated),
-    }
-  })
+  const cells = buildGuessCells(result.guess, result.answer, columns)
 
   return (
     <div>
@@ -151,7 +159,7 @@ export default function GuessRow({ result, columns, animate }: Props) {
       </div>
       <div className="flex gap-1 justify-center">
         {cells.map((cell, i) => (
-          <Tile
+          <GuessTile
             key={i}
             cell={cell}
             animate={animate}

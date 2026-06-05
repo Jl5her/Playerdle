@@ -34,7 +34,9 @@ export function getNflRatedTeamById(id: string): RatedTeam | undefined {
 
 export const NFL_RATED_EPOCH = "2025-09-01"
 export const NFL_RATED_MAX_GUESSES = 5
-export const OVR_MATCH_THRESHOLD = 7
+// Color bands: green only on an exact match, yellow when within +CLOSE_MARGIN
+// of it, red otherwise (e.g. 73 vs 73 → green, 70 vs 73 → yellow, 68 vs 73 → red).
+export const OVR_MATCH_THRESHOLD = 0
 export const OVR_CLOSE_MARGIN = 3
 
 const STORAGE_STATE_PREFIX = "playerdle-nfl-rated-state"
@@ -204,7 +206,12 @@ export function calculateRatedStats(): NflRatedStats {
   return { played, winPercentage, currentStreak, maxStreak, guessDistribution, losses }
 }
 
-export type PositionResult = "correct" | "close-up" | "close-down" | "incorrect-up" | "incorrect-down"
+export type PositionResult =
+  | "correct"
+  | "close-up"
+  | "close-down"
+  | "incorrect-up"
+  | "incorrect-down"
 
 export interface RatedComparison {
   QB: PositionResult

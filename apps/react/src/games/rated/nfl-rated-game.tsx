@@ -3,9 +3,10 @@ import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
-  calculateRatedStats,
   COMPARISON_POSITIONS,
+  calculateRatedStats,
   compareGroupedToAnswer,
+  type GroupedComparison,
   getGroupedOvr,
   getNflRatedArcadePuzzle,
   getNflRatedDailyPuzzle,
@@ -13,21 +14,25 @@ import {
   getNflRatedTeams,
   loadNflRatedDailyGuesses,
   markNflRatedPlayed,
-  saveNflRatedDailyGuesses,
-  saveNflRatedResult,
   NFL_RATED_MAX_GUESSES,
-  OL_POSITIONS,
-  POSITIONS,
   type NflRatedGuessRecord,
   type NflRatedPuzzle,
   type NflRatedStats,
-  type GroupedComparison,
-  type RatedTeam,
-  type RatedStarter,
+  OL_POSITIONS,
+  POSITIONS,
   type PositionResult,
+  type RatedStarter,
+  type RatedTeam,
+  saveNflRatedDailyGuesses,
+  saveNflRatedResult,
 } from "@/games/rated/utils/nfl-rated-daily"
 import {
   DailyGameShell,
+  type GuessCell,
+  type GuessCellStatus,
+  GuessGrid,
+  type GuessGridRow,
+  numberCell,
   PlayAgainButton,
   Popup,
   ResultBanner,
@@ -49,12 +54,20 @@ interface Props {
 
 // ---- OVR badge ----
 
+// PFF grade color scale applied to player OVR ratings — a teal → green → lime →
+// yellow → orange gradient (matching PFF's live grade cells).
 function ovrColor(ovr: number): string {
-  if (ovr >= 95) return "#16a34a"
-  if (ovr >= 85) return "#84cc16"
-  if (ovr >= 75) return "#eab308"
-  if (ovr >= 65) return "#f97316"
-  return "#ef4444"
+  if (ovr >= 90) return "#1b7d8c" // Elite — dark teal
+  if (ovr >= 85) return "#2c9b87" // teal
+  if (ovr >= 80) return "#41a85a" // green
+  if (ovr >= 75) return "#62b54e" // green
+  if (ovr >= 70) return "#8ac440" // lime
+  if (ovr >= 65) return "#b9d033" // yellow-lime
+  if (ovr >= 60) return "#ebd52e" // yellow
+  if (ovr >= 55) return "#f6b52a" // gold
+  if (ovr >= 50) return "#f48f22" // orange
+  if (ovr >= 45) return "#f06e20" // dark orange
+  return "#ec4a23" // red-orange
 }
 
 function OvrBadge({
@@ -102,11 +115,7 @@ function OvrBadge({
 
   const isNonCorrect = matchResult !== undefined && matchResult !== "correct"
   const arcColor =
-    matchResult === "correct"
-      ? "#22c55e"
-      : isNonCorrect
-        ? "#6b7280"
-        : ovrColor(starter.ovr)
+    matchResult === "correct" ? "#22c55e" : isNonCorrect ? "#6b7280" : ovrColor(starter.ovr)
 
   return (
     <>
@@ -195,17 +204,17 @@ type FormationPosition = (typeof POSITIONS)[number] | (typeof OL_POSITIONS)[numb
 
 function FootballFormation({ team }: { team: RatedTeam }) {
   const positions: Array<{ pos: FormationPosition; x: string; y: string }> = [
-    { pos: "WR1", x: "5%",  y: "42%" },
+    { pos: "WR1", x: "5%", y: "42%" },
     { pos: "WR3", x: "17%", y: "42%" },
-    { pos: "LT",  x: "28%", y: "42%" },
-    { pos: "LG",  x: "39%", y: "42%" },
-    { pos: "C",   x: "50%", y: "42%" },
-    { pos: "RG",  x: "61%", y: "42%" },
-    { pos: "RT",  x: "72%", y: "42%" },
-    { pos: "TE",  x: "83%", y: "46%" },
+    { pos: "LT", x: "28%", y: "42%" },
+    { pos: "LG", x: "39%", y: "42%" },
+    { pos: "C", x: "50%", y: "42%" },
+    { pos: "RG", x: "61%", y: "42%" },
+    { pos: "RT", x: "72%", y: "42%" },
+    { pos: "TE", x: "83%", y: "46%" },
     { pos: "WR2", x: "95%", y: "42%" },
-    { pos: "QB",  x: "50%", y: "64%" },
-    { pos: "RB",  x: "63%", y: "81%" },
+    { pos: "QB", x: "50%", y: "64%" },
+    { pos: "RB", x: "63%", y: "81%" },
   ]
   const starterMap = team.starters as Record<FormationPosition, RatedStarter | undefined>
 
@@ -221,36 +230,192 @@ function FootballFormation({ team }: { team: RatedTeam }) {
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* Field stripes */}
-          <rect width="300" height="200" fill="#14472d" />
-          <rect x="0" y="0" width="300" height="40" fill="#1a5c3a" />
-          <rect x="0" y="80" width="300" height="40" fill="#1a5c3a" />
-          <rect x="0" y="160" width="300" height="40" fill="#1a5c3a" />
+          <rect
+            width="300"
+            height="200"
+            fill="#14472d"
+          />
+          <rect
+            x="0"
+            y="0"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="80"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="160"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
           {/* Yard lines */}
-          <line x1="0" y1="40" x2="300" y2="40" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="80" x2="300" y2="80" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="120" x2="300" y2="120" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="160" x2="300" y2="160" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
+          <line
+            x1="0"
+            y1="40"
+            x2="300"
+            y2="40"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="80"
+            x2="300"
+            y2="80"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="120"
+            x2="300"
+            y2="120"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="160"
+            x2="300"
+            y2="160"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
           {/* Hash marks — left (x=96) */}
-          <line x1="96" y1="36" x2="96" y2="44" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="76" x2="96" y2="84" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="116" x2="96" y2="124" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="156" x2="96" y2="164" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line
+            x1="96"
+            y1="36"
+            x2="96"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="76"
+            x2="96"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="116"
+            x2="96"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="156"
+            x2="96"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
           {/* Hash marks — right (x=204) */}
-          <line x1="204" y1="36" x2="204" y2="44" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="76" x2="204" y2="84" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="116" x2="204" y2="124" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="156" x2="204" y2="164" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          <line
+            x1="204"
+            y1="36"
+            x2="204"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="76"
+            x2="204"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="116"
+            x2="204"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="156"
+            x2="204"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
           {/* Line of scrimmage */}
-          <line x1="0" y1="95" x2="300" y2="95" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
+          <line
+            x1="0"
+            y1="95"
+            x2="300"
+            y2="95"
+            stroke="rgba(255,255,180,0.8)"
+            strokeWidth="2.5"
+          />
           {/* WR1 go route */}
-          <line x1="15" y1="80" x2="15" y2="12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="15,8 11,16 19,16" fill="rgba(255,255,255,0.35)" />
+          <line
+            x1="15"
+            y1="80"
+            x2="15"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="15,8 11,16 19,16"
+            fill="rgba(255,255,255,0.35)"
+          />
           {/* WR2 go route */}
-          <line x1="285" y1="80" x2="285" y2="12" stroke="rgba(255,255,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
-          <polygon points="285,8 281,16 289,16" fill="rgba(255,255,255,0.35)" />
+          <line
+            x1="285"
+            y1="80"
+            x2="285"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="285,8 281,16 289,16"
+            fill="rgba(255,255,255,0.35)"
+          />
           {/* RB swing */}
-          <path d="M 189 162 Q 228 150 246 136" fill="none" stroke="rgba(255,255,255,0.26)" strokeWidth="1.5" strokeDasharray="4 3" />
-          <polygon points="246,136 240,144 236,136" fill="rgba(255,255,255,0.26)" />
+          <path
+            d="M 189 162 Q 228 150 246 136"
+            fill="none"
+            stroke="rgba(255,255,255,0.26)"
+            strokeWidth="1.5"
+            strokeDasharray="4 3"
+          />
+          <polygon
+            points="246,136 240,144 236,136"
+            fill="rgba(255,255,255,0.26)"
+          />
         </svg>
       </div>
 
@@ -283,12 +448,12 @@ function FootballFormation({ team }: { team: RatedTeam }) {
   )
 }
 
-// ---- Guess row ----
+// ---- Guess row cells ----
 
-function resultBg(result: PositionResult): string {
-  if (result === "correct") return "bg-success-500 dark:bg-success-600"
-  if (result === "close-up" || result === "close-down") return "bg-warning-500 dark:bg-warning-600"
-  return "bg-error-500 dark:bg-error-600"
+function statusFromResult(result: PositionResult): GuessCellStatus {
+  if (result === "correct") return "correct"
+  if (result === "close-up" || result === "close-down") return "close"
+  return "incorrect"
 }
 
 function resultArrow(result: PositionResult): string | undefined {
@@ -296,88 +461,14 @@ function resultArrow(result: PositionResult): string | undefined {
   return result.endsWith("-up") ? "↑" : "↓"
 }
 
-function PositionCell({
-  ovr,
-  matchResult,
-  delayMs,
-  animate,
-}: {
-  ovr: number
-  matchResult: PositionResult
-  delayMs: number
-  animate: boolean
-}) {
-  const [revealed, setRevealed] = useState(!animate)
-  useEffect(() => {
-    if (!animate) return
-    const t = setTimeout(() => setRevealed(true), delayMs)
-    return () => clearTimeout(t)
-  }, [animate, delayMs])
-
-  const bgClass = revealed ? resultBg(matchResult) : "bg-primary-200 dark:bg-primary-700"
-  const arrow = revealed ? resultArrow(matchResult) : undefined
-
-  return (
-    <div
-      className={clsx(
-        "flex flex-col items-center justify-center rounded-md select-none transition-colors leading-none",
-        bgClass,
-      )}
-      style={{ width: 48, height: 48 }}
-    >
-      {revealed && (
-        <>
-          <span className="text-sm font-black text-primary-50">{ovr}</span>
-          {arrow && <span className="text-xs text-primary-50 mt-0.5">{arrow}</span>}
-        </>
-      )}
-    </div>
-  )
-}
-
-function GuessRow({
-  teamName,
-  guessedTeam,
-  comparison,
-  animate,
-}: {
-  teamName: string
-  guessedTeam: RatedTeam
-  comparison: GroupedComparison
-  animate?: boolean
-}) {
-  return (
-    <div>
-      <div className="px-2 py-0.5 text-xs font-bold text-center uppercase tracking-wider text-primary-700 dark:text-primary-200 leading-none truncate">
-        {teamName}
-      </div>
-      <div className="flex gap-1.5 justify-center">
-        {COMPARISON_POSITIONS.map((pos, i) => (
-          <PositionCell
-            key={pos}
-            ovr={getGroupedOvr(guessedTeam, pos)}
-            matchResult={comparison[pos]}
-            delayMs={i * 80 + 150}
-            animate={animate ?? false}
-          />
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function EmptyRow() {
-  return (
-    <div className="flex gap-1.5 justify-center">
-      {COMPARISON_POSITIONS.map(pos => (
-        <div
-          key={pos}
-          className="border border-primary-200 dark:border-primary-700 rounded-md"
-          style={{ width: 48, height: 48 }}
-        />
-      ))}
-    </div>
-  )
+/** Build the grouped OVR cells (QB | RB | TE | WR | OL) for one guessed team. */
+function buildRatedRowCells(team: RatedTeam, comparison: GroupedComparison): GuessCell[] {
+  return COMPARISON_POSITIONS.map(pos => {
+    const result = comparison[pos]
+    return numberCell(getGroupedOvr(team, pos), statusFromResult(result), {
+      arrow: resultArrow(result),
+    })
+  })
 }
 
 // ---- Team autocomplete ----
@@ -524,9 +615,7 @@ function buildShareText(
   comparisons: GroupedComparison[],
   won: boolean,
 ): string {
-  const score = won
-    ? `${guesses.length}/${NFL_RATED_MAX_GUESSES}`
-    : `X/${NFL_RATED_MAX_GUESSES}`
+  const score = won ? `${guesses.length}/${NFL_RATED_MAX_GUESSES}` : `X/${NFL_RATED_MAX_GUESSES}`
   const dateStr = new Intl.DateTimeFormat("en-US", {
     month: "numeric",
     day: "numeric",
@@ -798,19 +887,27 @@ export default function NflRatedGame({ mode, onModeChange, onGameOver, archiveDa
   }
 
   const gameScrollRef = useRef<HTMLDivElement>(null)
-  const rowRefs = useRef<(HTMLDivElement | null)[]>([])
   const [latestIndex, setLatestIndex] = useState<number>(-1)
-
-  useEffect(() => {
-    if (latestIndex < 0) return
-    rowRefs.current[latestIndex]?.scrollIntoView({ behavior: "smooth", block: "nearest" })
-  }, [latestIndex])
+  const [hideAnswer, setHideAnswer] = useState(false)
 
   const prevGuessCount = useRef(guesses.length)
   useEffect(() => {
     if (guesses.length > prevGuessCount.current) setLatestIndex(guesses.length - 1)
     prevGuessCount.current = guesses.length
   }, [guesses.length])
+
+  const rows: GuessGridRow[] = guesses.map((g, i) => {
+    const guessedTeam = teamsById.get(g.teamId)
+    const cells: GuessCell[] = guessedTeam
+      ? buildRatedRowCells(guessedTeam, comparisons[i])
+      : COMPARISON_POSITIONS.map(() => numberCell(0, "incorrect"))
+    return {
+      id: `${g.teamId}-${i}`,
+      label: g.teamName,
+      cells,
+      muted: hideAnswer && g.teamId === puzzle.team.id,
+    }
+  })
 
   return (
     <DailyGameShell
@@ -835,64 +932,30 @@ export default function NflRatedGame({ mode, onModeChange, onGameOver, archiveDa
           won={won}
           guessCount={guesses.length}
           answer={puzzle.team.name}
+          hideAnswer={hideAnswer}
+          onToggleHide={() => setHideAnswer(h => !h)}
         />
       )}
       <div
         ref={gameScrollRef}
-        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
+        className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none pb-4"
       >
-        <div className="max-w-sm mx-auto px-3 pb-4">
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 mt-3 mx-1 overflow-hidden">
+        {/* Formation capped to the guess grid's natural max width (26rem) */}
+        <div className="mx-auto w-full max-w-[26rem] px-2 pt-3">
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden">
             <FootballFormation team={puzzle.team} />
           </div>
+        </div>
 
-          <div className="mt-4">
-            <div className="flex gap-1.5 justify-center mb-2 sticky top-0 z-10 bg-primary-50 dark:bg-primary-900 py-1">
-              {COMPARISON_POSITIONS.map(pos => (
-                <div
-                  key={pos}
-                  className="w-12 text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
-                >
-                  {pos}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex flex-col gap-3">
-              {Array.from({ length: NFL_RATED_MAX_GUESSES }).map((_, i) =>
-                i < guesses.length ? (
-                  <div
-                    key={i}
-                    ref={el => {
-                      rowRefs.current[i] = el
-                    }}
-                  >
-                    {(() => {
-                      const guessedTeam = teamsById.get(guesses[i].teamId)
-                      if (!guessedTeam) return null
-                      return (
-                        <GuessRow
-                          teamName={guesses[i].teamName}
-                          guessedTeam={guessedTeam}
-                          comparison={comparisons[i]}
-                          animate={i === latestIndex}
-                        />
-                      )
-                    })()}
-                  </div>
-                ) : (
-                  <div
-                    key={`empty-${i}`}
-                    ref={el => {
-                      rowRefs.current[i] = el
-                    }}
-                  >
-                    <EmptyRow />
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
+        {/* Guess grid — shared with Playerdle (same cells, colors, layout & width) */}
+        <div className="mt-3">
+          <GuessGrid
+            headers={[...COMPARISON_POSITIONS]}
+            rows={rows}
+            maxRows={NFL_RATED_MAX_GUESSES}
+            columnCount={COMPARISON_POSITIONS.length}
+            latestIndex={latestIndex}
+          />
         </div>
       </div>
       <ScrollHint scrollRef={gameScrollRef} />
