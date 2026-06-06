@@ -3,6 +3,15 @@ import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
+  CAPCRUNCH_MAX_GUESSES,
+  type CapCrunchComparison,
+  type CapCrunchGuessRecord,
+  type CapCrunchLeague,
+  type CapCrunchOffense,
+  type CapCrunchPlayer,
+  type CapCrunchPuzzle,
+  type CapCrunchStats,
+  type ComparisonResult,
   calculateCapCrunchStats,
   compareTeamToAnswer,
   getCapCrunchArcadePuzzle,
@@ -11,17 +20,8 @@ import {
   getCapCrunchTeams,
   loadCapCrunchDailyGuesses,
   markCapCrunchPlayed,
-  CAPCRUNCH_MAX_GUESSES,
   saveCapCrunchDailyGuesses,
   saveCapCrunchResult,
-  type ComparisonResult,
-  type CapCrunchComparison,
-  type CapCrunchGuessRecord,
-  type CapCrunchLeague,
-  type CapCrunchOffense,
-  type CapCrunchPlayer,
-  type CapCrunchPuzzle,
-  type CapCrunchStats,
 } from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   DailyGameShell,
@@ -55,7 +55,7 @@ function formatSalary(amount: number): string {
 function PlayerSlot({
   position,
   player,
-  revealed: _revealed,
+  revealed,
 }: {
   position: string
   player: CapCrunchPlayer
@@ -79,7 +79,11 @@ function PlayerSlot({
     return () => document.removeEventListener("pointerdown", dismiss, true)
   }, [tooltipPos])
 
-  const tooltipLabel = player.number != null ? `${player.name} #${player.number}` : player.name
+  const tooltipContent = revealed
+    ? player.number != null
+      ? `${player.name} #${player.number}`
+      : player.name
+    : formatSalary(player.salary)
 
   return (
     <>
@@ -104,28 +108,39 @@ function PlayerSlot({
         <div
           className="relative flex items-center justify-center cursor-pointer"
           style={{
-            width: 42,
-            height: 42,
+            width: 36,
+            height: 36,
             borderRadius: "50%",
             backgroundColor: "#0f172a",
             border: "2.5px solid rgba(255,255,255,0.55)",
           }}
         >
-          <span className="font-black text-white text-[10px] leading-none tabular-nums">
+          <span className="font-black text-white text-[9px] leading-none tabular-nums">
             {formatSalary(player.salary)}
           </span>
         </div>
         <span
-          className="text-[9px] font-black uppercase tracking-widest text-white leading-none"
+          className="text-[8px] font-black uppercase tracking-widest text-white leading-none"
           style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
         >
           {position}
         </span>
+        {revealed && (
+          <span
+            className="text-[7px] font-semibold text-white text-center leading-tight max-w-[40px] line-clamp-2"
+            style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
+          >
+            {player.name}
+          </span>
+        )}
       </div>
       {tooltipPos &&
         createPortal(
           <div
-            className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
+            className={clsx(
+              "pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 shadow-lg px-3 py-1.5",
+              revealed ? "text-xs font-semibold" : "text-sm font-black tabular-nums",
+            )}
             style={{
               position: "fixed",
               left: tooltipPos.x,
@@ -134,7 +149,7 @@ function PlayerSlot({
               zIndex: 9999,
             }}
           >
-            {tooltipLabel}
+            {tooltipContent}
           </div>,
           document.body,
         )}
@@ -143,62 +158,233 @@ function PlayerSlot({
 }
 
 function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed: boolean }) {
+  const positions: Array<{ label: string; player: CapCrunchPlayer; x: string; y: string }> = [
+    { label: "WR", player: offense.WR[0], x: "5%", y: "42%" },
+    { label: "WR", player: offense.WR[1], x: "17%", y: "42%" },
+    { label: "LT", player: offense.OL[0], x: "28%", y: "42%" },
+    { label: "LG", player: offense.OL[1], x: "39%", y: "42%" },
+    { label: "C", player: offense.OL[2], x: "50%", y: "42%" },
+    { label: "RG", player: offense.OL[3], x: "61%", y: "42%" },
+    { label: "RT", player: offense.OL[4], x: "72%", y: "42%" },
+    { label: "TE", player: offense.TE, x: "83%", y: "46%" },
+    { label: "WR", player: offense.WR[2], x: "95%", y: "42%" },
+    { label: "QB", player: offense.QB, x: "50%", y: "64%" },
+    { label: "RB", player: offense.RB, x: "63%", y: "81%" },
+  ]
+
   return (
-    <div className="relative w-full" style={{ paddingBottom: "75%" }}>
-      {/* Football field background */}
+    <div
+      className="relative w-full"
+      style={{ paddingBottom: "66.7%" }}
+    >
       <div className="absolute inset-0 overflow-hidden">
         <svg
-          viewBox="0 0 300 225"
+          viewBox="0 0 300 200"
           className="absolute inset-0 w-full h-full"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect width="300" height="225" fill="#14472d" />
-          <rect x="0" y="0" width="300" height="45" fill="#1a5c3a" />
-          <rect x="0" y="90" width="300" height="45" fill="#1a5c3a" />
-          <rect x="0" y="180" width="300" height="45" fill="#1a5c3a" />
-          <line x1="0" y1="45" x2="300" y2="45" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="90" x2="300" y2="90" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="135" x2="300" y2="135" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="0" y1="180" x2="300" y2="180" stroke="white" strokeWidth="1.5" strokeOpacity="0.6" />
-          <line x1="96" y1="41" x2="96" y2="49" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="86" x2="96" y2="94" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="131" x2="96" y2="139" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="96" y1="176" x2="96" y2="184" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="41" x2="204" y2="49" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="86" x2="204" y2="94" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="131" x2="204" y2="139" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
-          <line x1="204" y1="176" x2="204" y2="184" stroke="white" strokeWidth="1.2" strokeOpacity="0.6" />
+          {/* Field stripes */}
+          <rect
+            width="300"
+            height="200"
+            fill="#14472d"
+          />
+          <rect
+            x="0"
+            y="0"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="80"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="160"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          {/* Yard lines */}
+          <line
+            x1="0"
+            y1="40"
+            x2="300"
+            y2="40"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="80"
+            x2="300"
+            y2="80"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="120"
+            x2="300"
+            y2="120"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="160"
+            x2="300"
+            y2="160"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          {/* Hash marks — left */}
+          <line
+            x1="96"
+            y1="36"
+            x2="96"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="76"
+            x2="96"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="116"
+            x2="96"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="156"
+            x2="96"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          {/* Hash marks — right */}
+          <line
+            x1="204"
+            y1="36"
+            x2="204"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="76"
+            x2="204"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="116"
+            x2="204"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="156"
+            x2="204"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
           {/* Line of scrimmage */}
-          <line x1="0" y1="107" x2="300" y2="107" stroke="rgba(255,255,180,0.8)" strokeWidth="2.5" />
+          <line
+            x1="0"
+            y1="95"
+            x2="300"
+            y2="95"
+            stroke="rgba(255,255,180,0.8)"
+            strokeWidth="2.5"
+          />
+          {/* WR go routes */}
+          <line
+            x1="15"
+            y1="80"
+            x2="15"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="15,8 11,16 19,16"
+            fill="rgba(255,255,255,0.35)"
+          />
+          <line
+            x1="285"
+            y1="80"
+            x2="285"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="285,8 281,16 289,16"
+            fill="rgba(255,255,255,0.35)"
+          />
+          {/* RB swing route */}
+          <path
+            d="M 189 162 Q 228 150 246 136"
+            fill="none"
+            stroke="rgba(255,255,255,0.26)"
+            strokeWidth="1.5"
+            strokeDasharray="4 3"
+          />
+          <polygon
+            points="246,136 240,144 236,136"
+            fill="rgba(255,255,255,0.26)"
+          />
         </svg>
       </div>
 
-      {/* Formation rows overlaid on field */}
-      <div className="absolute inset-0 flex flex-col items-center justify-around py-2">
-        {/* WRs */}
-        <div className="flex justify-center gap-3">
-          <PlayerSlot position="WR" player={offense.WR[0]} revealed={revealed} />
-          <PlayerSlot position="WR" player={offense.WR[1]} revealed={revealed} />
-          <PlayerSlot position="WR" player={offense.WR[2]} revealed={revealed} />
+      {positions.map(({ label, player, x, y }, i) => (
+        <div
+          key={`${label}-${i}`}
+          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+          style={{ left: x, top: y }}
+        >
+          <PlayerSlot
+            position={label}
+            player={player}
+            revealed={revealed}
+          />
         </div>
-        {/* OL */}
-        <div className="flex justify-center gap-1.5">
-          <PlayerSlot position="LT" player={offense.OL[0]} revealed={revealed} />
-          <PlayerSlot position="LG" player={offense.OL[1]} revealed={revealed} />
-          <PlayerSlot position="C" player={offense.OL[2]} revealed={revealed} />
-          <PlayerSlot position="RG" player={offense.OL[3]} revealed={revealed} />
-          <PlayerSlot position="RT" player={offense.OL[4]} revealed={revealed} />
-        </div>
-        {/* QB */}
-        <div className="flex justify-center">
-          <PlayerSlot position="QB" player={offense.QB} revealed={revealed} />
-        </div>
-        {/* RB + TE */}
-        <div className="flex justify-center gap-8">
-          <PlayerSlot position="RB" player={offense.RB} revealed={revealed} />
-          <PlayerSlot position="TE" player={offense.TE} revealed={revealed} />
-        </div>
-      </div>
+      ))}
     </div>
   )
 }
@@ -526,6 +712,17 @@ function ResultsPanel({
         ref={scrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
+        {/* Answer formation revealed */}
+        <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
+          <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
+            {puzzle.team.name} — Starting Offense
+          </div>
+          <Formation
+            offense={puzzle.team.offense}
+            revealed
+          />
+        </div>
+
         {mode === "daily" && stats && (
           <div className="mt-4">
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
