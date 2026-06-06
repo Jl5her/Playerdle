@@ -79,11 +79,7 @@ function PlayerSlot({
     return () => document.removeEventListener("pointerdown", dismiss, true)
   }, [tooltipPos])
 
-  const tooltipContent = revealed
-    ? player.number != null
-      ? `${player.name} #${player.number}`
-      : player.name
-    : formatSalary(player.salary)
+  const tooltipContent = player.number != null ? `${player.name} #${player.number}` : player.name
 
   return (
     <>
@@ -94,13 +90,13 @@ function PlayerSlot({
           lastPointerTypeRef.current = e.pointerType
         }}
         onPointerEnter={e => {
-          if (e.pointerType === "mouse") setTooltipPos(computePos())
+          if (e.pointerType === "mouse" && revealed) setTooltipPos(computePos())
         }}
         onPointerLeave={e => {
           if (e.pointerType === "mouse") setTooltipPos(null)
         }}
         onClick={() => {
-          if (lastPointerTypeRef.current !== "mouse") {
+          if (revealed && lastPointerTypeRef.current !== "mouse") {
             setTooltipPos(prev => (prev ? null : computePos()))
           }
         }}
@@ -129,10 +125,7 @@ function PlayerSlot({
       {tooltipPos &&
         createPortal(
           <div
-            className={clsx(
-              "pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 shadow-lg px-3 py-1.5",
-              revealed ? "text-xs font-semibold" : "text-sm font-black tabular-nums",
-            )}
+            className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold shadow-lg px-2 py-1"
             style={{
               position: "fixed",
               left: tooltipPos.x,
