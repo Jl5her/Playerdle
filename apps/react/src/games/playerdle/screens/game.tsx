@@ -131,14 +131,15 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
   const won = !!(answer && guesses.some(g => g.id === answer.id))
   const lost = !won && guesses.length >= MAX_GUESSES
   const gameOver = won || lost
-  const isFanatic = variantId === "fanatic"
+  const isRatingsMode =
+    variantId === "fanatic" || variantId === "madden" || variantId === "nba2k"
 
   const positionRevealed = useMemo(() => {
-    if (!isFanatic) return false
+    if (!isRatingsMode) return false
     if (gameOver) return true
     if (!answer) return false
     return guesses.some(g => g.position !== undefined && g.position === answer.position)
-  }, [isFanatic, gameOver, answer, guesses])
+  }, [isRatingsMode, gameOver, answer, guesses])
 
   const analytics = useGameAnalytics({
     game: "playerdle",
@@ -203,7 +204,7 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
     analytics.onGuess(newGuesses.length, newWon)
 
     if (
-      isFanatic &&
+      isRatingsMode &&
       !newWon &&
       !positionLockedShownRef.current &&
       answer &&
@@ -294,7 +295,7 @@ export default function Game({ mode, sport, variantId, onBackToToday, archiveDat
       )}
       {answer && (
         <div className="flex-1 min-h-0 flex flex-col">
-          {isFanatic && (
+          {isRatingsMode && (
             <div className="flex justify-center py-3">
               <PositionBadge
                 position={positionRevealed ? String(answer.position ?? "?") : "?"}

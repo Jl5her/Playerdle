@@ -3,6 +3,15 @@ export { default as ArchiveCalendar } from "./archive-calendar"
 export { default as Button } from "./button"
 export { default as DailyGameShell } from "./daily-game-shell"
 export { default as GameModeButton } from "./game-mode-button"
+export {
+  type GuessCell,
+  type GuessCellStatus,
+  GuessGrid,
+  type GuessGridRow,
+  GuessTile,
+  numberCell,
+  textCell,
+} from "./guess-grid"
 export type { FooterTab } from "./league-footer"
 export { default as LeagueFooter } from "./league-footer"
 export { default as MenuLinkButton } from "./menu-link-button"
@@ -14,8 +23,8 @@ export { default as Popup } from "./popup"
 export { default as PWAUpdateToast } from "./pwa-update-toast"
 export { default as ResultBanner } from "./result-banner"
 export { default as ScrollHint } from "./scroll-hint"
+export { default as SettingsPanel } from "./settings-panel"
 export { default as ShareButton } from "./share-button"
 export { CountUp, StatBar } from "./stat-animations"
 export { default as StatsTabs, type StatsTab } from "./stats-tabs"
-export { default as SettingsPanel } from "./settings-panel"
 export { default as SyncPanel } from "./sync-panel"

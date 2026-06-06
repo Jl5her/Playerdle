@@ -60,6 +60,12 @@ export interface CapCrunchLeagueConfig {
   columns: CapCrunchColumn[]
   /** Rows of slots rendered in the formation diagram. */
   formation: CapCrunchFormationSlot[][]
+  /**
+   * How the formation diagram is drawn. "field" renders the NFL football-field
+   * layout (absolute-positioned jerseys); "rows" (default) stacks the formation
+   * rows generically. The payroll table still derives from `formation` either way.
+   */
+  formationStyle?: "field" | "rows"
   /** Use narrower slot cards (e.g. when 5 slots fit in a single row). */
   compactSlots?: boolean
   howTo: {
@@ -164,6 +170,7 @@ const NFL_CONFIG: CapCrunchLeagueConfig = {
       { label: "TE", group: "TE", index: 0 },
     ],
   ],
+  formationStyle: "field",
   howTo: {
     intro: "shows you the offensive payroll of an NFL team",
     groupsTitle: "Position Groups",

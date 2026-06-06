@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@11.5.1",
   "scripts": {
     "dev": "turbo run dev",
     "build": "pnpm run validate:sports && turbo run build",
@@ -23,12 +23,14 @@
     "generate:answer-pool:nba": "tsx scripts/generate-nba-answer-pool.ts",
     "generate:answer-pool:nhl": "tsx scripts/generate-nhl-answer-pool.ts",
     "scrape:nfl:fanatic": "tsx scripts/scrape-nfl-flex-fanatic.ts",
+    "scrape:nfl:madden": "tsx scripts/scrape-nfl-madden-ratings.ts",
     "scrape:nfl:capcrunch": "tsx scripts/scrape-nfl-capcrunch.ts",
     "scrape:nba:capcrunch": "tsx scripts/scrape-nba-capcrunch.ts",
     "scrape:nhl:fanatic": "tsx scripts/scrape-nhl-fanatic.ts",
     "scrape:nba:fanatic": "tsx scripts/scrape-nba-season-averages.ts",
+    "scrape:nba:2k": "tsx scripts/scrape-nba-2k-ratings.ts",
     "scrape:mlb:fanatic": "tsx scripts/scrape-mlb-fanatic.ts",
-    "scrape:nfl": "pnpm run scrape:rosters -- --sport=nfl && pnpm run generate:answer-pool && pnpm run scrape:nfl:fanatic",
+    "scrape:nfl": "pnpm run scrape:rosters -- --sport=nfl && pnpm run generate:answer-pool && pnpm run scrape:nfl:fanatic && pnpm run scrape:nfl:madden",
     "scrape:nhl": "pnpm run scrape:rosters -- --sport=nhl && pnpm run generate:answer-pool:nhl && pnpm run scrape:nhl:fanatic",
     "scrape:nba": "pnpm run scrape:rosters -- --sport=nba && pnpm run generate:answer-pool:nba && pnpm run scrape:nba:fanatic",
     "scrape:mlb": "pnpm run scrape:rosters -- --sport=mlb && pnpm run generate:answer-pool:mlb && pnpm run scrape:mlb:fanatic",
@@ -37,7 +39,8 @@
     "sync:journey:nba": "tsx scripts/sync-journey-players-nba.ts",
     "sync:journey:nhl": "tsx scripts/sync-journey-players-nhl.ts",
     "generate:journey-pool": "tsx scripts/generate-journey-answer-pool.ts",
-    "generate:pwa-icons": "tsx scripts/generate-pwa-icons.ts"
+    "generate:pwa-icons": "tsx scripts/generate-pwa-icons.ts",
+    "scrape:collegefield": "tsx scripts/scrape-collegefield.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.15",
@@ -52,12 +55,6 @@
   "pnpm": {
     "overrides": {
       "lightningcss": "1.30.1"
-    },
-    "onlyBuiltDependencies": [
-      "@fortawesome/fontawesome-free",
-      "esbuild",
-      "puppeteer",
-      "sharp"
-    ]
+    }
   }
 }

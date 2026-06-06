@@ -3,6 +3,18 @@ import Fuse from "fuse.js"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
+  CAPCRUNCH_MAX_GUESSES,
+  type CapCrunchColumn,
+  type CapCrunchComparison,
+  type CapCrunchFormationSlot,
+  type CapCrunchGuessRecord,
+  type CapCrunchLeague,
+  type CapCrunchLeagueConfig,
+  type CapCrunchPlayer,
+  type CapCrunchPuzzle,
+  type CapCrunchStats,
+  type CapCrunchTeam,
+  type ComparisonResult,
   calculateCapCrunchStats,
   compareTeamToAnswer,
   getCapCrunchArcadePuzzle,
@@ -12,21 +24,10 @@ import {
   getCapCrunchTeams,
   loadCapCrunchDailyGuesses,
   markCapCrunchPlayed,
-  CAPCRUNCH_MAX_GUESSES,
   saveCapCrunchDailyGuesses,
   saveCapCrunchResult,
   teamColumnSalaries,
   uniformComparison,
-  type ComparisonResult,
-  type CapCrunchColumn,
-  type CapCrunchComparison,
-  type CapCrunchFormationSlot,
-  type CapCrunchGuessRecord,
-  type CapCrunchLeague,
-  type CapCrunchPlayer,
-  type CapCrunchPuzzle,
-  type CapCrunchStats,
-  type CapCrunchTeam,
 } from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   DailyGameShell,
@@ -55,19 +56,10 @@ function formatSalary(amount: number): string {
   return `$${millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)}M`
 }
 
-// ---- Formation display ----
+// ---- Tooltip plumbing ----
 
-function PlayerSlot({
-  position,
-  player,
-  revealed,
-  compact,
-}: {
-  position: string
-  player: CapCrunchPlayer
-  revealed: boolean
-  compact?: boolean
-}) {
+/** Shared tap/hover tooltip behavior for a formation slot. */
+function useSlotTooltip(revealed: boolean) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
@@ -87,7 +79,364 @@ function PlayerSlot({
     return () => document.removeEventListener("pointerdown", dismiss, true)
   }, [tooltipPos])
 
-  const tooltipLabel = player.number != null ? `${player.name} #${player.number}` : player.name
+  const handlers = {
+    onPointerDown: (e: React.PointerEvent) => {
+      lastPointerTypeRef.current = e.pointerType
+    },
+    onPointerEnter: (e: React.PointerEvent) => {
+      if (e.pointerType === "mouse" && revealed) setTooltipPos(computePos())
+    },
+    onPointerLeave: (e: React.PointerEvent) => {
+      if (e.pointerType === "mouse") setTooltipPos(null)
+    },
+    onClick: () => {
+      if (revealed && lastPointerTypeRef.current !== "mouse") {
+        setTooltipPos(prev => (prev ? null : computePos()))
+      }
+    },
+  }
+
+  return { ref, tooltipPos, handlers }
+}
+
+function SlotTooltip({ pos, label }: { pos: { x: number; y: number }; label: string }) {
+  return createPortal(
+    <div
+      className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
+      style={{
+        position: "fixed",
+        left: pos.x,
+        top: pos.y - 8,
+        transform: "translate(-50%, -100%)",
+        zIndex: 9999,
+      }}
+    >
+      {label}
+    </div>,
+    document.body,
+  )
+}
+
+function slotTooltipLabel(player: CapCrunchPlayer): string {
+  return player.number != null ? `${player.name} #${player.number}` : player.name
+}
+
+// ---- Formation: NFL football field (Madden layout) ----
+
+function FieldPlayerSlot({
+  position,
+  player,
+  revealed,
+}: {
+  position: string
+  player: CapCrunchPlayer
+  revealed: boolean
+}) {
+  const { ref, tooltipPos, handlers } = useSlotTooltip(revealed)
+
+  return (
+    <>
+      <div
+        ref={ref}
+        className="flex flex-col items-center gap-0.5 select-none"
+        {...handlers}
+      >
+        <div
+          className="relative flex items-center justify-center cursor-pointer"
+          style={{
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            backgroundColor: "#0f172a",
+            border: "2.5px solid rgba(255,255,255,0.55)",
+          }}
+        >
+          <span className="font-black text-white text-[9px] leading-none tabular-nums">
+            {formatSalary(player.salary)}
+          </span>
+        </div>
+        <span
+          className="text-[8px] font-black uppercase tracking-widest text-white leading-none"
+          style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
+        >
+          {position}
+        </span>
+      </div>
+      {tooltipPos && (
+        <SlotTooltip
+          pos={tooltipPos}
+          label={slotTooltipLabel(player)}
+        />
+      )}
+    </>
+  )
+}
+
+interface FieldSlot {
+  label: string
+  player: CapCrunchPlayer
+  x: string
+  y: string
+}
+
+function NflFieldFormation({ team, revealed }: { team: CapCrunchTeam; revealed: boolean }) {
+  const wr = team.groups.WR ?? []
+  const ol = team.groups.OL ?? []
+  const qb = team.groups.QB?.[0]
+  const rb = team.groups.RB?.[0]
+  const te = team.groups.TE?.[0]
+
+  const layout: Array<{
+    label: string
+    player: CapCrunchPlayer | undefined
+    x: string
+    y: string
+  }> = [
+    { label: "WR", player: wr[0], x: "5%", y: "42%" },
+    { label: "WR", player: wr[1], x: "17%", y: "42%" },
+    { label: "LT", player: ol[0], x: "28%", y: "42%" },
+    { label: "LG", player: ol[1], x: "39%", y: "42%" },
+    { label: "C", player: ol[2], x: "50%", y: "42%" },
+    { label: "RG", player: ol[3], x: "61%", y: "42%" },
+    { label: "RT", player: ol[4], x: "72%", y: "42%" },
+    { label: "TE", player: te, x: "83%", y: "46%" },
+    { label: "WR", player: wr[2], x: "95%", y: "42%" },
+    { label: "QB", player: qb, x: "50%", y: "64%" },
+    { label: "RB", player: rb, x: "63%", y: "81%" },
+  ]
+  const positions = layout.filter((s): s is FieldSlot => s.player != null)
+
+  return (
+    <div
+      className="relative w-full"
+      style={{ paddingBottom: "66.7%" }}
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <svg
+          viewBox="0 0 300 200"
+          className="absolute inset-0 w-full h-full"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Field stripes */}
+          <rect
+            width="300"
+            height="200"
+            fill="#14472d"
+          />
+          <rect
+            x="0"
+            y="0"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="80"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          <rect
+            x="0"
+            y="160"
+            width="300"
+            height="40"
+            fill="#1a5c3a"
+          />
+          {/* Yard lines */}
+          <line
+            x1="0"
+            y1="40"
+            x2="300"
+            y2="40"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="80"
+            x2="300"
+            y2="80"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="120"
+            x2="300"
+            y2="120"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="0"
+            y1="160"
+            x2="300"
+            y2="160"
+            stroke="white"
+            strokeWidth="1.5"
+            strokeOpacity="0.6"
+          />
+          {/* Hash marks — left */}
+          <line
+            x1="96"
+            y1="36"
+            x2="96"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="76"
+            x2="96"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="116"
+            x2="96"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="96"
+            y1="156"
+            x2="96"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          {/* Hash marks — right */}
+          <line
+            x1="204"
+            y1="36"
+            x2="204"
+            y2="44"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="76"
+            x2="204"
+            y2="84"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="116"
+            x2="204"
+            y2="124"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          <line
+            x1="204"
+            y1="156"
+            x2="204"
+            y2="164"
+            stroke="white"
+            strokeWidth="1.2"
+            strokeOpacity="0.6"
+          />
+          {/* Line of scrimmage */}
+          <line
+            x1="0"
+            y1="95"
+            x2="300"
+            y2="95"
+            stroke="rgba(255,255,180,0.8)"
+            strokeWidth="2.5"
+          />
+          {/* WR go routes */}
+          <line
+            x1="15"
+            y1="80"
+            x2="15"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="15,8 11,16 19,16"
+            fill="rgba(255,255,255,0.35)"
+          />
+          <line
+            x1="285"
+            y1="80"
+            x2="285"
+            y2="12"
+            stroke="rgba(255,255,255,0.35)"
+            strokeWidth="1.5"
+            strokeDasharray="5 3"
+          />
+          <polygon
+            points="285,8 281,16 289,16"
+            fill="rgba(255,255,255,0.35)"
+          />
+          {/* RB swing route */}
+          <path
+            d="M 189 162 Q 228 150 246 136"
+            fill="none"
+            stroke="rgba(255,255,255,0.26)"
+            strokeWidth="1.5"
+            strokeDasharray="4 3"
+          />
+          <polygon
+            points="246,136 240,144 236,136"
+            fill="rgba(255,255,255,0.26)"
+          />
+        </svg>
+      </div>
+
+      {positions.map(({ label, player, x, y }, i) => (
+        <div
+          key={`${label}-${i}`}
+          className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
+          style={{ left: x, top: y }}
+        >
+          <FieldPlayerSlot
+            position={label}
+            player={player}
+            revealed={revealed}
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ---- Formation: generic stacked rows (NBA + default) ----
+
+function RowPlayerSlot({
+  position,
+  player,
+  revealed,
+  compact,
+}: {
+  position: string
+  player: CapCrunchPlayer
+  revealed: boolean
+  compact?: boolean
+}) {
+  const { ref, tooltipPos, handlers } = useSlotTooltip(revealed)
 
   return (
     <>
@@ -97,20 +446,7 @@ function PlayerSlot({
           "flex flex-col items-center gap-0.5 select-none",
           compact ? "min-w-[2.75rem]" : "min-w-[3.5rem]",
         )}
-        onPointerDown={e => {
-          lastPointerTypeRef.current = e.pointerType
-        }}
-        onPointerEnter={e => {
-          if (e.pointerType === "mouse") setTooltipPos(computePos())
-        }}
-        onPointerLeave={e => {
-          if (e.pointerType === "mouse") setTooltipPos(null)
-        }}
-        onClick={() => {
-          if (lastPointerTypeRef.current !== "mouse") {
-            setTooltipPos(prev => (prev ? null : computePos()))
-          }
-        }}
+        {...handlers}
       >
         <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
           {position}
@@ -144,27 +480,17 @@ function PlayerSlot({
           </span>
         </div>
       </div>
-      {tooltipPos &&
-        createPortal(
-          <div
-            className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
-            style={{
-              position: "fixed",
-              left: tooltipPos.x,
-              top: tooltipPos.y - 8,
-              transform: "translate(-50%, -100%)",
-              zIndex: 9999,
-            }}
-          >
-            {tooltipLabel}
-          </div>,
-          document.body,
-        )}
+      {tooltipPos && (
+        <SlotTooltip
+          pos={tooltipPos}
+          label={slotTooltipLabel(player)}
+        />
+      )}
     </>
   )
 }
 
-function Formation({
+function RowsFormation({
   team,
   formation,
   revealed,
@@ -191,7 +517,7 @@ function Formation({
             const player = team.groups[slot.group]?.[slot.index]
             if (!player) return null
             return (
-              <PlayerSlot
+              <RowPlayerSlot
                 key={`${slot.group}-${slot.index}-${slotIdx}`}
                 position={slot.label}
                 player={player}
@@ -205,6 +531,35 @@ function Formation({
     </div>
   )
 }
+
+function Formation({
+  team,
+  config,
+  revealed,
+}: {
+  team: CapCrunchTeam
+  config: CapCrunchLeagueConfig
+  revealed: boolean
+}) {
+  if (config.formationStyle === "field") {
+    return (
+      <NflFieldFormation
+        team={team}
+        revealed={revealed}
+      />
+    )
+  }
+  return (
+    <RowsFormation
+      team={team}
+      formation={config.formation}
+      revealed={revealed}
+      compact={config.compactSlots}
+    />
+  )
+}
+
+// ---- Comparison tiles ----
 
 // Arrow points TOWARD the answer (Playerdle convention).
 // close-* uses same direction but renders in yellow instead of red.
@@ -393,7 +748,7 @@ function TeamInput({
   if (disabled) return null
 
   return (
-    <div className="shrink-0 mx-3 mb-3 pb-[max(0rem,env(safe-area-inset-bottom))] bg-primary-50 dark:bg-primary-900">
+    <div className="guess-input-shell shrink-0 mx-3 bg-primary-50 dark:bg-primary-900">
       <div className="relative max-w-xs mx-auto">
         <input
           ref={inputRef}
@@ -500,6 +855,7 @@ function ResultsPanel({
 }) {
   const { share, copied } = useClipboardShare()
   const scrollRef = useRef<HTMLDivElement>(null)
+  const config = getCapCrunchLeagueConfig(puzzle.league)
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   function handleShare() {
@@ -508,6 +864,14 @@ function ResultsPanel({
       text: buildShareText(puzzle, guesses, won, comparisons),
     })
   }
+
+  // Every player in the formation, with their slot label, ranked by salary.
+  const payrollRows = config.formation
+    .flat()
+    .map(slot => ({ pos: slot.label, player: puzzle.team.groups[slot.group]?.[slot.index] }))
+    .filter((r): r is { pos: string; player: CapCrunchPlayer } => r.player != null)
+    .sort((a, b) => b.player.salary - a.player.salary)
+  const topSalary = payrollRows[0]?.player.salary ?? 1
 
   return (
     <div className="flex-1 min-h-0 flex flex-col pb-4">
@@ -520,6 +884,44 @@ function ResultsPanel({
         ref={scrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
+        {/* Payroll table ranked by salary */}
+        <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
+          <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
+            {puzzle.team.name} — Payroll Breakdown
+          </div>
+          <div className="divide-y divide-primary-100 dark:divide-primary-800">
+            {payrollRows.map(({ pos, player }, i) => {
+              const barWidth = `${Math.round((player.salary / topSalary) * 100)}%`
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-1.5"
+                >
+                  <span className="text-[10px] font-black uppercase w-6 shrink-0 text-primary-400 dark:text-primary-500">
+                    {pos}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-0.5">
+                      <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 truncate">
+                        {player.name}
+                      </span>
+                      <span className="text-xs font-black tabular-nums text-primary-700 dark:text-primary-200 shrink-0">
+                        {formatSalary(player.salary)}
+                      </span>
+                    </div>
+                    <div className="h-1 rounded-full bg-primary-100 dark:bg-primary-800 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-primary-400 dark:bg-primary-500"
+                        style={{ width: barWidth }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
         {mode === "daily" && stats && (
           <div className="mt-4">
             <h3 className="text-sm font-semibold text-primary-900 dark:text-primary-50 mb-3 uppercase">
@@ -750,12 +1152,11 @@ export default function CapCrunchGame({
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
             <Formation
               team={puzzle.team}
-              formation={config.formation}
+              config={config}
               revealed={gameOver}
-              compact={config.compactSlots}
             />
           </div>
 

@@ -1,48 +1,66 @@
 {
-  "season": "2025-26",
+  "season": "2026-27",
   "teams": [
     {
       "id": "ARI",
       "name": "Arizona Cardinals",
       "abbr": "ARI",
       "conference": "NFC",
-      "division": "West",
+      "division": "NFC West",
       "starters": {
         "QB": {
           "name": "Kyler Murray",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "RB": {
           "name": "James Conner",
           "school": "Pittsburgh",
           "schoolAbbr": "PITT",
-          "colors": ["#003594", "#FFB81C"]
+          "colors": [
+            "#003594",
+            "#FFB81C"
+          ]
         },
         "TE": {
           "name": "Trey McBride",
           "school": "Colorado State",
           "schoolAbbr": "CSU",
-          "colors": ["#1E4B00", "#FFFFFF"]
+          "colors": [
+            "#1E4B00",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Marvin Harrison Jr.",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Michael Wilson",
           "school": "Stanford",
           "schoolAbbr": "STAN",
-          "colors": ["#8C1515", "#FFFFFF"]
+          "colors": [
+            "#8C1515",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Rondale Moore",
           "school": "Purdue",
           "schoolAbbr": "PUR",
-          "colors": ["#CEB888", "#000000"]
+          "colors": [
+            "#CEB888",
+            "#000000"
+          ]
         }
       }
     },
@@ -51,43 +69,61 @@
       "name": "Atlanta Falcons",
       "abbr": "ATL",
       "conference": "NFC",
-      "division": "South",
+      "division": "NFC South",
       "starters": {
         "QB": {
           "name": "Michael Penix Jr.",
           "school": "Washington",
           "schoolAbbr": "UW",
-          "colors": ["#4B2E83", "#E8D3A2"]
+          "colors": [
+            "#4B2E83",
+            "#E8D3A2"
+          ]
         },
         "RB": {
           "name": "Bijan Robinson",
           "school": "Texas",
           "schoolAbbr": "TEX",
-          "colors": ["#BF5700", "#FFFFFF"]
+          "colors": [
+            "#BF5700",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Kyle Pitts",
           "school": "Florida",
           "schoolAbbr": "FLA",
-          "colors": ["#0021A5", "#FA4616"]
+          "colors": [
+            "#0021A5",
+            "#FA4616"
+          ]
         },
         "WR1": {
           "name": "Drake London",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         },
         "WR2": {
           "name": "Darnell Mooney",
           "school": "Tulane",
           "schoolAbbr": "TUL",
-          "colors": ["#006747", "#FFFFFF"]
+          "colors": [
+            "#006747",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Ray-Ray McCloud",
           "school": "Florida State",
           "schoolAbbr": "FSU",
-          "colors": ["#782F40", "#CEB888"]
+          "colors": [
+            "#782F40",
+            "#CEB888"
+          ]
         }
       }
     },
@@ -96,43 +132,61 @@
       "name": "Baltimore Ravens",
       "abbr": "BAL",
       "conference": "AFC",
-      "division": "North",
+      "division": "AFC North",
       "starters": {
         "QB": {
           "name": "Lamar Jackson",
           "school": "Louisville",
           "schoolAbbr": "UofL",
-          "colors": ["#AD0000", "#000000"]
+          "colors": [
+            "#AD0000",
+            "#000000"
+          ]
         },
         "RB": {
           "name": "Derrick Henry",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Mark Andrews",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "WR1": {
           "name": "Zay Flowers",
           "school": "Boston College",
           "schoolAbbr": "BC",
-          "colors": ["#8B0000", "#C0AB7B"]
+          "colors": [
+            "#8B0000",
+            "#C0AB7B"
+          ]
         },
         "WR2": {
           "name": "Rashod Bateman",
           "school": "Minnesota",
           "schoolAbbr": "MINN",
-          "colors": ["#7A0019", "#FFCC33"]
+          "colors": [
+            "#7A0019",
+            "#FFCC33"
+          ]
         },
         "WR3": {
           "name": "Nelson Agholor",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         }
       }
     },
@@ -141,43 +195,61 @@
       "name": "Buffalo Bills",
       "abbr": "BUF",
       "conference": "AFC",
-      "division": "East",
+      "division": "AFC East",
       "starters": {
         "QB": {
           "name": "Josh Allen",
           "school": "Wyoming",
           "schoolAbbr": "WYO",
-          "colors": ["#492F24", "#FFC425"]
+          "colors": [
+            "#492F24",
+            "#FFC425"
+          ]
         },
         "RB": {
           "name": "James Cook",
           "school": "Georgia",
           "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "Dalton Kincaid",
           "school": "Utah",
           "schoolAbbr": "UTA",
-          "colors": ["#CC0000", "#FFFFFF"]
+          "colors": [
+            "#CC0000",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Khalil Shakir",
           "school": "Boise State",
           "schoolAbbr": "BSU",
-          "colors": ["#0033A0", "#D64309"]
+          "colors": [
+            "#0033A0",
+            "#D64309"
+          ]
         },
         "WR2": {
           "name": "DJ Moore",
           "school": "Illinois",
           "schoolAbbr": "ILL",
-          "colors": ["#13294B", "#E84A27"]
+          "colors": [
+            "#13294B",
+            "#E84A27"
+          ]
         },
         "WR3": {
           "name": "Amari Cooper",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -186,43 +258,61 @@
       "name": "Carolina Panthers",
       "abbr": "CAR",
       "conference": "NFC",
-      "division": "South",
+      "division": "NFC South",
       "starters": {
         "QB": {
           "name": "Bryce Young",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Chuba Hubbard",
           "school": "Oklahoma State",
           "schoolAbbr": "OkSt",
-          "colors": ["#FF6600", "#000000"]
+          "colors": [
+            "#FF6600",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "Ja'Tavion Sanders",
           "school": "Texas",
           "schoolAbbr": "TEX",
-          "colors": ["#BF5700", "#FFFFFF"]
+          "colors": [
+            "#BF5700",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Tetairoa McMillan",
           "school": "Arizona",
           "schoolAbbr": "ARIZ",
-          "colors": ["#AB0520", "#FFFFFF"]
+          "colors": [
+            "#AB0520",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Jalen Coker",
           "school": "Holy Cross",
           "schoolAbbr": "HCROSS",
-          "colors": ["#582C83", "#FFFFFF"]
+          "colors": [
+            "#582C83",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Xavier Legette",
           "school": "South Carolina",
           "schoolAbbr": "SC",
-          "colors": ["#73000A", "#000000"]
+          "colors": [
+            "#73000A",
+            "#000000"
+          ]
         }
       }
     },
@@ -231,43 +321,61 @@
       "name": "Chicago Bears",
       "abbr": "CHI",
       "conference": "NFC",
-      "division": "North",
+      "division": "NFC North",
       "starters": {
         "QB": {
           "name": "Caleb Williams",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         },
         "RB": {
           "name": "D'Andre Swift",
           "school": "Georgia",
           "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "Colston Loveland",
           "school": "Michigan",
           "schoolAbbr": "MICH",
-          "colors": ["#00274C", "#FFCB05"]
+          "colors": [
+            "#00274C",
+            "#FFCB05"
+          ]
         },
         "WR1": {
           "name": "Rome Odunze",
           "school": "Washington",
           "schoolAbbr": "UW",
-          "colors": ["#4B2E83", "#E8D3A2"]
+          "colors": [
+            "#4B2E83",
+            "#E8D3A2"
+          ]
         },
         "WR2": {
           "name": "Luther Burden III",
           "school": "Missouri",
           "schoolAbbr": "MIZZ",
-          "colors": ["#F1B82D", "#000000"]
+          "colors": [
+            "#F1B82D",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Keenan Allen",
           "school": "California",
           "schoolAbbr": "CAL",
-          "colors": ["#003262", "#FDB515"]
+          "colors": [
+            "#003262",
+            "#FDB515"
+          ]
         }
       }
     },
@@ -276,43 +384,61 @@
       "name": "Cincinnati Bengals",
       "abbr": "CIN",
       "conference": "AFC",
-      "division": "North",
+      "division": "AFC North",
       "starters": {
         "QB": {
           "name": "Joe Burrow",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "RB": {
           "name": "Quinshon Judkins",
           "school": "Ole Miss",
           "schoolAbbr": "MISS",
-          "colors": ["#CE1126", "#14213D"]
+          "colors": [
+            "#CE1126",
+            "#14213D"
+          ]
         },
         "TE": {
           "name": "Noah Fant",
           "school": "Iowa",
           "schoolAbbr": "UI",
-          "colors": ["#FFCD00", "#000000"]
+          "colors": [
+            "#FFCD00",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Ja'Marr Chase",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "WR2": {
           "name": "Tee Higgins",
           "school": "Clemson",
           "schoolAbbr": "CLEM",
-          "colors": ["#F56600", "#522D80"]
+          "colors": [
+            "#F56600",
+            "#522D80"
+          ]
         },
         "WR3": {
           "name": "Tyler Boyd",
           "school": "Pittsburgh",
           "schoolAbbr": "PITT",
-          "colors": ["#003594", "#FFB81C"]
+          "colors": [
+            "#003594",
+            "#FFB81C"
+          ]
         }
       }
     },
@@ -321,43 +447,61 @@
       "name": "Cleveland Browns",
       "abbr": "CLE",
       "conference": "AFC",
-      "division": "North",
+      "division": "AFC North",
       "starters": {
         "QB": {
           "name": "Dillon Gabriel",
           "school": "Oregon",
           "schoolAbbr": "ORE",
-          "colors": ["#154733", "#FEE123"]
+          "colors": [
+            "#154733",
+            "#FEE123"
+          ]
         },
         "RB": {
           "name": "Jerome Ford",
           "school": "Cincinnati",
           "schoolAbbr": "CINC",
-          "colors": ["#E00122", "#000000"]
+          "colors": [
+            "#E00122",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "David Njoku",
           "school": "Miami (FL)",
           "schoolAbbr": "MIAMI",
-          "colors": ["#005030", "#F47321"]
+          "colors": [
+            "#005030",
+            "#F47321"
+          ]
         },
         "WR1": {
           "name": "Jerry Jeudy",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Elijah Moore",
           "school": "Ole Miss",
           "schoolAbbr": "MISS",
-          "colors": ["#CE1126", "#14213D"]
+          "colors": [
+            "#CE1126",
+            "#14213D"
+          ]
         },
         "WR3": {
           "name": "Cedric Tillman",
           "school": "Tennessee",
           "schoolAbbr": "TENN",
-          "colors": ["#FF8200", "#FFFFFF"]
+          "colors": [
+            "#FF8200",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -366,43 +510,61 @@
       "name": "Dallas Cowboys",
       "abbr": "DAL",
       "conference": "NFC",
-      "division": "East",
+      "division": "NFC East",
       "starters": {
         "QB": {
           "name": "Dak Prescott",
           "school": "Mississippi State",
           "schoolAbbr": "MST",
-          "colors": ["#660000", "#FFFFFF"]
+          "colors": [
+            "#660000",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Javonte Williams",
           "school": "North Carolina",
           "schoolAbbr": "UNC",
-          "colors": ["#4B9CD3", "#FFFFFF"]
+          "colors": [
+            "#4B9CD3",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Jake Ferguson",
           "school": "Wisconsin",
           "schoolAbbr": "WIS",
-          "colors": ["#C5050C", "#FFFFFF"]
+          "colors": [
+            "#C5050C",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "CeeDee Lamb",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "WR2": {
           "name": "Brandin Cooks",
           "school": "Oregon State",
           "schoolAbbr": "ORST",
-          "colors": ["#D3531A", "#000000"]
+          "colors": [
+            "#D3531A",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "KaVontae Turpin",
           "school": "TCU",
           "schoolAbbr": "TCU",
-          "colors": ["#4D1979", "#A3A9AC"]
+          "colors": [
+            "#4D1979",
+            "#A3A9AC"
+          ]
         }
       }
     },
@@ -411,43 +573,61 @@
       "name": "Denver Broncos",
       "abbr": "DEN",
       "conference": "AFC",
-      "division": "West",
+      "division": "AFC West",
       "starters": {
         "QB": {
           "name": "Bo Nix",
           "school": "Oregon",
           "schoolAbbr": "ORE",
-          "colors": ["#154733", "#FEE123"]
+          "colors": [
+            "#154733",
+            "#FEE123"
+          ]
         },
         "RB": {
           "name": "J.K. Dobbins",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Evan Engram",
           "school": "Ole Miss",
           "schoolAbbr": "MISS",
-          "colors": ["#CE1126", "#14213D"]
+          "colors": [
+            "#CE1126",
+            "#14213D"
+          ]
         },
         "WR1": {
           "name": "Courtland Sutton",
           "school": "SMU",
           "schoolAbbr": "SMU",
-          "colors": ["#0033A0", "#CC0000"]
+          "colors": [
+            "#0033A0",
+            "#CC0000"
+          ]
         },
         "WR2": {
           "name": "Josh Reynolds",
           "school": "Texas A&M",
           "schoolAbbr": "TAM",
-          "colors": ["#500000", "#FFFFFF"]
+          "colors": [
+            "#500000",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Marvin Mims Jr.",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         }
       }
     },
@@ -456,43 +636,61 @@
       "name": "Detroit Lions",
       "abbr": "DET",
       "conference": "NFC",
-      "division": "North",
+      "division": "NFC North",
       "starters": {
         "QB": {
           "name": "Jared Goff",
           "school": "California",
           "schoolAbbr": "CAL",
-          "colors": ["#003262", "#FDB515"]
+          "colors": [
+            "#003262",
+            "#FDB515"
+          ]
         },
         "RB": {
           "name": "Jahmyr Gibbs",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Sam LaPorta",
           "school": "Iowa",
           "schoolAbbr": "UI",
-          "colors": ["#FFCD00", "#000000"]
+          "colors": [
+            "#FFCD00",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Amon-Ra St. Brown",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         },
         "WR2": {
           "name": "Jameson Williams",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Tim Patrick",
           "school": "Utah",
           "schoolAbbr": "UTA",
-          "colors": ["#CC0000", "#FFFFFF"]
+          "colors": [
+            "#CC0000",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -501,43 +699,61 @@
       "name": "Green Bay Packers",
       "abbr": "GB",
       "conference": "NFC",
-      "division": "North",
+      "division": "NFC North",
       "starters": {
         "QB": {
           "name": "Jordan Love",
           "school": "Utah State",
           "schoolAbbr": "USU",
-          "colors": ["#0F2439", "#FFFFFF"]
+          "colors": [
+            "#0F2439",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Josh Jacobs",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Tucker Kraft",
           "school": "South Dakota State",
           "schoolAbbr": "SDST",
-          "colors": ["#0033A0", "#FFCC00"]
+          "colors": [
+            "#0033A0",
+            "#FFCC00"
+          ]
         },
         "WR1": {
           "name": "Jayden Reed",
           "school": "Michigan State",
           "schoolAbbr": "MSU",
-          "colors": ["#18453B", "#FFFFFF"]
+          "colors": [
+            "#18453B",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Christian Watson",
           "school": "North Dakota State",
           "schoolAbbr": "NDST",
-          "colors": ["#009A44", "#FFD100"]
+          "colors": [
+            "#009A44",
+            "#FFD100"
+          ]
         },
         "WR3": {
           "name": "Dontayvion Wicks",
           "school": "California",
           "schoolAbbr": "CAL",
-          "colors": ["#003262", "#FDB515"]
+          "colors": [
+            "#003262",
+            "#FDB515"
+          ]
         }
       }
     },
@@ -546,43 +762,61 @@
       "name": "Houston Texans",
       "abbr": "HOU",
       "conference": "AFC",
-      "division": "South",
+      "division": "AFC South",
       "starters": {
         "QB": {
           "name": "C.J. Stroud",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Joe Mixon",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "TE": {
           "name": "Dalton Schultz",
           "school": "Stanford",
           "schoolAbbr": "STAN",
-          "colors": ["#8C1515", "#FFFFFF"]
+          "colors": [
+            "#8C1515",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Nico Collins",
           "school": "Michigan",
           "schoolAbbr": "MICH",
-          "colors": ["#00274C", "#FFCB05"]
+          "colors": [
+            "#00274C",
+            "#FFCB05"
+          ]
         },
         "WR2": {
           "name": "Jayden Higgins",
           "school": "Iowa State",
           "schoolAbbr": "ISU",
-          "colors": ["#F1B82D", "#000000"]
+          "colors": [
+            "#F1B82D",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Tank Dell",
           "school": "Houston",
           "schoolAbbr": "HOU",
-          "colors": ["#C8102E", "#FFFFFF"]
+          "colors": [
+            "#C8102E",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -591,43 +825,61 @@
       "name": "Indianapolis Colts",
       "abbr": "IND",
       "conference": "AFC",
-      "division": "South",
+      "division": "AFC South",
       "starters": {
         "QB": {
           "name": "Daniel Jones",
           "school": "Duke",
           "schoolAbbr": "DUKE",
-          "colors": ["#003087", "#FFFFFF"]
+          "colors": [
+            "#003087",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Jonathan Taylor",
           "school": "Wisconsin",
           "schoolAbbr": "WIS",
-          "colors": ["#C5050C", "#FFFFFF"]
+          "colors": [
+            "#C5050C",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Tyler Warren",
           "school": "Penn State",
           "schoolAbbr": "PSU",
-          "colors": ["#041E42", "#FFFFFF"]
+          "colors": [
+            "#041E42",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Michael Pittman Jr.",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         },
         "WR2": {
           "name": "Josh Downs",
           "school": "North Carolina",
           "schoolAbbr": "UNC",
-          "colors": ["#4B9CD3", "#FFFFFF"]
+          "colors": [
+            "#4B9CD3",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Adonai Mitchell",
           "school": "Texas",
           "schoolAbbr": "TEX",
-          "colors": ["#BF5700", "#FFFFFF"]
+          "colors": [
+            "#BF5700",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -636,43 +888,61 @@
       "name": "Jacksonville Jaguars",
       "abbr": "JAX",
       "conference": "AFC",
-      "division": "South",
+      "division": "AFC South",
       "starters": {
         "QB": {
           "name": "Trevor Lawrence",
           "school": "Clemson",
           "schoolAbbr": "CLEM",
-          "colors": ["#F56600", "#522D80"]
+          "colors": [
+            "#F56600",
+            "#522D80"
+          ]
         },
         "RB": {
           "name": "Travis Etienne Jr.",
           "school": "Clemson",
           "schoolAbbr": "CLEM",
-          "colors": ["#F56600", "#522D80"]
+          "colors": [
+            "#F56600",
+            "#522D80"
+          ]
         },
         "TE": {
           "name": "Brenton Strange",
           "school": "Penn State",
           "schoolAbbr": "PSU",
-          "colors": ["#041E42", "#FFFFFF"]
+          "colors": [
+            "#041E42",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Brian Thomas Jr.",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "WR2": {
           "name": "Travis Hunter",
           "school": "Colorado",
           "schoolAbbr": "COL",
-          "colors": ["#CFB87C", "#000000"]
+          "colors": [
+            "#CFB87C",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Gabe Davis",
           "school": "UCF",
           "schoolAbbr": "UCF",
-          "colors": ["#000000", "#FFC904"]
+          "colors": [
+            "#000000",
+            "#FFC904"
+          ]
         }
       }
     },
@@ -681,133 +951,61 @@
       "name": "Kansas City Chiefs",
       "abbr": "KC",
       "conference": "AFC",
-      "division": "West",
+      "division": "AFC West",
       "starters": {
         "QB": {
           "name": "Patrick Mahomes",
           "school": "Texas Tech",
           "schoolAbbr": "TTU",
-          "colors": ["#CC0000", "#000000"]
+          "colors": [
+            "#CC0000",
+            "#000000"
+          ]
         },
         "RB": {
           "name": "Isiah Pacheco",
           "school": "Rutgers",
           "schoolAbbr": "RUT",
-          "colors": ["#CC0033", "#FFFFFF"]
+          "colors": [
+            "#CC0033",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Travis Kelce",
           "school": "Cincinnati",
           "schoolAbbr": "CINC",
-          "colors": ["#E00122", "#000000"]
+          "colors": [
+            "#E00122",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Rashee Rice",
           "school": "SMU",
           "schoolAbbr": "SMU",
-          "colors": ["#0033A0", "#CC0000"]
+          "colors": [
+            "#0033A0",
+            "#CC0000"
+          ]
         },
         "WR2": {
           "name": "Xavier Worthy",
           "school": "Texas",
           "schoolAbbr": "TEX",
-          "colors": ["#BF5700", "#FFFFFF"]
+          "colors": [
+            "#BF5700",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Mecole Hardman",
           "school": "Georgia",
           "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
-        }
-      }
-    },
-    {
-      "id": "LAC",
-      "name": "Los Angeles Chargers",
-      "abbr": "LAC",
-      "conference": "AFC",
-      "division": "West",
-      "starters": {
-        "QB": {
-          "name": "Justin Herbert",
-          "school": "Oregon",
-          "schoolAbbr": "ORE",
-          "colors": ["#154733", "#FEE123"]
-        },
-        "RB": {
-          "name": "Omarion Hampton",
-          "school": "North Carolina",
-          "schoolAbbr": "UNC",
-          "colors": ["#4B9CD3", "#FFFFFF"]
-        },
-        "TE": {
-          "name": "Will Dissly",
-          "school": "Washington",
-          "schoolAbbr": "UW",
-          "colors": ["#4B2E83", "#E8D3A2"]
-        },
-        "WR1": {
-          "name": "Ladd McConkey",
-          "school": "Georgia",
-          "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
-        },
-        "WR2": {
-          "name": "Quentin Johnston",
-          "school": "TCU",
-          "schoolAbbr": "TCU",
-          "colors": ["#4D1979", "#A3A9AC"]
-        },
-        "WR3": {
-          "name": "Joshua Palmer",
-          "school": "Tennessee",
-          "schoolAbbr": "TENN",
-          "colors": ["#FF8200", "#FFFFFF"]
-        }
-      }
-    },
-    {
-      "id": "LAR",
-      "name": "Los Angeles Rams",
-      "abbr": "LAR",
-      "conference": "NFC",
-      "division": "West",
-      "starters": {
-        "QB": {
-          "name": "Matthew Stafford",
-          "school": "Georgia",
-          "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
-        },
-        "RB": {
-          "name": "Kyren Williams",
-          "school": "Notre Dame",
-          "schoolAbbr": "ND",
-          "colors": ["#0C2340", "#C99700"]
-        },
-        "TE": {
-          "name": "Tyler Higbee",
-          "school": "Western Kentucky",
-          "schoolAbbr": "WKU",
-          "colors": ["#B01E24", "#FFFFFF"]
-        },
-        "WR1": {
-          "name": "Davante Adams",
-          "school": "Fresno State",
-          "schoolAbbr": "FRES",
-          "colors": ["#CC0000", "#003399"]
-        },
-        "WR2": {
-          "name": "Puka Nacua",
-          "school": "BYU",
-          "schoolAbbr": "BYU",
-          "colors": ["#002255", "#FFFFFF"]
-        },
-        "WR3": {
-          "name": "Tutu Atwell",
-          "school": "Louisville",
-          "schoolAbbr": "UofL",
-          "colors": ["#AD0000", "#000000"]
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
         }
       }
     },
@@ -816,43 +1014,187 @@
       "name": "Las Vegas Raiders",
       "abbr": "LV",
       "conference": "AFC",
-      "division": "West",
+      "division": "AFC West",
       "starters": {
         "QB": {
           "name": "Geno Smith",
           "school": "West Virginia",
           "schoolAbbr": "WVU",
-          "colors": ["#003366", "#FCEF3C"]
+          "colors": [
+            "#003366",
+            "#FCEF3C"
+          ]
         },
         "RB": {
           "name": "Ashton Jeanty",
           "school": "Boise State",
           "schoolAbbr": "BSU",
-          "colors": ["#0033A0", "#D64309"]
+          "colors": [
+            "#0033A0",
+            "#D64309"
+          ]
         },
         "TE": {
           "name": "Brock Bowers",
           "school": "Georgia",
           "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Jakobi Meyers",
           "school": "NC State",
           "schoolAbbr": "NCST",
-          "colors": ["#CC0000", "#FFFFFF"]
+          "colors": [
+            "#CC0000",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Tre Tucker",
           "school": "Cincinnati",
           "schoolAbbr": "CINC",
-          "colors": ["#E00122", "#000000"]
+          "colors": [
+            "#E00122",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Michael Gallup",
           "school": "Colorado State",
           "schoolAbbr": "CSU",
-          "colors": ["#1E4B00", "#FFFFFF"]
+          "colors": [
+            "#1E4B00",
+            "#FFFFFF"
+          ]
+        }
+      }
+    },
+    {
+      "id": "LAC",
+      "name": "Los Angeles Chargers",
+      "abbr": "LAC",
+      "conference": "AFC",
+      "division": "AFC West",
+      "starters": {
+        "QB": {
+          "name": "Justin Herbert",
+          "school": "Oregon",
+          "schoolAbbr": "ORE",
+          "colors": [
+            "#154733",
+            "#FEE123"
+          ]
+        },
+        "RB": {
+          "name": "Omarion Hampton",
+          "school": "North Carolina",
+          "schoolAbbr": "UNC",
+          "colors": [
+            "#4B9CD3",
+            "#FFFFFF"
+          ]
+        },
+        "TE": {
+          "name": "Will Dissly",
+          "school": "Washington",
+          "schoolAbbr": "UW",
+          "colors": [
+            "#4B2E83",
+            "#E8D3A2"
+          ]
+        },
+        "WR1": {
+          "name": "Ladd McConkey",
+          "school": "Georgia",
+          "schoolAbbr": "UGA",
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
+        },
+        "WR2": {
+          "name": "Quentin Johnston",
+          "school": "TCU",
+          "schoolAbbr": "TCU",
+          "colors": [
+            "#4D1979",
+            "#A3A9AC"
+          ]
+        },
+        "WR3": {
+          "name": "Joshua Palmer",
+          "school": "Tennessee",
+          "schoolAbbr": "TENN",
+          "colors": [
+            "#FF8200",
+            "#FFFFFF"
+          ]
+        }
+      }
+    },
+    {
+      "id": "LAR",
+      "name": "Los Angeles Rams",
+      "abbr": "LAR",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Matthew Stafford",
+          "school": "Georgia",
+          "schoolAbbr": "UGA",
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
+        },
+        "RB": {
+          "name": "Kyren Williams",
+          "school": "Notre Dame",
+          "schoolAbbr": "ND",
+          "colors": [
+            "#0C2340",
+            "#C99700"
+          ]
+        },
+        "TE": {
+          "name": "Tyler Higbee",
+          "school": "Western Kentucky",
+          "schoolAbbr": "WKU",
+          "colors": [
+            "#B01E24",
+            "#FFFFFF"
+          ]
+        },
+        "WR1": {
+          "name": "Davante Adams",
+          "school": "Fresno State",
+          "schoolAbbr": "FRES",
+          "colors": [
+            "#CC0000",
+            "#003399"
+          ]
+        },
+        "WR2": {
+          "name": "Puka Nacua",
+          "school": "BYU",
+          "schoolAbbr": "BYU",
+          "colors": [
+            "#002255",
+            "#FFFFFF"
+          ]
+        },
+        "WR3": {
+          "name": "Tutu Atwell",
+          "school": "Louisville",
+          "schoolAbbr": "UofL",
+          "colors": [
+            "#AD0000",
+            "#000000"
+          ]
         }
       }
     },
@@ -861,43 +1203,61 @@
       "name": "Miami Dolphins",
       "abbr": "MIA",
       "conference": "AFC",
-      "division": "East",
+      "division": "AFC East",
       "starters": {
         "QB": {
           "name": "Tua Tagovailoa",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "De'Von Achane",
           "school": "Texas A&M",
           "schoolAbbr": "TAM",
-          "colors": ["#500000", "#FFFFFF"]
+          "colors": [
+            "#500000",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Jonnu Smith",
           "school": "Florida International",
           "schoolAbbr": "FIU",
-          "colors": ["#081E3F", "#C8973B"]
+          "colors": [
+            "#081E3F",
+            "#C8973B"
+          ]
         },
         "WR1": {
           "name": "Tyreek Hill",
           "school": "West Alabama",
           "schoolAbbr": "WALA",
-          "colors": ["#5C0029", "#FFFFFF"]
+          "colors": [
+            "#5C0029",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Jaylen Waddle",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Erik Ezukanma",
           "school": "Texas Tech",
           "schoolAbbr": "TTU",
-          "colors": ["#CC0000", "#000000"]
+          "colors": [
+            "#CC0000",
+            "#000000"
+          ]
         }
       }
     },
@@ -906,43 +1266,61 @@
       "name": "Minnesota Vikings",
       "abbr": "MIN",
       "conference": "NFC",
-      "division": "North",
+      "division": "NFC North",
       "starters": {
         "QB": {
           "name": "J.J. McCarthy",
           "school": "Michigan",
           "schoolAbbr": "MICH",
-          "colors": ["#00274C", "#FFCB05"]
+          "colors": [
+            "#00274C",
+            "#FFCB05"
+          ]
         },
         "RB": {
           "name": "Aaron Jones",
           "school": "UTEP",
           "schoolAbbr": "UTEP",
-          "colors": ["#003594", "#FFFFFF"]
+          "colors": [
+            "#003594",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "T.J. Hockenson",
           "school": "Iowa",
           "schoolAbbr": "UI",
-          "colors": ["#FFCD00", "#000000"]
+          "colors": [
+            "#FFCD00",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Justin Jefferson",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "WR2": {
           "name": "Jordan Addison",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         },
         "WR3": {
           "name": "Jalen Nailor",
           "school": "Michigan State",
           "schoolAbbr": "MSU",
-          "colors": ["#18453B", "#FFFFFF"]
+          "colors": [
+            "#18453B",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -951,43 +1329,61 @@
       "name": "New England Patriots",
       "abbr": "NE",
       "conference": "AFC",
-      "division": "East",
+      "division": "AFC East",
       "starters": {
         "QB": {
           "name": "Drake Maye",
           "school": "North Carolina",
           "schoolAbbr": "UNC",
-          "colors": ["#4B9CD3", "#FFFFFF"]
+          "colors": [
+            "#4B9CD3",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Rhamondre Stevenson",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "TE": {
           "name": "Hunter Henry",
           "school": "Arkansas",
           "schoolAbbr": "ARK",
-          "colors": ["#9D2235", "#FFFFFF"]
+          "colors": [
+            "#9D2235",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Stefon Diggs",
           "school": "Maryland",
           "schoolAbbr": "MD",
-          "colors": ["#E03A3E", "#FFD520"]
+          "colors": [
+            "#E03A3E",
+            "#FFD520"
+          ]
         },
         "WR2": {
           "name": "Demario Douglas",
           "school": "Liberty",
           "schoolAbbr": "LIB",
-          "colors": ["#002868", "#FF0000"]
+          "colors": [
+            "#002868",
+            "#FF0000"
+          ]
         },
         "WR3": {
           "name": "JuJu Smith-Schuster",
           "school": "USC",
           "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
         }
       }
     },
@@ -996,43 +1392,61 @@
       "name": "New Orleans Saints",
       "abbr": "NO",
       "conference": "NFC",
-      "division": "South",
+      "division": "NFC South",
       "starters": {
         "QB": {
           "name": "Tyler Shough",
           "school": "Louisville",
           "schoolAbbr": "UofL",
-          "colors": ["#AD0000", "#000000"]
+          "colors": [
+            "#AD0000",
+            "#000000"
+          ]
         },
         "RB": {
           "name": "Alvin Kamara",
           "school": "Tennessee",
           "schoolAbbr": "TENN",
-          "colors": ["#FF8200", "#FFFFFF"]
+          "colors": [
+            "#FF8200",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Taysom Hill",
           "school": "BYU",
           "schoolAbbr": "BYU",
-          "colors": ["#002255", "#FFFFFF"]
+          "colors": [
+            "#002255",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "Chris Olave",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Rashid Shaheed",
           "school": "Weber State",
           "schoolAbbr": "WEB",
-          "colors": ["#4F2683", "#FFFFFF"]
+          "colors": [
+            "#4F2683",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "A.T. Perry",
           "school": "Wake Forest",
           "schoolAbbr": "WFU",
-          "colors": ["#9E7E38", "#000000"]
+          "colors": [
+            "#9E7E38",
+            "#000000"
+          ]
         }
       }
     },
@@ -1041,43 +1455,61 @@
       "name": "New York Giants",
       "abbr": "NYG",
       "conference": "NFC",
-      "division": "East",
+      "division": "NFC East",
       "starters": {
         "QB": {
           "name": "Russell Wilson",
           "school": "Wisconsin",
           "schoolAbbr": "WIS",
-          "colors": ["#C5050C", "#FFFFFF"]
+          "colors": [
+            "#C5050C",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Tyrone Tracy Jr.",
           "school": "Purdue",
           "schoolAbbr": "PUR",
-          "colors": ["#CEB888", "#000000"]
+          "colors": [
+            "#CEB888",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "Darren Waller",
           "school": "Georgia Tech",
           "schoolAbbr": "GT",
-          "colors": ["#003057", "#B3A369"]
+          "colors": [
+            "#003057",
+            "#B3A369"
+          ]
         },
         "WR1": {
           "name": "Malik Nabers",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "WR2": {
           "name": "Wan'Dale Robinson",
           "school": "Kentucky",
           "schoolAbbr": "UK",
-          "colors": ["#0033A0", "#FFFFFF"]
+          "colors": [
+            "#0033A0",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Darius Slayton",
           "school": "Auburn",
           "schoolAbbr": "AUB",
-          "colors": ["#03244D", "#E87722"]
+          "colors": [
+            "#03244D",
+            "#E87722"
+          ]
         }
       }
     },
@@ -1086,43 +1518,61 @@
       "name": "New York Jets",
       "abbr": "NYJ",
       "conference": "AFC",
-      "division": "East",
+      "division": "AFC East",
       "starters": {
         "QB": {
           "name": "Justin Fields",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "RB": {
           "name": "Breece Hall",
           "school": "Iowa State",
           "schoolAbbr": "ISU",
-          "colors": ["#F1B82D", "#000000"]
+          "colors": [
+            "#F1B82D",
+            "#000000"
+          ]
         },
         "TE": {
           "name": "Mason Taylor",
           "school": "LSU",
           "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
+          "colors": [
+            "#461D7C",
+            "#FDD023"
+          ]
         },
         "WR1": {
           "name": "Garrett Wilson",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Allen Lazard",
           "school": "Iowa State",
           "schoolAbbr": "ISU",
-          "colors": ["#F1B82D", "#000000"]
+          "colors": [
+            "#F1B82D",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Randall Cobb",
           "school": "Kentucky",
           "schoolAbbr": "UK",
-          "colors": ["#0033A0", "#FFFFFF"]
+          "colors": [
+            "#0033A0",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -1131,43 +1581,61 @@
       "name": "Philadelphia Eagles",
       "abbr": "PHI",
       "conference": "NFC",
-      "division": "East",
+      "division": "NFC East",
       "starters": {
         "QB": {
           "name": "Jalen Hurts",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "RB": {
           "name": "Saquon Barkley",
           "school": "Penn State",
           "schoolAbbr": "PSU",
-          "colors": ["#041E42", "#FFFFFF"]
+          "colors": [
+            "#041E42",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Dallas Goedert",
           "school": "South Dakota State",
           "schoolAbbr": "SDST",
-          "colors": ["#0033A0", "#FFCC00"]
+          "colors": [
+            "#0033A0",
+            "#FFCC00"
+          ]
         },
         "WR1": {
           "name": "A.J. Brown",
           "school": "Ole Miss",
           "schoolAbbr": "MISS",
-          "colors": ["#CE1126", "#14213D"]
+          "colors": [
+            "#CE1126",
+            "#14213D"
+          ]
         },
         "WR2": {
           "name": "DeVonta Smith",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Britain Covey",
           "school": "Utah",
           "schoolAbbr": "UTA",
-          "colors": ["#CC0000", "#FFFFFF"]
+          "colors": [
+            "#CC0000",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -1176,88 +1644,61 @@
       "name": "Pittsburgh Steelers",
       "abbr": "PIT",
       "conference": "AFC",
-      "division": "North",
+      "division": "AFC North",
       "starters": {
         "QB": {
           "name": "Aaron Rodgers",
           "school": "California",
           "schoolAbbr": "CAL",
-          "colors": ["#003262", "#FDB515"]
+          "colors": [
+            "#003262",
+            "#FDB515"
+          ]
         },
         "RB": {
           "name": "Najee Harris",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "Pat Freiermuth",
           "school": "Penn State",
           "schoolAbbr": "PSU",
-          "colors": ["#041E42", "#FFFFFF"]
+          "colors": [
+            "#041E42",
+            "#FFFFFF"
+          ]
         },
         "WR1": {
           "name": "DK Metcalf",
           "school": "Ole Miss",
           "schoolAbbr": "MISS",
-          "colors": ["#CE1126", "#14213D"]
+          "colors": [
+            "#CE1126",
+            "#14213D"
+          ]
         },
         "WR2": {
           "name": "George Pickens",
           "school": "Georgia",
           "schoolAbbr": "UGA",
-          "colors": ["#BA0C2F", "#000000"]
+          "colors": [
+            "#BA0C2F",
+            "#000000"
+          ]
         },
         "WR3": {
           "name": "Van Jefferson",
           "school": "Florida",
           "schoolAbbr": "FLA",
-          "colors": ["#0021A5", "#FA4616"]
-        }
-      }
-    },
-    {
-      "id": "SEA",
-      "name": "Seattle Seahawks",
-      "abbr": "SEA",
-      "conference": "NFC",
-      "division": "West",
-      "starters": {
-        "QB": {
-          "name": "Sam Darnold",
-          "school": "USC",
-          "schoolAbbr": "USC",
-          "colors": ["#990000", "#FFC72C"]
-        },
-        "RB": {
-          "name": "Zach Charbonnet",
-          "school": "UCLA",
-          "schoolAbbr": "UCLA",
-          "colors": ["#2774AE", "#FFD100"]
-        },
-        "TE": {
-          "name": "Noah Fant",
-          "school": "Iowa",
-          "schoolAbbr": "UI",
-          "colors": ["#FFCD00", "#000000"]
-        },
-        "WR1": {
-          "name": "Jaxson Smith-Njigba",
-          "school": "Ohio State",
-          "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
-        },
-        "WR2": {
-          "name": "Cooper Kupp",
-          "school": "Eastern Washington",
-          "schoolAbbr": "EWU",
-          "colors": ["#A10022", "#FFFFFF"]
-        },
-        "WR3": {
-          "name": "Tyler Lockett",
-          "school": "Kansas State",
-          "schoolAbbr": "KSU",
-          "colors": ["#512888", "#A7A8AA"]
+          "colors": [
+            "#0021A5",
+            "#FA4616"
+          ]
         }
       }
     },
@@ -1266,43 +1707,124 @@
       "name": "San Francisco 49ers",
       "abbr": "SF",
       "conference": "NFC",
-      "division": "West",
+      "division": "NFC West",
       "starters": {
         "QB": {
           "name": "Brock Purdy",
           "school": "Iowa State",
           "schoolAbbr": "ISU",
-          "colors": ["#F1B82D", "#000000"]
+          "colors": [
+            "#F1B82D",
+            "#000000"
+          ]
         },
         "RB": {
           "name": "Christian McCaffrey",
           "school": "Stanford",
           "schoolAbbr": "STAN",
-          "colors": ["#8C1515", "#FFFFFF"]
+          "colors": [
+            "#8C1515",
+            "#FFFFFF"
+          ]
         },
         "TE": {
           "name": "George Kittle",
           "school": "Iowa",
           "schoolAbbr": "UI",
-          "colors": ["#FFCD00", "#000000"]
+          "colors": [
+            "#FFCD00",
+            "#000000"
+          ]
         },
         "WR1": {
           "name": "Jauan Jennings",
           "school": "Tennessee",
           "schoolAbbr": "TENN",
-          "colors": ["#FF8200", "#FFFFFF"]
+          "colors": [
+            "#FF8200",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Ricky Pearsall",
           "school": "Florida",
           "schoolAbbr": "FLA",
-          "colors": ["#0021A5", "#FA4616"]
+          "colors": [
+            "#0021A5",
+            "#FA4616"
+          ]
         },
         "WR3": {
           "name": "Brandon Aiyuk",
           "school": "Arizona State",
           "schoolAbbr": "ASU",
-          "colors": ["#8C1D04", "#FFC627"]
+          "colors": [
+            "#8C1D04",
+            "#FFC627"
+          ]
+        }
+      }
+    },
+    {
+      "id": "SEA",
+      "name": "Seattle Seahawks",
+      "abbr": "SEA",
+      "conference": "NFC",
+      "division": "NFC West",
+      "starters": {
+        "QB": {
+          "name": "Sam Darnold",
+          "school": "USC",
+          "schoolAbbr": "USC",
+          "colors": [
+            "#990000",
+            "#FFC72C"
+          ]
+        },
+        "RB": {
+          "name": "Zach Charbonnet",
+          "school": "UCLA",
+          "schoolAbbr": "UCLA",
+          "colors": [
+            "#2774AE",
+            "#FFD100"
+          ]
+        },
+        "TE": {
+          "name": "Noah Fant",
+          "school": "Iowa",
+          "schoolAbbr": "UI",
+          "colors": [
+            "#FFCD00",
+            "#000000"
+          ]
+        },
+        "WR1": {
+          "name": "Jaxson Smith-Njigba",
+          "school": "Ohio State",
+          "schoolAbbr": "OSU",
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
+        },
+        "WR2": {
+          "name": "Cooper Kupp",
+          "school": "Eastern Washington",
+          "schoolAbbr": "EWU",
+          "colors": [
+            "#A10022",
+            "#FFFFFF"
+          ]
+        },
+        "WR3": {
+          "name": "Tyler Lockett",
+          "school": "Kansas State",
+          "schoolAbbr": "KSU",
+          "colors": [
+            "#512888",
+            "#A7A8AA"
+          ]
         }
       }
     },
@@ -1311,43 +1833,61 @@
       "name": "Tampa Bay Buccaneers",
       "abbr": "TB",
       "conference": "NFC",
-      "division": "South",
+      "division": "NFC South",
       "starters": {
         "QB": {
           "name": "Baker Mayfield",
           "school": "Oklahoma",
           "schoolAbbr": "OU",
-          "colors": ["#841617", "#FDF9D8"]
+          "colors": [
+            "#841617",
+            "#FDF9D8"
+          ]
         },
         "RB": {
           "name": "Rachaad White",
           "school": "Arizona State",
           "schoolAbbr": "ASU",
-          "colors": ["#8C1D04", "#FFC627"]
+          "colors": [
+            "#8C1D04",
+            "#FFC627"
+          ]
         },
         "TE": {
           "name": "Cade Otton",
           "school": "Washington",
           "schoolAbbr": "UW",
-          "colors": ["#4B2E83", "#E8D3A2"]
+          "colors": [
+            "#4B2E83",
+            "#E8D3A2"
+          ]
         },
         "WR1": {
           "name": "Emeka Egbuka",
           "school": "Ohio State",
           "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
+          "colors": [
+            "#BB0000",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "Chris Godwin",
           "school": "Penn State",
           "schoolAbbr": "PSU",
-          "colors": ["#041E42", "#FFFFFF"]
+          "colors": [
+            "#041E42",
+            "#FFFFFF"
+          ]
         },
         "WR3": {
           "name": "Mike Evans",
           "school": "Texas A&M",
           "schoolAbbr": "TAM",
-          "colors": ["#500000", "#FFFFFF"]
+          "colors": [
+            "#500000",
+            "#FFFFFF"
+          ]
         }
       }
     },
@@ -1356,88 +1896,61 @@
       "name": "Tennessee Titans",
       "abbr": "TEN",
       "conference": "AFC",
-      "division": "South",
+      "division": "AFC South",
       "starters": {
         "QB": {
           "name": "Cam Ward",
           "school": "Miami (FL)",
           "schoolAbbr": "MIAMI",
-          "colors": ["#005030", "#F47321"]
+          "colors": [
+            "#005030",
+            "#F47321"
+          ]
         },
         "RB": {
           "name": "Tony Pollard",
           "school": "Memphis",
           "schoolAbbr": "MEM",
-          "colors": ["#7A0A2E", "#898D8D"]
+          "colors": [
+            "#7A0A2E",
+            "#898D8D"
+          ]
         },
         "TE": {
           "name": "Chigoziem Okonkwo",
           "school": "Maryland",
           "schoolAbbr": "MD",
-          "colors": ["#E03A3E", "#FFD520"]
+          "colors": [
+            "#E03A3E",
+            "#FFD520"
+          ]
         },
         "WR1": {
           "name": "Calvin Ridley",
           "school": "Alabama",
           "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
+          "colors": [
+            "#9E1B32",
+            "#FFFFFF"
+          ]
         },
         "WR2": {
           "name": "DeAndre Hopkins",
           "school": "Clemson",
           "schoolAbbr": "CLEM",
-          "colors": ["#F56600", "#522D80"]
+          "colors": [
+            "#F56600",
+            "#522D80"
+          ]
         },
         "WR3": {
           "name": "Treylon Burks",
           "school": "Arkansas",
           "schoolAbbr": "ARK",
-          "colors": ["#9D2235", "#FFFFFF"]
-        }
-      }
-    },
-    {
-      "id": "WAS",
-      "name": "Washington Commanders",
-      "abbr": "WAS",
-      "conference": "NFC",
-      "division": "East",
-      "starters": {
-        "QB": {
-          "name": "Jayden Daniels",
-          "school": "LSU",
-          "schoolAbbr": "LSU",
-          "colors": ["#461D7C", "#FDD023"]
-        },
-        "RB": {
-          "name": "Brian Robinson Jr.",
-          "school": "Alabama",
-          "schoolAbbr": "ALA",
-          "colors": ["#9E1B32", "#FFFFFF"]
-        },
-        "TE": {
-          "name": "Zach Ertz",
-          "school": "Yale",
-          "schoolAbbr": "YALE",
-          "colors": ["#00356B", "#FFFFFF"]
-        },
-        "WR1": {
-          "name": "Terry McLaurin",
-          "school": "Ohio State",
-          "schoolAbbr": "OSU",
-          "colors": ["#BB0000", "#FFFFFF"]
-        },
-        "WR2": {
-          "name": "Deebo Samuel",
-          "school": "South Carolina",
-          "schoolAbbr": "SC",
-          "colors": ["#73000A", "#000000"]
-        },
-        "WR3": {
-          "name": "Dyami Brown",
-          "school": "North Carolina",
-          "schoolAbbr": "UNC",
-          "colors": ["#4B9CD3", "#FFFFFF"]
+          "colors": [
+            "#9D2235",
+            "#FFFFFF"
+          ]
         }
       }
     }

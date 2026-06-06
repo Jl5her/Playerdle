@@ -1,6 +1,8 @@
 import nflAnswerPoolIds from "@playerdle/data/playerdle/nfl/answer_pool.json"
 import nflFanaticAnswerPoolIds from "@playerdle/data/playerdle/nfl/fanatic_answer_pool.json"
 import nflFanaticPlayers from "@playerdle/data/playerdle/nfl/fanatic_players.json"
+import nflMaddenAnswerPoolIds from "@playerdle/data/playerdle/nfl/madden_answer_pool.json"
+import nflMaddenPlayers from "@playerdle/data/playerdle/nfl/madden_players.json"
 import nflPlayers from "@playerdle/data/playerdle/nfl/players.json"
 import nflTeams from "@playerdle/data/playerdle/nfl/teams.json"
 import type { Player, SportConfig, SportTeam, TeamJson } from "./types"
@@ -8,6 +10,7 @@ import type { Player, SportConfig, SportTeam, TeamJson } from "./types"
 const teamsData = nflTeams as unknown as TeamJson[]
 const playersData = nflPlayers as unknown as Player[]
 const fanaticPlayersData = nflFanaticPlayers as unknown as Player[]
+const maddenPlayersData = nflMaddenPlayers as unknown as Player[]
 
 const teams: SportTeam[] = teamsData.map(team => ({
   id: team.id,
@@ -18,6 +21,7 @@ const teams: SportTeam[] = teamsData.map(team => ({
 
 const answerPoolIdSet = new Set(nflAnswerPoolIds as string[])
 const fanaticAnswerPoolIdSet = new Set(nflFanaticAnswerPoolIds as string[])
+const maddenAnswerPoolIdSet = new Set(nflMaddenAnswerPoolIds as string[])
 
 const nflConfig: SportConfig = {
   id: "nfl",
@@ -119,6 +123,48 @@ const nflConfig: SportConfig = {
           key: "tgtPerGame",
           evaluator: { type: "comparison", closeWithin: 0.7, showDirection: true },
           example: { value: "7.8", arrow: "\u2191", status: "close" },
+        },
+      ],
+    },
+    {
+      id: "madden",
+      label: "Madden",
+      subtitle: "Guess the NFL player from their Madden 26 ratings in 6 tries",
+      moreGames: true,
+      players: maddenPlayersData,
+      answerPool: maddenPlayersData.filter(player => maddenAnswerPoolIdSet.has(player.id)),
+      columns: [
+        {
+          id: "madden-ovr",
+          label: "OVR",
+          description: "Overall \u2014 the player's Madden 26 overall rating",
+          key: "ovr",
+          evaluator: { type: "comparison", closeWithin: 3, showDirection: true },
+          example: { value: "94", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "madden-spd",
+          label: "SPD",
+          description: "Speed \u2014 how fast the player runs",
+          key: "spd",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "88", arrow: "\u2193", status: "incorrect" },
+        },
+        {
+          id: "madden-awr",
+          label: "AWR",
+          description: "Awareness \u2014 the player's on-field recognition and decision-making",
+          key: "awr",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "85", arrow: "\u2191", status: "close" },
+        },
+        {
+          id: "madden-str",
+          label: "STR",
+          description: "Strength \u2014 the player's physical power",
+          key: "str",
+          evaluator: { type: "comparison", closeWithin: 4, showDirection: true },
+          example: { value: "74", arrow: "\u2193", status: "close" },
         },
       ],
     },

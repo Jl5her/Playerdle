@@ -11,11 +11,12 @@ import {
   type SportConfig,
   type SportId,
 } from "@/games/playerdle/sports"
+import { getDailyPlayer } from "@/games/playerdle/utils/daily"
 import { type GameResult, getGameHistory } from "@/games/playerdle/utils/stats"
 import { ArchiveCalendar, Panel } from "@/shared/components"
+import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { PanelStackContext, usePanelContext } from "@/shared/hooks/use-panel-context"
 import { usePanelStack } from "@/shared/hooks/use-panel-stack"
-import { useInProgressDates } from "@/shared/hooks/use-in-progress-dates"
 import { formatDateKey, parseDateKey } from "@/shared/utils/calendar-date"
 import { formatLongDate, getTodayKey } from "@/shared/utils/time"
 
@@ -38,6 +39,8 @@ interface DayDetailProps {
   onPlay?: () => void
   onViewResults?: () => void
   inProgressCount?: number
+  /** Local-dev-only answer for the selected day. Hidden in production builds. */
+  localAnswer?: { name: string; position?: string; teamAbbr?: string }
 }
 
 function DayDetail({
@@ -47,6 +50,7 @@ function DayDetail({
   onPlay,
   onViewResults,
   inProgressCount,
+  localAnswer,
 }: DayDetailProps) {
   return (
     <div className="mt-4 rounded-xl bg-secondary-50 dark:bg-secondary-900 border border-primary-200 dark:border-primary-700 p-4">
@@ -54,6 +58,22 @@ function DayDetail({
         {sport.displayName}
         {sport.activeVariantLabel ? ` · ${sport.activeVariantLabel}` : " · Daily"}
       </div>
+
+      {localAnswer && (
+        <div className="mt-2 rounded-md border border-dashed border-warning-500/60 bg-warning-500/10 px-2.5 py-1.5">
+          <div className="text-[9px] font-bold uppercase tracking-wider text-warning-600 dark:text-warning-400">
+            Answer · local only
+          </div>
+          <div className="text-sm font-bold text-primary-900 dark:text-primary-50">
+            {localAnswer.name}
+          </div>
+          {(localAnswer.position || localAnswer.teamAbbr) && (
+            <div className="text-[11px] text-primary-500 dark:text-primary-300">
+              {[localAnswer.position, localAnswer.teamAbbr].filter(Boolean).join(" · ")}
+            </div>
+          )}
+        </div>
+      )}
 
       {result ? (
         <>
@@ -235,6 +255,22 @@ export default function PlayerCalendar({
   const selectedIsBeforeEpoch = selectedDate.getTime() < PLAYER_EPOCH.getTime()
   const canPlay = !selectedIsFuture && !selectedIsBeforeEpoch
 
+  // Local-dev-only: reveal the selected day's answer for the active game mode.
+  const localAnswer = useMemo(() => {
+    if (!import.meta.env.DEV || !sport) return undefined
+    try {
+      const player = getDailyPlayer(sport, selectedDate)
+      const toStr = (v: unknown) => (v == null ? undefined : String(v))
+      return {
+        name: player.name,
+        position: toStr(player.position),
+        teamAbbr: toStr(player.teamAbbr),
+      }
+    } catch {
+      return undefined
+    }
+  }, [sport, selectedDate])
+
   // In panel mode, only wire play when the caller provided onPlayArchive;
   // without it, leave handler undefined so buttons don't render.
   const playHandler = onPlayArchive
@@ -264,6 +300,7 @@ export default function PlayerCalendar({
           onPlay={playHandler}
           onViewResults={playHandler}
           inProgressCount={selectedResult ? undefined : inProgressDates.get(selected)}
+          localAnswer={localAnswer}
         />
       ) : (
         <div className="mt-4 text-center text-sm text-primary-500 dark:text-primary-200">
