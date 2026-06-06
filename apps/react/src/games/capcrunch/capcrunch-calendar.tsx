@@ -3,6 +3,7 @@ import { useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import {
   getCapCrunchHistory,
+  getCapCrunchLeagueConfig,
   getCapCrunchPuzzleByDateKey,
   CAPCRUNCH_EPOCH,
   type CapCrunchLeague,
@@ -113,6 +114,7 @@ export default function CapCrunchCalendar({
 }: Props) {
   const ctx = usePanelContext()
   const navigate = useNavigate()
+  const basePath = getCapCrunchLeagueConfig(league).basePath
   const today = useMemo(() => parseDateKey(getTodayKey()), [])
   const todayKey = useMemo(() => formatDateKey(today), [today])
   const [selected, setSelected] = useState<string>(todayKey)
@@ -139,16 +141,16 @@ export default function CapCrunchCalendar({
 
   function handlePlay() {
     if (selected === todayKey) {
-      navigate("/capcrunch")
+      navigate(basePath)
     } else {
-      navigate(`/capcrunch/archive/${selected}`)
+      navigate(`${basePath}/archive/${selected}`)
     }
   }
 
   const calendar = (
     <ArchiveCalendar
       title="Cap Crunch Archive"
-      onBack={panel ? undefined : () => navigate("/capcrunch")}
+      onBack={panel ? undefined : () => navigate(basePath)}
       panel={panel}
       epoch={EPOCH}
       history={history}

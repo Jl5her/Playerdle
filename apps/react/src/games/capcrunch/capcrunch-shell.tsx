@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"
 import type { CapCrunchLeague } from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   calculateCapCrunchStats,
+  getCapCrunchLeagueConfig,
   type CapCrunchStats,
 } from "@/games/capcrunch/utils/capcrunch-daily"
 import { Panel } from "@/shared/components"
@@ -23,37 +24,28 @@ interface Props {
 
 type CapCrunchPanel = "how-to-play" | "stats" | "calendar"
 
-function HowToPlayPanel() {
+function HowToPlayPanel({ league }: { league: CapCrunchLeague }) {
+  const { howTo } = getCapCrunchLeagueConfig(league)
   return (
     <div className="flex-1 overflow-y-auto px-5 py-4 text-sm text-primary-800 dark:text-primary-100 space-y-4">
       <p>
-        <strong>Cap Crunch</strong> shows you the offensive payroll of an NFL team. Player names are
-        hidden — only their salaries are shown.
+        <strong>Cap Crunch</strong> {howTo.intro}. Player names are hidden — only their salaries are
+        shown.
       </p>
       <p>
         Guess which team it is in <strong>5 tries</strong>. After each guess you'll see whether that
-        team's position groups cost <strong>more, less, or about the same</strong> as the answer.
+        team's positions cost <strong>more, less, or about the same</strong> as the answer.
       </p>
       <div className="space-y-2">
         <div className="font-semibold uppercase tracking-wider text-xs text-primary-500 dark:text-primary-300">
-          Position Groups
+          {howTo.groupsTitle}
         </div>
         <ul className="space-y-1">
-          <li>
-            <strong>QB</strong> — starting quarterback AAV
-          </li>
-          <li>
-            <strong>RB</strong> — starting running back AAV
-          </li>
-          <li>
-            <strong>TE</strong> — starting tight end AAV
-          </li>
-          <li>
-            <strong>WR ×3</strong> — combined salary of the top 3 wide receivers
-          </li>
-          <li>
-            <strong>OL ×5</strong> — combined salary of the starting offensive line
-          </li>
+          {howTo.groups.map(g => (
+            <li key={g.label}>
+              <strong>{g.label}</strong> — {g.desc}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="space-y-2">
@@ -65,8 +57,8 @@ function HowToPlayPanel() {
             <strong>Green ✓</strong> — correct team
           </li>
           <li>
-            <strong>Yellow ↑↓</strong> — within close range (QB ±$5M, RB/TE ±$2-2.5M, WR ±$7M, OL
-            ±$10M); arrow still points toward the answer
+            <strong>Yellow ↑↓</strong> — within close range ({howTo.feedbackRange}); arrow still
+            points toward the answer
           </li>
           <li>
             <strong>Red ↑↓</strong> — far off; ↑ means answer pays more, ↓ means answer pays less
@@ -74,8 +66,7 @@ function HowToPlayPanel() {
         </ul>
       </div>
       <p className="text-primary-500 dark:text-primary-300 text-xs">
-        Salaries are 2025 Average Annual Values (AAV) sourced from Spotrac. A new puzzle is
-        available every day.
+        {howTo.source} A new puzzle is available every day.
       </p>
     </div>
   )
@@ -176,19 +167,21 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
   const mode: CapCrunchGameMode = screen === "arcade" ? "arcade" : "daily"
   const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
   const [gameResult, setGameResult] = useState<{ won: boolean; guessCount: number } | null>(null)
+  const config = getCapCrunchLeagueConfig(league)
 
   useEffect(() => {
-    document.title = "Cap Crunch · NFL"
-  }, [])
+    document.title = `Cap Crunch · ${config.shortLabel}`
+  }, [config.shortLabel])
 
   useEffect(() => {
     if (screen !== "daily" || isArchive) return
-    const seen = localStorage.getItem("capcrunch-tutorial-seen:nfl")
+    const tutorialKey = `capcrunch-tutorial-seen:${league}`
+    const seen = localStorage.getItem(tutorialKey)
     if (!seen) {
       panels.push("how-to-play")
-      localStorage.setItem("capcrunch-tutorial-seen:nfl", "true")
+      localStorage.setItem(tutorialKey, "true")
     }
-  }, [screen, isArchive])
+  }, [screen, isArchive, league])
 
   const stats = calculateCapCrunchStats(league)
 
@@ -196,7 +189,7 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
     if (isArchive) {
       navigate(-1)
     } else {
-      navigate("/")
+      navigate(config.homePath)
     }
   }
 
@@ -285,7 +278,7 @@ export default function CapCrunchShell({ league, screen, archiveDateKey }: Props
               title="How to Play"
               layout="scroll"
             >
-              <HowToPlayPanel />
+              <HowToPlayPanel league={league} />
             </Panel>
 
             <Panel

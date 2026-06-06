@@ -1,4 +1,10 @@
-import { faDollarSign, faGraduationCap, faMap, faScroll, faStar } from "@fortawesome/free-solid-svg-icons"
+import {
+  faDollarSign,
+  faGraduationCap,
+  faMap,
+  faScroll,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
 import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
@@ -11,7 +17,10 @@ import {
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import { hasPlayedCapCrunchToday } from "@/games/capcrunch/utils/capcrunch-daily"
+import {
+  hasPlayedCapCrunchToday,
+  type CapCrunchLeague,
+} from "@/games/capcrunch/utils/capcrunch-daily"
 import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
 import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
 import { hasPlayedNflRatedToday } from "@/games/rated/utils/nfl-rated-daily"
@@ -362,6 +371,15 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   }
   if (sportId === "nba") {
     builtExtraGames.push({
+      label: "Cap Crunch",
+      description: "Guess the NBA team from their salary cap numbers",
+      icon: faDollarSign,
+      played: hasPlayedCapCrunchToday("nba"),
+      onPlayDaily: () => navigate("/nba/capcrunch"),
+      onPlayArcade: () => navigate("/nba/capcrunch/arcade"),
+      onShowStats: () => navigate("/nba/capcrunch"),
+    })
+    builtExtraGames.push({
       label: "NBA 2K",
       description: "Guess the NBA player from their NBA 2K26 ratings",
       icon: faStar,
@@ -547,11 +565,11 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
   )
 }
 
-function CapCrunchArchiveRoute() {
+function CapCrunchArchiveRoute({ league }: { league: CapCrunchLeague }) {
   const { dateKey } = useParams<{ dateKey: string }>()
   return (
     <CapCrunchShell
-      league="nfl"
+      league={league}
       screen="daily"
       archiveDateKey={dateKey}
     />
@@ -1068,7 +1086,7 @@ function App() {
             </Suspense>
           }
         />
-        {/* Cap Crunch game — NFL only for now */}
+        {/* Cap Crunch game — NFL */}
         <Route
           path="/capcrunch"
           element={
@@ -1103,7 +1121,46 @@ function App() {
           path="/capcrunch/archive/:dateKey"
           element={
             <Suspense fallback={<div className="app-viewport" />}>
-              <CapCrunchArchiveRoute />
+              <CapCrunchArchiveRoute league="nfl" />
+            </Suspense>
+          }
+        />
+        {/* Cap Crunch game — NBA */}
+        <Route
+          path="/nba/capcrunch"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nba"
+                screen="daily"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchShell
+                league="nba"
+                screen="arcade"
+              />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchCalendar league="nba" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/nba/capcrunch/archive/:dateKey"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <CapCrunchArchiveRoute league="nba" />
             </Suspense>
           }
         />

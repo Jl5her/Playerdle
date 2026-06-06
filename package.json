@@ -25,6 +25,7 @@
     "scrape:nfl:fanatic": "tsx scripts/scrape-nfl-flex-fanatic.ts",
     "scrape:nfl:madden": "tsx scripts/scrape-nfl-madden-ratings.ts",
     "scrape:nfl:capcrunch": "tsx scripts/scrape-nfl-capcrunch.ts",
+    "scrape:nba:capcrunch": "tsx scripts/scrape-nba-capcrunch.ts",
     "scrape:nhl:fanatic": "tsx scripts/scrape-nhl-fanatic.ts",
     "scrape:nba:fanatic": "tsx scripts/scrape-nba-season-averages.ts",
     "scrape:nba:2k": "tsx scripts/scrape-nba-2k-ratings.ts",

@@ -4,24 +4,30 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import {
   CAPCRUNCH_MAX_GUESSES,
+  type CapCrunchColumn,
   type CapCrunchComparison,
+  type CapCrunchFormationSlot,
   type CapCrunchGuessRecord,
   type CapCrunchLeague,
-  type CapCrunchOffense,
+  type CapCrunchLeagueConfig,
   type CapCrunchPlayer,
   type CapCrunchPuzzle,
   type CapCrunchStats,
+  type CapCrunchTeam,
   type ComparisonResult,
   calculateCapCrunchStats,
   compareTeamToAnswer,
   getCapCrunchArcadePuzzle,
   getCapCrunchDailyPuzzle,
+  getCapCrunchLeagueConfig,
   getCapCrunchPuzzleByDateKey,
   getCapCrunchTeams,
   loadCapCrunchDailyGuesses,
   markCapCrunchPlayed,
   saveCapCrunchDailyGuesses,
   saveCapCrunchResult,
+  teamColumnSalaries,
+  uniformComparison,
 } from "@/games/capcrunch/utils/capcrunch-daily"
 import {
   DailyGameShell,
@@ -50,17 +56,10 @@ function formatSalary(amount: number): string {
   return `$${millions % 1 === 0 ? millions.toFixed(0) : millions.toFixed(1)}M`
 }
 
-// ---- Formation display ----
+// ---- Tooltip plumbing ----
 
-function PlayerSlot({
-  position,
-  player,
-  revealed,
-}: {
-  position: string
-  player: CapCrunchPlayer
-  revealed: boolean
-}) {
+/** Shared tap/hover tooltip behavior for a formation slot. */
+function useSlotTooltip(revealed: boolean) {
   const ref = useRef<HTMLDivElement>(null)
   const lastPointerTypeRef = useRef<string>("mouse")
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
@@ -70,6 +69,7 @@ function PlayerSlot({
     return rect ? { x: rect.left + rect.width / 2, y: rect.top } : null
   }
 
+  // Dismiss when tapping/clicking anywhere outside this slot
   useEffect(() => {
     if (!tooltipPos) return
     const dismiss = (e: PointerEvent) => {
@@ -79,27 +79,67 @@ function PlayerSlot({
     return () => document.removeEventListener("pointerdown", dismiss, true)
   }, [tooltipPos])
 
-  const tooltipContent = player.number != null ? `${player.name} #${player.number}` : player.name
+  const handlers = {
+    onPointerDown: (e: React.PointerEvent) => {
+      lastPointerTypeRef.current = e.pointerType
+    },
+    onPointerEnter: (e: React.PointerEvent) => {
+      if (e.pointerType === "mouse" && revealed) setTooltipPos(computePos())
+    },
+    onPointerLeave: (e: React.PointerEvent) => {
+      if (e.pointerType === "mouse") setTooltipPos(null)
+    },
+    onClick: () => {
+      if (revealed && lastPointerTypeRef.current !== "mouse") {
+        setTooltipPos(prev => (prev ? null : computePos()))
+      }
+    },
+  }
+
+  return { ref, tooltipPos, handlers }
+}
+
+function SlotTooltip({ pos, label }: { pos: { x: number; y: number }; label: string }) {
+  return createPortal(
+    <div
+      className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold px-2 py-1 shadow-lg"
+      style={{
+        position: "fixed",
+        left: pos.x,
+        top: pos.y - 8,
+        transform: "translate(-50%, -100%)",
+        zIndex: 9999,
+      }}
+    >
+      {label}
+    </div>,
+    document.body,
+  )
+}
+
+function slotTooltipLabel(player: CapCrunchPlayer): string {
+  return player.number != null ? `${player.name} #${player.number}` : player.name
+}
+
+// ---- Formation: NFL football field (Madden layout) ----
+
+function FieldPlayerSlot({
+  position,
+  player,
+  revealed,
+}: {
+  position: string
+  player: CapCrunchPlayer
+  revealed: boolean
+}) {
+  const { ref, tooltipPos, handlers } = useSlotTooltip(revealed)
 
   return (
     <>
       <div
         ref={ref}
         className="flex flex-col items-center gap-0.5 select-none"
-        onPointerDown={e => {
-          lastPointerTypeRef.current = e.pointerType
-        }}
-        onPointerEnter={e => {
-          if (e.pointerType === "mouse" && revealed) setTooltipPos(computePos())
-        }}
-        onPointerLeave={e => {
-          if (e.pointerType === "mouse") setTooltipPos(null)
-        }}
-        onClick={() => {
-          if (revealed && lastPointerTypeRef.current !== "mouse") {
-            setTooltipPos(prev => (prev ? null : computePos()))
-          }
-        }}
+        {...handlers}
       >
         <div
           className="relative flex items-center justify-center cursor-pointer"
@@ -122,40 +162,49 @@ function PlayerSlot({
           {position}
         </span>
       </div>
-      {tooltipPos &&
-        createPortal(
-          <div
-            className="pointer-events-none whitespace-nowrap rounded-md bg-primary-900 dark:bg-primary-100 text-primary-50 dark:text-primary-900 text-xs font-semibold shadow-lg px-2 py-1"
-            style={{
-              position: "fixed",
-              left: tooltipPos.x,
-              top: tooltipPos.y - 8,
-              transform: "translate(-50%, -100%)",
-              zIndex: 9999,
-            }}
-          >
-            {tooltipContent}
-          </div>,
-          document.body,
-        )}
+      {tooltipPos && (
+        <SlotTooltip
+          pos={tooltipPos}
+          label={slotTooltipLabel(player)}
+        />
+      )}
     </>
   )
 }
 
-function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed: boolean }) {
-  const positions: Array<{ label: string; player: CapCrunchPlayer; x: string; y: string }> = [
-    { label: "WR", player: offense.WR[0], x: "5%", y: "42%" },
-    { label: "WR", player: offense.WR[1], x: "17%", y: "42%" },
-    { label: "LT", player: offense.OL[0], x: "28%", y: "42%" },
-    { label: "LG", player: offense.OL[1], x: "39%", y: "42%" },
-    { label: "C", player: offense.OL[2], x: "50%", y: "42%" },
-    { label: "RG", player: offense.OL[3], x: "61%", y: "42%" },
-    { label: "RT", player: offense.OL[4], x: "72%", y: "42%" },
-    { label: "TE", player: offense.TE, x: "83%", y: "46%" },
-    { label: "WR", player: offense.WR[2], x: "95%", y: "42%" },
-    { label: "QB", player: offense.QB, x: "50%", y: "64%" },
-    { label: "RB", player: offense.RB, x: "63%", y: "81%" },
+interface FieldSlot {
+  label: string
+  player: CapCrunchPlayer
+  x: string
+  y: string
+}
+
+function NflFieldFormation({ team, revealed }: { team: CapCrunchTeam; revealed: boolean }) {
+  const wr = team.groups.WR ?? []
+  const ol = team.groups.OL ?? []
+  const qb = team.groups.QB?.[0]
+  const rb = team.groups.RB?.[0]
+  const te = team.groups.TE?.[0]
+
+  const layout: Array<{
+    label: string
+    player: CapCrunchPlayer | undefined
+    x: string
+    y: string
+  }> = [
+    { label: "WR", player: wr[0], x: "5%", y: "42%" },
+    { label: "WR", player: wr[1], x: "17%", y: "42%" },
+    { label: "LT", player: ol[0], x: "28%", y: "42%" },
+    { label: "LG", player: ol[1], x: "39%", y: "42%" },
+    { label: "C", player: ol[2], x: "50%", y: "42%" },
+    { label: "RG", player: ol[3], x: "61%", y: "42%" },
+    { label: "RT", player: ol[4], x: "72%", y: "42%" },
+    { label: "TE", player: te, x: "83%", y: "46%" },
+    { label: "WR", player: wr[2], x: "95%", y: "42%" },
+    { label: "QB", player: qb, x: "50%", y: "64%" },
+    { label: "RB", player: rb, x: "63%", y: "81%" },
   ]
+  const positions = layout.filter((s): s is FieldSlot => s.player != null)
 
   return (
     <div
@@ -363,7 +412,7 @@ function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed:
           className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
           style={{ left: x, top: y }}
         >
-          <PlayerSlot
+          <FieldPlayerSlot
             position={label}
             player={player}
             revealed={revealed}
@@ -374,15 +423,143 @@ function Formation({ offense, revealed }: { offense: CapCrunchOffense; revealed:
   )
 }
 
-// ---- Comparison tiles ----
+// ---- Formation: generic stacked rows (NBA + default) ----
 
-const COMPARISON_COLUMNS: Array<{ label: string; key: keyof CapCrunchComparison }> = [
-  { label: "QB", key: "QB" },
-  { label: "RB", key: "RB" },
-  { label: "TE", key: "TE" },
-  { label: "WR", key: "WR" },
-  { label: "OL", key: "OL" },
-]
+function RowPlayerSlot({
+  position,
+  player,
+  revealed,
+  compact,
+}: {
+  position: string
+  player: CapCrunchPlayer
+  revealed: boolean
+  compact?: boolean
+}) {
+  const { ref, tooltipPos, handlers } = useSlotTooltip(revealed)
+
+  return (
+    <>
+      <div
+        ref={ref}
+        className={clsx(
+          "flex flex-col items-center gap-0.5 select-none",
+          compact ? "min-w-[2.75rem]" : "min-w-[3.5rem]",
+        )}
+        {...handlers}
+      >
+        <div className="text-[9px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
+          {position}
+        </div>
+        <div
+          className={clsx(
+            "rounded-lg border-2 border-primary-300 dark:border-primary-600 bg-primary-100 dark:bg-primary-800 flex flex-col items-center py-1.5 gap-0.5 cursor-pointer",
+            compact ? "w-11" : "w-14",
+          )}
+        >
+          <span
+            className={clsx(
+              "font-bold text-primary-400 dark:text-primary-500 truncate w-full text-center px-1",
+              compact ? "text-[9px]" : "text-[11px]",
+            )}
+          >
+            {revealed ? player.name : "?"}
+          </span>
+          {revealed && player.number != null && (
+            <span className="text-[10px] font-semibold text-primary-500 dark:text-primary-400 tabular-nums leading-none">
+              #{player.number}
+            </span>
+          )}
+          <span
+            className={clsx(
+              "font-black text-primary-800 dark:text-primary-100 tabular-nums",
+              compact ? "text-[10px]" : "text-[11px]",
+            )}
+          >
+            {formatSalary(player.salary)}
+          </span>
+        </div>
+      </div>
+      {tooltipPos && (
+        <SlotTooltip
+          pos={tooltipPos}
+          label={slotTooltipLabel(player)}
+        />
+      )}
+    </>
+  )
+}
+
+function RowsFormation({
+  team,
+  formation,
+  revealed,
+  compact,
+}: {
+  team: CapCrunchTeam
+  formation: CapCrunchFormationSlot[][]
+  revealed: boolean
+  compact?: boolean
+}) {
+  return (
+    <div
+      className={clsx(
+        "flex flex-col items-center px-2 select-none",
+        compact ? "gap-2 py-2" : "gap-3 py-4",
+      )}
+    >
+      {formation.map((row, rowIdx) => (
+        <div
+          key={rowIdx}
+          className={clsx("flex justify-center", compact ? "gap-1.5" : "gap-2")}
+        >
+          {row.map((slot, slotIdx) => {
+            const player = team.groups[slot.group]?.[slot.index]
+            if (!player) return null
+            return (
+              <RowPlayerSlot
+                key={`${slot.group}-${slot.index}-${slotIdx}`}
+                position={slot.label}
+                player={player}
+                revealed={revealed}
+                compact={compact}
+              />
+            )
+          })}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function Formation({
+  team,
+  config,
+  revealed,
+}: {
+  team: CapCrunchTeam
+  config: CapCrunchLeagueConfig
+  revealed: boolean
+}) {
+  if (config.formationStyle === "field") {
+    return (
+      <NflFieldFormation
+        team={team}
+        revealed={revealed}
+      />
+    )
+  }
+  return (
+    <RowsFormation
+      team={team}
+      formation={config.formation}
+      revealed={revealed}
+      compact={config.compactSlots}
+    />
+  )
+}
+
+// ---- Comparison tiles ----
 
 // Arrow points TOWARD the answer (Playerdle convention).
 // close-* uses same direction but renders in yellow instead of red.
@@ -451,13 +628,15 @@ function ComparisonTile({
 
 function ComparisonRow({
   teamName,
+  columns,
   comparison,
   guessedSalaries,
   animate,
 }: {
   teamName: string
+  columns: CapCrunchColumn[]
   comparison: CapCrunchComparison
-  guessedSalaries: Record<keyof CapCrunchComparison, number>
+  guessedSalaries: Record<string, number>
   animate?: boolean
 }) {
   return (
@@ -466,11 +645,11 @@ function ComparisonRow({
         {teamName}
       </div>
       <div className="flex gap-1 justify-center">
-        {COMPARISON_COLUMNS.map(({ key }, i) => (
+        {columns.map(({ id }, i) => (
           <ComparisonTile
-            key={key}
-            result={comparison[key]}
-            salary={guessedSalaries[key]}
+            key={id}
+            result={comparison[id]}
+            salary={guessedSalaries[id]}
             animate={animate}
             delayIndex={i}
           />
@@ -638,22 +817,21 @@ function buildShareText(
     year: "numeric",
   }).format(new Date())
 
+  const config = getCapCrunchLeagueConfig(puzzle.league)
   const emojiGrid = comparisons
-    .map(c => {
-      const keys: Array<keyof CapCrunchComparison> = ["QB", "RB", "TE", "WR", "OL"]
-      return keys
-        .map(k => {
-          const v = c[k]
+    .map(c =>
+      config.columns
+        .map(col => {
+          const v = c[col.id]
           if (v === "correct") return "🟩"
           if (v === "close-high" || v === "close-low") return "🟨"
           return "🟥"
         })
-        .join("")
-    })
+        .join(""),
+    )
     .join("\n")
 
-  const league = puzzle.league.toUpperCase()
-  return `Cap Crunch ${league} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}/capcrunch`
+  return `Cap Crunch ${config.shortLabel} (${dateStr}) — ${score}\n${emojiGrid}\n\n${window.location.origin}${config.basePath}`
 }
 
 function ResultsPanel({
@@ -677,6 +855,7 @@ function ResultsPanel({
 }) {
   const { share, copied } = useClipboardShare()
   const scrollRef = useRef<HTMLDivElement>(null)
+  const config = getCapCrunchLeagueConfig(puzzle.league)
   const maxBar = stats ? Math.max(...Object.values(stats.guessDistribution), 1) : 1
 
   function handleShare() {
@@ -685,6 +864,14 @@ function ResultsPanel({
       text: buildShareText(puzzle, guesses, won, comparisons),
     })
   }
+
+  // Every player in the formation, with their slot label, ranked by salary.
+  const payrollRows = config.formation
+    .flat()
+    .map(slot => ({ pos: slot.label, player: puzzle.team.groups[slot.group]?.[slot.index] }))
+    .filter((r): r is { pos: string; player: CapCrunchPlayer } => r.player != null)
+    .sort((a, b) => b.player.salary - a.player.salary)
+  const topSalary = payrollRows[0]?.player.salary ?? 1
 
   return (
     <div className="flex-1 min-h-0 flex flex-col pb-4">
@@ -698,55 +885,42 @@ function ResultsPanel({
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
         {/* Payroll table ranked by salary */}
-        {(() => {
-          const olLabels = ["LT", "LG", "C", "RG", "RT"]
-          const rows: Array<{ pos: string; player: CapCrunchPlayer }> = [
-            { pos: "QB", player: puzzle.team.offense.QB },
-            { pos: "RB", player: puzzle.team.offense.RB },
-            { pos: "TE", player: puzzle.team.offense.TE },
-            ...puzzle.team.offense.WR.map(p => ({ pos: "WR", player: p })),
-            ...puzzle.team.offense.OL.map((p, i) => ({ pos: olLabels[i], player: p })),
-          ].sort((a, b) => b.player.salary - a.player.salary)
-          const topSalary = rows[0].player.salary
-          return (
-            <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
-              <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-                {puzzle.team.name} — Payroll Breakdown
-              </div>
-              <div className="divide-y divide-primary-100 dark:divide-primary-800">
-                {rows.map(({ pos, player }, i) => {
-                  const barWidth = `${Math.round((player.salary / topSalary) * 100)}%`
-                  return (
-                    <div
-                      key={i}
-                      className="flex items-center gap-2 px-3 py-1.5"
-                    >
-                      <span className="text-[10px] font-black uppercase w-6 shrink-0 text-primary-400 dark:text-primary-500">
-                        {pos}
+        <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
+          <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
+            {puzzle.team.name} — Payroll Breakdown
+          </div>
+          <div className="divide-y divide-primary-100 dark:divide-primary-800">
+            {payrollRows.map(({ pos, player }, i) => {
+              const barWidth = `${Math.round((player.salary / topSalary) * 100)}%`
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-1.5"
+                >
+                  <span className="text-[10px] font-black uppercase w-6 shrink-0 text-primary-400 dark:text-primary-500">
+                    {pos}
+                  </span>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between gap-2 mb-0.5">
+                      <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 truncate">
+                        {player.name}
                       </span>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2 mb-0.5">
-                          <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 truncate">
-                            {player.name}
-                          </span>
-                          <span className="text-xs font-black tabular-nums text-primary-700 dark:text-primary-200 shrink-0">
-                            {formatSalary(player.salary)}
-                          </span>
-                        </div>
-                        <div className="h-1 rounded-full bg-primary-100 dark:bg-primary-800 overflow-hidden">
-                          <div
-                            className="h-full rounded-full bg-primary-400 dark:bg-primary-500"
-                            style={{ width: barWidth }}
-                          />
-                        </div>
-                      </div>
+                      <span className="text-xs font-black tabular-nums text-primary-700 dark:text-primary-200 shrink-0">
+                        {formatSalary(player.salary)}
+                      </span>
                     </div>
-                  )
-                })}
-              </div>
-            </div>
-          )
-        })()}
+                    <div className="h-1 rounded-full bg-primary-100 dark:bg-primary-800 overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-primary-400 dark:bg-primary-500"
+                        style={{ width: barWidth }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
 
         {mode === "daily" && stats && (
           <div className="mt-4">
@@ -839,6 +1013,8 @@ export default function CapCrunchGame({
   archiveDateKey,
 }: Props) {
   const [activeMode, setActiveMode] = useState<CapCrunchGameMode>(mode)
+  const config = useMemo(() => getCapCrunchLeagueConfig(league), [league])
+  const columns = config.columns
   const teams = useMemo(() => getCapCrunchTeams(league), [league])
   const teamOptions: TeamOption[] = useMemo(
     () => teams.map(t => ({ id: t.id, name: t.name, abbr: t.abbr })),
@@ -868,15 +1044,11 @@ export default function CapCrunchGame({
     () =>
       guesses.map(g => {
         const guessedTeam = teamsById.get(g.teamId)
-        if (!guessedTeam)
-          return { QB: "low", RB: "low", TE: "low", WR: "low", OL: "low" } as CapCrunchComparison
-        const cmp = compareTeamToAnswer(guessedTeam, puzzle.team)
-        if (guessedTeam.id === puzzle.team.id) {
-          return { QB: "correct", RB: "correct", TE: "correct", WR: "correct", OL: "correct" }
-        }
-        return cmp
+        if (!guessedTeam) return uniformComparison(league, "low")
+        if (guessedTeam.id === puzzle.team.id) return uniformComparison(league, "correct")
+        return compareTeamToAnswer(league, guessedTeam, puzzle.team)
       }),
-    [guesses, puzzle.team, teamsById],
+    [guesses, puzzle.team, teamsById, league],
   )
 
   const [stats, setStats] = useState<CapCrunchStats | null>(() =>
@@ -980,9 +1152,10 @@ export default function CapCrunchGame({
       >
         <div className="max-w-sm mx-auto px-3 pb-4">
           {/* Formation */}
-          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden mt-4 mx-1">
+          <div className="rounded-2xl border-2 border-primary-300 dark:border-primary-700 overflow-hidden bg-primary-50 dark:bg-primary-900 mt-4 mx-1">
             <Formation
-              offense={puzzle.team.offense}
+              team={puzzle.team}
+              config={config}
               revealed={gameOver}
             />
           </div>
@@ -991,9 +1164,9 @@ export default function CapCrunchGame({
           <div className="guess-grid-shell flex flex-col items-center gap-3 px-2 pt-1 pb-1 mt-3">
             {/* Column headers — shown once */}
             <div className="guess-grid-header sticky top-0 z-20 flex gap-1 justify-center py-1 bg-primary-50 dark:bg-primary-900">
-              {COMPARISON_COLUMNS.map(({ label }) => (
+              {columns.map(({ id, label }) => (
                 <div
-                  key={label}
+                  key={id}
                   className="grid-cell-width text-center text-xs font-bold tracking-wide uppercase text-primary-900 dark:text-primary-50"
                 >
                   {label}
@@ -1012,17 +1185,12 @@ export default function CapCrunchGame({
                 >
                   <ComparisonRow
                     teamName={guesses[i].teamName}
+                    columns={columns}
                     comparison={comparisons[i]}
                     guessedSalaries={(() => {
                       const t = teamsById.get(guesses[i].teamId)
-                      if (!t) return { QB: 0, RB: 0, TE: 0, WR: 0, OL: 0 }
-                      return {
-                        QB: t.offense.QB.salary,
-                        RB: t.offense.RB.salary,
-                        TE: t.offense.TE.salary,
-                        WR: t.offense.WR.reduce((s, p) => s + p.salary, 0),
-                        OL: t.offense.OL.reduce((s, p) => s + p.salary, 0),
-                      }
+                      if (!t) return {}
+                      return teamColumnSalaries(league, t)
                     })()}
                     animate={i === latestIndex}
                   />
@@ -1035,9 +1203,9 @@ export default function CapCrunchGame({
                   }}
                 >
                   <div className="flex gap-1 justify-center">
-                    {COMPARISON_COLUMNS.map(({ key }) => (
+                    {columns.map(({ id }) => (
                       <div
-                        key={key}
+                        key={id}
                         className="grid-cell-size rounded-md bg-primary-50 border border-primary-200 dark:bg-primary-900 dark:border-primary-600"
                       />
                     ))}

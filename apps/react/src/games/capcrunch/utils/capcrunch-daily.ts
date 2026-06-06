@@ -1,44 +1,28 @@
-import nflCapCrunchData from "@playerdle/data/capcrunch/nfl-capcrunch.json"
 import { minHashPick } from "@/shared/utils/daily-select"
 import { getDateKey, getTodayKey } from "@/shared/utils/time"
+import {
+  getCapCrunchColumns,
+  getCapCrunchTeams,
+  groupSalary,
+  type CapCrunchLeague,
+  type CapCrunchTeam,
+} from "./capcrunch-leagues"
 
-export interface CapCrunchPlayer {
-  name: string
-  salary: number
-  number?: number
-}
-
-export interface CapCrunchOffense {
-  QB: CapCrunchPlayer
-  RB: CapCrunchPlayer
-  TE: CapCrunchPlayer
-  WR: [CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer]
-  OL: [CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer, CapCrunchPlayer]
-}
-
-export interface CapCrunchTeam {
-  id: string
-  name: string
-  abbr: string
-  offense: CapCrunchOffense
-}
-
-export type CapCrunchLeague = "nfl"
-
-const TEAM_DATA: Record<CapCrunchLeague, CapCrunchTeam[]> = {
-  nfl: nflCapCrunchData.teams as unknown as CapCrunchTeam[],
-}
-
-export function getCapCrunchTeams(league: CapCrunchLeague): CapCrunchTeam[] {
-  return TEAM_DATA[league]
-}
-
-export function getCapCrunchTeamById(
-  league: CapCrunchLeague,
-  id: string,
-): CapCrunchTeam | undefined {
-  return TEAM_DATA[league].find(t => t.id === id)
-}
+export {
+  getCapCrunchColumns,
+  getCapCrunchLeagueConfig,
+  getCapCrunchTeamById,
+  getCapCrunchTeams,
+  groupSalary,
+} from "./capcrunch-leagues"
+export type {
+  CapCrunchColumn,
+  CapCrunchFormationSlot,
+  CapCrunchLeague,
+  CapCrunchLeagueConfig,
+  CapCrunchPlayer,
+  CapCrunchTeam,
+} from "./capcrunch-leagues"
 
 const CAPCRUNCH_EPOCH = "2025-01-01"
 const STORAGE_STATE_PREFIX = "playerdle-capcrunch-state"
@@ -237,51 +221,49 @@ export function calculateCapCrunchStats(league: CapCrunchLeague): CapCrunchStats
 // "close-low"  = within threshold, guessed < answer (answer is higher → ↑)
 export type ComparisonResult = "correct" | "close-high" | "close-low" | "high" | "low"
 
-const CLOSE_THRESHOLDS = {
-  QB: 5_000_000,
-  RB: 2_000_000,
-  TE: 2_500_000,
-  WR: 7_000_000,
-  OL: 10_000_000,
-}
+/** Per-column comparison results, keyed by the league's column ids. */
+export type CapCrunchComparison = Record<string, ComparisonResult>
 
-function combinedSalary(players: CapCrunchPlayer[]): number {
-  return players.reduce((s, p) => s + p.salary, 0)
-}
-
-export interface CapCrunchComparison {
-  QB: ComparisonResult
-  RB: ComparisonResult
-  TE: ComparisonResult
-  WR: ComparisonResult
-  OL: ComparisonResult
+function compareValues(guessedVal: number, answerVal: number, threshold: number): ComparisonResult {
+  const diff = guessedVal - answerVal
+  if (Math.abs(diff) <= threshold) return diff >= 0 ? "close-high" : "close-low"
+  return diff > 0 ? "high" : "low"
 }
 
 export function compareTeamToAnswer(
+  league: CapCrunchLeague,
   guessed: CapCrunchTeam,
   answer: CapCrunchTeam,
 ): CapCrunchComparison {
-  function compare(guessedVal: number, answerVal: number, threshold: number): ComparisonResult {
-    const diff = guessedVal - answerVal
-    if (Math.abs(diff) <= threshold) return diff >= 0 ? "close-high" : "close-low"
-    return diff > 0 ? "high" : "low"
+  const result: CapCrunchComparison = {}
+  for (const col of getCapCrunchColumns(league)) {
+    result[col.id] = compareValues(
+      groupSalary(guessed, col.id),
+      groupSalary(answer, col.id),
+      col.threshold,
+    )
   }
+  return result
+}
 
-  return {
-    QB: compare(guessed.offense.QB.salary, answer.offense.QB.salary, CLOSE_THRESHOLDS.QB),
-    RB: compare(guessed.offense.RB.salary, answer.offense.RB.salary, CLOSE_THRESHOLDS.RB),
-    TE: compare(guessed.offense.TE.salary, answer.offense.TE.salary, CLOSE_THRESHOLDS.TE),
-    WR: compare(
-      combinedSalary(guessed.offense.WR),
-      combinedSalary(answer.offense.WR),
-      CLOSE_THRESHOLDS.WR,
-    ),
-    OL: compare(
-      combinedSalary(guessed.offense.OL),
-      combinedSalary(answer.offense.OL),
-      CLOSE_THRESHOLDS.OL,
-    ),
-  }
+/** Build a comparison where every column has the same result (e.g. all "correct"). */
+export function uniformComparison(
+  league: CapCrunchLeague,
+  value: ComparisonResult,
+): CapCrunchComparison {
+  const result: CapCrunchComparison = {}
+  for (const col of getCapCrunchColumns(league)) result[col.id] = value
+  return result
+}
+
+/** Combined salary per column for a team, keyed by column id. */
+export function teamColumnSalaries(
+  league: CapCrunchLeague,
+  team: CapCrunchTeam,
+): Record<string, number> {
+  const result: Record<string, number> = {}
+  for (const col of getCapCrunchColumns(league)) result[col.id] = groupSalary(team, col.id)
+  return result
 }
 
 export { CAPCRUNCH_EPOCH }
