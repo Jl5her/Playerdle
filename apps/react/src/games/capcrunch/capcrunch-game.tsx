@@ -125,14 +125,6 @@ function PlayerSlot({
         >
           {position}
         </span>
-        {revealed && (
-          <span
-            className="text-[7px] font-semibold text-white text-center leading-tight max-w-[40px] line-clamp-2"
-            style={{ textShadow: "0 1px 2px rgba(0,0,0,0.9)" }}
-          >
-            {player.name}
-          </span>
-        )}
       </div>
       {tooltipPos &&
         createPortal(
@@ -712,16 +704,56 @@ function ResultsPanel({
         ref={scrollRef}
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden px-4 pb-6 mt-4 w-full max-w-2xl mx-auto"
       >
-        {/* Answer formation revealed */}
-        <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
-          <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
-            {puzzle.team.name} — Starting Offense
-          </div>
-          <Formation
-            offense={puzzle.team.offense}
-            revealed
-          />
-        </div>
+        {/* Payroll table ranked by salary */}
+        {(() => {
+          const olLabels = ["LT", "LG", "C", "RG", "RT"]
+          const rows: Array<{ pos: string; player: CapCrunchPlayer }> = [
+            { pos: "QB", player: puzzle.team.offense.QB },
+            { pos: "RB", player: puzzle.team.offense.RB },
+            { pos: "TE", player: puzzle.team.offense.TE },
+            ...puzzle.team.offense.WR.map(p => ({ pos: "WR", player: p })),
+            ...puzzle.team.offense.OL.map((p, i) => ({ pos: olLabels[i], player: p })),
+          ].sort((a, b) => b.player.salary - a.player.salary)
+          const topSalary = rows[0].player.salary
+          return (
+            <div className="mb-4 rounded-xl border border-primary-200 dark:border-primary-700 overflow-hidden">
+              <div className="bg-primary-100 dark:bg-primary-800 py-2 text-center text-[10px] font-black uppercase tracking-widest text-primary-500 dark:text-primary-300">
+                {puzzle.team.name} — Payroll Breakdown
+              </div>
+              <div className="divide-y divide-primary-100 dark:divide-primary-800">
+                {rows.map(({ pos, player }, i) => {
+                  const barWidth = `${Math.round((player.salary / topSalary) * 100)}%`
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center gap-2 px-3 py-1.5"
+                    >
+                      <span className="text-[10px] font-black uppercase w-6 shrink-0 text-primary-400 dark:text-primary-500">
+                        {pos}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-2 mb-0.5">
+                          <span className="text-xs font-semibold text-primary-900 dark:text-primary-50 truncate">
+                            {player.name}
+                          </span>
+                          <span className="text-xs font-black tabular-nums text-primary-700 dark:text-primary-200 shrink-0">
+                            {formatSalary(player.salary)}
+                          </span>
+                        </div>
+                        <div className="h-1 rounded-full bg-primary-100 dark:bg-primary-800 overflow-hidden">
+                          <div
+                            className="h-full rounded-full bg-primary-400 dark:bg-primary-500"
+                            style={{ width: barWidth }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })()}
 
         {mode === "daily" && stats && (
           <div className="mt-4">
