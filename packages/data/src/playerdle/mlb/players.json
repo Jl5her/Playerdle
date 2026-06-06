@@ -33,17 +33,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:33192",
-    "name": "Aaron Judge",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RF",
-    "number": 99,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33709",
     "name": "Aaron Nola",
     "conference": "NL",
@@ -913,17 +902,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4720856",
-    "name": "Brayan Bello",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "SP",
-    "number": 66,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41217",
     "name": "Brayan Rocchio",
     "conference": "AL",
@@ -1020,6 +998,17 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 26,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4621433",
+    "name": "Brian Fitzpatrick",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "RP",
+    "number": 35,
     "league": "NL"
   },
   {
@@ -1474,6 +1463,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4420745",
+    "name": "Carson Seymour",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 77,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917812",
     "name": "Carter Jensen",
     "conference": "AL",
@@ -1526,17 +1526,6 @@
     "teamAbbr": "TB",
     "position": "CF",
     "number": 31,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4619463",
-    "name": "Chad Dallas",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "SP",
-    "number": 37,
     "league": "AL"
   },
   {
@@ -2024,6 +2013,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4417465",
+    "name": "Craig Yoho",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "RP",
+    "number": 48,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42359",
     "name": "Cristopher Sanchez",
     "conference": "NL",
@@ -2200,6 +2200,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5270578",
+    "name": "David Morgan",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "RP",
+    "number": 66,
+    "league": "NL"
+  },
+  {
     "id": "mlb:40921",
     "name": "David Peterson",
     "conference": "NL",
@@ -2297,17 +2308,6 @@
     "position": "C",
     "number": 13,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41018",
-    "name": "DL Hall",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 37,
-    "league": "NL"
   },
   {
     "id": "mlb:4345621",
@@ -2541,6 +2541,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40944",
+    "name": "Edward Cabrera",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 30,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4919919",
     "name": "Edwin Arroyo",
     "conference": "NL",
@@ -2561,6 +2572,17 @@
     "position": "CF",
     "number": 36,
     "league": "NL"
+  },
+  {
+    "id": "mlb:42211",
+    "name": "Elvis Alvarado",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 37,
+    "league": "AL"
   },
   {
     "id": "mlb:4297897",
@@ -3355,17 +3377,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41644",
-    "name": "J.C. Escarra",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "C",
-    "number": 25,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33210",
     "name": "J.P. Crawford",
     "conference": "AL",
@@ -3663,17 +3674,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:35284",
-    "name": "Jake Woodford",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 41,
-    "league": "NL"
-  },
-  {
     "id": "mlb:36056",
     "name": "Jakob Junis",
     "conference": "AL",
@@ -3757,7 +3757,7 @@
     "division": "Central",
     "team": "Pittsburgh Pirates",
     "teamAbbr": "PIT",
-    "position": "3B",
+    "position": "SS",
     "number": 19,
     "league": "NL"
   },
@@ -3859,17 +3859,6 @@
     "position": "SP",
     "number": 59,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41014",
-    "name": "Jeremiah Estrada",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 56,
-    "league": "NL"
   },
   {
     "id": "mlb:41264",
@@ -4004,6 +3993,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4208304",
+    "name": "Joe La Sorsa",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 60,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4872695",
     "name": "Joe Mack",
     "conference": "NL",
@@ -4023,17 +4023,6 @@
     "teamAbbr": "MIN",
     "position": "SP",
     "number": 41,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:40855",
-    "name": "Joel Kuhnel",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 47,
     "league": "AL"
   },
   {
@@ -4224,6 +4213,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:31662",
+    "name": "Jose Altuve",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "2B",
+    "number": 27,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36063",
     "name": "Jose Alvarado",
     "conference": "NL",
@@ -4254,17 +4254,6 @@
     "teamAbbr": "STL",
     "position": "LF",
     "number": 15,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5010500",
-    "name": "Jose Fernandez",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "DH",
-    "number": 11,
     "league": "NL"
   },
   {
@@ -4950,6 +4939,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4448736",
+    "name": "Lars Nootbaar",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "LF",
+    "number": 21,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917919",
     "name": "Lawrence Butler",
     "conference": "AL",
@@ -5170,6 +5170,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4752206",
+    "name": "LuJames Groover",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "3B",
+    "number": 16,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4977664",
     "name": "Luke Keaschall",
     "conference": "AL",
@@ -5313,7 +5324,7 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5048843",
+    "id": "mlb:4620704",
     "name": "Mason Barnett",
     "conference": "AL",
     "division": "West",
@@ -5454,6 +5465,17 @@
     "position": "RP",
     "number": 25,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4649953",
+    "name": "Matt Svanson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 49,
+    "league": "NL"
   },
   {
     "id": "mlb:41636",
@@ -6699,17 +6721,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5002952",
-    "name": "Ryan Fernandez",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5131986",
     "name": "Ryan Gusto",
     "conference": "NL",
@@ -6974,6 +6985,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5207461",
+    "name": "Samuel Natera Jr.",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 52,
+    "league": "AL"
+  },
+  {
     "id": "mlb:35241",
     "name": "Sandy Alcantara",
     "conference": "NL",
@@ -7139,17 +7161,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:39681",
-    "name": "Shaun Anderson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 64,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33499",
     "name": "Shawn Armstrong",
     "conference": "AL",
@@ -7194,6 +7205,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41383",
+    "name": "Simeon Woods Richardson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 10,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41462",
     "name": "Slade Cecconi",
     "conference": "AL",
@@ -7236,6 +7258,17 @@
     "position": "1B",
     "number": 2,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4867424",
+    "name": "Spencer Jones",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "RF",
+    "number": 78,
+    "league": "AL"
   },
   {
     "id": "mlb:4833671",
@@ -7414,17 +7447,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4415658",
-    "name": "Tanner Gordon",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RP",
-    "number": 29,
-    "league": "NL"
-  },
-  {
     "id": "mlb:35135",
     "name": "Tanner Scott",
     "conference": "NL",
@@ -7499,17 +7521,6 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 70,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4999876",
-    "name": "Thomas Saggese",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "LF",
-    "number": 25,
     "league": "NL"
   },
   {
@@ -7843,17 +7854,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41612",
-    "name": "Tyler Ferguson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
-  },
-  {
     "id": "mlb:40958",
     "name": "Tyler Freeman",
     "conference": "NL",
@@ -8184,17 +8184,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41149",
-    "name": "Wilkin Ramos",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 71,
-    "league": "NL"
-  },
-  {
     "id": "mlb:39216",
     "name": "Will Benson",
     "conference": "NL",
@@ -8283,17 +8272,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4858785",
-    "name": "William Kempner",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 71,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32532",
     "name": "Willson Contreras",
     "conference": "AL",
@@ -8324,6 +8302,17 @@
     "teamAbbr": "BOS",
     "position": "RF",
     "number": 52,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4719324",
+    "name": "Wyatt Langford",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "LF",
+    "number": 36,
     "league": "AL"
   },
   {
@@ -8470,15 +8459,15 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5137883",
-    "name": "Zach Dezenzo",
-    "conference": "AL",
+    "id": "mlb:5207459",
+    "name": "Zach Agnos",
+    "conference": "NL",
     "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "LF",
-    "number": 9,
-    "league": "AL"
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 36,
+    "league": "NL"
   },
   {
     "id": "mlb:5195258",

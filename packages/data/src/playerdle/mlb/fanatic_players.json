@@ -1,23 +1,5 @@
 [
   {
-    "id": "mlb:33192",
-    "name": "Aaron Judge",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RF",
-    "number": 99,
-    "league": "AL",
-    "gp": 152,
-    "pa": 679,
-    "avg": 0.331,
-    "hr": 53,
-    "rbi": 114,
-    "sb": 12,
-    "ops": 1.144
-  },
-  {
     "id": "mlb:35537",
     "name": "Adolis Garcia",
     "conference": "NL",
@@ -1212,7 +1194,7 @@
     "division": "Central",
     "team": "Pittsburgh Pirates",
     "teamAbbr": "PIT",
-    "position": "3B",
+    "position": "SS",
     "number": 19,
     "league": "NL",
     "gp": 107,
@@ -1348,6 +1330,24 @@
     "rbi": 34,
     "sb": 0,
     "ops": 0.68
+  },
+  {
+    "id": "mlb:31662",
+    "name": "Jose Altuve",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "2B",
+    "number": 27,
+    "league": "AL",
+    "gp": 155,
+    "pa": 654,
+    "avg": 0.265,
+    "hr": 26,
+    "rbi": 77,
+    "sb": 10,
+    "ops": 0.771
   },
   {
     "id": "mlb:42437",
@@ -2340,24 +2340,6 @@
     "ops": 0.792
   },
   {
-    "id": "mlb:4999876",
-    "name": "Thomas Saggese",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "LF",
-    "number": 25,
-    "league": "NL",
-    "gp": 82,
-    "pa": 295,
-    "avg": 0.258,
-    "hr": 2,
-    "rbi": 25,
-    "sb": 3,
-    "ops": 0.641
-  },
-  {
     "id": "mlb:33710",
     "name": "Trea Turner",
     "conference": "NL",
@@ -2574,6 +2556,24 @@
     "ops": 0.74
   },
   {
+    "id": "mlb:4719324",
+    "name": "Wyatt Langford",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "LF",
+    "number": 36,
+    "league": "AL",
+    "gp": 134,
+    "pa": 573,
+    "avg": 0.241,
+    "hr": 22,
+    "rbi": 62,
+    "sb": 22,
+    "ops": 0.775
+  },
+  {
     "id": "mlb:31606",
     "name": "Xander Bogaerts",
     "conference": "NL",
@@ -2608,24 +2608,6 @@
     "rbi": 83,
     "sb": 3,
     "ops": 0.848
-  },
-  {
-    "id": "mlb:5137883",
-    "name": "Zach Dezenzo",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "LF",
-    "number": 9,
-    "league": "AL",
-    "gp": 34,
-    "pa": 109,
-    "avg": 0.245,
-    "hr": 2,
-    "rbi": 10,
-    "sb": 1,
-    "ops": 0.688
   },
   {
     "id": "mlb:4666100",
