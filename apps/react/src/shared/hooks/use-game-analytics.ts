@@ -7,7 +7,7 @@ import {
 } from "@/lib/analytics"
 
 interface Config {
-  game: "playerdle" | "journeyman" | "statehue"
+  game: "playerdle" | "journeyman" | "statehue" | "stadiumdle"
   sport?: string
   variant?: string
   mode: "daily" | "arcade"
