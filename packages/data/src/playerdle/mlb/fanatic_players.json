@@ -630,24 +630,6 @@
     "ops": 0.617
   },
   {
-    "id": "mlb:35004",
-    "name": "Danny Jansen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "C",
-    "number": 9,
-    "league": "AL",
-    "gp": 98,
-    "pa": 337,
-    "avg": 0.215,
-    "hr": 14,
-    "rbi": 36,
-    "sb": 0,
-    "ops": 0.721
-  },
-  {
     "id": "mlb:34895",
     "name": "Dansby Swanson",
     "conference": "NL",
@@ -772,6 +754,24 @@
     "rbi": 35,
     "sb": 10,
     "ops": 0.677
+  },
+  {
+    "id": "mlb:33594",
+    "name": "Elias Diaz",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "C",
+    "number": 35,
+    "league": "AL",
+    "gp": 106,
+    "pa": 283,
+    "avg": 0.204,
+    "hr": 9,
+    "rbi": 29,
+    "sb": 0,
+    "ops": 0.607
   },
   {
     "id": "mlb:4987650",
@@ -1312,24 +1312,6 @@
     "rbi": 41,
     "sb": 10,
     "ops": 0.584
-  },
-  {
-    "id": "mlb:32558",
-    "name": "Jorge Soler",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "DH",
-    "number": 12,
-    "league": "AL",
-    "gp": 82,
-    "pa": 315,
-    "avg": 0.215,
-    "hr": 12,
-    "rbi": 34,
-    "sb": 0,
-    "ops": 0.68
   },
   {
     "id": "mlb:31662",
@@ -2196,6 +2178,24 @@
     "ops": 0.935
   },
   {
+    "id": "mlb:40635",
+    "name": "Royce Lewis",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "3B",
+    "number": 23,
+    "league": "AL",
+    "gp": 106,
+    "pa": 403,
+    "avg": 0.237,
+    "hr": 13,
+    "rbi": 52,
+    "sb": 12,
+    "ops": 0.671
+  },
+  {
     "id": "mlb:31127",
     "name": "Salvador Perez",
     "conference": "AL",
@@ -2464,24 +2464,6 @@
     "rbi": 84,
     "sb": 6,
     "ops": 0.848
-  },
-  {
-    "id": "mlb:38682",
-    "name": "Weston Wilson",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "3B",
-    "number": 32,
-    "league": "AL",
-    "gp": 52,
-    "pa": 125,
-    "avg": 0.198,
-    "hr": 5,
-    "rbi": 17,
-    "sb": 2,
-    "ops": 0.652
   },
   {
     "id": "mlb:38309",
