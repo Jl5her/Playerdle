@@ -1804,17 +1804,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4414361",
-    "name": "Cole Henry",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 99,
-    "league": "NL"
-  },
-  {
     "id": "mlb:37825",
     "name": "Cole Sulser",
     "conference": "AL",
@@ -2231,6 +2220,17 @@
     "position": "SP",
     "number": 65,
     "league": "AL"
+  },
+  {
+    "id": "mlb:42435",
+    "name": "Davis Wendzel",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "3B",
+    "number": 53,
+    "league": "NL"
   },
   {
     "id": "mlb:4917889",
@@ -3465,17 +3465,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4917819",
-    "name": "Jack Kochanowicz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 41,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4622181",
     "name": "Jack Leiter",
     "conference": "AL",
@@ -3947,17 +3936,6 @@
     "position": "C",
     "number": 5,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5136931",
-    "name": "Jhostynxon Garcia",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RF",
-    "number": 34,
-    "league": "NL"
   },
   {
     "id": "mlb:4749675",
@@ -5113,17 +5091,6 @@
     "position": "RP",
     "number": 46,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4722939",
-    "name": "Luis Mey",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 47,
-    "league": "NL"
   },
   {
     "id": "mlb:37237",
@@ -6424,17 +6391,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4926295",
-    "name": "Philip Abner",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "RP",
-    "number": 50,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33859",
     "name": "Rafael Devers",
     "conference": "NL",
@@ -6534,6 +6490,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4758873",
+    "name": "Rhett Lowder",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "SP",
+    "number": 25,
+    "league": "NL"
+  },
+  {
     "id": "mlb:35291",
     "name": "Rhys Hoskins",
     "conference": "AL",
@@ -6587,6 +6554,17 @@
     "position": "RF",
     "number": 51,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4622146",
+    "name": "Riley Cornelio",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "SP",
+    "number": 74,
+    "league": "NL"
   },
   {
     "id": "mlb:42179",
@@ -6930,6 +6908,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5221123",
+    "name": "Sam Aldegheri",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 61,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5207167",
     "name": "Sam Antonacci",
     "conference": "AL",
@@ -6993,6 +6982,17 @@
     "teamAbbr": "SD",
     "position": "2B",
     "number": 0,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4991148",
+    "name": "Sammy Peralta",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 57,
     "league": "NL"
   },
   {
@@ -7491,6 +7491,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:35277",
+    "name": "Taylor Clarke",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "RP",
+    "number": 45,
+    "league": "NL"
+  },
+  {
     "id": "mlb:33671",
     "name": "Taylor Rogers",
     "conference": "AL",
@@ -7587,17 +7598,6 @@
     "teamAbbr": "COL",
     "position": "1B",
     "number": 7,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4080702",
-    "name": "TJ Shook",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SP",
-    "number": 52,
     "league": "NL"
   },
   {
