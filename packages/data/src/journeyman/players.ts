@@ -425,6 +425,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Baltimore Ravens",
       "Miami Dolphins",
     ],
+    espnId: "16733",
   },
   {
     id: "journey:tyler-boyd",
@@ -504,6 +505,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New England Patriots",
       "Kansas City Chiefs",
     ],
+    espnId: "3120348",
   },
   {
     id: "journey:nelson-agholor",
@@ -878,6 +880,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "TE",
     college: "Indiana State",
     teams: ["Green Bay Packers", "Chicago Bears", "Minnesota Vikings", "Kansas City Chiefs"],
+    espnId: "2975674",
   },
   {
     id: "journey:noah-fant",
