@@ -5,11 +5,9 @@
     "abbr": "ARI",
     "conference": "NFC",
     "division": "NFC West",
-    "state": "AZ",
     "colors": [
       "#a40227",
-      "#000000",
-      "transparent"
+      "#ffffff"
     ]
   },
   {
@@ -18,11 +16,9 @@
     "abbr": "ATL",
     "conference": "NFC",
     "division": "NFC South",
-    "state": "GA",
     "colors": [
       "#a71930",
-      "#000000",
-      "transparent"
+      "#000000"
     ]
   },
   {
@@ -31,11 +27,9 @@
     "abbr": "BAL",
     "conference": "AFC",
     "division": "AFC North",
-    "state": "MD",
     "colors": [
       "#29126f",
-      "#000000",
-      "#9e7c0c"
+      "#000000"
     ]
   },
   {
@@ -44,11 +38,9 @@
     "abbr": "BUF",
     "conference": "AFC",
     "division": "AFC East",
-    "state": "NY",
     "colors": [
       "#00338d",
-      "#d50a0a",
-      "transparent"
+      "#d50a0a"
     ]
   },
   {
@@ -57,11 +49,9 @@
     "abbr": "CAR",
     "conference": "NFC",
     "division": "NFC South",
-    "state": "NC",
     "colors": [
       "#0085ca",
-      "#000000",
-      "#9ea1a2"
+      "#000000"
     ]
   },
   {
@@ -70,11 +60,9 @@
     "abbr": "CHI",
     "conference": "NFC",
     "division": "NFC North",
-    "state": "IL",
     "colors": [
       "#0b1c3a",
-      "#e64100",
-      "transparent"
+      "#e64100"
     ]
   },
   {
@@ -83,11 +71,9 @@
     "abbr": "CIN",
     "conference": "AFC",
     "division": "AFC North",
-    "state": "OH",
     "colors": [
       "#fb4f14",
-      "#000000",
-      "transparent"
+      "#000000"
     ]
   },
   {
@@ -96,11 +82,9 @@
     "abbr": "CLE",
     "conference": "AFC",
     "division": "AFC North",
-    "state": "OH",
     "colors": [
       "#472a08",
-      "#ff3c00",
-      "transparent"
+      "#ff3c00"
     ]
   },
   {
@@ -109,11 +93,9 @@
     "abbr": "DAL",
     "conference": "NFC",
     "division": "NFC East",
-    "state": "TX",
     "colors": [
       "#002a5c",
-      "#b0b7bc",
-      "transparent"
+      "#b0b7bc"
     ]
   },
   {
@@ -122,11 +104,9 @@
     "abbr": "DEN",
     "conference": "AFC",
     "division": "AFC West",
-    "state": "CO",
     "colors": [
       "#0a2343",
-      "#fc4c02",
-      "transparent"
+      "#fc4c02"
     ]
   },
   {
@@ -135,11 +115,9 @@
     "abbr": "DET",
     "conference": "NFC",
     "division": "NFC North",
-    "state": "MI",
     "colors": [
       "#0076b6",
-      "#bbbbbb",
-      "transparent"
+      "#bbbbbb"
     ]
   },
   {
@@ -148,11 +126,9 @@
     "abbr": "GB",
     "conference": "NFC",
     "division": "NFC North",
-    "state": "WI",
     "colors": [
       "#204e32",
-      "#ffb612",
-      "transparent"
+      "#ffb612"
     ]
   },
   {
@@ -161,11 +137,9 @@
     "abbr": "HOU",
     "conference": "AFC",
     "division": "AFC South",
-    "state": "TX",
     "colors": [
       "#00143f",
-      "#c41230",
-      "transparent"
+      "#c41230"
     ]
   },
   {
@@ -174,11 +148,9 @@
     "abbr": "IND",
     "conference": "AFC",
     "division": "AFC South",
-    "state": "IN",
     "colors": [
       "#003b75",
-      "#ffffff",
-      "transparent"
+      "#ffffff"
     ]
   },
   {
@@ -187,11 +159,9 @@
     "abbr": "JAX",
     "conference": "AFC",
     "division": "AFC South",
-    "state": "FL",
     "colors": [
       "#007487",
-      "#d7a22a",
-      "#000000"
+      "#d7a22a"
     ]
   },
   {
@@ -200,11 +170,9 @@
     "abbr": "KC",
     "conference": "AFC",
     "division": "AFC West",
-    "state": "MO",
     "colors": [
       "#e31837",
-      "#ffb612",
-      "transparent"
+      "#ffb612"
     ]
   },
   {
@@ -213,11 +181,9 @@
     "abbr": "LV",
     "conference": "AFC",
     "division": "AFC West",
-    "state": "NV",
     "colors": [
       "#000000",
-      "#a5acaf",
-      "transparent"
+      "#a5acaf"
     ]
   },
   {
@@ -226,11 +192,9 @@
     "abbr": "LAC",
     "conference": "AFC",
     "division": "AFC West",
-    "state": "CA",
     "colors": [
       "#0080c6",
-      "#ffc20e",
-      "transparent"
+      "#ffc20e"
     ]
   },
   {
@@ -239,11 +203,9 @@
     "abbr": "LAR",
     "conference": "NFC",
     "division": "NFC West",
-    "state": "CA",
     "colors": [
       "#003594",
-      "#ffd100",
-      "transparent"
+      "#ffd100"
     ]
   },
   {
@@ -252,11 +214,9 @@
     "abbr": "MIA",
     "conference": "AFC",
     "division": "AFC East",
-    "state": "FL",
     "colors": [
       "#008e97",
-      "#fc4c02",
-      "transparent"
+      "#fc4c02"
     ]
   },
   {
@@ -265,11 +225,9 @@
     "abbr": "MIN",
     "conference": "NFC",
     "division": "NFC North",
-    "state": "MN",
     "colors": [
       "#4f2683",
-      "#ffc62f",
-      "transparent"
+      "#ffc62f"
     ]
   },
   {
@@ -278,11 +236,9 @@
     "abbr": "NE",
     "conference": "AFC",
     "division": "AFC East",
-    "state": "MA",
     "colors": [
       "#002a5c",
-      "#c60c30",
-      "transparent"
+      "#c60c30"
     ]
   },
   {
@@ -291,11 +247,9 @@
     "abbr": "NO",
     "conference": "NFC",
     "division": "NFC South",
-    "state": "LA",
     "colors": [
       "#d3bc8d",
-      "#000000",
-      "transparent"
+      "#000000"
     ]
   },
   {
@@ -304,11 +258,9 @@
     "abbr": "NYG",
     "conference": "NFC",
     "division": "NFC East",
-    "state": "NJ",
     "colors": [
       "#003c7f",
-      "#c9243f",
-      "transparent"
+      "#c9243f"
     ]
   },
   {
@@ -317,11 +269,9 @@
     "abbr": "NYJ",
     "conference": "AFC",
     "division": "AFC East",
-    "state": "NJ",
     "colors": [
       "#115740",
-      "#ffffff",
-      "transparent"
+      "#ffffff"
     ]
   },
   {
@@ -330,13 +280,10 @@
     "abbr": "PHI",
     "conference": "NFC",
     "division": "NFC East",
-    "state": "PA",
     "colors": [
       "#06424d",
-      "#000000",
-      "transparent"
-    ],
-    "colorNames": ["Midnight Green", "Black", ""]
+      "#000000"
+    ]
   },
   {
     "id": "23",
@@ -344,11 +291,9 @@
     "abbr": "PIT",
     "conference": "AFC",
     "division": "AFC North",
-    "state": "PA",
     "colors": [
       "#000000",
-      "#ffb612",
-      "transparent"
+      "#ffb612"
     ]
   },
   {
@@ -357,11 +302,9 @@
     "abbr": "SF",
     "conference": "NFC",
     "division": "NFC West",
-    "state": "CA",
     "colors": [
       "#aa0000",
-      "#b3995d",
-      "transparent"
+      "#b3995d"
     ]
   },
   {
@@ -370,11 +313,9 @@
     "abbr": "SEA",
     "conference": "NFC",
     "division": "NFC West",
-    "state": "WA",
     "colors": [
       "#002a5c",
-      "#69be28",
-      "#a5acaf"
+      "#69be28"
     ]
   },
   {
@@ -383,11 +324,9 @@
     "abbr": "TB",
     "conference": "NFC",
     "division": "NFC South",
-    "state": "FL",
     "colors": [
       "#bd1c36",
-      "#3e3a35",
-      "transparent"
+      "#3e3a35"
     ]
   },
   {
@@ -396,11 +335,9 @@
     "abbr": "TEN",
     "conference": "AFC",
     "division": "AFC South",
-    "state": "TN",
     "colors": [
       "#4495d2",
-      "#001532",
-      "transparent"
+      "#001532"
     ]
   },
   {
@@ -409,11 +346,9 @@
     "abbr": "WSH",
     "conference": "NFC",
     "division": "NFC East",
-    "state": "MD",
     "colors": [
       "#5a1414",
-      "#ffb612",
-      "transparent"
+      "#ffb612"
     ]
   }
 ]
