@@ -55,17 +55,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:33546",
-    "name": "Adam Frazier",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "2B",
-    "number": 20,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4918157",
     "name": "Adam Macko",
     "conference": "AL",
@@ -592,6 +581,17 @@
     "position": "3B",
     "number": 27,
     "league": "NL"
+  },
+  {
+    "id": "mlb:35265",
+    "name": "Austin Slater",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RF",
+    "number": 20,
+    "league": "AL"
   },
   {
     "id": "mlb:42848",
@@ -1628,17 +1628,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:33148",
-    "name": "Chris Bassitt",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "SP",
-    "number": 40,
-    "league": "AL"
-  },
-  {
     "id": "mlb:35999",
     "name": "Chris Paddack",
     "conference": "NL",
@@ -2002,17 +1991,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4417465",
-    "name": "Craig Yoho",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 48,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42359",
     "name": "Cristopher Sanchez",
     "conference": "NL",
@@ -2121,17 +2099,6 @@
     "position": "SS",
     "number": 7,
     "league": "NL"
-  },
-  {
-    "id": "mlb:43025",
-    "name": "Darell Hernaiz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 2,
-    "league": "AL"
   },
   {
     "id": "mlb:40963",
@@ -2253,6 +2220,17 @@
     "position": "RP",
     "number": 60,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4917822",
+    "name": "Denzer Guzman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SS",
+    "number": 23,
+    "league": "AL"
   },
   {
     "id": "mlb:33721",
@@ -3399,17 +3377,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:33210",
-    "name": "J.P. Crawford",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "SS",
-    "number": 3,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4414002",
     "name": "J.T. Ginn",
     "conference": "AL",
@@ -3993,17 +3960,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4208304",
-    "name": "Joe La Sorsa",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RP",
-    "number": 60,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4872695",
     "name": "Joe Mack",
     "conference": "NL",
@@ -4024,6 +3980,17 @@
     "position": "SP",
     "number": 41,
     "league": "AL"
+  },
+  {
+    "id": "mlb:40855",
+    "name": "Joel Kuhnel",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "RP",
+    "number": 59,
+    "league": "NL"
   },
   {
     "id": "mlb:42488",
@@ -5478,6 +5445,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4872686",
+    "name": "Max Muncy",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 3,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33303",
     "name": "Max Muncy",
     "conference": "NL",
@@ -5841,6 +5819,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42845",
+    "name": "Nate Eaton",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "OF",
+    "number": 18,
+    "league": "AL"
+  },
+  {
     "id": "mlb:39646",
     "name": "Nate Pearson",
     "conference": "AL",
@@ -5894,17 +5883,6 @@
     "position": "OF",
     "number": 38,
     "league": "NL"
-  },
-  {
-    "id": "mlb:40338",
-    "name": "Nick Allen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SS",
-    "number": 20,
-    "league": "AL"
   },
   {
     "id": "mlb:41674",
@@ -6069,17 +6047,6 @@
     "teamAbbr": "LAA",
     "position": "1B",
     "number": 18,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5001160",
-    "name": "Oliver Dunn",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "3B",
-    "number": 35,
     "league": "AL"
   },
   {
@@ -6699,6 +6666,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4414241",
+    "name": "Ryan Bliss",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "2B",
+    "number": 1,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4019484",
     "name": "Ryan Feltner",
     "conference": "NL",
@@ -7194,6 +7172,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4683352",
+    "name": "Shay Whitcomb",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "3B",
+    "number": 14,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42598",
     "name": "Shea Langeliers",
     "conference": "AL",
@@ -7612,6 +7601,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:36385",
+    "name": "Tommy Nance",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 45,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4837403",
     "name": "Tommy Troy",
     "conference": "NL",
@@ -7752,6 +7752,28 @@
     "teamAbbr": "BAL",
     "position": "SP",
     "number": 28,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4867802",
+    "name": "Trey Gibson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "SP",
+    "number": 43,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:33351",
+    "name": "Trey Mancini",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "1B",
+    "number": 34,
     "league": "AL"
   },
   {
@@ -8030,17 +8052,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42503",
-    "name": "Vaughn Grissom",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "2B",
-    "number": 5,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42502",
     "name": "Victor Bericoto",
     "conference": "NL",
@@ -8083,17 +8094,6 @@
     "position": "RF",
     "number": 10,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4807220",
-    "name": "Victor Scott II",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "CF",
-    "number": 11,
-    "league": "NL"
   },
   {
     "id": "mlb:40462",
@@ -8357,17 +8357,6 @@
     "teamAbbr": "TB",
     "position": "DH",
     "number": 2,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4411979",
-    "name": "Yariel Rodriguez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RP",
-    "number": 29,
     "league": "AL"
   },
   {

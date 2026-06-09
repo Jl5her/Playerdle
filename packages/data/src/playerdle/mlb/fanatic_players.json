@@ -198,6 +198,24 @@
     "ops": 0.737
   },
   {
+    "id": "mlb:35265",
+    "name": "Austin Slater",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RF",
+    "number": 20,
+    "league": "AL",
+    "gp": 65,
+    "pa": 160,
+    "avg": 0.216,
+    "hr": 5,
+    "rbi": 13,
+    "sb": 1,
+    "ops": 0.642
+  },
+  {
     "id": "mlb:35314",
     "name": "Austin Wynns",
     "conference": "NL",
@@ -646,24 +664,6 @@
     "rbi": 77,
     "sb": 20,
     "ops": 0.717
-  },
-  {
-    "id": "mlb:43025",
-    "name": "Darell Hernaiz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 2,
-    "league": "AL",
-    "gp": 51,
-    "pa": 197,
-    "avg": 0.231,
-    "hr": 2,
-    "rbi": 16,
-    "sb": 3,
-    "ops": 0.599
   },
   {
     "id": "mlb:41672",
@@ -1692,6 +1692,24 @@
     "ops": 0.644
   },
   {
+    "id": "mlb:4872686",
+    "name": "Max Muncy",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 3,
+    "league": "AL",
+    "gp": 63,
+    "pa": 220,
+    "avg": 0.214,
+    "hr": 9,
+    "rbi": 23,
+    "sb": 1,
+    "ops": 0.638
+  },
+  {
     "id": "mlb:33303",
     "name": "Max Muncy",
     "conference": "NL",
@@ -1870,24 +1888,6 @@
     "rbi": 32,
     "sb": 12,
     "ops": 0.68
-  },
-  {
-    "id": "mlb:40338",
-    "name": "Nick Allen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SS",
-    "number": 20,
-    "league": "AL",
-    "gp": 135,
-    "pa": 416,
-    "avg": 0.221,
-    "hr": 0,
-    "rbi": 22,
-    "sb": 8,
-    "ops": 0.535
   },
   {
     "id": "mlb:41674",
