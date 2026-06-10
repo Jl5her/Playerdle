@@ -882,6 +882,24 @@
     "ops": 0.814
   },
   {
+    "id": "mlb:41253",
+    "name": "Francisco Alvarez",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "C",
+    "number": 4,
+    "league": "NL",
+    "gp": 76,
+    "pa": 277,
+    "avg": 0.256,
+    "hr": 11,
+    "rbi": 32,
+    "sb": 0,
+    "ops": 0.787
+  },
+  {
     "id": "mlb:41928",
     "name": "Freddy Fermin",
     "conference": "NL",
@@ -1656,6 +1674,24 @@
     "ops": 0.643
   },
   {
+    "id": "mlb:4867667",
+    "name": "Matt Shaw",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RF",
+    "number": 6,
+    "league": "NL",
+    "gp": 126,
+    "pa": 437,
+    "avg": 0.226,
+    "hr": 13,
+    "rbi": 44,
+    "sb": 17,
+    "ops": 0.69
+  },
+  {
     "id": "mlb:41636",
     "name": "Matt Vierling",
     "conference": "AL",
@@ -2376,24 +2412,6 @@
     "ops": 0.681
   },
   {
-    "id": "mlb:40958",
-    "name": "Tyler Freeman",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RF",
-    "number": 2,
-    "league": "NL",
-    "gp": 110,
-    "pa": 428,
-    "avg": 0.281,
-    "hr": 2,
-    "rbi": 31,
-    "sb": 18,
-    "ops": 0.715
-  },
-  {
     "id": "mlb:34168",
     "name": "Tyler O'Neill",
     "conference": "AL",
@@ -2554,24 +2572,6 @@
     "rbi": 62,
     "sb": 22,
     "ops": 0.775
-  },
-  {
-    "id": "mlb:31606",
-    "name": "Xander Bogaerts",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "SS",
-    "number": 2,
-    "league": "NL",
-    "gp": 136,
-    "pa": 552,
-    "avg": 0.263,
-    "hr": 11,
-    "rbi": 53,
-    "sb": 20,
-    "ops": 0.72
   },
   {
     "id": "mlb:33481",
