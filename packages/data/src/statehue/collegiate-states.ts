@@ -637,7 +637,7 @@ const PALETTE_NAMES: Record<string, [string, string, string]> = {
   Niagara: ["Purple", "Gold", "White"],
   Wagner: ["Blue", "Gold", "White"],
   // Ohio
-  "Ohio State": ["Red", "Gray", "White"],
+  "Ohio State": ["Scarlet", "Gray", "White"],
   Cincinnati: ["Red", "Black", "White"],
   Xavier: ["Navy", "Gray", "White"],
   Dayton: ["Red", "Blue", "White"],
@@ -665,7 +665,7 @@ const PALETTE_NAMES: Record<string, [string, string, string]> = {
   "William & Mary": ["Green", "Gold", "Black"],
   Liberty: ["Navy", "Red", "White"],
   // Indiana
-  Indiana: ["Red", "Cream", "White"],
+  Indiana: ["Crimson", "Cream", "White"],
   Purdue: ["Black", "Gold", "White"],
   "Notre Dame": ["Navy", "Gold", "Gold"],
   Butler: ["Navy", "White", "Black"],
@@ -675,7 +675,7 @@ const PALETTE_NAMES: Record<string, [string, string, string]> = {
   Valparaiso: ["Purple", "Gold", "White"],
   // Massachusetts
   "Boston College": ["Maroon", "Gold", "White"],
-  Harvard: ["Red", "White", "Black"],
+  Harvard: ["Crimson", "White", "Black"],
   UMass: ["Maroon", "White", "Black"],
   Northeastern: ["Red", "Black", "White"],
   "Boston University": ["Red", "White", "Black"],
@@ -750,7 +750,7 @@ const PALETTE_NAMES: Record<string, [string, string, string]> = {
   "Southern Utah": ["Red", "Navy", "White"],
   "Utah Valley": ["Green", "White", "Gray"],
   // Alabama
-  Alabama: ["Red", "White", "Black"],
+  Alabama: ["Crimson", "White", "Black"],
   Auburn: ["Navy", "Orange", "White"],
   UAB: ["Green", "Gold", "White"],
   "South Alabama": ["Navy", "Red", "White"],
@@ -817,7 +817,7 @@ const PALETTE_NAMES: Record<string, [string, string, string]> = {
   Brown: ["Brown", "Red", "White"],
   // Washington
   Washington: ["Purple", "Gold", "White"],
-  "Washington State": ["Red", "Gray", "White"],
+  "Washington State": ["Crimson", "Gray", "White"],
   Gonzaga: ["Navy", "Red", "White"],
   "Eastern Washington": ["Red", "White", "Black"],
   "Seattle U": ["Red", "White", "Black"],
