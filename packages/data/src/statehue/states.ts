@@ -8,6 +8,7 @@ export interface ColorsTeam {
   // Pro: NFL/MLB/NBA/NHL. Collegiate: conference name (SEC, Big Ten, ACC, etc.).
   league: string
   colors: [string, string, string]
+  colorNames?: [string, string, string]
 }
 
 export interface ColorsState {
@@ -122,7 +123,7 @@ const TEAM_STATE_OVERRIDES: Record<string, string> = {
   "Vegas Golden Knights": "NV",
 }
 
-type TeamEntry = { name: string; state?: string | null; colors?: string[] }
+type TeamEntry = { name: string; state?: string | null; colors?: string[]; colorNames?: string[] }
 
 function buildColorsStates(): ColorsState[] {
   const sources: { teams: TeamEntry[]; label: string }[] = [
@@ -134,7 +135,7 @@ function buildColorsStates(): ColorsState[] {
   const stateMap = new Map<string, ColorsTeam[]>()
   for (const { teams, label } of sources) {
     for (const team of teams) {
-      const { name, colors } = team
+      const { name, colors, colorNames } = team
       const state = team.state ?? TEAM_STATE_OVERRIDES[name]
       if (!state || !STATE_NAMES[state] || !colors || colors.length < 2) continue
       if (!stateMap.has(state)) stateMap.set(state, [])
@@ -142,6 +143,15 @@ function buildColorsStates(): ColorsState[] {
         name,
         league: label,
         colors: [colors[0], colors[1], colors[2] ?? "transparent"] as [string, string, string],
+        ...(colorNames
+          ? {
+              colorNames: [colorNames[0] ?? "", colorNames[1] ?? "", colorNames[2] ?? ""] as [
+                string,
+                string,
+                string,
+              ],
+            }
+          : {}),
       })
     }
   }

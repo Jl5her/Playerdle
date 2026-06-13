@@ -123,7 +123,7 @@ function Diamond({ color }: { color: string }) {
 }
 
 /** Diamond swatch with a hover/tap tooltip that shows the generic English color name. */
-function DiamondWithPreview({ color }: { color: string }) {
+function DiamondWithPreview({ color, colorName }: { color: string; colorName?: string }) {
   const [open, setOpen] = useState(false)
   const closeTimer = useRef<number>(0)
   const ref = useRef<HTMLDivElement>(null)
@@ -183,7 +183,7 @@ function DiamondWithPreview({ color }: { color: string }) {
           />
           {!isTransparent && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-primary-500 dark:text-primary-300 whitespace-nowrap">
-              {TEAM_COLOR_NAME_MAP.get(color.toLowerCase()) ?? hexToColorName(color)}
+              {colorName || TEAM_COLOR_NAME_MAP.get(color.toLowerCase()) || hexToColorName(color)}
             </span>
           )}
         </div>
@@ -202,6 +202,7 @@ function TeamRow({ team, revealName = false }: { team: ColorsTeam; revealName?: 
             <DiamondWithPreview
               key={`${color}-${i}`}
               color={color}
+              colorName={team.colorNames?.[i] || undefined}
             />
           ))}
         </div>

@@ -84,8 +84,8 @@ export function hexToColorName(hex: string): string {
   // Teal / Cyan (165–200°)
   if (h < 200) return "Teal"
 
-  // Blue family (200–265°)
-  if (h < 265) {
+  // Blue family (200–248°)
+  if (h < 248) {
     if (l < 0.22) return "Navy"
     if (l < 0.38) return "Dark Blue"
     if (s > 0.55) return "Light Blue"
