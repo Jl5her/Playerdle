@@ -142,6 +142,7 @@ function DiamondWithPreview({ color }: { color: string }) {
   useEffect(() => () => window.clearTimeout(closeTimer.current), [])
 
   function show() {
+    if (isTransparent) return
     window.clearTimeout(closeTimer.current)
     setOpen(true)
   }
@@ -152,11 +153,11 @@ function DiamondWithPreview({ color }: { color: string }) {
   return (
     <div
       ref={ref}
-      className="relative cursor-pointer select-none"
+      className={clsx("relative select-none", !isTransparent && "cursor-pointer")}
       onMouseEnter={show}
       onMouseLeave={hide}
       onPointerUp={e => {
-        if (e.pointerType === "touch") setOpen(v => !v)
+        if (e.pointerType === "touch" && !isTransparent) setOpen(v => !v)
       }}
     >
       <Diamond color={color} />

@@ -162,7 +162,7 @@ function FieldPlayerSlot({
           {position}
         </span>
       </div>
-      {tooltipPos && (
+      {tooltipPos && revealed && (
         <SlotTooltip
           pos={tooltipPos}
           label={slotTooltipLabel(player)}
@@ -480,7 +480,7 @@ function RowPlayerSlot({
           </span>
         </div>
       </div>
-      {tooltipPos && (
+      {tooltipPos && revealed && (
         <SlotTooltip
           pos={tooltipPos}
           label={slotTooltipLabel(player)}
