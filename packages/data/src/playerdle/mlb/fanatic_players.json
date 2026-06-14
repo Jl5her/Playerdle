@@ -540,6 +540,24 @@
     "ops": 0.687
   },
   {
+    "id": "mlb:42925",
+    "name": "Cody Freeman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "3B",
+    "number": 39,
+    "league": "AL",
+    "gp": 36,
+    "pa": 121,
+    "avg": 0.228,
+    "hr": 3,
+    "rbi": 15,
+    "sb": 1,
+    "ops": 0.6
+  },
+  {
     "id": "mlb:4662616",
     "name": "Colby Thomas",
     "conference": "AL",
@@ -691,7 +709,7 @@
     "team": "Philadelphia Phillies",
     "teamAbbr": "PHI",
     "position": "RF",
-    "number": 0,
+    "number": 49,
     "league": "NL",
     "gp": 57,
     "pa": 149,
@@ -988,6 +1006,24 @@
     "rbi": 74,
     "sb": 4,
     "ops": 0.745
+  },
+  {
+    "id": "mlb:4418683",
+    "name": "Henry Davis",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "C",
+    "number": 32,
+    "league": "NL",
+    "gp": 87,
+    "pa": 283,
+    "avg": 0.167,
+    "hr": 7,
+    "rbi": 22,
+    "sb": 2,
+    "ops": 0.512
   },
   {
     "id": "mlb:42455",
@@ -1816,24 +1852,6 @@
     "rbi": 20,
     "sb": 4,
     "ops": 0.744
-  },
-  {
-    "id": "mlb:33743",
-    "name": "Miguel Andujar",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "DH",
-    "number": 41,
-    "league": "NL",
-    "gp": 94,
-    "pa": 341,
-    "avg": 0.318,
-    "hr": 10,
-    "rbi": 44,
-    "sb": 1,
-    "ops": 0.822
   },
   {
     "id": "mlb:30791",
