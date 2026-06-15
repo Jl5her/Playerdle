@@ -154,6 +154,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4916547",
+    "name": "Alejandro Osuna",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "LF",
+    "number": 19,
+    "league": "AL"
+  },
+  {
     "id": "mlb:34886",
     "name": "Alex Bregman",
     "conference": "NL",
@@ -649,6 +660,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:43035",
+    "name": "Blake Hunt",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "C",
+    "number": 26,
+    "league": "NL"
+  },
+  {
     "id": "mlb:36974",
     "name": "Blake Perkins",
     "conference": "NL",
@@ -768,6 +790,17 @@
     "position": "RP",
     "number": 72,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4179551",
+    "name": "Brady Basso",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 66,
+    "league": "AL"
   },
   {
     "id": "mlb:41172",
@@ -1470,17 +1503,6 @@
     "team": "Milwaukee Brewers",
     "teamAbbr": "MIL",
     "position": "RP",
-    "number": 39,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4995563",
-    "name": "Chad Stevens",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "2B",
     "number": 39,
     "league": "NL"
   },
@@ -2563,17 +2585,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41324",
-    "name": "Eli Morgan",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 34,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39963",
     "name": "Eli White",
     "conference": "NL",
@@ -2893,17 +2904,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41928",
-    "name": "Freddy Fermin",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "C",
-    "number": 54,
-    "league": "NL"
-  },
-  {
     "id": "mlb:39825",
     "name": "Freddy Peralta",
     "conference": "NL",
@@ -2923,6 +2923,17 @@
     "teamAbbr": "SEA",
     "position": "RP",
     "number": 55,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:40344",
+    "name": "Gabriel Arias",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "SS",
+    "number": 13,
     "league": "AL"
   },
   {
@@ -4136,17 +4147,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4917636",
-    "name": "Joey Estes",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SP",
-    "number": 68,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4297976",
     "name": "Joey Loperfido",
     "conference": "AL",
@@ -4178,6 +4178,17 @@
     "position": "RP",
     "number": 47,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4418140",
+    "name": "John Rave",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RF",
+    "number": 16,
+    "league": "AL"
   },
   {
     "id": "mlb:39949",
@@ -4378,17 +4389,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:32801",
-    "name": "Jose Ramirez",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "3B",
-    "number": 11,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33954",
     "name": "Jose Siri",
     "conference": "AL",
@@ -4430,6 +4430,17 @@
     "teamAbbr": "WSH",
     "position": "DH",
     "number": 8,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:35268",
+    "name": "Jose Trevino",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "C",
+    "number": 35,
     "league": "NL"
   },
   {
@@ -4673,17 +4684,6 @@
     "position": "3B",
     "number": 7,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5116843",
-    "name": "Keaton Winn",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 67,
-    "league": "NL"
   },
   {
     "id": "mlb:36724",
@@ -5643,17 +5643,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42065",
-    "name": "Michael Helman",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "CF",
-    "number": 23,
-    "league": "AL"
-  },
-  {
     "id": "mlb:40429",
     "name": "Michael King",
     "conference": "NL",
@@ -6278,17 +6267,6 @@
     "teamAbbr": "ATL",
     "position": "2B",
     "number": 1,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:39136",
-    "name": "P.J. Higgins",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "C",
-    "number": 65,
     "league": "NL"
   },
   {
@@ -7898,6 +7876,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41309",
+    "name": "Tristan Beck",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 43,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39918",
     "name": "Tristan Gray",
     "conference": "AL",
@@ -7984,6 +7973,17 @@
     "position": "RP",
     "number": 63,
     "league": "AL"
+  },
+  {
+    "id": "mlb:40958",
+    "name": "Tyler Freeman",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RF",
+    "number": 2,
+    "league": "NL"
   },
   {
     "id": "mlb:3983833",
@@ -8149,17 +8149,6 @@
     "position": "SS",
     "number": 2,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4109109",
-    "name": "Vinnie Pasquantino",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "1B",
-    "number": 9,
-    "league": "AL"
   },
   {
     "id": "mlb:35002",
