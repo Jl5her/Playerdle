@@ -10286,16 +10286,6 @@
     "number": 37
   },
   {
-    "id": "nfl:4887451",
-    "name": "Isiah King",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "LB",
-    "number": 4
-  },
-  {
     "id": "nfl:4361529",
     "name": "Isiah Pacheco",
     "conference": "NFC",
@@ -21201,16 +21191,6 @@
     "number": 95
   },
   {
-    "id": "nfl:4692970",
-    "name": "Reuben Lowery III",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "S",
-    "number": 36
-  },
-  {
     "id": "nfl:3913293",
     "name": "Rex Sunahara",
     "conference": "AFC",
@@ -22651,16 +22631,6 @@
     "teamAbbr": "CHI",
     "position": "TE",
     "number": 88
-  },
-  {
-    "id": "nfl:4430883",
-    "name": "Stephen Dix Jr.",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "LB",
-    "number": 48
   },
   {
     "id": "nfl:4432215",
@@ -25318,12 +25288,13 @@
   {
     "id": "nfl:4570577",
     "name": "Wanya Morris",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
     "position": "OT",
-    "number": 64
+    "number": 64,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4429136",
