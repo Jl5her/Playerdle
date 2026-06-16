@@ -216,24 +216,6 @@
     "ops": 0.642
   },
   {
-    "id": "mlb:35314",
-    "name": "Austin Wynns",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "C",
-    "number": 16,
-    "league": "NL",
-    "gp": 40,
-    "pa": 110,
-    "avg": 0.291,
-    "hr": 6,
-    "rbi": 21,
-    "sb": 0,
-    "ops": 0.865
-  },
-  {
     "id": "mlb:4626239",
     "name": "Ben Williamson",
     "conference": "AL",
@@ -1548,6 +1530,24 @@
     "ops": 0.629
   },
   {
+    "id": "mlb:36040",
+    "name": "Lourdes Gurriel Jr.",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "LF",
+    "number": 12,
+    "league": "NL",
+    "gp": 129,
+    "pa": 546,
+    "avg": 0.248,
+    "hr": 19,
+    "rbi": 80,
+    "sb": 10,
+    "ops": 0.713
+  },
+  {
     "id": "mlb:33805",
     "name": "Luis Torrens",
     "conference": "NL",
@@ -2068,24 +2068,6 @@
     "rbi": 52,
     "sb": 3,
     "ops": 0.666
-  },
-  {
-    "id": "mlb:32530",
-    "name": "Orlando Arcia",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "SS",
-    "number": 11,
-    "league": "AL",
-    "gp": 76,
-    "pa": 214,
-    "avg": 0.202,
-    "hr": 3,
-    "rbi": 13,
-    "sb": 0,
-    "ops": 0.529
   },
   {
     "id": "mlb:41917",
