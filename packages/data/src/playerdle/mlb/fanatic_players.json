@@ -2160,24 +2160,6 @@
     "ops": 0.674
   },
   {
-    "id": "mlb:36488",
-    "name": "Randy Arozarena",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "LF",
-    "number": 56,
-    "league": "AL",
-    "gp": 160,
-    "pa": 709,
-    "avg": 0.238,
-    "hr": 27,
-    "rbi": 76,
-    "sb": 31,
-    "ops": 0.76
-  },
-  {
     "id": "mlb:35291",
     "name": "Rhys Hoskins",
     "conference": "AL",
@@ -2248,24 +2230,6 @@
     "rbi": 100,
     "sb": 0,
     "ops": 0.729
-  },
-  {
-    "id": "mlb:39924",
-    "name": "Santiago Espinal",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "3B",
-    "number": 21,
-    "league": "NL",
-    "gp": 114,
-    "pa": 328,
-    "avg": 0.243,
-    "hr": 0,
-    "rbi": 16,
-    "sb": 2,
-    "ops": 0.575
   },
   {
     "id": "mlb:4142424",
@@ -2590,6 +2554,24 @@
     "rbi": 53,
     "sb": 20,
     "ops": 0.72
+  },
+  {
+    "id": "mlb:4781491",
+    "name": "Yainer Diaz",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "C",
+    "number": 21,
+    "league": "AL",
+    "gp": 143,
+    "pa": 567,
+    "avg": 0.256,
+    "hr": 20,
+    "rbi": 70,
+    "sb": 1,
+    "ops": 0.701
   },
   {
     "id": "mlb:33481",
