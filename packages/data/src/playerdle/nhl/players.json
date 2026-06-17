@@ -1800,6 +1800,16 @@
     "number": 13
   },
   {
+    "id": "nhl:4894614",
+    "name": "Cole Clayton",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 34
+  },
+  {
     "id": "nhl:4588042",
     "name": "Cole Guttman",
     "conference": "West",
@@ -2873,11 +2883,12 @@
     "id": "nhl:4697457",
     "name": "Emil Andrae",
     "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
     "position": "D",
-    "number": 36
+    "number": 36,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4697447",
@@ -4783,11 +4794,12 @@
     "id": "nhl:4271575",
     "name": "Joseph Woll",
     "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
     "position": "G",
-    "number": 60
+    "number": 60,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:3069687",
@@ -8103,11 +8115,12 @@
     "id": "nhl:4587815",
     "name": "Samuel Ersson",
     "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
     "position": "G",
-    "number": 33
+    "number": 33,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4063401",
@@ -8363,11 +8376,12 @@
     "id": "nhl:4392642",
     "name": "Simon Benoit",
     "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
     "position": "D",
-    "number": 2
+    "number": 2,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4874720",
