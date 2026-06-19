@@ -450,6 +450,24 @@
     "ops": 0.649
   },
   {
+    "id": "mlb:4927523",
+    "name": "Christian Moore",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "2B",
+    "number": 4,
+    "league": "AL",
+    "gp": 53,
+    "pa": 184,
+    "avg": 0.198,
+    "hr": 7,
+    "rbi": 16,
+    "sb": 3,
+    "ops": 0.655
+  },
+  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -1870,24 +1888,6 @@
     "rbi": 60,
     "sb": 6,
     "ops": 0.717
-  },
-  {
-    "id": "mlb:30836",
-    "name": "Mike Trout",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "CF",
-    "number": 27,
-    "league": "AL",
-    "gp": 130,
-    "pa": 556,
-    "avg": 0.232,
-    "hr": 26,
-    "rbi": 64,
-    "sb": 2,
-    "ops": 0.797
   },
   {
     "id": "mlb:33667",

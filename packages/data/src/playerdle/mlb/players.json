@@ -1111,6 +1111,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40922",
+    "name": "Bryse Wilson",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 48,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42417",
     "name": "Bryson Stott",
     "conference": "NL",
@@ -1582,6 +1593,17 @@
     "position": "SP",
     "number": 51,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4927523",
+    "name": "Christian Moore",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "2B",
+    "number": 4,
+    "league": "AL"
   },
   {
     "id": "mlb:31389",
@@ -2679,7 +2701,7 @@
     "division": "Central",
     "team": "Pittsburgh Pirates",
     "teamAbbr": "PIT",
-    "position": "OF",
+    "position": "RF",
     "number": 55,
     "league": "NL"
   },
@@ -2726,17 +2748,6 @@
     "position": "RP",
     "number": 48,
     "league": "NL"
-  },
-  {
-    "id": "mlb:41252",
-    "name": "Everson Pereira",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RF",
-    "number": 28,
-    "league": "AL"
   },
   {
     "id": "mlb:42457",
@@ -4532,6 +4543,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42471",
+    "name": "Junior Perez",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "CF",
+    "number": 37,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42735",
     "name": "Justin Bruihl",
     "conference": "NL",
@@ -5209,7 +5231,7 @@
     "division": "West",
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
-    "position": "3B",
+    "position": "1B",
     "number": 16,
     "league": "NL"
   },
@@ -5588,6 +5610,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5200812",
+    "name": "Maxwel Rajcic",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 71,
+    "league": "NL"
+  },
+  {
     "id": "mlb:32968",
     "name": "Merrill Kelly",
     "conference": "NL",
@@ -5786,17 +5819,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:30836",
-    "name": "Mike Trout",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "CF",
-    "number": 27,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33341",
     "name": "Mike Yastrzemski",
     "conference": "NL",
@@ -5882,17 +5904,6 @@
     "teamAbbr": "NYM",
     "position": "DH",
     "number": 1,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4987418",
-    "name": "Moises Ballesteros",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "DH",
-    "number": 25,
     "league": "NL"
   },
   {
@@ -6776,6 +6787,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5007859",
+    "name": "Ryan Johnson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "SP",
+    "number": 32,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42701",
     "name": "Ryan Kreidler",
     "conference": "AL",
@@ -7161,6 +7183,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42542",
+    "name": "Seth Johnson",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "SP",
+    "number": 51,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39639",
     "name": "Shane Baz",
     "conference": "AL",
@@ -7222,7 +7255,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "SP",
+    "position": "DH",
     "number": 17,
     "league": "NL"
   },
@@ -7445,17 +7478,6 @@
     "position": "SP",
     "number": 26,
     "league": "AL"
-  },
-  {
-    "id": "mlb:40437",
-    "name": "Tanner Banks",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 58,
-    "league": "NL"
   },
   {
     "id": "mlb:4345278",
@@ -7918,6 +7940,17 @@
     "position": "RF",
     "number": 2,
     "league": "NL"
+  },
+  {
+    "id": "mlb:33142",
+    "name": "Tyler Heineman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "C",
+    "number": 31,
+    "league": "AL"
   },
   {
     "id": "mlb:3983833",
