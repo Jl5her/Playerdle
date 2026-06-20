@@ -198,24 +198,6 @@
     "ops": 0.737
   },
   {
-    "id": "mlb:35265",
-    "name": "Austin Slater",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RF",
-    "number": 20,
-    "league": "AL",
-    "gp": 65,
-    "pa": 160,
-    "avg": 0.216,
-    "hr": 5,
-    "rbi": 13,
-    "sb": 1,
-    "ops": 0.642
-  },
-  {
     "id": "mlb:4626239",
     "name": "Ben Williamson",
     "conference": "AL",
@@ -1332,6 +1314,24 @@
     "ops": 0.778
   },
   {
+    "id": "mlb:41168",
+    "name": "Joey Bart",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "C",
+    "number": 16,
+    "league": "NL",
+    "gp": 93,
+    "pa": 332,
+    "avg": 0.249,
+    "hr": 4,
+    "rbi": 30,
+    "sb": 1,
+    "ops": 0.696
+  },
+  {
     "id": "mlb:42958",
     "name": "Joey Ortiz",
     "conference": "NL",
@@ -2446,6 +2446,24 @@
     "rbi": 84,
     "sb": 6,
     "ops": 0.848
+  },
+  {
+    "id": "mlb:38682",
+    "name": "Weston Wilson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "3B",
+    "number": 31,
+    "league": "AL",
+    "gp": 52,
+    "pa": 125,
+    "avg": 0.198,
+    "hr": 5,
+    "rbi": 17,
+    "sb": 2,
+    "ops": 0.652
   },
   {
     "id": "mlb:39895",
