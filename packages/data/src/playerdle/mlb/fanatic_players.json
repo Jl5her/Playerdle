@@ -1044,24 +1044,6 @@
     "ops": 0.809
   },
   {
-    "id": "mlb:33572",
-    "name": "Isiah Kiner-Falefa",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "2B",
-    "number": 2,
-    "league": "AL",
-    "gp": 138,
-    "pa": 459,
-    "avg": 0.262,
-    "hr": 2,
-    "rbi": 40,
-    "sb": 15,
-    "ops": 0.631
-  },
-  {
     "id": "mlb:41889",
     "name": "Ivan Herrera",
     "conference": "NL",
@@ -2130,7 +2112,7 @@
     "division": "Central",
     "team": "Chicago White Sox",
     "teamAbbr": "CHW",
-    "position": "RF",
+    "position": "DH",
     "number": 34,
     "league": "AL",
     "gp": 113,
@@ -2320,6 +2302,24 @@
     "rbi": 103,
     "sb": 4,
     "ops": 0.792
+  },
+  {
+    "id": "mlb:4345192",
+    "name": "Tim Tawa",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "LF",
+    "number": 13,
+    "league": "NL",
+    "gp": 74,
+    "pa": 225,
+    "avg": 0.201,
+    "hr": 7,
+    "rbi": 18,
+    "sb": 8,
+    "ops": 0.62
   },
   {
     "id": "mlb:33710",
