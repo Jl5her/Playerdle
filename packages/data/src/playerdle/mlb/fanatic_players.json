@@ -486,24 +486,6 @@
     "ops": 0.717
   },
   {
-    "id": "mlb:42927",
-    "name": "Christopher Morel",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "1B",
-    "number": 5,
-    "league": "NL",
-    "gp": 105,
-    "pa": 305,
-    "avg": 0.219,
-    "hr": 11,
-    "rbi": 33,
-    "sb": 7,
-    "ops": 0.684
-  },
-  {
     "id": "mlb:4683371",
     "name": "Coby Mayo",
     "conference": "AL",
@@ -1834,6 +1816,24 @@
     "rbi": 13,
     "sb": 7,
     "ops": 0.568
+  },
+  {
+    "id": "mlb:33743",
+    "name": "Miguel Andujar",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "DH",
+    "number": 41,
+    "league": "NL",
+    "gp": 94,
+    "pa": 341,
+    "avg": 0.318,
+    "hr": 10,
+    "rbi": 44,
+    "sb": 1,
+    "ops": 0.822
   },
   {
     "id": "mlb:30791",

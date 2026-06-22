@@ -253,17 +253,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4424289",
-    "name": "Alika Williams",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 12,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33215",
     "name": "Amed Rosario",
     "conference": "AL",
@@ -528,6 +517,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4683349",
+    "name": "Austin Wells",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "C",
+    "number": 28,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4683369",
     "name": "Beck Way",
     "conference": "AL",
@@ -613,17 +613,6 @@
     "teamAbbr": "MIL",
     "position": "CF",
     "number": 16,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5136509",
-    "name": "Blas Castano",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RP",
-    "number": 63,
     "league": "NL"
   },
   {
@@ -899,6 +888,17 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 26,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:37802",
+    "name": "Brian Navarreto",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "C",
+    "number": 64,
     "league": "NL"
   },
   {
@@ -1592,17 +1592,6 @@
     "teamAbbr": "MIL",
     "position": "DH",
     "number": 22,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:42927",
-    "name": "Christopher Morel",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "1B",
-    "number": 5,
     "league": "NL"
   },
   {
@@ -3124,6 +3113,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41295",
+    "name": "Griffin Conine",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "LF",
+    "number": 18,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42604",
     "name": "Griffin Jax",
     "conference": "AL",
@@ -3419,17 +3419,6 @@
     "position": "RP",
     "number": 86,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4622181",
-    "name": "Jack Leiter",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "SP",
-    "number": 22,
-    "league": "AL"
   },
   {
     "id": "mlb:4418686",
@@ -4081,6 +4070,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:34534",
+    "name": "Joey Meneses",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "1B",
+    "number": 13,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42958",
     "name": "Joey Ortiz",
     "conference": "NL",
@@ -4089,6 +4089,17 @@
     "teamAbbr": "MIL",
     "position": "SS",
     "number": 3,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:39085",
+    "name": "John Brebbia",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "RP",
+    "number": 60,
     "league": "NL"
   },
   {
@@ -4224,6 +4235,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:37909",
+    "name": "Jordan Hicks",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 44,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4684778",
     "name": "Jordan Walker",
     "conference": "NL",
@@ -4287,6 +4309,28 @@
     "teamAbbr": "NYY",
     "position": "SS",
     "number": 72,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5270084",
+    "name": "Jose Cabrera",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "RP",
+    "number": 53,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4710478",
+    "name": "Jose Corniell",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "SP",
+    "number": 59,
     "league": "AL"
   },
   {
@@ -4565,17 +4609,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41310",
-    "name": "Justin Lawrence",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "RP",
-    "number": 31,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4917925",
     "name": "Justin Slaten",
     "conference": "AL",
@@ -4683,6 +4716,17 @@
     "teamAbbr": "DET",
     "position": "SP",
     "number": 54,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5296012",
+    "name": "Kendry Rojas",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "RP",
+    "number": 60,
     "league": "AL"
   },
   {
@@ -5047,17 +5091,6 @@
     "position": "CF",
     "number": 30,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4725251",
-    "name": "Liam Hicks",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "C",
-    "number": 34,
-    "league": "NL"
   },
   {
     "id": "mlb:41221",
@@ -5445,6 +5478,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41556",
+    "name": "Matt Krook",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4422899",
     "name": "Matt McLain",
     "conference": "NL",
@@ -5750,6 +5794,17 @@
     "teamAbbr": "CHC",
     "position": "C",
     "number": 9,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:33743",
+    "name": "Miguel Andujar",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "DH",
+    "number": 41,
     "league": "NL"
   },
   {
@@ -6070,17 +6125,6 @@
     "position": "SP",
     "number": 28,
     "league": "AL"
-  },
-  {
-    "id": "mlb:39904",
-    "name": "Nick Solak",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "1B",
-    "number": 15,
-    "league": "NL"
   },
   {
     "id": "mlb:38106",
@@ -6432,17 +6476,6 @@
     "teamAbbr": "CHC",
     "position": "RP",
     "number": 88,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4926295",
-    "name": "Philip Abner",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "RP",
-    "number": 50,
     "league": "NL"
   },
   {
@@ -7071,28 +7104,6 @@
     "position": "SP",
     "number": 22,
     "league": "NL"
-  },
-  {
-    "id": "mlb:32101",
-    "name": "Sandy Leon",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "C",
-    "number": 9,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:32156",
-    "name": "Scott Barlow",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 58,
-    "league": "AL"
   },
   {
     "id": "mlb:4867679",
@@ -7931,17 +7942,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5270580",
-    "name": "Tyler Davis",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RP",
-    "number": 63,
-    "league": "AL"
-  },
-  {
     "id": "mlb:40958",
     "name": "Tyler Freeman",
     "conference": "NL",
@@ -8380,17 +8380,6 @@
     "position": "RP",
     "number": 78,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5217798",
-    "name": "Yilber Diaz",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "SP",
-    "number": 30,
-    "league": "NL"
   },
   {
     "id": "mlb:42898",
