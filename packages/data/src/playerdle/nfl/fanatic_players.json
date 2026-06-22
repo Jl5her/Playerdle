@@ -784,22 +784,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4428796",
-    "name": "Casey Washington",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "WR",
-    "number": 82,
-    "gp": 7,
-    "fppg": 1.8,
-    "tgtPerGame": 2,
-    "recPerGame": 0.9,
-    "ydsPerGame": 13.4,
-    "tdPerGame": 0
-  },
-  {
     "id": "nfl:4369863",
     "name": "Cedric Tillman",
     "conference": "AFC",
@@ -814,6 +798,22 @@
     "recPerGame": 1.6,
     "ydsPerGame": 20.8,
     "tdPerGame": 0.15
+  },
+  {
+    "id": "nfl:4036335",
+    "name": "Cedrick Wilson Jr.",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "WR",
+    "number": 86,
+    "gp": 10,
+    "fppg": 0.7,
+    "tgtPerGame": 0.9,
+    "recPerGame": 0.5,
+    "ydsPerGame": 4.4,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4241389",
@@ -5323,6 +5323,22 @@
     "tdPerGame": 0.33
   },
   {
+    "id": "nfl:3134353",
+    "name": "Tim Patrick",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "WR",
+    "number": 17,
+    "gp": 16,
+    "fppg": 2.8,
+    "tgtPerGame": 1.5,
+    "recPerGame": 0.9,
+    "ydsPerGame": 11.7,
+    "tdPerGame": 0.19
+  },
+  {
     "id": "nfl:3126997",
     "name": "Tom Kennedy",
     "conference": "NFC",
@@ -5491,7 +5507,7 @@
     "team": "Buffalo Bills",
     "teamAbbr": "BUF",
     "position": "WR",
-    "number": 16,
+    "number": 81,
     "gp": 12,
     "fppg": 0.3,
     "tgtPerGame": 0.4,
