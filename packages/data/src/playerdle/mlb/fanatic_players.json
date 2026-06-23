@@ -1332,6 +1332,24 @@
     "ops": 0.584
   },
   {
+    "id": "mlb:32558",
+    "name": "Jorge Soler",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "DH",
+    "number": 12,
+    "league": "AL",
+    "gp": 82,
+    "pa": 315,
+    "avg": 0.215,
+    "hr": 12,
+    "rbi": 34,
+    "sb": 0,
+    "ops": 0.68
+  },
+  {
     "id": "mlb:31662",
     "name": "Jose Altuve",
     "conference": "AL",
@@ -1528,6 +1546,24 @@
     "rbi": 29,
     "sb": 1,
     "ops": 0.629
+  },
+  {
+    "id": "mlb:35383",
+    "name": "Luis Urias",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SS",
+    "number": 48,
+    "league": "AL",
+    "gp": 96,
+    "pa": 330,
+    "avg": 0.23,
+    "hr": 8,
+    "rbi": 25,
+    "sb": 2,
+    "ops": 0.653
   },
   {
     "id": "mlb:42411",
