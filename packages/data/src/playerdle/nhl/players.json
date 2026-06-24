@@ -1072,10 +1072,10 @@
   {
     "id": "nhl:4565225",
     "name": "Bowen Byram",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Buffalo Sabres",
-    "teamAbbr": "BUF",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
     "position": "D",
     "number": 4
   },
@@ -2052,10 +2052,10 @@
   {
     "id": "nhl:4565246",
     "name": "Connor McMichael",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
     "position": "C",
     "number": 24
   },
@@ -4733,10 +4733,10 @@
   {
     "id": "nhl:3900260",
     "name": "Jordan Greenway",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Buffalo Sabres",
-    "teamAbbr": "BUF",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
     "position": "LW",
     "number": 12
   },
@@ -4753,10 +4753,10 @@
   {
     "id": "nhl:4062251",
     "name": "Jordan Kyrou",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
     "position": "RW",
     "number": 25
   },
@@ -5554,10 +5554,10 @@
   {
     "id": "nhl:4697681",
     "name": "Louis Crevier",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Buffalo Sabres",
+    "teamAbbr": "BUF",
     "position": "D",
     "number": 46
   },
@@ -6244,12 +6244,13 @@
   {
     "id": "nhl:5212753",
     "name": "Maxim Tsyplakov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
     "position": "RW",
-    "number": 42
+    "number": 42,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:5104716",
@@ -8426,12 +8427,23 @@
   {
     "id": "nhl:4915344",
     "name": "Simon Nemec",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
     "position": "D",
-    "number": 17
+    "number": 17,
+    "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5302537",
+    "name": "Simon Zajicek",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "G",
+    "number": 85
   },
   {
     "id": "nhl:4565234",
@@ -9386,10 +9398,10 @@
   {
     "id": "nhl:4874721",
     "name": "William Eklund",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
     "position": "LW",
     "number": 72
   },
