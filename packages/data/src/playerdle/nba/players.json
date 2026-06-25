@@ -1912,12 +1912,13 @@
   {
     "id": "nba:4432810",
     "name": "Isaiah Stewart",
-    "conference": "East",
-    "division": "Central",
-    "team": "Detroit Pistons",
-    "teamAbbr": "DET",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "F",
-    "number": 28
+    "number": 28,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4017837",
@@ -2854,10 +2855,11 @@
     "name": "Kam Jones",
     "conference": "East",
     "division": "Central",
-    "team": "Indiana Pacers",
-    "teamAbbr": "IND",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
     "position": "G",
-    "number": 7
+    "number": 7,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3136195",
