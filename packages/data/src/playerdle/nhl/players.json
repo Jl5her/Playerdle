@@ -383,11 +383,12 @@
     "id": "nhl:3114766",
     "name": "Alex Tuch",
     "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Buffalo Sabres",
-    "teamAbbr": "BUF",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
     "position": "RW",
-    "number": 89
+    "number": 89,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4565226",
@@ -1698,6 +1699,16 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 73
+  },
+  {
+    "id": "nhl:4697664",
+    "name": "Chase Bradley",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "LW",
+    "number": 38
   },
   {
     "id": "nhl:5833",
@@ -3115,10 +3126,11 @@
     "name": "Fedor Svechkov",
     "conference": "West",
     "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
     "position": "C",
-    "number": 40
+    "number": 40,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4233643",
@@ -3675,10 +3687,11 @@
     "name": "Jack Drury",
     "conference": "West",
     "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
     "position": "C",
-    "number": 18
+    "number": 18,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:3648002",
@@ -9570,10 +9583,11 @@
     "name": "Zachary L'Heureux",
     "conference": "West",
     "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
     "position": "LW",
-    "number": 68
+    "number": 68,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4874734",
