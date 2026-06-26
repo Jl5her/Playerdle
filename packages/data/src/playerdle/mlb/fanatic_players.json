@@ -504,24 +504,6 @@
     "ops": 0.687
   },
   {
-    "id": "mlb:42925",
-    "name": "Cody Freeman",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "3B",
-    "number": 39,
-    "league": "AL",
-    "gp": 36,
-    "pa": 121,
-    "avg": 0.228,
-    "hr": 3,
-    "rbi": 15,
-    "sb": 1,
-    "ops": 0.6
-  },
-  {
     "id": "mlb:4662616",
     "name": "Colby Thomas",
     "conference": "AL",
@@ -538,24 +520,6 @@
     "rbi": 19,
     "sb": 2,
     "ops": 0.684
-  },
-  {
-    "id": "mlb:4417606",
-    "name": "Connor Norby",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "1B",
-    "number": 1,
-    "league": "NL",
-    "gp": 88,
-    "pa": 337,
-    "avg": 0.251,
-    "hr": 8,
-    "rbi": 34,
-    "sb": 8,
-    "ops": 0.689
   },
   {
     "id": "mlb:40086",
@@ -1656,24 +1620,6 @@
     "ops": 0.756
   },
   {
-    "id": "mlb:32146",
-    "name": "Marcus Semien",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "2B",
-    "number": 10,
-    "league": "NL",
-    "gp": 127,
-    "pa": 534,
-    "avg": 0.23,
-    "hr": 15,
-    "rbi": 62,
-    "sb": 11,
-    "ops": 0.669
-  },
-  {
     "id": "mlb:41034",
     "name": "Mark Vientos",
     "conference": "NL",
@@ -2358,24 +2304,6 @@
     "ops": 0.792
   },
   {
-    "id": "mlb:4345192",
-    "name": "Tim Tawa",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "LF",
-    "number": 13,
-    "league": "NL",
-    "gp": 74,
-    "pa": 225,
-    "avg": 0.201,
-    "hr": 7,
-    "rbi": 18,
-    "sb": 8,
-    "ops": 0.62
-  },
-  {
     "id": "mlb:33710",
     "name": "Trea Turner",
     "conference": "NL",
@@ -2662,23 +2590,5 @@
     "rbi": 62,
     "sb": 26,
     "ops": 0.793
-  },
-  {
-    "id": "mlb:4414531",
-    "name": "Zack Gelof",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "3B",
-    "number": 20,
-    "league": "AL",
-    "gp": 30,
-    "pa": 101,
-    "avg": 0.174,
-    "hr": 2,
-    "rbi": 7,
-    "sb": 1,
-    "ops": 0.502
   }
 ]
