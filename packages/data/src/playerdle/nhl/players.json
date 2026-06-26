@@ -3032,6 +3032,16 @@
     "number": 74
   },
   {
+    "id": "nhl:5142131",
+    "name": "Ethan Cardwell",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 56
+  },
+  {
     "id": "nhl:4894726",
     "name": "Ethan Del Mastro",
     "conference": "West",
@@ -3286,11 +3296,12 @@
     "id": "nhl:3149633",
     "name": "Garnet Hathaway",
     "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
     "position": "RW",
-    "number": 19
+    "number": 19,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:5337",
@@ -3397,10 +3408,11 @@
     "name": "Hendrix Lapierre",
     "conference": "East",
     "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
     "position": "C",
-    "number": 29
+    "number": 29,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4233705",
@@ -9111,12 +9123,13 @@
   {
     "id": "nhl:3042003",
     "name": "Valeri Nichushkin",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Columbus Blue Jackets",
+    "teamAbbr": "CBJ",
     "position": "RW",
-    "number": 13
+    "number": 13,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4565231",
