@@ -680,6 +680,16 @@
     "number": 16
   },
   {
+    "id": "nba:5095151",
+    "name": "Caleb Wilson",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "F",
+    "number": 8
+  },
+  {
     "id": "nba:4845363",
     "name": "Cam Christie",
     "conference": "West",
@@ -1008,6 +1018,16 @@
     "teamAbbr": "SAC",
     "position": "G",
     "number": 29
+  },
+  {
+    "id": "nba:4848625",
+    "name": "Dailyn Swain",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "G",
+    "number": 5
   },
   {
     "id": "nba:4397885",
@@ -2713,12 +2733,13 @@
   {
     "id": "nba:4432811",
     "name": "Josh Green",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
     "position": "G",
-    "number": 10
+    "number": 10,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3062679",
@@ -3274,12 +3295,13 @@
   {
     "id": "nba:4432816",
     "name": "LaMelo Ball",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
     "position": "G",
-    "number": 1
+    "number": 1,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3914044",
@@ -3804,12 +3826,13 @@
   {
     "id": "nba:4396971",
     "name": "Naz Reid",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "C",
-    "number": 11
+    "number": 11,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4397424",
