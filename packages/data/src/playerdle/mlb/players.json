@@ -220,17 +220,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4300541",
-    "name": "Alex Hoppe",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 48,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33707",
     "name": "Alex Jackson",
     "conference": "AL",
@@ -1122,6 +1111,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40922",
+    "name": "Bryse Wilson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 55,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42417",
     "name": "Bryson Stott",
     "conference": "NL",
@@ -1562,15 +1562,15 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4927523",
-    "name": "Christian Moore",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "2B",
-    "number": 4,
-    "league": "AL"
+    "id": "mlb:4414215",
+    "name": "Christian Scott",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "SP",
+    "number": 45,
+    "league": "NL"
   },
   {
     "id": "mlb:31389",
@@ -1909,7 +1909,7 @@
     "division": "East",
     "team": "Washington Nationals",
     "teamAbbr": "WSH",
-    "position": "1B",
+    "position": "3B",
     "number": 45,
     "league": "NL"
   },
@@ -2030,7 +2030,7 @@
     "division": "Central",
     "team": "Milwaukee Brewers",
     "teamAbbr": "MIL",
-    "position": "SS",
+    "position": "3B",
     "number": 6,
     "league": "NL"
   },
@@ -2057,17 +2057,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4960696",
-    "name": "David Sandlin",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "SP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42823",
     "name": "Davis Martin",
     "conference": "AL",
@@ -2076,17 +2065,6 @@
     "teamAbbr": "CHW",
     "position": "SP",
     "number": 65,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
     "league": "AL"
   },
   {
@@ -2527,6 +2505,17 @@
     "teamAbbr": "HOU",
     "position": "RP",
     "number": 65,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4413997",
+    "name": "Eric Cerantola",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RP",
+    "number": 61,
     "league": "AL"
   },
   {
@@ -3190,17 +3179,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36088",
-    "name": "Hoby Milner",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 41,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41364",
     "name": "Hogan Harris",
     "conference": "AL",
@@ -3790,7 +3768,7 @@
     "division": "East",
     "team": "New York Yankees",
     "teamAbbr": "NYY",
-    "position": "DH",
+    "position": "RF",
     "number": 24,
     "league": "AL"
   },
@@ -3814,17 +3792,6 @@
     "teamAbbr": "MIA",
     "position": "3B",
     "number": 8,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4722919",
-    "name": "Jayden Murray",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 70,
     "league": "NL"
   },
   {
@@ -3903,17 +3870,6 @@
     "position": "SP",
     "number": 44,
     "league": "NL"
-  },
-  {
-    "id": "mlb:39957",
-    "name": "Jesus Sanchez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RF",
-    "number": 12,
-    "league": "AL"
   },
   {
     "id": "mlb:41109",
@@ -4367,6 +4323,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:33954",
+    "name": "Jose Siri",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "LF",
+    "number": 28,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40973",
     "name": "Jose Soriano",
     "conference": "AL",
@@ -4474,6 +4441,17 @@
     "teamAbbr": "KC",
     "position": "3B",
     "number": 40,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4151347",
+    "name": "Josh Simpson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 37,
     "league": "AL"
   },
   {
@@ -4694,17 +4672,6 @@
     "teamAbbr": "CLE",
     "position": "RF",
     "number": 31,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42242",
-    "name": "Kai-Wei Teng",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "RP",
-    "number": 17,
     "league": "AL"
   },
   {
@@ -5973,17 +5940,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4987645",
-    "name": "Mitch Spence",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4683356",
     "name": "Mitchell Parker",
     "conference": "NL",
@@ -7172,6 +7128,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5128241",
+    "name": "Sean Keys",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "3B",
+    "number": 20,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33244",
     "name": "Sean Manaea",
     "conference": "NL",
@@ -7920,6 +7887,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41612",
+    "name": "Tyler Ferguson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 64,
+    "league": "NL"
+  },
+  {
     "id": "mlb:40958",
     "name": "Tyler Freeman",
     "conference": "NL",
@@ -8005,6 +7983,17 @@
     "teamAbbr": "TOR",
     "position": "RP",
     "number": 71,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5201509",
+    "name": "Tyler Schweitzer",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 62,
     "league": "AL"
   },
   {
@@ -8437,6 +8426,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4917684",
+    "name": "Yohendrick Pinango",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 24,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36018",
     "name": "Yordan Alvarez",
     "conference": "AL",
@@ -8534,17 +8534,6 @@
     "position": "SS",
     "number": 9,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5129576",
-    "name": "Zach Thornton",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "SP",
-    "number": 49,
-    "league": "NL"
   },
   {
     "id": "mlb:36052",

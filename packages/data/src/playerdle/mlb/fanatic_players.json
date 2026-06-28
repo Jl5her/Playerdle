@@ -432,24 +432,6 @@
     "ops": 0.649
   },
   {
-    "id": "mlb:4927523",
-    "name": "Christian Moore",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "2B",
-    "number": 4,
-    "league": "AL",
-    "gp": 53,
-    "pa": 184,
-    "avg": 0.198,
-    "hr": 7,
-    "rbi": 16,
-    "sb": 3,
-    "ops": 0.655
-  },
-  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -546,7 +528,7 @@
     "division": "East",
     "team": "Washington Nationals",
     "teamAbbr": "WSH",
-    "position": "1B",
+    "position": "3B",
     "number": 45,
     "league": "NL",
     "gp": 90,
@@ -610,24 +592,6 @@
     "rbi": 23,
     "sb": 1,
     "ops": 0.592
-  },
-  {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 82,
-    "pa": 227,
-    "avg": 0.234,
-    "hr": 11,
-    "rbi": 31,
-    "sb": 3,
-    "ops": 0.797
   },
   {
     "id": "mlb:33721",
