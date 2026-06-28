@@ -52,10 +52,10 @@
   {
     "id": "nhl:4894222",
     "name": "Adam Edstrom",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
     "position": "C",
     "number": 84
   },
@@ -1185,10 +1185,10 @@
   {
     "id": "nhl:3904175",
     "name": "Brandon Carlo",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
     "position": "D",
     "number": 25
   },
@@ -3216,6 +3216,16 @@
     "number": 33
   },
   {
+    "id": "nhl:4874738",
+    "name": "Fabian Lysell",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "RW",
+    "number": 23
+  },
+  {
     "id": "nhl:4587837",
     "name": "Fabian Zetterlund",
     "conference": "East",
@@ -3751,10 +3761,10 @@
   {
     "id": "nhl:5103714",
     "name": "Ivan Ivan",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
     "position": "C",
     "number": 82
   },
@@ -4692,10 +4702,10 @@
   {
     "id": "nhl:5118",
     "name": "John Carlson",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Anaheim Ducks",
-    "teamAbbr": "ANA",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
     "position": "D",
     "number": 74
   },
