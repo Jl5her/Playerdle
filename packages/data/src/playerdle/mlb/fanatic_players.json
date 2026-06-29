@@ -900,6 +900,24 @@
     "ops": 0.959
   },
   {
+    "id": "mlb:39642",
+    "name": "Heliot Ramos",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "LF",
+    "number": 17,
+    "league": "NL",
+    "gp": 157,
+    "pa": 695,
+    "avg": 0.256,
+    "hr": 21,
+    "rbi": 69,
+    "sb": 6,
+    "ops": 0.728
+  },
+  {
     "id": "mlb:4418683",
     "name": "Henry Davis",
     "conference": "NL",
@@ -1168,24 +1186,6 @@
     "rbi": 38,
     "sb": 6,
     "ops": 0.683
-  },
-  {
-    "id": "mlb:41264",
-    "name": "Jeremiah Jackson",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "2B",
-    "number": 82,
-    "league": "AL",
-    "gp": 48,
-    "pa": 183,
-    "avg": 0.276,
-    "hr": 5,
-    "rbi": 21,
-    "sb": 0,
-    "ops": 0.775
   },
   {
     "id": "mlb:41273",
@@ -2124,6 +2124,24 @@
     "ops": 0.838
   },
   {
+    "id": "mlb:42826",
+    "name": "Romy Gonzalez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "1B",
+    "number": 23,
+    "league": "AL",
+    "gp": 96,
+    "pa": 341,
+    "avg": 0.305,
+    "hr": 9,
+    "rbi": 53,
+    "sb": 6,
+    "ops": 0.826
+  },
+  {
     "id": "mlb:40635",
     "name": "Royce Lewis",
     "conference": "AL",
@@ -2482,24 +2500,6 @@
     "rbi": 87,
     "sb": 12,
     "ops": 0.74
-  },
-  {
-    "id": "mlb:4719324",
-    "name": "Wyatt Langford",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 134,
-    "pa": 573,
-    "avg": 0.241,
-    "hr": 22,
-    "rbi": 62,
-    "sb": 22,
-    "ops": 0.775
   },
   {
     "id": "mlb:31606",
