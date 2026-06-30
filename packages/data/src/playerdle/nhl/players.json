@@ -2,10 +2,10 @@
   {
     "id": "nhl:3648015",
     "name": "A.J. Greer",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Florida Panthers",
-    "teamAbbr": "FLA",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
     "position": "LW",
     "number": 10
   },
@@ -232,10 +232,10 @@
   {
     "id": "nhl:4587845",
     "name": "Akira Schmid",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
     "position": "G",
     "number": 40
   },
@@ -1295,10 +1295,10 @@
   {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
     "position": "RW",
     "number": 11
   },
@@ -2422,6 +2422,16 @@
     "teamAbbr": "CHI",
     "position": "G",
     "number": 40
+  },
+  {
+    "id": "nhl:4378695",
+    "name": "David Gustafsson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "C",
+    "number": 41
   },
   {
     "id": "nhl:5080147",
@@ -3922,10 +3932,10 @@
   {
     "id": "nhl:4755690",
     "name": "Jack St. Ivany",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
     "position": "D",
     "number": 3
   },
@@ -5091,6 +5101,16 @@
     "number": 28
   },
   {
+    "id": "nhl:5012030",
+    "name": "Joshua Roy",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "RW",
+    "number": 89
+  },
+  {
     "id": "nhl:5361661",
     "name": "JP Hurlbert",
     "conference": "East",
@@ -5933,10 +5953,10 @@
   {
     "id": "nhl:5103534",
     "name": "Maksymilian Szuber",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
     "position": "D",
     "number": 55
   },
@@ -7235,9 +7255,9 @@
     "id": "nhl:4565263",
     "name": "Nils Hoglander",
     "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
     "position": "LW",
     "number": 21
   },
@@ -7885,10 +7905,10 @@
   {
     "id": "nhl:5502",
     "name": "Radko Gudas",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Anaheim Ducks",
-    "teamAbbr": "ANA",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
     "position": "D",
     "number": 7
   },
@@ -8924,6 +8944,16 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 71
+  },
+  {
+    "id": "nhl:4997080",
+    "name": "Taylor Makar",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "LW",
+    "number": 16
   },
   {
     "id": "nhl:4063502",
