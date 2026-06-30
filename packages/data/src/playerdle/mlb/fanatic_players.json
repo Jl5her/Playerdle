@@ -576,6 +576,24 @@
     "ops": 0.717
   },
   {
+    "id": "mlb:43025",
+    "name": "Darell Hernaiz",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SS",
+    "number": 2,
+    "league": "AL",
+    "gp": 51,
+    "pa": 197,
+    "avg": 0.231,
+    "hr": 2,
+    "rbi": 16,
+    "sb": 3,
+    "ops": 0.599
+  },
+  {
     "id": "mlb:41672",
     "name": "David Fry",
     "conference": "AL",
@@ -1042,24 +1060,6 @@
     "rbi": 78,
     "sb": 21,
     "ops": 0.77
-  },
-  {
-    "id": "mlb:4719300",
-    "name": "Jacob Wilson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 5,
-    "league": "AL",
-    "gp": 125,
-    "pa": 523,
-    "avg": 0.311,
-    "hr": 13,
-    "rbi": 63,
-    "sb": 5,
-    "ops": 0.8
   },
   {
     "id": "mlb:4414210",
@@ -1656,24 +1656,6 @@
     "ops": 0.643
   },
   {
-    "id": "mlb:4867667",
-    "name": "Matt Shaw",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RF",
-    "number": 6,
-    "league": "NL",
-    "gp": 126,
-    "pa": 437,
-    "avg": 0.226,
-    "hr": 13,
-    "rbi": 44,
-    "sb": 17,
-    "ops": 0.69
-  },
-  {
     "id": "mlb:41636",
     "name": "Matt Vierling",
     "conference": "AL",
@@ -1870,6 +1852,24 @@
     "rbi": 32,
     "sb": 12,
     "ops": 0.68
+  },
+  {
+    "id": "mlb:40338",
+    "name": "Nick Allen",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SS",
+    "number": 20,
+    "league": "AL",
+    "gp": 135,
+    "pa": 416,
+    "avg": 0.221,
+    "hr": 0,
+    "rbi": 22,
+    "sb": 8,
+    "ops": 0.535
   },
   {
     "id": "mlb:41674",
@@ -2106,24 +2106,6 @@
     "ops": 0.748
   },
   {
-    "id": "mlb:33411",
-    "name": "Rob Refsnyder",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "DH",
-    "number": 30,
-    "league": "AL",
-    "gp": 70,
-    "pa": 209,
-    "avg": 0.269,
-    "hr": 9,
-    "rbi": 30,
-    "sb": 3,
-    "ops": 0.838
-  },
-  {
     "id": "mlb:42826",
     "name": "Romy Gonzalez",
     "conference": "AL",
@@ -2284,6 +2266,24 @@
     "rbi": 103,
     "sb": 4,
     "ops": 0.792
+  },
+  {
+    "id": "mlb:33377",
+    "name": "Teoscar Hernandez",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "LF",
+    "number": 37,
+    "league": "NL",
+    "gp": 134,
+    "pa": 546,
+    "avg": 0.247,
+    "hr": 25,
+    "rbi": 89,
+    "sb": 5,
+    "ops": 0.738
   },
   {
     "id": "mlb:33710",
