@@ -500,16 +500,6 @@
     "number": 8
   },
   {
-    "id": "nba:6580",
-    "name": "Bradley Beal",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
-    "position": "G",
-    "number": 0
-  },
-  {
     "id": "nba:4592435",
     "name": "Branden Carlson",
     "conference": "West",
@@ -1332,10 +1322,10 @@
   {
     "id": "nba:4433188",
     "name": "Devin Carter",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Sacramento Kings",
-    "teamAbbr": "SAC",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
     "position": "G",
     "number": 22
   },
@@ -1732,12 +1722,13 @@
   {
     "id": "nba:3135045",
     "name": "Grayson Allen",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Phoenix Suns",
-    "teamAbbr": "PHX",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "G",
-    "number": 8
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4017844",
@@ -1954,9 +1945,9 @@
     "id": "nba:4279888",
     "name": "Ja Morant",
     "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "division": "Northwest",
+    "team": "Portland Trail Blazers",
+    "teamAbbr": "POR",
     "position": "G",
     "number": 12
   },
@@ -2434,9 +2425,9 @@
     "id": "nba:2991070",
     "name": "Jerami Grant",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Portland Trail Blazers",
-    "teamAbbr": "POR",
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "F",
     "number": 9
   },
@@ -3196,9 +3187,9 @@
     "id": "nba:4594326",
     "name": "Kris Murray",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Portland Trail Blazers",
-    "teamAbbr": "POR",
+    "division": "Southwest",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "F",
     "number": 24
   },
@@ -3666,12 +3657,13 @@
   {
     "id": "nba:4066383",
     "name": "Miles Bridges",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Phoenix Suns",
+    "teamAbbr": "PHX",
     "position": "F",
-    "number": 0
+    "number": 0,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4431823",
@@ -4407,12 +4399,13 @@
   {
     "id": "nba:2583632",
     "name": "Royce O'Neale",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Phoenix Suns",
-    "teamAbbr": "PHX",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "F",
-    "number": 0
+    "number": 0,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3032976",
