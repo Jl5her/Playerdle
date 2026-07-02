@@ -182,13 +182,47 @@ function getCurrentNflSeason(): string {
   return `${seasonYear}-${String(seasonYear + 1).slice(2)}`
 }
 
-async function getStarterCollege(
+// Neutral colors used when a new starter's school can't be matched to the
+// color map. The render falls back to a colored badge with the abbreviation,
+// so the player still shows up (flagged for manual fixup) instead of being
+// dropped — which would silently revert the slot to the previous starter.
+const PLACEHOLDER_COLORS: [string, string] = ["#6B7280", "#FFFFFF"]
+
+// Best-effort abbreviation for an unmapped school (e.g. "Sam Houston" -> "SH",
+// "Incarnate Word" -> "IW"). Only used as a visible placeholder until the
+// school is added to college-colors.json / college-logos.ts.
+function deriveSchoolAbbr(college: string): string {
+  const words = college
+    .replace(/[().]/g, " ")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+  if (words.length >= 2) {
+    return words
+      .map(w => w[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 4)
+  }
+  return college.slice(0, 4).toUpperCase()
+}
+
+type StarterResolution =
+  | { status: "ok"; starter: CollegeStarter }
+  | { status: "no-college"; name: string }
+  | { status: "unknown-school"; name: string; college: string }
+
+// Resolve a depth-chart entry into a starter. Returns null only when the entry
+// has no usable athlete at all; otherwise the athlete name is always preserved
+// so the caller can keep the roster current even when colors can't be matched.
+async function resolveStarter(
   entry: EspnDepthEntry,
   colorMap: Record<string, CollegeColors>,
-): Promise<{ name: string; college: string; colors: CollegeColors } | null> {
+): Promise<StarterResolution | null> {
   const athlete = entry.athlete
   if (!athlete?.id || !athlete.displayName) return null
 
+  const name = athlete.displayName
   let collegeName = athlete.college?.name ?? athlete.college?.shortName
 
   if (!collegeName) {
@@ -198,15 +232,20 @@ async function getStarterCollege(
       full?.college?.name ?? full?.college?.shortName ?? full?.college?.abbreviation ?? null
   }
 
-  if (!collegeName) return null
+  if (!collegeName) return { status: "no-college", name }
 
   const colors = lookupCollege(collegeName, colorMap)
-  if (!colors) {
-    console.warn(`    Unknown school: "${collegeName}" (${athlete.displayName})`)
-    return null
-  }
+  if (!colors) return { status: "unknown-school", name, college: collegeName }
 
-  return { name: athlete.displayName, college: collegeName, colors }
+  return {
+    status: "ok",
+    starter: {
+      name,
+      school: collegeName,
+      schoolAbbr: colors.abbr,
+      colors: colors.colors,
+    },
+  }
 }
 
 async function buildStarters(
@@ -255,20 +294,44 @@ async function buildStarters(
   const starters: Partial<Record<Position, CollegeStarter>> = {}
 
   for (const { key, entry, fallback } of top) {
-    if (entry) {
-      const result = await getStarterCollege(entry, colorMap)
-      if (result) {
-        starters[key] = {
-          name: result.name,
-          school: result.college,
-          schoolAbbr: result.colors.abbr,
-          colors: result.colors.colors,
-        }
-        continue
-      }
+    const resolution = entry ? await resolveStarter(entry, colorMap) : null
+
+    // Fully resolved from ESPN — use it.
+    if (resolution?.status === "ok") {
+      starters[key] = resolution.starter
+      continue
     }
 
-    // Fall back to existing data
+    // ESPN reported a starter we couldn't fully resolve (unknown/unmatched
+    // school). Do NOT silently revert to the previous starter — that masks
+    // roster changes and leaves stale players (e.g. an outdated QB1).
+    if (resolution) {
+      const { name } = resolution
+
+      // Unchanged starter: keep the existing, fully-resolved record.
+      if (fallback?.name === name) {
+        starters[key] = fallback
+        continue
+      }
+
+      // Genuinely new/changed starter we can't color-match. Record the player
+      // anyway with placeholder colors so the roster stays current, and warn
+      // loudly so the school can be added to the color/logo maps.
+      const college = resolution.status === "unknown-school" ? resolution.college : "Unknown"
+      console.warn(
+        `    ⚠️  ${key}: "${name}" (${college}) not in color map — recorded with ` +
+          `placeholder colors. Add this school to college-colors.json and college-logos.ts.`,
+      )
+      starters[key] = {
+        name,
+        school: college,
+        schoolAbbr: deriveSchoolAbbr(college),
+        colors: PLACEHOLDER_COLORS,
+      }
+      continue
+    }
+
+    // No ESPN entry at all for this position — keep existing data if available.
     if (fallback) {
       starters[key] = fallback
     } else {

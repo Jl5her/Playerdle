@@ -101,8 +101,8 @@ const COLLEGE_LOGOS: Record<string, string> = {
   WIS: `${ESPN}/275.png`, // Wisconsin
   WKU: `${ESPN}/98.png`, // Western Kentucky
   WST: `${ESPN}/2691.png`, // Wichita State
-  WVU: `${ESPN}/276.png`, // West Virginia
-  WYO: `${ESPN}/277.png`, // Wyoming
+  WVU: `${ESPN}/277.png`, // West Virginia
+  WYO: `${ESPN}/2751.png`, // Wyoming
   YALE: `${ESPN}/43.png`, // Yale
   HCROSS: `${ESPN}/107.png`, // Holy Cross
 }
