@@ -1,4 +1,5 @@
 import {
+  faBuilding,
   faDollarSign,
   faGraduationCap,
   faMap,
@@ -51,6 +52,9 @@ const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
 const ColorsCalendar = lazy(() => import("@/games/statehue/screens/colors-calendar"))
 const PlayerCalendar = lazy(() => import("@/games/playerdle/screens/player-calendar"))
 const PaletteHub = lazy(() => import("@/games/statehue/screens/palette-hub"))
+const StadiumHub = lazy(() => import("@/games/stadiumdle/screens/stadium-hub"))
+const StadiumShell = lazy(() => import("@/games/stadiumdle/screens/stadium-shell"))
+const StadiumCalendar = lazy(() => import("@/games/stadiumdle/screens/stadium-calendar"))
 const JourneyShell = lazy(() => import("@/games/journeyman/screens/journey-shell"))
 const JourneyCalendar = lazy(() => import("@/games/journeyman/screens/journey-calendar"))
 const TeamColorsKey = lazy(() =>
@@ -558,6 +562,13 @@ function AppShell({ sportId, screen, variantId }: AppShellProps) {
               active: false,
               onSelect: () => navigate("/statehue"),
             },
+            {
+              id: "stadiumdle",
+              icon: faBuilding,
+              label: "Stadiums",
+              active: false,
+              onSelect: () => navigate("/stadiumdle"),
+            },
           ]}
         />
       )}
@@ -929,6 +940,39 @@ function App() {
               to="/statehue/calendar"
               replace
             />
+          }
+        />
+        {/* Stadiumdle — guess the state from stadium names */}
+        <Route
+          path="/stadiumdle"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <StadiumHub />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/stadiumdle/daily"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <StadiumShell screen="daily" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/stadiumdle/arcade"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <StadiumShell screen="arcade" />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/stadiumdle/calendar"
+          element={
+            <Suspense fallback={<div className="app-viewport" />}>
+              <StadiumCalendar />
+            </Suspense>
           }
         />
         {/* Journeyman lives under /journeyman/:league. Plain /journeyman/* paths

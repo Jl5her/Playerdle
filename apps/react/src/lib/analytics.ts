@@ -22,7 +22,7 @@ function capture(event: string, props: object) {
   posthog.capture(event, props)
 }
 
-type GameId = "playerdle" | "journeyman" | "statehue"
+type GameId = "playerdle" | "journeyman" | "statehue" | "stadiumdle"
 
 interface BaseGameProps {
   game: GameId
