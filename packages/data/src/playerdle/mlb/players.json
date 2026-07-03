@@ -132,17 +132,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4917631",
-    "name": "Alan Rangel",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
-  },
-  {
     "id": "mlb:31109",
     "name": "Albert Suarez",
     "conference": "AL",
@@ -602,6 +591,17 @@
     "teamAbbr": "TB",
     "position": "2B",
     "number": 15,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5202543",
+    "name": "Benjamin Peoples",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "RP",
+    "number": 70,
     "league": "AL"
   },
   {
@@ -1540,17 +1540,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42600",
-    "name": "Charlie Barnes",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4927516",
     "name": "Chase Burns",
     "conference": "NL",
@@ -2065,6 +2054,17 @@
     "teamAbbr": "TOR",
     "position": "CF",
     "number": 5,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:38303",
+    "name": "David Bednar",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "RP",
+    "number": 53,
     "league": "AL"
   },
   {
@@ -3069,6 +3069,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:34874",
+    "name": "German Marquez",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "SP",
+    "number": 33,
+    "league": "NL"
+  },
+  {
     "id": "mlb:32081",
     "name": "Gerrit Cole",
     "conference": "AL",
@@ -3861,17 +3872,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:32145",
-    "name": "Jason Adam",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 40,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42401",
     "name": "Jasson Dominguez",
     "conference": "AL",
@@ -3968,6 +3968,17 @@
     "teamAbbr": "PHI",
     "position": "RP",
     "number": 59,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5205951",
+    "name": "Jim Jarvis",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SS",
+    "number": 74,
     "league": "NL"
   },
   {
@@ -4147,17 +4158,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4418140",
-    "name": "John Rave",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RF",
-    "number": 16,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39949",
     "name": "John Schreiber",
     "conference": "AL",
@@ -4290,17 +4290,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4420749",
-    "name": "Jordan Wicks",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 36,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41259",
     "name": "Jorge Barrosa",
     "conference": "NL",
@@ -4378,17 +4367,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:35432",
-    "name": "Jose Cuas",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 74,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5265417",
     "name": "Jose Fermin",
     "conference": "AL",
@@ -4441,6 +4419,17 @@
     "teamAbbr": "LAA",
     "position": "SP",
     "number": 59,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:40981",
+    "name": "Jose Suarez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 54,
     "league": "AL"
   },
   {
@@ -5434,6 +5423,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:33271",
+    "name": "Luke Maile",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "C",
+    "number": 18,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40422",
     "name": "Luke Raley",
     "conference": "AL",
@@ -5608,17 +5608,6 @@
     "position": "RP",
     "number": 93,
     "league": "NL"
-  },
-  {
-    "id": "mlb:41556",
-    "name": "Matt Krook",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 65,
-    "league": "AL"
   },
   {
     "id": "mlb:4422899",
@@ -5938,17 +5927,6 @@
     "position": "SS",
     "number": 72,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5124163",
-    "name": "Miguel Ullola",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "SP",
-    "number": 66,
-    "league": "AL"
   },
   {
     "id": "mlb:42453",
@@ -6446,6 +6424,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4927620",
+    "name": "Paul Gervase",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 65,
+    "league": "NL"
+  },
+  {
     "id": "mlb:31027",
     "name": "Paul Goldschmidt",
     "conference": "AL",
@@ -6872,17 +6861,6 @@
     "teamAbbr": "NYM",
     "position": "SS",
     "number": 0,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:34287",
-    "name": "Rowdy Tellez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "1B",
-    "number": 11,
     "league": "NL"
   },
   {
@@ -7469,6 +7447,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5190073",
+    "name": "Stephen Kolek",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "SP",
+    "number": 32,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5002931",
     "name": "Steven Cruz",
     "conference": "AL",
@@ -7717,7 +7706,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "2B",
+    "position": "LF",
     "number": 25,
     "league": "NL"
   },
@@ -8335,17 +8324,6 @@
     "teamAbbr": "BOS",
     "position": "RF",
     "number": 52,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5255100",
-    "name": "Winston Santos",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "SP",
-    "number": 47,
     "league": "AL"
   },
   {
