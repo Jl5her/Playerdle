@@ -846,24 +846,6 @@
     "ops": 0.787
   },
   {
-    "id": "mlb:41928",
-    "name": "Freddy Fermin",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "C",
-    "number": 54,
-    "league": "NL",
-    "gp": 42,
-    "pa": 139,
-    "avg": 0.244,
-    "hr": 2,
-    "rbi": 14,
-    "sb": 0,
-    "ops": 0.617
-  },
-  {
     "id": "mlb:40344",
     "name": "Gabriel Arias",
     "conference": "AL",
@@ -1170,6 +1152,24 @@
     "ops": 0.683
   },
   {
+    "id": "mlb:41264",
+    "name": "Jeremiah Jackson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "2B",
+    "number": 82,
+    "league": "AL",
+    "gp": 48,
+    "pa": 183,
+    "avg": 0.276,
+    "hr": 5,
+    "rbi": 21,
+    "sb": 0,
+    "ops": 0.775
+  },
+  {
     "id": "mlb:40854",
     "name": "Jo Adell",
     "conference": "AL",
@@ -1312,24 +1312,6 @@
     "rbi": 61,
     "sb": 4,
     "ops": 0.684
-  },
-  {
-    "id": "mlb:41044",
-    "name": "Julio Rodriguez",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "CF",
-    "number": 44,
-    "league": "AL",
-    "gp": 160,
-    "pa": 710,
-    "avg": 0.267,
-    "hr": 32,
-    "rbi": 95,
-    "sb": 30,
-    "ops": 0.798
   },
   {
     "id": "mlb:4905921",
