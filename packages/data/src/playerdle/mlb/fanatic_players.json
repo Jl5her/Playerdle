@@ -576,24 +576,6 @@
     "ops": 0.717
   },
   {
-    "id": "mlb:43025",
-    "name": "Darell Hernaiz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 2,
-    "league": "AL",
-    "gp": 51,
-    "pa": 197,
-    "avg": 0.231,
-    "hr": 2,
-    "rbi": 16,
-    "sb": 3,
-    "ops": 0.599
-  },
-  {
     "id": "mlb:41672",
     "name": "David Fry",
     "conference": "AL",
@@ -1080,24 +1062,6 @@
     "ops": 0.687
   },
   {
-    "id": "mlb:40719",
-    "name": "Jake Meyers",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "CF",
-    "number": 6,
-    "league": "AL",
-    "gp": 104,
-    "pa": 381,
-    "avg": 0.292,
-    "hr": 3,
-    "rbi": 24,
-    "sb": 16,
-    "ops": 0.727
-  },
-  {
     "id": "mlb:39900",
     "name": "Jake Rogers",
     "conference": "AL",
@@ -1330,6 +1294,24 @@
     "rbi": 110,
     "sb": 7,
     "ops": 0.846
+  },
+  {
+    "id": "mlb:33287",
+    "name": "Kyle Farmer",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "DH",
+    "number": 15,
+    "league": "NL",
+    "gp": 97,
+    "pa": 300,
+    "avg": 0.227,
+    "hr": 8,
+    "rbi": 31,
+    "sb": 0,
+    "ops": 0.645
   },
   {
     "id": "mlb:30545",
@@ -1608,7 +1590,7 @@
     "division": "East",
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
-    "position": "SS",
+    "position": "LF",
     "number": 14,
     "league": "NL",
     "gp": 133,
@@ -2484,6 +2466,24 @@
     "ops": 0.848
   },
   {
+    "id": "mlb:5137883",
+    "name": "Zach Dezenzo",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 9,
+    "league": "AL",
+    "gp": 34,
+    "pa": 109,
+    "avg": 0.245,
+    "hr": 2,
+    "rbi": 10,
+    "sb": 1,
+    "ops": 0.688
+  },
+  {
     "id": "mlb:4666100",
     "name": "Zach Neto",
     "conference": "AL",
@@ -2500,5 +2500,23 @@
     "rbi": 62,
     "sb": 26,
     "ops": 0.793
+  },
+  {
+    "id": "mlb:4414531",
+    "name": "Zack Gelof",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 20,
+    "league": "AL",
+    "gp": 30,
+    "pa": 101,
+    "avg": 0.174,
+    "hr": 2,
+    "rbi": 7,
+    "sb": 1,
+    "ops": 0.502
   }
 ]
