@@ -37,7 +37,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "CB",
-    "number": 30
+    "number": 20
   },
   {
     "id": "nfl:4362019",
@@ -66,7 +66,7 @@
     "division": "NFC North",
     "team": "Detroit Lions",
     "teamAbbr": "DET",
-    "position": "CB",
+    "position": "DB",
     "number": 42
   },
   {
@@ -439,16 +439,6 @@
     "teamAbbr": "MIA",
     "position": "WR",
     "number": 88
-  },
-  {
-    "id": "nfl:4429379",
-    "name": "Ajani Carter",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "CB",
-    "number": 34
   },
   {
     "id": "nfl:4696203",
@@ -1068,7 +1058,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "G",
-    "number": 62
+    "number": 74
   },
   {
     "id": "nfl:4259566",
@@ -1707,7 +1697,7 @@
     "division": "NFC North",
     "team": "Detroit Lions",
     "teamAbbr": "DET",
-    "position": "CB",
+    "position": "DB",
     "number": 29
   },
   {
@@ -2207,7 +2197,7 @@
     "division": "NFC South",
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
-    "position": "S",
+    "position": "CB",
     "number": 33
   },
   {
@@ -2337,7 +2327,7 @@
     "division": "NFC North",
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
-    "position": "CB",
+    "position": "WR",
     "number": 16
   },
   {
@@ -2907,7 +2897,7 @@
     "division": "NFC North",
     "team": "Detroit Lions",
     "teamAbbr": "DET",
-    "position": "S",
+    "position": "DB",
     "number": 32
   },
   {
@@ -5027,7 +5017,7 @@
     "division": "NFC North",
     "team": "Detroit Lions",
     "teamAbbr": "DET",
-    "position": "S",
+    "position": "DB",
     "number": 27
   },
   {
@@ -8619,7 +8609,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "WR",
-    "number": 81
+    "number": 80
   },
   {
     "id": "nfl:4646773",
@@ -10819,7 +10809,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "S",
-    "number": 26
+    "number": 34
   },
   {
     "id": "nfl:4259632",
@@ -13350,7 +13340,7 @@
     "division": "NFC North",
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
-    "position": "S",
+    "position": "DB",
     "number": 38
   },
   {
@@ -14245,7 +14235,7 @@
   },
   {
     "id": "nfl:4709980",
-    "name": "Johnathan Baldwin",
+    "name": "Johnathan Baldwin II",
     "conference": "NFC",
     "division": "NFC North",
     "team": "Green Bay Packers",
@@ -16140,7 +16130,7 @@
     "division": "NFC North",
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
-    "position": "DE",
+    "position": "DT",
     "number": 94
   },
   {
@@ -16301,7 +16291,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "QB",
-    "number": 19
+    "number": 12
   },
   {
     "id": "nfl:4426694",
@@ -16692,6 +16682,16 @@
     "teamAbbr": "CAR",
     "position": "QB",
     "number": 12
+  },
+  {
+    "id": "nfl:4044144",
+    "name": "Kenny Yeboah",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "TE",
+    "number": 48
   },
   {
     "id": "nfl:3116726",
@@ -18335,6 +18335,16 @@
     "number": 72
   },
   {
+    "id": "nfl:4432338",
+    "name": "Luke Lachey",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "TE",
+    "number": 86
+  },
+  {
     "id": "nfl:4426948",
     "name": "Luke McCaffrey",
     "conference": "NFC",
@@ -18751,7 +18761,7 @@
     "division": "NFC South",
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
-    "position": "S",
+    "position": "LB",
     "number": 43
   },
   {
@@ -19043,6 +19053,16 @@
     "teamAbbr": "BAL",
     "position": "CB",
     "number": 44
+  },
+  {
+    "id": "nfl:4570773",
+    "name": "Marlon Jones",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "CB",
+    "number": 46
   },
   {
     "id": "nfl:4431467",
@@ -24645,16 +24665,6 @@
     "number": 26
   },
   {
-    "id": "nfl:4592837",
-    "name": "Terrion Arnold",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "CB",
-    "number": 6
-  },
-  {
     "id": "nfl:3121422",
     "name": "Terry McLaurin",
     "conference": "NFC",
@@ -26703,8 +26713,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "OT",
-    "number": 64,
-    "numberBackfilled": true
+    "number": 79
   },
   {
     "id": "nfl:4429136",
@@ -27165,16 +27174,6 @@
     "teamAbbr": "LAR",
     "position": "WR",
     "number": 19
-  },
-  {
-    "id": "nfl:4360304",
-    "name": "Xavier Thomas",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "LB",
-    "number": 52
   },
   {
     "id": "nfl:4427080",

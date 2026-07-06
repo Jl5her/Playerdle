@@ -464,6 +464,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4259305",
+    "name": "Bo Melton",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "WR",
+    "number": 16,
+    "gp": 16,
+    "fppg": 1.4,
+    "tgtPerGame": 0.8,
+    "recPerGame": 0.3,
+    "ydsPerGame": 8.9,
+    "tdPerGame": 0.06
+  },
+  {
     "id": "nfl:4596602",
     "name": "Brashard Smith",
     "conference": "AFC",
@@ -1848,7 +1864,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "WR",
-    "number": 81,
+    "number": 80,
     "gp": 9,
     "fppg": 0.9,
     "tgtPerGame": 1.2,
