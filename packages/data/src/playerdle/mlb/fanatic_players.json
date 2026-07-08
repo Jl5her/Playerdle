@@ -288,24 +288,6 @@
     "ops": 0.591
   },
   {
-    "id": "mlb:32655",
-    "name": "Byron Buxton",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "CF",
-    "number": 25,
-    "league": "AL",
-    "gp": 126,
-    "pa": 542,
-    "avg": 0.264,
-    "hr": 35,
-    "rbi": 83,
-    "sb": 24,
-    "ops": 0.878
-  },
-  {
     "id": "mlb:5007615",
     "name": "Caleb Durbin",
     "conference": "AL",
@@ -1006,6 +988,24 @@
     "rbi": 78,
     "sb": 21,
     "ops": 0.77
+  },
+  {
+    "id": "mlb:4719300",
+    "name": "Jacob Wilson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SS",
+    "number": 5,
+    "league": "AL",
+    "gp": 125,
+    "pa": 523,
+    "avg": 0.311,
+    "hr": 13,
+    "rbi": 63,
+    "sb": 5,
+    "ops": 0.8
   },
   {
     "id": "mlb:4414210",
