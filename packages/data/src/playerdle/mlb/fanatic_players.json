@@ -1620,24 +1620,6 @@
     "ops": 0.644
   },
   {
-    "id": "mlb:4872686",
-    "name": "Max Muncy",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "3B",
-    "number": 3,
-    "league": "AL",
-    "gp": 63,
-    "pa": 220,
-    "avg": 0.214,
-    "hr": 9,
-    "rbi": 23,
-    "sb": 1,
-    "ops": 0.638
-  },
-  {
     "id": "mlb:33303",
     "name": "Max Muncy",
     "conference": "NL",
@@ -1726,6 +1708,24 @@
     "rbi": 60,
     "sb": 6,
     "ops": 0.717
+  },
+  {
+    "id": "mlb:30836",
+    "name": "Mike Trout",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "CF",
+    "number": 27,
+    "league": "AL",
+    "gp": 130,
+    "pa": 556,
+    "avg": 0.232,
+    "hr": 26,
+    "rbi": 64,
+    "sb": 2,
+    "ops": 0.797
   },
   {
     "id": "mlb:33667",
@@ -2040,7 +2040,7 @@
     "division": "East",
     "team": "Boston Red Sox",
     "teamAbbr": "BOS",
-    "position": "1B",
+    "position": "DH",
     "number": 23,
     "league": "AL",
     "gp": 96,
