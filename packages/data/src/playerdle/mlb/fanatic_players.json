@@ -1152,6 +1152,24 @@
     "ops": 0.775
   },
   {
+    "id": "mlb:41273",
+    "name": "Jeremy Pena",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SS",
+    "number": 3,
+    "league": "AL",
+    "gp": 125,
+    "pa": 543,
+    "avg": 0.304,
+    "hr": 17,
+    "rbi": 62,
+    "sb": 20,
+    "ops": 0.84
+  },
+  {
     "id": "mlb:40854",
     "name": "Jo Adell",
     "conference": "AL",
@@ -1312,6 +1330,24 @@
     "rbi": 110,
     "sb": 7,
     "ops": 0.846
+  },
+  {
+    "id": "mlb:35020",
+    "name": "Ke'Bryan Hayes",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "3B",
+    "number": 3,
+    "league": "NL",
+    "gp": 52,
+    "pa": 178,
+    "avg": 0.234,
+    "hr": 3,
+    "rbi": 13,
+    "sb": 2,
+    "ops": 0.656
   },
   {
     "id": "mlb:33287",
@@ -1530,24 +1566,6 @@
     "ops": 0.756
   },
   {
-    "id": "mlb:41034",
-    "name": "Mark Vientos",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "1B",
-    "number": 27,
-    "league": "NL",
-    "gp": 121,
-    "pa": 463,
-    "avg": 0.233,
-    "hr": 17,
-    "rbi": 61,
-    "sb": 1,
-    "ops": 0.702
-  },
-  {
     "id": "mlb:4683365",
     "name": "Masyn Winn",
     "conference": "NL",
@@ -1564,24 +1582,6 @@
     "rbi": 51,
     "sb": 9,
     "ops": 0.673
-  },
-  {
-    "id": "mlb:4422899",
-    "name": "Matt McLain",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "2B",
-    "number": 9,
-    "league": "NL",
-    "gp": 147,
-    "pa": 577,
-    "avg": 0.22,
-    "hr": 15,
-    "rbi": 50,
-    "sb": 18,
-    "ops": 0.643
   },
   {
     "id": "mlb:41636",
@@ -2070,6 +2070,24 @@
     "ops": 0.671
   },
   {
+    "id": "mlb:41587",
+    "name": "Ryan Jeffers",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 27,
+    "league": "AL",
+    "gp": 119,
+    "pa": 464,
+    "avg": 0.266,
+    "hr": 9,
+    "rbi": 47,
+    "sb": 1,
+    "ops": 0.752
+  },
+  {
     "id": "mlb:31127",
     "name": "Salvador Perez",
     "conference": "AL",
@@ -2518,23 +2536,5 @@
     "rbi": 62,
     "sb": 26,
     "ops": 0.793
-  },
-  {
-    "id": "mlb:4414531",
-    "name": "Zack Gelof",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "3B",
-    "number": 20,
-    "league": "AL",
-    "gp": 30,
-    "pa": 101,
-    "avg": 0.174,
-    "hr": 2,
-    "rbi": 7,
-    "sb": 1,
-    "ops": 0.502
   }
 ]
