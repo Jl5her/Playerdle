@@ -20,6 +20,16 @@
     "number": 24
   },
   {
+    "id": "nfl:4905664",
+    "name": "A.J. Haulcy",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "S",
+    "number": 25
+  },
+  {
     "id": "nfl:4239995",
     "name": "A.J. Terrell Jr.",
     "conference": "NFC",
@@ -78,6 +88,16 @@
     "teamAbbr": "TEN",
     "position": "OT",
     "number": 69
+  },
+  {
+    "id": "nfl:4691138",
+    "name": "Aaron Anderson",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "WR",
+    "number": 85
   },
   {
     "id": "nfl:4242390",
@@ -187,8 +207,7 @@
     "team": "Denver Broncos",
     "teamAbbr": "DEN",
     "position": "FB",
-    "number": 46,
-    "numberBackfilled": true
+    "number": 46
   },
   {
     "id": "nfl:4685526",
@@ -217,7 +236,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
+    "position": "DT",
     "number": 96
   },
   {
@@ -448,7 +467,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "OT",
-    "number": 69
+    "number": 65
   },
   {
     "id": "nfl:4244607",
@@ -831,6 +850,16 @@
     "number": 79
   },
   {
+    "id": "nfl:4708859",
+    "name": "Amari McNeill",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "DT",
+    "number": 93
+  },
+  {
     "id": "nfl:4431571",
     "name": "Amarius Mims",
     "conference": "AFC",
@@ -849,6 +878,16 @@
     "teamAbbr": "JAX",
     "position": "RB",
     "number": 43
+  },
+  {
+    "id": "nfl:4259546",
+    "name": "Ameer Speed",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "CB",
+    "number": 39
   },
   {
     "id": "nfl:4239694",
@@ -968,7 +1007,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "WR",
-    "number": 84
+    "number": 85
   },
   {
     "id": "nfl:3125107",
@@ -1191,6 +1230,16 @@
     "number": 60
   },
   {
+    "id": "nfl:4880478",
+    "name": "Anthony Dunn Jr.",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "DE",
+    "number": 49
+  },
+  {
     "id": "nfl:3049698",
     "name": "Anthony Firkser",
     "conference": "NFC",
@@ -1248,7 +1297,7 @@
     "team": "Chicago Bears",
     "teamAbbr": "CHI",
     "position": "S",
-    "number": 23
+    "number": 26
   },
   {
     "id": "nfl:4685442",
@@ -1589,6 +1638,16 @@
     "teamAbbr": "HOU",
     "position": "LS",
     "number": 40
+  },
+  {
+    "id": "nfl:4827042",
+    "name": "Austin Brown",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "S",
+    "number": 31
   },
   {
     "id": "nfl:3056608",
@@ -2139,6 +2198,16 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 21
+  },
+  {
+    "id": "nfl:4247722",
+    "name": "Benton Whitley",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "DE",
+    "number": 61
   },
   {
     "id": "nfl:4362580",
@@ -3131,6 +3200,16 @@
     "number": 17
   },
   {
+    "id": "nfl:5088571",
+    "name": "Bryce Boettcher",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 50
+  },
+  {
     "id": "nfl:4612077",
     "name": "Bryce Cabeldue",
     "conference": "NFC",
@@ -3159,6 +3238,16 @@
     "teamAbbr": "TEN",
     "position": "WR",
     "number": 80
+  },
+  {
+    "id": "nfl:5084574",
+    "name": "Bryce Phillips",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 45
   },
   {
     "id": "nfl:4685720",
@@ -3333,12 +3422,13 @@
   {
     "id": "nfl:4700676",
     "name": "C.J. Ravenell",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
     "position": "DE",
-    "number": 97
+    "number": 97,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4432577",
@@ -3431,6 +3521,16 @@
     "number": 76
   },
   {
+    "id": "nfl:4685324",
+    "name": "Caden Curry",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 55
+  },
+  {
     "id": "nfl:4683096",
     "name": "Caden Fordham",
     "conference": "NFC",
@@ -3508,7 +3608,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "S",
-    "number": 18
+    "number": 13
   },
   {
     "id": "nfl:4432208",
@@ -3557,7 +3657,7 @@
     "division": "AFC South",
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
-    "position": "CB",
+    "position": "S",
     "number": 27
   },
   {
@@ -3761,16 +3861,6 @@
     "number": 15
   },
   {
-    "id": "nfl:4569001",
-    "name": "Cam Ross",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Denver Broncos",
-    "teamAbbr": "DEN",
-    "position": "WR",
-    "number": 87
-  },
-  {
     "id": "nfl:4696981",
     "name": "Cam Skattebo",
     "conference": "NFC",
@@ -3829,6 +3919,16 @@
     "teamAbbr": "DAL",
     "position": "WR",
     "number": 6
+  },
+  {
+    "id": "nfl:4691878",
+    "name": "Cameron Ball",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "DT",
+    "number": 64
   },
   {
     "id": "nfl:4362081",
@@ -3929,6 +4029,16 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 49
+  },
+  {
+    "id": "nfl:4569001",
+    "name": "Cameron Ross",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "WR",
+    "number": 87
   },
   {
     "id": "nfl:4243923",
@@ -4411,6 +4521,16 @@
     "number": 90
   },
   {
+    "id": "nfl:4240849",
+    "name": "Charles Snowden",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 49
+  },
+  {
     "id": "nfl:4368113",
     "name": "Charles Woods",
     "conference": "AFC",
@@ -4739,6 +4859,16 @@
     "teamAbbr": "LV",
     "position": "RB",
     "number": 33
+  },
+  {
+    "id": "nfl:4240836",
+    "name": "Chris Glaser",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 68
   },
   {
     "id": "nfl:3116165",
@@ -5171,6 +5301,16 @@
     "number": 48
   },
   {
+    "id": "nfl:4870598",
+    "name": "CJ Allen",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 53
+  },
+  {
     "id": "nfl:4605951",
     "name": "CJ Daniels",
     "conference": "NFC",
@@ -5399,6 +5539,16 @@
     "teamAbbr": "BUF",
     "position": "S",
     "number": 24
+  },
+  {
+    "id": "nfl:4430818",
+    "name": "Cole Brevard",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "DT",
+    "number": 96
   },
   {
     "id": "nfl:5192448",
@@ -5678,7 +5828,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "LB",
-    "number": 59
+    "number": 44
   },
   {
     "id": "nfl:4429607",
@@ -5949,6 +6099,16 @@
     "teamAbbr": "SEA",
     "position": "S",
     "number": 23
+  },
+  {
+    "id": "nfl:4880312",
+    "name": "D'Arco Perkins-McAllister",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 19
   },
   {
     "id": "nfl:4241007",
@@ -6259,6 +6419,16 @@
     "teamAbbr": "GB",
     "position": "RB",
     "number": 26
+  },
+  {
+    "id": "nfl:4431503",
+    "name": "Damon Payne",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "DT",
+    "number": 90
   },
   {
     "id": "nfl:4362636",
@@ -7161,6 +7331,16 @@
     "number": 99
   },
   {
+    "id": "nfl:4683151",
+    "name": "Deion Burks",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 80
+  },
+  {
     "id": "nfl:4240528",
     "name": "Del'Shawn Phillips",
     "conference": "AFC",
@@ -7351,6 +7531,16 @@
     "number": 29
   },
   {
+    "id": "nfl:4035403",
+    "name": "Denzel Mims",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "WR",
+    "number": 84
+  },
+  {
     "id": "nfl:2579621",
     "name": "Denzel Perryman",
     "conference": "AFC",
@@ -7471,6 +7661,16 @@
     "number": 40
   },
   {
+    "id": "nfl:4686142",
+    "name": "Derrick Graham",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "OT",
+    "number": 73
+  },
+  {
     "id": "nfl:4682980",
     "name": "Derrick Harmon",
     "conference": "AFC",
@@ -7547,6 +7747,16 @@
     "division": "AFC North",
     "team": "Pittsburgh Steelers",
     "teamAbbr": "PIT",
+    "position": "S",
+    "number": 25
+  },
+  {
+    "id": "nfl:5081093",
+    "name": "DeShon Singleton",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
     "position": "S",
     "number": 25
   },
@@ -8021,6 +8231,16 @@
     "number": 7
   },
   {
+    "id": "nfl:5082352",
+    "name": "DJ Wingfield",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 64
+  },
+  {
     "id": "nfl:4038849",
     "name": "DJ Wonnum",
     "conference": "NFC",
@@ -8187,8 +8407,8 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
-    "number": 41
+    "position": "LB",
+    "number": 6
   },
   {
     "id": "nfl:4431553",
@@ -8732,6 +8952,16 @@
     "number": 42
   },
   {
+    "id": "nfl:3120590",
+    "name": "Easton Stick",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "QB",
+    "number": 4
+  },
+  {
     "id": "nfl:4242227",
     "name": "Ed Ingram",
     "conference": "AFC",
@@ -8790,6 +9020,26 @@
     "teamAbbr": "NE",
     "position": "WR",
     "number": 86
+  },
+  {
+    "id": "nfl:4608533",
+    "name": "EJ Horton Jr.",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 10
+  },
+  {
+    "id": "nfl:4430825",
+    "name": "EJ Smith",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "RB",
+    "number": 35
   },
   {
     "id": "nfl:4361272",
@@ -9438,7 +9688,7 @@
     "division": "AFC West",
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
-    "position": "DE",
+    "position": "LB",
     "number": 40
   },
   {
@@ -10022,6 +10272,26 @@
     "number": 25
   },
   {
+    "id": "nfl:4875981",
+    "name": "Geno VanDeMark",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "C",
+    "number": 63
+  },
+  {
+    "id": "nfl:4708238",
+    "name": "George Gumbs Jr.",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 52
+  },
+  {
     "id": "nfl:4429835",
     "name": "George Holani",
     "conference": "NFC",
@@ -10302,6 +10572,16 @@
     "number": 60
   },
   {
+    "id": "nfl:3917940",
+    "name": "Hakeem Butler",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "WR",
+    "number": 30
+  },
+  {
     "id": "nfl:4814930",
     "name": "Hank Beatty",
     "conference": "AFC",
@@ -10558,7 +10838,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "RB",
+    "position": "FB",
     "number": 40
   },
   {
@@ -10699,7 +10979,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "WR",
-    "number": 16
+    "number": 0
   },
   {
     "id": "nfl:4695404",
@@ -10749,7 +11029,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "LB",
-    "number": 91
+    "number": 58
   },
   {
     "id": "nfl:4361050",
@@ -11482,6 +11762,16 @@
     "number": 19
   },
   {
+    "id": "nfl:5155179",
+    "name": "Jacob De Jesus",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "WR",
+    "number": 80
+  },
+  {
     "id": "nfl:3138764",
     "name": "Jacob Martin",
     "conference": "AFC",
@@ -11709,7 +11999,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "WR",
-    "number": 80
+    "number": 17
   },
   {
     "id": "nfl:4710706",
@@ -11820,6 +12110,16 @@
     "teamAbbr": "BAL",
     "position": "S",
     "number": 41
+  },
+  {
+    "id": "nfl:4690803",
+    "name": "Jai'Onte' McMillan",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "CB",
+    "number": 42
   },
   {
     "id": "nfl:4685266",
@@ -12069,8 +12369,7 @@
     "team": "Denver Broncos",
     "teamAbbr": "DEN",
     "position": "RB",
-    "number": 38,
-    "numberBackfilled": true
+    "number": 38
   },
   {
     "id": "nfl:4692835",
@@ -12113,6 +12412,16 @@
     "number": 35
   },
   {
+    "id": "nfl:4838270",
+    "name": "Jalen Farmer",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "G",
+    "number": 62
+  },
+  {
     "id": "nfl:4570410",
     "name": "Jalen Graham",
     "conference": "NFC",
@@ -12129,7 +12438,7 @@
     "division": "AFC South",
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
-    "position": "DE",
+    "position": "DT",
     "number": 96
   },
   {
@@ -12549,7 +12858,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
+    "position": "LB",
     "number": 53
   },
   {
@@ -12770,8 +13079,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "DE",
-    "number": 8,
-    "numberBackfilled": true
+    "number": 8
   },
   {
     "id": "nfl:4430681",
@@ -13224,6 +13532,16 @@
     "number": 66
   },
   {
+    "id": "nfl:4685489",
+    "name": "Jaydn Ott",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "RB",
+    "number": 42
+  },
+  {
     "id": "nfl:4685279",
     "name": "Jaydon Blue",
     "conference": "NFC",
@@ -13232,6 +13550,16 @@
     "teamAbbr": "DAL",
     "position": "RB",
     "number": 23
+  },
+  {
+    "id": "nfl:4566154",
+    "name": "Jaylahn Tuimoloau",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "DE",
+    "number": 91
   },
   {
     "id": "nfl:4566088",
@@ -13472,6 +13800,16 @@
     "teamAbbr": "CHI",
     "position": "OT",
     "number": 71
+  },
+  {
+    "id": "nfl:4885466",
+    "name": "Jeff Caldwell",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "WR",
+    "number": 8
   },
   {
     "id": "nfl:4035369",
@@ -13782,6 +14120,16 @@
     "teamAbbr": "NYG",
     "position": "S",
     "number": 8
+  },
+  {
+    "id": "nfl:4427575",
+    "name": "Jha'Quan Jackson",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "WR",
+    "number": 88
   },
   {
     "id": "nfl:4693644",
@@ -14174,6 +14522,16 @@
     "number": 13
   },
   {
+    "id": "nfl:4708490",
+    "name": "John Michael Gyllenborg",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "TE",
+    "number": 84
+  },
+  {
     "id": "nfl:4240771",
     "name": "John Michael Schmitz Jr.",
     "conference": "NFC",
@@ -14450,7 +14808,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
+    "position": "DT",
     "number": 98
   },
   {
@@ -14651,7 +15009,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "WR",
-    "number": 16
+    "number": 18
   },
   {
     "id": "nfl:4261090",
@@ -15104,6 +15462,16 @@
     "number": 85
   },
   {
+    "id": "nfl:4709386",
+    "name": "Josh Kreutz",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "C",
+    "number": 61
+  },
+  {
     "id": "nfl:4242000",
     "name": "Josh Myers",
     "conference": "AFC",
@@ -15192,6 +15560,16 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 10
+  },
+  {
+    "id": "nfl:4682692",
+    "name": "Josh Thompson",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "G",
+    "number": 62
   },
   {
     "id": "nfl:4046528",
@@ -15372,16 +15750,6 @@
     "teamAbbr": "CHI",
     "position": "WR",
     "number": 83
-  },
-  {
-    "id": "nfl:4566154",
-    "name": "JT Tuimoloau",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "DE",
-    "number": 91
   },
   {
     "id": "nfl:4360590",
@@ -15611,7 +15979,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "QB",
-    "number": 7
+    "number": 6
   },
   {
     "id": "nfl:4038941",
@@ -15641,7 +16009,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "LB",
-    "number": 10
+    "number": 17
   },
   {
     "id": "nfl:4262921",
@@ -15744,6 +16112,16 @@
     "number": 83
   },
   {
+    "id": "nfl:4687188",
+    "name": "K.C. Ossai",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "LB",
+    "number": 52
+  },
+  {
     "id": "nfl:4242521",
     "name": "K.J. Britt",
     "conference": "AFC",
@@ -15812,6 +16190,16 @@
     "teamAbbr": "TB",
     "position": "RB",
     "number": 49
+  },
+  {
+    "id": "nfl:5065495",
+    "name": "Kaden Davis",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 27
   },
   {
     "id": "nfl:3124890",
@@ -15894,6 +16282,16 @@
     "number": 25
   },
   {
+    "id": "nfl:4566190",
+    "name": "Kahlil Benson",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "OT",
+    "number": 70
+  },
+  {
     "id": "nfl:4599150",
     "name": "Kahlil Saunders",
     "conference": "AFC",
@@ -15912,6 +16310,16 @@
     "teamAbbr": "HOU",
     "position": "P",
     "number": 38
+  },
+  {
+    "id": "nfl:4567399",
+    "name": "Kaiir Elam",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 24
   },
   {
     "id": "nfl:4433904",
@@ -16231,7 +16639,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "WR",
-    "number": 17
+    "number": 1
   },
   {
     "id": "nfl:4769880",
@@ -16641,7 +17049,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "DT",
-    "number": 95
+    "number": 97
   },
   {
     "id": "nfl:4746099",
@@ -16841,7 +17249,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "CB",
-    "number": 38
+    "number": 35
   },
   {
     "id": "nfl:4685617",
@@ -17191,7 +17599,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "WR",
-    "number": 38
+    "number": 87
   },
   {
     "id": "nfl:3134312",
@@ -17542,6 +17950,16 @@
     "teamAbbr": "ARI",
     "position": "DE",
     "number": 91
+  },
+  {
+    "id": "nfl:4040432",
+    "name": "L'Jarius Sneed",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 38
   },
   {
     "id": "nfl:4241473",
@@ -18001,8 +18419,17 @@
     "team": "Denver Broncos",
     "teamAbbr": "DEN",
     "position": "WR",
-    "number": 17,
-    "numberBackfilled": true
+    "number": 5
+  },
+  {
+    "id": "nfl:4608607",
+    "name": "Lincoln Pare",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "RB",
+    "number": 36
   },
   {
     "id": "nfl:4035448",
@@ -18142,7 +18569,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "TE",
-    "number": 81
+    "number": 47
   },
   {
     "id": "nfl:5081323",
@@ -18161,7 +18588,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
+    "position": "DT",
     "number": 99
   },
   {
@@ -18522,7 +18949,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "LB",
-    "number": 40
+    "number": 45
   },
   {
     "id": "nfl:4870795",
@@ -18625,6 +19052,16 @@
     "number": 44
   },
   {
+    "id": "nfl:4570636",
+    "name": "Malick Meiga",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "WR",
+    "number": 35
+  },
+  {
     "id": "nfl:3040471",
     "name": "Maliek Collins",
     "conference": "AFC",
@@ -18662,7 +19099,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "RB",
-    "number": 43
+    "number": 20
   },
   {
     "id": "nfl:4040615",
@@ -18692,7 +19129,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "S",
-    "number": 28
+    "number": 24
   },
   {
     "id": "nfl:4682509",
@@ -19102,7 +19539,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "WR",
-    "number": 84
+    "number": 11
   },
   {
     "id": "nfl:4241382",
@@ -19765,6 +20202,16 @@
     "number": 37
   },
   {
+    "id": "nfl:3121541",
+    "name": "Michael Deiter",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "C",
+    "number": 67
+  },
+  {
     "id": "nfl:3929851",
     "name": "Michael Dickson",
     "conference": "NFC",
@@ -20092,7 +20539,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "RB",
-    "number": 2
+    "number": 37
   },
   {
     "id": "nfl:4608890",
@@ -20193,6 +20640,16 @@
     "teamAbbr": "DEN",
     "position": "LS",
     "number": 48
+  },
+  {
+    "id": "nfl:4693205",
+    "name": "Mitchell Melton",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "DE",
+    "number": 54
   },
   {
     "id": "nfl:4690070",
@@ -20902,7 +21359,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "G",
-    "number": 61
+    "number": 51
   },
   {
     "id": "nfl:4573188",
@@ -21175,6 +21632,16 @@
     "number": 20
   },
   {
+    "id": "nfl:4431587",
+    "name": "Nolan Rucci",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "OT",
+    "number": 76
+  },
+  {
     "id": "nfl:4426331",
     "name": "Nolan Smith Jr.",
     "conference": "NFC",
@@ -21333,6 +21800,16 @@
     "teamAbbr": "LAR",
     "position": "LB",
     "number": 48
+  },
+  {
+    "id": "nfl:4702908",
+    "name": "Omari Evans",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "WR",
+    "number": 7
   },
   {
     "id": "nfl:4701951",
@@ -21753,6 +22230,16 @@
     "teamAbbr": "WSH",
     "position": "S",
     "number": 35
+  },
+  {
+    "id": "nfl:4682626",
+    "name": "Pete Nygra",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "OT",
+    "number": 51
   },
   {
     "id": "nfl:4241993",
@@ -22285,6 +22772,16 @@
     "number": 7
   },
   {
+    "id": "nfl:4872957",
+    "name": "Raylen Sharpe",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 8
+  },
+  {
     "id": "nfl:4432661",
     "name": "Rayshaun Benny",
     "conference": "AFC",
@@ -22363,6 +22860,16 @@
     "teamAbbr": "ARI",
     "position": "WR",
     "number": 82
+  },
+  {
+    "id": "nfl:4432673",
+    "name": "Reid Carrico",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "LB",
+    "number": 38
   },
   {
     "id": "nfl:2976549",
@@ -23135,6 +23642,16 @@
     "number": 94
   },
   {
+    "id": "nfl:4612246",
+    "name": "Sahmir Hagans",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 11
+  },
+  {
     "id": "nfl:4603189",
     "name": "Sai'vion Jones",
     "conference": "AFC",
@@ -23232,7 +23749,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "QB",
-    "number": 13
+    "number": 16
   },
   {
     "id": "nfl:4033855",
@@ -23303,6 +23820,16 @@
     "teamAbbr": "NYJ",
     "position": "RB",
     "number": 25
+  },
+  {
+    "id": "nfl:4567242",
+    "name": "Sam Williams",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 54
   },
   {
     "id": "nfl:3116389",
@@ -23435,6 +23962,16 @@
     "number": 4
   },
   {
+    "id": "nfl:4565769",
+    "name": "Sean Fresch",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "CB",
+    "number": 37
+  },
+  {
     "id": "nfl:4036275",
     "name": "Sean McKeon",
     "conference": "AFC",
@@ -23545,6 +24082,16 @@
     "number": 58
   },
   {
+    "id": "nfl:4686468",
+    "name": "Seth McGowan",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "RB",
+    "number": 20
+  },
+  {
     "id": "nfl:4429187",
     "name": "Seth McLaughlin",
     "conference": "NFC",
@@ -23622,7 +24169,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "CB",
-    "number": 34
+    "number": 28
   },
   {
     "id": "nfl:4432762",
@@ -24091,7 +24638,7 @@
     "division": "AFC South",
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
-    "position": "DE",
+    "position": "DT",
     "number": 94
   },
   {
@@ -24203,6 +24750,16 @@
     "teamAbbr": "CIN",
     "position": "RB",
     "number": 25
+  },
+  {
+    "id": "nfl:4692638",
+    "name": "Tahj Chambers",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 44
   },
   {
     "id": "nfl:4567506",
@@ -24333,6 +24890,16 @@
     "teamAbbr": "JAX",
     "position": "TE",
     "number": 89
+  },
+  {
+    "id": "nfl:4361824",
+    "name": "Tanner McCalister",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "S",
+    "number": 34
   },
   {
     "id": "nfl:4685201",
@@ -25065,6 +25632,16 @@
     "number": 38
   },
   {
+    "id": "nfl:4245655",
+    "name": "Tony Fields II",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "LB",
+    "number": 43
+  },
+  {
     "id": "nfl:16195",
     "name": "Tony Jefferson",
     "conference": "AFC",
@@ -25482,7 +26059,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "G",
-    "number": 76
+    "number": 77
   },
   {
     "id": "nfl:4360310",
@@ -25676,7 +26253,7 @@
   },
   {
     "id": "nfl:5085942",
-    "name": "Treyvohn Saunders",
+    "name": "Treyvhon Saunders",
     "conference": "AFC",
     "division": "AFC South",
     "team": "Houston Texans",
@@ -25922,8 +26499,7 @@
     "team": "Denver Broncos",
     "teamAbbr": "DEN",
     "position": "S",
-    "number": 26,
-    "numberBackfilled": true
+    "number": 6
   },
   {
     "id": "nfl:4428557",
@@ -25963,7 +26539,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "WR",
-    "number": 15
+    "number": 16
   },
   {
     "id": "nfl:4431615",
@@ -26416,6 +26992,16 @@
     "number": 6
   },
   {
+    "id": "nfl:4427461",
+    "name": "Tyron Herring",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "CB",
+    "number": 47
+  },
+  {
     "id": "nfl:4429313",
     "name": "Tyrone Broden",
     "conference": "NFC",
@@ -26442,7 +27028,7 @@
     "division": "NFC East",
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
-    "position": "DE",
+    "position": "LB",
     "number": 90
   },
   {
@@ -26483,7 +27069,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "DT",
-    "number": 95
+    "number": 64
   },
   {
     "id": "nfl:5344966",
@@ -26756,6 +27342,16 @@
     "number": 36
   },
   {
+    "id": "nfl:4685275",
+    "name": "Wesley Bissainthe",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "LB",
+    "number": 59
+  },
+  {
     "id": "nfl:4832922",
     "name": "Wesley Williams",
     "conference": "AFC",
@@ -26764,6 +27360,16 @@
     "teamAbbr": "JAX",
     "position": "DE",
     "number": 90
+  },
+  {
+    "id": "nfl:4587724",
+    "name": "West Weeks",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "LB",
+    "number": 47
   },
   {
     "id": "nfl:2985659",
@@ -27136,6 +27742,16 @@
     "number": 17
   },
   {
+    "id": "nfl:4874510",
+    "name": "Xavier Loyd",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "WR",
+    "number": 17
+  },
+  {
     "id": "nfl:4241470",
     "name": "Xavier McKinney",
     "conference": "NFC",
@@ -27154,6 +27770,16 @@
     "teamAbbr": "NYJ",
     "position": "G",
     "number": 65
+  },
+  {
+    "id": "nfl:4685491",
+    "name": "Xavier Nwankpa",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "S",
+    "number": 29
   },
   {
     "id": "nfl:4431353",
@@ -27537,6 +28163,16 @@
     "number": 93
   },
   {
+    "id": "nfl:5083530",
+    "name": "Zelmar Vedder",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 47
+  },
+  {
     "id": "nfl:4695609",
     "name": "Zemaiah Vaughn",
     "conference": "NFC",
@@ -27593,7 +28229,7 @@
     "division": "AFC North",
     "team": "Baltimore Ravens",
     "teamAbbr": "BAL",
-    "position": "DE",
+    "position": "LB",
     "number": 9
   },
   {
