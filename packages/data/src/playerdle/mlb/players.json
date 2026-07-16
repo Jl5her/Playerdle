@@ -33,17 +33,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:40934",
-    "name": "Aaron Civale",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SP",
-    "number": 45,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33709",
     "name": "Aaron Nola",
     "conference": "NL",
@@ -748,6 +737,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4179551",
+    "name": "Brady Basso",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 66,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41172",
     "name": "Brady Singer",
     "conference": "NL",
@@ -988,17 +988,6 @@
     "position": "C",
     "number": 64,
     "league": "NL"
-  },
-  {
-    "id": "mlb:41441",
-    "name": "Brian Serven",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "C",
-    "number": 10,
-    "league": "AL"
   },
   {
     "id": "mlb:4838117",
@@ -2244,6 +2233,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:37232",
+    "name": "Donovan Walton",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 35,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4810190",
     "name": "Drake Baldwin",
     "conference": "NL",
@@ -2285,17 +2285,6 @@
     "teamAbbr": "SF",
     "position": "CF",
     "number": 0,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4228448",
-    "name": "Drew Millas",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "C",
-    "number": 14,
     "league": "NL"
   },
   {
@@ -4070,6 +4059,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:42864",
+    "name": "Jhony Brito",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "RP",
+    "number": 76,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5205951",
     "name": "Jim Jarvis",
     "conference": "NL",
@@ -4188,17 +4188,6 @@
     "teamAbbr": "CLE",
     "position": "SP",
     "number": 54,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:34534",
-    "name": "Joey Meneses",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "1B",
-    "number": 13,
     "league": "AL"
   },
   {
@@ -5577,17 +5566,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4620704",
-    "name": "Mason Barnett",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 63,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4622501",
     "name": "Mason Fluharty",
     "conference": "AL",
@@ -5739,6 +5717,17 @@
     "teamAbbr": "ARI",
     "position": "LF",
     "number": 22,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4684369",
+    "name": "Max Kranick",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 35,
     "league": "NL"
   },
   {
@@ -7678,17 +7667,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4837403",
-    "name": "Tommy Troy",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "LF",
-    "number": 9,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4424951",
     "name": "Travis Adams",
     "conference": "AL",
@@ -8206,17 +8184,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36036",
-    "name": "Wandy Peralta",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 58,
-    "league": "NL"
-  },
-  {
     "id": "mlb:38682",
     "name": "Weston Wilson",
     "conference": "AL",
@@ -8446,6 +8413,17 @@
     "position": "RP",
     "number": 1,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5272107",
+    "name": "Yunior Tur",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 84,
+    "league": "AL"
   },
   {
     "id": "mlb:5207459",
