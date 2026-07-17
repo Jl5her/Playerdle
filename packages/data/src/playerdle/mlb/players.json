@@ -649,17 +649,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41345",
-    "name": "Blaze Alexander",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "3B",
-    "number": 23,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4722953",
     "name": "Blaze Jordan",
     "conference": "NL",
@@ -691,17 +680,6 @@
     "position": "SS",
     "number": 7,
     "league": "AL"
-  },
-  {
-    "id": "mlb:35292",
-    "name": "Brad Keller",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 40,
-    "league": "NL"
   },
   {
     "id": "mlb:4950345",
@@ -1659,6 +1637,17 @@
     "position": "SP",
     "number": 51,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5012106",
+    "name": "Christian Encarnacion-Strand",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "1B",
+    "number": 32,
+    "league": "AL"
   },
   {
     "id": "mlb:4109031",
@@ -3685,17 +3674,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:34958",
-    "name": "Jahmai Jones",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RF",
-    "number": 18,
-    "league": "AL"
-  },
-  {
     "id": "mlb:35013",
     "name": "Jake Bauers",
     "conference": "NL",
@@ -5544,6 +5522,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:32146",
+    "name": "Marcus Semien",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "2B",
+    "number": 10,
+    "league": "NL"
+  },
+  {
     "id": "mlb:36202",
     "name": "Mark Leiter Jr.",
     "conference": "AL",
@@ -7216,6 +7205,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42542",
+    "name": "Seth Johnson",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 51,
+    "league": "NL"
+  },
+  {
     "id": "mlb:34873",
     "name": "Seth Lugo",
     "conference": "AL",
@@ -8478,17 +8478,6 @@
     "teamAbbr": "WSH",
     "position": "SP",
     "number": 18,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:36953",
-    "name": "Zack Short",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "SS",
-    "number": 40,
     "league": "NL"
   },
   {
