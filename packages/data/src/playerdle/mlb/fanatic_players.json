@@ -852,7 +852,7 @@
     "division": "Central",
     "team": "Cleveland Guardians",
     "teamAbbr": "CLE",
-    "position": "SS",
+    "position": "3B",
     "number": 13,
     "league": "AL",
     "gp": 129,
@@ -1368,6 +1368,24 @@
     "ops": 0.684
   },
   {
+    "id": "mlb:41044",
+    "name": "Julio Rodriguez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "CF",
+    "number": 44,
+    "league": "AL",
+    "gp": 160,
+    "pa": 710,
+    "avg": 0.267,
+    "hr": 32,
+    "rbi": 95,
+    "sb": 30,
+    "ops": 0.798
+  },
+  {
     "id": "mlb:4905921",
     "name": "Junior Caminero",
     "conference": "AL",
@@ -1492,24 +1510,6 @@
     "rbi": 43,
     "sb": 2,
     "ops": 0.629
-  },
-  {
-    "id": "mlb:36040",
-    "name": "Lourdes Gurriel Jr.",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "LF",
-    "number": 12,
-    "league": "NL",
-    "gp": 129,
-    "pa": 546,
-    "avg": 0.248,
-    "hr": 19,
-    "rbi": 80,
-    "sb": 10,
-    "ops": 0.713
   },
   {
     "id": "mlb:33805",
