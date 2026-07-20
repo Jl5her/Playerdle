@@ -682,10 +682,11 @@
     "name": "Anthony Mantha",
     "conference": "East",
     "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
     "position": "RW",
-    "number": 39
+    "number": 39,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:3942058",
@@ -4937,16 +4938,6 @@
     "number": 48
   },
   {
-    "id": "nhl:3097115",
-    "name": "Jordan Oesterle",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
-    "position": "D",
-    "number": 82
-  },
-  {
     "id": "nhl:4588190",
     "name": "Jordan Spence",
     "conference": "East",
@@ -7950,16 +7941,6 @@
     "division": "Central Division",
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
-    "position": "C",
-    "number": 18
-  },
-  {
-    "id": "nhl:4064976",
-    "name": "Rodrigo Abols",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
     "position": "C",
     "number": 18
   },
