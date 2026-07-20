@@ -812,6 +812,20 @@
     "str": 77
   },
   {
+    "id": "nfl:3123076",
+    "name": "David Njoku",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "TE",
+    "number": 83,
+    "ovr": 81,
+    "spd": 86,
+    "awr": 78,
+    "str": 72
+  },
+  {
     "id": "nfl:3930086",
     "name": "Dawson Knox",
     "conference": "AFC",
@@ -960,7 +974,6 @@
     "teamAbbr": "PHI",
     "position": "WR",
     "number": 13,
-    "numberBackfilled": true,
     "ovr": 76,
     "spd": 89,
     "awr": 80,
@@ -2267,20 +2280,6 @@
     "spd": 90,
     "awr": 75,
     "str": 78
-  },
-  {
-    "id": "nfl:4595342",
-    "name": "Oronde Gadsden",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "TE",
-    "number": 86,
-    "ovr": 75,
-    "spd": 86,
-    "awr": 79,
-    "str": 73
   },
   {
     "id": "nfl:4432620",
