@@ -66,6 +66,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4918157",
+    "name": "Adam Macko",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 64,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41464",
     "name": "Adrian Del Castillo",
     "conference": "NL",
@@ -985,7 +996,7 @@
     "division": "East",
     "team": "Atlanta Braves",
     "teamAbbr": "ATL",
-    "position": "CF",
+    "position": "RF",
     "number": 53,
     "league": "NL"
   },
@@ -1381,7 +1392,7 @@
     "division": "West",
     "team": "Texas Rangers",
     "teamAbbr": "TEX",
-    "position": "SS",
+    "position": "CF",
     "number": 27,
     "league": "AL"
   },
@@ -2178,6 +2189,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4997181",
+    "name": "Davis Schneider",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 36,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4917850",
     "name": "Dax Fulton",
     "conference": "NL",
@@ -2209,17 +2231,6 @@
     "position": "SP",
     "number": 64,
     "league": "AL"
-  },
-  {
-    "id": "mlb:39801",
-    "name": "Dennis Santana",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 60,
-    "league": "NL"
   },
   {
     "id": "mlb:4917822",
@@ -4257,6 +4268,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41763",
+    "name": "John King",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "RP",
+    "number": 47,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39949",
     "name": "John Schreiber",
     "conference": "AL",
@@ -4265,17 +4287,6 @@
     "teamAbbr": "KC",
     "position": "RP",
     "number": 46,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:41349",
-    "name": "Johnathan Rodriguez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RF",
-    "number": 62,
     "league": "AL"
   },
   {
@@ -4914,17 +4925,6 @@
     "teamAbbr": "ARI",
     "position": "2B",
     "number": 4,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:42500",
-    "name": "Kevin Alcantara",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "DH",
-    "number": 13,
     "league": "NL"
   },
   {
@@ -6292,17 +6292,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4228299",
-    "name": "Noah Murdock",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "SP",
-    "number": 58,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5080754",
     "name": "Noah Schultz",
     "conference": "AL",
@@ -6432,17 +6421,6 @@
     "teamAbbr": "CLE",
     "position": "C",
     "number": 16,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:31313",
-    "name": "Patrick Corbin",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "SP",
-    "number": 46,
     "league": "AL"
   },
   {
@@ -7079,7 +7057,7 @@
     "division": "Central",
     "team": "Kansas City Royals",
     "teamAbbr": "KC",
-    "position": "C",
+    "position": "DH",
     "number": 13,
     "league": "AL"
   },
@@ -7169,17 +7147,6 @@
     "teamAbbr": "CHW",
     "position": "SP",
     "number": 59,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5128241",
-    "name": "Sean Keys",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "DH",
-    "number": 20,
     "league": "AL"
   },
   {
@@ -8503,17 +8470,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5272107",
-    "name": "Yunior Tur",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 70,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5129576",
     "name": "Zac Thornton",
     "conference": "NL",
@@ -8533,17 +8489,6 @@
     "teamAbbr": "COL",
     "position": "RP",
     "number": 36,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5127801",
-    "name": "Zach Brzykcy",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 62,
     "league": "NL"
   },
   {

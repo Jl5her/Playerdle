@@ -612,6 +612,24 @@
     "ops": 0.592
   },
   {
+    "id": "mlb:4997181",
+    "name": "Davis Schneider",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 36,
+    "league": "AL",
+    "gp": 82,
+    "pa": 227,
+    "avg": 0.234,
+    "hr": 11,
+    "rbi": 31,
+    "sb": 3,
+    "ops": 0.797
+  },
+  {
     "id": "mlb:33721",
     "name": "Derek Hill",
     "conference": "NL",
@@ -2166,7 +2184,7 @@
     "division": "Central",
     "team": "Kansas City Royals",
     "teamAbbr": "KC",
-    "position": "C",
+    "position": "DH",
     "number": 13,
     "league": "AL",
     "gp": 155,
