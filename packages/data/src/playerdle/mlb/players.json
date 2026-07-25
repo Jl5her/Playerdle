@@ -462,6 +462,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42497",
+    "name": "Angel Martinez",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "LF",
+    "number": 1,
+    "league": "AL"
+  },
+  {
     "id": "mlb:40947",
     "name": "Anthony Kay",
     "conference": "AL",
@@ -713,17 +724,6 @@
     "position": "RF",
     "number": 24,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42408",
-    "name": "Braden Shewmake",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "SS",
-    "number": 13,
-    "league": "NL"
   },
   {
     "id": "mlb:5266086",
@@ -2090,17 +2090,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42001",
-    "name": "Daniel Schneemann",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "CF",
-    "number": 10,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4751554",
     "name": "Daniel Susac",
     "conference": "NL",
@@ -2165,6 +2154,17 @@
     "position": "RF",
     "number": 6,
     "league": "AL"
+  },
+  {
+    "id": "mlb:42987",
+    "name": "David Hamilton",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "3B",
+    "number": 6,
+    "league": "NL"
   },
   {
     "id": "mlb:40921",
@@ -2561,17 +2561,6 @@
     "position": "2B",
     "number": 2,
     "league": "NL"
-  },
-  {
-    "id": "mlb:41324",
-    "name": "Eli Morgan",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 34,
-    "league": "AL"
   },
   {
     "id": "mlb:39963",
@@ -3905,6 +3894,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917690",
+    "name": "James Triantos",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "2B",
+    "number": 5,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4918256",
     "name": "James Wood",
     "conference": "NL",
@@ -4628,6 +4628,17 @@
     "teamAbbr": "KC",
     "position": "3B",
     "number": 40,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4917841",
+    "name": "Josh Walker",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 61,
     "league": "AL"
   },
   {
@@ -5423,6 +5434,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5150939",
+    "name": "Luis Morales",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "SP",
+    "number": 19,
+    "league": "AL"
+  },
+  {
     "id": "mlb:37237",
     "name": "Luis Rengifo",
     "conference": "NL",
@@ -6138,6 +6160,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:39646",
+    "name": "Nate Pearson",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RP",
+    "number": 61,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4843048",
     "name": "Nathan Church",
     "conference": "NL",
@@ -6479,6 +6512,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41214",
+    "name": "Payton Henry",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "C",
+    "number": 35,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4966140",
     "name": "Payton Tolle",
     "conference": "AL",
@@ -6597,28 +6641,6 @@
     "teamAbbr": "SF",
     "position": "1B",
     "number": 16,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5131743",
-    "name": "Rafael Flores Jr.",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "C",
-    "number": 43,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:40816",
-    "name": "Rafael Marchan",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 13,
     "league": "NL"
   },
   {
@@ -6840,6 +6862,17 @@
     "position": "DH",
     "number": 23,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4228723",
+    "name": "Ron Marinaccio",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "RP",
+    "number": 97,
+    "league": "NL"
   },
   {
     "id": "mlb:41829",
@@ -7271,6 +7304,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5203954",
+    "name": "Shawn Ross",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "C",
+    "number": 73,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42598",
     "name": "Shea Langeliers",
     "conference": "AL",
@@ -7566,6 +7610,17 @@
     "position": "LF",
     "number": 37,
     "league": "NL"
+  },
+  {
+    "id": "mlb:4228579",
+    "name": "Tim Herrin",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "RP",
+    "number": 29,
+    "league": "AL"
   },
   {
     "id": "mlb:37005",
@@ -8237,17 +8292,6 @@
     "position": "RP",
     "number": 66,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4420174",
-    "name": "Will Dion",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "SP",
-    "number": 98,
-    "league": "AL"
   },
   {
     "id": "mlb:4313163",
