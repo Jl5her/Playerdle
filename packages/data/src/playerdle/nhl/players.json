@@ -321,6 +321,16 @@
     "number": 9
   },
   {
+    "id": "nhl:4894268",
+    "name": "Alex Jefferies",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 45
+  },
+  {
     "id": "nhl:4968",
     "name": "Alex Killorn",
     "conference": "West",
@@ -4278,6 +4288,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5173616",
+    "name": "Jared Davidson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 49
+  },
+  {
     "id": "nhl:3114777",
     "name": "Jared McCann",
     "conference": "West",
@@ -6652,6 +6672,16 @@
     "team": "Dallas Stars",
     "teamAbbr": "DAL",
     "position": "RW",
+    "number": 96
+  },
+  {
+    "id": "nhl:5209557",
+    "name": "Mikulas Hovorka",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
     "number": 96
   },
   {
