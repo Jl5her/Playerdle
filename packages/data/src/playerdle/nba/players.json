@@ -938,16 +938,6 @@
     "number": 5
   },
   {
-    "id": "nba:4433159",
-    "name": "Dalen Terry",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Philadelphia 76ers",
-    "teamAbbr": "PHI",
-    "position": "F",
-    "number": 14
-  },
-  {
     "id": "nba:4897943",
     "name": "Dalton Knecht",
     "conference": "West",
@@ -1837,6 +1827,16 @@
     "number": 3
   },
   {
+    "id": "nba:3136777",
+    "name": "Jae'Sean Tate",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Houston Rockets",
+    "teamAbbr": "HOU",
+    "position": "F",
+    "number": 8
+  },
+  {
     "id": "nba:4683934",
     "name": "Jahmai Mashack",
     "conference": "West",
@@ -1975,6 +1975,16 @@
     "teamAbbr": "OKC",
     "position": "G",
     "number": 8
+  },
+  {
+    "id": "nba:4431714",
+    "name": "Jalen Wilson",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "F",
+    "number": 22
   },
   {
     "id": "nba:4278572",
@@ -2341,12 +2351,13 @@
   {
     "id": "nba:4593043",
     "name": "John Tonje",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Boston Celtics",
-    "teamAbbr": "BOS",
-    "position": "G",
-    "number": 8
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Portland Trail Blazers",
+    "teamAbbr": "POR",
+    "position": "F",
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4433569",
@@ -2725,12 +2736,13 @@
   {
     "id": "nba:2581018",
     "name": "Kentavious Caldwell-Pope",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Philadelphia 76ers",
+    "teamAbbr": "PHI",
     "position": "G",
-    "number": 3
+    "number": 3,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4702177",
@@ -3004,6 +3016,16 @@
     "division": "Northwest",
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
+    "position": "F",
+    "number": 23
+  },
+  {
+    "id": "nba:1966",
+    "name": "LeBron James",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Philadelphia 76ers",
+    "teamAbbr": "PHI",
     "position": "F",
     "number": 23
   },
@@ -3778,16 +3800,6 @@
     "number": 35
   },
   {
-    "id": "nba:5106674",
-    "name": "Peter Suder",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Los Angeles Lakers",
-    "teamAbbr": "LAL",
-    "position": "G",
-    "number": 35
-  },
-  {
     "id": "nba:4576087",
     "name": "Peyton Watson",
     "conference": "West",
@@ -4253,16 +4265,6 @@
     "number": 9
   },
   {
-    "id": "nba:4703421",
-    "name": "Taelon Peter",
-    "conference": "East",
-    "division": "Central",
-    "team": "Indiana Pacers",
-    "teamAbbr": "IND",
-    "position": "G",
-    "number": 4
-  },
-  {
     "id": "nba:3986",
     "name": "Taj Gibson",
     "conference": "West",
@@ -4574,16 +4576,6 @@
     "number": 13
   },
   {
-    "id": "nba:5167876",
-    "name": "Tyler Smith",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Dallas Mavericks",
-    "teamAbbr": "DAL",
-    "position": "F",
-    "number": 23
-  },
-  {
     "id": "nba:4396993",
     "name": "Tyrese Haliburton",
     "conference": "East",
@@ -4592,16 +4584,6 @@
     "teamAbbr": "IND",
     "position": "G",
     "number": 0
-  },
-  {
-    "id": "nba:4397179",
-    "name": "Tyrese Martin",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Philadelphia 76ers",
-    "teamAbbr": "PHI",
-    "position": "G",
-    "number": 23
   },
   {
     "id": "nba:4431678",
