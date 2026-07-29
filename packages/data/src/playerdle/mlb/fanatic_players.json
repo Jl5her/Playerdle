@@ -378,24 +378,6 @@
     "ops": 0.761
   },
   {
-    "id": "mlb:4301949",
-    "name": "Casey Schmitt",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "LF",
-    "number": 10,
-    "league": "NL",
-    "gp": 95,
-    "pa": 348,
-    "avg": 0.237,
-    "hr": 12,
-    "rbi": 40,
-    "sb": 0,
-    "ops": 0.706
-  },
-  {
     "id": "mlb:4987382",
     "name": "Ceddanne Rafaela",
     "conference": "AL",
@@ -1188,24 +1170,6 @@
     "ops": 0.687
   },
   {
-    "id": "mlb:39900",
-    "name": "Jake Rogers",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "C",
-    "number": 34,
-    "league": "AL",
-    "gp": 46,
-    "pa": 142,
-    "avg": 0.187,
-    "hr": 3,
-    "rbi": 19,
-    "sb": 0,
-    "ops": 0.61
-  },
-  {
     "id": "mlb:32046",
     "name": "James McCann",
     "conference": "NL",
@@ -1240,6 +1204,24 @@
     "rbi": 24,
     "sb": 13,
     "ops": 0.667
+  },
+  {
+    "id": "mlb:32127",
+    "name": "Javier Baez",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "SS",
+    "number": 28,
+    "league": "AL",
+    "gp": 126,
+    "pa": 437,
+    "avg": 0.257,
+    "hr": 12,
+    "rbi": 57,
+    "sb": 5,
+    "ops": 0.68
   },
   {
     "id": "mlb:5073992",
@@ -2122,6 +2104,24 @@
     "rbi": 43,
     "sb": 2,
     "ops": 0.748
+  },
+  {
+    "id": "mlb:33411",
+    "name": "Rob Refsnyder",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "DH",
+    "number": 30,
+    "league": "AL",
+    "gp": 70,
+    "pa": 209,
+    "avg": 0.269,
+    "hr": 9,
+    "rbi": 30,
+    "sb": 3,
+    "ops": 0.838
   },
   {
     "id": "mlb:42826",
