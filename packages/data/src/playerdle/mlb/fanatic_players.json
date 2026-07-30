@@ -288,24 +288,6 @@
     "ops": 0.591
   },
   {
-    "id": "mlb:32655",
-    "name": "Byron Buxton",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "CF",
-    "number": 25,
-    "league": "AL",
-    "gp": 126,
-    "pa": 542,
-    "avg": 0.264,
-    "hr": 35,
-    "rbi": 83,
-    "sb": 24,
-    "ops": 0.878
-  },
-  {
     "id": "mlb:5007615",
     "name": "Caleb Durbin",
     "conference": "AL",
@@ -538,24 +520,6 @@
     "rbi": 7,
     "sb": 2,
     "ops": 0.5
-  },
-  {
-    "id": "mlb:42360",
-    "name": "Curtis Mead",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "3B",
-    "number": 25,
-    "league": "AL",
-    "gp": 90,
-    "pa": 264,
-    "avg": 0.233,
-    "hr": 3,
-    "rbi": 19,
-    "sb": 5,
-    "ops": 0.62
   },
   {
     "id": "mlb:40048",
@@ -1494,24 +1458,6 @@
     "ops": 0.518
   },
   {
-    "id": "mlb:42047",
-    "name": "Logan O'Hoppe",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "C",
-    "number": 14,
-    "league": "AL",
-    "gp": 119,
-    "pa": 451,
-    "avg": 0.213,
-    "hr": 19,
-    "rbi": 43,
-    "sb": 2,
-    "ops": 0.629
-  },
-  {
     "id": "mlb:39631",
     "name": "Luis Robert Jr.",
     "conference": "NL",
@@ -2320,6 +2266,24 @@
     "rbi": 18,
     "sb": 8,
     "ops": 0.62
+  },
+  {
+    "id": "mlb:29951",
+    "name": "Travis d'Arnaud",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "C",
+    "number": 25,
+    "league": "AL",
+    "gp": 69,
+    "pa": 231,
+    "avg": 0.197,
+    "hr": 6,
+    "rbi": 21,
+    "sb": 0,
+    "ops": 0.598
   },
   {
     "id": "mlb:33710",
