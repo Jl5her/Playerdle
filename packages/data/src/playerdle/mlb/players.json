@@ -1562,17 +1562,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4872687",
-    "name": "Chase Petty",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 61,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4990069",
     "name": "Chase Shugart",
     "conference": "NL",
@@ -2462,17 +2451,6 @@
     "position": "C",
     "number": 32,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4919919",
-    "name": "Edwin Arroyo",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "2B",
-    "number": 2,
-    "league": "NL"
   },
   {
     "id": "mlb:35394",
@@ -3658,7 +3636,7 @@
     "division": "Central",
     "team": "Pittsburgh Pirates",
     "teamAbbr": "PIT",
-    "position": "1B",
+    "position": "SS",
     "number": 26,
     "league": "NL"
   },
@@ -3746,7 +3724,7 @@
     "division": "East",
     "team": "Boston Red Sox",
     "teamAbbr": "BOS",
-    "position": "OF",
+    "position": "DH",
     "number": 37,
     "league": "AL"
   },
@@ -3795,6 +3773,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41290",
+    "name": "Jake Irvin",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "SP",
+    "number": 27,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42664",
     "name": "Jake Mangum",
     "conference": "NL",
@@ -3826,17 +3815,6 @@
     "position": "RP",
     "number": 40,
     "league": "NL"
-  },
-  {
-    "id": "mlb:36056",
-    "name": "Jakob Junis",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "RP",
-    "number": 16,
-    "league": "AL"
   },
   {
     "id": "mlb:4866735",
@@ -4342,17 +4320,6 @@
     "teamAbbr": "ARI",
     "position": "RP",
     "number": 43,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5291866",
-    "name": "Jonathan Pintaro",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "RP",
-    "number": 91,
     "league": "NL"
   },
   {
@@ -5654,6 +5621,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4422899",
+    "name": "Matt McLain",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "2B",
+    "number": 9,
+    "league": "NL"
+  },
+  {
     "id": "mlb:32767",
     "name": "Matt Olson",
     "conference": "NL",
@@ -5792,7 +5770,7 @@
     "division": "East",
     "team": "New York Yankees",
     "teamAbbr": "NYY",
-    "position": "SS",
+    "position": "LF",
     "number": 30,
     "league": "AL"
   },
@@ -7387,7 +7365,7 @@
     "division": "Central",
     "team": "Cleveland Guardians",
     "teamAbbr": "CLE",
-    "position": "CF",
+    "position": "LF",
     "number": 38,
     "league": "AL"
   },
@@ -7662,7 +7640,7 @@
     "division": "West",
     "team": "Los Angeles Dodgers",
     "teamAbbr": "LAD",
-    "position": "LF",
+    "position": "2B",
     "number": 25,
     "league": "NL"
   },
@@ -8338,6 +8316,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5255100",
+    "name": "Winston Santos",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "SP",
+    "number": 47,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4719324",
     "name": "Wyatt Langford",
     "conference": "AL",
@@ -8500,6 +8489,17 @@
     "teamAbbr": "COL",
     "position": "RP",
     "number": 36,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4346264",
+    "name": "Zach McCambley",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "RP",
+    "number": 62,
     "league": "NL"
   },
   {
