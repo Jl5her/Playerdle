@@ -292,6 +292,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "QB",
     college: "Central Michigan",
     teams: ["Dallas Cowboys", "New York Giants", "Dallas Cowboys", "Baltimore Ravens"],
+    espnId: "2972515",
   },
 
   // Wide Receivers
