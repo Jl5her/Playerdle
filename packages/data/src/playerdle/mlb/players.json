@@ -902,6 +902,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40971",
+    "name": "Braxton Garrett",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 60,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4720856",
     "name": "Brayan Bello",
     "conference": "AL",
@@ -5539,7 +5550,7 @@
     "division": "West",
     "team": "San Diego Padres",
     "teamAbbr": "SD",
-    "position": "3B",
+    "position": "LF",
     "number": 21,
     "league": "NL"
   },
@@ -6083,17 +6094,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5273851",
-    "name": "Mitch Farris",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 70,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4987418",
     "name": "Moises Ballesteros",
     "conference": "AL",
@@ -6309,7 +6309,7 @@
     "division": "East",
     "team": "Boston Red Sox",
     "teamAbbr": "BOS",
-    "position": "3B",
+    "position": "2B",
     "number": 20,
     "league": "AL"
   },
@@ -6938,17 +6938,6 @@
     "teamAbbr": "LAD",
     "position": "SP",
     "number": 11,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4228723",
-    "name": "Ron Marinaccio",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 97,
     "league": "NL"
   },
   {
@@ -7667,17 +7656,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:39709",
-    "name": "Thomas Pannone",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "SP",
-    "number": 33,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4228579",
     "name": "Tim Herrin",
     "conference": "AL",
@@ -8006,17 +7984,6 @@
     "position": "RP",
     "number": 13,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41612",
-    "name": "Tyler Ferguson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Chicago Cubs",
-    "teamAbbr": "CHC",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
   },
   {
     "id": "mlb:40958",
@@ -8611,17 +8578,6 @@
     "position": "RP",
     "number": 36,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4424962",
-    "name": "Zach Dezenzo",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "LF",
-    "number": 9,
-    "league": "AL"
   },
   {
     "id": "mlb:4346264",
