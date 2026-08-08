@@ -216,24 +216,6 @@
     "ops": 0.865
   },
   {
-    "id": "mlb:4626239",
-    "name": "Ben Williamson",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "2B",
-    "number": 15,
-    "league": "AL",
-    "gp": 85,
-    "pa": 295,
-    "avg": 0.253,
-    "hr": 1,
-    "rbi": 21,
-    "sb": 5,
-    "ops": 0.604
-  },
-  {
     "id": "mlb:38904",
     "name": "Bo Bichette",
     "conference": "NL",
@@ -376,6 +358,24 @@
     "rbi": 50,
     "sb": 2,
     "ops": 0.761
+  },
+  {
+    "id": "mlb:4872692",
+    "name": "Carson Williams",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "SS",
+    "number": 7,
+    "league": "AL",
+    "gp": 32,
+    "pa": 106,
+    "avg": 0.172,
+    "hr": 5,
+    "rbi": 12,
+    "sb": 2,
+    "ops": 0.573
   },
   {
     "id": "mlb:4987382",
@@ -1098,6 +1098,24 @@
     "ops": 0.687
   },
   {
+    "id": "mlb:40719",
+    "name": "Jake Meyers",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "CF",
+    "number": 6,
+    "league": "AL",
+    "gp": 104,
+    "pa": 381,
+    "avg": 0.292,
+    "hr": 3,
+    "rbi": 24,
+    "sb": 16,
+    "ops": 0.727
+  },
+  {
     "id": "mlb:39900",
     "name": "Jake Rogers",
     "conference": "AL",
@@ -1240,24 +1258,6 @@
     "rbi": 98,
     "sb": 5,
     "ops": 0.778
-  },
-  {
-    "id": "mlb:41168",
-    "name": "Joey Bart",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "C",
-    "number": 25,
-    "league": "AL",
-    "gp": 93,
-    "pa": 332,
-    "avg": 0.249,
-    "hr": 4,
-    "rbi": 30,
-    "sb": 1,
-    "ops": 0.696
   },
   {
     "id": "mlb:42958",
@@ -1474,24 +1474,6 @@
     "rbi": 29,
     "sb": 1,
     "ops": 0.629
-  },
-  {
-    "id": "mlb:35383",
-    "name": "Luis Urias",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "2B",
-    "number": 48,
-    "league": "AL",
-    "gp": 96,
-    "pa": 330,
-    "avg": 0.23,
-    "hr": 8,
-    "rbi": 25,
-    "sb": 2,
-    "ops": 0.653
   },
   {
     "id": "mlb:42411",
@@ -2022,7 +2004,7 @@
     "division": "Central",
     "team": "Minnesota Twins",
     "teamAbbr": "MIN",
-    "position": "3B",
+    "position": "1B",
     "number": 23,
     "league": "AL",
     "gp": 106,
