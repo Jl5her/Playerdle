@@ -132,6 +132,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917631",
+    "name": "Alan Rangel",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 57,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4424368",
     "name": "Alan Roden",
     "conference": "AL",
@@ -184,17 +195,6 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 30,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4916547",
-    "name": "Alejandro Osuna",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "LF",
-    "number": 19,
     "league": "AL"
   },
   {
@@ -515,6 +515,17 @@
     "position": "RP",
     "number": 44,
     "league": "AL"
+  },
+  {
+    "id": "mlb:36928",
+    "name": "Austin Hays",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "LF",
+    "number": 15,
+    "league": "NL"
   },
   {
     "id": "mlb:32168",
@@ -977,17 +988,6 @@
     "position": "3B",
     "number": 7,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5132003",
-    "name": "Brett Kerry",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 71,
-    "league": "AL"
   },
   {
     "id": "mlb:39913",
@@ -1463,17 +1463,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4621424",
-    "name": "Carson Palmquist",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 51,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4420745",
     "name": "Carson Seymour",
     "conference": "NL",
@@ -1626,17 +1615,6 @@
     "position": "2B",
     "number": 10,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4990069",
-    "name": "Chase Shugart",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 55,
-    "league": "NL"
   },
   {
     "id": "mlb:4413990",
@@ -1945,17 +1923,6 @@
     "position": "C",
     "number": 12,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5149101",
-    "name": "Cooper Pratt",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "SS",
-    "number": 12,
-    "league": "NL"
   },
   {
     "id": "mlb:42404",
@@ -2981,17 +2948,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4424290",
-    "name": "Gage Workman",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "3B",
-    "number": 99,
-    "league": "NL"
-  },
-  {
     "id": "mlb:36429",
     "name": "Garrett Cleavinger",
     "conference": "AL",
@@ -3265,17 +3221,6 @@
     "position": "RF",
     "number": 18,
     "league": "NL"
-  },
-  {
-    "id": "mlb:42604",
-    "name": "Griffin Jax",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SP",
-    "number": 22,
-    "league": "AL"
   },
   {
     "id": "mlb:42507",
@@ -3608,6 +3553,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4228387",
+    "name": "Jack Weisenburger",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 82,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917869",
     "name": "Jackson Chourio",
     "conference": "NL",
@@ -3795,6 +3751,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:3459223",
+    "name": "Jake Bird",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 59,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39882",
     "name": "Jake Burger",
     "conference": "AL",
@@ -3845,7 +3812,7 @@
     "division": "West",
     "team": "Colorado Rockies",
     "teamAbbr": "COL",
-    "position": "CF",
+    "position": "LF",
     "number": 31,
     "league": "NL"
   },
@@ -4169,6 +4136,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40896",
+    "name": "Jihwan Bae",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "CF",
+    "number": 0,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5205951",
     "name": "Jim Jarvis",
     "conference": "NL",
@@ -4323,6 +4301,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:3960984",
+    "name": "Jonah Bride",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "3B",
+    "number": 37,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33842",
     "name": "Jonah Heim",
     "conference": "AL",
@@ -4474,17 +4463,6 @@
     "teamAbbr": "ARI",
     "position": "CF",
     "number": 1,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:33832",
-    "name": "Jorge Mateo",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SS",
-    "number": 2,
     "league": "NL"
   },
   {
@@ -5907,6 +5885,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41242",
+    "name": "Michael Grove",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 58,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42470",
     "name": "Michael Harris II",
     "conference": "NL",
@@ -6408,7 +6397,7 @@
     "division": "West",
     "team": "San Francisco Giants",
     "teamAbbr": "SF",
-    "position": "SS",
+    "position": "2B",
     "number": 39,
     "league": "NL"
   },
@@ -6765,17 +6754,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4720890",
-    "name": "Raymond Burgos",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "SP",
-    "number": 79,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4326697",
     "name": "Reid Detmers",
     "conference": "AL",
@@ -7073,6 +7051,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5125911",
+    "name": "Ryan Watson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "RP",
+    "number": 56,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41178",
     "name": "Ryan Weathers",
     "conference": "AL",
@@ -7290,6 +7279,17 @@
     "teamAbbr": "KC",
     "position": "SP",
     "number": 67,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:42742",
+    "name": "Seth Martinez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 51,
     "league": "AL"
   },
   {
@@ -8379,17 +8379,6 @@
     "teamAbbr": "MIA",
     "position": "2B",
     "number": 9,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4204524",
-    "name": "Xzavion Curry",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "RP",
-    "number": 53,
     "league": "NL"
   },
   {
