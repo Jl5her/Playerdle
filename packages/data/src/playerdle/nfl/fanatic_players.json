@@ -816,6 +816,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4428796",
+    "name": "Casey Washington",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "WR",
+    "number": 88,
+    "gp": 7,
+    "fppg": 1.8,
+    "tgtPerGame": 2,
+    "recPerGame": 0.9,
+    "ydsPerGame": 13.4,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4369863",
     "name": "Cedric Tillman",
     "conference": "AFC",
@@ -1328,6 +1344,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:2983509",
+    "name": "Dare Ogunbowale",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "RB",
+    "number": 32,
+    "gp": 17,
+    "fppg": 1.1,
+    "tgtPerGame": 0.8,
+    "recPerGame": 0.6,
+    "ydsPerGame": 5.9,
+    "tdPerGame": 0.06
+  },
+  {
     "id": "nfl:4401805",
     "name": "Dareke Young",
     "conference": "AFC",
@@ -1537,13 +1569,13 @@
   },
   {
     "id": "nfl:3126486",
-    "name": "Deebo Samuel",
+    "name": "Deebo Samuel Sr.",
     "conference": "NFC",
     "division": "NFC West",
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 1,
+    "number": 19,
     "gp": 16,
     "fppg": 9.5,
     "tgtPerGame": 6.2,
@@ -2126,6 +2158,22 @@
     "recPerGame": 3.1,
     "ydsPerGame": 29.3,
     "tdPerGame": 0.06
+  },
+  {
+    "id": "nfl:4569609",
+    "name": "Evan Hull",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "RB",
+    "number": 43,
+    "gp": 6,
+    "fppg": 1,
+    "tgtPerGame": 0.2,
+    "recPerGame": 0.2,
+    "ydsPerGame": 9,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4034948",
@@ -4656,6 +4704,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:2971281",
+    "name": "Pharaoh Brown",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "TE",
+    "number": 49,
+    "gp": 7,
+    "fppg": 0.2,
+    "tgtPerGame": 0.3,
+    "recPerGame": 0.3,
+    "ydsPerGame": 0.1,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4426515",
     "name": "Puka Nacua",
     "conference": "NFC",
@@ -5150,6 +5214,22 @@
     "recPerGame": 0.3,
     "ydsPerGame": 5.8,
     "tdPerGame": 0
+  },
+  {
+    "id": "nfl:2976212",
+    "name": "Stefon Diggs",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "WR",
+    "number": 18,
+    "gp": 17,
+    "fppg": 9.9,
+    "tgtPerGame": 6,
+    "recPerGame": 5,
+    "ydsPerGame": 59.6,
+    "tdPerGame": 0.24
   },
   {
     "id": "nfl:4250764",

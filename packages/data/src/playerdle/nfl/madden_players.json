@@ -163,7 +163,7 @@
     "position": "RB",
     "number": 7,
     "ovr": 95,
-    "spd": 91,
+    "spd": 93,
     "awr": 89,
     "str": 81
   },
@@ -196,20 +196,6 @@
     "str": 60
   },
   {
-    "id": "nfl:4685247",
-    "name": "Braelon Allen",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "RB",
-    "number": 0,
-    "ovr": 72,
-    "spd": 88,
-    "awr": 77,
-    "str": 79
-  },
-  {
     "id": "nfl:4360438",
     "name": "Brandon Aiyuk",
     "conference": "NFC",
@@ -232,9 +218,9 @@
     "teamAbbr": "KC",
     "position": "RB",
     "number": 24,
-    "ovr": 73,
+    "ovr": 74,
     "spd": 93,
-    "awr": 69,
+    "awr": 72,
     "str": 64
   },
   {
@@ -836,8 +822,22 @@
     "number": 28,
     "ovr": 88,
     "spd": 96,
-    "awr": 81,
+    "awr": 82,
     "str": 68
+  },
+  {
+    "id": "nfl:3126486",
+    "name": "Deebo Samuel Sr.",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 19,
+    "ovr": 77,
+    "spd": 89,
+    "awr": 76,
+    "str": 80
   },
   {
     "id": "nfl:3043116",
@@ -1410,7 +1410,7 @@
     "number": 33,
     "ovr": 86,
     "spd": 88,
-    "awr": 88,
+    "awr": 86,
     "str": 82
   },
   {
@@ -1522,7 +1522,7 @@
     "number": 30,
     "ovr": 83,
     "spd": 90,
-    "awr": 86,
+    "awr": 87,
     "str": 75
   },
   {
@@ -1704,22 +1704,8 @@
     "number": 27,
     "ovr": 81,
     "spd": 89,
-    "awr": 83,
+    "awr": 82,
     "str": 78
-  },
-  {
-    "id": "nfl:4880281",
-    "name": "Jordyn Tyson",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "WR",
-    "number": 0,
-    "ovr": 76,
-    "spd": 90,
-    "awr": 71,
-    "str": 73
   },
   {
     "id": "nfl:3918298",
@@ -1900,7 +1886,7 @@
     "number": 9,
     "ovr": 90,
     "spd": 93,
-    "awr": 87,
+    "awr": 88,
     "str": 81
   },
   {
@@ -1916,6 +1902,20 @@
     "spd": 89,
     "awr": 84,
     "str": 70
+  },
+  {
+    "id": "nfl:4035886",
+    "name": "Khalil Herbert",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "RB",
+    "number": 40,
+    "ovr": 73,
+    "spd": 88,
+    "awr": 75,
+    "str": 73
   },
   {
     "id": "nfl:4373678",
@@ -2179,7 +2179,7 @@
     "position": "QB",
     "number": 9,
     "ovr": 99,
-    "spd": 79,
+    "spd": 77,
     "awr": 99,
     "str": 66
   },
@@ -2458,10 +2458,10 @@
     "teamAbbr": "NE",
     "position": "RB",
     "number": 38,
-    "ovr": 77,
+    "ovr": 79,
     "spd": 88,
-    "awr": 82,
-    "str": 79
+    "awr": 85,
+    "str": 82
   },
   {
     "id": "nfl:4428209",
