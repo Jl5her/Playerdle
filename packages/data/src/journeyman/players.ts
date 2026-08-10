@@ -330,6 +330,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Maryland",
     teams: ["Minnesota Vikings", "Buffalo Bills", "Houston Texans", "New England Patriots"],
+    espnId: "2976212",
   },
   {
     id: "journey:calvin-ridley",
@@ -921,6 +922,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Baltimore Ravens",
       "Carolina Panthers",
     ],
+    espnId: "16734",
   },
   {
     id: "journey:melvin-ingram",
