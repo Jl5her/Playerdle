@@ -522,6 +522,24 @@
     "ops": 0.687
   },
   {
+    "id": "mlb:4417606",
+    "name": "Connor Norby",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "1B",
+    "number": 35,
+    "league": "NL",
+    "gp": 88,
+    "pa": 337,
+    "avg": 0.251,
+    "hr": 8,
+    "rbi": 34,
+    "sb": 8,
+    "ops": 0.689
+  },
+  {
     "id": "mlb:40086",
     "name": "Connor Wong",
     "conference": "AL",
@@ -574,24 +592,6 @@
     "rbi": 77,
     "sb": 20,
     "ops": 0.717
-  },
-  {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 82,
-    "pa": 227,
-    "avg": 0.234,
-    "hr": 11,
-    "rbi": 31,
-    "sb": 3,
-    "ops": 0.797
   },
   {
     "id": "mlb:33721",
@@ -2268,24 +2268,6 @@
     "ops": 0.681
   },
   {
-    "id": "mlb:40958",
-    "name": "Tyler Freeman",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "RF",
-    "number": 2,
-    "league": "NL",
-    "gp": 110,
-    "pa": 428,
-    "avg": 0.281,
-    "hr": 2,
-    "rbi": 31,
-    "sb": 18,
-    "ops": 0.715
-  },
-  {
     "id": "mlb:4866477",
     "name": "Tyler Locklear",
     "conference": "NL",
@@ -2572,5 +2554,23 @@
     "rbi": 62,
     "sb": 26,
     "ops": 0.793
+  },
+  {
+    "id": "mlb:4414531",
+    "name": "Zack Gelof",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 20,
+    "league": "AL",
+    "gp": 30,
+    "pa": 101,
+    "avg": 0.174,
+    "hr": 2,
+    "rbi": 7,
+    "sb": 1,
+    "ops": 0.502
   }
 ]
