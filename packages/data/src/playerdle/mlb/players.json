@@ -77,6 +77,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4917787",
+    "name": "Adael Amador",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "2B",
+    "number": 1,
+    "league": "NL"
+  },
+  {
     "id": "mlb:33546",
     "name": "Adam Frazier",
     "conference": "AL",
@@ -185,6 +196,17 @@
     "position": "1B",
     "number": 41,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5200550",
+    "name": "Alec Gamboa",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 68,
+    "league": "AL"
   },
   {
     "id": "mlb:42081",
@@ -2035,6 +2057,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41526",
+    "name": "Corey Julks",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "LF",
+    "number": 44,
+    "league": "AL"
+  },
+  {
     "id": "mlb:32691",
     "name": "Corey Seager",
     "conference": "AL",
@@ -2387,6 +2420,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917643",
+    "name": "Drew Rom",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 39,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4917765",
     "name": "Drew Romo",
     "conference": "AL",
@@ -2638,6 +2682,17 @@
     "position": "C",
     "number": 13,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41513",
+    "name": "Enmanuel De Jesus",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "RP",
+    "number": 37,
+    "league": "AL"
   },
   {
     "id": "mlb:31358",
@@ -3333,6 +3388,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4420252",
+    "name": "Hayden Juenger",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 58,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42996",
     "name": "Hayden Wesneski",
     "conference": "AL",
@@ -3639,6 +3705,17 @@
     "position": "SP",
     "number": 21,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5007807",
+    "name": "Jackson Kent",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "SP",
+    "number": 25,
+    "league": "NL"
   },
   {
     "id": "mlb:4872691",
@@ -4587,17 +4664,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:40981",
-    "name": "Jose Suarez",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42105",
     "name": "Jose Tena",
     "conference": "NL",
@@ -5126,17 +5192,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5203102",
-    "name": "Kyle Karros",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "3B",
-    "number": 12,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5006093",
     "name": "Kyle Leahy",
     "conference": "NL",
@@ -5200,6 +5255,17 @@
     "teamAbbr": "SF",
     "position": "SP",
     "number": 65,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4417826",
+    "name": "Landon Knack",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 96,
     "league": "NL"
   },
   {
@@ -6006,17 +6072,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:32116",
-    "name": "Miles Mikolas",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "SP",
-    "number": 36,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5123768",
     "name": "Mitch Bratt",
     "conference": "NL",
@@ -6144,7 +6199,7 @@
     "division": "Central",
     "team": "Cleveland Guardians",
     "teamAbbr": "CLE",
-    "position": "DH",
+    "position": "1B",
     "number": 46,
     "league": "AL"
   },
@@ -6776,17 +6831,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42179",
-    "name": "Riley Greene",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "LF",
-    "number": 31,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41509",
     "name": "Riley O'Brien",
     "conference": "NL",
@@ -7227,17 +7271,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4414483",
-    "name": "Seth Halvorsen",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 56,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42542",
     "name": "Seth Johnson",
     "conference": "AL",
@@ -7257,17 +7290,6 @@
     "teamAbbr": "KC",
     "position": "SP",
     "number": 67,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:42742",
-    "name": "Seth Martinez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RP",
-    "number": 51,
     "league": "AL"
   },
   {
@@ -8135,7 +8157,7 @@
     "division": "West",
     "team": "San Francisco Giants",
     "teamAbbr": "SF",
-    "position": "RF",
+    "position": "LF",
     "number": 78,
     "league": "NL"
   },
@@ -8426,17 +8448,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5217798",
-    "name": "Yilber Diaz",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "SP",
-    "number": 62,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42898",
     "name": "Yoendrys Gomez",
     "conference": "AL",
@@ -8512,17 +8523,6 @@
     "position": "RP",
     "number": 1,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5272107",
-    "name": "Yunior Tur",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 70,
-    "league": "AL"
   },
   {
     "id": "mlb:5129576",
