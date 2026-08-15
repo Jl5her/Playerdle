@@ -72,24 +72,6 @@
     "ops": 0.821
   },
   {
-    "id": "mlb:33707",
-    "name": "Alex Jackson",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 70,
-    "league": "AL",
-    "gp": 36,
-    "pa": 100,
-    "avg": 0.22,
-    "hr": 5,
-    "rbi": 8,
-    "sb": 0,
-    "ops": 0.763
-  },
-  {
     "id": "mlb:42394",
     "name": "Andrew Vaughn",
     "conference": "NL",
@@ -520,6 +502,24 @@
     "rbi": 28,
     "sb": 3,
     "ops": 0.687
+  },
+  {
+    "id": "mlb:42925",
+    "name": "Cody Freeman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "3B",
+    "number": 39,
+    "league": "AL",
+    "gp": 36,
+    "pa": 121,
+    "avg": 0.228,
+    "hr": 3,
+    "rbi": 15,
+    "sb": 1,
+    "ops": 0.6
   },
   {
     "id": "mlb:4417606",
