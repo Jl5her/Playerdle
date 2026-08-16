@@ -1116,6 +1116,24 @@
     "ops": 0.687
   },
   {
+    "id": "mlb:39900",
+    "name": "Jake Rogers",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "C",
+    "number": 28,
+    "league": "AL",
+    "gp": 46,
+    "pa": 142,
+    "avg": 0.187,
+    "hr": 3,
+    "rbi": 19,
+    "sb": 0,
+    "ops": 0.61
+  },
+  {
     "id": "mlb:32046",
     "name": "James McCann",
     "conference": "NL",
@@ -2284,24 +2302,6 @@
     "rbi": 9,
     "sb": 6,
     "ops": 0.611
-  },
-  {
-    "id": "mlb:35002",
-    "name": "Vladimir Guerrero Jr.",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "1B",
-    "number": 27,
-    "league": "AL",
-    "gp": 156,
-    "pa": 680,
-    "avg": 0.292,
-    "hr": 23,
-    "rbi": 84,
-    "sb": 6,
-    "ops": 0.848
   },
   {
     "id": "mlb:38682",
