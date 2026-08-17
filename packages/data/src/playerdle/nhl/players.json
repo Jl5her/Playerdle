@@ -2103,8 +2103,7 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "D",
-    "number": 75,
-    "numberBackfilled": true
+    "number": 75
   },
   {
     "id": "nhl:4588004",
@@ -3776,7 +3775,7 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "C",
-    "number": 82
+    "number": 49
   },
   {
     "id": "nhl:5080168",
@@ -4580,7 +4579,7 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "RW",
-    "number": 77
+    "number": 10
   },
   {
     "id": "nhl:5080161",
@@ -5803,6 +5802,16 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 1
+  },
+  {
+    "id": "nhl:4697400",
+    "name": "Lukas Reichel",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 76
   },
   {
     "id": "nhl:5302547",
