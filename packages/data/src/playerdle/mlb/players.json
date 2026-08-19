@@ -143,6 +143,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917640",
+    "name": "AJ Smith-Shawver",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SP",
+    "number": 32,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4424368",
     "name": "Alan Roden",
     "conference": "AL",
@@ -539,6 +550,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5134366",
+    "name": "Antwone Kelly",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "SP",
+    "number": 62,
+    "league": "NL"
+  },
+  {
     "id": "mlb:30442",
     "name": "Aroldis Chapman",
     "conference": "AL",
@@ -583,6 +605,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4093773",
+    "name": "Austin Warren",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 44,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4683349",
     "name": "Austin Wells",
     "conference": "AL",
@@ -591,17 +624,6 @@
     "teamAbbr": "NYY",
     "position": "C",
     "number": 28,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:35314",
-    "name": "Austin Wynns",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "C",
-    "number": 38,
     "league": "AL"
   },
   {
@@ -921,6 +943,17 @@
     "teamAbbr": "PIT",
     "position": "SP",
     "number": 35,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5000931",
+    "name": "Braxton Fulford",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "DH",
+    "number": 37,
     "league": "NL"
   },
   {
@@ -1496,6 +1529,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4722955",
+    "name": "Carlos Duran",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "SP",
+    "number": 45,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5012120",
     "name": "Carlos Narvaez",
     "conference": "AL",
@@ -1504,6 +1548,17 @@
     "teamAbbr": "BAL",
     "position": "C",
     "number": 75,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:33696",
+    "name": "Carlos Rodon",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "SP",
+    "number": 55,
     "league": "AL"
   },
   {
@@ -1714,17 +1769,6 @@
     "position": "RP",
     "number": 63,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4415756",
-    "name": "Chayce McDermott",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "SP",
-    "number": 43,
-    "league": "NL"
   },
   {
     "id": "mlb:33148",
@@ -2008,7 +2052,7 @@
     "division": "West",
     "team": "Colorado Rockies",
     "teamAbbr": "COL",
-    "position": "1B",
+    "position": "2B",
     "number": 35,
     "league": "NL"
   },
@@ -2164,6 +2208,17 @@
     "teamAbbr": "KC",
     "position": "RP",
     "number": 41,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:35004",
+    "name": "Danny Jansen",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "C",
+    "number": 9,
     "league": "AL"
   },
   {
@@ -2585,17 +2640,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:35394",
-    "name": "Edwin Diaz",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 3,
-    "league": "NL"
-  },
-  {
     "id": "mlb:39963",
     "name": "Eli White",
     "conference": "AL",
@@ -2659,6 +2703,17 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 15,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4417806",
+    "name": "Emmet Sheehan",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 80,
     "league": "NL"
   },
   {
@@ -3465,17 +3520,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4416591",
-    "name": "Hunter Goodman",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "C",
-    "number": 15,
-    "league": "NL"
-  },
-  {
     "id": "mlb:34945",
     "name": "Ian Happ",
     "conference": "NL",
@@ -3518,17 +3562,6 @@
     "position": "LF",
     "number": 1,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42063",
-    "name": "Isaac Mattson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 72,
-    "league": "NL"
   },
   {
     "id": "mlb:39706",
@@ -5000,7 +5033,7 @@
     "division": "Central",
     "team": "Chicago Cubs",
     "teamAbbr": "CHC",
-    "position": "OF",
+    "position": "DH",
     "number": 13,
     "league": "NL"
   },
@@ -5091,17 +5124,6 @@
     "position": "RP",
     "number": 57,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41201",
-    "name": "Kris Bubic",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "SP",
-    "number": 50,
-    "league": "NL"
   },
   {
     "id": "mlb:4414525",
@@ -5390,17 +5412,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:36618",
-    "name": "Lucas Erceg",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 60,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39572",
     "name": "Luis Arraez",
     "conference": "NL",
@@ -5630,17 +5641,6 @@
     "position": "SP",
     "number": 33,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4620704",
-    "name": "Mason Barnett",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "RP",
-    "number": 63,
-    "league": "AL"
   },
   {
     "id": "mlb:5099971",
@@ -6347,17 +6347,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41307",
-    "name": "Noelvi Marte",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RF",
-    "number": 4,
-    "league": "NL"
-  },
-  {
     "id": "mlb:31261",
     "name": "Nolan Arenado",
     "conference": "NL",
@@ -6696,17 +6685,6 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 52,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4837405",
-    "name": "Quinn Mathews",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "SP",
-    "number": 60,
     "league": "NL"
   },
   {
@@ -7579,6 +7557,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4999871",
+    "name": "Taylor Rashi",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33671",
     "name": "Taylor Rogers",
     "conference": "AL",
@@ -7684,7 +7673,7 @@
     "division": "West",
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
-    "position": "LF",
+    "position": "1B",
     "number": 13,
     "league": "NL"
   },
@@ -8008,17 +7997,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:34166",
-    "name": "Tyler Kinley",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 45,
-    "league": "NL"
-  },
-  {
     "id": "mlb:34973",
     "name": "Tyler Mahle",
     "conference": "NL",
@@ -8281,6 +8259,17 @@
     "position": "3B",
     "number": 31,
     "league": "AL"
+  },
+  {
+    "id": "mlb:41228",
+    "name": "Will Banfield",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "C",
+    "number": 60,
+    "league": "NL"
   },
   {
     "id": "mlb:4420174",
@@ -8566,17 +8555,6 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 78,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4346264",
-    "name": "Zach McCambley",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 62,
     "league": "NL"
   },
   {
