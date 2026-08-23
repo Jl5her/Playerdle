@@ -198,6 +198,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41215",
+    "name": "Alek Thomas",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "CF",
+    "number": 9,
+    "league": "NL"
+  },
+  {
     "id": "mlb:34886",
     "name": "Alex Bregman",
     "conference": "NL",
@@ -449,17 +460,6 @@
     "position": "SS",
     "number": 32,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42468",
-    "name": "Andy Pages",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "CF",
-    "number": 44,
-    "league": "NL"
   },
   {
     "id": "mlb:5204351",
@@ -1815,6 +1815,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4927523",
+    "name": "Christian Moore",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "2B",
+    "number": 4,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4414215",
     "name": "Christian Scott",
     "conference": "NL",
@@ -2299,17 +2310,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4917889",
     "name": "Daylen Lile",
     "conference": "NL",
@@ -2384,6 +2384,17 @@
     "teamAbbr": "PHI",
     "position": "CF",
     "number": 49,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4989046",
+    "name": "Deyvison De Los Santos",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "3B",
+    "number": 63,
     "league": "NL"
   },
   {
@@ -2668,7 +2679,7 @@
     "division": "Central",
     "team": "Detroit Tigers",
     "teamAbbr": "DET",
-    "position": "C",
+    "position": "DH",
     "number": 32,
     "league": "AL"
   },
@@ -3388,6 +3399,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5125630",
+    "name": "Gustavo Campero",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "OF",
+    "number": 51,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4089862",
     "name": "Ha-Seong Kim",
     "conference": "NL",
@@ -3540,17 +3562,6 @@
     "position": "SP",
     "number": 58,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4415836",
-    "name": "Hunter Dobbins",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "SP",
-    "number": 40,
-    "league": "NL"
   },
   {
     "id": "mlb:41801",
@@ -4222,17 +4233,6 @@
     "position": "RP",
     "number": 59,
     "league": "NL"
-  },
-  {
-    "id": "mlb:41392",
-    "name": "Jhonathan Diaz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 74,
-    "league": "AL"
   },
   {
     "id": "mlb:40702",
@@ -4950,6 +4950,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5198748",
+    "name": "Kade Anderson",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "SP",
+    "number": 13,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4865840",
     "name": "Kade Morris",
     "conference": "AL",
@@ -5039,7 +5050,7 @@
   },
   {
     "id": "mlb:5138510",
-    "name": "Kenneth Piper",
+    "name": "Kenny Piper",
     "conference": "AL",
     "division": "East",
     "team": "Tampa Bay Rays",
@@ -5399,17 +5410,6 @@
     "position": "RP",
     "number": 26,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4722942",
-    "name": "Logan Driscoll",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "C",
-    "number": 33,
-    "league": "NL"
   },
   {
     "id": "mlb:41221",
@@ -5893,17 +5893,6 @@
     "teamAbbr": "TOR",
     "position": "SP",
     "number": 31,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3962127",
-    "name": "Max Schuemann",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "LF",
-    "number": 30,
     "league": "AL"
   },
   {
@@ -6413,17 +6402,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4739755",
-    "name": "Nolan Schanuel",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "1B",
-    "number": 18,
-    "league": "AL"
-  },
-  {
     "id": "mlb:39712",
     "name": "Oneil Cruz",
     "conference": "NL",
@@ -6718,6 +6696,17 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 52,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4837405",
+    "name": "Quinn Mathews",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "SP",
+    "number": 60,
     "league": "NL"
   },
   {
@@ -7420,7 +7409,7 @@
     "division": "East",
     "team": "New York Yankees",
     "teamAbbr": "NYY",
-    "position": "CF",
+    "position": "RF",
     "number": 78,
     "league": "AL"
   },
@@ -8228,14 +8217,14 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4424090",
-    "name": "Wade Meckler",
+    "id": "mlb:35002",
+    "name": "Vladimir Guerrero Jr.",
     "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "LF",
-    "number": 53,
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "1B",
+    "number": 27,
     "league": "AL"
   },
   {

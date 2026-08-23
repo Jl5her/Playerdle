@@ -126,24 +126,6 @@
     "ops": 0.755
   },
   {
-    "id": "mlb:42468",
-    "name": "Andy Pages",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "CF",
-    "number": 44,
-    "league": "NL",
-    "gp": 156,
-    "pa": 624,
-    "avg": 0.272,
-    "hr": 27,
-    "rbi": 86,
-    "sb": 14,
-    "ops": 0.774
-  },
-  {
     "id": "mlb:36928",
     "name": "Austin Hays",
     "conference": "NL",
@@ -450,6 +432,24 @@
     "ops": 0.676
   },
   {
+    "id": "mlb:4927523",
+    "name": "Christian Moore",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "2B",
+    "number": 4,
+    "league": "AL",
+    "gp": 53,
+    "pa": 184,
+    "avg": 0.198,
+    "hr": 7,
+    "rbi": 16,
+    "sb": 3,
+    "ops": 0.655
+  },
+  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -646,24 +646,6 @@
     "rbi": 23,
     "sb": 1,
     "ops": 0.592
-  },
-  {
-    "id": "mlb:4997181",
-    "name": "Davis Schneider",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "LF",
-    "number": 36,
-    "league": "AL",
-    "gp": 82,
-    "pa": 227,
-    "avg": 0.234,
-    "hr": 11,
-    "rbi": 31,
-    "sb": 3,
-    "ops": 0.797
   },
   {
     "id": "mlb:33721",
@@ -1674,24 +1656,6 @@
     "ops": 0.638
   },
   {
-    "id": "mlb:3962127",
-    "name": "Max Schuemann",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "LF",
-    "number": 30,
-    "league": "AL",
-    "gp": 101,
-    "pa": 213,
-    "avg": 0.197,
-    "hr": 2,
-    "rbi": 13,
-    "sb": 7,
-    "ops": 0.568
-  },
-  {
     "id": "mlb:30791",
     "name": "Miguel Rojas",
     "conference": "NL",
@@ -2302,6 +2266,24 @@
     "rbi": 9,
     "sb": 6,
     "ops": 0.611
+  },
+  {
+    "id": "mlb:35002",
+    "name": "Vladimir Guerrero Jr.",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "1B",
+    "number": 27,
+    "league": "AL",
+    "gp": 156,
+    "pa": 680,
+    "avg": 0.292,
+    "hr": 23,
+    "rbi": 84,
+    "sb": 6,
+    "ops": 0.848
   },
   {
     "id": "mlb:38682",
