@@ -264,11 +264,12 @@
     "id": "nhl:4270820",
     "name": "Alex Barre-Boulet",
     "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
     "position": "C",
-    "number": 27
+    "number": 27,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:3069294",
@@ -2908,12 +2909,13 @@
   {
     "id": "nhl:5276295",
     "name": "Eduards Tralmaks",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
     "position": "RW",
-    "number": 14
+    "number": 14,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4233720",
@@ -7575,10 +7577,10 @@
   {
     "id": "nhl:3735",
     "name": "Patrick Kane",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
     "position": "RW",
     "number": 88
   },
@@ -8469,6 +8471,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 24
+  },
+  {
+    "id": "nhl:4874882",
+    "name": "Scott Morrow",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "D",
+    "number": 60
   },
   {
     "id": "nhl:4320665",
