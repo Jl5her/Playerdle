@@ -1422,24 +1422,6 @@
     "ops": 0.656
   },
   {
-    "id": "mlb:5203102",
-    "name": "Kyle Karros",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "3B",
-    "number": 12,
-    "league": "NL",
-    "gp": 43,
-    "pa": 156,
-    "avg": 0.226,
-    "hr": 1,
-    "rbi": 9,
-    "sb": 0,
-    "ops": 0.585
-  },
-  {
     "id": "mlb:36409",
     "name": "Lane Thomas",
     "conference": "NL",
@@ -1456,6 +1438,24 @@
     "rbi": 11,
     "sb": 4,
     "ops": 0.518
+  },
+  {
+    "id": "mlb:42047",
+    "name": "Logan O'Hoppe",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "C",
+    "number": 4,
+    "league": "AL",
+    "gp": 119,
+    "pa": 451,
+    "avg": 0.213,
+    "hr": 19,
+    "rbi": 43,
+    "sb": 2,
+    "ops": 0.629
   },
   {
     "id": "mlb:39631",
@@ -1926,6 +1926,24 @@
     "ops": 0.871
   },
   {
+    "id": "mlb:40610",
+    "name": "Ramon Urias",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "3B",
+    "number": 29,
+    "league": "NL",
+    "gp": 112,
+    "pa": 391,
+    "avg": 0.241,
+    "hr": 11,
+    "rbi": 44,
+    "sb": 3,
+    "ops": 0.675
+  },
+  {
     "id": "mlb:31399",
     "name": "Randal Grichuk",
     "conference": "AL",
@@ -2014,6 +2032,24 @@
     "rbi": 47,
     "sb": 1,
     "ops": 0.752
+  },
+  {
+    "id": "mlb:5196606",
+    "name": "Ryan Ritter",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "SS",
+    "number": 8,
+    "league": "NL",
+    "gp": 60,
+    "pa": 207,
+    "avg": 0.241,
+    "hr": 1,
+    "rbi": 18,
+    "sb": 3,
+    "ops": 0.632
   },
   {
     "id": "mlb:31127",
