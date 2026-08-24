@@ -37,7 +37,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "G",
-    "number": 21
+    "number": 2
   },
   {
     "id": "nba:4873138",
@@ -210,6 +210,16 @@
     "position": "C",
     "number": 1,
     "numberBackfilled": true
+  },
+  {
+    "id": "nba:4432190",
+    "name": "Andre Jackson Jr.",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 44
   },
   {
     "id": "nba:4395712",
@@ -434,6 +444,16 @@
     "number": 8
   },
   {
+    "id": "nba:6580",
+    "name": "Bradley Beal",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
+    "position": "G",
+    "number": 0
+  },
+  {
     "id": "nba:4592435",
     "name": "Branden Carlson",
     "conference": "West",
@@ -608,11 +628,12 @@
     "id": "nba:5105592",
     "name": "Cam Whitmore",
     "conference": "East",
-    "division": "Southeast",
-    "team": "Washington Wizards",
-    "teamAbbr": "WSH",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
     "position": "F",
-    "number": 1
+    "number": 1,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5041935",
@@ -754,16 +775,6 @@
     "teamAbbr": "DEN",
     "position": "G",
     "number": 0
-  },
-  {
-    "id": "nba:4431778",
-    "name": "Christian Koloko",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
-    "position": "C",
-    "number": 35
   },
   {
     "id": "nba:4590360",
@@ -1153,11 +1164,12 @@
     "id": "nba:3032979",
     "name": "Dennis Schroder",
     "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
+    "division": "Southeast",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "G",
-    "number": 8
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4683688",
@@ -1442,16 +1454,6 @@
     "number": 25
   },
   {
-    "id": "nba:4278516",
-    "name": "Ethan Thompson",
-    "conference": "East",
-    "division": "Central",
-    "team": "Indiana Pacers",
-    "teamAbbr": "IND",
-    "position": "G",
-    "number": 55
-  },
-  {
     "id": "nba:4432158",
     "name": "Evan Mobley",
     "conference": "East",
@@ -1491,6 +1493,16 @@
     "position": "G",
     "number": 11,
     "numberBackfilled": true
+  },
+  {
+    "id": "nba:3134903",
+    "name": "Gary Payton II",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "G",
+    "number": 0
   },
   {
     "id": "nba:4277843",
@@ -1614,6 +1626,16 @@
     "number": 7
   },
   {
+    "id": "nba:5105571",
+    "name": "Henri Veesaar",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "C",
+    "number": 13
+  },
+  {
     "id": "nba:4277813",
     "name": "Herbert Jones",
     "conference": "West",
@@ -1632,16 +1654,6 @@
     "teamAbbr": "BOS",
     "position": "G",
     "number": 28
-  },
-  {
-    "id": "nba:4432180",
-    "name": "Hunter Dickinson",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
-    "position": "C",
-    "number": 4
   },
   {
     "id": "nba:4395724",
@@ -1733,16 +1745,6 @@
     "teamAbbr": "PHX",
     "position": "F",
     "number": 18
-  },
-  {
-    "id": "nba:4432117",
-    "name": "Isaiah Stevens",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Sacramento Kings",
-    "teamAbbr": "SAC",
-    "position": "G",
-    "number": 24
   },
   {
     "id": "nba:4432810",
@@ -1930,11 +1932,12 @@
     "id": "nba:4398390",
     "name": "Jalen Pickett",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Denver Nuggets",
-    "teamAbbr": "DEN",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
     "position": "G",
-    "number": 24
+    "number": 24,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4398207",
@@ -1984,7 +1987,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "F",
-    "number": 22
+    "number": 12
   },
   {
     "id": "nba:4278572",
@@ -2228,16 +2231,6 @@
     "number": 0
   },
   {
-    "id": "nba:4576085",
-    "name": "JD Davison",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Houston Rockets",
-    "teamAbbr": "HOU",
-    "position": "G",
-    "number": 4
-  },
-  {
     "id": "nba:2991070",
     "name": "Jerami Grant",
     "conference": "West",
@@ -2256,6 +2249,16 @@
     "teamAbbr": "NO",
     "position": "G",
     "number": 0
+  },
+  {
+    "id": "nba:4610139",
+    "name": "Jeremy Sochan",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Portland Trail Blazers",
+    "teamAbbr": "POR",
+    "position": "F",
+    "number": 20
   },
   {
     "id": "nba:4277922",
@@ -2362,12 +2365,13 @@
   {
     "id": "nba:4433569",
     "name": "Johni Broome",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Philadelphia 76ers",
-    "teamAbbr": "PHI",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
     "position": "F",
-    "number": 22
+    "number": 22,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5157066",
@@ -2564,12 +2568,13 @@
   {
     "id": "nba:4683742",
     "name": "Julian Reese",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Washington Wizards",
-    "teamAbbr": "WSH",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Denver Nuggets",
+    "teamAbbr": "DEN",
     "position": "F",
-    "number": 15
+    "number": 15,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4432181",
@@ -2673,16 +2678,6 @@
     "number": 2
   },
   {
-    "id": "nba:4279118",
-    "name": "Keaton Wallace",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
-    "position": "G",
-    "number": 2
-  },
-  {
     "id": "nba:4594327",
     "name": "Keegan Murray",
     "conference": "West",
@@ -2754,6 +2749,16 @@
     "position": "G",
     "number": 14,
     "numberBackfilled": true
+  },
+  {
+    "id": "nba:4585618",
+    "name": "Keshon Gilbert",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "G",
+    "number": 51
   },
   {
     "id": "nba:3202",
@@ -2837,6 +2842,16 @@
     "number": 22
   },
   {
+    "id": "nba:5149077",
+    "name": "Kingston Flemings",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "G",
+    "number": 4
+  },
+  {
     "id": "nba:4683834",
     "name": "KJ Simpson",
     "conference": "West",
@@ -2849,12 +2864,13 @@
   {
     "id": "nba:6475",
     "name": "Klay Thompson",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Dallas Mavericks",
-    "teamAbbr": "DAL",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Miami Heat",
+    "teamAbbr": "MIA",
     "position": "G",
-    "number": 31
+    "number": 31,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4431752",
@@ -3067,7 +3083,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "G",
-    "number": 5
+    "number": 0
   },
   {
     "id": "nba:3945274",
@@ -3204,12 +3220,13 @@
   {
     "id": "nba:4065778",
     "name": "Max Strus",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
     "position": "G",
-    "number": 2
+    "number": 2,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4898371",
@@ -3269,8 +3286,7 @@
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
     "position": "G",
-    "number": 10,
-    "numberBackfilled": true
+    "number": 45
   },
   {
     "id": "nba:5101761",
@@ -3311,8 +3327,7 @@
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
     "position": "C",
-    "number": 23,
-    "numberBackfilled": true
+    "number": 4
   },
   {
     "id": "nba:4277919",
@@ -3364,16 +3379,6 @@
     "teamAbbr": "GS",
     "position": "G",
     "number": 4
-  },
-  {
-    "id": "nba:4592933",
-    "name": "Mouhamadou Gueye",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
-    "position": "F",
-    "number": 16
   },
   {
     "id": "nba:4712863",
@@ -3757,7 +3762,7 @@
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
     "position": "F",
-    "number": 8
+    "number": 13
   },
   {
     "id": "nba:4278562",
@@ -3802,12 +3807,13 @@
   {
     "id": "nba:4576087",
     "name": "Peyton Watson",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Denver Nuggets",
-    "teamAbbr": "DEN",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
     "position": "G",
-    "number": 8
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4701225",
@@ -3889,7 +3895,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "G",
-    "number": 0
+    "number": 10
   },
   {
     "id": "nba:4711272",
@@ -3959,7 +3965,7 @@
     "team": "Boston Celtics",
     "teamAbbr": "BOS",
     "position": "G",
-    "number": 13
+    "number": 8
   },
   {
     "id": "nba:4683771",
@@ -4030,7 +4036,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "G",
-    "number": 9
+    "number": 19
   },
   {
     "id": "nba:4591725",
@@ -4128,11 +4134,12 @@
     "id": "nba:4709131",
     "name": "Sean Pedulla",
     "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
+    "division": "Southwest",
+    "team": "Houston Rockets",
+    "teamAbbr": "HOU",
     "position": "G",
-    "number": 0
+    "number": 0,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5279129",
@@ -4440,20 +4447,22 @@
     "name": "Tre Mann",
     "conference": "East",
     "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
     "position": "G",
-    "number": 23
+    "number": 23,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4431675",
     "name": "Trendon Watford",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Philadelphia 76ers",
-    "teamAbbr": "PHI",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
     "position": "F",
-    "number": 12
+    "number": 12,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4432645",
@@ -4480,10 +4489,11 @@
     "name": "Trey Jemison III",
     "conference": "East",
     "division": "Atlantic",
-    "team": "New York Knicks",
-    "teamAbbr": "NY",
-    "position": "F",
-    "number": 50
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 50,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4397688",
@@ -4836,6 +4846,16 @@
     "teamAbbr": "NO",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:5106262",
+    "name": "Zuby Ejiofor",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "F",
+    "number": 20
   },
   {
     "id": "nba:4592979",
