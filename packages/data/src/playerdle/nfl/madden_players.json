@@ -196,6 +196,20 @@
     "str": 60
   },
   {
+    "id": "nfl:4685247",
+    "name": "Braelon Allen",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "RB",
+    "number": 0,
+    "ovr": 72,
+    "spd": 88,
+    "awr": 77,
+    "str": 79
+  },
+  {
     "id": "nfl:4360438",
     "name": "Brandon Aiyuk",
     "conference": "NFC",
@@ -1552,20 +1566,6 @@
     "spd": 94,
     "awr": 71,
     "str": 76
-  },
-  {
-    "id": "nfl:4372019",
-    "name": "Jerome Ford",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Washington Commanders",
-    "teamAbbr": "WSH",
-    "position": "RB",
-    "number": 34,
-    "ovr": 74,
-    "spd": 91,
-    "awr": 71,
-    "str": 73
   },
   {
     "id": "nfl:4241463",
