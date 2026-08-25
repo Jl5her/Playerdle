@@ -506,6 +506,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5016983",
+    "name": "Anthony Molina",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 45,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5275196",
     "name": "Anthony Nunez",
     "conference": "AL",
@@ -693,6 +704,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4622218",
+    "name": "Blake Adams",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "SP",
+    "number": 57,
+    "league": "NL"
+  },
+  {
     "id": "mlb:33748",
     "name": "Blake Snell",
     "conference": "NL",
@@ -734,17 +756,6 @@
     "teamAbbr": "NYM",
     "position": "3B",
     "number": 19,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:41183",
-    "name": "Bo Naylor",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "C",
-    "number": 14,
     "league": "NL"
   },
   {
@@ -965,17 +976,6 @@
     "teamAbbr": "TOR",
     "position": "RP",
     "number": 63,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4345190",
-    "name": "Brendan Beck",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "SP",
-    "number": 89,
     "league": "AL"
   },
   {
@@ -1262,17 +1262,6 @@
     "teamAbbr": "ATL",
     "position": "SP",
     "number": 55,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5149064",
-    "name": "Bryce Eldridge",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "DH",
-    "number": 8,
     "league": "NL"
   },
   {
@@ -2409,17 +2398,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4989046",
-    "name": "Deyvison De Los Santos",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 63,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5291189",
     "name": "Didier Fuentes",
     "conference": "NL",
@@ -2582,6 +2560,17 @@
     "teamAbbr": "ARI",
     "position": "RP",
     "number": 99,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4917924",
+    "name": "Dustin Harris",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "LF",
+    "number": 29,
     "league": "NL"
   },
   {
@@ -3330,6 +3319,17 @@
     "teamAbbr": "ATL",
     "position": "SP",
     "number": 66,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4919922",
+    "name": "Grant McCray",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "CF",
+    "number": 58,
     "league": "NL"
   },
   {
@@ -4279,17 +4279,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5205951",
-    "name": "Jim Jarvis",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SS",
-    "number": 74,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4749675",
     "name": "Jimmy Crooks",
     "conference": "NL",
@@ -4851,14 +4840,14 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41460",
-    "name": "JT Brubaker",
+    "id": "mlb:5201272",
+    "name": "Juan Burgos",
     "conference": "NL",
     "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
     "position": "RP",
-    "number": 34,
+    "number": 52,
     "league": "NL"
   },
   {
@@ -5225,17 +5214,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:33839",
-    "name": "Kyle Freeland",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SP",
-    "number": 21,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4683375",
     "name": "Kyle Harrison",
     "conference": "NL",
@@ -5299,6 +5277,17 @@
     "teamAbbr": "PHI",
     "position": "DH",
     "number": 12,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:42796",
+    "name": "Kyle Stowers",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "1B",
+    "number": 28,
     "league": "NL"
   },
   {
@@ -5819,17 +5808,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5339226",
-    "name": "Matt Wilkinson",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "SP",
-    "number": 71,
-    "league": "NL"
-  },
-  {
     "id": "mlb:34401",
     "name": "Matthew Boyd",
     "conference": "NL",
@@ -6138,17 +6116,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5123768",
-    "name": "Mitch Bratt",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "SP",
-    "number": 60,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4987418",
     "name": "Moises Ballesteros",
     "conference": "AL",
@@ -6204,6 +6171,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4752203",
+    "name": "Nate Furman",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "2B",
+    "number": 56,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4424442",
     "name": "Nate Lavender",
     "conference": "NL",
@@ -6256,6 +6234,17 @@
     "teamAbbr": "CLE",
     "position": "1B",
     "number": 46,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:41047",
+    "name": "Nelson Velazquez",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 30,
     "league": "AL"
   },
   {
@@ -6842,17 +6831,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41291",
-    "name": "Raynel Delgado",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "2B",
-    "number": 29,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4326697",
     "name": "Reid Detmers",
     "conference": "AL",
@@ -7103,6 +7081,17 @@
     "teamAbbr": "ARI",
     "position": "CF",
     "number": 15,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5000950",
+    "name": "Ryan Walker",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 74,
     "league": "NL"
   },
   {
@@ -7370,6 +7359,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4683352",
+    "name": "Shay Whitcomb",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "3B",
+    "number": 13,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39832",
     "name": "Shohei Ohtani",
     "conference": "NL",
@@ -7511,17 +7511,6 @@
     "position": "RP",
     "number": 48,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5329585",
-    "name": "Sung-Mun Song",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "2B",
-    "number": 24,
-    "league": "NL"
   },
   {
     "id": "mlb:42480",
@@ -8008,17 +7997,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4414347",
-    "name": "Ty Madden",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RP",
-    "number": 36,
-    "league": "AL"
-  },
-  {
     "id": "mlb:40360",
     "name": "Tyler Alexander",
     "conference": "AL",
@@ -8049,6 +8027,17 @@
     "teamAbbr": "DET",
     "position": "RP",
     "number": 87,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:34166",
+    "name": "Tyler Kinley",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "RP",
+    "number": 55,
     "league": "AL"
   },
   {
@@ -8182,17 +8171,6 @@
     "position": "2B",
     "number": 5,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42502",
-    "name": "Victor Bericoto",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "LF",
-    "number": 78,
-    "league": "NL"
   },
   {
     "id": "mlb:33229",
@@ -8369,17 +8347,6 @@
     "position": "1B",
     "number": 40,
     "league": "AL"
-  },
-  {
-    "id": "mlb:33675",
-    "name": "Willy Adames",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "SS",
-    "number": 2,
-    "league": "NL"
   },
   {
     "id": "mlb:4990055",
