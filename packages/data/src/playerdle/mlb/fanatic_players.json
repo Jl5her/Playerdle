@@ -234,24 +234,6 @@
     "ops": 0.574
   },
   {
-    "id": "mlb:5000931",
-    "name": "Braxton Fulford",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "DH",
-    "number": 37,
-    "league": "NL",
-    "gp": 38,
-    "pa": 120,
-    "avg": 0.213,
-    "hr": 1,
-    "rbi": 16,
-    "sb": 1,
-    "ops": 0.591
-  },
-  {
     "id": "mlb:42462",
     "name": "Brenton Doyle",
     "conference": "AL",
@@ -1026,6 +1008,24 @@
     "ops": 0.784
   },
   {
+    "id": "mlb:4416591",
+    "name": "Hunter Goodman",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 15,
+    "league": "NL",
+    "gp": 144,
+    "pa": 579,
+    "avg": 0.278,
+    "hr": 31,
+    "rbi": 91,
+    "sb": 1,
+    "ops": 0.843
+  },
+  {
     "id": "mlb:39706",
     "name": "Isaac Paredes",
     "conference": "AL",
@@ -1564,24 +1564,6 @@
     "rbi": 62,
     "sb": 11,
     "ops": 0.669
-  },
-  {
-    "id": "mlb:4683365",
-    "name": "Masyn Winn",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "SS",
-    "number": 0,
-    "league": "NL",
-    "gp": 129,
-    "pa": 537,
-    "avg": 0.253,
-    "hr": 9,
-    "rbi": 51,
-    "sb": 9,
-    "ops": 0.673
   },
   {
     "id": "mlb:4422899",
