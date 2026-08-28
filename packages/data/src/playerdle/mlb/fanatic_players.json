@@ -1422,24 +1422,6 @@
     "ops": 0.846
   },
   {
-    "id": "mlb:35020",
-    "name": "Ke'Bryan Hayes",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "3B",
-    "number": 3,
-    "league": "NL",
-    "gp": 52,
-    "pa": 178,
-    "avg": 0.234,
-    "hr": 3,
-    "rbi": 13,
-    "sb": 2,
-    "ops": 0.656
-  },
-  {
     "id": "mlb:36409",
     "name": "Lane Thomas",
     "conference": "NL",
@@ -1600,6 +1582,24 @@
     "rbi": 50,
     "sb": 18,
     "ops": 0.643
+  },
+  {
+    "id": "mlb:4867667",
+    "name": "Matt Shaw",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RF",
+    "number": 6,
+    "league": "NL",
+    "gp": 126,
+    "pa": 437,
+    "avg": 0.226,
+    "hr": 13,
+    "rbi": 44,
+    "sb": 17,
+    "ops": 0.69
   },
   {
     "id": "mlb:35304",
