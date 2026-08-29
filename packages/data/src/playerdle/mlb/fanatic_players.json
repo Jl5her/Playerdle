@@ -180,6 +180,24 @@
     "ops": 0.737
   },
   {
+    "id": "mlb:41345",
+    "name": "Blaze Alexander",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "3B",
+    "number": 23,
+    "league": "AL",
+    "gp": 74,
+    "pa": 266,
+    "avg": 0.23,
+    "hr": 7,
+    "rbi": 28,
+    "sb": 4,
+    "ops": 0.706
+  },
+  {
     "id": "mlb:38904",
     "name": "Bo Bichette",
     "conference": "NL",
@@ -250,24 +268,6 @@
     "rbi": 57,
     "sb": 18,
     "ops": 0.651
-  },
-  {
-    "id": "mlb:4307826",
-    "name": "Bryce Teodosio",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "LF",
-    "number": 22,
-    "league": "AL",
-    "gp": 50,
-    "pa": 150,
-    "avg": 0.203,
-    "hr": 1,
-    "rbi": 7,
-    "sb": 7,
-    "ops": 0.553
   },
   {
     "id": "mlb:32655",
@@ -2158,6 +2158,24 @@
     "rbi": 89,
     "sb": 5,
     "ops": 0.738
+  },
+  {
+    "id": "mlb:4999876",
+    "name": "Thomas Saggese",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "LF",
+    "number": 25,
+    "league": "NL",
+    "gp": 82,
+    "pa": 295,
+    "avg": 0.258,
+    "hr": 2,
+    "rbi": 25,
+    "sb": 3,
+    "ops": 0.641
   },
   {
     "id": "mlb:4345192",
