@@ -1254,6 +1254,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5067321",
+    "name": "Brycen Mautz",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 52,
+    "league": "NL"
+  },
+  {
     "id": "mlb:40922",
     "name": "Bryse Wilson",
     "conference": "NL",
@@ -1320,6 +1331,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4421900",
+    "name": "Cade Winquest",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "RP",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5204350",
     "name": "Cade Winquest",
     "conference": "NL",
@@ -1362,17 +1384,6 @@
     "position": "3B",
     "number": 5,
     "league": "AL"
-  },
-  {
-    "id": "mlb:41017",
-    "name": "Caleb Ferguson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "RP",
-    "number": 54,
-    "league": "NL"
   },
   {
     "id": "mlb:32440",
@@ -2376,6 +2387,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:33139",
+    "name": "Derek Law",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "RP",
+    "number": 38,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5291189",
     "name": "Didier Fuentes",
     "conference": "NL",
@@ -2783,17 +2805,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4987650",
-    "name": "Eric Wagaman",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "1B",
-    "number": 39,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33793",
     "name": "Erick Fedde",
     "conference": "AL",
@@ -3133,6 +3144,17 @@
     "position": "C",
     "number": 21,
     "league": "NL"
+  },
+  {
+    "id": "mlb:39674",
+    "name": "Garrett Whitlock",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 22,
+    "league": "AL"
   },
   {
     "id": "mlb:31095",
@@ -4829,6 +4851,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:36969",
+    "name": "Juan Soto",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "LF",
+    "number": 22,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42806",
     "name": "Julian Garcia",
     "conference": "NL",
@@ -4915,17 +4948,6 @@
     "position": "RP",
     "number": 63,
     "league": "NL"
-  },
-  {
-    "id": "mlb:38796",
-    "name": "Justin Topa",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RP",
-    "number": 56,
-    "league": "AL"
   },
   {
     "id": "mlb:5198748",
@@ -5753,6 +5775,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5339226",
+    "name": "Matt Wilkinson",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "SP",
+    "number": 71,
+    "league": "NL"
+  },
+  {
     "id": "mlb:34401",
     "name": "Matthew Boyd",
     "conference": "NL",
@@ -5805,6 +5838,17 @@
     "teamAbbr": "DET",
     "position": "CF",
     "number": 15,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:32685",
+    "name": "Max Fried",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "SP",
+    "number": 54,
     "league": "AL"
   },
   {
@@ -6488,17 +6532,6 @@
     "position": "C",
     "number": 16,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4721043",
-    "name": "Patrick Monteverde",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 44,
-    "league": "NL"
   },
   {
     "id": "mlb:40975",
@@ -7357,17 +7390,6 @@
     "position": "SP",
     "number": 45,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5136077",
-    "name": "Spencer Bivens",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 76,
-    "league": "NL"
   },
   {
     "id": "mlb:4228472",
@@ -8272,6 +8294,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917659",
+    "name": "Wikelman Gonzalez",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "RP",
+    "number": 67,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41228",
     "name": "Will Banfield",
     "conference": "NL",
@@ -8357,17 +8390,6 @@
     "teamAbbr": "TEX",
     "position": "LF",
     "number": 36,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5130977",
-    "name": "Wyatt Olds",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RP",
-    "number": 75,
     "league": "AL"
   },
   {
@@ -8500,6 +8522,17 @@
     "teamAbbr": "SD",
     "position": "RP",
     "number": 1,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5333217",
+    "name": "Yunior Marte",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "SP",
+    "number": 87,
     "league": "NL"
   },
   {
