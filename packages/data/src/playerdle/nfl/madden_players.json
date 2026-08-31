@@ -518,6 +518,20 @@
     "str": 59
   },
   {
+    "id": "nfl:4362619",
+    "name": "Chris Rodriguez Jr.",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "RB",
+    "number": 24,
+    "ovr": 72,
+    "spd": 89,
+    "awr": 78,
+    "str": 74
+  },
+  {
     "id": "nfl:3895856",
     "name": "Christian Kirk",
     "conference": "NFC",
@@ -700,20 +714,6 @@
     "str": 76
   },
   {
-    "id": "nfl:4360238",
-    "name": "Dameon Pierce",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "RB",
-    "number": 39,
-    "ovr": 74,
-    "spd": 89,
-    "awr": 64,
-    "str": 84
-  },
-  {
     "id": "nfl:3917792",
     "name": "Daniel Jones",
     "conference": "AFC",
@@ -766,8 +766,22 @@
     "number": 80,
     "ovr": 76,
     "spd": 84,
-    "awr": 69,
+    "awr": 67,
     "str": 81
+  },
+  {
+    "id": "nfl:2576925",
+    "name": "Darren Waller",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "TE",
+    "number": 35,
+    "ovr": 79,
+    "spd": 87,
+    "awr": 76,
+    "str": 70
   },
   {
     "id": "nfl:16800",
@@ -840,6 +854,20 @@
     "str": 68
   },
   {
+    "id": "nfl:4710714",
+    "name": "De'Zhaun Stribling",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 15,
+    "ovr": 76,
+    "spd": 94,
+    "awr": 75,
+    "str": 72
+  },
+  {
     "id": "nfl:3126486",
     "name": "Deebo Samuel Sr.",
     "conference": "NFC",
@@ -852,20 +880,6 @@
     "spd": 89,
     "awr": 76,
     "str": 80
-  },
-  {
-    "id": "nfl:3043116",
-    "name": "Demarcus Robinson",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 7,
-    "ovr": 76,
-    "spd": 87,
-    "awr": 81,
-    "str": 60
   },
   {
     "id": "nfl:4427095",
@@ -950,20 +964,6 @@
     "spd": 94,
     "awr": 88,
     "str": 79
-  },
-  {
-    "id": "nfl:4428850",
-    "name": "Dontayvion Wicks",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "WR",
-    "number": 13,
-    "ovr": 76,
-    "spd": 89,
-    "awr": 80,
-    "str": 60
   },
   {
     "id": "nfl:4426502",
@@ -1162,18 +1162,18 @@
     "str": 75
   },
   {
-    "id": "nfl:4361050",
-    "name": "Isaiah Likely",
+    "id": "nfl:4372561",
+    "name": "Isaac Guerendo",
     "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "TE",
-    "number": 9,
-    "ovr": 75,
-    "spd": 84,
-    "awr": 61,
-    "str": 66
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "RB",
+    "number": 31,
+    "ovr": 72,
+    "spd": 92,
+    "awr": 72,
+    "str": 71
   },
   {
     "id": "nfl:4361529",
@@ -1300,20 +1300,6 @@
     "spd": 88,
     "awr": 83,
     "str": 62
-  },
-  {
-    "id": "nfl:4695883",
-    "name": "Jalen Coker",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Carolina Panthers",
-    "teamAbbr": "CAR",
-    "position": "WR",
-    "number": 18,
-    "ovr": 76,
-    "spd": 91,
-    "awr": 82,
-    "str": 63
   },
   {
     "id": "nfl:4040715",
@@ -1498,20 +1484,6 @@
     "str": 58
   },
   {
-    "id": "nfl:4685279",
-    "name": "Jaydon Blue",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Dallas Cowboys",
-    "teamAbbr": "DAL",
-    "position": "RB",
-    "number": 23,
-    "ovr": 73,
-    "spd": 93,
-    "awr": 65,
-    "str": 65
-  },
-  {
     "id": "nfl:4372016",
     "name": "Jaylen Waddle",
     "conference": "AFC",
@@ -1564,7 +1536,7 @@
     "number": 4,
     "ovr": 82,
     "spd": 94,
-    "awr": 71,
+    "awr": 69,
     "str": 76
   },
   {
@@ -1808,12 +1780,13 @@
   {
     "id": "nfl:4819231",
     "name": "Kaleb Johnson",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
     "position": "RB",
     "number": 20,
+    "numberBackfilled": true,
     "ovr": 74,
     "spd": 88,
     "awr": 65,
@@ -1823,11 +1796,11 @@
     "id": "nfl:4429022",
     "name": "Kayshon Boutte",
     "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
     "position": "WR",
-    "number": 9,
+    "number": 88,
     "ovr": 80,
     "spd": 91,
     "awr": 82,
@@ -1846,6 +1819,20 @@
     "spd": 94,
     "awr": 73,
     "str": 60
+  },
+  {
+    "id": "nfl:15818",
+    "name": "Keenan Allen",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 10,
+    "ovr": 82,
+    "spd": 88,
+    "awr": 87,
+    "str": 72
   },
   {
     "id": "nfl:4599739",
@@ -1902,20 +1889,6 @@
     "spd": 89,
     "awr": 84,
     "str": 70
-  },
-  {
-    "id": "nfl:4035886",
-    "name": "Khalil Herbert",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "RB",
-    "number": 40,
-    "ovr": 73,
-    "spd": 88,
-    "awr": 75,
-    "str": 73
   },
   {
     "id": "nfl:4373678",
@@ -2254,6 +2227,20 @@
     "str": 76
   },
   {
+    "id": "nfl:4241457",
+    "name": "Najee Harris",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "RB",
+    "number": 22,
+    "ovr": 78,
+    "spd": 87,
+    "awr": 74,
+    "str": 82
+  },
+  {
     "id": "nfl:4258173",
     "name": "Nico Collins",
     "conference": "AFC",
@@ -2590,6 +2577,20 @@
     "str": 81
   },
   {
+    "id": "nfl:2976212",
+    "name": "Stefon Diggs",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "WR",
+    "number": 18,
+    "ovr": 86,
+    "spd": 88,
+    "awr": 83,
+    "str": 62
+  },
+  {
     "id": "nfl:4036133",
     "name": "T.J. Hockenson",
     "conference": "NFC",
@@ -2614,7 +2615,7 @@
     "number": 8,
     "ovr": 77,
     "spd": 92,
-    "awr": 78,
+    "awr": 77,
     "str": 75
   },
   {
