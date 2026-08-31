@@ -270,24 +270,6 @@
     "ops": 0.651
   },
   {
-    "id": "mlb:32655",
-    "name": "Byron Buxton",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "CF",
-    "number": 25,
-    "league": "AL",
-    "gp": 126,
-    "pa": 542,
-    "avg": 0.264,
-    "hr": 35,
-    "rbi": 83,
-    "sb": 24,
-    "ops": 0.878
-  },
-  {
     "id": "mlb:5007615",
     "name": "Caleb Durbin",
     "conference": "AL",
@@ -2212,6 +2194,24 @@
     "rbi": 69,
     "sb": 36,
     "ops": 0.812
+  },
+  {
+    "id": "mlb:32150",
+    "name": "Trevor Story",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "SS",
+    "number": 10,
+    "league": "AL",
+    "gp": 157,
+    "pa": 654,
+    "avg": 0.263,
+    "hr": 25,
+    "rbi": 96,
+    "sb": 31,
+    "ops": 0.741
   },
   {
     "id": "mlb:35591",

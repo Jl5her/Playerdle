@@ -517,17 +517,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41194",
-    "name": "Anthony Seigler",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "2B",
-    "number": 48,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33750",
     "name": "Antonio Senzatela",
     "conference": "NL",
@@ -702,6 +691,17 @@
     "position": "SP",
     "number": 7,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41457",
+    "name": "Blake Weiman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "RP",
+    "number": 68,
+    "league": "AL"
   },
   {
     "id": "mlb:41345",
@@ -1298,17 +1298,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:32655",
-    "name": "Byron Buxton",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Minnesota Twins",
-    "teamAbbr": "MIN",
-    "position": "CF",
-    "number": 25,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4308037",
     "name": "Cade Cavalli",
     "conference": "NL",
@@ -1604,6 +1593,17 @@
     "position": "CF",
     "number": 31,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5012056",
+    "name": "Cesar Prieto",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "3B",
+    "number": 31,
+    "league": "NL"
   },
   {
     "id": "mlb:5131708",
@@ -2327,7 +2327,7 @@
     "division": "East",
     "team": "Toronto Blue Jays",
     "teamAbbr": "TOR",
-    "position": "RF",
+    "position": "LF",
     "number": 23,
     "league": "AL"
   },
@@ -2750,17 +2750,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4297897",
-    "name": "Emerson Hancock",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "SP",
-    "number": 26,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33403",
     "name": "Emilio Pagan",
     "conference": "NL",
@@ -3080,6 +3069,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4919918",
+    "name": "Gabriel Gonzalez",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "RF",
+    "number": 72,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4634930",
     "name": "Gabriel Hughes",
     "conference": "NL",
@@ -3168,17 +3168,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:40700",
-    "name": "Gavin Sheets",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "1B",
-    "number": 30,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4345076",
     "name": "Gavin Williams",
     "conference": "AL",
@@ -3198,17 +3187,6 @@
     "teamAbbr": "SEA",
     "position": "SP",
     "number": 68,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5134517",
-    "name": "George Klassen",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "SP",
-    "number": 58,
     "league": "AL"
   },
   {
@@ -4276,17 +4254,6 @@
     "teamAbbr": "CIN",
     "position": "LF",
     "number": 22,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4941056",
-    "name": "JJ Wetherholt",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "2B",
-    "number": 26,
     "league": "NL"
   },
   {
@@ -5478,6 +5445,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40626",
+    "name": "Luis Gil",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "SP",
+    "number": 81,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5138536",
     "name": "Luis Lara",
     "conference": "NL",
@@ -5519,17 +5497,6 @@
     "teamAbbr": "WSH",
     "position": "RP",
     "number": 43,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:37237",
-    "name": "Luis Rengifo",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "LF",
-    "number": 21,
     "league": "NL"
   },
   {
@@ -6039,17 +6006,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5132012",
-    "name": "Mickey Gasper",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "DH",
-    "number": 30,
-    "league": "AL"
-  },
-  {
     "id": "mlb:36181",
     "name": "Mickey Moniak",
     "conference": "NL",
@@ -6113,17 +6069,6 @@
     "teamAbbr": "ATL",
     "position": "LF",
     "number": 18,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5123768",
-    "name": "Mitch Bratt",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "SP",
-    "number": 60,
     "league": "NL"
   },
   {
@@ -6267,6 +6212,17 @@
     "teamAbbr": "HOU",
     "position": "SS",
     "number": 20,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4630786",
+    "name": "Nick Davila",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 82,
     "league": "AL"
   },
   {
@@ -6919,6 +6875,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5080767",
+    "name": "Roman Anthony",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "LF",
+    "number": 19,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36185",
     "name": "Ronald Acuna Jr.",
     "conference": "NL",
@@ -7150,17 +7117,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41225",
-    "name": "Sam Hentges",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 31,
-    "league": "NL"
-  },
-  {
     "id": "mlb:34928",
     "name": "Sam Moll",
     "conference": "NL",
@@ -7169,6 +7125,17 @@
     "teamAbbr": "CIN",
     "position": "RP",
     "number": 50,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:39710",
+    "name": "Samad Taylor",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "LF",
+    "number": 0,
     "league": "NL"
   },
   {
@@ -7478,6 +7445,17 @@
     "position": "RP",
     "number": 48,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5329585",
+    "name": "Sung-Mun Song",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "2B",
+    "number": 24,
+    "league": "NL"
   },
   {
     "id": "mlb:42480",
@@ -7876,17 +7854,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5201553",
-    "name": "Trevor Martin",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:40080",
     "name": "Trevor Megill",
     "conference": "NL",
@@ -7917,6 +7884,17 @@
     "teamAbbr": "BAL",
     "position": "SP",
     "number": 28,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:32150",
+    "name": "Trevor Story",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "SS",
+    "number": 10,
     "league": "AL"
   },
   {
@@ -8445,17 +8423,6 @@
     "teamAbbr": "BAL",
     "position": "RP",
     "number": 78,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4717834",
-    "name": "Yerry De los Santos",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RP",
-    "number": 73,
     "league": "AL"
   },
   {
