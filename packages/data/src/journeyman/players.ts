@@ -475,6 +475,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "California",
     teams: ["Los Angeles Chargers", "Chicago Bears", "Las Vegas Raiders"],
+    espnId: "15818",
   },
   {
     id: "journey:mohamed-sanu",
@@ -908,6 +909,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "LB",
     college: "Texas A&M",
     teams: ["Denver Broncos", "Los Angeles Rams", "Buffalo Bills", "Washington Commanders"],
+    espnId: "13976",
   },
   {
     id: "journey:jadeveon-clowney",
