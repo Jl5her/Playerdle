@@ -625,17 +625,6 @@
     "number": 24
   },
   {
-    "id": "nba:5105592",
-    "name": "Cam Whitmore",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
-    "position": "F",
-    "number": 1,
-    "numberBackfilled": true
-  },
-  {
     "id": "nba:5041935",
     "name": "Cameron Boozer",
     "conference": "West",
@@ -831,10 +820,11 @@
     "name": "Cody Williams",
     "conference": "West",
     "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
     "position": "F",
-    "number": 5
+    "number": 5,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4397204",
@@ -1513,6 +1503,16 @@
     "teamAbbr": "MIL",
     "position": "G",
     "number": 5
+  },
+  {
+    "id": "nba:2990969",
+    "name": "Georges Niang",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "F",
+    "number": 31
   },
   {
     "id": "nba:5105550",
@@ -2336,10 +2336,11 @@
     "name": "John Konchar",
     "conference": "West",
     "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
     "position": "G",
-    "number": 55
+    "number": 55,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4898238",
@@ -2488,8 +2489,8 @@
     "name": "Josh Green",
     "conference": "West",
     "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
     "position": "G",
     "number": 10,
     "numberBackfilled": true
@@ -2564,17 +2565,6 @@
     "teamAbbr": "MIN",
     "position": "F",
     "number": 4
-  },
-  {
-    "id": "nba:4683742",
-    "name": "Julian Reese",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Denver Nuggets",
-    "teamAbbr": "DEN",
-    "position": "F",
-    "number": 15,
-    "numberBackfilled": true
   },
   {
     "id": "nba:4432181",
@@ -2749,6 +2739,16 @@
     "position": "G",
     "number": 14,
     "numberBackfilled": true
+  },
+  {
+    "id": "nba:4431786",
+    "name": "Keshad Johnson",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Miami Heat",
+    "teamAbbr": "MIA",
+    "position": "F",
+    "number": 16
   },
   {
     "id": "nba:4585618",
@@ -3491,6 +3491,16 @@
     "position": "C",
     "number": 33,
     "numberBackfilled": true
+  },
+  {
+    "id": "nba:4278076",
+    "name": "Nick Richards",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Miami Heat",
+    "teamAbbr": "MIA",
+    "position": "C",
+    "number": 8
   },
   {
     "id": "nba:4278039",
@@ -4534,16 +4544,6 @@
     "teamAbbr": "WSH",
     "position": "F",
     "number": 0
-  },
-  {
-    "id": "nba:4592965",
-    "name": "Tristen Newton",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Houston Rockets",
-    "teamAbbr": "HOU",
-    "position": "G",
-    "number": 13
   },
   {
     "id": "nba:4065733",
