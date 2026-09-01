@@ -714,6 +714,20 @@
     "str": 76
   },
   {
+    "id": "nfl:4360238",
+    "name": "Dameon Pierce",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "RB",
+    "number": 39,
+    "ovr": 74,
+    "spd": 89,
+    "awr": 64,
+    "str": 84
+  },
+  {
     "id": "nfl:3917792",
     "name": "Daniel Jones",
     "conference": "AFC",
@@ -882,6 +896,20 @@
     "str": 80
   },
   {
+    "id": "nfl:3043116",
+    "name": "Demarcus Robinson",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 7,
+    "ovr": 76,
+    "spd": 87,
+    "awr": 81,
+    "str": 60
+  },
+  {
     "id": "nfl:4427095",
     "name": "DeMario Douglas",
     "conference": "AFC",
@@ -908,6 +936,20 @@
     "spd": 93,
     "awr": 95,
     "str": 87
+  },
+  {
+    "id": "nfl:4682652",
+    "name": "Devin Neal",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "RB",
+    "number": 24,
+    "ovr": 72,
+    "spd": 87,
+    "awr": 69,
+    "str": 71
   },
   {
     "id": "nfl:4040761",
@@ -964,6 +1006,20 @@
     "spd": 94,
     "awr": 88,
     "str": 79
+  },
+  {
+    "id": "nfl:4428850",
+    "name": "Dontayvion Wicks",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "WR",
+    "number": 13,
+    "ovr": 76,
+    "spd": 89,
+    "awr": 80,
+    "str": 60
   },
   {
     "id": "nfl:4426502",
@@ -1176,6 +1232,20 @@
     "str": 71
   },
   {
+    "id": "nfl:4361050",
+    "name": "Isaiah Likely",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "TE",
+    "number": 9,
+    "ovr": 75,
+    "spd": 84,
+    "awr": 61,
+    "str": 66
+  },
+  {
     "id": "nfl:4361529",
     "name": "Isiah Pacheco",
     "conference": "NFC",
@@ -1215,20 +1285,6 @@
     "ovr": 99,
     "spd": 96,
     "awr": 99,
-    "str": 73
-  },
-  {
-    "id": "nfl:2578570",
-    "name": "Jacoby Brissett",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "QB",
-    "number": 7,
-    "ovr": 72,
-    "spd": 81,
-    "awr": 64,
     "str": 73
   },
   {
@@ -1302,6 +1358,20 @@
     "str": 62
   },
   {
+    "id": "nfl:4695883",
+    "name": "Jalen Coker",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "WR",
+    "number": 18,
+    "ovr": 76,
+    "spd": 91,
+    "awr": 82,
+    "str": 63
+  },
+  {
     "id": "nfl:4040715",
     "name": "Jalen Hurts",
     "conference": "NFC",
@@ -1328,20 +1398,6 @@
     "spd": 90,
     "awr": 79,
     "str": 58
-  },
-  {
-    "id": "nfl:3045147",
-    "name": "James Conner",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "RB",
-    "number": 6,
-    "ovr": 80,
-    "spd": 88,
-    "awr": 78,
-    "str": 83
   },
   {
     "id": "nfl:4379399",
@@ -1384,6 +1440,20 @@
     "spd": 74,
     "awr": 89,
     "str": 64
+  },
+  {
+    "id": "nfl:4710341",
+    "name": "Jarquez Hunter",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "RB",
+    "number": 31,
+    "ovr": 72,
+    "spd": 91,
+    "awr": 74,
+    "str": 73
   },
   {
     "id": "nfl:3886598",
@@ -1523,20 +1593,6 @@
     "ovr": 73,
     "spd": 93,
     "awr": 67,
-    "str": 76
-  },
-  {
-    "id": "nfl:4870808",
-    "name": "Jeremiyah Love",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "RB",
-    "number": 4,
-    "ovr": 82,
-    "spd": 94,
-    "awr": 69,
     "str": 76
   },
   {
@@ -1849,20 +1905,6 @@
     "str": 75
   },
   {
-    "id": "nfl:3045523",
-    "name": "Kendrick Bourne",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "WR",
-    "number": 17,
-    "ovr": 77,
-    "spd": 87,
-    "awr": 84,
-    "str": 65
-  },
-  {
     "id": "nfl:4567048",
     "name": "Kenneth Walker III",
     "conference": "AFC",
@@ -2087,6 +2129,20 @@
     "str": 72
   },
   {
+    "id": "nfl:2576980",
+    "name": "Marcus Mariota",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "QB",
+    "number": 8,
+    "ovr": 72,
+    "spd": 86,
+    "awr": 73,
+    "str": 60
+  },
+  {
     "id": "nfl:3116365",
     "name": "Mark Andrews",
     "conference": "AFC",
@@ -2099,20 +2155,6 @@
     "spd": 87,
     "awr": 93,
     "str": 81
-  },
-  {
-    "id": "nfl:4432708",
-    "name": "Marvin Harrison Jr.",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "WR",
-    "number": 18,
-    "ovr": 80,
-    "spd": 91,
-    "awr": 82,
-    "str": 57
   },
   {
     "id": "nfl:4686472",
@@ -2183,20 +2225,6 @@
     "spd": 88,
     "awr": 95,
     "str": 71
-  },
-  {
-    "id": "nfl:4360761",
-    "name": "Michael Wilson",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "WR",
-    "number": 14,
-    "ovr": 81,
-    "spd": 89,
-    "awr": 83,
-    "str": 72
   },
   {
     "id": "nfl:16737",
@@ -2584,7 +2612,7 @@
     "team": "Washington Commanders",
     "teamAbbr": "WSH",
     "position": "WR",
-    "number": 18,
+    "number": 3,
     "ovr": 86,
     "spd": 88,
     "awr": 83,
@@ -2773,34 +2801,6 @@
     "str": 69
   },
   {
-    "id": "nfl:4429275",
-    "name": "Trey Benson",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "RB",
-    "number": 33,
-    "ovr": 77,
-    "spd": 93,
-    "awr": 67,
-    "str": 77
-  },
-  {
-    "id": "nfl:4361307",
-    "name": "Trey McBride",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "TE",
-    "number": 85,
-    "ovr": 99,
-    "spd": 88,
-    "awr": 99,
-    "str": 76
-  },
-  {
     "id": "nfl:4431280",
     "name": "Troy Franklin",
     "conference": "AFC",
@@ -2869,20 +2869,6 @@
     "spd": 88,
     "awr": 71,
     "str": 71
-  },
-  {
-    "id": "nfl:4373626",
-    "name": "Tyler Allgeier",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "RB",
-    "number": 22,
-    "ovr": 81,
-    "spd": 85,
-    "awr": 82,
-    "str": 80
   },
   {
     "id": "nfl:4360689",
@@ -2995,6 +2981,20 @@
     "spd": 88,
     "awr": 84,
     "str": 79
+  },
+  {
+    "id": "nfl:4361777",
+    "name": "Zamir White",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "RB",
+    "number": 33,
+    "ovr": 73,
+    "spd": 91,
+    "awr": 75,
+    "str": 78
   },
   {
     "id": "nfl:4429615",
