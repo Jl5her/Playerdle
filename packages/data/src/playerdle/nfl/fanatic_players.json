@@ -1728,6 +1728,22 @@
     "tdPerGame": 0.47
   },
   {
+    "id": "nfl:4596439",
+    "name": "Dominic Lovett",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "WR",
+    "number": 19,
+    "gp": 8,
+    "fppg": 0,
+    "tgtPerGame": 0,
+    "recPerGame": 0,
+    "ydsPerGame": 0,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4432775",
     "name": "Dont'e Thornton Jr.",
     "conference": "AFC",
@@ -4897,6 +4913,22 @@
     "tdPerGame": 0.13
   },
   {
+    "id": "nfl:3050481",
+    "name": "Tanner Hudson",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cincinnati Bengals",
+    "teamAbbr": "CIN",
+    "position": "TE",
+    "number": 87,
+    "gp": 13,
+    "fppg": 2.9,
+    "tgtPerGame": 1.8,
+    "recPerGame": 1.5,
+    "ydsPerGame": 12.9,
+    "tdPerGame": 0.15
+  },
+  {
     "id": "nfl:4239993",
     "name": "Tee Higgins",
     "conference": "AFC",
@@ -5341,6 +5373,22 @@
     "fppg": 1.6,
     "tgtPerGame": 1.9,
     "recPerGame": 1.2,
+    "ydsPerGame": 10.3,
+    "tdPerGame": 0
+  },
+  {
+    "id": "nfl:3915486",
+    "name": "Tyler Conklin",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "TE",
+    "number": 83,
+    "gp": 10,
+    "fppg": 1.4,
+    "tgtPerGame": 1,
+    "recPerGame": 0.7,
     "ydsPerGame": 10.3,
     "tdPerGame": 0
   },
