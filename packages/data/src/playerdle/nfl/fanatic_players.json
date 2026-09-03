@@ -1600,22 +1600,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:4361112",
-    "name": "Devin Culp",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Tampa Bay Buccaneers",
-    "teamAbbr": "TB",
-    "position": "TE",
-    "number": 82,
-    "gp": 11,
-    "fppg": 0.6,
-    "tgtPerGame": 0.1,
-    "recPerGame": 0.1,
-    "ydsPerGame": 0.5,
-    "tdPerGame": 0.09
-  },
-  {
     "id": "nfl:4682652",
     "name": "Devin Neal",
     "conference": "NFC",
@@ -3487,6 +3471,22 @@
     "recPerGame": 2.9,
     "ydsPerGame": 31.1,
     "tdPerGame": 0.31
+  },
+  {
+    "id": "nfl:4372758",
+    "name": "Kevin Austin Jr.",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "WR",
+    "number": 81,
+    "gp": 8,
+    "fppg": 3.3,
+    "tgtPerGame": 2.9,
+    "recPerGame": 1.6,
+    "ydsPerGame": 17.5,
+    "tdPerGame": 0.13
   },
   {
     "id": "nfl:3047876",
