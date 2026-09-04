@@ -938,20 +938,6 @@
     "str": 87
   },
   {
-    "id": "nfl:4682652",
-    "name": "Devin Neal",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "RB",
-    "number": 24,
-    "ovr": 72,
-    "spd": 87,
-    "awr": 69,
-    "str": 71
-  },
-  {
     "id": "nfl:4040761",
     "name": "Devin Singletary",
     "conference": "NFC",
@@ -1594,6 +1580,20 @@
     "spd": 93,
     "awr": 67,
     "str": 76
+  },
+  {
+    "id": "nfl:3127586",
+    "name": "Jeremy McNichols",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "RB",
+    "number": 26,
+    "ovr": 72,
+    "spd": 87,
+    "awr": 79,
+    "str": 72
   },
   {
     "id": "nfl:4241463",
