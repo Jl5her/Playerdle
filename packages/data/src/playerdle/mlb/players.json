@@ -2552,6 +2552,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4989046",
+    "name": "Deyvison De Los Santos",
+    "conference": "NL",
+    "division": "East",
+    "team": "Miami Marlins",
+    "teamAbbr": "MIA",
+    "position": "3B",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5291189",
     "name": "Didier Fuentes",
     "conference": "NL",
@@ -3077,17 +3088,6 @@
     "teamAbbr": "LAD",
     "position": "RP",
     "number": 59,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:3994084",
-    "name": "Evan Sisk",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 48,
     "league": "NL"
   },
   {
@@ -5390,14 +5390,14 @@
     "league": "AL"
   },
   {
-    "id": "mlb:32623",
-    "name": "Kirby Yates",
+    "id": "mlb:4719635",
+    "name": "Khristian Curtis",
     "conference": "NL",
     "division": "Central",
     "team": "Pittsburgh Pirates",
     "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 54,
+    "position": "SP",
+    "number": 64,
     "league": "NL"
   },
   {
@@ -5662,17 +5662,6 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 13,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:41397",
-    "name": "Leo Jimenez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "3B",
-    "number": 19,
     "league": "NL"
   },
   {
@@ -7964,6 +7953,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40346",
+    "name": "Stuart Fairchild",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "CF",
+    "number": 17,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5329585",
     "name": "Sung-Mun Song",
     "conference": "NL",
@@ -8687,17 +8687,6 @@
     "teamAbbr": "TB",
     "position": "RF",
     "number": 25,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:35042",
-    "name": "Victor Robles",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RF",
-    "number": 10,
     "league": "AL"
   },
   {
