@@ -430,16 +430,6 @@
     "number": 77
   },
   {
-    "id": "nfl:4035115",
-    "name": "Albert Okwuegbunam Jr.",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "TE",
-    "number": 85
-  },
-  {
     "id": "nfl:4683506",
     "name": "Albert Reese IV",
     "conference": "NFC",
@@ -2160,6 +2150,16 @@
     "number": 55
   },
   {
+    "id": "nfl:4428713",
+    "name": "Bralen Trice",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "LB",
+    "number": 48
+  },
+  {
     "id": "nfl:4575559",
     "name": "Bralyn Lux",
     "conference": "AFC",
@@ -2858,16 +2858,6 @@
     "teamAbbr": "BUF",
     "position": "S",
     "number": 22
-  },
-  {
-    "id": "nfl:4571810",
-    "name": "C.J. Hanson",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "G",
-    "number": 61
   },
   {
     "id": "nfl:4240596",
@@ -3810,16 +3800,6 @@
     "number": 4
   },
   {
-    "id": "nfl:4714388",
-    "name": "Chase Roberts",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "WR",
-    "number": 86
-  },
-  {
     "id": "nfl:4241986",
     "name": "Chase Young",
     "conference": "NFC",
@@ -4078,16 +4058,6 @@
     "teamAbbr": "LV",
     "position": "TE",
     "number": 41
-  },
-  {
-    "id": "nfl:4044111",
-    "name": "Chris Oladokun",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "QB",
-    "number": 19
   },
   {
     "id": "nfl:4361370",
@@ -6132,16 +6102,6 @@
     "number": 0
   },
   {
-    "id": "nfl:3931424",
-    "name": "Demetrius Flannigan-Fowles",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Buffalo Bills",
-    "teamAbbr": "BUF",
-    "position": "LB",
-    "number": 50
-  },
-  {
     "id": "nfl:4427729",
     "name": "Demetrius Knight Jr.",
     "conference": "AFC",
@@ -7460,16 +7420,6 @@
     "teamAbbr": "NE",
     "position": "WR",
     "number": 86
-  },
-  {
-    "id": "nfl:4430825",
-    "name": "EJ Smith",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "RB",
-    "number": 35
   },
   {
     "id": "nfl:3115485",
@@ -9623,16 +9573,6 @@
     "number": 64
   },
   {
-    "id": "nfl:4575369",
-    "name": "Jacob Roberts",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "LB",
-    "number": 48
-  },
-  {
     "id": "nfl:4566094",
     "name": "Jacob Rodriguez",
     "conference": "AFC",
@@ -9821,16 +9761,6 @@
     "teamAbbr": "CHI",
     "position": "WR",
     "number": 9
-  },
-  {
-    "id": "nfl:4427408",
-    "name": "Jahfari Harvey",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "DE",
-    "number": 91
   },
   {
     "id": "nfl:3124587",
@@ -13424,16 +13354,6 @@
     "number": 36
   },
   {
-    "id": "nfl:4698114",
-    "name": "Kamar Missouri",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "OT",
-    "number": 62
-  },
-  {
     "id": "nfl:4602699",
     "name": "Kamari Lassiter",
     "conference": "AFC",
@@ -14137,11 +14057,12 @@
     "id": "nfl:4039029",
     "name": "Khalid Kareem",
     "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "LB",
-    "number": 92
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "DL",
+    "number": 92,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4699678",
@@ -14542,16 +14463,6 @@
     "teamAbbr": "SF",
     "position": "FB",
     "number": 44
-  },
-  {
-    "id": "nfl:4432333",
-    "name": "Kyle Kennard",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "LB",
-    "number": 54
   },
   {
     "id": "nfl:4880273",
@@ -18466,16 +18377,6 @@
     "number": 7
   },
   {
-    "id": "nfl:3728262",
-    "name": "Ray-Ray McCloud III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 26
-  },
-  {
     "id": "nfl:4432661",
     "name": "Rayshaun Benny",
     "conference": "AFC",
@@ -20065,16 +19966,6 @@
     "teamAbbr": "MIN",
     "position": "TE",
     "number": 87
-  },
-  {
-    "id": "nfl:5278092",
-    "name": "T.J. Maguranyanga",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Washington Commanders",
-    "teamAbbr": "WSH",
-    "position": "DE",
-    "number": 59
   },
   {
     "id": "nfl:4684527",
