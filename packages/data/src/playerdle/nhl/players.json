@@ -781,6 +781,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5188564",
+    "name": "Aram Minnetian",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 44
+  },
+  {
     "id": "nhl:4893969",
     "name": "Arber Xhekaj",
     "conference": "East",
@@ -2920,10 +2930,10 @@
   {
     "id": "nhl:4233720",
     "name": "Eeli Tolvanen",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
     "position": "RW",
     "number": 20
   },
@@ -5828,10 +5838,10 @@
   {
     "id": "nhl:4697446",
     "name": "Luke Evangelista",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
     "position": "RW",
     "number": 77
   },
