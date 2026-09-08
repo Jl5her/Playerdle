@@ -126,6 +126,20 @@
     "str": 80
   },
   {
+    "id": "nfl:3043275",
+    "name": "Austin Hooper",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "TE",
+    "number": 81,
+    "ovr": 74,
+    "spd": 84,
+    "awr": 80,
+    "str": 73
+  },
+  {
     "id": "nfl:3052587",
     "name": "Baker Mayfield",
     "conference": "NFC",
@@ -378,20 +392,6 @@
     "str": 77
   },
   {
-    "id": "nfl:4431611",
-    "name": "Caleb Williams",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "QB",
-    "number": 18,
-    "ovr": 90,
-    "spd": 91,
-    "awr": 85,
-    "str": 65
-  },
-  {
     "id": "nfl:4243389",
     "name": "Calvin Austin III",
     "conference": "NFC",
@@ -588,34 +588,6 @@
     "str": 73
   },
   {
-    "id": "nfl:4258595",
-    "name": "Cole Kmet",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 85,
-    "ovr": 78,
-    "spd": 85,
-    "awr": 78,
-    "str": 76
-  },
-  {
-    "id": "nfl:4723086",
-    "name": "Colston Loveland",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 84,
-    "ovr": 84,
-    "spd": 86,
-    "awr": 85,
-    "str": 78
-  },
-  {
     "id": "nfl:2977187",
     "name": "Cooper Kupp",
     "conference": "NFC",
@@ -642,20 +614,6 @@
     "spd": 90,
     "awr": 92,
     "str": 75
-  },
-  {
-    "id": "nfl:4259545",
-    "name": "D'Andre Swift",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 4,
-    "ovr": 85,
-    "spd": 90,
-    "awr": 92,
-    "str": 68
   },
   {
     "id": "nfl:2577417",
@@ -740,20 +698,6 @@
     "spd": 87,
     "awr": 79,
     "str": 67
-  },
-  {
-    "id": "nfl:3916945",
-    "name": "Darius Slayton",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 18,
-    "ovr": 78,
-    "spd": 93,
-    "awr": 85,
-    "str": 57
   },
   {
     "id": "nfl:4040655",
@@ -1736,6 +1680,20 @@
     "str": 78
   },
   {
+    "id": "nfl:4880281",
+    "name": "Jordyn Tyson",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "WR",
+    "number": 0,
+    "ovr": 76,
+    "spd": 90,
+    "awr": 71,
+    "str": 73
+  },
+  {
     "id": "nfl:3918298",
     "name": "Josh Allen",
     "conference": "AFC",
@@ -1834,6 +1792,20 @@
     "str": 69
   },
   {
+    "id": "nfl:4696044",
+    "name": "Kaelon Black",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "RB",
+    "number": 26,
+    "ovr": 72,
+    "spd": 91,
+    "awr": 72,
+    "str": 79
+  },
+  {
     "id": "nfl:4819231",
     "name": "Kaleb Johnson",
     "conference": "NFC",
@@ -1847,6 +1819,20 @@
     "spd": 88,
     "awr": 65,
     "str": 76
+  },
+  {
+    "id": "nfl:3676833",
+    "name": "KaVontae Turpin",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "WR",
+    "number": 9,
+    "ovr": 76,
+    "spd": 97,
+    "awr": 80,
+    "str": 48
   },
   {
     "id": "nfl:4429022",
@@ -1975,20 +1961,6 @@
     "str": 52
   },
   {
-    "id": "nfl:4608686",
-    "name": "Kyle Monangai",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 25,
-    "ovr": 78,
-    "spd": 86,
-    "awr": 78,
-    "str": 77
-  },
-  {
     "id": "nfl:4360248",
     "name": "Kyle Pitts Sr.",
     "conference": "NFC",
@@ -2059,20 +2031,6 @@
     "str": 63
   },
   {
-    "id": "nfl:4685278",
-    "name": "Luther Burden III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 10,
-    "ovr": 79,
-    "spd": 92,
-    "awr": 77,
-    "str": 69
-  },
-  {
     "id": "nfl:4241464",
     "name": "Mac Jones",
     "conference": "NFC",
@@ -2085,6 +2043,20 @@
     "spd": 84,
     "awr": 78,
     "str": 60
+  },
+  {
+    "id": "nfl:2991662",
+    "name": "Mack Hollins",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "WR",
+    "number": 13,
+    "ovr": 76,
+    "spd": 90,
+    "awr": 83,
+    "str": 73
   },
   {
     "id": "nfl:4240603",
@@ -2155,6 +2127,20 @@
     "spd": 87,
     "awr": 93,
     "str": 81
+  },
+  {
+    "id": "nfl:4429023",
+    "name": "MarShawn Lloyd",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "RB",
+    "number": 32,
+    "ovr": 72,
+    "spd": 90,
+    "awr": 73,
+    "str": 73
   },
   {
     "id": "nfl:4686472",
@@ -2309,6 +2295,20 @@
     "spd": 90,
     "awr": 75,
     "str": 78
+  },
+  {
+    "id": "nfl:4595342",
+    "name": "Oronde Gadsden",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "TE",
+    "number": 86,
+    "ovr": 75,
+    "spd": 86,
+    "awr": 79,
+    "str": 73
   },
   {
     "id": "nfl:4432620",
@@ -2519,20 +2519,6 @@
     "spd": 92,
     "awr": 80,
     "str": 73
-  },
-  {
-    "id": "nfl:4431299",
-    "name": "Rome Odunze",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 15,
-    "ovr": 82,
-    "spd": 91,
-    "awr": 86,
-    "str": 65
   },
   {
     "id": "nfl:4361432",

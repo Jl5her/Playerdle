@@ -1390,16 +1390,6 @@
     "number": 64
   },
   {
-    "id": "nfl:4683553",
-    "name": "Austin Booker",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 94
-  },
-  {
     "id": "nfl:4690999",
     "name": "Austin Brinkman",
     "conference": "AFC",
@@ -1628,26 +1618,6 @@
     "teamAbbr": "TB",
     "position": "TE",
     "number": 84
-  },
-  {
-    "id": "nfl:4363052",
-    "name": "Beanie Bishop Jr.",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 25
-  },
-  {
-    "id": "nfl:4696723",
-    "name": "Beau Gardner",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LS",
-    "number": 45
   },
   {
     "id": "nfl:4592823",
@@ -2330,14 +2300,14 @@
     "number": 87
   },
   {
-    "id": "nfl:4251007",
-    "name": "Braxton Jones",
+    "id": "nfl:4360290",
+    "name": "Brayden Willis",
     "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "OT",
-    "number": 70
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "TE",
+    "number": 9
   },
   {
     "id": "nfl:4427366",
@@ -2538,16 +2508,6 @@
     "teamAbbr": "HOU",
     "position": "RB",
     "number": 44
-  },
-  {
-    "id": "nfl:4036032",
-    "name": "Brittain Brown",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 38
   },
   {
     "id": "nfl:4432665",
@@ -2920,16 +2880,6 @@
     "number": 8
   },
   {
-    "id": "nfl:4709983",
-    "name": "Caden Barnett",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 76
-  },
-  {
     "id": "nfl:4685324",
     "name": "Caden Curry",
     "conference": "AFC",
@@ -2938,6 +2888,16 @@
     "teamAbbr": "IND",
     "position": "LB",
     "number": 55
+  },
+  {
+    "id": "nfl:4683096",
+    "name": "Caden Fordham",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Tampa Bay Buccaneers",
+    "teamAbbr": "TB",
+    "position": "LB",
+    "number": 46
   },
   {
     "id": "nfl:4426446",
@@ -2958,16 +2918,6 @@
     "teamAbbr": "DAL",
     "position": "CB",
     "number": 21
-  },
-  {
-    "id": "nfl:17427",
-    "name": "Cairo Santos",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "PK",
-    "number": 8
   },
   {
     "id": "nfl:11284",
@@ -3058,16 +3008,6 @@
     "teamAbbr": "MIN",
     "position": "OT",
     "number": 78
-  },
-  {
-    "id": "nfl:4431611",
-    "name": "Caleb Williams",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "QB",
-    "number": 18
   },
   {
     "id": "nfl:4431517",
@@ -3186,16 +3126,6 @@
     "division": "NFC West",
     "team": "Los Angeles Rams",
     "teamAbbr": "LAR",
-    "position": "CB",
-    "number": 21
-  },
-  {
-    "id": "nfl:3916577",
-    "name": "Cam Lewis",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
     "position": "CB",
     "number": 21
   },
@@ -3490,16 +3420,6 @@
     "number": 11
   },
   {
-    "id": "nfl:4362260",
-    "name": "Carter Bradley",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Jacksonville Jaguars",
-    "teamAbbr": "JAX",
-    "position": "QB",
-    "number": 10
-  },
-  {
     "id": "nfl:5155825",
     "name": "Carter Runyon",
     "conference": "AFC",
@@ -3518,16 +3438,6 @@
     "teamAbbr": "SF",
     "position": "OT",
     "number": 74
-  },
-  {
-    "id": "nfl:15168",
-    "name": "Case Keenum",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "QB",
-    "number": 11
   },
   {
     "id": "nfl:4428796",
@@ -4370,17 +4280,6 @@
     "number": 18
   },
   {
-    "id": "nfl:4429067",
-    "name": "Clark Phillips III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 22,
-    "numberBackfilled": true
-  },
-  {
     "id": "nfl:4256224",
     "name": "Claudin Cherelus",
     "conference": "NFC",
@@ -4408,16 +4307,6 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "CB",
-    "number": 2
-  },
-  {
-    "id": "nfl:4239094",
-    "name": "Coby Bryant",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
     "number": 2
   },
   {
@@ -4521,16 +4410,6 @@
     "number": 55
   },
   {
-    "id": "nfl:4258595",
-    "name": "Cole Kmet",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 85
-  },
-  {
     "id": "nfl:4879250",
     "name": "Cole Payton",
     "conference": "NFC",
@@ -4581,16 +4460,6 @@
     "number": 21
   },
   {
-    "id": "nfl:4578436",
-    "name": "Coleman Owen",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "WR",
-    "number": 9
-  },
-  {
     "id": "nfl:3052180",
     "name": "Coleman Shelton",
     "conference": "NFC",
@@ -4629,16 +4498,6 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 80
-  },
-  {
-    "id": "nfl:4723086",
-    "name": "Colston Loveland",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 84
   },
   {
     "id": "nfl:4921249",
@@ -4952,16 +4811,6 @@
     "number": 4
   },
   {
-    "id": "nfl:4259545",
-    "name": "D'Andre Swift",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 4
-  },
-  {
     "id": "nfl:5118340",
     "name": "D'Angelo Ponds",
     "conference": "AFC",
@@ -5000,16 +4849,6 @@
     "teamAbbr": "KC",
     "position": "CB",
     "number": 19
-  },
-  {
-    "id": "nfl:4241007",
-    "name": "D'Marco Jackson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 48
   },
   {
     "id": "nfl:3126352",
@@ -5110,16 +4949,6 @@
     "teamAbbr": "DEN",
     "position": "TE",
     "number": 89
-  },
-  {
-    "id": "nfl:4917592",
-    "name": "Dallis Flowers",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 37
   },
   {
     "id": "nfl:4426972",
@@ -5342,16 +5171,6 @@
     "number": 68
   },
   {
-    "id": "nfl:4365629",
-    "name": "Daniel Hardy",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 92
-  },
-  {
     "id": "nfl:3917792",
     "name": "Daniel Jones",
     "conference": "AFC",
@@ -5542,16 +5361,6 @@
     "number": 29
   },
   {
-    "id": "nfl:3916945",
-    "name": "Darius Slayton",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 18
-  },
-  {
     "id": "nfl:4242973",
     "name": "Darnay Holmes",
     "conference": "NFC",
@@ -5580,16 +5389,6 @@
     "teamAbbr": "PIT",
     "position": "TE",
     "number": 80
-  },
-  {
-    "id": "nfl:4426358",
-    "name": "Darnell Wright",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "OT",
-    "number": 58
   },
   {
     "id": "nfl:4248911",
@@ -5882,16 +5681,6 @@
     "number": 23
   },
   {
-    "id": "nfl:4242659",
-    "name": "Dayo Odeyingbo",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 55
-  },
-  {
     "id": "nfl:4429160",
     "name": "De'Von Achane",
     "conference": "AFC",
@@ -5950,16 +5739,6 @@
     "teamAbbr": "ATL",
     "position": "LB",
     "number": 50
-  },
-  {
-    "id": "nfl:4428283",
-    "name": "Deantre Prince",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 37
   },
   {
     "id": "nfl:2980080",
@@ -6392,16 +6171,6 @@
     "number": 83
   },
   {
-    "id": "nfl:4036261",
-    "name": "Devin Bush",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 12
-  },
-  {
     "id": "nfl:4035270",
     "name": "Devin Cochran",
     "conference": "NFC",
@@ -6410,16 +6179,6 @@
     "teamAbbr": "DET",
     "position": "OT",
     "number": 77
-  },
-  {
-    "id": "nfl:4607937",
-    "name": "Devin Lafayette",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "S",
-    "number": 40
   },
   {
     "id": "nfl:4243256",
@@ -6600,16 +6359,6 @@
     "teamAbbr": "NO",
     "position": "G",
     "number": 77
-  },
-  {
-    "id": "nfl:4954445",
-    "name": "Dillon Thieneman",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 31
   },
   {
     "id": "nfl:4581189",
@@ -6930,16 +6679,6 @@
     "teamAbbr": "LV",
     "position": "WR",
     "number": 10
-  },
-  {
-    "id": "nfl:4430805",
-    "name": "Dontae Manning",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 27
   },
   {
     "id": "nfl:4428850",
@@ -7510,16 +7249,6 @@
     "teamAbbr": "CLE",
     "position": "DT",
     "number": 62
-  },
-  {
-    "id": "nfl:4242402",
-    "name": "Elijah Hicks",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 22
   },
   {
     "id": "nfl:4243328",
@@ -8212,16 +7941,6 @@
     "number": 49
   },
   {
-    "id": "nfl:3116729",
-    "name": "Garrett Bradbury",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "C",
-    "number": 67
-  },
-  {
     "id": "nfl:4431252",
     "name": "Garrett Dellinger",
     "conference": "AFC",
@@ -8270,26 +7989,6 @@
     "teamAbbr": "NYJ",
     "position": "WR",
     "number": 5
-  },
-  {
-    "id": "nfl:3916071",
-    "name": "Gary Jennings",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "WR",
-    "number": 87
-  },
-  {
-    "id": "nfl:4431390",
-    "name": "Gary Smith III",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "DT",
-    "number": 75
   },
   {
     "id": "nfl:4708049",
@@ -8491,16 +8190,6 @@
     "teamAbbr": "SF",
     "position": "DT",
     "number": 93
-  },
-  {
-    "id": "nfl:2576492",
-    "name": "Grady Jarrett",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 50
   },
   {
     "id": "nfl:4429251",
@@ -8751,16 +8440,6 @@
     "teamAbbr": "NE",
     "position": "RB",
     "number": 26
-  },
-  {
-    "id": "nfl:5150662",
-    "name": "Hayden Large",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 43
   },
   {
     "id": "nfl:4428993",
@@ -9113,6 +8792,16 @@
     "number": 67
   },
   {
+    "id": "nfl:4574105",
+    "name": "Isas Waxter",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "CB",
+    "number": 37
+  },
+  {
     "id": "nfl:4361529",
     "name": "Isiah Pacheco",
     "conference": "NFC",
@@ -9273,6 +8962,16 @@
     "number": 0
   },
   {
+    "id": "nfl:4432545",
+    "name": "Jabari Small",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "RB",
+    "number": 26
+  },
+  {
     "id": "nfl:4432440",
     "name": "Jabbar Muhammad",
     "conference": "AFC",
@@ -9401,16 +9100,6 @@
     "teamAbbr": "JAX",
     "position": "LB",
     "number": 54
-  },
-  {
-    "id": "nfl:4372576",
-    "name": "Jack Sanborn",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 57
   },
   {
     "id": "nfl:4431590",
@@ -9761,16 +9450,6 @@
     "teamAbbr": "DEN",
     "position": "CB",
     "number": 23
-  },
-  {
-    "id": "nfl:5160110",
-    "name": "Jahdae Walker",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 9
   },
   {
     "id": "nfl:3124587",
@@ -10443,16 +10122,6 @@
     "number": 41
   },
   {
-    "id": "nfl:4259181",
-    "name": "James Lynch",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 97
-  },
-  {
     "id": "nfl:5081880",
     "name": "James Neal III",
     "conference": "AFC",
@@ -10541,16 +10210,6 @@
     "teamAbbr": "ATL",
     "position": "S",
     "number": 34
-  },
-  {
-    "id": "nfl:4372463",
-    "name": "Jamree Kromah",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 59
   },
   {
     "id": "nfl:4570044",
@@ -10943,16 +10602,6 @@
     "number": 81
   },
   {
-    "id": "nfl:4877376",
-    "name": "Jayden Loving",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 91
-  },
-  {
     "id": "nfl:4383391",
     "name": "Jayden Price",
     "conference": "NFC",
@@ -11121,26 +10770,6 @@
     "teamAbbr": "IND",
     "position": "LB",
     "number": 57
-  },
-  {
-    "id": "nfl:4243253",
-    "name": "Jaylon Johnson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 1
-  },
-  {
-    "id": "nfl:4047655",
-    "name": "Jaylon Jones",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 33
   },
   {
     "id": "nfl:4685145",
@@ -11390,16 +11019,6 @@
     "team": "Las Vegas Raiders",
     "teamAbbr": "LV",
     "position": "CB",
-    "number": 28
-  },
-  {
-    "id": "nfl:4570084",
-    "name": "Jerrick Reed II",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "S",
     "number": 28
   },
   {
@@ -11673,16 +11292,6 @@
     "number": 18
   },
   {
-    "id": "nfl:2577773",
-    "name": "Joe Thuney",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 62
-  },
-  {
     "id": "nfl:4428681",
     "name": "Joe Tippmann",
     "conference": "AFC",
@@ -11923,16 +11532,6 @@
     "number": 52
   },
   {
-    "id": "nfl:3930040",
-    "name": "Jonah Jackson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 73
-  },
-  {
     "id": "nfl:4373956",
     "name": "Jonah Laulu",
     "conference": "AFC",
@@ -12001,16 +11600,6 @@
     "teamAbbr": "GB",
     "position": "DT",
     "number": 64
-  },
-  {
-    "id": "nfl:4240655",
-    "name": "Jonathan Garvin",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 52
   },
   {
     "id": "nfl:3916409",
@@ -12243,16 +11832,6 @@
     "number": 27
   },
   {
-    "id": "nfl:4360319",
-    "name": "Jordan McFadden",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 74
-  },
-  {
     "id": "nfl:4076803",
     "name": "Jordan Meredith",
     "conference": "AFC",
@@ -12311,16 +11890,6 @@
     "teamAbbr": "DEN",
     "position": "LB",
     "number": 55
-  },
-  {
-    "id": "nfl:4875381",
-    "name": "Jordan van den Berg",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 96
   },
   {
     "id": "nfl:4428803",
@@ -12411,16 +11980,6 @@
     "teamAbbr": "BUF",
     "position": "QB",
     "number": 17
-  },
-  {
-    "id": "nfl:4240459",
-    "name": "Josh Blackwell",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 39
   },
   {
     "id": "nfl:4879194",
@@ -12793,16 +12352,6 @@
     "number": 91
   },
   {
-    "id": "nfl:4685183",
-    "name": "JP Richardson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 83
-  },
-  {
     "id": "nfl:4869533",
     "name": "Jude Bowry",
     "conference": "AFC",
@@ -13153,16 +12702,6 @@
     "number": 15
   },
   {
-    "id": "nfl:5065495",
-    "name": "Kaden Davis",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 27
-  },
-  {
     "id": "nfl:3124890",
     "name": "Kaden Elliss",
     "conference": "NFC",
@@ -13221,16 +12760,6 @@
     "teamAbbr": "DEN",
     "position": "OT",
     "number": 78
-  },
-  {
-    "id": "nfl:4373814",
-    "name": "Kahlef Hailassie",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "S",
-    "number": 25
   },
   {
     "id": "nfl:4566190",
@@ -13322,16 +12851,6 @@
     "teamAbbr": "CLE",
     "position": "DT",
     "number": 93
-  },
-  {
-    "id": "nfl:2973405",
-    "name": "Kalif Raymond",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 14
   },
   {
     "id": "nfl:4242154",
@@ -13814,6 +13333,16 @@
     "number": 97
   },
   {
+    "id": "nfl:4574008",
+    "name": "Kenny Dyson Jr.",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "LB",
+    "number": 54
+  },
+  {
     "id": "nfl:4371733",
     "name": "Kenny Gainwell",
     "conference": "NFC",
@@ -13832,16 +13361,6 @@
     "teamAbbr": "CAR",
     "position": "QB",
     "number": 12
-  },
-  {
-    "id": "nfl:3116726",
-    "name": "Kentavius Street",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 93
   },
   {
     "id": "nfl:4430992",
@@ -14012,16 +13531,6 @@
     "teamAbbr": "LV",
     "position": "DE",
     "number": 42
-  },
-  {
-    "id": "nfl:4911952",
-    "name": "Keyshaun Elliott",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 49
   },
   {
     "id": "nfl:5165139",
@@ -14425,16 +13934,6 @@
     "number": 14
   },
   {
-    "id": "nfl:4384683",
-    "name": "Kyle Hergel",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 60
-  },
-  {
     "id": "nfl:4682831",
     "name": "Kyle Hinton",
     "conference": "NFC",
@@ -14476,16 +13975,6 @@
     "numberBackfilled": true
   },
   {
-    "id": "nfl:4608686",
-    "name": "Kyle Monangai",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 25
-  },
-  {
     "id": "nfl:4360248",
     "name": "Kyle Pitts Sr.",
     "conference": "NFC",
@@ -14524,16 +14013,6 @@
     "teamAbbr": "PIT",
     "position": "DT",
     "number": 65
-  },
-  {
-    "id": "nfl:4361093",
-    "name": "Kyler Gordon",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 6
   },
   {
     "id": "nfl:3917315",
@@ -14956,16 +14435,6 @@
     "number": 96
   },
   {
-    "id": "nfl:4686907",
-    "name": "Logan Jones",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "C",
-    "number": 54
-  },
-  {
     "id": "nfl:4569474",
     "name": "Logan Lee",
     "conference": "AFC",
@@ -15056,16 +14525,6 @@
     "number": 2
   },
   {
-    "id": "nfl:4875296",
-    "name": "Luke Basso",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Denver Broncos",
-    "teamAbbr": "DEN",
-    "position": "LS",
-    "number": 43
-  },
-  {
     "id": "nfl:4040612",
     "name": "Luke Farrell",
     "conference": "NFC",
@@ -15136,16 +14595,6 @@
     "number": 88
   },
   {
-    "id": "nfl:4695895",
-    "name": "Luke Newman",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "OT",
-    "number": 65
-  },
-  {
     "id": "nfl:2566045",
     "name": "Luke Rhodes",
     "conference": "AFC",
@@ -15194,16 +14643,6 @@
     "teamAbbr": "CLE",
     "position": "C",
     "number": 56
-  },
-  {
-    "id": "nfl:4685278",
-    "name": "Luther Burden III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 10
   },
   {
     "id": "nfl:3116679",
@@ -15426,16 +14865,6 @@
     "number": 84
   },
   {
-    "id": "nfl:4870953",
-    "name": "Malik Muhammad",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 24
-  },
-  {
     "id": "nfl:4696211",
     "name": "Malik Mustapha",
     "conference": "NFC",
@@ -15543,16 +14972,6 @@
     "team": "New England Patriots",
     "teamAbbr": "NE",
     "position": "OT",
-    "number": 52
-  },
-  {
-    "id": "nfl:3124058",
-    "name": "Marcus Davenport",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
     "number": 52
   },
   {
@@ -15685,16 +15104,6 @@
     "teamAbbr": "DAL",
     "position": "S",
     "number": 14
-  },
-  {
-    "id": "nfl:4682641",
-    "name": "Marlen Sewell",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 36
   },
   {
     "id": "nfl:4695705",
@@ -16687,16 +16096,6 @@
     "number": 1
   },
   {
-    "id": "nfl:3134690",
-    "name": "Montez Sweat",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 98
-  },
-  {
     "id": "nfl:4600597",
     "name": "Montorie Foster Jr.",
     "conference": "NFC",
@@ -16965,26 +16364,6 @@
     "teamAbbr": "SEA",
     "position": "CB",
     "number": 28
-  },
-  {
-    "id": "nfl:4241611",
-    "name": "Nephi Sewell",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 45
-  },
-  {
-    "id": "nfl:3892883",
-    "name": "Neville Gallimore",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 90
   },
   {
     "id": "nfl:4427636",
@@ -17297,16 +16676,6 @@
     "number": 73
   },
   {
-    "id": "nfl:4916349",
-    "name": "Nikola Kalinic",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 86
-  },
-  {
     "id": "nfl:4035245",
     "name": "Nnamdi Madubuike",
     "conference": "AFC",
@@ -17335,16 +16704,6 @@
     "teamAbbr": "KC",
     "position": "TE",
     "number": 83
-  },
-  {
-    "id": "nfl:4430822",
-    "name": "Noah Sewell",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 44
   },
   {
     "id": "nfl:4718457",
@@ -17627,16 +16986,6 @@
     "number": 91
   },
   {
-    "id": "nfl:4432595",
-    "name": "Ozzy Trapilo",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "OT",
-    "number": 75
-  },
-  {
     "id": "nfl:3929850",
     "name": "P.J. Locke",
     "conference": "NFC",
@@ -17735,6 +17084,16 @@
     "teamAbbr": "DEN",
     "position": "CB",
     "number": 2
+  },
+  {
+    "id": "nfl:4693208",
+    "name": "Patrick Gurd",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "TE",
+    "number": 45
   },
   {
     "id": "nfl:4243916",
@@ -18015,16 +17374,6 @@
     "teamAbbr": "LAR",
     "position": "WR",
     "number": 12
-  },
-  {
-    "id": "nfl:4379769",
-    "name": "Qadir Ismail",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 80
   },
   {
     "id": "nfl:4360378",
@@ -18817,16 +18166,6 @@
     "number": 14
   },
   {
-    "id": "nfl:4431299",
-    "name": "Rome Odunze",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 15
-  },
-  {
     "id": "nfl:4432244",
     "name": "Romello Height",
     "conference": "NFC",
@@ -18897,16 +18236,6 @@
     "number": 0
   },
   {
-    "id": "nfl:4426386",
-    "name": "Roschon Johnson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 23
-  },
-  {
     "id": "nfl:3928931",
     "name": "Ross Matiscik",
     "conference": "AFC",
@@ -18935,16 +18264,6 @@
     "teamAbbr": "NYG",
     "position": "DT",
     "number": 95
-  },
-  {
-    "id": "nfl:4429970",
-    "name": "Ruben Hyppolite II",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 47
   },
   {
     "id": "nfl:4870617",
@@ -19107,16 +18426,6 @@
     "number": 95
   },
   {
-    "id": "nfl:4243315",
-    "name": "Salvon Ahmed",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 36
-  },
-  {
     "id": "nfl:4262199",
     "name": "Sam Cosmi",
     "conference": "NFC",
@@ -19247,16 +18556,6 @@
     "number": 91
   },
   {
-    "id": "nfl:4685504",
-    "name": "Sam Roush",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 87
-  },
-  {
     "id": "nfl:3116389",
     "name": "Samaje Perine",
     "conference": "AFC",
@@ -19335,16 +18634,6 @@
     "teamAbbr": "LAC",
     "position": "FB",
     "number": 44
-  },
-  {
-    "id": "nfl:3914397",
-    "name": "Scotty Miller",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 35
   },
   {
     "id": "nfl:4259592",
@@ -19456,6 +18745,16 @@
     "teamAbbr": "IND",
     "position": "RB",
     "number": 20
+  },
+  {
+    "id": "nfl:4429187",
+    "name": "Seth McLaughlin",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 65
   },
   {
     "id": "nfl:4714379",
@@ -19578,16 +18877,6 @@
     "number": 94
   },
   {
-    "id": "nfl:4432804",
-    "name": "Shemar Turner",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DT",
-    "number": 95
-  },
-  {
     "id": "nfl:3886601",
     "name": "Shy Tuttle",
     "conference": "NFC",
@@ -19666,16 +18955,6 @@
     "teamAbbr": "DET",
     "position": "DT",
     "number": 50
-  },
-  {
-    "id": "nfl:4879561",
-    "name": "Skyler Thomas",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 38
   },
   {
     "id": "nfl:4430191",
@@ -19798,16 +19077,6 @@
     "number": 3
   },
   {
-    "id": "nfl:3948283",
-    "name": "Stephen Carlson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 88
-  },
-  {
     "id": "nfl:4432215",
     "name": "Stephen Gosnell",
     "conference": "AFC",
@@ -19916,16 +19185,6 @@
     "teamAbbr": "JAX",
     "position": "DT",
     "number": 94
-  },
-  {
-    "id": "nfl:3121544",
-    "name": "T.J. Edwards",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 53
   },
   {
     "id": "nfl:4036133",
@@ -20428,16 +19687,6 @@
     "number": 39
   },
   {
-    "id": "nfl:5125873",
-    "name": "Theo Benedet",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "OT",
-    "number": 79
-  },
-  {
     "id": "nfl:4242436",
     "name": "Theo Jackson",
     "conference": "NFC",
@@ -20708,16 +19957,6 @@
     "number": 38
   },
   {
-    "id": "nfl:4245655",
-    "name": "Tony Fields II",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 43
-  },
-  {
     "id": "nfl:16195",
     "name": "Tony Jefferson",
     "conference": "AFC",
@@ -20746,16 +19985,6 @@
     "teamAbbr": "SEA",
     "position": "WR",
     "number": 15
-  },
-  {
-    "id": "nfl:4686889",
-    "name": "Tory Taylor",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "P",
-    "number": 19
   },
   {
     "id": "nfl:4427207",
@@ -21758,16 +20987,6 @@
     "number": 52
   },
   {
-    "id": "nfl:4889957",
-    "name": "Tyreak Sapp",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "DE",
-    "number": 64
-  },
-  {
     "id": "nfl:4372533",
     "name": "Tyree Wilson",
     "conference": "NFC",
@@ -21828,16 +21047,6 @@
     "number": 90
   },
   {
-    "id": "nfl:4426374",
-    "name": "Tyrique Stevenson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "CB",
-    "number": 29
-  },
-  {
     "id": "nfl:14163",
     "name": "Tyrod Taylor",
     "conference": "NFC",
@@ -21866,16 +21075,6 @@
     "teamAbbr": "DAL",
     "position": "LB",
     "number": 90
-  },
-  {
-    "id": "nfl:4434153",
-    "name": "Tyson Bagent",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "QB",
-    "number": 17
   },
   {
     "id": "nfl:4379397",
@@ -21936,6 +21135,16 @@
     "teamAbbr": "SF",
     "position": "CB",
     "number": 20
+  },
+  {
+    "id": "nfl:3930066",
+    "name": "Van Jefferson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "WR",
+    "number": 12
   },
   {
     "id": "nfl:4240554",
@@ -22076,16 +21285,6 @@
     "teamAbbr": "LAR",
     "position": "OT",
     "number": 71
-  },
-  {
-    "id": "nfl:4684963",
-    "name": "Wayne Matthews III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LB",
-    "number": 35
   },
   {
     "id": "nfl:4690083",
@@ -22438,26 +21637,6 @@
     "number": 31
   },
   {
-    "id": "nfl:5164887",
-    "name": "Xavier Williams",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Tampa Bay Buccaneers",
-    "teamAbbr": "TB",
-    "position": "S",
-    "number": 26
-  },
-  {
-    "id": "nfl:3040572",
-    "name": "Xavier Woods",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 23
-  },
-  {
     "id": "nfl:4683062",
     "name": "Xavier Worthy",
     "conference": "AFC",
@@ -22676,16 +21855,6 @@
     "teamAbbr": "BUF",
     "position": "DT",
     "number": 92
-  },
-  {
-    "id": "nfl:4869748",
-    "name": "Zavion Thomas",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 81
   },
   {
     "id": "nfl:4429615",

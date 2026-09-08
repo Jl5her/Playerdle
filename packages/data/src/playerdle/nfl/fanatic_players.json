@@ -480,6 +480,22 @@
     "tdPerGame": 0.06
   },
   {
+    "id": "nfl:4360290",
+    "name": "Brayden Willis",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "TE",
+    "number": 9,
+    "gp": 6,
+    "fppg": 0,
+    "tgtPerGame": 0.2,
+    "recPerGame": 0,
+    "ydsPerGame": 0,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4427366",
     "name": "Breece Hall",
     "conference": "AFC",
@@ -1040,22 +1056,6 @@
     "tdPerGame": 0.53
   },
   {
-    "id": "nfl:4258595",
-    "name": "Cole Kmet",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 85,
-    "gp": 16,
-    "fppg": 4,
-    "tgtPerGame": 3,
-    "recPerGame": 1.9,
-    "ydsPerGame": 21.7,
-    "tdPerGame": 0.13
-  },
-  {
     "id": "nfl:4361088",
     "name": "Colson Yankoff",
     "conference": "NFC",
@@ -1070,22 +1070,6 @@
     "recPerGame": 0.1,
     "ydsPerGame": 1.3,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4723086",
-    "name": "Colston Loveland",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "TE",
-    "number": 84,
-    "gp": 16,
-    "fppg": 8.5,
-    "tgtPerGame": 5.1,
-    "recPerGame": 3.6,
-    "ydsPerGame": 44.4,
-    "tdPerGame": 0.38
   },
   {
     "id": "nfl:2977187",
@@ -1134,22 +1118,6 @@
     "recPerGame": 0,
     "ydsPerGame": 0.7,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4259545",
-    "name": "D'Andre Swift",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 4,
-    "gp": 16,
-    "fppg": 13.2,
-    "tgtPerGame": 3,
-    "recPerGame": 2.1,
-    "ydsPerGame": 86.6,
-    "tdPerGame": 0.63
   },
   {
     "id": "nfl:4570296",
@@ -1278,22 +1246,6 @@
     "recPerGame": 0.7,
     "ydsPerGame": 7.1,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:3916945",
-    "name": "Darius Slayton",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 18,
-    "gp": 14,
-    "fppg": 5.7,
-    "tgtPerGame": 4.5,
-    "recPerGame": 2.6,
-    "ydsPerGame": 38.4,
-    "tdPerGame": 0.07
   },
   {
     "id": "nfl:4040655",
@@ -2464,22 +2416,6 @@
     "tdPerGame": 0.06
   },
   {
-    "id": "nfl:5160110",
-    "name": "Jahdae Walker",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 9,
-    "gp": 7,
-    "fppg": 3.4,
-    "tgtPerGame": 1.4,
-    "recPerGame": 0.9,
-    "ydsPerGame": 12.4,
-    "tdPerGame": 0.29
-  },
-  {
     "id": "nfl:4429795",
     "name": "Jahmyr Gibbs",
     "conference": "NFC",
@@ -3233,22 +3169,6 @@
     "tdPerGame": 0
   },
   {
-    "id": "nfl:2973405",
-    "name": "Kalif Raymond",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 14,
-    "gp": 15,
-    "fppg": 3.7,
-    "tgtPerGame": 2,
-    "recPerGame": 1.6,
-    "ydsPerGame": 20.5,
-    "tdPerGame": 0.07
-  },
-  {
     "id": "nfl:5097554",
     "name": "Kameron Johnson",
     "conference": "NFC",
@@ -3521,22 +3441,6 @@
     "tdPerGame": 0.06
   },
   {
-    "id": "nfl:4608686",
-    "name": "Kyle Monangai",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 25,
-    "gp": 17,
-    "fppg": 8.1,
-    "tgtPerGame": 1.8,
-    "recPerGame": 1.1,
-    "ydsPerGame": 55.7,
-    "tdPerGame": 0.29
-  },
-  {
     "id": "nfl:4360248",
     "name": "Kyle Pitts Sr.",
     "conference": "NFC",
@@ -3743,22 +3647,6 @@
     "recPerGame": 0.8,
     "ydsPerGame": 7.8,
     "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4685278",
-    "name": "Luther Burden III",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 10,
-    "gp": 15,
-    "fppg": 7,
-    "tgtPerGame": 4,
-    "recPerGame": 3.1,
-    "ydsPerGame": 45.9,
-    "tdPerGame": 0.13
   },
   {
     "id": "nfl:2991662",
@@ -4561,22 +4449,6 @@
     "tdPerGame": 0.14
   },
   {
-    "id": "nfl:4431299",
-    "name": "Rome Odunze",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 15,
-    "gp": 12,
-    "fppg": 10.3,
-    "tgtPerGame": 7.5,
-    "recPerGame": 3.7,
-    "ydsPerGame": 55.1,
-    "tdPerGame": 0.5
-  },
-  {
     "id": "nfl:4361432",
     "name": "Romeo Doubs",
     "conference": "AFC",
@@ -4606,22 +4478,6 @@
     "tgtPerGame": 0,
     "recPerGame": 0,
     "ydsPerGame": 6.6,
-    "tdPerGame": 0
-  },
-  {
-    "id": "nfl:4426386",
-    "name": "Roschon Johnson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "RB",
-    "number": 23,
-    "gp": 6,
-    "fppg": 0.3,
-    "tgtPerGame": 0,
-    "recPerGame": 0,
-    "ydsPerGame": 2.8,
     "tdPerGame": 0
   },
   {
@@ -4719,22 +4575,6 @@
     "recPerGame": 0.8,
     "ydsPerGame": 9.6,
     "tdPerGame": 0.08
-  },
-  {
-    "id": "nfl:3914397",
-    "name": "Scotty Miller",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "WR",
-    "number": 35,
-    "gp": 13,
-    "fppg": 0.8,
-    "tgtPerGame": 1.1,
-    "recPerGame": 0.7,
-    "ydsPerGame": 4.8,
-    "tdPerGame": 0
   },
   {
     "id": "nfl:4430871",
@@ -5439,6 +5279,22 @@
     "recPerGame": 2.4,
     "ydsPerGame": 68.5,
     "tdPerGame": 0.27
+  },
+  {
+    "id": "nfl:3930066",
+    "name": "Van Jefferson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "WR",
+    "number": 12,
+    "gp": 16,
+    "fppg": 3.5,
+    "tgtPerGame": 3.3,
+    "recPerGame": 1.8,
+    "ydsPerGame": 21.9,
+    "tdPerGame": 0.06
   },
   {
     "id": "nfl:4035693",
