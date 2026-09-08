@@ -1,5 +1,23 @@
 [
   {
+    "id": "mlb:33192",
+    "name": "Aaron Judge",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "RF",
+    "number": 99,
+    "league": "AL",
+    "gp": 152,
+    "pa": 679,
+    "avg": 0.331,
+    "hr": 53,
+    "rbi": 114,
+    "sb": 12,
+    "ops": 1.144
+  },
+  {
     "id": "mlb:5132014",
     "name": "Agustin Ramirez",
     "conference": "NL",
@@ -1152,24 +1170,6 @@
     "ops": 0.687
   },
   {
-    "id": "mlb:40719",
-    "name": "Jake Meyers",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "CF",
-    "number": 6,
-    "league": "AL",
-    "gp": 104,
-    "pa": 381,
-    "avg": 0.292,
-    "hr": 3,
-    "rbi": 24,
-    "sb": 16,
-    "ops": 0.727
-  },
-  {
     "id": "mlb:39900",
     "name": "Jake Rogers",
     "conference": "AL",
@@ -1422,6 +1422,24 @@
     "ops": 0.846
   },
   {
+    "id": "mlb:35020",
+    "name": "Ke'Bryan Hayes",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "3B",
+    "number": 3,
+    "league": "NL",
+    "gp": 52,
+    "pa": 178,
+    "avg": 0.234,
+    "hr": 3,
+    "rbi": 13,
+    "sb": 2,
+    "ops": 0.656
+  },
+  {
     "id": "mlb:33287",
     "name": "Kyle Farmer",
     "conference": "NL",
@@ -1438,6 +1456,24 @@
     "rbi": 31,
     "sb": 0,
     "ops": 0.645
+  },
+  {
+    "id": "mlb:5203102",
+    "name": "Kyle Karros",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "3B",
+    "number": 12,
+    "league": "NL",
+    "gp": 43,
+    "pa": 156,
+    "avg": 0.226,
+    "hr": 1,
+    "rbi": 9,
+    "sb": 0,
+    "ops": 0.585
   },
   {
     "id": "mlb:42536",
@@ -2086,24 +2122,6 @@
     "rbi": 47,
     "sb": 1,
     "ops": 0.752
-  },
-  {
-    "id": "mlb:5196606",
-    "name": "Ryan Ritter",
-    "conference": "NL",
-    "division": "West",
-    "team": "Colorado Rockies",
-    "teamAbbr": "COL",
-    "position": "SS",
-    "number": 8,
-    "league": "NL",
-    "gp": 60,
-    "pa": 207,
-    "avg": 0.241,
-    "hr": 1,
-    "rbi": 18,
-    "sb": 3,
-    "ops": 0.632
   },
   {
     "id": "mlb:31127",
