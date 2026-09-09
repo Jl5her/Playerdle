@@ -924,6 +924,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4228247",
+    "name": "Brandon Eisert",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "RP",
+    "number": 14,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39961",
     "name": "Brandon Lowe",
     "conference": "NL",
@@ -1164,6 +1175,17 @@
     "position": "LF",
     "number": 34,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5133869",
+    "name": "Brett Harris",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "3B",
+    "number": 29,
+    "league": "NL"
   },
   {
     "id": "mlb:39913",
@@ -1760,17 +1782,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5012056",
-    "name": "Cesar Prieto",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "3B",
-    "number": 31,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5131708",
     "name": "Chad Patrick",
     "conference": "NL",
@@ -2230,6 +2241,17 @@
     "teamAbbr": "MIL",
     "position": "SS",
     "number": 12,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:39878",
+    "name": "Corbin Burnes",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "SP",
+    "number": 39,
     "league": "NL"
   },
   {
@@ -3432,17 +3454,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41357",
-    "name": "Gerardo Carrillo",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "RP",
-    "number": 68,
-    "league": "NL"
-  },
-  {
     "id": "mlb:32081",
     "name": "Gerrit Cole",
     "conference": "AL",
@@ -3751,6 +3762,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:36088",
+    "name": "Hoby Milner",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RP",
+    "number": 41,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41364",
     "name": "Hogan Harris",
     "conference": "AL",
@@ -3848,17 +3870,6 @@
     "position": "LF",
     "number": 1,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42063",
-    "name": "Isaac Mattson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 72,
-    "league": "NL"
   },
   {
     "id": "mlb:39706",
@@ -4847,7 +4858,7 @@
     "team": "Houston Astros",
     "teamAbbr": "HOU",
     "position": "CF",
-    "number": 1,
+    "number": 14,
     "league": "AL"
   },
   {
@@ -4893,17 +4904,6 @@
     "position": "SS",
     "number": 72,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5270084",
-    "name": "Jose Cabrera",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "SP",
-    "number": 53,
-    "league": "NL"
   },
   {
     "id": "mlb:35432",
@@ -5278,6 +5278,17 @@
     "position": "SP",
     "number": 13,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5125912",
+    "name": "Kade Strowd",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "RP",
+    "number": 24,
+    "league": "NL"
   },
   {
     "id": "mlb:4935268",
@@ -6094,6 +6105,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4683365",
+    "name": "Masyn Winn",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "SS",
+    "number": 0,
+    "league": "NL"
+  },
+  {
     "id": "mlb:39871",
     "name": "Matt Festa",
     "conference": "AL",
@@ -6135,17 +6157,6 @@
     "teamAbbr": "CHC",
     "position": "RF",
     "number": 6,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4020158",
-    "name": "Matt Waldron",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "RP",
-    "number": 56,
     "league": "NL"
   },
   {
@@ -6562,7 +6573,7 @@
     "division": "East",
     "team": "Boston Red Sox",
     "teamAbbr": "BOS",
-    "position": "RF",
+    "position": "LF",
     "number": 18,
     "league": "AL"
   },
@@ -6707,6 +6718,17 @@
     "teamAbbr": "KC",
     "position": "3B",
     "number": 12,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:41170",
+    "name": "Nick Madrigal",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "3B",
+    "number": 20,
     "league": "AL"
   },
   {
@@ -8107,17 +8129,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:40576",
-    "name": "Taylor Walls",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SS",
-    "number": 6,
-    "league": "AL"
-  },
-  {
     "id": "mlb:34923",
     "name": "Taylor Ward",
     "conference": "AL",
@@ -8470,17 +8481,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5131856",
-    "name": "Troy Taylor",
-    "conference": "AL",
-    "division": "West",
-    "team": "Seattle Mariners",
-    "teamAbbr": "SEA",
-    "position": "RP",
-    "number": 59,
-    "league": "AL"
-  },
-  {
     "id": "mlb:5207758",
     "name": "Turner Hill",
     "conference": "NL",
@@ -8720,6 +8720,17 @@
     "teamAbbr": "TB",
     "position": "RF",
     "number": 25,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:35042",
+    "name": "Victor Robles",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RF",
+    "number": 10,
     "league": "AL"
   },
   {
@@ -9163,17 +9174,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:5204340",
-    "name": "Zachary Morgan",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "C",
-    "number": 80,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4414531",
     "name": "Zack Gelof",
     "conference": "AL",
@@ -9193,6 +9193,17 @@
     "teamAbbr": "PHI",
     "position": "SP",
     "number": 45,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5014989",
+    "name": "Zak Kent",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "RP",
+    "number": 57,
     "league": "NL"
   },
   {

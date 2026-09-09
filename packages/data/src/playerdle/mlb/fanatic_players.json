@@ -1656,6 +1656,24 @@
     "ops": 0.702
   },
   {
+    "id": "mlb:4683365",
+    "name": "Masyn Winn",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "SS",
+    "number": 0,
+    "league": "NL",
+    "gp": 129,
+    "pa": 537,
+    "avg": 0.253,
+    "hr": 9,
+    "rbi": 51,
+    "sb": 9,
+    "ops": 0.673
+  },
+  {
     "id": "mlb:4422899",
     "name": "Matt McLain",
     "conference": "NL",
@@ -2374,6 +2392,24 @@
     "rbi": 27,
     "sb": 12,
     "ops": 0.598
+  },
+  {
+    "id": "mlb:35042",
+    "name": "Victor Robles",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "RF",
+    "number": 10,
+    "league": "AL",
+    "gp": 32,
+    "pa": 114,
+    "avg": 0.245,
+    "hr": 1,
+    "rbi": 9,
+    "sb": 6,
+    "ops": 0.611
   },
   {
     "id": "mlb:35002",
