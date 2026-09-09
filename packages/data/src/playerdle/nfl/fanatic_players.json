@@ -304,6 +304,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4427728",
+    "name": "Bam Knight",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "RB",
+    "number": 20,
+    "gp": 12,
+    "fppg": 6.8,
+    "tgtPerGame": 2.6,
+    "recPerGame": 1.8,
+    "ydsPerGame": 35.8,
+    "tdPerGame": 0.42
+  },
+  {
     "id": "nfl:4431210",
     "name": "Beaux Collins",
     "conference": "NFC",
@@ -1056,6 +1072,22 @@
     "tdPerGame": 0.53
   },
   {
+    "id": "nfl:4258595",
+    "name": "Cole Kmet",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "TE",
+    "number": 85,
+    "gp": 16,
+    "fppg": 4,
+    "tgtPerGame": 3,
+    "recPerGame": 1.9,
+    "ydsPerGame": 21.7,
+    "tdPerGame": 0.13
+  },
+  {
     "id": "nfl:4361088",
     "name": "Colson Yankoff",
     "conference": "NFC",
@@ -1070,6 +1102,22 @@
     "recPerGame": 0.1,
     "ydsPerGame": 1.3,
     "tdPerGame": 0
+  },
+  {
+    "id": "nfl:4723086",
+    "name": "Colston Loveland",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "TE",
+    "number": 84,
+    "gp": 16,
+    "fppg": 8.5,
+    "tgtPerGame": 5.1,
+    "recPerGame": 3.6,
+    "ydsPerGame": 44.4,
+    "tdPerGame": 0.38
   },
   {
     "id": "nfl:2977187",
@@ -1118,6 +1166,22 @@
     "recPerGame": 0,
     "ydsPerGame": 0.7,
     "tdPerGame": 0
+  },
+  {
+    "id": "nfl:4259545",
+    "name": "D'Andre Swift",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "RB",
+    "number": 4,
+    "gp": 16,
+    "fppg": 13.2,
+    "tgtPerGame": 3,
+    "recPerGame": 2.1,
+    "ydsPerGame": 86.6,
+    "tdPerGame": 0.63
   },
   {
     "id": "nfl:4570296",
@@ -1536,6 +1600,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4039050",
+    "name": "Devin Duvernay",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 81,
+    "gp": 17,
+    "fppg": 0.2,
+    "tgtPerGame": 0.3,
+    "recPerGame": 0.1,
+    "ydsPerGame": 1.5,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4040761",
     "name": "Devin Singletary",
     "conference": "NFC",
@@ -1856,6 +1936,22 @@
     "tdPerGame": 0.08
   },
   {
+    "id": "nfl:4426844",
+    "name": "Elijah Higgins",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "TE",
+    "number": 84,
+    "gp": 17,
+    "fppg": 2.5,
+    "tgtPerGame": 2.2,
+    "recPerGame": 1.8,
+    "ydsPerGame": 17.7,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4372414",
     "name": "Elijah Moore",
     "conference": "NFC",
@@ -1934,6 +2030,22 @@
     "recPerGame": 3.1,
     "ydsPerGame": 29.3,
     "tdPerGame": 0.06
+  },
+  {
+    "id": "nfl:4569609",
+    "name": "Evan Hull",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "RB",
+    "number": 43,
+    "gp": 6,
+    "fppg": 1,
+    "tgtPerGame": 0.2,
+    "recPerGame": 0.2,
+    "ydsPerGame": 9,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4034948",
@@ -2416,6 +2528,22 @@
     "tdPerGame": 0.06
   },
   {
+    "id": "nfl:5160110",
+    "name": "Jahdae Walker",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 9,
+    "gp": 7,
+    "fppg": 3.4,
+    "tgtPerGame": 1.4,
+    "recPerGame": 0.9,
+    "ydsPerGame": 12.4,
+    "tdPerGame": 0.29
+  },
+  {
     "id": "nfl:4429795",
     "name": "Jahmyr Gibbs",
     "conference": "NFC",
@@ -2494,6 +2622,22 @@
     "recPerGame": 4.7,
     "ydsPerGame": 53,
     "tdPerGame": 0.19
+  },
+  {
+    "id": "nfl:4692835",
+    "name": "Jalen Brooks",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 83,
+    "gp": 6,
+    "fppg": 0.8,
+    "tgtPerGame": 1,
+    "recPerGame": 0.5,
+    "ydsPerGame": 8.5,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4695883",
@@ -3169,6 +3313,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:2973405",
+    "name": "Kalif Raymond",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 14,
+    "gp": 15,
+    "fppg": 3.7,
+    "tgtPerGame": 2,
+    "recPerGame": 1.6,
+    "ydsPerGame": 20.5,
+    "tdPerGame": 0.07
+  },
+  {
     "id": "nfl:5097554",
     "name": "Kameron Johnson",
     "conference": "NFC",
@@ -3295,6 +3455,22 @@
     "recPerGame": 0.7,
     "ydsPerGame": 31.9,
     "tdPerGame": 0.14
+  },
+  {
+    "id": "nfl:3045523",
+    "name": "Kendrick Bourne",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 17,
+    "gp": 16,
+    "fppg": 4.6,
+    "tgtPerGame": 3.3,
+    "recPerGame": 2.3,
+    "ydsPerGame": 34.4,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4035537",
@@ -3439,6 +3615,22 @@
     "recPerGame": 0.6,
     "ydsPerGame": 5.4,
     "tdPerGame": 0.06
+  },
+  {
+    "id": "nfl:4608686",
+    "name": "Kyle Monangai",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "RB",
+    "number": 25,
+    "gp": 17,
+    "fppg": 8.1,
+    "tgtPerGame": 1.8,
+    "recPerGame": 1.1,
+    "ydsPerGame": 55.7,
+    "tdPerGame": 0.29
   },
   {
     "id": "nfl:4360248",
@@ -3649,6 +3841,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4685278",
+    "name": "Luther Burden III",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 10,
+    "gp": 15,
+    "fppg": 7,
+    "tgtPerGame": 4,
+    "recPerGame": 3.1,
+    "ydsPerGame": 45.9,
+    "tdPerGame": 0.13
+  },
+  {
     "id": "nfl:2991662",
     "name": "Mack Hollins",
     "conference": "AFC",
@@ -3727,6 +3935,22 @@
     "recPerGame": 2.8,
     "ydsPerGame": 27.6,
     "tdPerGame": 0.35
+  },
+  {
+    "id": "nfl:4432708",
+    "name": "Marvin Harrison Jr.",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 18,
+    "gp": 12,
+    "fppg": 8.9,
+    "tgtPerGame": 6.1,
+    "recPerGame": 3.4,
+    "ydsPerGame": 50.7,
+    "tdPerGame": 0.33
   },
   {
     "id": "nfl:4686472",
@@ -3838,6 +4062,22 @@
     "tgtPerGame": 6.5,
     "recPerGame": 4.7,
     "ydsPerGame": 46.1,
+    "tdPerGame": 0.41
+  },
+  {
+    "id": "nfl:4360761",
+    "name": "Michael Wilson",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 14,
+    "gp": 17,
+    "fppg": 10.7,
+    "tgtPerGame": 7.4,
+    "recPerGame": 4.6,
+    "ydsPerGame": 59.2,
     "tdPerGame": 0.41
   },
   {
@@ -4449,6 +4689,22 @@
     "tdPerGame": 0.14
   },
   {
+    "id": "nfl:4431299",
+    "name": "Rome Odunze",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 15,
+    "gp": 12,
+    "fppg": 10.3,
+    "tgtPerGame": 7.5,
+    "recPerGame": 3.7,
+    "ydsPerGame": 55.1,
+    "tdPerGame": 0.5
+  },
+  {
     "id": "nfl:4361432",
     "name": "Romeo Doubs",
     "conference": "AFC",
@@ -4478,6 +4734,22 @@
     "tgtPerGame": 0,
     "recPerGame": 0,
     "ydsPerGame": 6.6,
+    "tdPerGame": 0
+  },
+  {
+    "id": "nfl:4426386",
+    "name": "Roschon Johnson",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "RB",
+    "number": 23,
+    "gp": 6,
+    "fppg": 0.3,
+    "tgtPerGame": 0,
+    "recPerGame": 0,
+    "ydsPerGame": 2.8,
     "tdPerGame": 0
   },
   {
@@ -4577,6 +4849,22 @@
     "tdPerGame": 0.08
   },
   {
+    "id": "nfl:3914397",
+    "name": "Scotty Miller",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "WR",
+    "number": 35,
+    "gp": 13,
+    "fppg": 0.8,
+    "tgtPerGame": 1.1,
+    "recPerGame": 0.7,
+    "ydsPerGame": 4.8,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4430871",
     "name": "Sean Tucker",
     "conference": "NFC",
@@ -4591,6 +4879,22 @@
     "recPerGame": 0.5,
     "ydsPerGame": 20.8,
     "tdPerGame": 0.47
+  },
+  {
+    "id": "nfl:4360739",
+    "name": "Simi Fehoko",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 80,
+    "gp": 7,
+    "fppg": 0,
+    "tgtPerGame": 0,
+    "recPerGame": 0,
+    "ydsPerGame": 0,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4912274",
@@ -4719,6 +5023,22 @@
     "recPerGame": 1.5,
     "ydsPerGame": 12.9,
     "tdPerGame": 0.15
+  },
+  {
+    "id": "nfl:4374045",
+    "name": "Teagan Quitoriano",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "TE",
+    "number": 47,
+    "gp": 15,
+    "fppg": 0,
+    "tgtPerGame": 0,
+    "recPerGame": 0,
+    "ydsPerGame": 0,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4239993",
@@ -5041,6 +5361,22 @@
     "tdPerGame": 0
   },
   {
+    "id": "nfl:4361307",
+    "name": "Trey McBride",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "TE",
+    "number": 85,
+    "gp": 17,
+    "fppg": 14.9,
+    "tgtPerGame": 9.9,
+    "recPerGame": 7.4,
+    "ydsPerGame": 72.9,
+    "tdPerGame": 0.65
+  },
+  {
     "id": "nfl:4567156",
     "name": "Treylon Burks",
     "conference": "NFC",
@@ -5151,6 +5487,22 @@
     "recPerGame": 0.3,
     "ydsPerGame": 3.2,
     "tdPerGame": 0.07
+  },
+  {
+    "id": "nfl:4373626",
+    "name": "Tyler Allgeier",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "RB",
+    "number": 22,
+    "gp": 17,
+    "fppg": 6.8,
+    "tgtPerGame": 0.9,
+    "recPerGame": 0.8,
+    "ydsPerGame": 35.9,
+    "tdPerGame": 0.47
   },
   {
     "id": "nfl:4362748",
@@ -5406,6 +5758,22 @@
     "tgtPerGame": 1.5,
     "recPerGame": 1.1,
     "ydsPerGame": 18.9,
+    "tdPerGame": 0
+  },
+  {
+    "id": "nfl:4428811",
+    "name": "Xavier Weaver",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 89,
+    "gp": 9,
+    "fppg": 1.1,
+    "tgtPerGame": 1.4,
+    "recPerGame": 0.8,
+    "ydsPerGame": 7.4,
     "tdPerGame": 0
   },
   {
