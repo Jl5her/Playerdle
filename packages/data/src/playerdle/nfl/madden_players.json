@@ -42,6 +42,20 @@
     "str": 59
   },
   {
+    "id": "nfl:4597500",
+    "name": "Adonai Mitchell",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "WR",
+    "number": 15,
+    "ovr": 76,
+    "spd": 94,
+    "awr": 76,
+    "str": 51
+  },
+  {
     "id": "nfl:4576297",
     "name": "AJ Barner",
     "conference": "NFC",
@@ -96,6 +110,20 @@
     "spd": 87,
     "awr": 80,
     "str": 77
+  },
+  {
+    "id": "nfl:2576336",
+    "name": "Ameer Abdullah",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "RB",
+    "number": 43,
+    "ovr": 73,
+    "spd": 88,
+    "awr": 80,
+    "str": 68
   },
   {
     "id": "nfl:4374302",
@@ -194,20 +222,6 @@
     "spd": 88,
     "awr": 84,
     "str": 60
-  },
-  {
-    "id": "nfl:4685247",
-    "name": "Braelon Allen",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "RB",
-    "number": 0,
-    "ovr": 72,
-    "spd": 88,
-    "awr": 77,
-    "str": 79
   },
   {
     "id": "nfl:4360438",
@@ -868,20 +882,6 @@
     "str": 80
   },
   {
-    "id": "nfl:3043116",
-    "name": "Demarcus Robinson",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 7,
-    "ovr": 76,
-    "spd": 87,
-    "awr": 81,
-    "str": 60
-  },
-  {
     "id": "nfl:4427095",
     "name": "DeMario Douglas",
     "conference": "AFC",
@@ -1029,7 +1029,7 @@
     "team": "Seattle Seahawks",
     "teamAbbr": "SEA",
     "position": "RB",
-    "number": 27,
+    "number": 23,
     "ovr": 73,
     "spd": 90,
     "awr": 78,
@@ -1240,9 +1240,9 @@
     "teamAbbr": "SEA",
     "position": "RB",
     "number": 8,
-    "ovr": 75,
+    "ovr": 76,
     "spd": 89,
-    "awr": 76,
+    "awr": 78,
     "str": 72
   },
   {
@@ -1660,9 +1660,9 @@
     "teamAbbr": "MIN",
     "position": "RB",
     "number": 27,
-    "ovr": 81,
+    "ovr": 80,
     "spd": 89,
-    "awr": 82,
+    "awr": 79,
     "str": 78
   },
   {
@@ -2949,7 +2949,7 @@
     "teamAbbr": "HOU",
     "position": "RB",
     "number": 4,
-    "ovr": 80,
+    "ovr": 81,
     "spd": 88,
     "awr": 86,
     "str": 70
