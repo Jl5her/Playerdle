@@ -1060,6 +1060,16 @@
     "number": 53
   },
   {
+    "id": "nfl:4361748",
+    "name": "Anthony Johnson Jr.",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "S",
+    "number": 26
+  },
+  {
     "id": "nfl:5143279",
     "name": "Anthony Kendall",
     "conference": "AFC",
@@ -1758,16 +1768,6 @@
     "teamAbbr": "TB",
     "position": "G",
     "number": 66
-  },
-  {
-    "id": "nfl:4373030",
-    "name": "Ben Sims",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "TE",
-    "number": 89
   },
   {
     "id": "nfl:4690923",
@@ -5997,7 +5997,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 15
+    "number": 7
   },
   {
     "id": "nfl:5082269",
@@ -6157,7 +6157,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 7
+    "number": 11
   },
   {
     "id": "nfl:14958",
@@ -8430,6 +8430,16 @@
     "number": 5
   },
   {
+    "id": "nfl:3916071",
+    "name": "Gary Jennings",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "WR",
+    "number": 87
+  },
+  {
     "id": "nfl:4708049",
     "name": "Gavin Bartholomew",
     "conference": "NFC",
@@ -9301,16 +9311,6 @@
     "number": 67
   },
   {
-    "id": "nfl:4574105",
-    "name": "Isas Waxter",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "CB",
-    "number": 37
-  },
-  {
     "id": "nfl:4361529",
     "name": "Isiah Pacheco",
     "conference": "NFC",
@@ -9758,7 +9758,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 6
+    "number": 4
   },
   {
     "id": "nfl:3138764",
@@ -10728,7 +10728,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "DT",
-    "number": 75
+    "number": 96
   },
   {
     "id": "nfl:4431613",
@@ -10908,7 +10908,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "G",
-    "number": 54
+    "number": 58
   },
   {
     "id": "nfl:3892775",
@@ -11393,12 +11393,13 @@
   {
     "id": "nfl:4047655",
     "name": "Jaylon Jones",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
     "position": "CB",
-    "number": 33
+    "number": 33,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4043041",
@@ -14418,9 +14419,8 @@
     "division": "NFC West",
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
-    "position": "DL",
-    "number": 92,
-    "numberBackfilled": true
+    "position": "DE",
+    "number": 54
   },
   {
     "id": "nfl:4699678",
@@ -20082,7 +20082,7 @@
     "division": "NFC West",
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
-    "position": "CB",
+    "position": "S",
     "number": 33
   },
   {
