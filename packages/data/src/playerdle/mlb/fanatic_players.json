@@ -144,6 +144,24 @@
     "ops": 0.755
   },
   {
+    "id": "mlb:42547",
+    "name": "Anthony Volpe",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "SS",
+    "number": 11,
+    "league": "AL",
+    "gp": 153,
+    "pa": 596,
+    "avg": 0.212,
+    "hr": 19,
+    "rbi": 72,
+    "sb": 18,
+    "ops": 0.663
+  },
+  {
     "id": "mlb:36928",
     "name": "Austin Hays",
     "conference": "NL",
@@ -178,6 +196,24 @@
     "rbi": 10,
     "sb": 1,
     "ops": 0.527
+  },
+  {
+    "id": "mlb:4297998",
+    "name": "Austin Martin",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Minnesota Twins",
+    "teamAbbr": "MIN",
+    "position": "RF",
+    "number": 16,
+    "league": "AL",
+    "gp": 50,
+    "pa": 181,
+    "avg": 0.282,
+    "hr": 1,
+    "rbi": 7,
+    "sb": 11,
+    "ops": 0.74
   },
   {
     "id": "mlb:34982",
