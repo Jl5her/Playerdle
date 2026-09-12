@@ -1343,11 +1343,12 @@
     "id": "nfl:4367202",
     "name": "Atonio Mafi",
     "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
     "position": "G",
-    "number": 56
+    "number": 56,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4569682",
@@ -2728,6 +2729,16 @@
     "teamAbbr": "IND",
     "position": "LB",
     "number": 50
+  },
+  {
+    "id": "nfl:4612077",
+    "name": "Bryce Cabeldue",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "G",
+    "number": 77
   },
   {
     "id": "nfl:4037584",
@@ -4968,16 +4979,6 @@
     "teamAbbr": "KC",
     "position": "WR",
     "number": 13
-  },
-  {
-    "id": "nfl:2971048",
-    "name": "D.J. Humphries",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Washington Commanders",
-    "teamAbbr": "WSH",
-    "position": "OT",
-    "number": 79
   },
   {
     "id": "nfl:3894915",
@@ -8370,16 +8371,6 @@
     "number": 67
   },
   {
-    "id": "nfl:4431252",
-    "name": "Garrett Dellinger",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "G",
-    "number": 71
-  },
-  {
     "id": "nfl:4684542",
     "name": "Garrett DiGiorgio",
     "conference": "AFC",
@@ -9891,6 +9882,16 @@
     "number": 86
   },
   {
+    "id": "nfl:4362910",
+    "name": "Jaden Crumedy",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "DT",
+    "number": 95
+  },
+  {
     "id": "nfl:5086161",
     "name": "Jaden Dugger",
     "conference": "NFC",
@@ -10599,16 +10600,6 @@
     "teamAbbr": "LAC",
     "position": "DT",
     "number": 99
-  },
-  {
-    "id": "nfl:4428678",
-    "name": "Jamari Thrash",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "WR",
-    "number": 80
   },
   {
     "id": "nfl:2969939",
@@ -11640,16 +11631,6 @@
     "teamAbbr": "TEN",
     "position": "DE",
     "number": 11
-  },
-  {
-    "id": "nfl:4374033",
-    "name": "Jermar Jefferson",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "RB",
-    "number": 17
   },
   {
     "id": "nfl:5157289",
@@ -15234,16 +15215,6 @@
     "number": 50
   },
   {
-    "id": "nfl:4039020",
-    "name": "Levi Onwuzurike",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "DE",
-    "number": 95
-  },
-  {
     "id": "nfl:4428119",
     "name": "Lew Nichols",
     "conference": "AFC",
@@ -15832,16 +15803,6 @@
     "teamAbbr": "NYG",
     "position": "WR",
     "number": 1
-  },
-  {
-    "id": "nfl:4684636",
-    "name": "Malik Verdon",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "LB",
-    "number": 43
   },
   {
     "id": "nfl:4569603",
@@ -21256,16 +21217,6 @@
     "number": 48
   },
   {
-    "id": "nfl:4246741",
-    "name": "Travis Bell",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "DT",
-    "number": 66
-  },
-  {
     "id": "nfl:4876658",
     "name": "Travis Burke",
     "conference": "AFC",
@@ -22266,16 +22217,6 @@
     "number": 2
   },
   {
-    "id": "nfl:4685609",
-    "name": "Tyre West",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "DT",
-    "number": 52
-  },
-  {
     "id": "nfl:4372533",
     "name": "Tyree Wilson",
     "conference": "NFC",
@@ -22894,6 +22835,16 @@
     "teamAbbr": "ARI",
     "position": "S",
     "number": 31
+  },
+  {
+    "id": "nfl:4427278",
+    "name": "Xavier Gipson",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "WR",
+    "number": 86
   },
   {
     "id": "nfl:4695910",
