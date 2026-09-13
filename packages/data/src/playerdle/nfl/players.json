@@ -5038,7 +5038,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "CB",
-    "number": 20
+    "number": 37
   },
   {
     "id": "nfl:4608386",
@@ -10782,6 +10782,16 @@
     "number": 34
   },
   {
+    "id": "nfl:4569680",
+    "name": "Jamon Johnson",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "LB",
+    "number": 47
+  },
+  {
     "id": "nfl:4372463",
     "name": "Jamree Kromah",
     "conference": "NFC",
@@ -15085,16 +15095,6 @@
     "number": 13
   },
   {
-    "id": "nfl:5151144",
-    "name": "Lardarius Webb Jr.",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "CB",
-    "number": 34
-  },
-  {
     "id": "nfl:3051890",
     "name": "Laremy Tunsil",
     "conference": "NFC",
@@ -15213,6 +15213,16 @@
     "teamAbbr": "MIN",
     "position": "DT",
     "number": 50
+  },
+  {
+    "id": "nfl:4039020",
+    "name": "Levi Onwuzurike",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "DE",
+    "number": 95
   },
   {
     "id": "nfl:4428119",
@@ -16914,6 +16924,16 @@
     "teamAbbr": "DEN",
     "position": "S",
     "number": 39
+  },
+  {
+    "id": "nfl:4431580",
+    "name": "Miller Moss",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "QB",
+    "number": 16
   },
   {
     "id": "nfl:4371940",
