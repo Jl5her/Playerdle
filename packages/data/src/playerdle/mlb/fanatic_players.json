@@ -612,24 +612,6 @@
     "ops": 0.721
   },
   {
-    "id": "mlb:43025",
-    "name": "Darell Hernaiz",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "SS",
-    "number": 2,
-    "league": "AL",
-    "gp": 51,
-    "pa": 197,
-    "avg": 0.231,
-    "hr": 2,
-    "rbi": 16,
-    "sb": 3,
-    "ops": 0.599
-  },
-  {
     "id": "mlb:41672",
     "name": "David Fry",
     "conference": "AL",
@@ -1404,6 +1386,24 @@
     "ops": 0.623
   },
   {
+    "id": "mlb:42437",
+    "name": "Josh Jung",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "3B",
+    "number": 6,
+    "league": "AL",
+    "gp": 131,
+    "pa": 511,
+    "avg": 0.251,
+    "hr": 14,
+    "rbi": 61,
+    "sb": 4,
+    "ops": 0.684
+  },
+  {
     "id": "mlb:41044",
     "name": "Julio Rodriguez",
     "conference": "AL",
@@ -1510,24 +1510,6 @@
     "rbi": 11,
     "sb": 7,
     "ops": 0.647
-  },
-  {
-    "id": "mlb:42047",
-    "name": "Logan O'Hoppe",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "DH",
-    "number": 4,
-    "league": "AL",
-    "gp": 119,
-    "pa": 451,
-    "avg": 0.213,
-    "hr": 19,
-    "rbi": 43,
-    "sb": 2,
-    "ops": 0.629
   },
   {
     "id": "mlb:36040",
@@ -2194,6 +2176,24 @@
     "rbi": 103,
     "sb": 5,
     "ops": 0.804
+  },
+  {
+    "id": "mlb:42598",
+    "name": "Shea Langeliers",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "C",
+    "number": 23,
+    "league": "AL",
+    "gp": 123,
+    "pa": 523,
+    "avg": 0.277,
+    "hr": 31,
+    "rbi": 72,
+    "sb": 7,
+    "ops": 0.861
   },
   {
     "id": "mlb:4424286",
