@@ -87,7 +87,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "DT",
-    "number": 61
+    "number": 94
   },
   {
     "id": "nfl:3042519",
@@ -607,7 +607,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "S",
-    "number": 38
+    "number": 11
   },
   {
     "id": "nfl:4577494",
@@ -707,7 +707,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "RB",
-    "number": 43
+    "number": 20
   },
   {
     "id": "nfl:4259546",
@@ -717,7 +717,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "CB",
-    "number": 39
+    "number": 23
   },
   {
     "id": "nfl:4038432",
@@ -997,7 +997,7 @@
     "team": "New Orleans Saints",
     "teamAbbr": "NO",
     "position": "LB",
-    "number": 54
+    "number": 33
   },
   {
     "id": "nfl:5150660",
@@ -1037,7 +1037,7 @@
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
     "position": "DT",
-    "number": 60
+    "number": 93
   },
   {
     "id": "nfl:4429684",
@@ -1798,7 +1798,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "DT",
-    "number": 72
+    "number": 96
   },
   {
     "id": "nfl:4433959",
@@ -2069,6 +2069,16 @@
     "teamAbbr": "NYG",
     "position": "DT",
     "number": 97
+  },
+  {
+    "id": "nfl:3117253",
+    "name": "Bobby Okereke",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "LB",
+    "number": 58
   },
   {
     "id": "nfl:4240754",
@@ -2458,7 +2468,7 @@
     "team": "Minnesota Vikings",
     "teamAbbr": "MIN",
     "position": "P",
-    "number": 47
+    "number": 19
   },
   {
     "id": "nfl:3129116",
@@ -3918,7 +3928,7 @@
     "team": "Minnesota Vikings",
     "teamAbbr": "MIN",
     "position": "LB",
-    "number": 40
+    "number": 32
   },
   {
     "id": "nfl:4037521",
@@ -4308,7 +4318,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "S",
-    "number": 27
+    "number": 5
   },
   {
     "id": "nfl:3895856",
@@ -4461,6 +4471,16 @@
     "number": 18
   },
   {
+    "id": "nfl:4429067",
+    "name": "Clark Phillips III",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "CB",
+    "number": 20
+  },
+  {
     "id": "nfl:4256224",
     "name": "Claudin Cherelus",
     "conference": "NFC",
@@ -4571,6 +4591,16 @@
     "number": 84
   },
   {
+    "id": "nfl:4567224",
+    "name": "Colby Wooden",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "DT",
+    "number": 96
+  },
+  {
     "id": "nfl:4676004",
     "name": "Cole Bishop",
     "conference": "AFC",
@@ -4628,7 +4658,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "QB",
-    "number": 10
+    "number": 18
   },
   {
     "id": "nfl:4051001",
@@ -4859,6 +4889,16 @@
     "teamAbbr": "CLE",
     "position": "P",
     "number": 13
+  },
+  {
+    "id": "nfl:4576075",
+    "name": "Corey Bullock",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "C",
+    "number": 67
   },
   {
     "id": "nfl:4431431",
@@ -5728,7 +5768,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "TE",
-    "number": 35
+    "number": 88
   },
   {
     "id": "nfl:4239088",
@@ -6061,6 +6101,16 @@
     "number": 91
   },
   {
+    "id": "nfl:4605498",
+    "name": "Decamerion Richardson",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "CB",
+    "number": 25
+  },
+  {
     "id": "nfl:4401823",
     "name": "Dee Alford",
     "conference": "AFC",
@@ -6089,6 +6139,16 @@
     "teamAbbr": "SF",
     "position": "WR",
     "number": 19
+  },
+  {
+    "id": "nfl:4240631",
+    "name": "DeeJay Dallas",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "RB",
+    "number": 31
   },
   {
     "id": "nfl:2971282",
@@ -6408,7 +6468,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "DE",
-    "number": 9
+    "number": 8
   },
   {
     "id": "nfl:3691739",
@@ -6948,7 +7008,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "DE",
-    "number": 97
+    "number": 94
   },
   {
     "id": "nfl:4698728",
@@ -7711,6 +7771,16 @@
     "number": 23
   },
   {
+    "id": "nfl:4362478",
+    "name": "Emari Demercado",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "RB",
+    "number": 31
+  },
+  {
     "id": "nfl:4567750",
     "name": "Emeka Egbuka",
     "conference": "NFC",
@@ -8038,7 +8108,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "G",
-    "number": 67
+    "number": 63
   },
   {
     "id": "nfl:4361727",
@@ -9032,6 +9102,16 @@
     "number": 85
   },
   {
+    "id": "nfl:4239944",
+    "name": "Hunter Long",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "TE",
+    "number": 89
+  },
+  {
     "id": "nfl:4383396",
     "name": "Hunter Luepke",
     "conference": "NFC",
@@ -9319,7 +9399,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "RB",
-    "number": 30
+    "number": 25
   },
   {
     "id": "nfl:4430280",
@@ -9829,7 +9909,7 @@
     "team": "Minnesota Vikings",
     "teamAbbr": "MIN",
     "position": "S",
-    "number": 39
+    "number": 29
   },
   {
     "id": "nfl:2578570",
@@ -9889,7 +9969,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "DT",
-    "number": 95
+    "number": 63
   },
   {
     "id": "nfl:5086161",
@@ -9999,7 +10079,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "LB",
-    "number": 32
+    "number": 31
   },
   {
     "id": "nfl:4429795",
@@ -12270,7 +12350,7 @@
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
     "position": "DT",
-    "number": 64
+    "number": 96
   },
   {
     "id": "nfl:4240655",
@@ -12300,7 +12380,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "CB",
-    "number": 32
+    "number": 31
   },
   {
     "id": "nfl:4426485",
@@ -12310,7 +12390,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "WR",
-    "number": 81
+    "number": 18
   },
   {
     "id": "nfl:4331768",
@@ -12361,6 +12441,16 @@
     "teamAbbr": "DEN",
     "position": "LB",
     "number": 0
+  },
+  {
+    "id": "nfl:3054212",
+    "name": "Jonnu Smith",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "TE",
+    "number": 18
   },
   {
     "id": "nfl:4429205",
@@ -12990,7 +13080,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "QB",
-    "number": 6
+    "number": 11
   },
   {
     "id": "nfl:4373280",
@@ -13470,7 +13560,7 @@
     "team": "Chicago Bears",
     "teamAbbr": "CHI",
     "position": "WR",
-    "number": 27
+    "number": 81
   },
   {
     "id": "nfl:3124890",
@@ -13600,8 +13690,7 @@
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
     "position": "RB",
-    "number": 20,
-    "numberBackfilled": true
+    "number": 26
   },
   {
     "id": "nfl:5084514",
@@ -13744,6 +13833,16 @@
     "number": 38
   },
   {
+    "id": "nfl:5153072",
+    "name": "Kapena Gushiken",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "CB",
+    "number": 34
+  },
+  {
     "id": "nfl:4875336",
     "name": "Karene Reid",
     "conference": "AFC",
@@ -13821,7 +13920,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "WR",
-    "number": 88
+    "number": 14
   },
   {
     "id": "nfl:4685246",
@@ -13971,7 +14070,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "CB",
-    "number": 28
+    "number": 6
   },
   {
     "id": "nfl:4712462",
@@ -14141,7 +14240,7 @@
     "team": "Indianapolis Colts",
     "teamAbbr": "IND",
     "position": "CB",
-    "number": 29
+    "number": 33
   },
   {
     "id": "nfl:4567048",
@@ -14863,6 +14962,16 @@
     "teamAbbr": "ATL",
     "position": "TE",
     "number": 8
+  },
+  {
+    "id": "nfl:16772",
+    "name": "Kyle Van Noy",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "LB",
+    "number": 17
   },
   {
     "id": "nfl:4613202",
@@ -15642,7 +15751,7 @@
     "team": "Cleveland Browns",
     "teamAbbr": "CLE",
     "position": "WR",
-    "number": 11
+    "number": 83
   },
   {
     "id": "nfl:4682648",
@@ -15652,7 +15761,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "WR",
-    "number": 0
+    "number": 88
   },
   {
     "id": "nfl:4710067",
@@ -15786,7 +15895,7 @@
   },
   {
     "id": "nfl:4870953",
-    "name": "Malik Muhammad",
+    "name": "Malik Muhammad II",
     "conference": "NFC",
     "division": "NFC North",
     "team": "Chicago Bears",
@@ -16002,8 +16111,7 @@
     "team": "Green Bay Packers",
     "teamAbbr": "GB",
     "position": "TE",
-    "number": 83,
-    "numberBackfilled": true
+    "number": 86
   },
   {
     "id": "nfl:5219831",
@@ -16143,6 +16251,16 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "G",
+    "number": 63
+  },
+  {
+    "id": "nfl:4682479",
+    "name": "Mason Murphy",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "OT",
     "number": 63
   },
   {
@@ -17223,7 +17341,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "RB",
-    "number": 22
+    "number": 23
   },
   {
     "id": "nfl:4426340",
@@ -17303,7 +17421,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "OT",
-    "number": 71
+    "number": 78
   },
   {
     "id": "nfl:4601278",
@@ -17584,6 +17702,16 @@
     "teamAbbr": "NO",
     "position": "OT",
     "number": 64
+  },
+  {
+    "id": "nfl:4428421",
+    "name": "Nick Samac",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 62
   },
   {
     "id": "nfl:3116179",
@@ -17993,7 +18121,7 @@
     "team": "New Orleans Saints",
     "teamAbbr": "NO",
     "position": "TE",
-    "number": 88
+    "number": 4
   },
   {
     "id": "nfl:4367210",
@@ -19133,7 +19261,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "LS",
-    "number": 37
+    "number": 41
   },
   {
     "id": "nfl:3910229",
@@ -19503,7 +19631,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "DE",
-    "number": 74
+    "number": 54
   },
   {
     "id": "nfl:4603189",
@@ -19843,8 +19971,7 @@
     "team": "Indianapolis Colts",
     "teamAbbr": "IND",
     "position": "C",
-    "number": 62,
-    "numberBackfilled": true
+    "number": 63
   },
   {
     "id": "nfl:4260703",
@@ -20784,7 +20911,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "DT",
-    "number": 96
+    "number": 93
   },
   {
     "id": "nfl:3915834",
@@ -21515,6 +21642,16 @@
     "teamAbbr": "CAR",
     "position": "RB",
     "number": 23
+  },
+  {
+    "id": "nfl:4427140",
+    "name": "Trevor Keegan",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 69
   },
   {
     "id": "nfl:4360310",
@@ -22298,7 +22435,7 @@
   },
   {
     "id": "nfl:4426374",
-    "name": "Tyrique Stevenson",
+    "name": "Tyrique Stevenson Sr.",
     "conference": "NFC",
     "division": "NFC North",
     "team": "Chicago Bears",
@@ -22334,7 +22471,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "LB",
-    "number": 90
+    "number": 59
   },
   {
     "id": "nfl:4434153",
@@ -23104,7 +23241,7 @@
     "team": "New Orleans Saints",
     "teamAbbr": "NO",
     "position": "QB",
-    "number": 4
+    "number": 11
   },
   {
     "id": "nfl:2575788",
@@ -23224,7 +23361,7 @@
     "team": "Chicago Bears",
     "teamAbbr": "CHI",
     "position": "WR",
-    "number": 81
+    "number": 13
   },
   {
     "id": "nfl:4429615",
@@ -23274,7 +23411,7 @@
     "team": "Minnesota Vikings",
     "teamAbbr": "MIN",
     "position": "CB",
-    "number": 34
+    "number": 5
   },
   {
     "id": "nfl:4247347",
