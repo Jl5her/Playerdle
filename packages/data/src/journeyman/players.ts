@@ -860,6 +860,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Miami Dolphins",
       "Pittsburgh Steelers",
     ],
+    espnId: "3054212",
   },
   {
     id: "journey:hunter-henry",
