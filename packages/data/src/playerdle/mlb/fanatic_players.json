@@ -168,7 +168,7 @@
     "division": "West",
     "team": "San Diego Padres",
     "teamAbbr": "SD",
-    "position": "LF",
+    "position": "DH",
     "number": 15,
     "league": "NL",
     "gp": 103,
@@ -1512,24 +1512,6 @@
     "ops": 0.647
   },
   {
-    "id": "mlb:36040",
-    "name": "Lourdes Gurriel Jr.",
-    "conference": "NL",
-    "division": "West",
-    "team": "Arizona Diamondbacks",
-    "teamAbbr": "ARI",
-    "position": "LF",
-    "number": 12,
-    "league": "NL",
-    "gp": 129,
-    "pa": 546,
-    "avg": 0.248,
-    "hr": 19,
-    "rbi": 80,
-    "sb": 10,
-    "ops": 0.713
-  },
-  {
     "id": "mlb:33805",
     "name": "Luis Torrens",
     "conference": "NL",
@@ -2464,6 +2446,24 @@
     "rbi": 76,
     "sb": 6,
     "ops": 0.754
+  },
+  {
+    "id": "mlb:32532",
+    "name": "Willson Contreras",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "1B",
+    "number": 40,
+    "league": "AL",
+    "gp": 135,
+    "pa": 563,
+    "avg": 0.257,
+    "hr": 20,
+    "rbi": 80,
+    "sb": 5,
+    "ops": 0.791
   },
   {
     "id": "mlb:4719324",
