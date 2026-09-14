@@ -94,8 +94,8 @@
     "name": "AJ Johnson",
     "conference": "West",
     "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
     "position": "G",
     "number": 8,
     "numberBackfilled": true
@@ -376,11 +376,12 @@
     "id": "nba:4683634",
     "name": "Bennedict Mathurin",
     "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
     "position": "G",
-    "number": 9
+    "number": 9,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4898237",
@@ -451,7 +452,7 @@
     "team": "LA Clippers",
     "teamAbbr": "LAC",
     "position": "G",
-    "number": 0
+    "number": 3
   },
   {
     "id": "nba:4592435",
@@ -1220,16 +1221,6 @@
     "teamAbbr": "PHX",
     "position": "G",
     "number": 15
-  },
-  {
-    "id": "nba:4433188",
-    "name": "Devin Carter",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
-    "position": "G",
-    "number": 22
   },
   {
     "id": "nba:4395630",
@@ -2429,10 +2420,11 @@
     "name": "Jordan Hawkins",
     "conference": "West",
     "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "G",
-    "number": 24
+    "number": 24,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3134916",
@@ -3283,10 +3275,11 @@
     "name": "Micah Peavy",
     "conference": "West",
     "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
+    "team": "Memphis Grizzlies",
+    "teamAbbr": "MEM",
     "position": "G",
-    "number": 14
+    "number": 14,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4066399",
@@ -4320,16 +4313,6 @@
     "teamAbbr": "IND",
     "position": "G",
     "number": 9
-  },
-  {
-    "id": "nba:3986",
-    "name": "Taj Gibson",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
-    "position": "F",
-    "number": 67
   },
   {
     "id": "nba:4433192",
