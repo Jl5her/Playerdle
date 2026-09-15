@@ -1801,6 +1801,16 @@
     "number": 96
   },
   {
+    "id": "nfl:4372070",
+    "name": "Ben VanSumeren",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "FB",
+    "number": 47
+  },
+  {
     "id": "nfl:4433959",
     "name": "Ben Yurosek",
     "conference": "NFC",
@@ -2613,12 +2623,13 @@
   {
     "id": "nfl:4875767",
     "name": "Brock Lampe",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
     "position": "FB",
-    "number": 46
+    "number": 46,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4361741",
@@ -2799,6 +2810,16 @@
     "teamAbbr": "CAR",
     "position": "WR",
     "number": 87
+  },
+  {
+    "id": "nfl:4431561",
+    "name": "Bryson Eason",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "DT",
+    "number": 94
   },
   {
     "id": "nfl:4596448",
@@ -5171,16 +5192,6 @@
     "number": 4
   },
   {
-    "id": "nfl:4570296",
-    "name": "Dalen Cambre",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 83
-  },
-  {
     "id": "nfl:3121023",
     "name": "Dallas Goedert",
     "conference": "NFC",
@@ -6959,16 +6970,6 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 20
-  },
-  {
-    "id": "nfl:4875379",
-    "name": "Dominic DeLuca",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "LB",
-    "number": 42
   },
   {
     "id": "nfl:4596439",
@@ -8962,16 +8963,6 @@
     "number": 30
   },
   {
-    "id": "nfl:4372071",
-    "name": "Hassan Haskins",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "RB",
-    "number": 26
-  },
-  {
     "id": "nfl:4431214",
     "name": "Hayden Conner",
     "conference": "NFC",
@@ -9688,6 +9679,16 @@
     "division": "AFC South",
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
+    "position": "LB",
+    "number": 54
+  },
+  {
+    "id": "nfl:4837252",
+    "name": "Jack Pyburn",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
     "position": "LB",
     "number": 54
   },
@@ -12181,16 +12182,6 @@
     "teamAbbr": "GB",
     "position": "S",
     "number": 37
-  },
-  {
-    "id": "nfl:4695991",
-    "name": "Johnathan Edwards",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "CB",
-    "number": 35
   },
   {
     "id": "nfl:3052096",
@@ -15204,6 +15195,16 @@
     "number": 13
   },
   {
+    "id": "nfl:5151144",
+    "name": "Lardarius Webb Jr.",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "CB",
+    "number": 34
+  },
+  {
     "id": "nfl:3051890",
     "name": "Laremy Tunsil",
     "conference": "NFC",
@@ -15362,16 +15363,6 @@
     "teamAbbr": "ATL",
     "position": "LS",
     "number": 49
-  },
-  {
-    "id": "nfl:4039057",
-    "name": "Lil'Jordan Humphrey",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Denver Broncos",
-    "teamAbbr": "DEN",
-    "position": "WR",
-    "number": 5
   },
   {
     "id": "nfl:4035448",
@@ -16021,7 +16012,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "DT",
-    "number": 68
+    "number": 96
   },
   {
     "id": "nfl:4570469",
@@ -17562,16 +17553,6 @@
     "teamAbbr": "SF",
     "position": "DE",
     "number": 97
-  },
-  {
-    "id": "nfl:4426498",
-    "name": "Nick Broeker",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Buffalo Bills",
-    "teamAbbr": "BUF",
-    "position": "G",
-    "number": 65
   },
   {
     "id": "nfl:4426403",
@@ -19852,16 +19833,6 @@
     "teamAbbr": "GB",
     "position": "WR",
     "number": 83
-  },
-  {
-    "id": "nfl:2980138",
-    "name": "Scott Daly",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Green Bay Packers",
-    "teamAbbr": "GB",
-    "position": "LS",
-    "number": 46
   },
   {
     "id": "nfl:4373684",
@@ -23012,6 +22983,16 @@
     "teamAbbr": "BAL",
     "position": "WR",
     "number": 16
+  },
+  {
+    "id": "nfl:4877877",
+    "name": "Xavier Holmes",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "LB",
+    "number": 58
   },
   {
     "id": "nfl:4686422",
