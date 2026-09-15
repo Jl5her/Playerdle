@@ -682,17 +682,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4705677",
-    "name": "Bailey Falter",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 70,
-    "league": "NL"
-  },
-  {
     "id": "mlb:3107919",
     "name": "Bailey Ober",
     "conference": "AL",
@@ -844,6 +833,17 @@
     "teamAbbr": "MIL",
     "position": "C",
     "number": 14,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4326703",
+    "name": "Bobby Miller",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 28,
     "league": "NL"
   },
   {
@@ -1075,6 +1075,17 @@
     "teamAbbr": "TOR",
     "position": "RP",
     "number": 63,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4300831",
+    "name": "Brendan Cellucci",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "RP",
+    "number": 70,
     "league": "AL"
   },
   {
@@ -2035,6 +2046,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42138",
+    "name": "Codi Heuer",
+    "conference": "AL",
+    "division": "East",
+    "team": "Baltimore Orioles",
+    "teamAbbr": "BAL",
+    "position": "RP",
+    "number": 59,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33912",
     "name": "Cody Bellinger",
     "conference": "AL",
@@ -2508,6 +2530,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4997181",
+    "name": "Davis Schneider",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 36,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4917850",
     "name": "Dax Fulton",
     "conference": "NL",
@@ -2849,17 +2882,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:41810",
-    "name": "Easton McGee",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "RP",
-    "number": 51,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4917824",
     "name": "Edgar Quero",
     "conference": "AL",
@@ -2869,17 +2891,6 @@
     "position": "C",
     "number": 26,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5194684",
-    "name": "Edgardo Henriquez",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 60,
-    "league": "NL"
   },
   {
     "id": "mlb:33809",
@@ -3001,17 +3012,6 @@
     "position": "CF",
     "number": 21,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4417806",
-    "name": "Emmet Sheehan",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "SP",
-    "number": 80,
-    "league": "NL"
   },
   {
     "id": "mlb:31358",
@@ -5346,6 +5346,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5182933",
+    "name": "Keider Montero",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "SP",
+    "number": 54,
+    "league": "AL"
+  },
+  {
     "id": "mlb:29630",
     "name": "Kenley Jansen",
     "conference": "AL",
@@ -5764,6 +5775,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:36618",
+    "name": "Lucas Erceg",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "RP",
+    "number": 60,
+    "league": "AL"
+  },
+  {
     "id": "mlb:39572",
     "name": "Luis Arraez",
     "conference": "NL",
@@ -6037,17 +6059,6 @@
     "position": "RP",
     "number": 68,
     "league": "AL"
-  },
-  {
-    "id": "mlb:39947",
-    "name": "Mason McCoy",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "2B",
-    "number": 18,
-    "league": "NL"
   },
   {
     "id": "mlb:4730225",
@@ -6908,6 +6919,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5080750",
+    "name": "Owen Murphy",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "SP",
+    "number": 73,
+    "league": "NL"
+  },
+  {
     "id": "mlb:33783",
     "name": "Ozzie Albies",
     "conference": "NL",
@@ -6961,6 +6983,17 @@
     "position": "RP",
     "number": 58,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4927620",
+    "name": "Paul Gervase",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 65,
+    "league": "NL"
   },
   {
     "id": "mlb:31027",
@@ -7326,17 +7359,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4917902",
-    "name": "Ricky Tiedemann",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RP",
-    "number": 33,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41382",
     "name": "Rico Garcia",
     "conference": "AL",
@@ -7488,17 +7510,6 @@
     "teamAbbr": "MIN",
     "position": "1B",
     "number": 23,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:40555",
-    "name": "Rudy Martin Jr.",
-    "conference": "AL",
-    "division": "East",
-    "team": "Toronto Blue Jays",
-    "teamAbbr": "TOR",
-    "position": "RF",
-    "number": 1,
     "league": "AL"
   },
   {
@@ -8536,6 +8547,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:35591",
+    "name": "Ty France",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "1B",
+    "number": 25,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4742411",
     "name": "Ty Johnson",
     "conference": "AL",
@@ -9020,17 +9042,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4916585",
-    "name": "Yaramil Hiraldo",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 76,
-    "league": "AL"
-  },
-  {
     "id": "mlb:35536",
     "name": "Yennier Cano",
     "conference": "AL",
@@ -9039,17 +9050,6 @@
     "teamAbbr": "BAL",
     "position": "RP",
     "number": 78,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5217798",
-    "name": "Yilber Diaz",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RP",
-    "number": 62,
     "league": "AL"
   },
   {

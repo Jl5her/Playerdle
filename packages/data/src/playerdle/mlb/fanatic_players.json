@@ -630,6 +630,24 @@
     "ops": 0.592
   },
   {
+    "id": "mlb:4997181",
+    "name": "Davis Schneider",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "LF",
+    "number": 36,
+    "league": "AL",
+    "gp": 82,
+    "pa": 227,
+    "avg": 0.234,
+    "hr": 11,
+    "rbi": 31,
+    "sb": 3,
+    "ops": 0.797
+  },
+  {
     "id": "mlb:4918085",
     "name": "Denzel Clarke",
     "conference": "AL",
@@ -2320,6 +2338,24 @@
     "rbi": 96,
     "sb": 31,
     "ops": 0.741
+  },
+  {
+    "id": "mlb:35591",
+    "name": "Ty France",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "1B",
+    "number": 25,
+    "league": "NL",
+    "gp": 138,
+    "pa": 490,
+    "avg": 0.257,
+    "hr": 7,
+    "rbi": 52,
+    "sb": 1,
+    "ops": 0.681
   },
   {
     "id": "mlb:34975",
