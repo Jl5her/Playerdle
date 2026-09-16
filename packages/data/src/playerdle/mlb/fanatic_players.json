@@ -288,6 +288,24 @@
     "ops": 0.574
   },
   {
+    "id": "mlb:5000931",
+    "name": "Braxton Fulford",
+    "conference": "NL",
+    "division": "West",
+    "team": "Colorado Rockies",
+    "teamAbbr": "COL",
+    "position": "DH",
+    "number": 37,
+    "league": "NL",
+    "gp": 38,
+    "pa": 120,
+    "avg": 0.213,
+    "hr": 1,
+    "rbi": 16,
+    "sb": 1,
+    "ops": 0.591
+  },
+  {
     "id": "mlb:42462",
     "name": "Brenton Doyle",
     "conference": "AL",
@@ -1195,7 +1213,7 @@
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
     "position": "C",
-    "number": 8,
+    "number": 21,
     "league": "NL",
     "gp": 42,
     "pa": 137,
@@ -1582,6 +1600,24 @@
     "rbi": 28,
     "sb": 14,
     "ops": 0.827
+  },
+  {
+    "id": "mlb:4905884",
+    "name": "Maikel Garcia",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Kansas City Royals",
+    "teamAbbr": "KC",
+    "position": "3B",
+    "number": 11,
+    "league": "AL",
+    "gp": 160,
+    "pa": 666,
+    "avg": 0.286,
+    "hr": 16,
+    "rbi": 74,
+    "sb": 23,
+    "ops": 0.8
   },
   {
     "id": "mlb:31097",
