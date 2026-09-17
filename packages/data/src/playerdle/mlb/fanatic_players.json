@@ -1213,7 +1213,7 @@
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
     "position": "C",
-    "number": 21,
+    "number": 8,
     "league": "NL",
     "gp": 42,
     "pa": 137,
@@ -2052,24 +2052,6 @@
     "ops": 0.871
   },
   {
-    "id": "mlb:40610",
-    "name": "Ramon Urias",
-    "conference": "NL",
-    "division": "Central",
-    "team": "St. Louis Cardinals",
-    "teamAbbr": "STL",
-    "position": "3B",
-    "number": 29,
-    "league": "NL",
-    "gp": 112,
-    "pa": 391,
-    "avg": 0.241,
-    "hr": 11,
-    "rbi": 44,
-    "sb": 3,
-    "ops": 0.675
-  },
-  {
     "id": "mlb:31399",
     "name": "Randal Grichuk",
     "conference": "AL",
@@ -2320,6 +2302,24 @@
     "rbi": 18,
     "sb": 8,
     "ops": 0.62
+  },
+  {
+    "id": "mlb:31208",
+    "name": "Tommy Pham",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "LF",
+    "number": 21,
+    "league": "AL",
+    "gp": 120,
+    "pa": 449,
+    "avg": 0.245,
+    "hr": 10,
+    "rbi": 52,
+    "sb": 5,
+    "ops": 0.7
   },
   {
     "id": "mlb:29951",
