@@ -473,17 +473,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:5201571",
-    "name": "Andrew Pinckney",
-    "conference": "NL",
-    "division": "East",
-    "team": "Washington Nationals",
-    "teamAbbr": "WSH",
-    "position": "LF",
-    "number": 45,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5140040",
     "name": "Andrew Sears",
     "conference": "AL",
@@ -855,17 +844,6 @@
     "teamAbbr": "MIL",
     "position": "C",
     "number": 14,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4326703",
-    "name": "Bobby Miller",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "SP",
-    "number": 28,
     "league": "NL"
   },
   {
@@ -1637,6 +1615,17 @@
     "position": "RF",
     "number": 11,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4622175",
+    "name": "Cameron Weston",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 74,
+    "league": "NL"
   },
   {
     "id": "mlb:41337",
@@ -4653,17 +4642,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4297976",
-    "name": "Joey Loperfido",
-    "conference": "AL",
-    "division": "West",
-    "team": "Houston Astros",
-    "teamAbbr": "HOU",
-    "position": "LF",
-    "number": 10,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42958",
     "name": "Joey Ortiz",
     "conference": "NL",
@@ -5170,6 +5148,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41165",
+    "name": "Josiah Gray",
+    "conference": "NL",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
+    "position": "SP",
+    "number": 40,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5102682",
     "name": "Josue De Paula",
     "conference": "NL",
@@ -5566,17 +5555,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:36543",
-    "name": "Kyle Finnegan",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Detroit Tigers",
-    "teamAbbr": "DET",
-    "position": "RP",
-    "number": 67,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33839",
     "name": "Kyle Freeland",
     "conference": "NL",
@@ -5728,6 +5706,17 @@
     "teamAbbr": "SF",
     "position": "SP",
     "number": 65,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4417826",
+    "name": "Landon Knack",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 96,
     "league": "NL"
   },
   {
@@ -6795,17 +6784,6 @@
     "teamAbbr": "KC",
     "position": "3B",
     "number": 12,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:41170",
-    "name": "Nick Madrigal",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "3B",
-    "number": 20,
     "league": "AL"
   },
   {
@@ -8217,6 +8195,28 @@
     "league": "AL"
   },
   {
+    "id": "mlb:37773",
+    "name": "Taylor Trammell",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 26,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:40576",
+    "name": "Taylor Walls",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "SS",
+    "number": 6,
+    "league": "AL"
+  },
+  {
     "id": "mlb:34923",
     "name": "Taylor Ward",
     "conference": "AL",
@@ -8588,6 +8588,17 @@
     "teamAbbr": "TB",
     "position": "RP",
     "number": 55,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4414347",
+    "name": "Ty Madden",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Detroit Tigers",
+    "teamAbbr": "DET",
+    "position": "RP",
+    "number": 36,
     "league": "AL"
   },
   {
@@ -9017,17 +9028,6 @@
     "teamAbbr": "MIA",
     "position": "2B",
     "number": 9,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4204524",
-    "name": "Xzavion Curry",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "RP",
-    "number": 53,
     "league": "NL"
   },
   {
