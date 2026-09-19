@@ -324,6 +324,24 @@
     "ops": 0.651
   },
   {
+    "id": "mlb:4307826",
+    "name": "Bryce Teodosio",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "LF",
+    "number": 22,
+    "league": "AL",
+    "gp": 50,
+    "pa": 150,
+    "avg": 0.203,
+    "hr": 1,
+    "rbi": 7,
+    "sb": 7,
+    "ops": 0.553
+  },
+  {
     "id": "mlb:5007615",
     "name": "Caleb Durbin",
     "conference": "AL",
@@ -628,6 +646,24 @@
     "rbi": 36,
     "sb": 0,
     "ops": 0.721
+  },
+  {
+    "id": "mlb:34895",
+    "name": "Dansby Swanson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SS",
+    "number": 7,
+    "league": "NL",
+    "gp": 159,
+    "pa": 645,
+    "avg": 0.244,
+    "hr": 24,
+    "rbi": 77,
+    "sb": 20,
+    "ops": 0.717
   },
   {
     "id": "mlb:41672",
@@ -1528,24 +1564,6 @@
     "rbi": 9,
     "sb": 0,
     "ops": 0.585
-  },
-  {
-    "id": "mlb:42536",
-    "name": "Kyren Paris",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "2B",
-    "number": 19,
-    "league": "AL",
-    "gp": 44,
-    "pa": 140,
-    "avg": 0.19,
-    "hr": 6,
-    "rbi": 11,
-    "sb": 7,
-    "ops": 0.647
   },
   {
     "id": "mlb:33805",
