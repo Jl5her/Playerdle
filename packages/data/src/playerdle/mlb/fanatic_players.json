@@ -1,23 +1,5 @@
 [
   {
-    "id": "mlb:33192",
-    "name": "Aaron Judge",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "RF",
-    "number": 99,
-    "league": "AL",
-    "gp": 152,
-    "pa": 679,
-    "avg": 0.331,
-    "hr": 53,
-    "rbi": 114,
-    "sb": 12,
-    "ops": 1.144
-  },
-  {
     "id": "mlb:5132014",
     "name": "Agustin Ramirez",
     "conference": "NL",
@@ -1798,6 +1780,24 @@
     "rbi": 23,
     "sb": 1,
     "ops": 0.638
+  },
+  {
+    "id": "mlb:3962127",
+    "name": "Max Schuemann",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "LF",
+    "number": 30,
+    "league": "AL",
+    "gp": 101,
+    "pa": 213,
+    "avg": 0.197,
+    "hr": 2,
+    "rbi": 13,
+    "sb": 7,
+    "ops": 0.568
   },
   {
     "id": "mlb:30791",
