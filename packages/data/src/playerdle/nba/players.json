@@ -282,6 +282,16 @@
     "number": 5
   },
   {
+    "id": "nba:2581184",
+    "name": "Anthony Gill",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "F",
+    "number": 16
+  },
+  {
     "id": "nba:4871141",
     "name": "Ariel Hukporti",
     "conference": "East",
@@ -478,10 +488,10 @@
   {
     "id": "nba:3913176",
     "name": "Brandon Ingram",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
     "position": "F",
     "number": 3
   },
@@ -705,6 +715,16 @@
     "teamAbbr": "GS",
     "position": "C",
     "number": 28
+  },
+  {
+    "id": "nba:5105598",
+    "name": "Chase Ross",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Los Angeles Lakers",
+    "teamAbbr": "LAL",
+    "position": "G",
+    "number": 29
   },
   {
     "id": "nba:4700852",
@@ -1538,10 +1558,10 @@
   {
     "id": "nba:5106258",
     "name": "Gradey Dick",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
     "position": "G",
     "number": 1
   },
@@ -2662,10 +2682,10 @@
   {
     "id": "nba:6450",
     "name": "Kawhi Leonard",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
     "position": "F",
     "number": 2
   },
