@@ -759,6 +759,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4626239",
+    "name": "Ben Williamson",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "2B",
+    "number": 15,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41776",
     "name": "Bennett Sousa",
     "conference": "AL",
@@ -1540,17 +1551,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:39875",
-    "name": "Cal Quantrill",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "RP",
-    "number": 44,
-    "league": "AL"
-  },
-  {
     "id": "mlb:41292",
     "name": "Cal Raleigh",
     "conference": "AL",
@@ -1749,6 +1749,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5165292",
+    "name": "Carson Spiers",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "SP",
+    "number": 68,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917812",
     "name": "Carter Jensen",
     "conference": "AL",
@@ -1859,17 +1870,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4927516",
-    "name": "Chase Burns",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "SP",
-    "number": 26,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4619649",
     "name": "Chase DeLauter",
     "conference": "AL",
@@ -1922,17 +1922,6 @@
     "teamAbbr": "BAL",
     "position": "SP",
     "number": 40,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:4084958",
-    "name": "Chris Murphy",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "RP",
-    "number": 38,
     "league": "AL"
   },
   {
@@ -3069,6 +3058,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4417806",
+    "name": "Emmet Sheehan",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 80,
+    "league": "NL"
+  },
+  {
     "id": "mlb:31358",
     "name": "Enrique Hernandez",
     "conference": "NL",
@@ -3806,6 +3806,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4916509",
+    "name": "Huascar Brazoban",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "RP",
+    "number": 50,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4717803",
     "name": "Hunter Brown",
     "conference": "AL",
@@ -4222,17 +4233,6 @@
     "position": "2B",
     "number": 9,
     "league": "NL"
-  },
-  {
-    "id": "mlb:37974",
-    "name": "Jake Fraley",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RF",
-    "number": 17,
-    "league": "AL"
   },
   {
     "id": "mlb:41290",
@@ -5588,6 +5588,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4306800",
+    "name": "Kyle Hurt",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41263",
     "name": "Kyle Isbel",
     "conference": "AL",
@@ -6259,6 +6270,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42546",
+    "name": "Max Lazar",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RP",
+    "number": 60,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4872686",
     "name": "Max Muncy",
     "conference": "AL",
@@ -6908,17 +6930,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4630789",
-    "name": "Orion Kerkering",
-    "conference": "NL",
-    "division": "East",
-    "team": "Philadelphia Phillies",
-    "teamAbbr": "PHI",
-    "position": "RP",
-    "number": 50,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42474",
     "name": "Osleivis Basabe",
     "conference": "NL",
@@ -7148,17 +7159,6 @@
     "position": "CF",
     "number": 0,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4926295",
-    "name": "Philip Abner",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
   },
   {
     "id": "mlb:32777",
@@ -7865,17 +7865,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4414483",
-    "name": "Seth Halvorsen",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "RP",
-    "number": 56,
-    "league": "NL"
-  },
-  {
     "id": "mlb:42542",
     "name": "Seth Johnson",
     "conference": "AL",
@@ -8137,17 +8126,6 @@
     "teamAbbr": "LAD",
     "position": "RP",
     "number": 66,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:42409",
-    "name": "Tarik Skubal",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "SP",
-    "number": 29,
     "league": "NL"
   },
   {
@@ -8503,6 +8481,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41309",
+    "name": "Tristan Beck",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 43,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5085893",
     "name": "Tristan Peters",
     "conference": "AL",
@@ -8699,6 +8688,17 @@
     "position": "RP",
     "number": 55,
     "league": "NL"
+  },
+  {
+    "id": "mlb:33654",
+    "name": "Tyron Guerrero",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 41,
+    "league": "AL"
   },
   {
     "id": "mlb:32783",
@@ -8976,6 +8976,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5255100",
+    "name": "Winston Santos",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "SP",
+    "number": 47,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4719324",
     "name": "Wyatt Langford",
     "conference": "AL",
@@ -8984,17 +8995,6 @@
     "teamAbbr": "TEX",
     "position": "LF",
     "number": 36,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:5130977",
-    "name": "Wyatt Olds",
-    "conference": "AL",
-    "division": "East",
-    "team": "Boston Red Sox",
-    "teamAbbr": "BOS",
-    "position": "RP",
-    "number": 75,
     "league": "AL"
   },
   {
