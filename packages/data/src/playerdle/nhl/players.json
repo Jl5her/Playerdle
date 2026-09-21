@@ -50,16 +50,6 @@
     "number": 52
   },
   {
-    "id": "nhl:4352706",
-    "name": "Adam Boqvist",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Islanders",
-    "teamAbbr": "NYI",
-    "position": "D",
-    "number": 34
-  },
-  {
     "id": "nhl:4894222",
     "name": "Adam Edstrom",
     "conference": "West",
@@ -107,8 +97,47 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "D",
-    "number": 13,
-    "numberBackfilled": true
+    "number": 73
+  },
+  {
+    "id": "nhl:5361721",
+    "name": "Adam Goljer",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 41
+  },
+  {
+    "id": "nhl:5173079",
+    "name": "Adam Ingram",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "C",
+    "number": 56
+  },
+  {
+    "id": "nhl:5238140",
+    "name": "Adam Jecho",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 84
+  },
+  {
+    "id": "nhl:5216884",
+    "name": "Adam Jiricek",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 36
   },
   {
     "id": "nhl:5073306",
@@ -119,6 +148,16 @@
     "teamAbbr": "CGY",
     "position": "RW",
     "number": 43
+  },
+  {
+    "id": "nhl:5452153",
+    "name": "Adam Kydd",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 97
   },
   {
     "id": "nhl:2562610",
@@ -139,6 +178,16 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:5361663",
+    "name": "Adam Novotny",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "LW",
+    "number": 15
   },
   {
     "id": "nhl:3069621",
@@ -198,7 +247,17 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "RW",
-    "number": 18
+    "number": 11
+  },
+  {
+    "id": "nhl:5310604",
+    "name": "Aiden Foster",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 56
   },
   {
     "id": "nhl:4587845",
@@ -251,6 +310,16 @@
     "number": 16
   },
   {
+    "id": "nhl:5188510",
+    "name": "Aleksanteri Kaskimaki",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 41
+  },
+  {
     "id": "nhl:5188331",
     "name": "Aleksei Kolosov",
     "conference": "East",
@@ -259,6 +328,16 @@
     "teamAbbr": "PHI",
     "position": "G",
     "number": 35
+  },
+  {
+    "id": "nhl:5302593",
+    "name": "Aleksei Medvedev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "G",
+    "number": 78
   },
   {
     "id": "nhl:4874887",
@@ -302,6 +381,16 @@
     "number": 20
   },
   {
+    "id": "nhl:5188390",
+    "name": "Alex Ciernik",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "LW",
+    "number": 45
+  },
+  {
     "id": "nhl:4063433",
     "name": "Alex DeBrincat",
     "conference": "East",
@@ -312,6 +401,16 @@
     "number": 93
   },
   {
+    "id": "nhl:4233882",
+    "name": "Alex Formenton",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 26
+  },
+  {
     "id": "nhl:5188419",
     "name": "Alex Gagne",
     "conference": "West",
@@ -319,7 +418,27 @@
     "team": "Colorado Avalanche",
     "teamAbbr": "COL",
     "position": "D",
-    "number": 45
+    "number": 28
+  },
+  {
+    "id": "nhl:4063459",
+    "name": "Alex Gallant",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 48
+  },
+  {
+    "id": "nhl:5452950",
+    "name": "Alex Huang",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 98
   },
   {
     "id": "nhl:3652598",
@@ -419,8 +538,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "RW",
-    "number": 89,
-    "numberBackfilled": true
+    "number": 89
   },
   {
     "id": "nhl:4565226",
@@ -443,6 +561,26 @@
     "number": 72
   },
   {
+    "id": "nhl:5361698",
+    "name": "Alexander Bilecki",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 46
+  },
+  {
+    "id": "nhl:5361718",
+    "name": "Alexander Command",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 17
+  },
+  {
     "id": "nhl:4697388",
     "name": "Alexander Holtz",
     "conference": "West",
@@ -450,7 +588,7 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "RW",
-    "number": 11
+    "number": 10
   },
   {
     "id": "nhl:3069394",
@@ -460,8 +598,27 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "C",
-    "number": 15,
-    "numberBackfilled": true
+    "number": 14
+  },
+  {
+    "id": "nhl:4915850",
+    "name": "Alexander Nikishin",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "D",
+    "number": 21
+  },
+  {
+    "id": "nhl:4024861",
+    "name": "Alexander Nylander",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 93
   },
   {
     "id": "nhl:5620",
@@ -485,6 +642,16 @@
     "number": 28
   },
   {
+    "id": "nhl:5080991",
+    "name": "Alexander Suzdalev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 91
+  },
+  {
     "id": "nhl:3042017",
     "name": "Alexander Wennberg",
     "conference": "West",
@@ -493,6 +660,16 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 21
+  },
+  {
+    "id": "nhl:5342600",
+    "name": "Alexandre Blais",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "C",
+    "number": 70
   },
   {
     "id": "nhl:3942064",
@@ -525,6 +702,16 @@
     "number": 13
   },
   {
+    "id": "nhl:5451870",
+    "name": "Alexis Bernier",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 43
+  },
+  {
     "id": "nhl:4697382",
     "name": "Alexis Lafreniere",
     "conference": "East",
@@ -535,6 +722,26 @@
     "number": 13
   },
   {
+    "id": "nhl:5452951",
+    "name": "Alexis Mathieu",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 85
+  },
+  {
+    "id": "nhl:5216912",
+    "name": "Alfons Freij",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 48
+  },
+  {
     "id": "nhl:4587943",
     "name": "Aliaksei Protas",
     "conference": "East",
@@ -543,6 +750,16 @@
     "teamAbbr": "WSH",
     "position": "C",
     "number": 21
+  },
+  {
+    "id": "nhl:5173500",
+    "name": "Amadeus Lombardi",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 78
   },
   {
     "id": "nhl:5793",
@@ -567,6 +784,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:4997131",
+    "name": "Andre Lee",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "LW",
+    "number": 47
+  },
+  {
     "id": "nhl:5077308",
     "name": "Andrei Kuzmenko",
     "conference": "East",
@@ -576,6 +803,16 @@
     "position": "LW",
     "number": 96,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5188619",
+    "name": "Andrei Loshko",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 70
   },
   {
     "id": "nhl:4352683",
@@ -598,16 +835,6 @@
     "number": 88
   },
   {
-    "id": "nhl:5393",
-    "name": "Andrew Agozzino",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "LW",
-    "number": 36
-  },
-  {
     "id": "nhl:5216916",
     "name": "Andrew Basha",
     "conference": "West",
@@ -628,6 +855,16 @@
     "number": 18
   },
   {
+    "id": "nhl:5149227",
+    "name": "Andrew Cristall",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 28
+  },
+  {
     "id": "nhl:5149229",
     "name": "Andrew Gibson",
     "conference": "West",
@@ -635,7 +872,7 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "D",
-    "number": 53
+    "number": 92
   },
   {
     "id": "nhl:3149619",
@@ -659,6 +896,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5452767",
+    "name": "Andrew Robinson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "D",
+    "number": 76
+  },
+  {
     "id": "nhl:5103541",
     "name": "Angus Booth",
     "conference": "West",
@@ -670,7 +917,7 @@
   },
   {
     "id": "nhl:5188549",
-    "name": "Angus Macdonell",
+    "name": "Angus MacDonell",
     "conference": "West",
     "division": "Central Division",
     "team": "Dallas Stars",
@@ -679,14 +926,14 @@
     "number": 47
   },
   {
-    "id": "nhl:4894401",
-    "name": "Anson Thornton",
+    "id": "nhl:5342603",
+    "name": "Anthony Allain-Samake",
     "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "G",
-    "number": 34
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 62
   },
   {
     "id": "nhl:3904107",
@@ -730,16 +977,6 @@
     "numberBackfilled": true
   },
   {
-    "id": "nhl:3942058",
-    "name": "Anthony Richard",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 90
-  },
-  {
     "id": "nhl:5238144",
     "name": "Anthony Spellacy",
     "conference": "West",
@@ -758,6 +995,36 @@
     "teamAbbr": "TOR",
     "position": "G",
     "number": 41
+  },
+  {
+    "id": "nhl:5310543",
+    "name": "Anthony Vincent",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 76
+  },
+  {
+    "id": "nhl:5238134",
+    "name": "Antoine Dorion",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 86
+  },
+  {
+    "id": "nhl:5188540",
+    "name": "Antoine Keller",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 60
   },
   {
     "id": "nhl:3042283",
@@ -810,6 +1077,16 @@
     "number": 15
   },
   {
+    "id": "nhl:5216879",
+    "name": "Anton Silaev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 52
+  },
+  {
     "id": "nhl:5149226",
     "name": "Anton Wahlberg",
     "conference": "West",
@@ -819,6 +1096,16 @@
     "position": "C",
     "number": 92,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4565258",
+    "name": "Antti Tuomisto",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "D",
+    "number": 6
   },
   {
     "id": "nhl:5188564",
@@ -841,6 +1128,26 @@
     "number": 72
   },
   {
+    "id": "nhl:5188571",
+    "name": "Arno Tiefensee",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 50
+  },
+  {
+    "id": "nhl:5104194",
+    "name": "Arseni Koromyslov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 48
+  },
+  {
     "id": "nhl:4915855",
     "name": "Arseny Gritsyuk",
     "conference": "East",
@@ -849,6 +1156,36 @@
     "teamAbbr": "NJ",
     "position": "RW",
     "number": 81
+  },
+  {
+    "id": "nhl:5103536",
+    "name": "Arshdeep Bains",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "LW",
+    "number": 13
+  },
+  {
+    "id": "nhl:5080205",
+    "name": "Artem Duda",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 84
+  },
+  {
+    "id": "nhl:5188326",
+    "name": "Artem Shlaine",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 67
   },
   {
     "id": "nhl:4712021",
@@ -871,16 +1208,6 @@
     "number": 10
   },
   {
-    "id": "nhl:4565256",
-    "name": "Arthur Kaliyev",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "RW",
-    "number": 34
-  },
-  {
     "id": "nhl:5209793",
     "name": "Arttu Hyry",
     "conference": "West",
@@ -899,6 +1226,16 @@
     "teamAbbr": "COL",
     "position": "LW",
     "number": 62
+  },
+  {
+    "id": "nhl:4697577",
+    "name": "Artur Akhtyamov",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 70
   },
   {
     "id": "nhl:4576894",
@@ -931,6 +1268,26 @@
     "number": 40
   },
   {
+    "id": "nhl:5311053",
+    "name": "Ashton Cumby",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 57
+  },
+  {
+    "id": "nhl:3149632",
+    "name": "Ashton Sautner",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 61
+  },
+  {
     "id": "nhl:5278661",
     "name": "Atro Leppanen",
     "conference": "West",
@@ -939,6 +1296,26 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 37
+  },
+  {
+    "id": "nhl:5362407",
+    "name": "Attilio Biasca",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "C",
+    "number": 71
+  },
+  {
+    "id": "nhl:3151138",
+    "name": "Austin Poganski",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "RW",
+    "number": 27
   },
   {
     "id": "nhl:5172993",
@@ -1001,6 +1378,16 @@
     "number": 23
   },
   {
+    "id": "nhl:5188604",
+    "name": "Barrett Hall",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 86
+  },
+  {
     "id": "nhl:4352699",
     "name": "Barrett Hayton",
     "conference": "West",
@@ -1031,6 +1418,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5361682",
+    "name": "Beckett Hamilton",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 72
+  },
+  {
     "id": "nhl:5216858",
     "name": "Beckett Sennecke",
     "conference": "West",
@@ -1051,14 +1448,35 @@
     "number": 8
   },
   {
+    "id": "nhl:5216900",
+    "name": "Ben Danford",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 38
+  },
+  {
+    "id": "nhl:4393032",
+    "name": "Ben Gleason",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 70
+  },
+  {
     "id": "nhl:3571762",
     "name": "Ben Hutton",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
     "position": "D",
-    "number": 17
+    "number": 17,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4270546",
@@ -1068,7 +1486,7 @@
     "team": "Calgary Flames",
     "teamAbbr": "CGY",
     "position": "C",
-    "number": 64
+    "number": 18
   },
   {
     "id": "nhl:5291947",
@@ -1083,12 +1501,22 @@
   {
     "id": "nhl:5229183",
     "name": "Ben Kraws",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
     "position": "G",
     "number": 32
+  },
+  {
+    "id": "nhl:5188644",
+    "name": "Ben MacDonald",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 64
   },
   {
     "id": "nhl:4586827",
@@ -1101,6 +1529,16 @@
     "number": 62
   },
   {
+    "id": "nhl:4997119",
+    "name": "Ben Meehan",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 86
+  },
+  {
     "id": "nhl:4755729",
     "name": "Ben Meyers",
     "conference": "West",
@@ -1109,6 +1547,36 @@
     "teamAbbr": "SEA",
     "position": "C",
     "number": 59
+  },
+  {
+    "id": "nhl:5229158",
+    "name": "Ben Steeves",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "LW",
+    "number": 37
+  },
+  {
+    "id": "nhl:4914967",
+    "name": "Ben Strinden",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "C",
+    "number": 66
+  },
+  {
+    "id": "nhl:5357746",
+    "name": "Benjamin Rautiainen",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 41
   },
   {
     "id": "nhl:5216877",
@@ -1141,6 +1609,16 @@
     "number": 20
   },
   {
+    "id": "nhl:5291978",
+    "name": "Blake Fiddler",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 53
+  },
+  {
     "id": "nhl:4316983",
     "name": "Blake Lizotte",
     "conference": "East",
@@ -1149,6 +1627,16 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 46
+  },
+  {
+    "id": "nhl:5278562",
+    "name": "Blake Smith",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 59
   },
   {
     "id": "nhl:4378685",
@@ -1191,6 +1679,16 @@
     "number": 74
   },
   {
+    "id": "nhl:4697774",
+    "name": "Bogdan Trineyev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "RW",
+    "number": 87
+  },
+  {
     "id": "nhl:2563054",
     "name": "Boone Jenner",
     "conference": "East",
@@ -1198,8 +1696,17 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "C",
-    "number": 38,
-    "numberBackfilled": true
+    "number": 22
+  },
+  {
+    "id": "nhl:5302552",
+    "name": "Borya Valis",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 39
   },
   {
     "id": "nhl:5206639",
@@ -1222,6 +1729,16 @@
     "number": 24
   },
   {
+    "id": "nhl:5080178",
+    "name": "Brad Lambert",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 93
+  },
+  {
     "id": "nhl:3852",
     "name": "Brad Marchand",
     "conference": "East",
@@ -1230,6 +1747,16 @@
     "teamAbbr": "FLA",
     "position": "LW",
     "number": 63
+  },
+  {
+    "id": "nhl:4894176",
+    "name": "Braden Hache",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 86
   },
   {
     "id": "nhl:4697402",
@@ -1289,7 +1816,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "LW",
-    "number": 7
+    "number": 8
   },
   {
     "id": "nhl:5272307",
@@ -1309,7 +1836,17 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "C",
-    "number": 80
+    "number": 86
+  },
+  {
+    "id": "nhl:5451873",
+    "name": "Brandon Buhr",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 64
   },
   {
     "id": "nhl:4996097",
@@ -1339,8 +1876,17 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "RW",
-    "number": 22,
-    "numberBackfilled": true
+    "number": 24
+  },
+  {
+    "id": "nhl:5452743",
+    "name": "Brandon Gorzynski",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 64
   },
   {
     "id": "nhl:4065019",
@@ -1353,6 +1899,16 @@
     "number": 38
   },
   {
+    "id": "nhl:3115036",
+    "name": "Brandon Halverson",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 33
+  },
+  {
     "id": "nhl:3115032",
     "name": "Brandon Montour",
     "conference": "West",
@@ -1363,14 +1919,14 @@
     "number": 62
   },
   {
-    "id": "nhl:2563065",
-    "name": "Brandon Saad",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "LW",
-    "number": 20
+    "id": "nhl:4781641",
+    "name": "Brandon Scanlin",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 58
   },
   {
     "id": "nhl:3096236",
@@ -1433,6 +1989,36 @@
     "number": 10
   },
   {
+    "id": "nhl:5149188",
+    "name": "Brayden Yager",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 29
+  },
+  {
+    "id": "nhl:4697412",
+    "name": "Brendan Brisson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 90
+  },
+  {
+    "id": "nhl:4755756",
+    "name": "Brendan Furry",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 91
+  },
+  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "West",
@@ -1440,7 +2026,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "RW",
-    "number": 11
+    "number": 7
   },
   {
     "id": "nhl:4973",
@@ -1463,6 +2049,16 @@
     "number": 5
   },
   {
+    "id": "nhl:4874733",
+    "name": "Brennan Othmann",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 78
+  },
+  {
     "id": "nhl:2300",
     "name": "Brent Burns",
     "conference": "West",
@@ -1480,8 +2076,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "LW",
-    "number": 65,
-    "numberBackfilled": true
+    "number": 37
   },
   {
     "id": "nhl:4024989",
@@ -1492,6 +2087,16 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 21
+  },
+  {
+    "id": "nhl:4894827",
+    "name": "Brett Hyland",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "C",
+    "number": 59
   },
   {
     "id": "nhl:3068665",
@@ -1594,6 +2199,36 @@
     "number": 72
   },
   {
+    "id": "nhl:4781709",
+    "name": "Cade Webber",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 52
+  },
+  {
+    "id": "nhl:5452768",
+    "name": "Caden Harvey",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "C",
+    "number": 45
+  },
+  {
+    "id": "nhl:5188611",
+    "name": "Caden Price",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 48
+  },
+  {
     "id": "nhl:5103531",
     "name": "Caedan Bankier",
     "conference": "West",
@@ -1635,6 +2270,26 @@
     "number": 8
   },
   {
+    "id": "nhl:5291936",
+    "name": "Caleb Desnoyers",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 18
+  },
+  {
+    "id": "nhl:5310656",
+    "name": "Caleb Heil",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "G",
+    "number": 70
+  },
+  {
     "id": "nhl:3941970",
     "name": "Caleb Jones",
     "conference": "East",
@@ -1655,14 +2310,14 @@
     "number": 94
   },
   {
-    "id": "nhl:2555316",
-    "name": "Calle Jarnkrok",
+    "id": "nhl:5080233",
+    "name": "Calle Odelius",
     "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 19
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 36
   },
   {
     "id": "nhl:4220707",
@@ -1692,8 +2347,17 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "G",
-    "number": 30,
-    "numberBackfilled": true
+    "number": 31
+  },
+  {
+    "id": "nhl:5188531",
+    "name": "Cam Allen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 54
   },
   {
     "id": "nhl:5495",
@@ -1706,6 +2370,26 @@
     "number": 17
   },
   {
+    "id": "nhl:5080203",
+    "name": "Cam Lund",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 46
+  },
+  {
+    "id": "nhl:5188354",
+    "name": "Cam Squires",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "RW",
+    "number": 77
+  },
+  {
     "id": "nhl:4565235",
     "name": "Cam York",
     "conference": "East",
@@ -1714,6 +2398,16 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 8
+  },
+  {
+    "id": "nhl:5229143",
+    "name": "Camden Thiesing",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "C",
+    "number": 58
   },
   {
     "id": "nhl:4587571",
@@ -1744,6 +2438,26 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 34
+  },
+  {
+    "id": "nhl:5291957",
+    "name": "Cameron Reid",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 71
+  },
+  {
+    "id": "nhl:5452744",
+    "name": "Cameron Schmidt",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "RW",
+    "number": 45
   },
   {
     "id": "nhl:4271565",
@@ -1783,7 +2497,7 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "D",
-    "number": 71
+    "number": 55
   },
   {
     "id": "nhl:4587999",
@@ -1796,6 +2510,16 @@
     "number": 49
   },
   {
+    "id": "nhl:5149237",
+    "name": "Carson Rehkopf",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "LW",
+    "number": 14
+  },
+  {
     "id": "nhl:3042198",
     "name": "Carson Soucy",
     "conference": "East",
@@ -1805,6 +2529,26 @@
     "position": "D",
     "number": 4,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5310890",
+    "name": "Carson Wetsch",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 62
+  },
+  {
+    "id": "nhl:5291949",
+    "name": "Carter Bear",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "LW",
+    "number": 41
   },
   {
     "id": "nhl:5216932",
@@ -1907,6 +2651,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5361673",
+    "name": "Casey Mutryn",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 81
+  },
+  {
     "id": "nhl:3944278",
     "name": "Cavan Fitzgerald",
     "conference": "West",
@@ -1945,6 +2699,16 @@
     "teamAbbr": "TB",
     "position": "D",
     "number": 51
+  },
+  {
+    "id": "nhl:5136605",
+    "name": "Charles Alexis Legault",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "D",
+    "number": 62
   },
   {
     "id": "nhl:2555315",
@@ -1987,6 +2751,26 @@
     "number": 73
   },
   {
+    "id": "nhl:5452742",
+    "name": "Charlie Paquette",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "RW",
+    "number": 63
+  },
+  {
+    "id": "nhl:5149196",
+    "name": "Charlie Stramel",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 15
+  },
+  {
     "id": "nhl:4697664",
     "name": "Chase Bradley",
     "conference": "West",
@@ -1995,6 +2779,16 @@
     "teamAbbr": "NSH",
     "position": "LW",
     "number": 38
+  },
+  {
+    "id": "nhl:5361653",
+    "name": "Chase Reid",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 25
   },
   {
     "id": "nhl:4874746",
@@ -2007,6 +2801,36 @@
     "number": 61
   },
   {
+    "id": "nhl:4588170",
+    "name": "Chase Wouters",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 21
+  },
+  {
+    "id": "nhl:5310549",
+    "name": "Chase Wutzke",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 95
+  },
+  {
+    "id": "nhl:3067263",
+    "name": "Chris Driedger",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "G",
+    "number": 60
+  },
+  {
     "id": "nhl:5833",
     "name": "Chris Kreider",
     "conference": "East",
@@ -2014,8 +2838,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "LW",
-    "number": 20,
-    "numberBackfilled": true
+    "number": 22
   },
   {
     "id": "nhl:5592",
@@ -2056,6 +2879,26 @@
     "teamAbbr": "NSH",
     "position": "D",
     "number": 44
+  },
+  {
+    "id": "nhl:3149716",
+    "name": "Clark Bishop",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 61
+  },
+  {
+    "id": "nhl:5342469",
+    "name": "Clarke Caswell",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "LW",
+    "number": 56
   },
   {
     "id": "nhl:3775",
@@ -2108,6 +2951,16 @@
     "number": 12
   },
   {
+    "id": "nhl:5149193",
+    "name": "Colby Barlow",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "LW",
+    "number": 39
+  },
+  {
     "id": "nhl:4565236",
     "name": "Cole Caufield",
     "conference": "East",
@@ -2148,6 +3001,16 @@
     "number": 44
   },
   {
+    "id": "nhl:5188341",
+    "name": "Cole Knuble",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "RW",
+    "number": 54
+  },
+  {
     "id": "nhl:4419679",
     "name": "Cole Koepke",
     "conference": "West",
@@ -2165,7 +3028,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "D",
-    "number": 4
+    "number": 82
   },
   {
     "id": "nhl:5104221",
@@ -2175,7 +3038,7 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "RW",
-    "number": 65
+    "number": 19
   },
   {
     "id": "nhl:4697392",
@@ -2225,8 +3088,7 @@
     "team": "Chicago Blackhawks",
     "teamAbbr": "CHI",
     "position": "RW",
-    "number": 22,
-    "numberBackfilled": true
+    "number": 22
   },
   {
     "id": "nhl:2590857",
@@ -2239,14 +3101,14 @@
     "number": 15
   },
   {
-    "id": "nhl:2590796",
-    "name": "Colin Miller",
+    "id": "nhl:5216923",
+    "name": "Colin Ralph",
     "conference": "West",
     "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
     "position": "D",
-    "number": 6
+    "number": 51
   },
   {
     "id": "nhl:5136607",
@@ -2299,6 +3161,16 @@
     "number": 55
   },
   {
+    "id": "nhl:5452932",
+    "name": "Colton Roberts",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 68
+  },
+  {
     "id": "nhl:2993474",
     "name": "Colton Sissons",
     "conference": "East",
@@ -2306,8 +3178,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 10,
-    "numberBackfilled": true
+    "number": 15
   },
   {
     "id": "nhl:3941125",
@@ -2380,6 +3251,46 @@
     "number": 37
   },
   {
+    "id": "nhl:4781545",
+    "name": "Connor Kelley",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "D",
+    "number": 73
+  },
+  {
+    "id": "nhl:5136597",
+    "name": "Connor Kurth",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 68
+  },
+  {
+    "id": "nhl:5188615",
+    "name": "Connor Levis",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "RW",
+    "number": 74
+  },
+  {
+    "id": "nhl:4319927",
+    "name": "Connor Mackey",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 15
+  },
+  {
     "id": "nhl:3895074",
     "name": "Connor McDavid",
     "conference": "West",
@@ -2397,7 +3308,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "C",
-    "number": 24
+    "number": 77
   },
   {
     "id": "nhl:2562618",
@@ -2408,6 +3319,16 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 5
+  },
+  {
+    "id": "nhl:5451600",
+    "name": "Connor Mylymok",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "LW",
+    "number": 46
   },
   {
     "id": "nhl:5229172",
@@ -2491,6 +3412,26 @@
     "number": 31
   },
   {
+    "id": "nhl:5188488",
+    "name": "Cooper Flinton",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 50
+  },
+  {
+    "id": "nhl:5452965",
+    "name": "Cooper Soller",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 62
+  },
+  {
     "id": "nhl:2273",
     "name": "Corey Perry",
     "conference": "West",
@@ -2533,6 +3474,16 @@
     "number": 55
   },
   {
+    "id": "nhl:4697458",
+    "name": "Cross Hanas",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 74
+  },
+  {
     "id": "nhl:4331586",
     "name": "Curtis Douglas",
     "conference": "West",
@@ -2540,8 +3491,27 @@
     "team": "Seattle Kraken",
     "teamAbbr": "SEA",
     "position": "C",
-    "number": 42,
-    "numberBackfilled": true
+    "number": 42
+  },
+  {
+    "id": "nhl:2500988",
+    "name": "Curtis McKenzie",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "LW",
+    "number": 72
+  },
+  {
+    "id": "nhl:5080145",
+    "name": "Cutter Gauthier",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "LW",
+    "number": 61
   },
   {
     "id": "nhl:4697711",
@@ -2564,6 +3534,16 @@
     "number": 81
   },
   {
+    "id": "nhl:3069273",
+    "name": "Dakota Mermis",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 36
+  },
+  {
     "id": "nhl:5149178",
     "name": "Dalibor Dvorsky",
     "conference": "West",
@@ -2571,7 +3551,17 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "RW",
-    "number": 54
+    "number": 15
+  },
+  {
+    "id": "nhl:5238046",
+    "name": "Dalyn Wakely",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 59
   },
   {
     "id": "nhl:5149247",
@@ -2582,6 +3572,16 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 68
+  },
+  {
+    "id": "nhl:5275468",
+    "name": "Damien Carfagna",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "D",
+    "number": 73
   },
   {
     "id": "nhl:3068087",
@@ -2621,7 +3621,37 @@
     "team": "Utah Mammoth",
     "teamAbbr": "UTA",
     "position": "LW",
-    "number": 19
+    "number": 50
+  },
+  {
+    "id": "nhl:4697666",
+    "name": "Daniil Chechelev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "G",
+    "number": 40
+  },
+  {
+    "id": "nhl:5452964",
+    "name": "Daniil Rusakovich",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "G",
+    "number": 51
+  },
+  {
+    "id": "nhl:5104344",
+    "name": "Daniil Sobolev",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 51
   },
   {
     "id": "nhl:4587994",
@@ -2643,6 +3673,16 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 22
+  },
+  {
+    "id": "nhl:5122414",
+    "name": "Danny Zhilkin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 53
   },
   {
     "id": "nhl:5188392",
@@ -2685,6 +3725,16 @@
     "number": 35
   },
   {
+    "id": "nhl:5452944",
+    "name": "Darels Uljanskis",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 88
+  },
+  {
     "id": "nhl:3041997",
     "name": "Darnell Nurse",
     "conference": "West",
@@ -2715,6 +3765,26 @@
     "number": 60
   },
   {
+    "id": "nhl:5080231",
+    "name": "David Goyette",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 88
+  },
+  {
+    "id": "nhl:5188423",
+    "name": "David Gucciardi",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 93
+  },
+  {
     "id": "nhl:4378695",
     "name": "David Gustafsson",
     "conference": "East",
@@ -2735,14 +3805,14 @@
     "number": 5
   },
   {
-    "id": "nhl:4267976",
-    "name": "David Kampf",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "C",
-    "number": 64
+    "id": "nhl:5310533",
+    "name": "David Lewandowski",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 47
   },
   {
     "id": "nhl:3114778",
@@ -2806,6 +3876,16 @@
     "number": 91
   },
   {
+    "id": "nhl:5145509",
+    "name": "Daylan Kuefler",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 52
+  },
+  {
     "id": "nhl:5103825",
     "name": "Declan Carlile",
     "conference": "East",
@@ -2826,6 +3906,16 @@
     "position": "D",
     "number": 47,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4587707",
+    "name": "Demetrios Koumontzis",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 83
   },
   {
     "id": "nhl:4024972",
@@ -2869,16 +3959,6 @@
     "number": 52
   },
   {
-    "id": "nhl:5829",
-    "name": "Derek Forbort",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
-    "position": "D",
-    "number": 27
-  },
-  {
     "id": "nhl:2976834",
     "name": "Derrick Pouliot",
     "conference": "West",
@@ -2899,6 +3979,16 @@
     "number": 1
   },
   {
+    "id": "nhl:5188383",
+    "name": "Devin Kaplan",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "RW",
+    "number": 68
+  },
+  {
     "id": "nhl:4894487",
     "name": "Devon Levi",
     "conference": "West",
@@ -2906,8 +3996,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "G",
-    "number": 27,
-    "numberBackfilled": true
+    "number": 27
   },
   {
     "id": "nhl:3096249",
@@ -2918,6 +4007,26 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 7
+  },
+  {
+    "id": "nhl:5090524",
+    "name": "Dillon Boucher",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "LW",
+    "number": 36
+  },
+  {
+    "id": "nhl:4063268",
+    "name": "Dillon Dube",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 65
   },
   {
     "id": "nhl:5149158",
@@ -2960,6 +4069,26 @@
     "number": 9
   },
   {
+    "id": "nhl:5149847",
+    "name": "Domenic DiVincentiis",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "G",
+    "number": 50
+  },
+  {
+    "id": "nhl:4781720",
+    "name": "Domenick Fensore",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "D",
+    "number": 3
+  },
+  {
     "id": "nhl:4997033",
     "name": "Dominic James",
     "conference": "East",
@@ -2998,6 +4127,16 @@
     "teamAbbr": "DET",
     "position": "RW",
     "number": 65
+  },
+  {
+    "id": "nhl:5452891",
+    "name": "Donovan Houle-Villeneuve",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 83
   },
   {
     "id": "nhl:4697791",
@@ -3100,6 +4239,16 @@
     "number": 32
   },
   {
+    "id": "nhl:5238001",
+    "name": "Dylan Anhorn",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 42
+  },
+  {
     "id": "nhl:4063606",
     "name": "Dylan Coghlan",
     "conference": "West",
@@ -3128,6 +4277,16 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 2
+  },
+  {
+    "id": "nhl:3988778",
+    "name": "Dylan Gambrell",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 23
   },
   {
     "id": "nhl:4697705",
@@ -3167,7 +4326,7 @@
     "team": "Dallas Stars",
     "teamAbbr": "DAL",
     "position": "RW",
-    "number": 45
+    "number": 46
   },
   {
     "id": "nhl:3114755",
@@ -3178,6 +4337,16 @@
     "teamAbbr": "DET",
     "position": "C",
     "number": 71
+  },
+  {
+    "id": "nhl:5188529",
+    "name": "Dylan Mackinnon",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "D",
+    "number": 58
   },
   {
     "id": "nhl:2529256",
@@ -3197,7 +4366,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "C",
-    "number": 39
+    "number": 32
   },
   {
     "id": "nhl:4233878",
@@ -3220,6 +4389,46 @@
     "number": 17
   },
   {
+    "id": "nhl:5173636",
+    "name": "Dyllan Gill",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 57
+  },
+  {
+    "id": "nhl:3149621",
+    "name": "Dysin Mayo",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 37
+  },
+  {
+    "id": "nhl:5149211",
+    "name": "Easton Cowan",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 53
+  },
+  {
+    "id": "nhl:5149195",
+    "name": "Eduard Sale",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "LW",
+    "number": 82
+  },
+  {
     "id": "nhl:5276295",
     "name": "Eduards Tralmaks",
     "conference": "West",
@@ -3227,8 +4436,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "RW",
-    "number": 14,
-    "numberBackfilled": true
+    "number": 36
   },
   {
     "id": "nhl:4233720",
@@ -3239,6 +4447,16 @@
     "teamAbbr": "NYR",
     "position": "RW",
     "number": 20
+  },
+  {
+    "id": "nhl:5216939",
+    "name": "Eemil Vinni",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "G",
+    "number": 60
   },
   {
     "id": "nhl:4233877",
@@ -3271,6 +4489,16 @@
     "number": 6
   },
   {
+    "id": "nhl:5188653",
+    "name": "Eli Barnett",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 60
+  },
+  {
     "id": "nhl:3041994",
     "name": "Elias Lindholm",
     "conference": "East",
@@ -3301,6 +4529,26 @@
     "number": 40
   },
   {
+    "id": "nhl:5452947",
+    "name": "Elijah Neuenschwander",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "G",
+    "number": 30
+  },
+  {
+    "id": "nhl:4697684",
+    "name": "Elliot Desnoyers",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 73
+  },
+  {
     "id": "nhl:5075840",
     "name": "Elmer Soderblom",
     "conference": "East",
@@ -3328,8 +4576,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "D",
-    "number": 36,
-    "numberBackfilled": true
+    "number": 55
   },
   {
     "id": "nhl:4697447",
@@ -3372,6 +4619,16 @@
     "number": 79
   },
   {
+    "id": "nhl:5452953",
+    "name": "Emile Guite",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "LW",
+    "number": 89
+  },
+  {
     "id": "nhl:5188599",
     "name": "Emmitt Finnie",
     "conference": "East",
@@ -3391,6 +4648,26 @@
     "position": "G",
     "number": 1,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5362093",
+    "name": "Eric Frossard",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 76
+  },
+  {
+    "id": "nhl:5188651",
+    "name": "Eric Pohlkamp",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 48
   },
   {
     "id": "nhl:4319879",
@@ -3454,6 +4731,16 @@
     "number": 1
   },
   {
+    "id": "nhl:5237989",
+    "name": "Eriks Mateiko",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 73
+  },
+  {
     "id": "nhl:3069352",
     "name": "Esa Lindell",
     "conference": "West",
@@ -3484,6 +4771,56 @@
     "number": 56
   },
   {
+    "id": "nhl:5291996",
+    "name": "Ethan Czata",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 45
+  },
+  {
+    "id": "nhl:4894726",
+    "name": "Ethan Del Mastro",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 38
+  },
+  {
+    "id": "nhl:4697691",
+    "name": "Ethan Edwards",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 73
+  },
+  {
+    "id": "nhl:5149224",
+    "name": "Ethan Gauthier",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 89
+  },
+  {
+    "id": "nhl:4587939",
+    "name": "Ethan Haider",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "G",
+    "number": 29
+  },
+  {
     "id": "nhl:5451564",
     "name": "Ethan Procyszyn",
     "conference": "West",
@@ -3501,8 +4838,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "D",
-    "number": 75,
-    "numberBackfilled": true
+    "number": 74
   },
   {
     "id": "nhl:4996093",
@@ -3535,6 +4871,16 @@
     "number": 35
   },
   {
+    "id": "nhl:4874918",
+    "name": "Evan Nause",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 52
+  },
+  {
     "id": "nhl:3648008",
     "name": "Evan Rodrigues",
     "conference": "East",
@@ -3546,14 +4892,14 @@
     "numberBackfilled": true
   },
   {
-    "id": "nhl:5251",
-    "name": "Evander Kane",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
-    "position": "LW",
-    "number": 91
+    "id": "nhl:5310605",
+    "name": "Everett Baldwin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 97
   },
   {
     "id": "nhl:3124",
@@ -3566,16 +4912,6 @@
     "number": 71
   },
   {
-    "id": "nhl:4969",
-    "name": "Evgenii Dadonov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
-    "position": "LW",
-    "number": 33
-  },
-  {
     "id": "nhl:4874738",
     "name": "Fabian Lysell",
     "conference": "West",
@@ -3584,6 +4920,16 @@
     "teamAbbr": "COL",
     "position": "RW",
     "number": 23
+  },
+  {
+    "id": "nhl:5188626",
+    "name": "Fabian Wagner",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 58
   },
   {
     "id": "nhl:4587837",
@@ -3617,6 +4963,16 @@
     "number": 62
   },
   {
+    "id": "nhl:5206679",
+    "name": "Felix Trudeau",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "LW",
+    "number": 46
+  },
+  {
     "id": "nhl:5149249",
     "name": "Felix Unger Sorum",
     "conference": "East",
@@ -3627,6 +4983,16 @@
     "number": 36
   },
   {
+    "id": "nhl:5080175",
+    "name": "Filip Bystedt",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 18
+  },
+  {
     "id": "nhl:4233643",
     "name": "Filip Chytil",
     "conference": "West",
@@ -3634,7 +5000,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "C",
-    "number": 72
+    "number": 77
   },
   {
     "id": "nhl:2968772",
@@ -3687,6 +5053,16 @@
     "number": 46
   },
   {
+    "id": "nhl:5452784",
+    "name": "Finn Kearns",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 2
+  },
+  {
     "id": "nhl:5188457",
     "name": "Florian Xhekaj",
     "conference": "East",
@@ -3705,6 +5081,16 @@
     "teamAbbr": "LA",
     "position": "C",
     "number": 73
+  },
+  {
+    "id": "nhl:5275369",
+    "name": "Frank Djurasevic",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 75
   },
   {
     "id": "nhl:5080157",
@@ -3744,7 +5130,7 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "D",
-    "number": 59
+    "number": 42
   },
   {
     "id": "nhl:3149649",
@@ -3764,8 +5150,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "G",
-    "number": 31,
-    "numberBackfilled": true
+    "number": 30
   },
   {
     "id": "nhl:5149204",
@@ -3778,6 +5163,16 @@
     "number": 94
   },
   {
+    "id": "nhl:5238043",
+    "name": "Gabe Smith",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 93
+  },
+  {
     "id": "nhl:2562609",
     "name": "Gabriel Landeskog",
     "conference": "West",
@@ -3786,6 +5181,16 @@
     "teamAbbr": "COL",
     "position": "LW",
     "number": 92
+  },
+  {
+    "id": "nhl:5173621",
+    "name": "Gabriel Szturc",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 96
   },
   {
     "id": "nhl:4233583",
@@ -3806,6 +5211,16 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 93
+  },
+  {
+    "id": "nhl:4894681",
+    "name": "Garin Bjorklund",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 68
   },
   {
     "id": "nhl:3149633",
@@ -3849,6 +5264,46 @@
     "number": 92
   },
   {
+    "id": "nhl:5342529",
+    "name": "Gavin McKenna",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 92
+  },
+  {
+    "id": "nhl:5104211",
+    "name": "Gavin White",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 74
+  },
+  {
+    "id": "nhl:5144058",
+    "name": "Georgi Romanov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "G",
+    "number": 35
+  },
+  {
+    "id": "nhl:5361695",
+    "name": "Giorgos Pantelas",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 84
+  },
+  {
     "id": "nhl:5080226",
     "name": "Gleb Trikozov",
     "conference": "East",
@@ -3857,6 +5312,16 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 73
+  },
+  {
+    "id": "nhl:5206871",
+    "name": "Gleb Veremyev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "C",
+    "number": 67
   },
   {
     "id": "nhl:5149250",
@@ -3869,14 +5334,44 @@
     "number": 59
   },
   {
-    "id": "nhl:4587944",
-    "name": "Graeme Clarke",
+    "id": "nhl:5275384",
+    "name": "Grant Slukynsky",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "C",
+    "number": 86
+  },
+  {
+    "id": "nhl:5310655",
+    "name": "Grant Spada",
     "conference": "East",
     "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "RW",
-    "number": 49
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 48
+  },
+  {
+    "id": "nhl:5310523",
+    "name": "Gregor Biber",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 94
+  },
+  {
+    "id": "nhl:3942866",
+    "name": "Guillaume Brisebois",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 55
   },
   {
     "id": "nhl:5188630",
@@ -3899,14 +5394,24 @@
     "number": 42
   },
   {
-    "id": "nhl:5823",
-    "name": "Gustav Nyquist",
+    "id": "nhl:3042031",
+    "name": "Gustav Olofsson",
     "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 23
+  },
+  {
+    "id": "nhl:5275471",
+    "name": "Hagen Burrows",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
     "position": "RW",
-    "number": 14
+    "number": 54
   },
   {
     "id": "nhl:2968818",
@@ -3919,6 +5424,16 @@
     "number": 27
   },
   {
+    "id": "nhl:4588734",
+    "name": "Harrison Blaisdell",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 74
+  },
+  {
     "id": "nhl:5302542",
     "name": "Harrison Meneghin",
     "conference": "East",
@@ -3927,6 +5442,36 @@
     "teamAbbr": "TB",
     "position": "G",
     "number": 1
+  },
+  {
+    "id": "nhl:5206683",
+    "name": "Harrison Scott",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 37
+  },
+  {
+    "id": "nhl:5452154",
+    "name": "Harry Nansi",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 74
+  },
+  {
+    "id": "nhl:5452778",
+    "name": "Hawke Huff",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 54
   },
   {
     "id": "nhl:3150479",
@@ -3987,7 +5532,17 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "RW",
-    "number": 58
+    "number": 54
+  },
+  {
+    "id": "nhl:4697775",
+    "name": "Henrik Tikkanen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "G",
+    "number": 70
   },
   {
     "id": "nhl:5291969",
@@ -3998,6 +5553,36 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 68
+  },
+  {
+    "id": "nhl:5238044",
+    "name": "Henry Mews",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "D",
+    "number": 56
+  },
+  {
+    "id": "nhl:4997138",
+    "name": "Henry Thrun",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 8
+  },
+  {
+    "id": "nhl:5452140",
+    "name": "Herman Traff",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "RW",
+    "number": 87
   },
   {
     "id": "nhl:5237987",
@@ -4030,6 +5615,26 @@
     "number": 48
   },
   {
+    "id": "nhl:4588168",
+    "name": "Hunter Drew",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 72
+  },
+  {
+    "id": "nhl:4565281",
+    "name": "Hunter Jones",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "G",
+    "number": 95
+  },
+  {
     "id": "nhl:5103725",
     "name": "Hunter McDonald",
     "conference": "East",
@@ -4038,6 +5643,26 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 75
+  },
+  {
+    "id": "nhl:5137433",
+    "name": "Hunter McKown",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 41
+  },
+  {
+    "id": "nhl:4894345",
+    "name": "Hunter Skinner",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 57
   },
   {
     "id": "nhl:5237986",
@@ -4057,8 +5682,7 @@
     "team": "Chicago Blackhawks",
     "teamAbbr": "CHI",
     "position": "D",
-    "number": 28,
-    "numberBackfilled": true
+    "number": 28
   },
   {
     "id": "nhl:5188523",
@@ -4099,8 +5723,17 @@
     "team": "Tampa Bay Lightning",
     "teamAbbr": "TB",
     "position": "RW",
-    "number": 95,
-    "numberBackfilled": true
+    "number": 95
+  },
+  {
+    "id": "nhl:5216913",
+    "name": "Ilya Nabokov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "G",
+    "number": 30
   },
   {
     "id": "nhl:5229146",
@@ -4111,6 +5744,16 @@
     "teamAbbr": "WSH",
     "position": "LW",
     "number": 62
+  },
+  {
+    "id": "nhl:4894721",
+    "name": "Ilya Safonov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 24
   },
   {
     "id": "nhl:4697784",
@@ -4131,6 +5774,16 @@
     "teamAbbr": "NYI",
     "position": "G",
     "number": 30
+  },
+  {
+    "id": "nhl:5103515",
+    "name": "Isaac Belliveau",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 75
   },
   {
     "id": "nhl:5080179",
@@ -4211,6 +5864,16 @@
     "teamAbbr": "WPG",
     "position": "RW",
     "number": 27
+  },
+  {
+    "id": "nhl:5188453",
+    "name": "Isak Walther",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "RW",
+    "number": 80
   },
   {
     "id": "nhl:3114985",
@@ -4313,6 +5976,46 @@
     "number": 74
   },
   {
+    "id": "nhl:4316979",
+    "name": "Jack Ahcan",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 47
+  },
+  {
+    "id": "nhl:5451623",
+    "name": "Jack Anderson",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 40
+  },
+  {
+    "id": "nhl:4997146",
+    "name": "Jack Bar",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "D",
+    "number": 33
+  },
+  {
+    "id": "nhl:3942462",
+    "name": "Jack Becker",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 51
+  },
+  {
     "id": "nhl:4997013",
     "name": "Jack Devine",
     "conference": "East",
@@ -4354,6 +6057,16 @@
     "number": 37
   },
   {
+    "id": "nhl:5188526",
+    "name": "Jack Harvey",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 94
+  },
+  {
     "id": "nhl:4565222",
     "name": "Jack Hughes",
     "conference": "East",
@@ -4384,6 +6097,16 @@
     "number": 49
   },
   {
+    "id": "nhl:5310647",
+    "name": "Jack Pridham",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 64
+  },
+  {
     "id": "nhl:4697389",
     "name": "Jack Quinn",
     "conference": "East",
@@ -4411,8 +6134,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 28,
-    "numberBackfilled": true
+    "number": 96
   },
   {
     "id": "nhl:4755690",
@@ -4422,7 +6144,17 @@
     "team": "Winnipeg Jets",
     "teamAbbr": "WPG",
     "position": "D",
-    "number": 3
+    "number": 6
+  },
+  {
+    "id": "nhl:4697776",
+    "name": "Jack Thompson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 26
   },
   {
     "id": "nhl:5275582",
@@ -4443,6 +6175,26 @@
     "teamAbbr": "CAR",
     "position": "RW",
     "number": 53
+  },
+  {
+    "id": "nhl:5104192",
+    "name": "Jackson Edward",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "D",
+    "number": 41
+  },
+  {
+    "id": "nhl:4697724",
+    "name": "Jackson Kunz",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 94
   },
   {
     "id": "nhl:4565262",
@@ -4496,6 +6248,26 @@
     "number": 78
   },
   {
+    "id": "nhl:5188528",
+    "name": "Jacob Julien",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 67
+  },
+  {
+    "id": "nhl:5188401",
+    "name": "Jacob Kucharski",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "G",
+    "number": 40
+  },
+  {
     "id": "nhl:5452",
     "name": "Jacob Markstrom",
     "conference": "East",
@@ -4503,8 +6275,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "G",
-    "number": 25,
-    "numberBackfilled": true
+    "number": 25
   },
   {
     "id": "nhl:4894747",
@@ -4515,6 +6286,16 @@
     "teamAbbr": "SEA",
     "position": "RW",
     "number": 63
+  },
+  {
+    "id": "nhl:5291977",
+    "name": "Jacob Rombach",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "D",
+    "number": 84
   },
   {
     "id": "nhl:2976839",
@@ -4528,6 +6309,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5173108",
+    "name": "Jaden Lipinski",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 73
+  },
+  {
     "id": "nhl:5835",
     "name": "Jaden Schwartz",
     "conference": "West",
@@ -4535,8 +6326,27 @@
     "team": "Colorado Avalanche",
     "teamAbbr": "COL",
     "position": "C",
-    "number": 17,
-    "numberBackfilled": true
+    "number": 71
+  },
+  {
+    "id": "nhl:5080204",
+    "name": "Jagger Firkus",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 57
+  },
+  {
+    "id": "nhl:5172803",
+    "name": "Jagger Joshua",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "LW",
+    "number": 27
   },
   {
     "id": "nhl:5111",
@@ -4579,6 +6389,16 @@
     "number": 71
   },
   {
+    "id": "nhl:5172811",
+    "name": "Jake Furlong",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "D",
+    "number": 53
+  },
+  {
     "id": "nhl:3042083",
     "name": "Jake Guentzel",
     "conference": "East",
@@ -4606,7 +6426,7 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "C",
-    "number": 21
+    "number": 27
   },
   {
     "id": "nhl:3020803",
@@ -4639,6 +6459,16 @@
     "number": 63
   },
   {
+    "id": "nhl:5302595",
+    "name": "Jake O'Brien",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 44
+  },
+  {
     "id": "nhl:4196914",
     "name": "Jake Oettinger",
     "conference": "West",
@@ -4657,6 +6487,16 @@
     "teamAbbr": "OTT",
     "position": "D",
     "number": 85
+  },
+  {
+    "id": "nhl:4997049",
+    "name": "Jake Schmaltz",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 82
   },
   {
     "id": "nhl:3151136",
@@ -4679,6 +6519,26 @@
     "number": 6
   },
   {
+    "id": "nhl:4565247",
+    "name": "Jakob Pelletier",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 11
+  },
+  {
+    "id": "nhl:5172809",
+    "name": "Jakub Demek",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 13
+  },
+  {
     "id": "nhl:4697686",
     "name": "Jakub Dobes",
     "conference": "East",
@@ -4697,6 +6557,56 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 51
+  },
+  {
+    "id": "nhl:5452774",
+    "name": "Jakub Fibigr",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 52
+  },
+  {
+    "id": "nhl:5188322",
+    "name": "Jakub Malek",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "G",
+    "number": 85
+  },
+  {
+    "id": "nhl:5237999",
+    "name": "Jakub Milota",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "G",
+    "number": 39
+  },
+  {
+    "id": "nhl:5188511",
+    "name": "Jakub Stancl",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 93
+  },
+  {
+    "id": "nhl:5361680",
+    "name": "Jakub Vanecek",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 38
   },
   {
     "id": "nhl:4063449",
@@ -4740,16 +6650,6 @@
     "number": 67
   },
   {
-    "id": "nhl:3870",
-    "name": "James Reimer",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "G",
-    "number": 47
-  },
-  {
     "id": "nhl:5207829",
     "name": "James Stefan",
     "conference": "West",
@@ -4787,8 +6687,27 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "D",
-    "number": 24,
-    "numberBackfilled": true
+    "number": 4
+  },
+  {
+    "id": "nhl:5452149",
+    "name": "Jan Chovan",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "C",
+    "number": 76
+  },
+  {
+    "id": "nhl:5310603",
+    "name": "Jan Golicic",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 55
   },
   {
     "id": "nhl:5080217",
@@ -4872,6 +6791,16 @@
     "number": 49
   },
   {
+    "id": "nhl:5549",
+    "name": "Jarred Tinordi",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 26
+  },
+  {
     "id": "nhl:3042062",
     "name": "Jason Dickinson",
     "conference": "West",
@@ -4943,6 +6872,16 @@
     "number": 88
   },
   {
+    "id": "nhl:5362091",
+    "name": "Jayden Kurtz",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 51
+  },
+  {
     "id": "nhl:4565269",
     "name": "Jayden Struble",
     "conference": "East",
@@ -4951,6 +6890,26 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 47
+  },
+  {
+    "id": "nhl:3020618",
+    "name": "Jayson Megna",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 12
+  },
+  {
+    "id": "nhl:5188447",
+    "name": "Jayson Shaugabay",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 92
   },
   {
     "id": "nhl:2593131",
@@ -4985,6 +6944,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5103786",
+    "name": "Jeremie Biakabutuka",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 82
+  },
+  {
     "id": "nhl:4271542",
     "name": "Jeremy Davies",
     "conference": "West",
@@ -4993,6 +6962,16 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 84
+  },
+  {
+    "id": "nhl:5173110",
+    "name": "Jeremy Hanzel",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 56
   },
   {
     "id": "nhl:3904185",
@@ -5038,10 +7017,10 @@
   {
     "id": "nhl:4894322",
     "name": "Jesper Vikman",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
     "position": "G",
     "number": 32
   },
@@ -5076,6 +7055,26 @@
     "number": 79
   },
   {
+    "id": "nhl:5188352",
+    "name": "Jesse Nurmi",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 72
+  },
+  {
+    "id": "nhl:5216929",
+    "name": "Jesse Pulkkinen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 42
+  },
+  {
     "id": "nhl:4894366",
     "name": "Jet Greaves",
     "conference": "East",
@@ -5094,6 +7093,26 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:4588265",
+    "name": "Jimmy Huntington",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 16
+  },
+  {
+    "id": "nhl:3988750",
+    "name": "Jimmy Schuldt",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 48
   },
   {
     "id": "nhl:5080171",
@@ -5133,8 +7152,7 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "G",
-    "number": 30,
-    "numberBackfilled": true
+    "number": 31
   },
   {
     "id": "nhl:4697438",
@@ -5157,6 +7175,26 @@
     "number": 25
   },
   {
+    "id": "nhl:5188495",
+    "name": "Joaquim Lemay",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 48
+  },
+  {
+    "id": "nhl:5452943",
+    "name": "Joe Connor",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 60
+  },
+  {
     "id": "nhl:3150480",
     "name": "Joe Hicketts",
     "conference": "West",
@@ -5165,6 +7203,16 @@
     "teamAbbr": "LA",
     "position": "D",
     "number": 27
+  },
+  {
+    "id": "nhl:5136801",
+    "name": "Joe Miller",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 87
   },
   {
     "id": "nhl:4352804",
@@ -5245,8 +7293,7 @@
     "team": "Dallas Stars",
     "teamAbbr": "DAL",
     "position": "LW",
-    "number": 94,
-    "numberBackfilled": true
+    "number": 22
   },
   {
     "id": "nhl:5104231",
@@ -5259,6 +7306,16 @@
     "number": 64
   },
   {
+    "id": "nhl:4781662",
+    "name": "Joey Abate",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 53
+  },
+  {
     "id": "nhl:3942073",
     "name": "Joey Daccord",
     "conference": "West",
@@ -5267,6 +7324,26 @@
     "teamAbbr": "SEA",
     "position": "G",
     "number": 35
+  },
+  {
+    "id": "nhl:5206657",
+    "name": "Joey Larson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "RW",
+    "number": 61
+  },
+  {
+    "id": "nhl:5188588",
+    "name": "Joey Muldowney",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 50
   },
   {
     "id": "nhl:5173083",
@@ -5300,6 +7377,16 @@
     "number": 74
   },
   {
+    "id": "nhl:4587595",
+    "name": "John Farinacci",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "C",
+    "number": 32
+  },
+  {
     "id": "nhl:2590824",
     "name": "John Gibson",
     "conference": "East",
@@ -5308,6 +7395,16 @@
     "teamAbbr": "DET",
     "position": "G",
     "number": 36
+  },
+  {
+    "id": "nhl:3042080",
+    "name": "John Hayden",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nhl:4419658",
@@ -5348,6 +7445,16 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 8
+  },
+  {
+    "id": "nhl:5188410",
+    "name": "Jon-Randall Avon",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 16
   },
   {
     "id": "nhl:4233890",
@@ -5420,6 +7527,16 @@
     "number": 45
   },
   {
+    "id": "nhl:5188608",
+    "name": "Jonathan Castagna",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 38
+  },
+  {
     "id": "nhl:2562606",
     "name": "Jonathan Huberdeau",
     "conference": "West",
@@ -5428,6 +7545,16 @@
     "teamAbbr": "CGY",
     "position": "LW",
     "number": 10
+  },
+  {
+    "id": "nhl:5080159",
+    "name": "Jonathan Lekkerimaki",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "RW",
+    "number": 88
   },
   {
     "id": "nhl:2967072",
@@ -5440,16 +7567,6 @@
     "number": 81
   },
   {
-    "id": "nhl:3634",
-    "name": "Jonathan Quick",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "G",
-    "number": 32
-  },
-  {
     "id": "nhl:3025614",
     "name": "Jonny Brodzinski",
     "conference": "East",
@@ -5457,18 +7574,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "C",
-    "number": 22,
-    "numberBackfilled": true
-  },
-  {
-    "id": "nhl:4268746",
-    "name": "Joona Koppanen",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "LW",
-    "number": 15
+    "number": 76
   },
   {
     "id": "nhl:3069266",
@@ -5610,8 +7716,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "C",
-    "number": 44,
-    "numberBackfilled": true
+    "number": 40
   },
   {
     "id": "nhl:5206763",
@@ -5622,6 +7727,16 @@
     "teamAbbr": "CBJ",
     "position": "RW",
     "number": 76
+  },
+  {
+    "id": "nhl:5173106",
+    "name": "Josh Filmon",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "LW",
+    "number": 89
   },
   {
     "id": "nhl:2590829",
@@ -5691,7 +7806,17 @@
     "team": "Utah Mammoth",
     "teamAbbr": "UTA",
     "position": "RW",
-    "number": 89
+    "number": 86
+  },
+  {
+    "id": "nhl:4587871",
+    "name": "Josiah Slavin",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "LW",
+    "number": 23
   },
   {
     "id": "nhl:4755684",
@@ -5714,14 +7839,34 @@
     "number": 54
   },
   {
-    "id": "nhl:4024975",
-    "name": "Julien Gauthier",
+    "id": "nhl:5080213",
+    "name": "Julian Lutz",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "LW",
+    "number": 43
+  },
+  {
+    "id": "nhl:5216915",
+    "name": "Julius Miettinen",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 49
+  },
+  {
+    "id": "nhl:5188525",
+    "name": "Juraj Pekarcik",
     "conference": "West",
     "division": "Central Division",
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
-    "position": "RW",
-    "number": 26
+    "position": "LW",
+    "number": 85
   },
   {
     "id": "nhl:4915349",
@@ -5752,6 +7897,16 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 16
+  },
+  {
+    "id": "nhl:5291955",
+    "name": "Justin Carbonneau",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "RW",
+    "number": 68
   },
   {
     "id": "nhl:4894355",
@@ -5791,8 +7946,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "D",
-    "number": 4,
-    "numberBackfilled": true
+    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -5803,6 +7957,26 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 49
+  },
+  {
+    "id": "nhl:5188631",
+    "name": "Justin Kipkie",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 58
+  },
+  {
+    "id": "nhl:3149659",
+    "name": "Justin Kirkland",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 28
   },
   {
     "id": "nhl:5103809",
@@ -5875,6 +8049,16 @@
     "number": 84
   },
   {
+    "id": "nhl:5188634",
+    "name": "Kaden Hammell",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 47
+  },
+  {
     "id": "nhl:4565264",
     "name": "Kaedan Korczak",
     "conference": "East",
@@ -5904,6 +8088,16 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 77
+  },
+  {
+    "id": "nhl:5206873",
+    "name": "Kaidan Mbereko",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 40
   },
   {
     "id": "nhl:4697399",
@@ -5956,6 +8150,36 @@
     "number": 70
   },
   {
+    "id": "nhl:5452781",
+    "name": "Karl Annborn",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 75
+  },
+  {
+    "id": "nhl:5277447",
+    "name": "Karsen Dorwart",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "LW",
+    "number": 23
+  },
+  {
+    "id": "nhl:5291953",
+    "name": "Kashawn Aitcheson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 37
+  },
+  {
     "id": "nhl:3114775",
     "name": "Kasperi Kapanen",
     "conference": "West",
@@ -5985,6 +8209,16 @@
     "position": "RW",
     "number": 55,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:3942747",
+    "name": "Kenneth Appleby",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 80
   },
   {
     "id": "nhl:5104190",
@@ -6037,14 +8271,14 @@
     "number": 5
   },
   {
-    "id": "nhl:5767",
-    "name": "Kevin Hayes",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "RW",
-    "number": 13
+    "id": "nhl:5238000",
+    "name": "Kevin He",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "LW",
+    "number": 46
   },
   {
     "id": "nhl:5080148",
@@ -6067,6 +8301,16 @@
     "number": 32
   },
   {
+    "id": "nhl:4588204",
+    "name": "Kevin Mandolese",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nhl:3096235",
     "name": "Kevin Rooney",
     "conference": "West",
@@ -6074,7 +8318,7 @@
     "team": "Utah Mammoth",
     "teamAbbr": "UTA",
     "position": "C",
-    "number": 25
+    "number": 21
   },
   {
     "id": "nhl:3904191",
@@ -6095,6 +8339,16 @@
     "teamAbbr": "SJ",
     "position": "LW",
     "number": 44
+  },
+  {
+    "id": "nhl:5238002",
+    "name": "Kieron Walton",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 76
   },
   {
     "id": "nhl:4565224",
@@ -6137,6 +8391,16 @@
     "number": 78
   },
   {
+    "id": "nhl:5188544",
+    "name": "Kirill Kudryavtsev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 59
+  },
+  {
     "id": "nhl:4587996",
     "name": "Kirill Marchenko",
     "conference": "East",
@@ -6147,6 +8411,16 @@
     "number": 86
   },
   {
+    "id": "nhl:5188413",
+    "name": "Klavs Veinbergs",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 47
+  },
+  {
     "id": "nhl:5172807",
     "name": "Koehn Ziemmer",
     "conference": "West",
@@ -6155,6 +8429,16 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 89
+  },
+  {
+    "id": "nhl:4233869",
+    "name": "Kole Lind",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 17
   },
   {
     "id": "nhl:5188574",
@@ -6237,16 +8521,6 @@
     "number": 85
   },
   {
-    "id": "nhl:4909207",
-    "name": "Kyle Konin",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "G",
-    "number": 30
-  },
-  {
     "id": "nhl:4393199",
     "name": "Kyle MacLean",
     "conference": "East",
@@ -6265,6 +8539,16 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 21
+  },
+  {
+    "id": "nhl:5103437",
+    "name": "Landon Sim",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 42
   },
   {
     "id": "nhl:4697787",
@@ -6298,16 +8582,6 @@
     "numberBackfilled": true
   },
   {
-    "id": "nhl:4565240",
-    "name": "Lassi Thomson",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 60
-  },
-  {
     "id": "nhl:3026526",
     "name": "Laurent Brossoit",
     "conference": "West",
@@ -6317,6 +8591,26 @@
     "position": "G",
     "number": 93,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:3042005",
+    "name": "Laurent Dauphin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 26
+  },
+  {
+    "id": "nhl:5452961",
+    "name": "Lavr Gashilov",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 76
   },
   {
     "id": "nhl:3899951",
@@ -6339,6 +8633,16 @@
     "number": 1
   },
   {
+    "id": "nhl:5149245",
+    "name": "Lenni Hameenaho",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "RW",
+    "number": 29
+  },
+  {
     "id": "nhl:5149153",
     "name": "Leo Carlsson",
     "conference": "West",
@@ -6347,6 +8651,16 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 91
+  },
+  {
+    "id": "nhl:5216928",
+    "name": "Leo Sahlin Wallenius",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 72
   },
   {
     "id": "nhl:3114727",
@@ -6359,6 +8673,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5236293",
+    "name": "Leon Muggli",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 45
+  },
+  {
     "id": "nhl:4352758",
     "name": "Liam Foudy",
     "conference": "East",
@@ -6366,6 +8690,26 @@
     "team": "New York Islanders",
     "teamAbbr": "NYI",
     "position": "C",
+    "number": 43
+  },
+  {
+    "id": "nhl:5361687",
+    "name": "Liam Lefebvre",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "C",
+    "number": 95
+  },
+  {
+    "id": "nhl:4997059",
+    "name": "Liam McLinskey",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "RW",
     "number": 43
   },
   {
@@ -6399,6 +8743,16 @@
     "number": 6
   },
   {
+    "id": "nhl:4063429",
+    "name": "Libor Hajek",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 24
+  },
+  {
     "id": "nhl:4587713",
     "name": "Linus Karlsson",
     "conference": "West",
@@ -6419,6 +8773,16 @@
     "number": 35
   },
   {
+    "id": "nhl:5229174",
+    "name": "Lleyton Roed",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "LW",
+    "number": 85
+  },
+  {
     "id": "nhl:5080143",
     "name": "Logan Cooley",
     "conference": "West",
@@ -6427,6 +8791,16 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 92
+  },
+  {
+    "id": "nhl:3773",
+    "name": "Logan Couture",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 39
   },
   {
     "id": "nhl:4874748",
@@ -6459,6 +8833,16 @@
     "number": 25
   },
   {
+    "id": "nhl:2563050",
+    "name": "Logan Shaw",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 12
+  },
+  {
     "id": "nhl:4874899",
     "name": "Logan Stankoven",
     "conference": "East",
@@ -6487,6 +8871,16 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 86
+  },
+  {
+    "id": "nhl:5452777",
+    "name": "Loke Krantz",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 58
   },
   {
     "id": "nhl:4697681",
@@ -6529,6 +8923,26 @@
     "number": 53
   },
   {
+    "id": "nhl:5310531",
+    "name": "Luca Romano",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "C",
+    "number": 82
+  },
+  {
+    "id": "nhl:5452150",
+    "name": "Lucas Ambrosio",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 98
+  },
+  {
     "id": "nhl:4997129",
     "name": "Lucas Condotta",
     "conference": "East",
@@ -6537,6 +8951,16 @@
     "teamAbbr": "MTL",
     "position": "LW",
     "number": 82
+  },
+  {
+    "id": "nhl:4997078",
+    "name": "Lucas Mercuri",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 75
   },
   {
     "id": "nhl:4697385",
@@ -6549,6 +8973,16 @@
     "number": 23
   },
   {
+    "id": "nhl:5342569",
+    "name": "Lucas Wahlin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "RW",
+    "number": 49
+  },
+  {
     "id": "nhl:5188478",
     "name": "Ludvig Jansson",
     "conference": "East",
@@ -6557,6 +8991,16 @@
     "teamAbbr": "FLA",
     "position": "D",
     "number": 54
+  },
+  {
+    "id": "nhl:5080990",
+    "name": "Ludwig Persson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 85
   },
   {
     "id": "nhl:4697678",
@@ -6577,6 +9021,36 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 1
+  },
+  {
+    "id": "nhl:5149244",
+    "name": "Lukas Dragicevic",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 92
+  },
+  {
+    "id": "nhl:5216931",
+    "name": "Lukas Fischer",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 94
+  },
+  {
+    "id": "nhl:4914964",
+    "name": "Lukas Gustafsson",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 59
   },
   {
     "id": "nhl:4697400",
@@ -6612,11 +9086,21 @@
     "id": "nhl:2335062",
     "name": "Luke Glendening",
     "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
     "position": "C",
     "number": 41
+  },
+  {
+    "id": "nhl:5206955",
+    "name": "Luke Haymes",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 37
   },
   {
     "id": "nhl:4874719",
@@ -6639,6 +9123,36 @@
     "number": 36
   },
   {
+    "id": "nhl:5238045",
+    "name": "Luke Misa",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 78
+  },
+  {
+    "id": "nhl:5136601",
+    "name": "Luke Mittelstadt",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 65
+  },
+  {
+    "id": "nhl:4064872",
+    "name": "Luke Philp",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 39
+  },
+  {
     "id": "nhl:5092",
     "name": "Luke Schenn",
     "conference": "West",
@@ -6646,8 +9160,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "D",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 2
   },
   {
     "id": "nhl:4697451",
@@ -6658,6 +9171,26 @@
     "teamAbbr": "CBJ",
     "position": "LW",
     "number": 71
+  },
+  {
+    "id": "nhl:5452967",
+    "name": "Luke Wilfley",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 92
+  },
+  {
+    "id": "nhl:5302555",
+    "name": "Lynden Lakovic",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "LW",
+    "number": 14
   },
   {
     "id": "nhl:3904177",
@@ -6678,6 +9211,16 @@
     "teamAbbr": "FLA",
     "position": "RW",
     "number": 44
+  },
+  {
+    "id": "nhl:3069342",
+    "name": "Mackenzie MacEachern",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "LW",
+    "number": 20
   },
   {
     "id": "nhl:3042269",
@@ -6710,6 +9253,26 @@
     "number": 71
   },
   {
+    "id": "nhl:5361664",
+    "name": "Maddox Dagenais",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 82
+  },
+  {
+    "id": "nhl:4565260",
+    "name": "Mads Sogaard",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "G",
+    "number": 30
+  },
+  {
     "id": "nhl:5103534",
     "name": "Maksymilian Szuber",
     "conference": "East",
@@ -6717,7 +9280,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "D",
-    "number": 55
+    "number": 79
   },
   {
     "id": "nhl:4697442",
@@ -6737,8 +9300,17 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "C",
-    "number": 16,
-    "numberBackfilled": true
+    "number": 17
+  },
+  {
+    "id": "nhl:5149600",
+    "name": "Marc Johnstone",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 57
   },
   {
     "id": "nhl:4755704",
@@ -6751,6 +9323,16 @@
     "number": 21
   },
   {
+    "id": "nhl:5103607",
+    "name": "Marc-Andre Gaudet",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 45
+  },
+  {
     "id": "nhl:5080152",
     "name": "Marco Kasper",
     "conference": "East",
@@ -6761,6 +9343,16 @@
     "number": 92
   },
   {
+    "id": "nhl:5310602",
+    "name": "Marco Mignosa",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 84
+  },
+  {
     "id": "nhl:4697391",
     "name": "Marco Rossi",
     "conference": "West",
@@ -6768,7 +9360,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "C",
-    "number": 93
+    "number": 23
   },
   {
     "id": "nhl:5172",
@@ -6819,8 +9411,7 @@
     "team": "Winnipeg Jets",
     "teamAbbr": "WPG",
     "position": "D",
-    "number": 38,
-    "numberBackfilled": true
+    "number": 38
   },
   {
     "id": "nhl:2976849",
@@ -6861,6 +9452,46 @@
     "teamAbbr": "VGK",
     "position": "RW",
     "number": 61
+  },
+  {
+    "id": "nhl:5238003",
+    "name": "Markus Loponen",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 65
+  },
+  {
+    "id": "nhl:5173109",
+    "name": "Maros Jedlicka",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 55
+  },
+  {
+    "id": "nhl:4419778",
+    "name": "Marshall Rifai",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 83
+  },
+  {
+    "id": "nhl:4755691",
+    "name": "Marshall Warren",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 41
   },
   {
     "id": "nhl:4697667",
@@ -6961,7 +9592,17 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "C",
-    "number": 23
+    "number": 83
+  },
+  {
+    "id": "nhl:4392879",
+    "name": "Mason Shaw",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nhl:3899946",
@@ -6981,8 +9622,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "RW",
-    "number": 17,
-    "numberBackfilled": true
+    "number": 21
   },
   {
     "id": "nhl:4064781",
@@ -6993,6 +9633,16 @@
     "teamAbbr": "CBJ",
     "position": "RW",
     "number": 24
+  },
+  {
+    "id": "nhl:5361681",
+    "name": "Mathis Preston",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "RW",
+    "number": 51
   },
   {
     "id": "nhl:4587580",
@@ -7006,6 +9656,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5361703",
+    "name": "Matias Vanhanen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "LW",
+    "number": 75
+  },
+  {
     "id": "nhl:5560",
     "name": "Mats Zuccarello",
     "conference": "West",
@@ -7015,6 +9675,16 @@
     "position": "RW",
     "number": 36,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4320669",
+    "name": "Matt Anderson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 47
   },
   {
     "id": "nhl:4565233",
@@ -7027,6 +9697,16 @@
     "number": 12
   },
   {
+    "id": "nhl:5137145",
+    "name": "Matt Copponi",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 45
+  },
+  {
     "id": "nhl:4874730",
     "name": "Matt Coronato",
     "conference": "West",
@@ -7037,6 +9717,16 @@
     "number": 27
   },
   {
+    "id": "nhl:5275521",
+    "name": "Matt DiMarsico",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 14
+  },
+  {
     "id": "nhl:5161",
     "name": "Matt Duchene",
     "conference": "West",
@@ -7045,6 +9735,16 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 95
+  },
+  {
+    "id": "nhl:4316995",
+    "name": "Matt Hellickson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 66
   },
   {
     "id": "nhl:4799741",
@@ -7075,16 +9775,6 @@
     "teamAbbr": "NSH",
     "position": "G",
     "number": 32
-  },
-  {
-    "id": "nhl:3067862",
-    "name": "Matt Murray",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
-    "position": "G",
-    "number": 30
   },
   {
     "id": "nhl:4697820",
@@ -7124,7 +9814,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "C",
-    "number": 36
+    "number": 83
   },
   {
     "id": "nhl:3069614",
@@ -7147,6 +9837,36 @@
     "number": 31
   },
   {
+    "id": "nhl:5310504",
+    "name": "Matthew Barbolini",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 68
+  },
+  {
+    "id": "nhl:5452871",
+    "name": "Matthew Davis",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "G",
+    "number": 34
+  },
+  {
+    "id": "nhl:4135544",
+    "name": "Matthew Highmore",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "C",
+    "number": 20
+  },
+  {
     "id": "nhl:4697719",
     "name": "Matthew Kessel",
     "conference": "East",
@@ -7166,6 +9886,26 @@
     "teamAbbr": "TOR",
     "position": "LW",
     "number": 23
+  },
+  {
+    "id": "nhl:5172481",
+    "name": "Matthew Mayich",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 95
+  },
+  {
+    "id": "nhl:5080221",
+    "name": "Matthew Poitras",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "C",
+    "number": 51
   },
   {
     "id": "nhl:4565272",
@@ -7228,6 +9968,16 @@
     "number": 14
   },
   {
+    "id": "nhl:5080215",
+    "name": "Mattias Havelid",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 25
+  },
+  {
     "id": "nhl:3042085",
     "name": "Mattias Janmark",
     "conference": "West",
@@ -7278,6 +10028,36 @@
     "number": 39
   },
   {
+    "id": "nhl:5451625",
+    "name": "Matvei Shuravin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "D",
+    "number": 76
+  },
+  {
+    "id": "nhl:5239163",
+    "name": "Matyas Melovsky",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 83
+  },
+  {
+    "id": "nhl:5080214",
+    "name": "Matyas Sapovaliv",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 25
+  },
+  {
     "id": "nhl:5080177",
     "name": "Maveric Lamoureux",
     "conference": "West",
@@ -7318,6 +10098,16 @@
     "number": 46
   },
   {
+    "id": "nhl:5342718",
+    "name": "Max Lundgren",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "G",
+    "number": 80
+  },
+  {
     "id": "nhl:5103699",
     "name": "Max McCue",
     "conference": "East",
@@ -7326,6 +10116,16 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 93
+  },
+  {
+    "id": "nhl:5291988",
+    "name": "Max Psenicka",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 47
   },
   {
     "id": "nhl:4996099",
@@ -7338,6 +10138,36 @@
     "number": 63
   },
   {
+    "id": "nhl:5452155",
+    "name": "Max Smolinski",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 89
+  },
+  {
+    "id": "nhl:5452971",
+    "name": "Max Vilen",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 76
+  },
+  {
+    "id": "nhl:5452783",
+    "name": "Maxim Agafonov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 42
+  },
+  {
     "id": "nhl:4697707",
     "name": "Maxim Groshev",
     "conference": "East",
@@ -7346,6 +10176,16 @@
     "teamAbbr": "TB",
     "position": "D",
     "number": 52
+  },
+  {
+    "id": "nhl:5452933",
+    "name": "Maxim Masse",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "RW",
+    "number": 56
   },
   {
     "id": "nhl:5302535",
@@ -7367,6 +10207,26 @@
     "position": "RW",
     "number": 42,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4894930",
+    "name": "Maximus Wanner",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "D",
+    "number": 64
+  },
+  {
+    "id": "nhl:5242077",
+    "name": "Maxmilian Curran",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 90
   },
   {
     "id": "nhl:5104716",
@@ -7399,6 +10259,26 @@
     "number": 28
   },
   {
+    "id": "nhl:5103181",
+    "name": "Michael Buchinger",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 62
+  },
+  {
+    "id": "nhl:5188649",
+    "name": "Michael Callow",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "RW",
+    "number": 86
+  },
+  {
     "id": "nhl:4031645",
     "name": "Michael Carcone",
     "conference": "West",
@@ -7416,7 +10296,17 @@
     "team": "Boston Bruins",
     "teamAbbr": "BOS",
     "position": "G",
-    "number": 80
+    "number": 30
+  },
+  {
+    "id": "nhl:5188439",
+    "name": "Michael Emerson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "RW",
+    "number": 78
   },
   {
     "id": "nhl:4270247",
@@ -7427,6 +10317,26 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 81
+  },
+  {
+    "id": "nhl:5104210",
+    "name": "Michael Fisher",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 43
+  },
+  {
+    "id": "nhl:5149225",
+    "name": "Michael Hrabal",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "G",
+    "number": 30
   },
   {
     "id": "nhl:4331604",
@@ -7459,6 +10369,16 @@
     "number": 77
   },
   {
+    "id": "nhl:4392215",
+    "name": "Michael Pezzetta",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 61
+  },
+  {
     "id": "nhl:4233576",
     "name": "Michael Rasmussen",
     "conference": "East",
@@ -7467,6 +10387,16 @@
     "teamAbbr": "DET",
     "position": "C",
     "number": 27
+  },
+  {
+    "id": "nhl:2517760",
+    "name": "Michael Sgarbossa",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 65
   },
   {
     "id": "nhl:5302578",
@@ -7497,6 +10427,16 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 11
+  },
+  {
+    "id": "nhl:5103688",
+    "name": "Mikael Diotte",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 55
   },
   {
     "id": "nhl:5831",
@@ -7539,6 +10479,16 @@
     "number": 44
   },
   {
+    "id": "nhl:5452748",
+    "name": "Mikhail Cherepanov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 61
+  },
+  {
     "id": "nhl:4024868",
     "name": "Mikhail Sergachev",
     "conference": "West",
@@ -7557,6 +10507,16 @@
     "teamAbbr": "DAL",
     "position": "RW",
     "number": 96
+  },
+  {
+    "id": "nhl:5188612",
+    "name": "Miko Matikka",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "RW",
+    "number": 49
   },
   {
     "id": "nhl:5209557",
@@ -7579,6 +10539,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5202803",
+    "name": "Milo Roelens",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 36
+  },
+  {
     "id": "nhl:4233536",
     "name": "Miro Heiskanen",
     "conference": "West",
@@ -7589,6 +10559,16 @@
     "number": 4
   },
   {
+    "id": "nhl:5293616",
+    "name": "Miroslav Holinka",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 98
+  },
+  {
     "id": "nhl:3899937",
     "name": "Mitch Marner",
     "conference": "West",
@@ -7597,6 +10577,56 @@
     "teamAbbr": "VGK",
     "position": "RW",
     "number": 93
+  },
+  {
+    "id": "nhl:4587862",
+    "name": "Mitchell Gibson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 78
+  },
+  {
+    "id": "nhl:4588272",
+    "name": "Mitchell McLain",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "C",
+    "number": 75
+  },
+  {
+    "id": "nhl:3904171",
+    "name": "Mitchell Stephens",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 67
+  },
+  {
+    "id": "nhl:4587708",
+    "name": "Montana Onyebuchi",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 79
+  },
+  {
+    "id": "nhl:5452963",
+    "name": "Morgan Anderberg",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 65
   },
   {
     "id": "nhl:4316970",
@@ -7659,6 +10689,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5452931",
+    "name": "Nate Misskey",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 89
+  },
+  {
     "id": "nhl:3024798",
     "name": "Nate Schmidt",
     "conference": "West",
@@ -7667,6 +10707,16 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 88
+  },
+  {
+    "id": "nhl:4063279",
+    "name": "Nathan Bastian",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "RW",
+    "number": 11
   },
   {
     "id": "nhl:5080170",
@@ -7687,6 +10737,26 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 29
+  },
+  {
+    "id": "nhl:4587926",
+    "name": "Nathan Smith",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "C",
+    "number": 83
+  },
+  {
+    "id": "nhl:5216938",
+    "name": "Nathan Villeneuve",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 90
   },
   {
     "id": "nhl:3067860",
@@ -7777,8 +10847,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "D",
-    "number": 37,
-    "numberBackfilled": true
+    "number": 3
   },
   {
     "id": "nhl:2563027",
@@ -7832,16 +10901,6 @@
     "number": 76
   },
   {
-    "id": "nhl:5447",
-    "name": "Nick Leddy",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "D",
-    "number": 4
-  },
-  {
     "id": "nhl:3042111",
     "name": "Nick Paul",
     "conference": "East",
@@ -7849,8 +10908,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "LW",
-    "number": 20,
-    "numberBackfilled": true
+    "number": 20
   },
   {
     "id": "nhl:4419638",
@@ -8013,6 +11071,16 @@
     "number": 13
   },
   {
+    "id": "nhl:4268770",
+    "name": "Nikita Popugaev",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "LW",
+    "number": 70
+  },
+  {
     "id": "nhl:5238048",
     "name": "Nikita Prishchepov",
     "conference": "West",
@@ -8021,6 +11089,16 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 85
+  },
+  {
+    "id": "nhl:5188605",
+    "name": "Nikita Susuyev",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "RW",
+    "number": 83
   },
   {
     "id": "nhl:5188534",
@@ -8083,16 +11161,6 @@
     "number": 33
   },
   {
-    "id": "nhl:4697579",
-    "name": "Nils Aman",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
-    "position": "C",
-    "number": 88
-  },
-  {
     "id": "nhl:4565263",
     "name": "Nils Hoglander",
     "conference": "West",
@@ -8133,6 +11201,16 @@
     "number": 27
   },
   {
+    "id": "nhl:5188432",
+    "name": "Noah Chadwick",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 58
+  },
+  {
     "id": "nhl:4352732",
     "name": "Noah Dobson",
     "conference": "East",
@@ -8151,6 +11229,16 @@
     "teamAbbr": "DET",
     "position": "LW",
     "number": 74
+  },
+  {
+    "id": "nhl:4063460",
+    "name": "Noah Gregor",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "LW",
+    "number": 73
   },
   {
     "id": "nhl:3652964",
@@ -8174,6 +11262,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5452969",
+    "name": "Noah Kosick",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "C",
+    "number": 82
+  },
+  {
     "id": "nhl:5188370",
     "name": "Noah Laba",
     "conference": "East",
@@ -8192,6 +11290,16 @@
     "teamAbbr": "BUF",
     "position": "C",
     "number": 86
+  },
+  {
+    "id": "nhl:5451871",
+    "name": "Noah Steen",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 67
   },
   {
     "id": "nhl:5080210",
@@ -8213,6 +11321,16 @@
     "position": "C",
     "number": 55,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5188662",
+    "name": "Noel Nordh",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "LW",
+    "number": 45
   },
   {
     "id": "nhl:4874749",
@@ -8253,6 +11371,26 @@
     "teamAbbr": "CBJ",
     "position": "C",
     "number": 20
+  },
+  {
+    "id": "nhl:5452782",
+    "name": "Ola Palme",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 80
+  },
+  {
+    "id": "nhl:5364135",
+    "name": "Oleg Kulebiakin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 58
   },
   {
     "id": "nhl:4874863",
@@ -8317,16 +11455,6 @@
     "number": 11
   },
   {
-    "id": "nhl:4587805",
-    "name": "Olle Lycksell",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "RW",
-    "number": 15
-  },
-  {
     "id": "nhl:2976850",
     "name": "Olli Maatta",
     "conference": "West",
@@ -8337,6 +11465,16 @@
     "number": 3
   },
   {
+    "id": "nhl:5262198",
+    "name": "Ondrej Becher",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 57
+  },
+  {
     "id": "nhl:2590389",
     "name": "Ondrej Palat",
     "conference": "East",
@@ -8345,16 +11483,6 @@
     "teamAbbr": "NYI",
     "position": "LW",
     "number": 81
-  },
-  {
-    "id": "nhl:5229135",
-    "name": "Oscar Eklind",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "LW",
-    "number": 43
   },
   {
     "id": "nhl:5149239",
@@ -8384,7 +11512,8 @@
     "team": "Ottawa Senators",
     "teamAbbr": "OTT",
     "position": "RW",
-    "number": 63
+    "number": 63,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:3069277",
@@ -8407,6 +11536,26 @@
     "number": 60
   },
   {
+    "id": "nhl:5149208",
+    "name": "Otto Stenberg",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 28
+  },
+  {
+    "id": "nhl:5101627",
+    "name": "Owen Allard",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 37
+  },
+  {
     "id": "nhl:5080202",
     "name": "Owen Beck",
     "conference": "East",
@@ -8424,7 +11573,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "C",
-    "number": 27
+    "number": 43
   },
   {
     "id": "nhl:4781556",
@@ -8445,6 +11594,16 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 68
+  },
+  {
+    "id": "nhl:5276587",
+    "name": "Owen Say",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "G",
+    "number": 80
   },
   {
     "id": "nhl:4392072",
@@ -8494,8 +11653,17 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "D",
-    "number": 28,
-    "numberBackfilled": true
+    "number": 29
+  },
+  {
+    "id": "nhl:4755703",
+    "name": "Patrick Giles",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 54
   },
   {
     "id": "nhl:3735",
@@ -8508,6 +11676,16 @@
     "number": 88
   },
   {
+    "id": "nhl:5188548",
+    "name": "Patrick Thomas",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "C",
+    "number": 49
+  },
+  {
     "id": "nhl:4331579",
     "name": "Paul Cotter",
     "conference": "West",
@@ -8515,8 +11693,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "LW",
-    "number": 47,
-    "numberBackfilled": true
+    "number": 47
   },
   {
     "id": "nhl:5080209",
@@ -8546,7 +11723,18 @@
     "team": "New York Rangers",
     "teamAbbr": "NYR",
     "position": "RW",
-    "number": 16
+    "number": 16,
+    "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4271703",
+    "name": "Pavel Karnaukhov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 89
   },
   {
     "id": "nhl:5080154",
@@ -8569,14 +11757,14 @@
     "number": 18
   },
   {
-    "id": "nhl:4915348",
-    "name": "Pavol Regenda",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "LW",
-    "number": 84
+    "id": "nhl:5452861",
+    "name": "Petr Sikora",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "C",
+    "number": 66
   },
   {
     "id": "nhl:4565238",
@@ -8609,16 +11797,6 @@
     "number": 31
   },
   {
-    "id": "nhl:4392541",
-    "name": "Philipp Kurashev",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "C",
-    "number": 96
-  },
-  {
     "id": "nhl:3941140",
     "name": "Philippe Myers",
     "conference": "East",
@@ -8637,6 +11815,26 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 24
+  },
+  {
+    "id": "nhl:5355504",
+    "name": "Phillip Sinn",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 53
+  },
+  {
+    "id": "nhl:3151763",
+    "name": "Pierre Engvall",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 18
   },
   {
     "id": "nhl:4024833",
@@ -8700,6 +11898,16 @@
     "number": 52
   },
   {
+    "id": "nhl:5149209",
+    "name": "Quentin Musty",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "LW",
+    "number": 13
+  },
+  {
     "id": "nhl:4320548",
     "name": "Quinn Hughes",
     "conference": "West",
@@ -8717,7 +11925,27 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "RW",
-    "number": 28
+    "number": 23
+  },
+  {
+    "id": "nhl:5452972",
+    "name": "Quinn McKenzie",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "C",
+    "number": 54
+  },
+  {
+    "id": "nhl:5172484",
+    "name": "Quinton Burns",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 42
   },
   {
     "id": "nhl:4697383",
@@ -8757,7 +11985,7 @@
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
     "position": "D",
-    "number": 7
+    "number": 6
   },
   {
     "id": "nhl:4391250",
@@ -8820,6 +12048,26 @@
     "number": 38
   },
   {
+    "id": "nhl:4586824",
+    "name": "Reese Johnson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 65
+  },
+  {
+    "id": "nhl:5188625",
+    "name": "Reese Laubach",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 80
+  },
+  {
     "id": "nhl:5080180",
     "name": "Reid Schaefer",
     "conference": "West",
@@ -8830,14 +12078,14 @@
     "number": 49
   },
   {
-    "id": "nhl:2500990",
-    "name": "Reilly Smith",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "RW",
-    "number": 19
+    "id": "nhl:4419766",
+    "name": "Reilly Walsh",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 44
   },
   {
     "id": "nhl:4697829",
@@ -8848,6 +12096,26 @@
     "teamAbbr": "DAL",
     "position": "G",
     "number": 31
+  },
+  {
+    "id": "nhl:4997043",
+    "name": "Rhett Pitlick",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "LW",
+    "number": 68
+  },
+  {
+    "id": "nhl:5362096",
+    "name": "Rian Chudzinski",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "RW",
+    "number": 71
   },
   {
     "id": "nhl:2562629",
@@ -8868,6 +12136,16 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 71
+  },
+  {
+    "id": "nhl:5080224",
+    "name": "Rieger Lorenz",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 61
   },
   {
     "id": "nhl:4697689",
@@ -8907,7 +12185,27 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "G",
-    "number": 37
+    "number": 50
+  },
+  {
+    "id": "nhl:5310643",
+    "name": "Riley Patterson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 68
+  },
+  {
+    "id": "nhl:5452789",
+    "name": "Riley Piercey",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "LW",
+    "number": 67
   },
   {
     "id": "nhl:4063378",
@@ -8918,6 +12216,16 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 61
+  },
+  {
+    "id": "nhl:4565276",
+    "name": "Robert Mastrosimone",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "C",
+    "number": 14
   },
   {
     "id": "nhl:4233637",
@@ -8940,6 +12248,16 @@
     "number": 95
   },
   {
+    "id": "nhl:3115016",
+    "name": "Roland McKeown",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "D",
+    "number": 55
+  },
+  {
     "id": "nhl:5436",
     "name": "Roman Josi",
     "conference": "West",
@@ -8957,7 +12275,7 @@
     "team": "Minnesota Wild",
     "teamAbbr": "MIN",
     "position": "D",
-    "number": 76
+    "number": 63
   },
   {
     "id": "nhl:4697790",
@@ -8997,8 +12315,27 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "LW",
-    "number": 44,
-    "numberBackfilled": true
+    "number": 49
+  },
+  {
+    "id": "nhl:5137112",
+    "name": "Ross Mitton",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 63
+  },
+  {
+    "id": "nhl:5361679",
+    "name": "Rudolfs Berzkalns",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 72
   },
   {
     "id": "nhl:5188518",
@@ -9021,6 +12358,26 @@
     "number": 2
   },
   {
+    "id": "nhl:5452745",
+    "name": "Ryan Brown",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "LW",
+    "number": 58
+  },
+  {
+    "id": "nhl:5080206",
+    "name": "Ryan Chesley",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 22
+  },
+  {
     "id": "nhl:3115033",
     "name": "Ryan Donato",
     "conference": "West",
@@ -9029,6 +12386,16 @@
     "teamAbbr": "CHI",
     "position": "C",
     "number": 8
+  },
+  {
+    "id": "nhl:4781547",
+    "name": "Ryan Fanti",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "G",
+    "number": 32
   },
   {
     "id": "nhl:3042122",
@@ -9069,6 +12436,16 @@
     "teamAbbr": "BUF",
     "position": "D",
     "number": 33
+  },
+  {
+    "id": "nhl:5136641",
+    "name": "Ryan Kirwan",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 45
   },
   {
     "id": "nhl:5149172",
@@ -9162,16 +12539,6 @@
     "number": 6
   },
   {
-    "id": "nhl:3683",
-    "name": "Ryan Reaves",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "RW",
-    "number": 75
-  },
-  {
     "id": "nhl:3942033",
     "name": "Ryan Shea",
     "conference": "West",
@@ -9179,8 +12546,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "D",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 6
   },
   {
     "id": "nhl:2562636",
@@ -9223,6 +12589,26 @@
     "number": 26
   },
   {
+    "id": "nhl:5451869",
+    "name": "Ryden Evers",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "LW",
+    "number": 91
+  },
+  {
+    "id": "nhl:5216920",
+    "name": "Ryder Ritchie",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "RW",
+    "number": 54
+  },
+  {
     "id": "nhl:4874864",
     "name": "Ryker Evans",
     "conference": "West",
@@ -9233,6 +12619,16 @@
     "number": 41
   },
   {
+    "id": "nhl:5452779",
+    "name": "Rylan Singh",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 94
+  },
+  {
     "id": "nhl:5216886",
     "name": "Sacha Boisvert",
     "conference": "West",
@@ -9240,7 +12636,7 @@
     "team": "Chicago Blackhawks",
     "teamAbbr": "CHI",
     "position": "C",
-    "number": 12
+    "number": 90
   },
   {
     "id": "nhl:5174925",
@@ -9304,6 +12700,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5188658",
+    "name": "Sam Lipkin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "LW",
+    "number": 71
+  },
+  {
     "id": "nhl:5136735",
     "name": "Sam Malinski",
     "conference": "West",
@@ -9334,6 +12740,16 @@
     "number": 45
   },
   {
+    "id": "nhl:5216901",
+    "name": "Sam O'Reilly",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 23
+  },
+  {
     "id": "nhl:4565242",
     "name": "Sam Poulin",
     "conference": "East",
@@ -9341,8 +12757,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "RW",
-    "number": 22,
-    "numberBackfilled": true
+    "number": 88
   },
   {
     "id": "nhl:3114722",
@@ -9375,6 +12790,16 @@
     "number": 18
   },
   {
+    "id": "nhl:4781721",
+    "name": "Sam Stevens",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 67
+  },
+  {
     "id": "nhl:3149697",
     "name": "Sammy Blais",
     "conference": "East",
@@ -9384,6 +12809,16 @@
     "position": "LW",
     "number": 27,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4588145",
+    "name": "Sammy Walker",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 18
   },
   {
     "id": "nhl:4587815",
@@ -9417,6 +12852,16 @@
     "number": 79
   },
   {
+    "id": "nhl:5209248",
+    "name": "Samuel Hlavaj",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nhl:5149191",
     "name": "Samuel Honzek",
     "conference": "West",
@@ -9427,6 +12872,16 @@
     "number": 29
   },
   {
+    "id": "nhl:5452892",
+    "name": "Samuel Huo",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 59
+  },
+  {
     "id": "nhl:5188527",
     "name": "Samuel Jonsson",
     "conference": "West",
@@ -9434,7 +12889,7 @@
     "team": "Edmonton Oilers",
     "teamAbbr": "EDM",
     "position": "G",
-    "number": 34
+    "number": 33
   },
   {
     "id": "nhl:5103701",
@@ -9447,6 +12902,16 @@
     "number": 67
   },
   {
+    "id": "nhl:5104228",
+    "name": "Samuel Sjolund",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "D",
+    "number": 79
+  },
+  {
     "id": "nhl:5103599",
     "name": "Sandis Vilmanis",
     "conference": "East",
@@ -9457,6 +12922,36 @@
     "number": 95
   },
   {
+    "id": "nhl:5173505",
+    "name": "Sasha Pastujov",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "RW",
+    "number": 40
+  },
+  {
+    "id": "nhl:5237988",
+    "name": "Sawyer Boulton",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 56
+  },
+  {
+    "id": "nhl:5188586",
+    "name": "Sawyer Mynio",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 45
+  },
+  {
     "id": "nhl:2976848",
     "name": "Scott Laughton",
     "conference": "West",
@@ -9464,7 +12959,7 @@
     "team": "Los Angeles Kings",
     "teamAbbr": "LA",
     "position": "C",
-    "number": 24
+    "number": 21
   },
   {
     "id": "nhl:2563069",
@@ -9515,7 +13010,7 @@
     "team": "Tampa Bay Lightning",
     "teamAbbr": "TB",
     "position": "RW",
-    "number": 46
+    "number": 49
   },
   {
     "id": "nhl:5622",
@@ -9526,6 +13021,16 @@
     "teamAbbr": "COL",
     "position": "G",
     "number": 41
+  },
+  {
+    "id": "nhl:5080212",
+    "name": "Seamus Casey",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 24
   },
   {
     "id": "nhl:4874931",
@@ -9599,6 +13104,16 @@
     "number": 20
   },
   {
+    "id": "nhl:4874732",
+    "name": "Sebastian Cossa",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "G",
+    "number": 33
+  },
+  {
     "id": "nhl:3759",
     "name": "Semyon Varlamov",
     "conference": "East",
@@ -9616,8 +13131,37 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "G",
-    "number": 72,
-    "numberBackfilled": true
+    "number": 72
+  },
+  {
+    "id": "nhl:3942570",
+    "name": "Sergei Boikov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "D",
+    "number": 42
+  },
+  {
+    "id": "nhl:5188366",
+    "name": "Sergei Murashov",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "G",
+    "number": 1
+  },
+  {
+    "id": "nhl:2590382",
+    "name": "Seth Griffith",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 39
   },
   {
     "id": "nhl:4697396",
@@ -9660,6 +13204,16 @@
     "number": 85
   },
   {
+    "id": "nhl:5310508",
+    "name": "Shamar Moses",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "RW",
+    "number": 34
+  },
+  {
     "id": "nhl:4565255",
     "name": "Shane Pinto",
     "conference": "East",
@@ -9688,6 +13242,16 @@
     "teamAbbr": "CAR",
     "position": "D",
     "number": 4
+  },
+  {
+    "id": "nhl:5310541",
+    "name": "Shea Busch",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "LW",
+    "number": 61
   },
   {
     "id": "nhl:3042055",
@@ -9741,6 +13305,16 @@
     "number": 92
   },
   {
+    "id": "nhl:4565285",
+    "name": "Simon Lundmark",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 7
+  },
+  {
     "id": "nhl:4915344",
     "name": "Simon Nemec",
     "conference": "West",
@@ -9750,6 +13324,26 @@
     "position": "D",
     "number": 17,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5104213",
+    "name": "Simon Robertsson",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "RW",
+    "number": 80
+  },
+  {
+    "id": "nhl:5136809",
+    "name": "Simon Tassy",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "RW",
+    "number": 86
   },
   {
     "id": "nhl:5302537",
@@ -9772,6 +13366,16 @@
     "number": 76
   },
   {
+    "id": "nhl:5216934",
+    "name": "Spencer Gill",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "D",
+    "number": 42
+  },
+  {
     "id": "nhl:4565234",
     "name": "Spencer Knight",
     "conference": "West",
@@ -9790,6 +13394,16 @@
     "teamAbbr": "NYR",
     "position": "G",
     "number": 41
+  },
+  {
+    "id": "nhl:3944000",
+    "name": "Spencer Smallman",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "RW",
+    "number": 81
   },
   {
     "id": "nhl:4393406",
@@ -9822,6 +13436,16 @@
     "number": 11
   },
   {
+    "id": "nhl:5452958",
+    "name": "Stepan Shurygin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "G",
+    "number": 33
+  },
+  {
     "id": "nhl:5136706",
     "name": "Stephen Halliday",
     "conference": "East",
@@ -9840,6 +13464,16 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 18
+  },
+  {
+    "id": "nhl:3042015",
+    "name": "Steven Santini",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 16
   },
   {
     "id": "nhl:5037",
@@ -9869,8 +13503,27 @@
     "team": "Winnipeg Jets",
     "teamAbbr": "WPG",
     "position": "G",
-    "number": 74,
-    "numberBackfilled": true
+    "number": 74
+  },
+  {
+    "id": "nhl:5173082",
+    "name": "Sutter Muzzatti",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 38
+  },
+  {
+    "id": "nhl:5136616",
+    "name": "T.J. Hughes",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "RW",
+    "number": 13
   },
   {
     "id": "nhl:2563033",
@@ -9933,6 +13586,16 @@
     "number": 50
   },
   {
+    "id": "nhl:5452935",
+    "name": "Tarin Smith",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 54
+  },
+  {
     "id": "nhl:5122230",
     "name": "Taylor Gauthier",
     "conference": "East",
@@ -9990,8 +13653,17 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 53,
-    "numberBackfilled": true
+    "number": 73
+  },
+  {
+    "id": "nhl:5216885",
+    "name": "Terik Parascak",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "RW",
+    "number": 18
   },
   {
     "id": "nhl:5172626",
@@ -10024,6 +13696,16 @@
     "number": 35
   },
   {
+    "id": "nhl:5149212",
+    "name": "Theo Lindstein",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 4
+  },
+  {
     "id": "nhl:5104298",
     "name": "Theo Rochette",
     "conference": "East",
@@ -10052,6 +13734,26 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 55
+  },
+  {
+    "id": "nhl:5188656",
+    "name": "Thomas Milic",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "G",
+    "number": 32
+  },
+  {
+    "id": "nhl:5216862",
+    "name": "Tij Iginla",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "C",
+    "number": 12
   },
   {
     "id": "nhl:4697384",
@@ -10084,6 +13786,16 @@
     "number": 28
   },
   {
+    "id": "nhl:5452156",
+    "name": "Timofei Obvintsev",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 50
+  },
+  {
     "id": "nhl:4233618",
     "name": "Timothy Liljegren",
     "conference": "East",
@@ -10092,6 +13804,26 @@
     "teamAbbr": "WSH",
     "position": "D",
     "number": 37
+  },
+  {
+    "id": "nhl:5292004",
+    "name": "Tinus Luc Koblar",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 33
+  },
+  {
+    "id": "nhl:5103540",
+    "name": "Tobie Paquette-Bisson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "D",
+    "number": 44
   },
   {
     "id": "nhl:5149180",
@@ -10134,6 +13866,46 @@
     "number": 48
   },
   {
+    "id": "nhl:5367146",
+    "name": "Tomas Kralovic",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 82
+  },
+  {
+    "id": "nhl:5302596",
+    "name": "Tomas Lavoie",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 75
+  },
+  {
+    "id": "nhl:5238141",
+    "name": "Tomas Mrsic",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 86
+  },
+  {
+    "id": "nhl:5310530",
+    "name": "Tomas Poletin",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 78
+  },
+  {
     "id": "nhl:5172804",
     "name": "Tomas Suchanek",
     "conference": "West",
@@ -10142,6 +13914,16 @@
     "teamAbbr": "ANA",
     "position": "G",
     "number": 78
+  },
+  {
+    "id": "nhl:5310532",
+    "name": "Tommy Lafreniere",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "RW",
+    "number": 54
   },
   {
     "id": "nhl:3942061",
@@ -10182,6 +13964,16 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 38
+  },
+  {
+    "id": "nhl:2952729",
+    "name": "Torey Krug",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 47
   },
   {
     "id": "nhl:3900169",
@@ -10232,6 +14024,26 @@
     "teamAbbr": "COL",
     "position": "G",
     "number": 50
+  },
+  {
+    "id": "nhl:5302571",
+    "name": "Trent Swick",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "LW",
+    "number": 76
+  },
+  {
+    "id": "nhl:5452949",
+    "name": "Trenten Bennett",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "G",
+    "number": 74
   },
   {
     "id": "nhl:5216887",
@@ -10285,6 +14097,36 @@
     "number": 46
   },
   {
+    "id": "nhl:4588844",
+    "name": "Trey Fix-Wolansky",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "RW",
+    "number": 64
+  },
+  {
+    "id": "nhl:5302584",
+    "name": "Trey Taylor",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 27
+  },
+  {
+    "id": "nhl:5173620",
+    "name": "Tristan Allard",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "LW",
+    "number": 13
+  },
+  {
     "id": "nhl:5149248",
     "name": "Tristan Bertucci",
     "conference": "West",
@@ -10313,6 +14155,16 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 67
+  },
+  {
+    "id": "nhl:4894419",
+    "name": "Tristen Nielsen",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "LW",
+    "number": 57
   },
   {
     "id": "nhl:3096102",
@@ -10355,6 +14207,66 @@
     "number": 49
   },
   {
+    "id": "nhl:5136657",
+    "name": "Ty Gallagher",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "D",
+    "number": 67
+  },
+  {
+    "id": "nhl:5188640",
+    "name": "Ty Mueller",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 39
+  },
+  {
+    "id": "nhl:5188369",
+    "name": "Ty Murchison",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "D",
+    "number": 96
+  },
+  {
+    "id": "nhl:5103697",
+    "name": "Ty Nelson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 24
+  },
+  {
+    "id": "nhl:4894186",
+    "name": "Ty Smilanic",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 83
+  },
+  {
+    "id": "nhl:5104199",
+    "name": "Ty Young",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "G",
+    "number": 85
+  },
+  {
     "id": "nhl:4588750",
     "name": "Tye Kartye",
     "conference": "East",
@@ -10382,7 +14294,18 @@
     "team": "Ottawa Senators",
     "teamAbbr": "OTT",
     "position": "RW",
-    "number": 54
+    "number": 54,
+    "numberBackfilled": true
+  },
+  {
+    "id": "nhl:4501982",
+    "name": "Tyler Hopkins",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 78
   },
   {
     "id": "nhl:4697448",
@@ -10442,7 +14365,7 @@
     "team": "Montreal Canadiens",
     "teamAbbr": "MTL",
     "position": "RW",
-    "number": 24
+    "number": 54
   },
   {
     "id": "nhl:5550",
@@ -10463,6 +14386,16 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 75
+  },
+  {
+    "id": "nhl:4697648",
+    "name": "Tyrel Bauer",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 77
   },
   {
     "id": "nhl:4697406",
@@ -10503,6 +14436,16 @@
     "teamAbbr": "NSH",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:5188648",
+    "name": "Tyson Jugnauth",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 83
   },
   {
     "id": "nhl:4895527",
@@ -10566,6 +14509,16 @@
     "number": 92
   },
   {
+    "id": "nhl:5310612",
+    "name": "Veeti Vaisanen",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 51
+  },
+  {
     "id": "nhl:5291952",
     "name": "Victor Eklund",
     "conference": "East",
@@ -10603,8 +14556,7 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "LW",
-    "number": 95,
-    "numberBackfilled": true
+    "number": 95
   },
   {
     "id": "nhl:5206691",
@@ -10615,6 +14567,16 @@
     "teamAbbr": "SEA",
     "position": "G",
     "number": 1
+  },
+  {
+    "id": "nhl:5361711",
+    "name": "Viggo Bjorck",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 61
   },
   {
     "id": "nhl:5451627",
@@ -10648,6 +14610,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nhl:5452776",
+    "name": "Viktor Fedorov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 73
+  },
+  {
     "id": "nhl:5103689",
     "name": "Viktor Neuchev",
     "conference": "East",
@@ -10656,6 +14628,26 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 79
+  },
+  {
+    "id": "nhl:5310507",
+    "name": "Viktor Norringer",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "LW",
+    "number": 55
+  },
+  {
+    "id": "nhl:5302588",
+    "name": "Viliam Kmec",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "D",
+    "number": 74
   },
   {
     "id": "nhl:5188415",
@@ -10675,8 +14667,7 @@
     "team": "Vegas Golden Knights",
     "teamAbbr": "VGK",
     "position": "D",
-    "number": 34,
-    "numberBackfilled": true
+    "number": 14
   },
   {
     "id": "nhl:3151137",
@@ -10699,6 +14690,26 @@
     "number": 41
   },
   {
+    "id": "nhl:5103811",
+    "name": "Ville Ottavainen",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 46
+  },
+  {
+    "id": "nhl:5188546",
+    "name": "Vilmer Alriksson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "LW",
+    "number": 46
+  },
+  {
     "id": "nhl:3904189",
     "name": "Vince Dunn",
     "conference": "West",
@@ -10716,8 +14727,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "D",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 73
   },
   {
     "id": "nhl:4874915",
@@ -10737,8 +14747,7 @@
     "team": "Utah Mammoth",
     "teamAbbr": "UTA",
     "position": "C",
-    "number": 16,
-    "numberBackfilled": true
+    "number": 16
   },
   {
     "id": "nhl:3095892",
@@ -10748,7 +14757,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 95
+    "number": 71
   },
   {
     "id": "nhl:3069613",
@@ -10760,6 +14769,26 @@
     "position": "C",
     "number": 24,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5275587",
+    "name": "Vinny Borgesi",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 25
+  },
+  {
+    "id": "nhl:5188638",
+    "name": "Visa Vedenpaa",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "G",
+    "number": 33
   },
   {
     "id": "nhl:5346852",
@@ -10781,6 +14810,16 @@
     "position": "G",
     "number": 41,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5361696",
+    "name": "Vladimir Dravecky",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 71
   },
   {
     "id": "nhl:3942292",
@@ -10823,6 +14862,16 @@
     "number": 71
   },
   {
+    "id": "nhl:5188435",
+    "name": "Warren Clark",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 79
+  },
+  {
     "id": "nhl:3151036",
     "name": "Warren Foegele",
     "conference": "East",
@@ -10843,6 +14892,16 @@
     "number": 17
   },
   {
+    "id": "nhl:4697680",
+    "name": "Will Cranley",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nhl:4697468",
     "name": "Will Cuylle",
     "conference": "East",
@@ -10853,6 +14912,16 @@
     "number": 50
   },
   {
+    "id": "nhl:5452780",
+    "name": "Will Reynolds",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 71
+  },
+  {
     "id": "nhl:5149155",
     "name": "Will Smith",
     "conference": "West",
@@ -10861,6 +14930,16 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 2
+  },
+  {
+    "id": "nhl:4272685",
+    "name": "William Bitten",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "C",
+    "number": 42
   },
   {
     "id": "nhl:3042054",
@@ -10883,6 +14962,16 @@
     "number": 72
   },
   {
+    "id": "nhl:5188551",
+    "name": "William Francis",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 71
+  },
+  {
     "id": "nhl:2563057",
     "name": "William Karlsson",
     "conference": "West",
@@ -10901,6 +14990,16 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 84
+  },
+  {
+    "id": "nhl:5237865",
+    "name": "William McIsaac",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 87
   },
   {
     "id": "nhl:5238004",
@@ -10923,6 +15022,36 @@
     "number": 88
   },
   {
+    "id": "nhl:5452785",
+    "name": "William Rousseau",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 96
+  },
+  {
+    "id": "nhl:4874893",
+    "name": "William Stromgren",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 65
+  },
+  {
+    "id": "nhl:5452775",
+    "name": "William Tomko",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 61
+  },
+  {
     "id": "nhl:4697436",
     "name": "William Wallinder",
     "conference": "East",
@@ -10941,6 +15070,16 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 5
+  },
+  {
+    "id": "nhl:5188601",
+    "name": "Wyatt Bongiovanni",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Boston Bruins",
+    "teamAbbr": "BOS",
+    "position": "LW",
+    "number": 49
   },
   {
     "id": "nhl:4874740",
@@ -10983,6 +15122,16 @@
     "number": 67
   },
   {
+    "id": "nhl:4588739",
+    "name": "Xavier Simoneau",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 43
+  },
+  {
     "id": "nhl:3904188",
     "name": "Yakov Trenin",
     "conference": "West",
@@ -11023,6 +15172,26 @@
     "number": 30
   },
   {
+    "id": "nhl:5310524",
+    "name": "Yegor Borikov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "RW",
+    "number": 65
+  },
+  {
+    "id": "nhl:5188594",
+    "name": "Yegor Rimashevskiy",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "RW",
+    "number": 52
+  },
+  {
     "id": "nhl:4587843",
     "name": "Yegor Sharangovich",
     "conference": "West",
@@ -11043,6 +15212,16 @@
     "number": 57
   },
   {
+    "id": "nhl:5188666",
+    "name": "Zaccharya Wisdom",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 96
+  },
+  {
     "id": "nhl:5149186",
     "name": "Zach Benson",
     "conference": "East",
@@ -11061,6 +15240,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 24
+  },
+  {
+    "id": "nhl:4874747",
+    "name": "Zach Dean",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 52
   },
   {
     "id": "nhl:5509",
@@ -11113,6 +15302,16 @@
     "number": 28
   },
   {
+    "id": "nhl:3988830",
+    "name": "Zachary Aston-Reese",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "LW",
+    "number": 21
+  },
+  {
     "id": "nhl:4874744",
     "name": "Zachary L'Heureux",
     "conference": "West",
@@ -11122,6 +15321,26 @@
     "position": "LW",
     "number": 68,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:5452896",
+    "name": "Zachary Lansard",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "RW",
+    "number": 81
+  },
+  {
+    "id": "nhl:4697770",
+    "name": "Zachary Uens",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "D",
+    "number": 46
   },
   {
     "id": "nhl:4874734",
@@ -11141,8 +15360,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 15,
-    "numberBackfilled": true
+    "number": 19
   },
   {
     "id": "nhl:4874881",
@@ -11165,6 +15383,16 @@
     "number": 19
   },
   {
+    "id": "nhl:5188652",
+    "name": "Zeb Forsfjall",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "C",
+    "number": 93
+  },
+  {
     "id": "nhl:5206642",
     "name": "Zeev Buium",
     "conference": "West",
@@ -11172,7 +15400,7 @@
     "team": "Vancouver Canucks",
     "teamAbbr": "VAN",
     "position": "D",
-    "number": 24
+    "number": 8
   },
   {
     "id": "nhl:2968829",
