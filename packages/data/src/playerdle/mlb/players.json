@@ -110,17 +110,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4918157",
-    "name": "Adam Macko",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "RP",
-    "number": 71,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42178",
     "name": "Adley Rutschman",
     "conference": "AL",
@@ -803,17 +792,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4719088",
-    "name": "Blade Tidwell",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
-    "position": "RP",
-    "number": 46,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33748",
     "name": "Blake Snell",
     "conference": "NL",
@@ -1086,6 +1064,17 @@
     "teamAbbr": "COL",
     "position": "DH",
     "number": 37,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:5201845",
+    "name": "Braxton Roxby",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Francisco Giants",
+    "teamAbbr": "SF",
+    "position": "RP",
+    "number": 90,
     "league": "NL"
   },
   {
@@ -1650,17 +1639,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:41337",
-    "name": "Camilo Doval",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "RP",
-    "number": 75,
-    "league": "NL"
-  },
-  {
     "id": "mlb:41595",
     "name": "Carlos Cortes",
     "conference": "AL",
@@ -2013,17 +1991,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4414215",
-    "name": "Christian Scott",
-    "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
-    "position": "SP",
-    "number": 45,
-    "league": "NL"
-  },
-  {
     "id": "mlb:31389",
     "name": "Christian Vazquez",
     "conference": "AL",
@@ -2263,6 +2230,17 @@
     "teamAbbr": "COL",
     "position": "2B",
     "number": 35,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4918160",
+    "name": "Connor Phillips",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Cincinnati Reds",
+    "teamAbbr": "CIN",
+    "position": "RP",
+    "number": 34,
     "league": "NL"
   },
   {
@@ -2681,6 +2659,17 @@
     "teamAbbr": "PHI",
     "position": "CF",
     "number": 49,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:33224",
+    "name": "Devin Williams",
+    "conference": "NL",
+    "division": "East",
+    "team": "New York Mets",
+    "teamAbbr": "NYM",
+    "position": "RP",
+    "number": 38,
     "league": "NL"
   },
   {
@@ -4444,6 +4433,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:41433",
+    "name": "Jazz Chisholm Jr.",
+    "conference": "AL",
+    "division": "East",
+    "team": "New York Yankees",
+    "teamAbbr": "NYY",
+    "position": "2B",
+    "number": 13,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33841",
     "name": "Jeff Hoffman",
     "conference": "AL",
@@ -4516,7 +4516,7 @@
     "division": "West",
     "team": "Arizona Diamondbacks",
     "teamAbbr": "ARI",
-    "position": "RF",
+    "position": "DH",
     "number": 18,
     "league": "NL"
   },
@@ -4584,17 +4584,6 @@
     "teamAbbr": "CLE",
     "position": "RF",
     "number": 7,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:31392",
-    "name": "Joc Pederson",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "DH",
-    "number": 3,
     "league": "AL"
   },
   {
@@ -5159,6 +5148,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5023768",
+    "name": "Joshua Kuroda-Grauer",
+    "conference": "AL",
+    "division": "West",
+    "team": "Athletics",
+    "teamAbbr": "ATH",
+    "position": "3B",
+    "number": 44,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41165",
     "name": "Josiah Gray",
     "conference": "NL",
@@ -5453,6 +5453,17 @@
     "teamAbbr": "PIT",
     "position": "SP",
     "number": 64,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:32623",
+    "name": "Kirby Yates",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Pittsburgh Pirates",
+    "teamAbbr": "PIT",
+    "position": "RP",
+    "number": 54,
     "league": "NL"
   },
   {
@@ -6270,17 +6281,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:4872686",
-    "name": "Max Muncy",
-    "conference": "AL",
-    "division": "West",
-    "team": "Athletics",
-    "teamAbbr": "ATH",
-    "position": "3B",
-    "number": 3,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33303",
     "name": "Max Muncy",
     "conference": "NL",
@@ -6300,17 +6300,6 @@
     "teamAbbr": "TOR",
     "position": "SP",
     "number": 31,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:3962127",
-    "name": "Max Schuemann",
-    "conference": "AL",
-    "division": "East",
-    "team": "New York Yankees",
-    "teamAbbr": "NYY",
-    "position": "LF",
-    "number": 30,
     "league": "AL"
   },
   {
@@ -6378,6 +6367,17 @@
     "position": "CF",
     "number": 23,
     "league": "NL"
+  },
+  {
+    "id": "mlb:42065",
+    "name": "Michael Helman",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "CF",
+    "number": 23,
+    "league": "AL"
   },
   {
     "id": "mlb:40429",
@@ -7147,6 +7147,17 @@
     "teamAbbr": "CLE",
     "position": "CF",
     "number": 0,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4187628",
+    "name": "Peyton Gray",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "RP",
+    "number": 75,
     "league": "AL"
   },
   {
@@ -8223,7 +8234,7 @@
     "division": "Central",
     "team": "St. Louis Cardinals",
     "teamAbbr": "STL",
-    "position": "LF",
+    "position": "SS",
     "number": 25,
     "league": "NL"
   },
@@ -8356,19 +8367,8 @@
     "team": "Kansas City Royals",
     "teamAbbr": "KC",
     "position": "SP",
-    "number": 26,
+    "number": 36,
     "league": "AL"
-  },
-  {
-    "id": "mlb:40950",
-    "name": "Tony Santillan",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 64,
-    "league": "NL"
   },
   {
     "id": "mlb:4424951",
