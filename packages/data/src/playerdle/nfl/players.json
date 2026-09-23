@@ -760,16 +760,6 @@
     "number": 14
   },
   {
-    "id": "nfl:4612558",
-    "name": "Anderson Castle",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "RB",
-    "number": 42
-  },
-  {
     "id": "nfl:4577333",
     "name": "Andre Carter II",
     "conference": "AFC",
@@ -814,10 +804,10 @@
     "name": "Andre Jones Jr.",
     "conference": "AFC",
     "division": "AFC East",
-    "team": "Buffalo Bills",
-    "teamAbbr": "BUF",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
     "position": "LB",
-    "number": 59
+    "number": 58
   },
   {
     "id": "nfl:4258620",
@@ -1370,16 +1360,6 @@
     "number": 70
   },
   {
-    "id": "nfl:4569682",
-    "name": "Audric Estime",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "RB",
-    "number": 30
-  },
-  {
     "id": "nfl:3920814",
     "name": "Austen Pleasants",
     "conference": "NFC",
@@ -1580,16 +1560,6 @@
     "number": 92
   },
   {
-    "id": "nfl:4250360",
-    "name": "Bailey Zappe",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "QB",
-    "number": 11
-  },
-  {
     "id": "nfl:3052587",
     "name": "Baker Mayfield",
     "conference": "NFC",
@@ -1678,16 +1648,6 @@
     "teamAbbr": "TB",
     "position": "TE",
     "number": 84
-  },
-  {
-    "id": "nfl:4696723",
-    "name": "Beau Gardner",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "LS",
-    "number": 45
   },
   {
     "id": "nfl:4592823",
@@ -1952,12 +1912,12 @@
   {
     "id": "nfl:5151810",
     "name": "Bishop Fitzgerald",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
     "position": "S",
-    "number": 38
+    "number": 34
   },
   {
     "id": "nfl:3930270",
@@ -2819,16 +2779,6 @@
     "teamAbbr": "NO",
     "position": "WR",
     "number": 18
-  },
-  {
-    "id": "nfl:5084574",
-    "name": "Bryce Phillips",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "CB",
-    "number": 40
   },
   {
     "id": "nfl:4685720",
@@ -5691,6 +5641,16 @@
     "number": 56
   },
   {
+    "id": "nfl:3916945",
+    "name": "Darius Slayton",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 11
+  },
+  {
     "id": "nfl:4242973",
     "name": "Darnay Holmes",
     "conference": "NFC",
@@ -7261,6 +7221,16 @@
     "number": 2
   },
   {
+    "id": "nfl:4879480",
+    "name": "Drew Moss",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "G",
+    "number": 67
+  },
+  {
     "id": "nfl:4722908",
     "name": "Drew Ogletree",
     "conference": "AFC",
@@ -8351,16 +8321,6 @@
     "number": 54
   },
   {
-    "id": "nfl:4429731",
-    "name": "Gabe Hall",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "DT",
-    "number": 96
-  },
-  {
     "id": "nfl:4837244",
     "name": "Gabe Jacas",
     "conference": "AFC",
@@ -8469,16 +8429,6 @@
     "teamAbbr": "NYJ",
     "position": "WR",
     "number": 5
-  },
-  {
-    "id": "nfl:3916071",
-    "name": "Gary Jennings",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "WR",
-    "number": 87
   },
   {
     "id": "nfl:4708049",
@@ -9980,6 +9930,16 @@
     "teamAbbr": "KC",
     "position": "S",
     "number": 21
+  },
+  {
+    "id": "nfl:4700756",
+    "name": "Jaden Keller",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "LB",
+    "number": 48
   },
   {
     "id": "nfl:16734",
@@ -11942,16 +11902,6 @@
     "number": 44
   },
   {
-    "id": "nfl:4036507",
-    "name": "Joe Bachie",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "LB",
-    "number": 35
-  },
-  {
     "id": "nfl:3915511",
     "name": "Joe Burrow",
     "conference": "AFC",
@@ -12220,6 +12170,16 @@
     "teamAbbr": "IND",
     "position": "CB",
     "number": 35
+  },
+  {
+    "id": "nfl:15153",
+    "name": "Johnny Hekker",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "P",
+    "number": 5
   },
   {
     "id": "nfl:3052096",
@@ -14930,16 +14890,6 @@
     "teamAbbr": "BAL",
     "position": "S",
     "number": 14
-  },
-  {
-    "id": "nfl:4384683",
-    "name": "Kyle Hergel",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "G",
-    "number": 60
   },
   {
     "id": "nfl:4682831",
@@ -19682,6 +19632,16 @@
     "number": 8
   },
   {
+    "id": "nfl:5344428",
+    "name": "Ryan Schernecke",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "OT",
+    "number": 70
+  },
+  {
     "id": "nfl:4239140",
     "name": "Ryan Van Demark",
     "conference": "NFC",
@@ -19945,11 +19905,12 @@
     "id": "nfl:2980138",
     "name": "Scott Daly",
     "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
     "position": "LS",
-    "number": 46
+    "number": 46,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4373684",
@@ -21540,16 +21501,6 @@
     "teamAbbr": "JAX",
     "position": "DE",
     "number": 44
-  },
-  {
-    "id": "nfl:4433906",
-    "name": "Trayvon Rudolph",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "WR",
-    "number": 30
   },
   {
     "id": "nfl:4241373",
