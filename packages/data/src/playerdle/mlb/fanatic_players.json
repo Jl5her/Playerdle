@@ -1224,24 +1224,6 @@
     "ops": 0.687
   },
   {
-    "id": "mlb:39900",
-    "name": "Jake Rogers",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Chicago White Sox",
-    "teamAbbr": "CHW",
-    "position": "C",
-    "number": 28,
-    "league": "AL",
-    "gp": 46,
-    "pa": 142,
-    "avg": 0.187,
-    "hr": 3,
-    "rbi": 19,
-    "sb": 0,
-    "ops": 0.61
-  },
-  {
     "id": "mlb:32046",
     "name": "James McCann",
     "conference": "NL",
@@ -1458,24 +1440,6 @@
     "ops": 0.623
   },
   {
-    "id": "mlb:42437",
-    "name": "Josh Jung",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "3B",
-    "number": 6,
-    "league": "AL",
-    "gp": 131,
-    "pa": 511,
-    "avg": 0.251,
-    "hr": 14,
-    "rbi": 61,
-    "sb": 4,
-    "ops": 0.684
-  },
-  {
     "id": "mlb:41044",
     "name": "Julio Rodriguez",
     "conference": "AL",
@@ -1564,6 +1528,24 @@
     "rbi": 9,
     "sb": 0,
     "ops": 0.585
+  },
+  {
+    "id": "mlb:42047",
+    "name": "Logan O'Hoppe",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "DH",
+    "number": 4,
+    "league": "AL",
+    "gp": 119,
+    "pa": 451,
+    "avg": 0.213,
+    "hr": 19,
+    "rbi": 43,
+    "sb": 2,
+    "ops": 0.629
   },
   {
     "id": "mlb:33805",
@@ -1942,24 +1924,6 @@
     "rbi": 30,
     "sb": 0,
     "ops": 0.661
-  },
-  {
-    "id": "mlb:4314013",
-    "name": "Nick Loftin",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Kansas City Royals",
-    "teamAbbr": "KC",
-    "position": "3B",
-    "number": 12,
-    "league": "AL",
-    "gp": 67,
-    "pa": 188,
-    "avg": 0.208,
-    "hr": 4,
-    "rbi": 20,
-    "sb": 1,
-    "ops": 0.635
   },
   {
     "id": "mlb:41219",
