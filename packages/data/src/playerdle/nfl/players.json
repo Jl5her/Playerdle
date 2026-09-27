@@ -3121,6 +3121,16 @@
     "number": 74
   },
   {
+    "id": "nfl:4911489",
+    "name": "Caleb Murphy",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "LB",
+    "number": 50
+  },
+  {
     "id": "nfl:4683347",
     "name": "Caleb Ransaw",
     "conference": "AFC",
@@ -15992,6 +16002,16 @@
     "number": 20
   },
   {
+    "id": "nfl:4040615",
+    "name": "Malik Harrison",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "LB",
+    "number": 54
+  },
+  {
     "id": "nfl:4259547",
     "name": "Malik Herring",
     "conference": "AFC",
@@ -18292,16 +18312,6 @@
     "number": 91
   },
   {
-    "id": "nfl:4567219",
-    "name": "Owen Pappoe",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "LB",
-    "number": 40
-  },
-  {
     "id": "nfl:4432595",
     "name": "Ozzy Trapilo",
     "conference": "NFC",
@@ -18430,6 +18440,16 @@
     "teamAbbr": "LV",
     "position": "TE",
     "number": 45
+  },
+  {
+    "id": "nfl:4429811",
+    "name": "Patrick Herbert",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "TE",
+    "number": 81
   },
   {
     "id": "nfl:4243916",
@@ -20561,6 +20581,16 @@
     "teamAbbr": "BUF",
     "position": "WR",
     "number": 89
+  },
+  {
+    "id": "nfl:2976592",
+    "name": "Sterling Shepard",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "WR",
+    "number": 87
   },
   {
     "id": "nfl:4259553",
@@ -22759,7 +22789,7 @@
     "division": "NFC West",
     "team": "Seattle Seahawks",
     "teamAbbr": "SEA",
-    "position": "WR",
+    "position": "RB",
     "number": 33
   },
   {
