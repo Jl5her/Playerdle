@@ -1530,24 +1530,6 @@
     "ops": 0.585
   },
   {
-    "id": "mlb:42047",
-    "name": "Logan O'Hoppe",
-    "conference": "AL",
-    "division": "West",
-    "team": "Texas Rangers",
-    "teamAbbr": "TEX",
-    "position": "DH",
-    "number": 4,
-    "league": "AL",
-    "gp": 119,
-    "pa": 451,
-    "avg": 0.213,
-    "hr": 19,
-    "rbi": 43,
-    "sb": 2,
-    "ops": 0.629
-  },
-  {
     "id": "mlb:33805",
     "name": "Luis Torrens",
     "conference": "NL",
@@ -2292,7 +2274,7 @@
     "division": "Central",
     "team": "Chicago White Sox",
     "teamAbbr": "CHW",
-    "position": "LF",
+    "position": "DH",
     "number": 21,
     "league": "AL",
     "gp": 120,
