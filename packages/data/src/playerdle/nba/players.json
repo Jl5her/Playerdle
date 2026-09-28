@@ -1,15 +1,5 @@
 [
   {
-    "id": "nba:4067017",
-    "name": "A.J. Lawson",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 0
-  },
-  {
     "id": "nba:3064290",
     "name": "Aaron Gordon",
     "conference": "West",
@@ -48,6 +38,16 @@
     "teamAbbr": "UTAH",
     "position": "G",
     "number": 19
+  },
+  {
+    "id": "nba:5174983",
+    "name": "Aday Mara",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nba:5105637",
@@ -97,8 +97,7 @@
     "team": "New Orleans Pelicans",
     "teamAbbr": "NO",
     "position": "G",
-    "number": 8,
-    "numberBackfilled": true
+    "number": 14
   },
   {
     "id": "nba:4900671",
@@ -171,6 +170,16 @@
     "number": 55
   },
   {
+    "id": "nba:5149115",
+    "name": "Allen Graves",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
+    "position": "F",
+    "number": 22
+  },
+  {
     "id": "nba:4871144",
     "name": "Alperen Sengun",
     "conference": "West",
@@ -220,6 +229,16 @@
     "teamAbbr": "TOR",
     "position": "G",
     "number": 44
+  },
+  {
+    "id": "nba:5116468",
+    "name": "Andrew Holifield",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "F",
+    "number": 17
   },
   {
     "id": "nba:4395712",
@@ -290,6 +309,16 @@
     "teamAbbr": "WSH",
     "position": "F",
     "number": 16
+  },
+  {
+    "id": "nba:4592686",
+    "name": "Antonio Reeves",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "G",
+    "number": 12
   },
   {
     "id": "nba:4871141",
@@ -390,18 +419,28 @@
     "team": "New Orleans Pelicans",
     "teamAbbr": "NO",
     "position": "G",
-    "number": 9,
-    "numberBackfilled": true
+    "number": 24
+  },
+  {
+    "id": "nba:5241364",
+    "name": "Bennett Stirtz",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 14
   },
   {
     "id": "nba:4898237",
     "name": "Bez Mbeng",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Miami Heat",
+    "teamAbbr": "MIA",
     "position": "G",
-    "number": 21
+    "number": 21,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5104155",
@@ -421,7 +460,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "F",
-    "number": 2
+    "number": 25
   },
   {
     "id": "nba:3064482",
@@ -472,8 +511,7 @@
     "team": "Portland Trail Blazers",
     "teamAbbr": "POR",
     "position": "C",
-    "number": 15,
-    "numberBackfilled": true
+    "number": 10
   },
   {
     "id": "nba:4709138",
@@ -484,6 +522,16 @@
     "teamAbbr": "GS",
     "position": "G",
     "number": 2
+  },
+  {
+    "id": "nba:4432162",
+    "name": "Brandon Boston Jr.",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "G",
+    "number": 13
   },
   {
     "id": "nba:3913176",
@@ -569,11 +617,12 @@
     "id": "nba:2990984",
     "name": "Buddy Hield",
     "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
     "position": "G",
-    "number": 8
+    "number": 8,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4432166",
@@ -584,6 +633,16 @@
     "teamAbbr": "DET",
     "position": "G",
     "number": 2
+  },
+  {
+    "id": "nba:4433623",
+    "name": "Caleb Houstan",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "F",
+    "number": 33
   },
   {
     "id": "nba:4433144",
@@ -717,16 +776,6 @@
     "number": 28
   },
   {
-    "id": "nba:5105598",
-    "name": "Chase Ross",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Los Angeles Lakers",
-    "teamAbbr": "LAL",
-    "position": "G",
-    "number": 29
-  },
-  {
     "id": "nba:4700852",
     "name": "Chaz Lanier",
     "conference": "East",
@@ -757,6 +806,16 @@
     "number": 12
   },
   {
+    "id": "nba:4433622",
+    "name": "Chris Livingston",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "F",
+    "number": 24
+  },
+  {
     "id": "nba:4702972",
     "name": "Chris Manon",
     "conference": "West",
@@ -785,6 +844,26 @@
     "teamAbbr": "DEN",
     "position": "G",
     "number": 0
+  },
+  {
+    "id": "nba:4431778",
+    "name": "Christian Koloko",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "C",
+    "number": 35
+  },
+  {
+    "id": "nba:5109790",
+    "name": "Christoph Tilly",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "C",
+    "number": 33
   },
   {
     "id": "nba:4590360",
@@ -844,8 +923,7 @@
     "team": "Minnesota Timberwolves",
     "teamAbbr": "MIN",
     "position": "F",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 9
   },
   {
     "id": "nba:4397204",
@@ -929,15 +1007,14 @@
     "number": 9
   },
   {
-    "id": "nba:3136776",
-    "name": "D'Angelo Russell",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "id": "nba:4898369",
+    "name": "Curtis Jones",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
     "position": "G",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 14
   },
   {
     "id": "nba:4279318",
@@ -1138,8 +1215,7 @@
     "team": "Washington Wizards",
     "teamAbbr": "WSH",
     "position": "C",
-    "number": 5,
-    "numberBackfilled": true
+    "number": 6
   },
   {
     "id": "nba:3442",
@@ -1243,6 +1319,16 @@
     "number": 15
   },
   {
+    "id": "nba:4433188",
+    "name": "Devin Carter",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "G",
+    "number": 99
+  },
+  {
     "id": "nba:4395630",
     "name": "Devin Vassell",
     "conference": "West",
@@ -1261,6 +1347,16 @@
     "teamAbbr": "PHX",
     "position": "F",
     "number": 3
+  },
+  {
+    "id": "nba:5106283",
+    "name": "Dillon Mitchell",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "F",
+    "number": 20
   },
   {
     "id": "nba:3155942",
@@ -1317,11 +1413,10 @@
     "name": "Dorian Finney-Smith",
     "conference": "East",
     "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
     "position": "F",
-    "number": 2,
-    "numberBackfilled": true
+    "number": 8
   },
   {
     "id": "nba:5037873",
@@ -1344,6 +1439,26 @@
     "number": 23
   },
   {
+    "id": "nba:4397689",
+    "name": "Drew Peterson",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "F",
+    "number": 21
+  },
+  {
+    "id": "nba:4431695",
+    "name": "Drew Timme",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 17
+  },
+  {
     "id": "nba:4066993",
     "name": "Dru Smith",
     "conference": "East",
@@ -1362,6 +1477,16 @@
     "teamAbbr": "DET",
     "position": "F",
     "number": 55
+  },
+  {
+    "id": "nba:2531367",
+    "name": "Dwight Powell",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "F",
+    "number": 7
   },
   {
     "id": "nba:4433174",
@@ -1455,6 +1580,16 @@
     "number": 25
   },
   {
+    "id": "nba:5106261",
+    "name": "Ernest Udeh Jr.",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "C",
+    "number": 39
+  },
+  {
     "id": "nba:4432158",
     "name": "Evan Mobley",
     "conference": "East",
@@ -1463,6 +1598,16 @@
     "teamAbbr": "CLE",
     "position": "C",
     "number": 4
+  },
+  {
+    "id": "nba:5105841",
+    "name": "Felix Okpara",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "F",
+    "number": 34
   },
   {
     "id": "nba:4566434",
@@ -1483,6 +1628,16 @@
     "teamAbbr": "HOU",
     "position": "G",
     "number": 5
+  },
+  {
+    "id": "nba:4398356",
+    "name": "Gabe McGlothan",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "F",
+    "number": 41
   },
   {
     "id": "nba:2999547",
@@ -1587,16 +1742,6 @@
     "numberBackfilled": true
   },
   {
-    "id": "nba:4017844",
-    "name": "Guerschon Yabusele",
-    "conference": "East",
-    "division": "Central",
-    "team": "Chicago Bulls",
-    "teamAbbr": "CHI",
-    "position": "F",
-    "number": 28
-  },
-  {
     "id": "nba:4997536",
     "name": "Gui Santos",
     "conference": "West",
@@ -1620,11 +1765,21 @@
     "id": "nba:4433618",
     "name": "Harrison Ingram",
     "conference": "West",
-    "division": "Southwest",
-    "team": "San Antonio Spurs",
-    "teamAbbr": "SA",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
     "position": "F",
-    "number": 55
+    "number": 0
+  },
+  {
+    "id": "nba:5176420",
+    "name": "Hayden Gray",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "G",
+    "number": 44
   },
   {
     "id": "nba:4291678",
@@ -1715,6 +1870,16 @@
     "teamAbbr": "HOU",
     "position": "F",
     "number": 27
+  },
+  {
+    "id": "nba:5061585",
+    "name": "Isaiah Evans",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 33
   },
   {
     "id": "nba:4222252",
@@ -1860,16 +2025,6 @@
     "number": 21
   },
   {
-    "id": "nba:4433133",
-    "name": "Jahmir Young",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Miami Heat",
-    "teamAbbr": "MIA",
-    "position": "G",
-    "number": 17
-  },
-  {
     "id": "nba:4432848",
     "name": "Jaime Jaquez Jr.",
     "conference": "East",
@@ -1998,7 +2153,7 @@
     "team": "Atlanta Hawks",
     "teamAbbr": "ATL",
     "position": "F",
-    "number": 12
+    "number": 22
   },
   {
     "id": "nba:4278572",
@@ -2101,6 +2256,16 @@
     "number": 20
   },
   {
+    "id": "nba:4703115",
+    "name": "Jaron Pierre Jr.",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "G",
+    "number": 10
+  },
+  {
     "id": "nba:4278077",
     "name": "Jarred Vanderbilt",
     "conference": "West",
@@ -2158,8 +2323,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "C",
-    "number": 11,
-    "numberBackfilled": true
+    "number": 11
   },
   {
     "id": "nba:4065731",
@@ -2189,7 +2353,7 @@
     "team": "Minnesota Timberwolves",
     "teamAbbr": "MIN",
     "position": "G",
-    "number": 22
+    "number": 7
   },
   {
     "id": "nba:5112087",
@@ -2279,7 +2443,7 @@
     "team": "Portland Trail Blazers",
     "teamAbbr": "POR",
     "position": "F",
-    "number": 20
+    "number": 4
   },
   {
     "id": "nba:4277922",
@@ -2290,6 +2454,16 @@
     "teamAbbr": "MIL",
     "position": "C",
     "number": 0
+  },
+  {
+    "id": "nba:5105806",
+    "name": "Jett Howard",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 9
   },
   {
     "id": "nba:3133635",
@@ -2355,13 +2529,12 @@
   {
     "id": "nba:3134932",
     "name": "John Konchar",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
     "position": "G",
-    "number": 55,
-    "numberBackfilled": true
+    "number": 55
   },
   {
     "id": "nba:4898238",
@@ -2381,19 +2554,7 @@
     "team": "Portland Trail Blazers",
     "teamAbbr": "POR",
     "position": "F",
-    "number": 8,
-    "numberBackfilled": true
-  },
-  {
-    "id": "nba:4433569",
-    "name": "Johni Broome",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "LA Clippers",
-    "teamAbbr": "LAC",
-    "position": "F",
-    "number": 22,
-    "numberBackfilled": true
+    "number": 2
   },
   {
     "id": "nba:5157066",
@@ -2406,6 +2567,16 @@
     "number": 12
   },
   {
+    "id": "nba:4684682",
+    "name": "Jonas Aidoo",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "C",
+    "number": 13
+  },
+  {
     "id": "nba:4065654",
     "name": "Jonathan Isaac",
     "conference": "East",
@@ -2414,6 +2585,16 @@
     "teamAbbr": "ORL",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:4433247",
+    "name": "Jonathan Kuminga",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 24
   },
   {
     "id": "nba:2528426",
@@ -2497,6 +2678,16 @@
     "number": 5
   },
   {
+    "id": "nba:5105800",
+    "name": "Josh Dix",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 21
+  },
+  {
     "id": "nba:4871145",
     "name": "Josh Giddey",
     "conference": "East",
@@ -2514,8 +2705,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "G",
-    "number": 10,
-    "numberBackfilled": true
+    "number": 5
   },
   {
     "id": "nba:3062679",
@@ -2538,16 +2728,6 @@
     "number": 0
   },
   {
-    "id": "nba:4432068",
-    "name": "Josh Oduro",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
-    "position": "C",
-    "number": 13
-  },
-  {
     "id": "nba:4065663",
     "name": "Josh Okogie",
     "conference": "West",
@@ -2555,8 +2735,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "G",
-    "number": 20,
-    "numberBackfilled": true
+    "number": 21
   },
   {
     "id": "nba:3995",
@@ -2579,14 +2758,14 @@
     "number": 30
   },
   {
-    "id": "nba:5105553",
-    "name": "Julian Phillips",
+    "id": "nba:4683742",
+    "name": "Julian Reese",
     "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
     "position": "F",
-    "number": 4
+    "number": 13
   },
   {
     "id": "nba:4432181",
@@ -2637,6 +2816,16 @@
     "teamAbbr": "UTAH",
     "position": "C",
     "number": 30
+  },
+  {
+    "id": "nba:4701845",
+    "name": "Kadary Richmond",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "G",
+    "number": 16
   },
   {
     "id": "nba:4697268",
@@ -2884,6 +3073,16 @@
     "number": 4
   },
   {
+    "id": "nba:4431828",
+    "name": "KJ Martin",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 99
+  },
+  {
     "id": "nba:4683834",
     "name": "KJ Simpson",
     "conference": "West",
@@ -2913,6 +3112,16 @@
     "teamAbbr": "IND",
     "position": "G",
     "number": 24
+  },
+  {
+    "id": "nba:4683736",
+    "name": "Kobe Bufkin",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "G",
+    "number": 4
   },
   {
     "id": "nba:4702352",
@@ -2982,8 +3191,7 @@
     "team": "Toronto Raptors",
     "teamAbbr": "TOR",
     "position": "F",
-    "number": 12,
-    "numberBackfilled": true
+    "number": 12
   },
   {
     "id": "nba:4684793",
@@ -2993,7 +3201,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "F",
-    "number": 22
+    "number": 2
   },
   {
     "id": "nba:3134907",
@@ -3033,8 +3241,7 @@
     "team": "Minnesota Timberwolves",
     "teamAbbr": "MIN",
     "position": "G",
-    "number": 1,
-    "numberBackfilled": true
+    "number": 1
   },
   {
     "id": "nba:3914044",
@@ -3159,14 +3366,14 @@
     "number": 7
   },
   {
-    "id": "nba:4397071",
-    "name": "Mac McClung",
+    "id": "nba:4397784",
+    "name": "Malachi Smith",
     "conference": "East",
-    "division": "Central",
-    "team": "Chicago Bulls",
-    "teamAbbr": "CHI",
+    "division": "Atlantic",
+    "team": "Toronto Raptors",
+    "teamAbbr": "TOR",
     "position": "G",
-    "number": 5
+    "number": 18
   },
   {
     "id": "nba:4565201",
@@ -3189,6 +3396,16 @@
     "number": 33
   },
   {
+    "id": "nba:4712862",
+    "name": "Malik Dia",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "F",
+    "number": 8
+  },
+  {
     "id": "nba:4066262",
     "name": "Malik Monk",
     "conference": "West",
@@ -3206,7 +3423,7 @@
     "team": "Dallas Mavericks",
     "teamAbbr": "DAL",
     "position": "G",
-    "number": 25
+    "number": 8
   },
   {
     "id": "nba:2990992",
@@ -3238,6 +3455,16 @@
     "teamAbbr": "PHX",
     "position": "C",
     "number": 15
+  },
+  {
+    "id": "nba:5107264",
+    "name": "Marquel Sutton",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "F",
+    "number": 0
   },
   {
     "id": "nba:4277848",
@@ -3291,6 +3518,16 @@
     "number": 42
   },
   {
+    "id": "nba:5041951",
+    "name": "Meleek Thomas",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "G",
+    "number": 15
+  },
+  {
     "id": "nba:4432185",
     "name": "Micah Peavy",
     "conference": "West",
@@ -3309,7 +3546,7 @@
     "team": "Portland Trail Blazers",
     "teamAbbr": "POR",
     "position": "C",
-    "number": 11
+    "number": 9
   },
   {
     "id": "nba:4278104",
@@ -3373,6 +3610,16 @@
     "number": 2
   },
   {
+    "id": "nba:5106272",
+    "name": "Milos Uzan",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "G",
+    "number": 29
+  },
+  {
     "id": "nba:4351852",
     "name": "Mitchell Robinson",
     "conference": "East",
@@ -3390,7 +3637,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "C",
-    "number": 11
+    "number": 44
   },
   {
     "id": "nba:5289900",
@@ -3542,8 +3789,7 @@
     "team": "Chicago Bulls",
     "teamAbbr": "CHI",
     "position": "C",
-    "number": 33,
-    "numberBackfilled": true
+    "number": 9
   },
   {
     "id": "nba:4278076",
@@ -3623,7 +3869,7 @@
     "team": "Chicago Bulls",
     "teamAbbr": "CHI",
     "position": "F",
-    "number": 24
+    "number": 2
   },
   {
     "id": "nba:4712896",
@@ -3663,8 +3909,7 @@
     "team": "Chicago Bulls",
     "teamAbbr": "CHI",
     "position": "G",
-    "number": 24,
-    "numberBackfilled": true
+    "number": 24
   },
   {
     "id": "nba:4278355",
@@ -3687,16 +3932,6 @@
     "number": 8
   },
   {
-    "id": "nba:4278046",
-    "name": "Olivier Sarr",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
-    "position": "F",
-    "number": 33
-  },
-  {
     "id": "nba:4595400",
     "name": "Olivier-Maxence Prosper",
     "conference": "West",
@@ -3717,14 +3952,14 @@
     "number": 17
   },
   {
-    "id": "nba:4432827",
-    "name": "Oscar Tshiebwe",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
+    "id": "nba:4593049",
+    "name": "Orlando Robinson",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
     "position": "C",
-    "number": 34
+    "number": 0
   },
   {
     "id": "nba:4601023",
@@ -3735,6 +3970,16 @@
     "teamAbbr": "PHX",
     "position": "F",
     "number": 11
+  },
+  {
+    "id": "nba:5106270",
+    "name": "Otega Oweh",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 13
   },
   {
     "id": "nba:4997526",
@@ -3868,6 +4113,16 @@
     "number": 35
   },
   {
+    "id": "nba:5106674",
+    "name": "Peter Suder",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "G",
+    "number": 15
+  },
+  {
     "id": "nba:4576087",
     "name": "Peyton Watson",
     "conference": "East",
@@ -3875,8 +4130,7 @@
     "team": "Cleveland Cavaliers",
     "teamAbbr": "CLE",
     "position": "G",
-    "number": 8,
-    "numberBackfilled": true
+    "number": 8
   },
   {
     "id": "nba:4701225",
@@ -3931,6 +4185,16 @@
     "numberBackfilled": true
   },
   {
+    "id": "nba:4593815",
+    "name": "Rashaun Agee",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "F",
+    "number": 19
+  },
+  {
     "id": "nba:5105977",
     "name": "Rasheer Fleming",
     "conference": "West",
@@ -3959,6 +4223,16 @@
     "teamAbbr": "ATL",
     "position": "G",
     "number": 10
+  },
+  {
+    "id": "nba:4432187",
+    "name": "Reece Beekman",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 26
   },
   {
     "id": "nba:4711272",
@@ -3994,11 +4268,21 @@
     "id": "nba:4684275",
     "name": "Rob Dillingham",
     "conference": "East",
-    "division": "Central",
-    "team": "Chicago Bulls",
-    "teamAbbr": "CHI",
+    "division": "Southeast",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "G",
     "number": 7
+  },
+  {
+    "id": "nba:4685802",
+    "name": "Robert McCray V",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 16
   },
   {
     "id": "nba:4066211",
@@ -4096,10 +4380,11 @@
     "name": "Ryan Nembhard",
     "conference": "East",
     "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
+    "team": "Charlotte Hornets",
+    "teamAbbr": "CHA",
     "position": "G",
-    "number": 19
+    "number": 19,
+    "numberBackfilled": true
   },
   {
     "id": "nba:4591725",
@@ -4160,8 +4445,7 @@
     "team": "Dallas Mavericks",
     "teamAbbr": "DAL",
     "position": "F",
-    "number": 7,
-    "numberBackfilled": true
+    "number": 34
   },
   {
     "id": "nba:4683678",
@@ -4215,6 +4499,16 @@
     "number": 55
   },
   {
+    "id": "nba:4431775",
+    "name": "Seth Lundy",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 5
+  },
+  {
     "id": "nba:4914336",
     "name": "Shaedon Sharpe",
     "conference": "West",
@@ -4233,16 +4527,6 @@
     "teamAbbr": "OKC",
     "position": "G",
     "number": 2
-  },
-  {
-    "id": "nba:4432173",
-    "name": "Sharife Cooper",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Washington Wizards",
-    "teamAbbr": "WSH",
-    "position": "G",
-    "number": 13
   },
   {
     "id": "nba:5081727",
@@ -4305,6 +4589,16 @@
     "number": 5
   },
   {
+    "id": "nba:4704043",
+    "name": "Steve Settle III",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "F",
+    "number": 14
+  },
+  {
     "id": "nba:2991235",
     "name": "Steven Adams",
     "conference": "West",
@@ -4335,6 +4629,16 @@
     "number": 9
   },
   {
+    "id": "nba:4683933",
+    "name": "Tamar Bates",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "G",
+    "number": 0
+  },
+  {
     "id": "nba:4433192",
     "name": "Tari Eason",
     "conference": "West",
@@ -4343,6 +4647,16 @@
     "teamAbbr": "HOU",
     "position": "F",
     "number": 17
+  },
+  {
+    "id": "nba:5148538",
+    "name": "Tarik Biberovic",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "F",
+    "number": 13
   },
   {
     "id": "nba:2990962",
@@ -4382,7 +4696,7 @@
     "team": "Minnesota Timberwolves",
     "teamAbbr": "MIN",
     "position": "G",
-    "number": 1
+    "number": 4
   },
   {
     "id": "nba:3934723",
@@ -4423,6 +4737,26 @@
     "teamAbbr": "MIA",
     "position": "G",
     "number": 10
+  },
+  {
+    "id": "nba:5105555",
+    "name": "Tobe Awaka",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "F",
+    "number": 19
+  },
+  {
+    "id": "nba:5106040",
+    "name": "Tobi Lawal",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Dallas Mavericks",
+    "teamAbbr": "DAL",
+    "position": "F",
+    "number": 33
   },
   {
     "id": "nba:6440",
@@ -4503,8 +4837,7 @@
     "team": "Washington Wizards",
     "teamAbbr": "WSH",
     "position": "G",
-    "number": 23,
-    "numberBackfilled": true
+    "number": 1
   },
   {
     "id": "nba:4431675",
@@ -4514,18 +4847,17 @@
     "team": "New Orleans Pelicans",
     "teamAbbr": "NO",
     "position": "F",
-    "number": 12,
-    "numberBackfilled": true
+    "number": 9
   },
   {
     "id": "nba:4432645",
     "name": "Trevor Keels",
     "conference": "East",
     "division": "Southeast",
-    "team": "Miami Heat",
-    "teamAbbr": "MIA",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
     "position": "G",
-    "number": 8
+    "number": 13
   },
   {
     "id": "nba:4433268",
@@ -4535,7 +4867,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "G",
-    "number": 23
+    "number": 15
   },
   {
     "id": "nba:4395623",
@@ -4545,8 +4877,17 @@
     "team": "Toronto Raptors",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 50,
-    "numberBackfilled": true
+    "number": 50
+  },
+  {
+    "id": "nba:3136196",
+    "name": "Trey Lyles",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 41
   },
   {
     "id": "nba:4397688",
@@ -4587,6 +4928,16 @@
     "teamAbbr": "WSH",
     "position": "F",
     "number": 0
+  },
+  {
+    "id": "nba:4837238",
+    "name": "Tucker DeVries",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "F",
+    "number": 26
   },
   {
     "id": "nba:4065733",
@@ -4860,6 +5211,16 @@
     "number": 8
   },
   {
+    "id": "nba:4702099",
+    "name": "Zack Austin",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "F",
+    "number": 55
+  },
+  {
     "id": "nba:4431690",
     "name": "Zeke Nnaji",
     "conference": "West",
@@ -4868,6 +5229,16 @@
     "teamAbbr": "DEN",
     "position": "F",
     "number": 22
+  },
+  {
+    "id": "nba:4277923",
+    "name": "Zhaire Smith",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 40
   },
   {
     "id": "nba:4433137",
