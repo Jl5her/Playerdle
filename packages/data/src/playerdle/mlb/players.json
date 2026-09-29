@@ -165,17 +165,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4917640",
-    "name": "AJ Smith-Shawver",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SP",
-    "number": 32,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4424368",
     "name": "Alan Roden",
     "conference": "AL",
@@ -1870,6 +1859,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5132219",
+    "name": "Chase Hampton",
+    "conference": "NL",
+    "division": "Central",
+    "team": "St. Louis Cardinals",
+    "teamAbbr": "STL",
+    "position": "SP",
+    "number": 86,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4414112",
     "name": "Chase Lee",
     "conference": "AL",
@@ -2946,17 +2946,6 @@
     "position": "C",
     "number": 35,
     "league": "AL"
-  },
-  {
-    "id": "mlb:39836",
-    "name": "Elieser Hernandez",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "RP",
-    "number": 57,
-    "league": "NL"
   },
   {
     "id": "mlb:4917694",
