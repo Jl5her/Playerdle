@@ -4541,16 +4541,6 @@
     "number": 53
   },
   {
-    "id": "nfl:3728258",
-    "name": "Clelin Ferrell",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "DE",
-    "number": 98
-  },
-  {
     "id": "nfl:4384549",
     "name": "Cobie Durant",
     "conference": "NFC",
@@ -5139,16 +5129,6 @@
     "teamAbbr": "NYJ",
     "position": "CB",
     "number": 23
-  },
-  {
-    "id": "nfl:3139389",
-    "name": "D'Angelo Ross",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "CB",
-    "number": 37
   },
   {
     "id": "nfl:4608386",
@@ -9505,11 +9485,12 @@
     "id": "nfl:4433970",
     "name": "J.J. McCarthy",
     "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
     "position": "QB",
-    "number": 9
+    "number": 9,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4241985",
@@ -10300,16 +10281,6 @@
     "teamAbbr": "MIN",
     "position": "LB",
     "number": 41
-  },
-  {
-    "id": "nfl:4243322",
-    "name": "Jake Haener",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "QB",
-    "number": 18
   },
   {
     "id": "nfl:4033812",
@@ -12529,7 +12500,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "CB",
-    "number": 32
+    "number": 31
   },
   {
     "id": "nfl:4426485",
@@ -14250,16 +14221,6 @@
     "teamAbbr": "DET",
     "position": "CB",
     "number": 6
-  },
-  {
-    "id": "nfl:4712462",
-    "name": "Keith Cooper Jr.",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "DT",
-    "number": 97
   },
   {
     "id": "nfl:4870707",
@@ -17312,6 +17273,16 @@
     "number": 29
   },
   {
+    "id": "nfl:5089453",
+    "name": "Miles Kitselman",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "TE",
+    "number": 84
+  },
+  {
     "id": "nfl:4880014",
     "name": "Miles Scott",
     "conference": "AFC",
@@ -17540,6 +17511,16 @@
     "teamAbbr": "SF",
     "position": "DE",
     "number": 98
+  },
+  {
+    "id": "nfl:4039010",
+    "name": "Myles Bryant",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "CB",
+    "number": 27
   },
   {
     "id": "nfl:3122132",
@@ -19932,6 +19913,16 @@
     "number": 98
   },
   {
+    "id": "nfl:4242230",
+    "name": "Saahdiq Charles",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "G",
+    "number": 78
+  },
+  {
     "id": "nfl:4699802",
     "name": "Sabastian Harsh",
     "conference": "AFC",
@@ -20179,8 +20170,7 @@
     "team": "Chicago Bears",
     "teamAbbr": "CHI",
     "position": "LS",
-    "number": 46,
-    "numberBackfilled": true
+    "number": 46
   },
   {
     "id": "nfl:4373684",
