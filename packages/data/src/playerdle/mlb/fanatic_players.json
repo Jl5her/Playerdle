@@ -666,6 +666,24 @@
     "ops": 0.5
   },
   {
+    "id": "mlb:42360",
+    "name": "Curtis Mead",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "3B",
+    "number": 11,
+    "league": "AL",
+    "gp": 90,
+    "pa": 264,
+    "avg": 0.233,
+    "hr": 3,
+    "rbi": 19,
+    "sb": 5,
+    "ops": 0.62
+  },
+  {
     "id": "mlb:40048",
     "name": "Dane Myers",
     "conference": "NL",
@@ -1638,6 +1656,24 @@
     "ops": 0.656
   },
   {
+    "id": "mlb:5201569",
+    "name": "Kristian Campbell",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "OF",
+    "number": 28,
+    "league": "AL",
+    "gp": 67,
+    "pa": 263,
+    "avg": 0.223,
+    "hr": 6,
+    "rbi": 21,
+    "sb": 2,
+    "ops": 0.664
+  },
+  {
     "id": "mlb:30545",
     "name": "Kyle Higashioka",
     "conference": "AL",
@@ -2394,6 +2430,24 @@
     "ops": 0.748
   },
   {
+    "id": "mlb:42826",
+    "name": "Romy Gonzalez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "DH",
+    "number": 23,
+    "league": "AL",
+    "gp": 96,
+    "pa": 341,
+    "avg": 0.305,
+    "hr": 9,
+    "rbi": 53,
+    "sb": 6,
+    "ops": 0.826
+  },
+  {
     "id": "mlb:36185",
     "name": "Ronald Acuna Jr.",
     "conference": "NL",
@@ -2986,6 +3040,24 @@
     "rbi": 19,
     "sb": 0,
     "ops": 0.637
+  },
+  {
+    "id": "mlb:4424962",
+    "name": "Zach Dezenzo",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 9,
+    "league": "AL",
+    "gp": 34,
+    "pa": 109,
+    "avg": 0.245,
+    "hr": 2,
+    "rbi": 10,
+    "sb": 1,
+    "ops": 0.688
   },
   {
     "id": "mlb:4666100",

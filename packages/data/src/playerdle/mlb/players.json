@@ -352,6 +352,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:5332989",
+    "name": "Alimber Santa",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 72,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33215",
     "name": "Amed Rosario",
     "conference": "AL",
@@ -616,6 +627,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41194",
+    "name": "Anthony Seigler",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "2B",
+    "number": 48,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42547",
     "name": "Anthony Volpe",
     "conference": "AL",
@@ -735,6 +757,17 @@
     "position": "C",
     "number": 28,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4425432",
+    "name": "B.J. Murray Jr.",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "3B",
+    "number": 83,
+    "league": "NL"
   },
   {
     "id": "mlb:3107919",
@@ -1265,6 +1298,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40971",
+    "name": "Braxton Garrett",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 60,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5201845",
     "name": "Braxton Roxby",
     "conference": "NL",
@@ -1493,6 +1537,17 @@
     "teamAbbr": "ATH",
     "position": "C",
     "number": 10,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4838117",
+    "name": "Brice Matthews",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "CF",
+    "number": 0,
     "league": "AL"
   },
   {
@@ -1835,6 +1890,17 @@
     "position": "3B",
     "number": 5,
     "league": "AL"
+  },
+  {
+    "id": "mlb:32440",
+    "name": "Caleb Thielbar",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 24,
+    "league": "NL"
   },
   {
     "id": "mlb:3978173",
@@ -2673,6 +2739,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4425208",
+    "name": "Collin Price",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "C",
+    "number": 37,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4872685",
     "name": "Colson Montgomery",
     "conference": "AL",
@@ -2871,6 +2948,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:41261",
+    "name": "Cristian Javier",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SP",
+    "number": 53,
+    "league": "AL"
+  },
+  {
     "id": "mlb:39897",
     "name": "Cristian Pache",
     "conference": "NL",
@@ -2891,6 +2979,17 @@
     "position": "SP",
     "number": 61,
     "league": "NL"
+  },
+  {
+    "id": "mlb:42360",
+    "name": "Curtis Mead",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "3B",
+    "number": 11,
+    "league": "AL"
   },
   {
     "id": "mlb:4619839",
@@ -3012,6 +3111,17 @@
     "position": "CF",
     "number": 49,
     "league": "NL"
+  },
+  {
+    "id": "mlb:40963",
+    "name": "Daulton Varsho",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "CF",
+    "number": 18,
+    "league": "AL"
   },
   {
     "id": "mlb:38303",
@@ -3597,6 +3707,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40944",
+    "name": "Edward Cabrera",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 30,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4919919",
     "name": "Edwin Arroyo",
     "conference": "NL",
@@ -3729,6 +3850,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:35026",
+    "name": "Enyel De Los Santos",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 65,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4299966",
     "name": "Eric Orze",
     "conference": "AL",
@@ -3825,6 +3957,28 @@
     "teamAbbr": "MIA",
     "position": "RF",
     "number": 3,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:4944276",
+    "name": "Ethan Pecko",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "SP",
+    "number": 70,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:3963340",
+    "name": "Ethan Roberts",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 39,
     "league": "NL"
   },
   {
@@ -4189,6 +4343,17 @@
     "position": "RP",
     "number": 65,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4208302",
+    "name": "Gavin Hollowell",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 46,
+    "league": "NL"
   },
   {
     "id": "mlb:40700",
@@ -5390,6 +5555,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4917690",
+    "name": "James Triantos",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "2B",
+    "number": 5,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4918256",
     "name": "James Wood",
     "conference": "NL",
@@ -5566,6 +5742,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4722919",
+    "name": "Jayden Murray",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 70,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41433",
     "name": "Jazz Chisholm Jr.",
     "conference": "AL",
@@ -5574,6 +5761,17 @@
     "teamAbbr": "NYY",
     "position": "2B",
     "number": 13,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5332994",
+    "name": "Jedixson Paez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 65,
     "league": "AL"
   },
   {
@@ -6127,6 +6325,28 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4420749",
+    "name": "Jordan Wicks",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 36,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41259",
+    "name": "Jorge Barrosa",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "CF",
+    "number": 14,
+    "league": "AL"
+  },
+  {
     "id": "mlb:33832",
     "name": "Jorge Mateo",
     "conference": "AL",
@@ -6501,6 +6721,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4722926",
+    "name": "Jovani Moran",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 47,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41460",
     "name": "JT Brubaker",
     "conference": "NL",
@@ -6567,6 +6798,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5195257",
+    "name": "Julian Aguiar",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "SP",
+    "number": 39,
+    "league": "NL"
+  },
+  {
     "id": "mlb:42806",
     "name": "Julian Garcia",
     "conference": "NL",
@@ -6630,6 +6872,17 @@
     "teamAbbr": "PHI",
     "position": "CF",
     "number": 2,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41531",
+    "name": "Justin Dean",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "CF",
+    "number": 1,
     "league": "NL"
   },
   {
@@ -6743,6 +6996,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42242",
+    "name": "Kai-Wei Teng",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 17,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5134636",
     "name": "Kazuma Okamoto",
     "conference": "AL",
@@ -6828,6 +7092,17 @@
     "teamAbbr": "ARI",
     "position": "2B",
     "number": 4,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:42500",
+    "name": "Kevin Alcantara",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "DH",
+    "number": 13,
     "league": "NL"
   },
   {
@@ -6950,6 +7225,17 @@
     "position": "SP",
     "number": 40,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5201569",
+    "name": "Kristian Campbell",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "OF",
+    "number": 28,
+    "league": "AL"
   },
   {
     "id": "mlb:4414525",
@@ -7126,6 +7412,17 @@
     "position": "RP",
     "number": 71,
     "league": "NL"
+  },
+  {
+    "id": "mlb:37798",
+    "name": "LaMonte Wade Jr.",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 31,
+    "league": "AL"
   },
   {
     "id": "mlb:4345404",
@@ -7645,6 +7942,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4872598",
+    "name": "Masataka Yoshida",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "DH",
+    "number": 7,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4758424",
     "name": "Mason Adams",
     "conference": "NL",
@@ -8082,6 +8390,17 @@
     "teamAbbr": "TEX",
     "position": "RP",
     "number": 58,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:5132012",
+    "name": "Mickey Gasper",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "DH",
+    "number": 30,
     "league": "AL"
   },
   {
@@ -8767,6 +9086,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:40975",
+    "name": "Patrick Sandoval",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "SP",
+    "number": 43,
+    "league": "AL"
+  },
+  {
     "id": "mlb:32861",
     "name": "Patrick Wisdom",
     "conference": "AL",
@@ -9064,6 +9394,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4720890",
+    "name": "Raymond Burgos",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 79,
+    "league": "AL"
+  },
+  {
     "id": "mlb:41291",
     "name": "Raynel Delgado",
     "conference": "AL",
@@ -9339,6 +9680,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42826",
+    "name": "Romy Gonzalez",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "DH",
+    "number": 23,
+    "league": "AL"
+  },
+  {
     "id": "mlb:36185",
     "name": "Ronald Acuna Jr.",
     "conference": "NL",
@@ -9359,6 +9711,17 @@
     "position": "RP",
     "number": 83,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41829",
+    "name": "Ronel Blanco",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 56,
+    "league": "AL"
   },
   {
     "id": "mlb:40978",
@@ -10142,6 +10505,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:33716",
+    "name": "Steven Okert",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "RP",
+    "number": 48,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5263497",
     "name": "Steven Zobac",
     "conference": "AL",
@@ -10195,6 +10569,17 @@
     "position": "SP",
     "number": 29,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41009",
+    "name": "Tanner Houck",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "SP",
+    "number": 89,
+    "league": "AL"
   },
   {
     "id": "mlb:35135",
@@ -10582,6 +10967,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:36728",
+    "name": "Trent Thornton",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 49,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41205",
     "name": "Trevor Larnach",
     "conference": "AL",
@@ -10747,6 +11143,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42692",
+    "name": "Tsung-Che Cheng",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "SS",
+    "number": 39,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5207758",
     "name": "Turner Hill",
     "conference": "NL",
@@ -10810,6 +11217,17 @@
     "teamAbbr": "PIT",
     "position": "LF",
     "number": 37,
+    "league": "NL"
+  },
+  {
+    "id": "mlb:41612",
+    "name": "Tyler Ferguson",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Chicago Cubs",
+    "teamAbbr": "CHC",
+    "position": "RP",
+    "number": 64,
     "league": "NL"
   },
   {
@@ -10890,6 +11308,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4630588",
+    "name": "Tyler Samaniego",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 78,
+    "league": "AL"
+  },
+  {
     "id": "mlb:34975",
     "name": "Tyler Stephenson",
     "conference": "NL",
@@ -10932,6 +11361,17 @@
     "position": "RP",
     "number": 55,
     "league": "NL"
+  },
+  {
+    "id": "mlb:33654",
+    "name": "Tyron Guerrero",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "RP",
+    "number": 41,
+    "league": "AL"
   },
   {
     "id": "mlb:32783",
@@ -11559,6 +11999,28 @@
     "position": "RP",
     "number": 62,
     "league": "NL"
+  },
+  {
+    "id": "mlb:5136815",
+    "name": "Zach Cole",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 16,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4424962",
+    "name": "Zach Dezenzo",
+    "conference": "AL",
+    "division": "West",
+    "team": "Houston Astros",
+    "teamAbbr": "HOU",
+    "position": "LF",
+    "number": 9,
+    "league": "AL"
   },
   {
     "id": "mlb:5195258",
