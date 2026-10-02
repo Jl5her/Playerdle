@@ -353,6 +353,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Dallas Cowboys",
       "New Orleans Saints",
     ],
+    espnId: "16731",
   },
   {
     id: "journey:amari-cooper",
