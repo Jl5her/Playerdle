@@ -730,6 +730,16 @@
     "number": 10
   },
   {
+    "id": "nhl:5209793",
+    "name": "Arttu Hyry",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "RW",
+    "number": 25
+  },
+  {
     "id": "nhl:3042050",
     "name": "Artturi Lehkonen",
     "conference": "West",
@@ -1700,6 +1710,16 @@
     "number": 22
   },
   {
+    "id": "nhl:2590857",
+    "name": "Colin Blackwell",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "C",
+    "number": 15
+  },
+  {
     "id": "nhl:5136607",
     "name": "Collin Graf",
     "conference": "West",
@@ -2088,6 +2108,16 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 47
+  },
+  {
+    "id": "nhl:3942030",
+    "name": "Dennis Gilbert",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Buffalo Sabres",
+    "teamAbbr": "BUF",
+    "position": "D",
+    "number": 44
   },
   {
     "id": "nhl:5174160",
@@ -6478,16 +6508,6 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 49
-  },
-  {
-    "id": "nhl:5080158",
-    "name": "Rutger McGroarty",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "RW",
-    "number": 2
   },
   {
     "id": "nhl:3115033",
