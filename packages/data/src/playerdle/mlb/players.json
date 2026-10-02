@@ -3762,6 +3762,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4917804",
+    "name": "Eliezer Alfonzo",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "C",
+    "number": 64,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4917694",
     "name": "Elly De La Cruz",
     "conference": "NL",
@@ -5068,17 +5079,6 @@
     "teamAbbr": "STL",
     "position": "DH",
     "number": 48,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:4722954",
-    "name": "Ivan Johnson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "2B",
-    "number": 63,
     "league": "NL"
   },
   {
@@ -7590,6 +7590,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4981312",
+    "name": "Logan Porter",
+    "conference": "AL",
+    "division": "West",
+    "team": "Los Angeles Angels",
+    "teamAbbr": "LAA",
+    "position": "C",
+    "number": 33,
+    "league": "AL"
+  },
+  {
     "id": "mlb:5136495",
     "name": "Logan VanWey",
     "conference": "AL",
@@ -9119,6 +9130,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:4927620",
+    "name": "Paul Gervase",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "RP",
+    "number": 65,
+    "league": "NL"
+  },
+  {
     "id": "mlb:31027",
     "name": "Paul Goldschmidt",
     "conference": "AL",
@@ -10414,6 +10436,17 @@
     "teamAbbr": "BOS",
     "position": "SP",
     "number": 54,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:4726080",
+    "name": "Spencer Arrighetti",
+    "conference": "AL",
+    "division": "East",
+    "team": "Toronto Blue Jays",
+    "teamAbbr": "TOR",
+    "position": "SP",
+    "number": 45,
     "league": "AL"
   },
   {
