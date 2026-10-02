@@ -38,7 +38,7 @@
     "number": 8,
     "ovr": 79,
     "spd": 77,
-    "awr": 80,
+    "awr": 81,
     "str": 59
   },
   {
@@ -92,9 +92,9 @@
     "teamAbbr": "NO",
     "position": "RB",
     "number": 41,
-    "ovr": 79,
+    "ovr": 78,
     "spd": 87,
-    "awr": 80,
+    "awr": 79,
     "str": 77
   },
   {
@@ -136,7 +136,21 @@
     "number": 2,
     "ovr": 86,
     "spd": 90,
-    "awr": 86,
+    "awr": 87,
+    "str": 80
+  },
+  {
+    "id": "nfl:3068267",
+    "name": "Austin Ekeler",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "RB",
+    "number": 30,
+    "ovr": 74,
+    "spd": 89,
+    "awr": 74,
     "str": 80
   },
   {
@@ -148,9 +162,9 @@
     "teamAbbr": "TB",
     "position": "QB",
     "number": 6,
-    "ovr": 83,
+    "ovr": 82,
     "spd": 87,
-    "awr": 83,
+    "awr": 78,
     "str": 69
   },
   {
@@ -162,9 +176,9 @@
     "teamAbbr": "JAX",
     "position": "RB",
     "number": 33,
-    "ovr": 78,
+    "ovr": 79,
     "spd": 95,
-    "awr": 65,
+    "awr": 70,
     "str": 75
   },
   {
@@ -176,9 +190,9 @@
     "teamAbbr": "ATL",
     "position": "RB",
     "number": 7,
-    "ovr": 96,
+    "ovr": 97,
     "spd": 93,
-    "awr": 89,
+    "awr": 90,
     "str": 81
   },
   {
@@ -316,9 +330,9 @@
     "teamAbbr": "LV",
     "position": "TE",
     "number": 89,
-    "ovr": 93,
+    "ovr": 94,
     "spd": 90,
-    "awr": 95,
+    "awr": 96,
     "str": 75
   },
   {
@@ -330,9 +344,9 @@
     "teamAbbr": "SF",
     "position": "QB",
     "number": 13,
-    "ovr": 87,
-    "spd": 79,
-    "awr": 91,
+    "ovr": 90,
+    "spd": 86,
+    "awr": 92,
     "str": 63
   },
   {
@@ -346,7 +360,7 @@
     "number": 9,
     "ovr": 78,
     "spd": 87,
-    "awr": 77,
+    "awr": 76,
     "str": 54
   },
   {
@@ -504,20 +518,6 @@
     "str": 59
   },
   {
-    "id": "nfl:4362619",
-    "name": "Chris Rodriguez Jr.",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Jacksonville Jaguars",
-    "teamAbbr": "JAX",
-    "position": "RB",
-    "number": 24,
-    "ovr": 72,
-    "spd": 89,
-    "awr": 78,
-    "str": 74
-  },
-  {
     "id": "nfl:3895856",
     "name": "Christian Kirk",
     "conference": "NFC",
@@ -568,9 +568,9 @@
     "teamAbbr": "CAR",
     "position": "RB",
     "number": 30,
-    "ovr": 81,
+    "ovr": 82,
     "spd": 91,
-    "awr": 80,
+    "awr": 83,
     "str": 73
   },
   {
@@ -624,9 +624,9 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 14,
-    "ovr": 87,
+    "ovr": 86,
     "spd": 90,
-    "awr": 95,
+    "awr": 92,
     "str": 75
   },
   {
@@ -750,9 +750,9 @@
     "teamAbbr": "CAR",
     "position": "TE",
     "number": 88,
-    "ovr": 79,
+    "ovr": 81,
     "spd": 87,
-    "awr": 76,
+    "awr": 84,
     "str": 70
   },
   {
@@ -764,8 +764,8 @@
     "teamAbbr": "LAR",
     "position": "WR",
     "number": 17,
-    "ovr": 90,
-    "spd": 89,
+    "ovr": 91,
+    "spd": 91,
     "awr": 95,
     "str": 63
   },
@@ -792,9 +792,9 @@
     "teamAbbr": "LAC",
     "position": "TE",
     "number": 83,
-    "ovr": 79,
+    "ovr": 78,
     "spd": 86,
-    "awr": 75,
+    "awr": 70,
     "str": 72
   },
   {
@@ -835,8 +835,8 @@
     "position": "WR",
     "number": 19,
     "ovr": 77,
-    "spd": 89,
-    "awr": 76,
+    "spd": 91,
+    "awr": 75,
     "str": 80
   },
   {
@@ -934,7 +934,7 @@
     "number": 13,
     "ovr": 78,
     "spd": 89,
-    "awr": 81,
+    "awr": 80,
     "str": 60
   },
   {
@@ -960,7 +960,7 @@
     "teamAbbr": "NE",
     "position": "QB",
     "number": 10,
-    "ovr": 89,
+    "ovr": 88,
     "spd": 89,
     "awr": 83,
     "str": 62
@@ -1058,9 +1058,9 @@
     "teamAbbr": "NYJ",
     "position": "WR",
     "number": 5,
-    "ovr": 86,
+    "ovr": 87,
     "spd": 92,
-    "awr": 86,
+    "awr": 87,
     "str": 56
   },
   {
@@ -1144,7 +1144,7 @@
     "number": 9,
     "ovr": 77,
     "spd": 84,
-    "awr": 72,
+    "awr": 71,
     "str": 66
   },
   {
@@ -1170,9 +1170,9 @@
     "teamAbbr": "DEN",
     "position": "RB",
     "number": 27,
-    "ovr": 82,
+    "ovr": 81,
     "spd": 90,
-    "awr": 81,
+    "awr": 79,
     "str": 74
   },
   {
@@ -1296,9 +1296,9 @@
     "teamAbbr": "PHI",
     "position": "QB",
     "number": 1,
-    "ovr": 82,
+    "ovr": 81,
     "spd": 88,
-    "awr": 81,
+    "awr": 77,
     "str": 76
   },
   {
@@ -1368,7 +1368,7 @@
     "number": 16,
     "ovr": 89,
     "spd": 74,
-    "awr": 90,
+    "awr": 91,
     "str": 64
   },
   {
@@ -1436,9 +1436,9 @@
     "teamAbbr": "WSH",
     "position": "QB",
     "number": 5,
-    "ovr": 80,
+    "ovr": 79,
     "spd": 90,
-    "awr": 69,
+    "awr": 64,
     "str": 59
   },
   {
@@ -1492,9 +1492,9 @@
     "teamAbbr": "PIT",
     "position": "RB",
     "number": 30,
-    "ovr": 83,
+    "ovr": 84,
     "spd": 90,
-    "awr": 87,
+    "awr": 89,
     "str": 75
   },
   {
@@ -1534,9 +1534,9 @@
     "teamAbbr": "CLE",
     "position": "WR",
     "number": 3,
-    "ovr": 81,
+    "ovr": 80,
     "spd": 91,
-    "awr": 76,
+    "awr": 73,
     "str": 64
   },
   {
@@ -1702,7 +1702,7 @@
     "teamAbbr": "IND",
     "position": "WR",
     "number": 2,
-    "ovr": 80,
+    "ovr": 81,
     "spd": 90,
     "awr": 82,
     "str": 51
@@ -1716,7 +1716,7 @@
     "teamAbbr": "GB",
     "position": "RB",
     "number": 8,
-    "ovr": 90,
+    "ovr": 89,
     "spd": 90,
     "awr": 88,
     "str": 83
@@ -1744,9 +1744,9 @@
     "teamAbbr": "LAC",
     "position": "QB",
     "number": 10,
-    "ovr": 88,
+    "ovr": 85,
     "spd": 89,
-    "awr": 89,
+    "awr": 79,
     "str": 71
   },
   {
@@ -1862,20 +1862,6 @@
     "str": 75
   },
   {
-    "id": "nfl:3045523",
-    "name": "Kendrick Bourne",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "WR",
-    "number": 17,
-    "ovr": 77,
-    "spd": 87,
-    "awr": 84,
-    "str": 65
-  },
-  {
     "id": "nfl:4567048",
     "name": "Kenneth Walker III",
     "conference": "AFC",
@@ -1940,9 +1926,9 @@
     "teamAbbr": "LV",
     "position": "QB",
     "number": 8,
-    "ovr": 74,
+    "ovr": 76,
     "spd": 69,
-    "awr": 76,
+    "awr": 80,
     "str": 52
   },
   {
@@ -2010,9 +1996,9 @@
     "teamAbbr": "LAC",
     "position": "WR",
     "number": 15,
-    "ovr": 83,
+    "ovr": 84,
     "spd": 92,
-    "awr": 85,
+    "awr": 86,
     "str": 57
   },
   {
@@ -2056,6 +2042,20 @@
     "spd": 84,
     "awr": 78,
     "str": 60
+  },
+  {
+    "id": "nfl:2991662",
+    "name": "Mack Hollins",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "WR",
+    "number": 13,
+    "ovr": 77,
+    "spd": 90,
+    "awr": 85,
+    "str": 73
   },
   {
     "id": "nfl:4240603",
@@ -2164,9 +2164,9 @@
     "teamAbbr": "GB",
     "position": "WR",
     "number": 0,
-    "ovr": 78,
+    "ovr": 79,
     "spd": 95,
-    "awr": 75,
+    "awr": 77,
     "str": 61
   },
   {
@@ -2182,6 +2182,20 @@
     "spd": 77,
     "awr": 99,
     "str": 66
+  },
+  {
+    "id": "nfl:4360423",
+    "name": "Michael Penix Jr.",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "QB",
+    "number": 9,
+    "ovr": 73,
+    "spd": 84,
+    "awr": 72,
+    "str": 57
   },
   {
     "id": "nfl:4035687",
@@ -2222,7 +2236,7 @@
     "number": 5,
     "ovr": 90,
     "spd": 89,
-    "awr": 93,
+    "awr": 92,
     "str": 78
   },
   {
@@ -2234,7 +2248,7 @@
     "teamAbbr": "CIN",
     "position": "TE",
     "number": 88,
-    "ovr": 78,
+    "ovr": 79,
     "spd": 84,
     "awr": 74,
     "str": 76
@@ -2264,7 +2278,7 @@
     "number": 12,
     "ovr": 90,
     "spd": 93,
-    "awr": 92,
+    "awr": 93,
     "str": 67
   },
   {
@@ -2292,7 +2306,7 @@
     "number": 8,
     "ovr": 81,
     "spd": 90,
-    "awr": 75,
+    "awr": 80,
     "str": 78
   },
   {
@@ -2738,8 +2752,8 @@
     "teamAbbr": "KC",
     "position": "TE",
     "number": 87,
-    "ovr": 92,
-    "spd": 84,
+    "ovr": 93,
+    "spd": 85,
     "awr": 99,
     "str": 81
   },
@@ -2780,7 +2794,7 @@
     "teamAbbr": "JAX",
     "position": "QB",
     "number": 16,
-    "ovr": 85,
+    "ovr": 86,
     "spd": 89,
     "awr": 86,
     "str": 69
@@ -2808,24 +2822,10 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 11,
-    "ovr": 79,
+    "ovr": 78,
     "spd": 92,
-    "awr": 84,
+    "awr": 79,
     "str": 58
-  },
-  {
-    "id": "nfl:4241479",
-    "name": "Tua Tagovailoa",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "QB",
-    "number": 1,
-    "ovr": 73,
-    "spd": 82,
-    "awr": 69,
-    "str": 61
   },
   {
     "id": "nfl:4572680",
@@ -2892,7 +2892,7 @@
     "teamAbbr": "NO",
     "position": "QB",
     "number": 6,
-    "ovr": 79,
+    "ovr": 80,
     "spd": 87,
     "awr": 75,
     "str": 56
@@ -2934,9 +2934,9 @@
     "teamAbbr": "TEN",
     "position": "WR",
     "number": 4,
-    "ovr": 84,
+    "ovr": 83,
     "spd": 91,
-    "awr": 86,
+    "awr": 81,
     "str": 61
   },
   {

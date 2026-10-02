@@ -2021,6 +2021,16 @@
     "number": 12
   },
   {
+    "id": "nfl:4259619",
+    "name": "Blake Grupe",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "PK",
+    "number": 39
+  },
+  {
     "id": "nfl:3116135",
     "name": "Blake Hance",
     "conference": "NFC",
@@ -2249,6 +2259,16 @@
     "teamAbbr": "CIN",
     "position": "CB",
     "number": 21
+  },
+  {
+    "id": "nfl:16731",
+    "name": "Brandin Cooks",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 84
   },
   {
     "id": "nfl:4567979",
@@ -3530,6 +3550,16 @@
     "teamAbbr": "NO",
     "position": "DE",
     "number": 96
+  },
+  {
+    "id": "nfl:4569428",
+    "name": "Carl Jones",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "LB",
+    "number": 48
   },
   {
     "id": "nfl:4248425",
@@ -11034,16 +11064,6 @@
     "number": 34
   },
   {
-    "id": "nfl:4569680",
-    "name": "Jamon Johnson",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "LB",
-    "number": 47
-  },
-  {
     "id": "nfl:4372463",
     "name": "Jamree Kromah",
     "conference": "NFC",
@@ -12266,12 +12286,12 @@
   {
     "id": "nfl:4426506",
     "name": "Joey Porter Jr.",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
     "position": "CB",
-    "number": 24
+    "number": 25
   },
   {
     "id": "nfl:3124084",
@@ -12702,6 +12722,16 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 52
+  },
+  {
+    "id": "nfl:4429411",
+    "name": "Jordan Clark",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "CB",
+    "number": 33
   },
   {
     "id": "nfl:4381558",
@@ -13232,6 +13262,16 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 10
+  },
+  {
+    "id": "nfl:2979632",
+    "name": "Josh Tupou",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "DT",
+    "number": 94
   },
   {
     "id": "nfl:4046528",
@@ -14755,16 +14795,6 @@
     "number": 50
   },
   {
-    "id": "nfl:3047876",
-    "name": "KhaDarel Hodge",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 86
-  },
-  {
     "id": "nfl:4039029",
     "name": "Khalid Kareem",
     "conference": "NFC",
@@ -16025,6 +16055,16 @@
     "number": 1
   },
   {
+    "id": "nfl:4428125",
+    "name": "Maema Njongmeta",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "LB",
+    "number": 45
+  },
+  {
     "id": "nfl:4429036",
     "name": "Major Burns",
     "conference": "AFC",
@@ -16233,6 +16273,16 @@
     "teamAbbr": "NYG",
     "position": "WR",
     "number": 1
+  },
+  {
+    "id": "nfl:3115928",
+    "name": "Malik Turner",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 81
   },
   {
     "id": "nfl:4569603",
@@ -16737,10 +16787,10 @@
   {
     "id": "nfl:3055886",
     "name": "Matt Pryor",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
     "position": "OT",
     "number": 76
   },
@@ -21105,6 +21155,16 @@
     "number": 87
   },
   {
+    "id": "nfl:4361651",
+    "name": "Tanner Ingle",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "S",
+    "number": 34
+  },
+  {
     "id": "nfl:4917427",
     "name": "Tanner Koziol",
     "conference": "AFC",
@@ -22977,12 +23037,13 @@
   {
     "id": "nfl:4426689",
     "name": "Ulysses Bentley IV",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
     "position": "RB",
-    "number": 37
+    "number": 37,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4565200",
