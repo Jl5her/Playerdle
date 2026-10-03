@@ -517,6 +517,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:42394",
+    "name": "Andrew Vaughn",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "1B",
+    "number": 28,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5236382",
     "name": "Andrew Walters",
     "conference": "AL",
@@ -8379,6 +8390,17 @@
     "teamAbbr": "ATH",
     "position": "2B",
     "number": 17,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:42412",
+    "name": "Michael Toglia",
+    "conference": "AL",
+    "division": "West",
+    "team": "Seattle Mariners",
+    "teamAbbr": "SEA",
+    "position": "1B",
+    "number": 48,
     "league": "AL"
   },
   {
