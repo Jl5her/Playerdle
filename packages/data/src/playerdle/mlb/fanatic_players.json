@@ -450,24 +450,6 @@
     "ops": 0.761
   },
   {
-    "id": "mlb:4872692",
-    "name": "Carson Williams",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "SS",
-    "number": 7,
-    "league": "AL",
-    "gp": 32,
-    "pa": 106,
-    "avg": 0.172,
-    "hr": 5,
-    "rbi": 12,
-    "sb": 2,
-    "ops": 0.573
-  },
-  {
     "id": "mlb:4987382",
     "name": "Ceddanne Rafaela",
     "conference": "AL",
@@ -646,6 +628,24 @@
     "rbi": 15,
     "sb": 1,
     "ops": 0.6
+  },
+  {
+    "id": "mlb:4662616",
+    "name": "Colby Thomas",
+    "conference": "NL",
+    "division": "East",
+    "team": "Philadelphia Phillies",
+    "teamAbbr": "PHI",
+    "position": "RF",
+    "number": 32,
+    "league": "NL",
+    "gp": 49,
+    "pa": 132,
+    "avg": 0.225,
+    "hr": 6,
+    "rbi": 19,
+    "sb": 2,
+    "ops": 0.684
   },
   {
     "id": "mlb:4417606",
@@ -1746,6 +1746,24 @@
     "ops": 0.647
   },
   {
+    "id": "mlb:36409",
+    "name": "Lane Thomas",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "LF",
+    "number": 20,
+    "league": "NL",
+    "gp": 39,
+    "pa": 142,
+    "avg": 0.16,
+    "hr": 4,
+    "rbi": 11,
+    "sb": 4,
+    "ops": 0.518
+  },
+  {
     "id": "mlb:42047",
     "name": "Logan O'Hoppe",
     "conference": "AL",
@@ -2428,24 +2446,6 @@
     "rbi": 76,
     "sb": 31,
     "ops": 0.76
-  },
-  {
-    "id": "mlb:35291",
-    "name": "Rhys Hoskins",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "1B",
-    "number": 8,
-    "league": "AL",
-    "gp": 90,
-    "pa": 328,
-    "avg": 0.237,
-    "hr": 12,
-    "rbi": 43,
-    "sb": 2,
-    "ops": 0.748
   },
   {
     "id": "mlb:42826",
