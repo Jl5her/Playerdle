@@ -1510,16 +1510,6 @@
     "number": 51
   },
   {
-    "id": "nhl:5136605",
-    "name": "Charles Alexis Legault",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "D",
-    "number": 62
-  },
-  {
     "id": "nhl:2555315",
     "name": "Charlie Coyle",
     "conference": "East",
@@ -2040,16 +2030,6 @@
     "number": 43
   },
   {
-    "id": "nhl:4378695",
-    "name": "David Gustafsson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "C",
-    "number": 13
-  },
-  {
     "id": "nhl:5080147",
     "name": "David Jiricek",
     "conference": "East",
@@ -2318,6 +2298,16 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 2
+  },
+  {
+    "id": "nhl:4697705",
+    "name": "Dylan Garand",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "G",
+    "number": 33
   },
   {
     "id": "nhl:4874723",
@@ -4060,6 +4050,16 @@
     "number": 9
   },
   {
+    "id": "nhl:5278080",
+    "name": "Josh Samanski",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 81
+  },
+  {
     "id": "nhl:4063504",
     "name": "Joshua Mahura",
     "conference": "West",
@@ -5068,6 +5068,16 @@
     "teamAbbr": "TOR",
     "position": "D",
     "number": 66
+  },
+  {
+    "id": "nhl:4419662",
+    "name": "Matt Murray",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "G",
+    "number": 32
   },
   {
     "id": "nhl:4697820",
@@ -7368,6 +7378,16 @@
     "teamAbbr": "PHI",
     "position": "RW",
     "number": 11
+  },
+  {
+    "id": "nhl:5173614",
+    "name": "Travis Mitchell",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 34
   },
   {
     "id": "nhl:3114757",
