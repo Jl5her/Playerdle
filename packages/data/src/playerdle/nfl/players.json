@@ -517,7 +517,7 @@
     "team": "Los Angeles Rams",
     "teamAbbr": "LAR",
     "position": "WR",
-    "number": 5
+    "number": 11
   },
   {
     "id": "nfl:4242503",
@@ -2268,7 +2268,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 84
+    "number": 18
   },
   {
     "id": "nfl:4567979",
@@ -3922,6 +3922,16 @@
     "number": 22
   },
   {
+    "id": "nfl:4257188",
+    "name": "Charlie Jones",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 89
+  },
+  {
     "id": "nfl:4241263",
     "name": "Charlie Kolar",
     "conference": "AFC",
@@ -5109,7 +5119,7 @@
     "team": "Washington Commanders",
     "teamAbbr": "WSH",
     "position": "RB",
-    "number": 24
+    "number": 32
   },
   {
     "id": "nfl:4428930",
@@ -5722,6 +5732,16 @@
     "number": 11
   },
   {
+    "id": "nfl:16910",
+    "name": "DaQuan Jones",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "DT",
+    "number": 99
+  },
+  {
     "id": "nfl:2983509",
     "name": "Dare Ogunbowale",
     "conference": "AFC",
@@ -5729,8 +5749,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "RB",
-    "number": 32,
-    "numberBackfilled": true
+    "number": 23
   },
   {
     "id": "nfl:4401805",
@@ -9144,6 +9163,16 @@
     "number": 43
   },
   {
+    "id": "nfl:4428396",
+    "name": "Hayden Rucci",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "TE",
+    "number": 40
+  },
+  {
     "id": "nfl:4428993",
     "name": "Haynes King",
     "conference": "NFC",
@@ -12044,6 +12073,16 @@
     "number": 11
   },
   {
+    "id": "nfl:3115914",
+    "name": "Jihad Ward",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "LB",
+    "number": 53
+  },
+  {
     "id": "nfl:4431142",
     "name": "Jimmy Holiday",
     "conference": "AFC",
@@ -13404,6 +13443,16 @@
     "number": 25
   },
   {
+    "id": "nfl:3914151",
+    "name": "Josiah Deguara",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "TE",
+    "number": 45
+  },
+  {
     "id": "nfl:4870998",
     "name": "Josiah Trotter",
     "conference": "NFC",
@@ -13461,7 +13510,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "S",
-    "number": 2
+    "number": 43
   },
   {
     "id": "nfl:4869533",
@@ -14511,7 +14560,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "LB",
-    "number": 59
+    "number": 50
   },
   {
     "id": "nfl:4567048",
@@ -16232,7 +16281,7 @@
     "team": "Miami Dolphins",
     "teamAbbr": "MIA",
     "position": "DE",
-    "number": 90
+    "number": 45
   },
   {
     "id": "nfl:3121415",
@@ -16855,6 +16904,16 @@
     "number": 88
   },
   {
+    "id": "nfl:3961466",
+    "name": "Matthew Judon",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "DE",
+    "number": 36
+  },
+  {
     "id": "nfl:12483",
     "name": "Matthew Stafford",
     "conference": "NFC",
@@ -16972,7 +17031,7 @@
     "team": "Buffalo Bills",
     "teamAbbr": "BUF",
     "position": "CB",
-    "number": 31
+    "number": 1
   },
   {
     "id": "nfl:3916655",
@@ -17545,6 +17604,16 @@
     "number": 54
   },
   {
+    "id": "nfl:4690070",
+    "name": "Mitchell Tinsley",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cincinnati Bengals",
+    "teamAbbr": "CIN",
+    "position": "WR",
+    "number": 82
+  },
+  {
     "id": "nfl:3039707",
     "name": "Mitchell Trubisky",
     "conference": "AFC",
@@ -17793,6 +17862,16 @@
     "teamAbbr": "NE",
     "position": "LB",
     "number": 48
+  },
+  {
+    "id": "nfl:4046716",
+    "name": "Naquan Jones",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "DT",
+    "number": 50
   },
   {
     "id": "nfl:4383440",
@@ -18083,6 +18162,16 @@
     "teamAbbr": "SF",
     "position": "LB",
     "number": 45
+  },
+  {
+    "id": "nfl:4036169",
+    "name": "Nick McCloud",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "CB",
+    "number": 26
   },
   {
     "id": "nfl:3915184",
@@ -20892,7 +20981,7 @@
     "team": "New York Jets",
     "teamAbbr": "NYJ",
     "position": "WR",
-    "number": 15
+    "number": 87
   },
   {
     "id": "nfl:4259553",
@@ -22145,6 +22234,16 @@
     "number": 52
   },
   {
+    "id": "nfl:4040966",
+    "name": "Trevon Diggs",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
+    "position": "CB",
+    "number": 16
+  },
+  {
     "id": "nfl:4685350",
     "name": "Trevor Etienne",
     "conference": "NFC",
@@ -22732,7 +22831,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "RB",
-    "number": 25
+    "number": 32
   },
   {
     "id": "nfl:4609048",
@@ -23744,6 +23843,16 @@
     "teamAbbr": "JAX",
     "position": "DE",
     "number": 58
+  },
+  {
+    "id": "nfl:15835",
+    "name": "Zach Ertz",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "TE",
+    "number": 86
   },
   {
     "id": "nfl:4429775",
