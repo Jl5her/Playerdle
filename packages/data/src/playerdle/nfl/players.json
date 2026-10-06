@@ -3122,6 +3122,16 @@
     "number": 8
   },
   {
+    "id": "nfl:4240719",
+    "name": "Cal Adomitis",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "LS",
+    "number": 46
+  },
+  {
     "id": "nfl:11284",
     "name": "Calais Campbell",
     "conference": "AFC",
@@ -3560,16 +3570,6 @@
     "teamAbbr": "BAL",
     "position": "LB",
     "number": 48
-  },
-  {
-    "id": "nfl:4248425",
-    "name": "Carlos Washington Jr.",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "RB",
-    "number": 37
   },
   {
     "id": "nfl:3916923",
@@ -4318,7 +4318,7 @@
     "division": "NFC South",
     "team": "New Orleans Saints",
     "teamAbbr": "NO",
-    "position": "DE",
+    "position": "LB",
     "number": 58
   },
   {
@@ -7152,16 +7152,6 @@
     "number": 92
   },
   {
-    "id": "nfl:4692628",
-    "name": "Doneiko Slaughter",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "CB",
-    "number": 40
-  },
-  {
     "id": "nfl:4683848",
     "name": "Donovan Ezeiruaku",
     "conference": "NFC",
@@ -8839,8 +8829,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "DT",
-    "number": 99,
-    "numberBackfilled": true
+    "number": 95
   },
   {
     "id": "nfl:5209589",
@@ -12023,16 +12012,6 @@
     "number": 94
   },
   {
-    "id": "nfl:4360637",
-    "name": "Jeshaun Jones",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
-    "position": "WR",
-    "number": 82
-  },
-  {
     "id": "nfl:3919512",
     "name": "Jessie Bates III",
     "conference": "NFC",
@@ -13360,7 +13339,7 @@
     "team": "Atlanta Falcons",
     "teamAbbr": "ATL",
     "position": "LB",
-    "number": 42
+    "number": 46
   },
   {
     "id": "nfl:3044720",
