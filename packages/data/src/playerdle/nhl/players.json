@@ -440,16 +440,6 @@
     "number": 85
   },
   {
-    "id": "nhl:4392454",
-    "name": "Alexey Toropchenko",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "RW",
-    "number": 13
-  },
-  {
     "id": "nhl:4697382",
     "name": "Alexis Lafreniere",
     "conference": "East",
@@ -1118,16 +1108,6 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 3
-  },
-  {
-    "id": "nhl:4392769",
-    "name": "Brayden Pachal",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "D",
-    "number": 94
   },
   {
     "id": "nhl:3151187",
@@ -1840,16 +1820,6 @@
     "number": 5
   },
   {
-    "id": "nhl:4697407",
-    "name": "Connor Zary",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "C",
-    "number": 47
-  },
-  {
     "id": "nhl:3939718",
     "name": "Conor Garland",
     "conference": "East",
@@ -2208,6 +2178,16 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:4697791",
+    "name": "Donovan Sebrango",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "D",
+    "number": 6
   },
   {
     "id": "nhl:2562605",
@@ -3650,6 +3630,16 @@
     "number": 73
   },
   {
+    "id": "nhl:5216881",
+    "name": "Jett Luchanko",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "C",
+    "number": 17
+  },
+  {
     "id": "nhl:5080171",
     "name": "Jimmy Snuggerud",
     "conference": "West",
@@ -4178,6 +4168,16 @@
     "teamAbbr": "NSH",
     "position": "G",
     "number": 74
+  },
+  {
+    "id": "nhl:4233611",
+    "name": "Juuso Valimaki",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "D",
+    "number": 8
   },
   {
     "id": "nhl:4352770",
@@ -5140,16 +5140,6 @@
     "number": 51
   },
   {
-    "id": "nhl:4565272",
-    "name": "Matthew Robertson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "D",
-    "number": 29
-  },
-  {
     "id": "nhl:5291933",
     "name": "Matthew Schaefer",
     "conference": "East",
@@ -5808,16 +5798,6 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 10
-  },
-  {
-    "id": "nhl:5188490",
-    "name": "Nikita Grebenkin",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "RW",
-    "number": 17
   },
   {
     "id": "nhl:5361658",
@@ -7448,16 +7428,6 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 46
-  },
-  {
-    "id": "nhl:5149248",
-    "name": "Tristan Bertucci",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "D",
-    "number": 42
   },
   {
     "id": "nhl:3042020",
