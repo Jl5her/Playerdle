@@ -260,16 +260,6 @@
     "number": 0
   },
   {
-    "id": "nba:4432190",
-    "name": "Andre Jackson Jr.",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 44
-  },
-  {
     "id": "nba:5116468",
     "name": "Andrew Holifield",
     "conference": "West",
@@ -718,6 +708,16 @@
     "teamAbbr": "OKC",
     "position": "F",
     "number": 23
+  },
+  {
+    "id": "nba:4065670",
+    "name": "Bruce Brown",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
+    "position": "G",
+    "number": 1
   },
   {
     "id": "nba:5105837",
@@ -2311,6 +2311,16 @@
     "number": 33
   },
   {
+    "id": "nba:4683730",
+    "name": "Jaden Akins",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
+    "position": "G",
+    "number": 14
+  },
+  {
     "id": "nba:4432737",
     "name": "Jaden Bradley",
     "conference": "East",
@@ -2569,6 +2579,16 @@
     "teamAbbr": "IND",
     "position": "F",
     "number": 16
+  },
+  {
+    "id": "nba:4432808",
+    "name": "James Wiseman",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
+    "position": "C",
+    "number": 35
   },
   {
     "id": "nba:4606840",
@@ -5409,6 +5429,16 @@
     "teamAbbr": "DET",
     "position": "F",
     "number": 35
+  },
+  {
+    "id": "nba:4065673",
+    "name": "Tony Bradley",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "New York Knicks",
+    "teamAbbr": "NY",
+    "position": "C",
+    "number": 13
   },
   {
     "id": "nba:4431736",
