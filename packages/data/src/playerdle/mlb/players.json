@@ -4950,17 +4950,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4832114",
-    "name": "Jack Brannigan",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Pittsburgh Pirates",
-    "teamAbbr": "PIT",
-    "position": "SS",
-    "number": 76,
-    "league": "NL"
-  },
-  {
     "id": "mlb:33837",
     "name": "Jack Flaherty",
     "conference": "AL",
@@ -7744,17 +7733,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:4730225",
-    "name": "Mason Miller",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "RP",
-    "number": 22,
-    "league": "NL"
-  },
-  {
     "id": "mlb:4424112",
     "name": "Mason Montgomery",
     "conference": "NL",
@@ -9161,17 +9139,6 @@
     "position": "SP",
     "number": 62,
     "league": "AL"
-  },
-  {
-    "id": "mlb:4722847",
-    "name": "Randy Vasquez",
-    "conference": "NL",
-    "division": "West",
-    "team": "San Diego Padres",
-    "teamAbbr": "SD",
-    "position": "SP",
-    "number": 98,
-    "league": "NL"
   },
   {
     "id": "mlb:39817",
@@ -11297,6 +11264,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:39251",
+    "name": "Walker Buehler",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "SP",
+    "number": 10,
+    "league": "NL"
+  },
+  {
     "id": "mlb:5148963",
     "name": "Walker Jenkins",
     "conference": "AL",
@@ -11306,6 +11284,17 @@
     "position": "CF",
     "number": 11,
     "league": "AL"
+  },
+  {
+    "id": "mlb:36036",
+    "name": "Wandy Peralta",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "RP",
+    "number": 58,
+    "league": "NL"
   },
   {
     "id": "mlb:38682",
