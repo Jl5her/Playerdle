@@ -2180,16 +2180,6 @@
     "number": 17
   },
   {
-    "id": "nhl:4697791",
-    "name": "Donovan Sebrango",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 6
-  },
-  {
     "id": "nhl:2562605",
     "name": "Dougie Hamilton",
     "conference": "East",
@@ -3450,16 +3440,6 @@
     "number": 4
   },
   {
-    "id": "nhl:3900154",
-    "name": "Jansen Harkins",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "C",
-    "number": 10
-  },
-  {
     "id": "nhl:3114777",
     "name": "Jared McCann",
     "conference": "West",
@@ -3828,6 +3808,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 25
+  },
+  {
+    "id": "nhl:3115546",
+    "name": "Jonas Johansson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "G",
+    "number": 31
   },
   {
     "id": "nhl:4425678",
@@ -7018,6 +7008,16 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 27
+  },
+  {
+    "id": "nhl:4196931",
+    "name": "Sheldon Dries",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "C",
+    "number": 15
   },
   {
     "id": "nhl:3114",
