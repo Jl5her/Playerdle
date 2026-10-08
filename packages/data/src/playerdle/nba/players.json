@@ -2931,16 +2931,6 @@
     "number": 21
   },
   {
-    "id": "nba:4432588",
-    "name": "John Butler Jr.",
-    "conference": "East",
-    "division": "Central",
-    "team": "Milwaukee Bucks",
-    "teamAbbr": "MIL",
-    "position": "F",
-    "number": 27
-  },
-  {
     "id": "nba:3908845",
     "name": "John Collins",
     "conference": "East",
@@ -3053,12 +3043,13 @@
   {
     "id": "nba:4683750",
     "name": "Jordan Hawkins",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
     "position": "G",
-    "number": 19
+    "number": 19,
+    "numberBackfilled": true
   },
   {
     "id": "nba:3134916",
