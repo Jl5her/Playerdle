@@ -240,16 +240,6 @@
     "number": 16
   },
   {
-    "id": "nhl:5188356",
-    "name": "Alex Bump",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "LW",
-    "number": 20
-  },
-  {
     "id": "nhl:4063433",
     "name": "Alex DeBrincat",
     "conference": "East",
@@ -788,6 +778,16 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 44
+  },
+  {
+    "id": "nhl:5188613",
+    "name": "Aydar Suniev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 61
   },
   {
     "id": "nhl:3069411",
@@ -2180,6 +2180,16 @@
     "number": 17
   },
   {
+    "id": "nhl:3942809",
+    "name": "Dominic Toninato",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "C",
+    "number": 25
+  },
+  {
     "id": "nhl:2562605",
     "name": "Dougie Hamilton",
     "conference": "East",
@@ -2642,12 +2652,13 @@
   {
     "id": "nhl:4588331",
     "name": "Filip Hallander",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
     "position": "C",
-    "number": 11
+    "number": 11,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:4063607",
@@ -3470,6 +3481,16 @@
     "number": 49
   },
   {
+    "id": "nhl:3042062",
+    "name": "Jason Dickinson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "C",
+    "number": 16
+  },
+  {
     "id": "nhl:4233875",
     "name": "Jason Robertson",
     "conference": "West",
@@ -3858,6 +3879,16 @@
     "teamAbbr": "BOS",
     "position": "D",
     "number": 45
+  },
+  {
+    "id": "nhl:5188608",
+    "name": "Jonathan Castagna",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 38
   },
   {
     "id": "nhl:2562606",
@@ -6436,7 +6467,7 @@
     "division": "Central Division",
     "team": "Chicago Blackhawks",
     "teamAbbr": "CHI",
-    "position": "D",
+    "position": "RW",
     "number": 80
   },
   {
@@ -7082,12 +7113,13 @@
   {
     "id": "nhl:4393406",
     "name": "Spencer Stastney",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Edmonton Oilers",
-    "teamAbbr": "EDM",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
     "position": "D",
-    "number": 24
+    "number": 24,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:2562623",
@@ -7287,7 +7319,7 @@
     "team": "Washington Capitals",
     "teamAbbr": "WSH",
     "position": "D",
-    "number": 37
+    "number": 27
   },
   {
     "id": "nhl:5149180",
@@ -7528,6 +7560,16 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 57
+  },
+  {
+    "id": "nhl:5526",
+    "name": "Tyler Pitlick",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 19
   },
   {
     "id": "nhl:5430",
@@ -7798,6 +7840,26 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 16
+  },
+  {
+    "id": "nhl:5346852",
+    "name": "Vitali Pinchuk",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
+    "position": "C",
+    "number": 51
+  },
+  {
+    "id": "nhl:5361696",
+    "name": "Vladimir Dravecky",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 71
   },
   {
     "id": "nhl:3942292",
