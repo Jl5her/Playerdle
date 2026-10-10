@@ -1380,16 +1380,6 @@
     "number": 4
   },
   {
-    "id": "nhl:5291949",
-    "name": "Carter Bear",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "LW",
-    "number": 41
-  },
-  {
     "id": "nhl:4064582",
     "name": "Carter Hart",
     "conference": "West",
@@ -2148,16 +2138,6 @@
     "teamAbbr": "SJ",
     "position": "D",
     "number": 9
-  },
-  {
-    "id": "nhl:4997033",
-    "name": "Dominic James",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "C",
-    "number": 17
   },
   {
     "id": "nhl:3942809",
@@ -2941,16 +2921,6 @@
     "number": 62
   },
   {
-    "id": "nhl:4697784",
-    "name": "Ilya Solovyov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "D",
-    "number": 7
-  },
-  {
     "id": "nhl:3151981",
     "name": "Ilya Sorokin",
     "conference": "East",
@@ -3449,6 +3419,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 46
+  },
+  {
+    "id": "nhl:5104200",
+    "name": "Jared Wright",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "RW",
+    "number": 53
   },
   {
     "id": "nhl:5188348",
@@ -7520,16 +7500,6 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 57
-  },
-  {
-    "id": "nhl:5526",
-    "name": "Tyler Pitlick",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 19
   },
   {
     "id": "nhl:5430",
