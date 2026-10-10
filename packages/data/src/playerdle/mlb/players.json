@@ -3036,6 +3036,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:40903",
+    "name": "Danny Young",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RP",
+    "number": 63,
+    "league": "NL"
+  },
+  {
     "id": "mlb:34895",
     "name": "Dansby Swanson",
     "conference": "NL",
@@ -7884,17 +7895,6 @@
     "teamAbbr": "PIT",
     "position": "RP",
     "number": 18,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:40466",
-    "name": "Luke Williams",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "SS",
-    "number": 37,
     "league": "NL"
   },
   {
