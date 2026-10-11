@@ -40,11 +40,31 @@ interface FanaticFlexPlayer extends NflPlayer {
 }
 
 const FLEX_POSITIONS: FlexPosition[] = ["RB", "WR", "TE"]
+// Full-season games-played floor. Early in a season nobody has 6 games yet,
+// so the effective floor scales down with the most games anyone has played.
 const MIN_GAMES_PLAYED = 6
+const MIN_GAMES_PLAYED_RATIO = 0.6
 const MIN_CURATED_ANSWER_POOL_SIZE = 140
 
 const TEAM_ABBR_MAP: Record<string, string> = {
   JAC: "JAX",
+}
+
+// NFL seasons are named by the year they kick off (September). Before
+// September we're in the offseason, so the most recent season is last year's.
+function parseSeasonArg(): number {
+  const seasonArg = process.argv.find(arg => arg.startsWith("--season="))
+  if (seasonArg) {
+    const value = Number(seasonArg.split("=")[1])
+    if (!Number.isFinite(value)) {
+      throw new Error("Invalid --season value. Example: --season=2026")
+    }
+    return value
+  }
+
+  const now = new Date()
+  const year = now.getFullYear()
+  return now.getMonth() >= 8 ? year : year - 1
 }
 
 const NICKNAME_MAP: Record<string, string> = {
@@ -156,8 +176,11 @@ function resolveRow(
   }
 }
 
-async function fetchPositionRows(position: FlexPosition): Promise<FantasyProsFlexRow[]> {
-  const url = `https://www.fantasypros.com/nfl/stats/${position.toLowerCase()}.php?scoring=HALF`
+async function fetchPositionRows(
+  position: FlexPosition,
+  season: number,
+): Promise<FantasyProsFlexRow[]> {
+  const url = `https://www.fantasypros.com/nfl/stats/${position.toLowerCase()}.php?scoring=HALF&year=${season}&range=full`
   const response = await fetch(url, {
     headers: { "User-Agent": "Mozilla/5.0" },
     signal: AbortSignal.timeout(20_000),
@@ -237,6 +260,13 @@ function buildFanaticFlexPlayers(
   const eligiblePlayers = nflPlayers.filter(player =>
     FLEX_POSITIONS.includes(player.position as FlexPosition),
   )
+  const maxGamesPlayed = Math.max(0, ...fantasyRows.map(row => row.gamesPlayed))
+  const minGamesPlayed = Math.max(
+    1,
+    Math.min(MIN_GAMES_PLAYED, Math.ceil(maxGamesPlayed * MIN_GAMES_PLAYED_RATIO)),
+  )
+  console.log(`Minimum games played: ${minGamesPlayed}`)
+
   const byName = new Map<string, FantasyProsFlexRow[]>()
   for (const row of fantasyRows) {
     const normalized = normalizeName(row.playerName)
@@ -261,7 +291,7 @@ function buildFanaticFlexPlayers(
     const posMatch = candidates.find(candidate => candidate.position === player.position)
     const selected = teamMatch ?? posMatch ?? candidates[0]
 
-    if (selected.gamesPlayed < MIN_GAMES_PLAYED) continue
+    if (selected.gamesPlayed < minGamesPlayed) continue
 
     fanaticPlayers.push({
       ...player,
@@ -327,8 +357,11 @@ function writeData(players: FanaticFlexPlayer[], answerPoolIds: string[]) {
 }
 
 async function main() {
+  const season = parseSeasonArg()
+
   console.log("NFL Flex Fanatic Scraper (Half-PPR)")
   console.log("=".repeat(50))
+  console.log(`Season: ${season}`)
 
   const nflPlayers = loadNflPlayers()
   const classicAnswerPoolIds = loadClassicAnswerPoolIds()
@@ -337,7 +370,7 @@ async function main() {
 
   const allRows: FantasyProsFlexRow[] = []
   for (const position of FLEX_POSITIONS) {
-    const rows = await fetchPositionRows(position)
+    const rows = await fetchPositionRows(position, season)
     allRows.push(...rows)
     console.log(`Loaded ${rows.length} ${position} fantasy stat rows`)
     await new Promise(resolveDelay => setTimeout(resolveDelay, 500))
