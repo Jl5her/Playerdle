@@ -3483,12 +3483,13 @@
   {
     "id": "nhl:4565269",
     "name": "Jayden Struble",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
     "position": "D",
-    "number": 47
+    "number": 47,
+    "numberBackfilled": true
   },
   {
     "id": "nhl:2593131",
@@ -4139,6 +4140,16 @@
     "teamAbbr": "NSH",
     "position": "G",
     "number": 74
+  },
+  {
+    "id": "nhl:4867883",
+    "name": "Juuso Parssinen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "C",
+    "number": 71
   },
   {
     "id": "nhl:4233611",
@@ -7350,16 +7361,6 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 10
-  },
-  {
-    "id": "nhl:4587836",
-    "name": "Trent Miner",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
-    "position": "G",
-    "number": 50
   },
   {
     "id": "nhl:5216887",
