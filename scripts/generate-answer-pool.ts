@@ -16,6 +16,15 @@ const fantasyConfig = {
     // "LB": 5,
     // "DB": 10
   },
+  // Only the elite of the previous season are blended in, so established
+  // stars stay in the pool early in a season (or through an injury) without
+  // last year's depth players crowding out this year's breakouts.
+  priorSeasonPositions: {
+    QB: 15,
+    RB: 25,
+    WR: 25,
+    TE: 10,
+  },
 }
 
 interface FantasyPlayer {
@@ -34,6 +43,7 @@ interface NFLPlayer {
 }
 
 const POSITIONS_CONFIG = fantasyConfig.positions
+const PRIOR_SEASON_POSITIONS_CONFIG = fantasyConfig.priorSeasonPositions
 
 // NFL seasons are named by the year they kick off (September). Before
 // September we're in the offseason, so the most recent season is last year's.
@@ -325,10 +335,17 @@ async function main() {
   console.log(`Loaded ${nflPlayers.length} NFL players`)
 
   const allFantasyPlayers: FantasyPlayer[] = []
-  for (const [position, count] of Object.entries(POSITIONS_CONFIG)) {
-    const players = await scrapeFantasyProsRankings(position, count, season)
-    allFantasyPlayers.push(...players)
-    await new Promise(resolveDelay => setTimeout(resolveDelay, 1000))
+  const seasonConfigs = [
+    { season, positions: POSITIONS_CONFIG },
+    { season: season - 1, positions: PRIOR_SEASON_POSITIONS_CONFIG },
+  ]
+  for (const { season: statsSeason, positions } of seasonConfigs) {
+    console.log(`\n${statsSeason} season top performers:`)
+    for (const [position, count] of Object.entries(positions)) {
+      const players = await scrapeFantasyProsRankings(position, count, statsSeason)
+      allFantasyPlayers.push(...players)
+      await new Promise(resolveDelay => setTimeout(resolveDelay, 1000))
+    }
   }
 
   const validatedPlayers = validateAgainstNFLDatabase(allFantasyPlayers, nflPlayers)
