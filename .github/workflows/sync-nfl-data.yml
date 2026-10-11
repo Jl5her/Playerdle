@@ -5,6 +5,15 @@ on:
     - cron: "0 7 * 9-12,1-2 *"
     - cron: "0 7 * 3-8 1"
   workflow_dispatch:
+  # Refresh immediately when an NFL scraper changes instead of waiting for
+  # the next scheduled run.
+  push:
+    branches: [main]
+    paths:
+      - scripts/generate-answer-pool.ts
+      - scripts/scrape-nfl-flex-fanatic.ts
+      - scripts/scrape-nfl-madden-ratings.ts
+      - .github/workflows/sync-nfl-data.yml
 
 permissions:
   contents: write

@@ -16,6 +16,15 @@ const fantasyConfig = {
     // "LB": 5,
     // "DB": 10
   },
+  // Only the elite of the previous season are blended in, so established
+  // stars stay in the pool early in a season (or through an injury) without
+  // last year's depth players crowding out this year's breakouts.
+  priorSeasonPositions: {
+    QB: 15,
+    RB: 25,
+    WR: 25,
+    TE: 10,
+  },
 }
 
 interface FantasyPlayer {
@@ -34,6 +43,24 @@ interface NFLPlayer {
 }
 
 const POSITIONS_CONFIG = fantasyConfig.positions
+const PRIOR_SEASON_POSITIONS_CONFIG = fantasyConfig.priorSeasonPositions
+
+// NFL seasons are named by the year they kick off (September). Before
+// September we're in the offseason, so the most recent season is last year's.
+function parseSeasonArg(): number {
+  const seasonArg = process.argv.find(arg => arg.startsWith("--season="))
+  if (seasonArg) {
+    const value = Number(seasonArg.split("=")[1])
+    if (!Number.isFinite(value)) {
+      throw new Error("Invalid --season value. Example: --season=2026")
+    }
+    return value
+  }
+
+  const now = new Date()
+  const year = now.getFullYear()
+  return now.getMonth() >= 8 ? year : year - 1
+}
 
 const FANTASYPROS_POSITIONS: Record<string, string> = {
   QB: "qb",
@@ -108,11 +135,15 @@ function teamsAreCompatible(nflTeamAbbr: string, fantasyTeamAbbr: string | null)
   return normalizeTeamAbbr(nflTeamAbbr) === fantasyTeam
 }
 
-async function scrapeFantasyProsRankings(position: string, topN: number): Promise<FantasyPlayer[]> {
+async function scrapeFantasyProsRankings(
+  position: string,
+  topN: number,
+  season: number,
+): Promise<FantasyPlayer[]> {
   const fpPosition = FANTASYPROS_POSITIONS[position]
   if (!fpPosition) return []
 
-  const url = `https://www.fantasypros.com/nfl/stats/${fpPosition}.php`
+  const url = `https://www.fantasypros.com/nfl/stats/${fpPosition}.php?year=${season}&range=full`
   console.log(`Scraping ${position} stats from ${url}...`)
 
   try {
@@ -294,17 +325,27 @@ async function main() {
     "answer_pool.json",
   )
 
+  const season = parseSeasonArg()
+
   console.log("NFL Answer Pool Generator")
   console.log("=".repeat(50))
+  console.log(`Season: ${season}`)
 
   const nflPlayers = loadNFLPlayers()
   console.log(`Loaded ${nflPlayers.length} NFL players`)
 
   const allFantasyPlayers: FantasyPlayer[] = []
-  for (const [position, count] of Object.entries(POSITIONS_CONFIG)) {
-    const players = await scrapeFantasyProsRankings(position, count)
-    allFantasyPlayers.push(...players)
-    await new Promise(resolveDelay => setTimeout(resolveDelay, 1000))
+  const seasonConfigs = [
+    { season, positions: POSITIONS_CONFIG },
+    { season: season - 1, positions: PRIOR_SEASON_POSITIONS_CONFIG },
+  ]
+  for (const { season: statsSeason, positions } of seasonConfigs) {
+    console.log(`\n${statsSeason} season top performers:`)
+    for (const [position, count] of Object.entries(positions)) {
+      const players = await scrapeFantasyProsRankings(position, count, statsSeason)
+      allFantasyPlayers.push(...players)
+      await new Promise(resolveDelay => setTimeout(resolveDelay, 1000))
+    }
   }
 
   const validatedPlayers = validateAgainstNFLDatabase(allFantasyPlayers, nflPlayers)
