@@ -1595,6 +1595,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5130133",
+    "name": "Brody Hopkins",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 88,
+    "league": "AL"
+  },
+  {
     "id": "mlb:4629081",
     "name": "Brooks Lee",
     "conference": "AL",
@@ -3014,17 +3025,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:42001",
-    "name": "Daniel Schneemann",
-    "conference": "AL",
-    "division": "Central",
-    "team": "Cleveland Guardians",
-    "teamAbbr": "CLE",
-    "position": "CF",
-    "number": 10,
-    "league": "AL"
-  },
-  {
     "id": "mlb:35004",
     "name": "Danny Jansen",
     "conference": "AL",
@@ -4257,17 +4257,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:36429",
-    "name": "Garrett Cleavinger",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RP",
-    "number": 60,
-    "league": "AL"
-  },
-  {
     "id": "mlb:4297835",
     "name": "Garrett Crochet",
     "conference": "AL",
@@ -4980,17 +4969,6 @@
     "teamAbbr": "SD",
     "position": "RP",
     "number": 63,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5134614",
-    "name": "Hyeseong Kim",
-    "conference": "NL",
-    "division": "West",
-    "team": "Los Angeles Dodgers",
-    "teamAbbr": "LAD",
-    "position": "SS",
-    "number": 6,
     "league": "NL"
   },
   {
@@ -6950,6 +6928,17 @@
     "position": "SP",
     "number": 35,
     "league": "AL"
+  },
+  {
+    "id": "mlb:4417203",
+    "name": "Justin Wrobleski",
+    "conference": "NL",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
+    "position": "SP",
+    "number": 70,
+    "league": "NL"
   },
   {
     "id": "mlb:5198748",
@@ -10547,6 +10536,17 @@
     "position": "SP",
     "number": 18,
     "league": "NL"
+  },
+  {
+    "id": "mlb:41462",
+    "name": "Slade Cecconi",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "SP",
+    "number": 44,
+    "league": "AL"
   },
   {
     "id": "mlb:32082",
