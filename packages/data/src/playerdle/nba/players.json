@@ -210,6 +210,16 @@
     "number": 22
   },
   {
+    "id": "nba:4592216",
+    "name": "Alondes Williams",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Washington Wizards",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nba:4871144",
     "name": "Alperen Sengun",
     "conference": "West",
@@ -800,16 +810,6 @@
     "number": 2
   },
   {
-    "id": "nba:4433623",
-    "name": "Caleb Houstan",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
-    "position": "F",
-    "number": 33
-  },
-  {
     "id": "nba:4433144",
     "name": "Caleb Love",
     "conference": "East",
@@ -1068,16 +1068,6 @@
     "teamAbbr": "OKC",
     "position": "C",
     "number": 33
-  },
-  {
-    "id": "nba:4590360",
-    "name": "Chucky Hepburn",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 24
   },
   {
     "id": "nba:4702602",
@@ -1397,7 +1387,7 @@
     "team": "Miami Heat",
     "teamAbbr": "MIA",
     "position": "G",
-    "number": 45
+    "number": 2
   },
   {
     "id": "nba:4432194",
@@ -2168,6 +2158,16 @@
     "teamAbbr": "DET",
     "position": "C",
     "number": 13
+  },
+  {
+    "id": "nba:4712845",
+    "name": "Isaac McKneely",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "G",
+    "number": 15
   },
   {
     "id": "nba:4432822",
@@ -3920,16 +3920,6 @@
     "number": 18
   },
   {
-    "id": "nba:4277890",
-    "name": "Lonnie Walker IV",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Denver Nuggets",
-    "teamAbbr": "DEN",
-    "position": "G",
-    "number": 4
-  },
-  {
     "id": "nba:4397020",
     "name": "Luguentz Dort",
     "conference": "East",
@@ -4290,6 +4280,16 @@
     "number": 51
   },
   {
+    "id": "nba:5106293",
+    "name": "Mohamed Wague",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "F",
+    "number": 17
+  },
+  {
     "id": "nba:4873153",
     "name": "Morez Johnson Jr.",
     "conference": "West",
@@ -4568,6 +4568,16 @@
     "teamAbbr": "BKN",
     "position": "G",
     "number": 10
+  },
+  {
+    "id": "nba:4702134",
+    "name": "Norchad Omier",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 23
   },
   {
     "id": "nba:2595516",
@@ -4958,6 +4968,16 @@
     "teamAbbr": "SA",
     "position": "G",
     "number": 14
+  },
+  {
+    "id": "nba:4685802",
+    "name": "Robert McCray V",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
+    "position": "G",
+    "number": 16
   },
   {
     "id": "nba:4066211",
@@ -5400,6 +5420,16 @@
     "number": 12
   },
   {
+    "id": "nba:4278395",
+    "name": "Taylor Funk",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "F",
+    "number": 33
+  },
+  {
     "id": "nba:4684806",
     "name": "Taylor Hendricks",
     "conference": "West",
@@ -5418,6 +5448,16 @@
     "teamAbbr": "BKN",
     "position": "G",
     "number": 14
+  },
+  {
+    "id": "nba:4395997",
+    "name": "Terrell Brown Jr.",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Utah Jazz",
+    "teamAbbr": "UTAH",
+    "position": "G",
+    "number": 16
   },
   {
     "id": "nba:4432847",
