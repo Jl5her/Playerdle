@@ -840,16 +840,6 @@
     "number": 8
   },
   {
-    "id": "nhl:5173107",
-    "name": "Ben Hemmerling",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "RW",
-    "number": 63
-  },
-  {
     "id": "nhl:5291947",
     "name": "Ben Kindel",
     "conference": "East",
@@ -1360,16 +1350,6 @@
     "number": 34
   },
   {
-    "id": "nhl:4271565",
-    "name": "Carl Grundstrom",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "RW",
-    "number": 91
-  },
-  {
     "id": "nhl:3042198",
     "name": "Carson Soucy",
     "conference": "East",
@@ -1658,6 +1638,16 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 15
+  },
+  {
+    "id": "nhl:5216923",
+    "name": "Colin Ralph",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 51
   },
   {
     "id": "nhl:5136607",
@@ -4100,6 +4090,16 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 72
+  },
+  {
+    "id": "nhl:5763",
+    "name": "Justin Holl",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -7091,6 +7091,16 @@
     "position": "D",
     "number": 24,
     "numberBackfilled": true
+  },
+  {
+    "id": "nhl:2562623",
+    "name": "Stefan Noesen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "RW",
+    "number": 11
   },
   {
     "id": "nhl:5136706",
