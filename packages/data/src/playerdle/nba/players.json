@@ -810,6 +810,16 @@
     "number": 2
   },
   {
+    "id": "nba:4433623",
+    "name": "Caleb Houstan",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "New Orleans Pelicans",
+    "teamAbbr": "NO",
+    "position": "F",
+    "number": 33
+  },
+  {
     "id": "nba:4433144",
     "name": "Caleb Love",
     "conference": "East",
@@ -1118,16 +1128,6 @@
     "teamAbbr": "MIN",
     "position": "F",
     "number": 9
-  },
-  {
-    "id": "nba:4397134",
-    "name": "Cole Swider",
-    "conference": "West",
-    "division": "Pacific",
-    "team": "Los Angeles Lakers",
-    "teamAbbr": "LAL",
-    "position": "F",
-    "number": 41
   },
   {
     "id": "nba:4432976",
@@ -2750,16 +2750,6 @@
     "number": 11
   },
   {
-    "id": "nba:4702528",
-    "name": "Jaxson Robinson",
-    "conference": "East",
-    "division": "Central",
-    "team": "Cleveland Cavaliers",
-    "teamAbbr": "CLE",
-    "position": "F",
-    "number": 2
-  },
-  {
     "id": "nba:4065731",
     "name": "Jay Huff",
     "conference": "East",
@@ -3900,6 +3890,16 @@
     "number": 18
   },
   {
+    "id": "nba:4277890",
+    "name": "Lonnie Walker IV",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Denver Nuggets",
+    "teamAbbr": "DEN",
+    "position": "G",
+    "number": 4
+  },
+  {
     "id": "nba:4397020",
     "name": "Luguentz Dort",
     "conference": "East",
@@ -3998,16 +3998,6 @@
     "teamAbbr": "SAC",
     "position": "G",
     "number": 0
-  },
-  {
-    "id": "nba:4277880",
-    "name": "Malik Williams",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "San Antonio Spurs",
-    "teamAbbr": "SA",
-    "position": "C",
-    "number": 35
   },
   {
     "id": "nba:5105337",
@@ -4920,6 +4910,16 @@
     "number": 9
   },
   {
+    "id": "nba:4433176",
+    "name": "RJ Davis",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "San Antonio Spurs",
+    "teamAbbr": "SA",
+    "position": "G",
+    "number": 14
+  },
+  {
     "id": "nba:4685802",
     "name": "Robert McCray V",
     "conference": "West",
@@ -5310,16 +5310,6 @@
     "number": 99
   },
   {
-    "id": "nba:4703421",
-    "name": "Taelon Peter",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "San Antonio Spurs",
-    "teamAbbr": "SA",
-    "position": "G",
-    "number": 8
-  },
-  {
     "id": "nba:4683933",
     "name": "Tamar Bates",
     "conference": "West",
@@ -5618,16 +5608,6 @@
     "teamAbbr": "UTAH",
     "position": "G",
     "number": 15
-  },
-  {
-    "id": "nba:4395623",
-    "name": "Trey Jemison III",
-    "conference": "East",
-    "division": "Atlantic",
-    "team": "Toronto Raptors",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 50
   },
   {
     "id": "nba:3136196",
@@ -5948,6 +5928,16 @@
     "teamAbbr": "GS",
     "position": "F",
     "number": 1
+  },
+  {
+    "id": "nba:5159895",
+    "name": "Yuki Kawamura",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "LA Clippers",
+    "teamAbbr": "LAC",
+    "position": "G",
+    "number": 17
   },
   {
     "id": "nba:5061589",
