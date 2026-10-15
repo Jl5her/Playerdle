@@ -20,16 +20,6 @@
     "number": 5
   },
   {
-    "id": "nhl:4874912",
-    "name": "Aatu Raty",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
-    "position": "C",
-    "number": 54
-  },
-  {
     "id": "nhl:4894222",
     "name": "Adam Edstrom",
     "conference": "West",
@@ -226,16 +216,6 @@
     "division": "Atlantic Division",
     "team": "Florida Panthers",
     "teamAbbr": "FLA",
-    "position": "C",
-    "number": 16
-  },
-  {
-    "id": "nhl:4270820",
-    "name": "Alex Barre-Boulet",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
     "position": "C",
     "number": 16
   },
@@ -1000,6 +980,16 @@
     "number": 4
   },
   {
+    "id": "nhl:5149213",
+    "name": "Bradly Nadeau",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "LW",
+    "number": 29
+  },
+  {
     "id": "nhl:2976856",
     "name": "Brady Skjei",
     "conference": "West",
@@ -1590,16 +1580,6 @@
     "number": 12
   },
   {
-    "id": "nhl:5216892",
-    "name": "Cole Beaudoin",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "C",
-    "number": 53
-  },
-  {
     "id": "nhl:4565236",
     "name": "Cole Caufield",
     "conference": "East",
@@ -2008,6 +1988,16 @@
     "teamAbbr": "BOS",
     "position": "RW",
     "number": 88
+  },
+  {
+    "id": "nhl:5149157",
+    "name": "David Reinbacher",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 64
   },
   {
     "id": "nhl:5103533",
@@ -2798,6 +2788,16 @@
     "teamAbbr": "PHI",
     "position": "LW",
     "number": 10
+  },
+  {
+    "id": "nhl:5136614",
+    "name": "Gavin Brindley",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "C",
+    "number": 54
   },
   {
     "id": "nhl:5342529",
@@ -4190,6 +4190,16 @@
     "number": 15
   },
   {
+    "id": "nhl:3067879",
+    "name": "Justin Dowling",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "C",
+    "number": 37
+  },
+  {
     "id": "nhl:5746",
     "name": "Justin Faulk",
     "conference": "East",
@@ -4888,16 +4898,6 @@
     "teamAbbr": "SJ",
     "position": "C",
     "number": 71
-  },
-  {
-    "id": "nhl:4565260",
-    "name": "Mads Sogaard",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "G",
-    "number": 30
   },
   {
     "id": "nhl:4697442",
@@ -7948,16 +7948,6 @@
     "teamAbbr": "DET",
     "position": "LW",
     "number": 33
-  },
-  {
-    "id": "nhl:4565241",
-    "name": "Ville Heinola",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "D",
-    "number": 14
   },
   {
     "id": "nhl:3151137",
