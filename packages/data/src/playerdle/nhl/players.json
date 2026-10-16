@@ -1310,16 +1310,6 @@
     "number": 17
   },
   {
-    "id": "nhl:5080203",
-    "name": "Cam Lund",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "C",
-    "number": 46
-  },
-  {
     "id": "nhl:5734",
     "name": "Cam Talbot",
     "conference": "East",
@@ -1358,6 +1348,16 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 34
+  },
+  {
+    "id": "nhl:4874743",
+    "name": "Carson Lambos",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 55
   },
   {
     "id": "nhl:3042198",
@@ -2620,6 +2620,16 @@
     "number": 9
   },
   {
+    "id": "nhl:5149249",
+    "name": "Felix Unger Sorum",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "RW",
+    "number": 36
+  },
+  {
     "id": "nhl:4233643",
     "name": "Filip Chytil",
     "conference": "West",
@@ -2898,16 +2908,6 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 22
-  },
-  {
-    "id": "nhl:5188469",
-    "name": "Hoyt Stanley",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "D",
-    "number": 73
   },
   {
     "id": "nhl:4991",
@@ -4040,16 +4040,6 @@
     "number": 11
   },
   {
-    "id": "nhl:5102979",
-    "name": "Jorian Donovan",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "C",
-    "number": 56
-  },
-  {
     "id": "nhl:4271575",
     "name": "Joseph Woll",
     "conference": "East",
@@ -4228,16 +4218,6 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 49
-  },
-  {
-    "id": "nhl:3149659",
-    "name": "Justin Kirkland",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 28
   },
   {
     "id": "nhl:4697783",
@@ -5198,16 +5178,6 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 26
-  },
-  {
-    "id": "nhl:4419662",
-    "name": "Matt Murray",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Nashville Predators",
-    "teamAbbr": "NSH",
-    "position": "G",
-    "number": 32
   },
   {
     "id": "nhl:4697820",
@@ -7948,6 +7918,16 @@
     "teamAbbr": "DET",
     "position": "LW",
     "number": 33
+  },
+  {
+    "id": "nhl:4565241",
+    "name": "Ville Heinola",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "D",
+    "number": 14
   },
   {
     "id": "nhl:3151137",
