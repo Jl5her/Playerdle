@@ -1507,6 +1507,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:4997597",
+    "name": "Brett Wisely",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "2B",
+    "number": 0,
+    "league": "NL"
+  },
+  {
     "id": "mlb:41378",
     "name": "Brewer Hicklen",
     "conference": "NL",
@@ -3067,17 +3078,6 @@
     "position": "SS",
     "number": 2,
     "league": "AL"
-  },
-  {
-    "id": "mlb:42753",
-    "name": "DaShawn Keirsey Jr.",
-    "conference": "NL",
-    "division": "East",
-    "team": "Atlanta Braves",
-    "teamAbbr": "ATL",
-    "position": "CF",
-    "number": 49,
-    "league": "NL"
   },
   {
     "id": "mlb:40963",
@@ -7192,6 +7192,17 @@
     "position": "RP",
     "number": 57,
     "league": "AL"
+  },
+  {
+    "id": "mlb:5264737",
+    "name": "Kohl Drake",
+    "conference": "NL",
+    "division": "West",
+    "team": "Arizona Diamondbacks",
+    "teamAbbr": "ARI",
+    "position": "SP",
+    "number": 58,
+    "league": "NL"
   },
   {
     "id": "mlb:5218285",
