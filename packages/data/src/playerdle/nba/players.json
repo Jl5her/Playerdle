@@ -280,16 +280,6 @@
     "number": 44
   },
   {
-    "id": "nba:5116468",
-    "name": "Andrew Holifield",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "F",
-    "number": 17
-  },
-  {
     "id": "nba:4395712",
     "name": "Andrew Nembhard",
     "conference": "East",
@@ -358,16 +348,6 @@
     "teamAbbr": "WSH",
     "position": "F",
     "number": 16
-  },
-  {
-    "id": "nba:4897155",
-    "name": "Anthony Pritchard",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "G",
-    "number": 5
   },
   {
     "id": "nba:4592686",
@@ -808,16 +788,6 @@
     "teamAbbr": "DET",
     "position": "G",
     "number": 2
-  },
-  {
-    "id": "nba:4433623",
-    "name": "Caleb Houstan",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
-    "position": "F",
-    "number": 33
   },
   {
     "id": "nba:4433144",
@@ -2160,6 +2130,16 @@
     "number": 13
   },
   {
+    "id": "nba:4712845",
+    "name": "Isaac McKneely",
+    "conference": "East",
+    "division": "Southeast",
+    "team": "Atlanta Hawks",
+    "teamAbbr": "ATL",
+    "position": "G",
+    "number": 15
+  },
+  {
     "id": "nba:4432822",
     "name": "Isaac Okoro",
     "conference": "East",
@@ -2860,16 +2840,6 @@
     "number": 0
   },
   {
-    "id": "nba:4576085",
-    "name": "JD Davison",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Orlando Magic",
-    "teamAbbr": "ORL",
-    "position": "G",
-    "number": 20
-  },
-  {
     "id": "nba:2991070",
     "name": "Jerami Grant",
     "conference": "West",
@@ -3520,16 +3490,6 @@
     "number": 27
   },
   {
-    "id": "nba:4278075",
-    "name": "Kevin Knox II",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Orlando Magic",
-    "teamAbbr": "ORL",
-    "position": "F",
-    "number": 24
-  },
-  {
     "id": "nba:4411057",
     "name": "Kevin McCullar Jr.",
     "conference": "East",
@@ -3970,16 +3930,6 @@
     "number": 18
   },
   {
-    "id": "nba:4565201",
-    "name": "Malaki Branham",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Orlando Magic",
-    "teamAbbr": "ORL",
-    "position": "F",
-    "number": 12
-  },
-  {
     "id": "nba:4897449",
     "name": "Malevy Leons",
     "conference": "West",
@@ -4008,6 +3958,16 @@
     "teamAbbr": "SAC",
     "position": "G",
     "number": 0
+  },
+  {
+    "id": "nba:4277880",
+    "name": "Malik Williams",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "San Antonio Spurs",
+    "teamAbbr": "SA",
+    "position": "C",
+    "number": 35
   },
   {
     "id": "nba:5105337",
@@ -4198,6 +4158,16 @@
     "teamAbbr": "PHX",
     "position": "F",
     "number": 22
+  },
+  {
+    "id": "nba:4696317",
+    "name": "Miles Kelly",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Golden State Warriors",
+    "teamAbbr": "GS",
+    "position": "G",
+    "number": 26
   },
   {
     "id": "nba:4431823",
@@ -4688,16 +4658,6 @@
     "teamAbbr": "IND",
     "position": "F",
     "number": 43
-  },
-  {
-    "id": "nba:2578239",
-    "name": "Pat Connaughton",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Charlotte Hornets",
-    "teamAbbr": "CHA",
-    "position": "G",
-    "number": 21
   },
   {
     "id": "nba:4592714",
@@ -5320,6 +5280,16 @@
     "number": 99
   },
   {
+    "id": "nba:4703421",
+    "name": "Taelon Peter",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "San Antonio Spurs",
+    "teamAbbr": "SA",
+    "position": "G",
+    "number": 8
+  },
+  {
     "id": "nba:4683933",
     "name": "Tamar Bates",
     "conference": "West",
@@ -5790,6 +5760,16 @@
     "number": 24
   },
   {
+    "id": "nba:984",
+    "name": "Tyson Chandler",
+    "conference": "West",
+    "division": "Southwest",
+    "team": "Houston Rockets",
+    "teamAbbr": "HOU",
+    "position": "C",
+    "number": 19
+  },
+  {
     "id": "nba:3135046",
     "name": "Tyus Jones",
     "conference": "West",
@@ -6028,16 +6008,6 @@
     "teamAbbr": "DEN",
     "position": "F",
     "number": 22
-  },
-  {
-    "id": "nba:4277923",
-    "name": "Zhaire Smith",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "G",
-    "number": 40
   },
   {
     "id": "nba:4433137",
