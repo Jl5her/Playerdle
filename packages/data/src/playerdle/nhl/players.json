@@ -1350,16 +1350,6 @@
     "number": 34
   },
   {
-    "id": "nhl:4874743",
-    "name": "Carson Lambos",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 55
-  },
-  {
     "id": "nhl:3042198",
     "name": "Carson Soucy",
     "conference": "East",
@@ -1818,16 +1808,6 @@
     "teamAbbr": "BUF",
     "position": "D",
     "number": 21
-  },
-  {
-    "id": "nhl:5206956",
-    "name": "Cooper Black",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Florida Panthers",
-    "teamAbbr": "FLA",
-    "position": "G",
-    "number": 31
   },
   {
     "id": "nhl:2273",
@@ -3518,16 +3498,6 @@
     "teamAbbr": "LA",
     "position": "RW",
     "number": 53
-  },
-  {
-    "id": "nhl:5188348",
-    "name": "Jaroslav Chmelar",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "RW",
-    "number": 49
   },
   {
     "id": "nhl:3042062",
@@ -7390,6 +7360,16 @@
     "number": 16
   },
   {
+    "id": "nhl:4063502",
+    "name": "Taylor Raddysh",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "RW",
+    "number": 14
+  },
+  {
     "id": "nhl:3024916",
     "name": "Teddy Blueger",
     "conference": "East",
@@ -7678,6 +7658,16 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 49
+  },
+  {
+    "id": "nhl:5103697",
+    "name": "Ty Nelson",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "D",
+    "number": 24
   },
   {
     "id": "nhl:4588750",
