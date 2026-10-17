@@ -420,16 +420,6 @@
     "number": 97
   },
   {
-    "id": "nfl:5164879",
-    "name": "Alan Herron",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "OT",
-    "number": 70
-  },
-  {
     "id": "nfl:4036135",
     "name": "Alaric Jackson",
     "conference": "NFC",
@@ -5833,16 +5823,6 @@
     "teamAbbr": "ARI",
     "position": "DE",
     "number": 56
-  },
-  {
-    "id": "nfl:3916945",
-    "name": "Darius Slayton",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "WR",
-    "number": 18
   },
   {
     "id": "nfl:4242973",
@@ -11615,6 +11595,16 @@
     "number": 91
   },
   {
+    "id": "nfl:4383391",
+    "name": "Jayden Price",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "CB",
+    "number": 38
+  },
+  {
     "id": "nfl:4362249",
     "name": "Jayden Reed",
     "conference": "NFC",
@@ -12349,10 +12339,11 @@
     "name": "Joe Milton III",
     "conference": "NFC",
     "division": "NFC East",
-    "team": "Dallas Cowboys",
-    "teamAbbr": "DAL",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
     "position": "QB",
-    "number": 10
+    "number": 10,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4565859",
