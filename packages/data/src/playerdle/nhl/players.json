@@ -20,6 +20,16 @@
     "number": 5
   },
   {
+    "id": "nhl:4874912",
+    "name": "Aatu Raty",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 54
+  },
+  {
     "id": "nhl:4894222",
     "name": "Adam Edstrom",
     "conference": "West",
@@ -1610,6 +1620,16 @@
     "number": 91
   },
   {
+    "id": "nhl:4894702",
+    "name": "Cole Reinhardt",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Florida Panthers",
+    "teamAbbr": "FLA",
+    "position": "LW",
+    "number": 29
+  },
+  {
     "id": "nhl:4874725",
     "name": "Cole Sillinger",
     "conference": "East",
@@ -1970,6 +1990,16 @@
     "number": 88
   },
   {
+    "id": "nhl:3792",
+    "name": "David Perron",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "LW",
+    "number": 16
+  },
+  {
     "id": "nhl:5149157",
     "name": "David Reinbacher",
     "conference": "East",
@@ -2138,6 +2168,16 @@
     "teamAbbr": "SJ",
     "position": "D",
     "number": 9
+  },
+  {
+    "id": "nhl:4997033",
+    "name": "Dominic James",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "C",
+    "number": 17
   },
   {
     "id": "nhl:3942809",
@@ -3220,16 +3260,6 @@
     "number": 2
   },
   {
-    "id": "nhl:4352798",
-    "name": "Jacob Bernard-Docker",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "D",
-    "number": 25
-  },
-  {
     "id": "nhl:5188437",
     "name": "Jacob Fowler",
     "conference": "East",
@@ -3258,6 +3288,16 @@
     "teamAbbr": "SEA",
     "position": "RW",
     "number": 63
+  },
+  {
+    "id": "nhl:4997056",
+    "name": "Jacob Quillan",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "C",
+    "number": 26
   },
   {
     "id": "nhl:2976839",
@@ -3488,16 +3528,6 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 46
-  },
-  {
-    "id": "nhl:5104200",
-    "name": "Jared Wright",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "RW",
-    "number": 53
   },
   {
     "id": "nhl:3042062",
@@ -3930,6 +3960,16 @@
     "number": 81
   },
   {
+    "id": "nhl:3025614",
+    "name": "Jonny Brodzinski",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "C",
+    "number": 76
+  },
+  {
     "id": "nhl:3069266",
     "name": "Joonas Korpisalo",
     "conference": "East",
@@ -4068,16 +4108,6 @@
     "teamAbbr": "BUF",
     "position": "C",
     "number": 9
-  },
-  {
-    "id": "nhl:5278080",
-    "name": "Josh Samanski",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Edmonton Oilers",
-    "teamAbbr": "EDM",
-    "position": "C",
-    "number": 81
   },
   {
     "id": "nhl:4063504",
@@ -7368,6 +7398,16 @@
     "teamAbbr": "NYR",
     "position": "RW",
     "number": 14
+  },
+  {
+    "id": "nhl:4781650",
+    "name": "Taylor Ward",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "RW",
+    "number": 17
   },
   {
     "id": "nhl:3024916",
