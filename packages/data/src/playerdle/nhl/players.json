@@ -1360,6 +1360,16 @@
     "number": 34
   },
   {
+    "id": "nhl:4874743",
+    "name": "Carson Lambos",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 55
+  },
+  {
     "id": "nhl:3042198",
     "name": "Carson Soucy",
     "conference": "East",
@@ -2180,16 +2190,6 @@
     "number": 17
   },
   {
-    "id": "nhl:3942809",
-    "name": "Dominic Toninato",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
-    "position": "C",
-    "number": 25
-  },
-  {
     "id": "nhl:2562605",
     "name": "Dougie Hamilton",
     "conference": "East",
@@ -2428,16 +2428,6 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 40
-  },
-  {
-    "id": "nhl:5080223",
-    "name": "Elias Salomonsson",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "D",
-    "number": 57
   },
   {
     "id": "nhl:5452947",
@@ -2930,6 +2920,26 @@
     "number": 22
   },
   {
+    "id": "nhl:5080216",
+    "name": "Hunter Haight",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 37
+  },
+  {
+    "id": "nhl:5103725",
+    "name": "Hunter McDonald",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "D",
+    "number": 75
+  },
+  {
     "id": "nhl:4991",
     "name": "Ian Cole",
     "conference": "West",
@@ -3208,16 +3218,6 @@
     "teamAbbr": "WPG",
     "position": "D",
     "number": 6
-  },
-  {
-    "id": "nhl:4233888",
-    "name": "Jack Studnicka",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 23
   },
   {
     "id": "nhl:4697776",
@@ -4198,16 +4198,6 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 72
-  },
-  {
-    "id": "nhl:5763",
-    "name": "Justin Holl",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "D",
-    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -6200,6 +6190,16 @@
     "number": 10
   },
   {
+    "id": "nhl:5149208",
+    "name": "Otto Stenberg",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 28
+  },
+  {
     "id": "nhl:5080202",
     "name": "Owen Beck",
     "conference": "East",
@@ -6678,16 +6678,6 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 38
-  },
-  {
-    "id": "nhl:4565252",
-    "name": "Ryan Johnson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "D",
-    "number": 3
   },
   {
     "id": "nhl:5149172",
@@ -8028,6 +8018,16 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 16
+  },
+  {
+    "id": "nhl:3095892",
+    "name": "Vinni Lettieri",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 71
   },
   {
     "id": "nhl:5346852",
