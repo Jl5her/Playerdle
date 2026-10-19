@@ -617,7 +617,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "CB",
-    "number": 28
+    "number": 21
   },
   {
     "id": "nfl:4259646",
@@ -2028,8 +2028,7 @@
     "team": "Los Angeles Rams",
     "teamAbbr": "LAR",
     "position": "PK",
-    "number": 39,
-    "numberBackfilled": true
+    "number": 19
   },
   {
     "id": "nfl:3116135",
@@ -3360,8 +3359,7 @@
     "team": "Baltimore Ravens",
     "teamAbbr": "BAL",
     "position": "C",
-    "number": 51,
-    "numberBackfilled": true
+    "number": 64
   },
   {
     "id": "nfl:4427752",
@@ -5913,6 +5911,16 @@
     "teamAbbr": "NYJ",
     "position": "DT",
     "number": 95
+  },
+  {
+    "id": "nfl:4685978",
+    "name": "Darrell Luter Jr.",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "CB",
+    "number": 25
   },
   {
     "id": "nfl:4261606",
@@ -11822,7 +11830,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "CB",
-    "number": 33
+    "number": 36
   },
   {
     "id": "nfl:4685145",
@@ -12356,14 +12364,13 @@
   },
   {
     "id": "nfl:4360698",
-    "name": "Joe Milton III",
+    "name": "Joe Milton",
     "conference": "NFC",
     "division": "NFC East",
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "QB",
-    "number": 10,
-    "numberBackfilled": true
+    "number": 14
   },
   {
     "id": "nfl:4565859",
@@ -13866,16 +13873,6 @@
     "number": 52
   },
   {
-    "id": "nfl:4242521",
-    "name": "K.J. Britt",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "LB",
-    "number": 35
-  },
-  {
     "id": "nfl:3916566",
     "name": "K.J. Osborn",
     "conference": "AFC",
@@ -13903,7 +13900,7 @@
     "team": "Baltimore Ravens",
     "teamAbbr": "BAL",
     "position": "CB",
-    "number": 26
+    "number": 25
   },
   {
     "id": "nfl:2971573",
@@ -15545,16 +15542,6 @@
     "teamAbbr": "BAL",
     "position": "QB",
     "number": 8
-  },
-  {
-    "id": "nfl:4698253",
-    "name": "Lan Larison",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "RB",
-    "number": 34
   },
   {
     "id": "nfl:4685272",
@@ -18654,7 +18641,7 @@
     "team": "New York Jets",
     "teamAbbr": "NYJ",
     "position": "WR",
-    "number": 83
+    "number": 11
   },
   {
     "id": "nfl:4428550",
@@ -19884,7 +19871,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "CB",
-    "number": 33
+    "number": 38
   },
   {
     "id": "nfl:4820584",
@@ -20594,7 +20581,7 @@
     "team": "Pittsburgh Steelers",
     "teamAbbr": "PIT",
     "position": "CB",
-    "number": 26
+    "number": 27
   },
   {
     "id": "nfl:4426411",
@@ -20754,7 +20741,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "TE",
-    "number": 48
+    "number": 44
   },
   {
     "id": "nfl:4432762",
@@ -21607,6 +21594,16 @@
     "number": 93
   },
   {
+    "id": "nfl:4360935",
+    "name": "Terell Smith",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Pittsburgh Steelers",
+    "teamAbbr": "PIT",
+    "position": "CB",
+    "number": 39
+  },
+  {
     "id": "nfl:3915834",
     "name": "Terence Steele",
     "conference": "NFC",
@@ -22045,6 +22042,16 @@
     "teamAbbr": "CLE",
     "position": "CB",
     "number": 35
+  },
+  {
+    "id": "nfl:4696902",
+    "name": "Torricelli Simpkins III",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "G",
+    "number": 65
   },
   {
     "id": "nfl:4597703",
@@ -23125,6 +23132,16 @@
     "teamAbbr": "KC",
     "position": "DE",
     "number": 57
+  },
+  {
+    "id": "nfl:4035232",
+    "name": "Tyrel Dodson",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "LB",
+    "number": 33
   },
   {
     "id": "nfl:4241476",
