@@ -930,16 +930,6 @@
     "number": 0
   },
   {
-    "id": "nba:4431778",
-    "name": "Christian Koloko",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "New Orleans Pelicans",
-    "teamAbbr": "NO",
-    "position": "C",
-    "number": 35
-  },
-  {
     "id": "nba:4702602",
     "name": "CJ Huntley",
     "conference": "West",
@@ -1257,7 +1247,7 @@
     "team": "Washington Wizards",
     "teamAbbr": "WSH",
     "position": "C",
-    "number": 6
+    "number": 8
   },
   {
     "id": "nba:3442",
@@ -1950,16 +1940,6 @@
     "number": 25
   },
   {
-    "id": "nba:4702784",
-    "name": "J'Vonne Hadley",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Miami Heat",
-    "teamAbbr": "MIA",
-    "position": "F",
-    "number": 14
-  },
-  {
     "id": "nba:4279888",
     "name": "Ja Morant",
     "conference": "West",
@@ -2568,16 +2548,6 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 21
-  },
-  {
-    "id": "nba:4432588",
-    "name": "John Butler Jr.",
-    "conference": "East",
-    "division": "Central",
-    "team": "Milwaukee Bucks",
-    "teamAbbr": "MIL",
-    "position": "F",
-    "number": 27
   },
   {
     "id": "nba:3908845",
@@ -3368,16 +3338,6 @@
     "teamAbbr": "CHI",
     "position": "F",
     "number": 11
-  },
-  {
-    "id": "nba:4431720",
-    "name": "Lester Quinones",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Miami Heat",
-    "teamAbbr": "MIA",
-    "position": "G",
-    "number": 25
   },
   {
     "id": "nba:5239590",
@@ -4310,16 +4270,6 @@
     "number": 9
   },
   {
-    "id": "nba:4685802",
-    "name": "Robert McCray V",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Oklahoma City Thunder",
-    "teamAbbr": "OKC",
-    "position": "G",
-    "number": 16
-  },
-  {
     "id": "nba:4066211",
     "name": "Robert Williams III",
     "conference": "West",
@@ -4620,16 +4570,6 @@
     "number": 5
   },
   {
-    "id": "nba:4704043",
-    "name": "Steve Settle III",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Washington Wizards",
-    "teamAbbr": "WSH",
-    "position": "F",
-    "number": 14
-  },
-  {
     "id": "nba:2991235",
     "name": "Steven Adams",
     "conference": "West",
@@ -4730,16 +4670,6 @@
     "number": 14
   },
   {
-    "id": "nba:4395997",
-    "name": "Terrell Brown Jr.",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Utah Jazz",
-    "teamAbbr": "UTAH",
-    "position": "G",
-    "number": 16
-  },
-  {
     "id": "nba:4432847",
     "name": "Terrence Shannon Jr.",
     "conference": "West",
@@ -4837,8 +4767,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "C",
-    "number": 18,
-    "numberBackfilled": true
+    "number": 13
   },
   {
     "id": "nba:4431736",
@@ -5069,16 +4998,6 @@
     "teamAbbr": "CLE",
     "position": "G",
     "number": 24
-  },
-  {
-    "id": "nba:984",
-    "name": "Tyson Chandler",
-    "conference": "West",
-    "division": "Southwest",
-    "team": "Houston Rockets",
-    "teamAbbr": "HOU",
-    "position": "C",
-    "number": 19
   },
   {
     "id": "nba:3135046",
