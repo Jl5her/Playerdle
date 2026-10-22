@@ -750,16 +750,6 @@
     "number": 62
   },
   {
-    "id": "nhl:4697577",
-    "name": "Artur Akhtyamov",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 70
-  },
-  {
     "id": "nhl:4576894",
     "name": "Arturs Silovs",
     "conference": "East",
@@ -1038,16 +1028,6 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 4
-  },
-  {
-    "id": "nhl:5149213",
-    "name": "Bradly Nadeau",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "LW",
-    "number": 29
   },
   {
     "id": "nhl:2976856",
@@ -2098,16 +2078,6 @@
     "teamAbbr": "DAL",
     "position": "LW",
     "number": 16
-  },
-  {
-    "id": "nhl:5149157",
-    "name": "David Reinbacher",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
-    "position": "D",
-    "number": 64
   },
   {
     "id": "nhl:5103533",
@@ -3620,6 +3590,16 @@
     "number": 46
   },
   {
+    "id": "nhl:5104200",
+    "name": "Jared Wright",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "RW",
+    "number": 53
+  },
+  {
     "id": "nhl:3042062",
     "name": "Jason Dickinson",
     "conference": "West",
@@ -4048,16 +4028,6 @@
     "teamAbbr": "NSH",
     "position": "RW",
     "number": 81
-  },
-  {
-    "id": "nhl:3025614",
-    "name": "Jonny Brodzinski",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "C",
-    "number": 76
   },
   {
     "id": "nhl:3069266",
@@ -4838,16 +4808,6 @@
     "teamAbbr": "DET",
     "position": "LW",
     "number": 23
-  },
-  {
-    "id": "nhl:4697678",
-    "name": "Lukas Cormier",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "D",
-    "number": 51
   },
   {
     "id": "nhl:4588165",
@@ -6300,16 +6260,6 @@
     "number": 28
   },
   {
-    "id": "nhl:5080202",
-    "name": "Owen Beck",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
-    "position": "C",
-    "number": 62
-  },
-  {
     "id": "nhl:5206840",
     "name": "Owen Michaels",
     "conference": "West",
@@ -7340,6 +7290,16 @@
     "number": 71
   },
   {
+    "id": "nhl:4393595",
+    "name": "Skyler Brind'Amour",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Carolina Hurricanes",
+    "teamAbbr": "CAR",
+    "position": "C",
+    "number": 76
+  },
+  {
     "id": "nhl:4565234",
     "name": "Spencer Knight",
     "conference": "West",
@@ -7768,16 +7728,6 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 49
-  },
-  {
-    "id": "nhl:5103697",
-    "name": "Ty Nelson",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
-    "position": "D",
-    "number": 24
   },
   {
     "id": "nhl:4588750",
