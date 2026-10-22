@@ -13245,12 +13245,13 @@
   {
     "id": "nfl:4039243",
     "name": "Josh Sills",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
     "position": "G",
-    "number": 66
+    "number": 66,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4569659",
@@ -14503,6 +14504,16 @@
     "number": 33
   },
   {
+    "id": "nfl:4241394",
+    "name": "Kenneth Murray Jr.",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "LB",
+    "number": 50
+  },
+  {
     "id": "nfl:4567048",
     "name": "Kenneth Walker III",
     "conference": "AFC",
@@ -14652,6 +14663,16 @@
     "position": "DE",
     "number": 59,
     "numberBackfilled": true
+  },
+  {
+    "id": "nfl:4372758",
+    "name": "Kevin Austin Jr.",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "WR",
+    "number": 81
   },
   {
     "id": "nfl:2574056",
@@ -17824,6 +17845,16 @@
     "number": 48
   },
   {
+    "id": "nfl:4046716",
+    "name": "Naquan Jones",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "DT",
+    "number": 50
+  },
+  {
     "id": "nfl:4383440",
     "name": "Nate Adkins",
     "conference": "AFC",
@@ -19134,6 +19165,16 @@
     "number": 37
   },
   {
+    "id": "nfl:4875350",
+    "name": "Quentin Moore",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "TE",
+    "number": 40
+  },
+  {
     "id": "nfl:3129308",
     "name": "Quenton Nelson",
     "conference": "AFC",
@@ -19402,16 +19443,6 @@
     "teamAbbr": "BAL",
     "position": "DT",
     "number": 99
-  },
-  {
-    "id": "nfl:2969961",
-    "name": "Rayshawn Jenkins",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "S",
-    "number": 20
   },
   {
     "id": "nfl:4880675",
