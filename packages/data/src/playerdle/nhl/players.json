@@ -1550,6 +1550,16 @@
     "number": 15
   },
   {
+    "id": "nhl:5302544",
+    "name": "Chase Pietila",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 44
+  },
+  {
     "id": "nhl:5833",
     "name": "Chris Kreider",
     "conference": "East",
@@ -2860,26 +2870,6 @@
     "number": 21
   },
   {
-    "id": "nhl:5337",
-    "name": "Garrett Wilson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "LW",
-    "number": 10
-  },
-  {
-    "id": "nhl:5136614",
-    "name": "Gavin Brindley",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
-    "position": "C",
-    "number": 54
-  },
-  {
     "id": "nhl:5342529",
     "name": "Gavin McKenna",
     "conference": "East",
@@ -3948,6 +3938,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 25
+  },
+  {
+    "id": "nhl:3115546",
+    "name": "Jonas Johansson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "G",
+    "number": 31
   },
   {
     "id": "nhl:4425678",
@@ -5550,6 +5550,16 @@
     "number": 27
   },
   {
+    "id": "nhl:5302578",
+    "name": "Michal Postava",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "G",
+    "number": 35
+  },
+  {
     "id": "nhl:2562637",
     "name": "Mika Zibanejad",
     "conference": "East",
@@ -6260,6 +6270,16 @@
     "number": 28
   },
   {
+    "id": "nhl:5080202",
+    "name": "Owen Beck",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 62
+  },
+  {
     "id": "nhl:5206840",
     "name": "Owen Michaels",
     "conference": "West",
@@ -6688,6 +6708,16 @@
     "teamAbbr": "STL",
     "position": "LW",
     "number": 49
+  },
+  {
+    "id": "nhl:5080158",
+    "name": "Rutger McGroarty",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 2
   },
   {
     "id": "nhl:3115033",
@@ -8298,16 +8328,6 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 24
-  },
-  {
-    "id": "nhl:4874747",
-    "name": "Zach Dean",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "C",
-    "number": 52
   },
   {
     "id": "nhl:5509",
