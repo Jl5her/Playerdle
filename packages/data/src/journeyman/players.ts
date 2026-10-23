@@ -575,6 +575,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
       "Cleveland Browns",
     ],
+    espnId: "2580216",
   },
   {
     id: "journey:corey-davis",
