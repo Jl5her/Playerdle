@@ -790,17 +790,6 @@
     "number": 35
   },
   {
-    "id": "nfl:3932244",
-    "name": "Andre James",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "C",
-    "number": 61,
-    "numberBackfilled": true
-  },
-  {
     "id": "nfl:4258620",
     "name": "Andre Szmyt",
     "conference": "AFC",
@@ -1431,16 +1420,6 @@
     "number": 63
   },
   {
-    "id": "nfl:4242229",
-    "name": "Austin Deculus",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "OT",
-    "number": 76
-  },
-  {
     "id": "nfl:3068267",
     "name": "Austin Ekeler",
     "conference": "NFC",
@@ -1879,6 +1858,16 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 21
+  },
+  {
+    "id": "nfl:4247722",
+    "name": "Benton Whitley",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "LB",
+    "number": 42
   },
   {
     "id": "nfl:4362580",
@@ -3522,6 +3511,16 @@
     "number": 99
   },
   {
+    "id": "nfl:4685590",
+    "name": "Cameron Williams",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "OL",
+    "number": 73
+  },
+  {
     "id": "nfl:3918310",
     "name": "Carl Granderson",
     "conference": "NFC",
@@ -3530,6 +3529,16 @@
     "teamAbbr": "NO",
     "position": "DE",
     "number": 96
+  },
+  {
+    "id": "nfl:4569428",
+    "name": "Carl Jones",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "LB",
+    "number": 48
   },
   {
     "id": "nfl:3051911",
@@ -6173,6 +6182,16 @@
     "number": 8
   },
   {
+    "id": "nfl:2580216",
+    "name": "DeAndre Carter",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "WR",
+    "number": 86
+  },
+  {
     "id": "nfl:4690171",
     "name": "Deane Leonard",
     "conference": "AFC",
@@ -7561,16 +7580,6 @@
     "teamAbbr": "CLE",
     "position": "RB",
     "number": 22
-  },
-  {
-    "id": "nfl:4248557",
-    "name": "E.J. Jenkins",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "TE",
-    "number": 84
   },
   {
     "id": "nfl:3071353",
@@ -11593,6 +11602,16 @@
     "number": 42
   },
   {
+    "id": "nfl:4685279",
+    "name": "Jaydon Blue",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "RB",
+    "number": 30
+  },
+  {
     "id": "nfl:4566154",
     "name": "Jaylahn Tuimoloau",
     "conference": "AFC",
@@ -13243,6 +13262,16 @@
     "number": 84
   },
   {
+    "id": "nfl:4258198",
+    "name": "Josh Ross",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
+    "position": "LB",
+    "number": 47
+  },
+  {
     "id": "nfl:4039243",
     "name": "Josh Sills",
     "conference": "NFC",
@@ -13250,8 +13279,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "G",
-    "number": 66,
-    "numberBackfilled": true
+    "number": 67
   },
   {
     "id": "nfl:4569659",
@@ -14561,7 +14589,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "CB",
-    "number": 38
+    "number": 23
   },
   {
     "id": "nfl:4240703",
@@ -16195,16 +16223,6 @@
     "number": 24
   },
   {
-    "id": "nfl:5225251",
-    "name": "Malcolm DeWalt IV",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "CB",
-    "number": 36
-  },
-  {
     "id": "nfl:4239719",
     "name": "Malcolm Koonce",
     "conference": "AFC",
@@ -17755,6 +17773,16 @@
     "number": 98
   },
   {
+    "id": "nfl:4039010",
+    "name": "Myles Bryant",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "S",
+    "number": 27
+  },
+  {
     "id": "nfl:3122132",
     "name": "Myles Garrett",
     "conference": "NFC",
@@ -18382,7 +18410,7 @@
     "team": "Chicago Bears",
     "teamAbbr": "CHI",
     "position": "LB",
-    "number": 44
+    "number": 46
   },
   {
     "id": "nfl:4718457",
@@ -23733,6 +23761,16 @@
     "teamAbbr": "GB",
     "position": "S",
     "number": 29
+  },
+  {
+    "id": "nfl:4259186",
+    "name": "Xavier Newman-Johnson",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "G",
+    "number": 64
   },
   {
     "id": "nfl:4685491",
