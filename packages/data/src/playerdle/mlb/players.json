@@ -1221,6 +1221,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:37515",
+    "name": "Brandon Woodruff",
+    "conference": "NL",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
+    "position": "SP",
+    "number": 53,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4414339",
     "name": "Brandon Young",
     "conference": "AL",
@@ -1593,17 +1604,6 @@
     "position": "RP",
     "number": 41,
     "league": "NL"
-  },
-  {
-    "id": "mlb:5130133",
-    "name": "Brody Hopkins",
-    "conference": "AL",
-    "division": "East",
-    "team": "Tampa Bay Rays",
-    "teamAbbr": "TB",
-    "position": "RP",
-    "number": 88,
-    "league": "AL"
   },
   {
     "id": "mlb:4629081",
@@ -2220,17 +2220,6 @@
     "position": "RP",
     "number": 37,
     "league": "AL"
-  },
-  {
-    "id": "mlb:5131708",
-    "name": "Chad Patrick",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Milwaukee Brewers",
-    "teamAbbr": "MIL",
-    "position": "RP",
-    "number": 39,
-    "league": "NL"
   },
   {
     "id": "mlb:4995563",
@@ -4232,6 +4221,17 @@
     "teamAbbr": "MIN",
     "position": "RP",
     "number": 50,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:36429",
+    "name": "Garrett Cleavinger",
+    "conference": "AL",
+    "division": "East",
+    "team": "Tampa Bay Rays",
+    "teamAbbr": "TB",
+    "position": "RP",
+    "number": 60,
     "league": "AL"
   },
   {
