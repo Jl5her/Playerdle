@@ -380,6 +380,16 @@
     "number": 72
   },
   {
+    "id": "nhl:5361718",
+    "name": "Alexander Command",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 17
+  },
+  {
     "id": "nhl:4697388",
     "name": "Alexander Holtz",
     "conference": "West",
@@ -1150,16 +1160,6 @@
     "number": 10
   },
   {
-    "id": "nhl:5149188",
-    "name": "Brayden Yager",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "C",
-    "number": 29
-  },
-  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "West",
@@ -1680,6 +1680,16 @@
     "number": 45
   },
   {
+    "id": "nhl:5136696",
+    "name": "Cole McWard",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 82
+  },
+  {
     "id": "nhl:4697392",
     "name": "Cole Perfetti",
     "conference": "West",
@@ -1832,10 +1842,10 @@
   {
     "id": "nhl:3020225",
     "name": "Connor Hellebuyck",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
     "position": "G",
     "number": 37
   },
@@ -1958,6 +1968,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 48
+  },
+  {
+    "id": "nhl:3069273",
+    "name": "Dakota Mermis",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 36
   },
   {
     "id": "nhl:5149178",
@@ -2102,10 +2122,10 @@
   {
     "id": "nhl:4697401",
     "name": "Dawson Mercer",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
     "position": "C",
     "number": 91
   },
@@ -5792,10 +5812,10 @@
   {
     "id": "nhl:5828",
     "name": "Nick Bjugstad",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
     "position": "C",
     "number": 72
   },
@@ -5922,10 +5942,10 @@
   {
     "id": "nhl:4697683",
     "name": "Nico Daws",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
     "position": "G",
     "number": 50
   },
@@ -8118,16 +8138,6 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 44
-  },
-  {
-    "id": "nhl:2562622",
-    "name": "Vladislav Namestnikov",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "C",
-    "number": 7
   },
   {
     "id": "nhl:4319940",
