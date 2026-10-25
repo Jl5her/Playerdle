@@ -450,6 +450,16 @@
     "number": 85
   },
   {
+    "id": "nhl:4392454",
+    "name": "Alexey Toropchenko",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "RW",
+    "number": 13
+  },
+  {
     "id": "nhl:4697382",
     "name": "Alexis Lafreniere",
     "conference": "East",
@@ -798,6 +808,16 @@
     "teamAbbr": "TOR",
     "position": "C",
     "number": 34
+  },
+  {
+    "id": "nhl:5172806",
+    "name": "Avery Hayes",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "RW",
+    "number": 85
   },
   {
     "id": "nhl:5149192",
@@ -1417,7 +1437,7 @@
     "team": "Columbus Blue Jackets",
     "teamAbbr": "CBJ",
     "position": "D",
-    "number": 4
+    "number": 7
   },
   {
     "id": "nhl:4064582",
@@ -1964,10 +1984,10 @@
     "name": "Daemon Hunt",
     "conference": "West",
     "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
+    "team": "Nashville Predators",
+    "teamAbbr": "NSH",
     "position": "D",
-    "number": 48
+    "number": 52
   },
   {
     "id": "nhl:3069273",
@@ -2720,16 +2740,6 @@
     "number": 9
   },
   {
-    "id": "nhl:5149249",
-    "name": "Felix Unger Sorum",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "RW",
-    "number": 36
-  },
-  {
     "id": "nhl:4233643",
     "name": "Filip Chytil",
     "conference": "West",
@@ -3272,10 +3282,10 @@
   {
     "id": "nhl:4755690",
     "name": "Jack St. Ivany",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
     "position": "D",
     "number": 6
   },
@@ -3580,6 +3590,16 @@
     "number": 4
   },
   {
+    "id": "nhl:5080217",
+    "name": "Jani Nyman",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 38
+  },
+  {
     "id": "nhl:3114777",
     "name": "Jared McCann",
     "conference": "West",
@@ -3657,7 +3677,7 @@
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
     "position": "D",
-    "number": 47
+    "number": 3
   },
   {
     "id": "nhl:2593131",
@@ -4237,7 +4257,7 @@
     "team": "St. Louis Blues",
     "teamAbbr": "STL",
     "position": "D",
-    "number": 20
+    "number": 72
   },
   {
     "id": "nhl:4063605",
@@ -4850,6 +4870,16 @@
     "number": 77
   },
   {
+    "id": "nhl:2335062",
+    "name": "Luke Glendening",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "C",
+    "number": 43
+  },
+  {
     "id": "nhl:5206955",
     "name": "Luke Haymes",
     "conference": "East",
@@ -5130,6 +5160,16 @@
     "number": 83
   },
   {
+    "id": "nhl:4392879",
+    "name": "Mason Shaw",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 18
+  },
+  {
     "id": "nhl:3899946",
     "name": "Mathew Barzal",
     "conference": "East",
@@ -5270,6 +5310,16 @@
     "number": 22
   },
   {
+    "id": "nhl:3069614",
+    "name": "Matt Tomkins",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Edmonton Oilers",
+    "teamAbbr": "EDM",
+    "position": "G",
+    "number": 90
+  },
+  {
     "id": "nhl:4697719",
     "name": "Matthew Kessel",
     "conference": "East",
@@ -5298,6 +5348,16 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 51
+  },
+  {
+    "id": "nhl:4565272",
+    "name": "Matthew Robertson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "D",
+    "number": 29
   },
   {
     "id": "nhl:5291933",
@@ -5537,7 +5597,7 @@
     "team": "San Jose Sharks",
     "teamAbbr": "SJ",
     "position": "D",
-    "number": 8
+    "number": 7
   },
   {
     "id": "nhl:3042048",
@@ -5698,6 +5758,16 @@
     "teamAbbr": "NYI",
     "position": "RW",
     "number": 26
+  },
+  {
+    "id": "nhl:4587862",
+    "name": "Mitchell Gibson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "G",
+    "number": 78
   },
   {
     "id": "nhl:4316970",
@@ -6187,7 +6257,7 @@
     "team": "San Jose Sharks",
     "teamAbbr": "SJ",
     "position": "D",
-    "number": 7
+    "number": 5
   },
   {
     "id": "nhl:4874863",
@@ -6528,6 +6598,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 43
+  },
+  {
+    "id": "nhl:5172484",
+    "name": "Quinton Burns",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 42
   },
   {
     "id": "nhl:4697383",
@@ -8338,6 +8418,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 24
+  },
+  {
+    "id": "nhl:4874747",
+    "name": "Zach Dean",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "C",
+    "number": 52
   },
   {
     "id": "nhl:5509",
