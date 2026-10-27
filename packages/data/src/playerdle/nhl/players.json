@@ -390,16 +390,6 @@
     "number": 17
   },
   {
-    "id": "nhl:4697388",
-    "name": "Alexander Holtz",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "RW",
-    "number": 10
-  },
-  {
     "id": "nhl:3069394",
     "name": "Alexander Kerfoot",
     "conference": "West",
@@ -2560,6 +2550,16 @@
     "number": 40
   },
   {
+    "id": "nhl:5080223",
+    "name": "Elias Salomonsson",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "D",
+    "number": 57
+  },
+  {
     "id": "nhl:5452947",
     "name": "Elijah Neuenschwander",
     "conference": "West",
@@ -4438,6 +4438,16 @@
     "teamAbbr": "UTA",
     "position": "G",
     "number": 70
+  },
+  {
+    "id": "nhl:5291953",
+    "name": "Kashawn Aitcheson",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "D",
+    "number": 37
   },
   {
     "id": "nhl:3114775",
@@ -6540,6 +6550,16 @@
     "number": 24
   },
   {
+    "id": "nhl:3151763",
+    "name": "Pierre Engvall",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Islanders",
+    "teamAbbr": "NYI",
+    "position": "LW",
+    "number": 18
+  },
+  {
     "id": "nhl:4024833",
     "name": "Pierre-Luc Dubois",
     "conference": "East",
@@ -6738,16 +6758,6 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 71
-  },
-  {
-    "id": "nhl:5080224",
-    "name": "Rieger Lorenz",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "LW",
-    "number": 61
   },
   {
     "id": "nhl:4233637",
@@ -7430,16 +7440,6 @@
     "number": 71
   },
   {
-    "id": "nhl:4393595",
-    "name": "Skyler Brind'Amour",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "C",
-    "number": 76
-  },
-  {
     "id": "nhl:4565234",
     "name": "Spencer Knight",
     "conference": "West",
@@ -7538,16 +7538,6 @@
     "teamAbbr": "CAR",
     "position": "LW",
     "number": 71
-  },
-  {
-    "id": "nhl:4997080",
-    "name": "Taylor Makar",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Colorado Avalanche",
-    "teamAbbr": "COL",
-    "position": "LW",
-    "number": 16
   },
   {
     "id": "nhl:4063502",
