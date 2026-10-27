@@ -817,7 +817,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "S",
-    "number": 31
+    "number": 32
   },
   {
     "id": "nfl:4368003",
@@ -2821,16 +2821,6 @@
     "number": 57
   },
   {
-    "id": "nfl:4240545",
-    "name": "Bryce Baringer",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "P",
-    "number": 17
-  },
-  {
     "id": "nfl:5088571",
     "name": "Bryce Boettcher",
     "conference": "AFC",
@@ -3619,16 +3609,6 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 24
-  },
-  {
-    "id": "nfl:4685540",
-    "name": "Carsen Ryan",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "TE",
-    "number": 48
   },
   {
     "id": "nfl:4430841",
@@ -10002,16 +9982,6 @@
     "number": 18
   },
   {
-    "id": "nfl:4832827",
-    "name": "Jack Velling",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "TE",
-    "number": 84
-  },
-  {
     "id": "nfl:5081785",
     "name": "Jackie Marshall",
     "conference": "AFC",
@@ -10160,16 +10130,6 @@
     "teamAbbr": "TB",
     "position": "CB",
     "number": 25
-  },
-  {
-    "id": "nfl:4695758",
-    "name": "Jacob Rizy",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "OT",
-    "number": 64
   },
   {
     "id": "nfl:4566094",
@@ -10639,7 +10599,7 @@
     "team": "Philadelphia Eagles",
     "teamAbbr": "PHI",
     "position": "CB",
-    "number": 23
+    "number": 21
   },
   {
     "id": "nfl:4722893",
@@ -13110,6 +13070,16 @@
     "teamAbbr": "LAR",
     "position": "LB",
     "number": 10
+  },
+  {
+    "id": "nfl:4569068",
+    "name": "Jose Ramirez",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "LB",
+    "number": 43
   },
   {
     "id": "nfl:4362094",
