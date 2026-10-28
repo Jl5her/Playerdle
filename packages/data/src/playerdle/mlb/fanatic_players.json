@@ -1530,6 +1530,24 @@
     "ops": 0.778
   },
   {
+    "id": "mlb:41168",
+    "name": "Joey Bart",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Chicago White Sox",
+    "teamAbbr": "CHW",
+    "position": "C",
+    "number": 25,
+    "league": "AL",
+    "gp": 93,
+    "pa": 332,
+    "avg": 0.249,
+    "hr": 4,
+    "rbi": 30,
+    "sb": 1,
+    "ops": 0.696
+  },
+  {
     "id": "mlb:42958",
     "name": "Joey Ortiz",
     "conference": "NL",
@@ -2500,6 +2518,24 @@
     "rbi": 76,
     "sb": 31,
     "ops": 0.76
+  },
+  {
+    "id": "mlb:35291",
+    "name": "Rhys Hoskins",
+    "conference": "AL",
+    "division": "Central",
+    "team": "Cleveland Guardians",
+    "teamAbbr": "CLE",
+    "position": "1B",
+    "number": 8,
+    "league": "AL",
+    "gp": 90,
+    "pa": 328,
+    "avg": 0.237,
+    "hr": 12,
+    "rbi": 43,
+    "sb": 2,
+    "ops": 0.748
   },
   {
     "id": "mlb:42826",
