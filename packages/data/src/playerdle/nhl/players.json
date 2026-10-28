@@ -890,16 +890,6 @@
     "number": 8
   },
   {
-    "id": "nhl:4270546",
-    "name": "Ben Jones",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "C",
-    "number": 18
-  },
-  {
     "id": "nhl:5291947",
     "name": "Ben Kindel",
     "conference": "East",
@@ -1418,6 +1408,16 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 34
+  },
+  {
+    "id": "nhl:5188647",
+    "name": "Cameron Whitehead",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vegas Golden Knights",
+    "teamAbbr": "VGK",
+    "position": "G",
+    "number": 39
   },
   {
     "id": "nhl:4874743",
@@ -1990,6 +1990,16 @@
     "number": 52
   },
   {
+    "id": "nhl:4588638",
+    "name": "Dakota Joshua",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 81
+  },
+  {
     "id": "nhl:3069273",
     "name": "Dakota Mermis",
     "conference": "East",
@@ -2058,6 +2068,16 @@
     "teamAbbr": "MIN",
     "position": "RW",
     "number": 22
+  },
+  {
+    "id": "nhl:4024959",
+    "name": "Dante Fabbro",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Columbus Blue Jackets",
+    "teamAbbr": "CBJ",
+    "position": "D",
+    "number": 15
   },
   {
     "id": "nhl:3151741",
@@ -3350,6 +3370,16 @@
     "number": 32
   },
   {
+    "id": "nhl:5104158",
+    "name": "Jacob Gaucher",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Philadelphia Flyers",
+    "teamAbbr": "PHI",
+    "position": "C",
+    "number": 78
+  },
+  {
     "id": "nhl:5452",
     "name": "Jacob Markstrom",
     "conference": "East",
@@ -4438,16 +4468,6 @@
     "teamAbbr": "UTA",
     "position": "G",
     "number": 70
-  },
-  {
-    "id": "nhl:5291953",
-    "name": "Kashawn Aitcheson",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Islanders",
-    "teamAbbr": "NYI",
-    "position": "D",
-    "number": 37
   },
   {
     "id": "nhl:3114775",
@@ -6548,16 +6568,6 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 24
-  },
-  {
-    "id": "nhl:3151763",
-    "name": "Pierre Engvall",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Islanders",
-    "teamAbbr": "NYI",
-    "position": "LW",
-    "number": 18
   },
   {
     "id": "nhl:4024833",
