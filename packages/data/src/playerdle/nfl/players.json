@@ -1390,16 +1390,6 @@
     "number": 58
   },
   {
-    "id": "nfl:4430949",
-    "name": "Austin Blaske",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Los Angeles Rams",
-    "teamAbbr": "LAR",
-    "position": "OT",
-    "number": 64
-  },
-  {
     "id": "nfl:4683553",
     "name": "Austin Booker",
     "conference": "NFC",
@@ -2871,6 +2861,16 @@
     "number": 94
   },
   {
+    "id": "nfl:4602969",
+    "name": "Bryson Nesbit",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "TE",
+    "number": 83
+  },
+  {
     "id": "nfl:4596448",
     "name": "Bucky Irving",
     "conference": "NFC",
@@ -3589,6 +3589,16 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 24
+  },
+  {
+    "id": "nfl:4685540",
+    "name": "Carsen Ryan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "TE",
+    "number": 48
   },
   {
     "id": "nfl:4430841",
@@ -9854,16 +9864,6 @@
     "number": 96
   },
   {
-    "id": "nfl:4035686",
-    "name": "Jack Jones",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "CB",
-    "number": 25
-  },
-  {
     "id": "nfl:4876380",
     "name": "Jack Kelly",
     "conference": "NFC",
@@ -10472,6 +10472,16 @@
     "teamAbbr": "ATL",
     "position": "OT",
     "number": 70
+  },
+  {
+    "id": "nfl:14676",
+    "name": "Jake McQuaide",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "LS",
+    "number": 44
   },
   {
     "id": "nfl:4372066",
@@ -24023,7 +24033,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "WR",
-    "number": 17
+    "number": 9
   },
   {
     "id": "nfl:3932335",
