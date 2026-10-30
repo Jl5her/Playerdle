@@ -1390,16 +1390,6 @@
     "number": 8
   },
   {
-    "id": "nhl:3942461",
-    "name": "Cameron Hughes",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "C",
-    "number": 34
-  },
-  {
     "id": "nhl:5188647",
     "name": "Cameron Whitehead",
     "conference": "West",
@@ -2430,16 +2420,6 @@
     "number": 46
   },
   {
-    "id": "nhl:3114755",
-    "name": "Dylan Larkin",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "C",
-    "number": 71
-  },
-  {
     "id": "nhl:2529256",
     "name": "Dylan McIlrath",
     "conference": "East",
@@ -3360,16 +3340,6 @@
     "number": 32
   },
   {
-    "id": "nhl:5104158",
-    "name": "Jacob Gaucher",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Philadelphia Flyers",
-    "teamAbbr": "PHI",
-    "position": "C",
-    "number": 78
-  },
-  {
     "id": "nhl:5452",
     "name": "Jacob Markstrom",
     "conference": "East",
@@ -3648,16 +3618,6 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 46
-  },
-  {
-    "id": "nhl:5104200",
-    "name": "Jared Wright",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "RW",
-    "number": 53
   },
   {
     "id": "nhl:3042062",
@@ -5120,6 +5080,16 @@
     "number": 83
   },
   {
+    "id": "nhl:4697667",
+    "name": "Martin Chromiak",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "RW",
+    "number": 42
+  },
+  {
     "id": "nhl:4378677",
     "name": "Martin Fehervary",
     "conference": "East",
@@ -5658,16 +5628,6 @@
     "teamAbbr": "DET",
     "position": "C",
     "number": 27
-  },
-  {
-    "id": "nhl:5302578",
-    "name": "Michal Postava",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "G",
-    "number": 35
   },
   {
     "id": "nhl:2562637",
@@ -7778,6 +7738,16 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 46
+  },
+  {
+    "id": "nhl:5302584",
+    "name": "Trey Taylor",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 27
   },
   {
     "id": "nhl:3042020",
