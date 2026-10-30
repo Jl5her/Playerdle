@@ -5942,16 +5942,6 @@
     "number": 76
   },
   {
-    "id": "nfl:4046536",
-    "name": "David Long Jr.",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "CB",
-    "number": 45
-  },
-  {
     "id": "nfl:4360978",
     "name": "David Martin-Robinson",
     "conference": "AFC",
@@ -6931,16 +6921,6 @@
     "teamAbbr": "ATL",
     "position": "LB",
     "number": 0
-  },
-  {
-    "id": "nfl:5081977",
-    "name": "DJ Campbell",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "G",
-    "number": 63
   },
   {
     "id": "nfl:4874509",
@@ -8801,16 +8781,6 @@
     "teamAbbr": "BAL",
     "position": "OT",
     "number": 78
-  },
-  {
-    "id": "nfl:3116724",
-    "name": "Germaine Pratt",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "LB",
-    "number": 53
   },
   {
     "id": "nfl:4685261",
@@ -11074,16 +11044,6 @@
     "number": 34
   },
   {
-    "id": "nfl:4372463",
-    "name": "Jamree Kromah",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "DE",
-    "number": 59
-  },
-  {
     "id": "nfl:4570044",
     "name": "Jaquan Brisker",
     "conference": "AFC",
@@ -11796,12 +11756,13 @@
   {
     "id": "nfl:4035369",
     "name": "Jeffery Simmons",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
     "position": "DT",
-    "number": 98
+    "number": 98,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4602389",
@@ -13312,6 +13273,16 @@
     "teamAbbr": "NE",
     "position": "DT",
     "number": 92
+  },
+  {
+    "id": "nfl:4570485",
+    "name": "Joshua Gray",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "G",
+    "number": 66
   },
   {
     "id": "nfl:5081392",
@@ -16355,6 +16326,16 @@
     "number": 79
   },
   {
+    "id": "nfl:4240595",
+    "name": "Marco Wilson",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "CB",
+    "number": 35
+  },
+  {
     "id": "nfl:4565293",
     "name": "Marcus Bryant",
     "conference": "AFC",
@@ -17583,16 +17564,6 @@
     "teamAbbr": "TB",
     "position": "LB",
     "number": 59
-  },
-  {
-    "id": "nfl:4567403",
-    "name": "Mohamoud Diabate",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "LB",
-    "number": 44
   },
   {
     "id": "nfl:4432731",
@@ -23953,7 +23924,7 @@
     "team": "Carolina Panthers",
     "teamAbbr": "CAR",
     "position": "S",
-    "number": 38
+    "number": 20
   },
   {
     "id": "nfl:4361777",
