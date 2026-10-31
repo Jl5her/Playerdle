@@ -700,6 +700,16 @@
     "number": 72
   },
   {
+    "id": "nhl:5104219",
+    "name": "Arsenii Sergeev",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "G",
+    "number": 35
+  },
+  {
     "id": "nhl:4915855",
     "name": "Arseny Gritsyuk",
     "conference": "East",
@@ -1388,26 +1398,6 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 8
-  },
-  {
-    "id": "nhl:5188647",
-    "name": "Cameron Whitehead",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vegas Golden Knights",
-    "teamAbbr": "VGK",
-    "position": "G",
-    "number": 39
-  },
-  {
-    "id": "nhl:4874743",
-    "name": "Carson Lambos",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 55
   },
   {
     "id": "nhl:4064582",
@@ -3330,6 +3320,16 @@
     "number": 2
   },
   {
+    "id": "nhl:4352798",
+    "name": "Jacob Bernard-Docker",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
+    "position": "D",
+    "number": 25
+  },
+  {
     "id": "nhl:5188437",
     "name": "Jacob Fowler",
     "conference": "East",
@@ -5158,16 +5158,6 @@
     "teamAbbr": "STL",
     "position": "C",
     "number": 83
-  },
-  {
-    "id": "nhl:4392879",
-    "name": "Mason Shaw",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 18
   },
   {
     "id": "nhl:3899946",
@@ -8258,6 +8248,16 @@
     "teamAbbr": "TOR",
     "position": "RW",
     "number": 88
+  },
+  {
+    "id": "nhl:4874893",
+    "name": "William Stromgren",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 65
   },
   {
     "id": "nhl:5103808",
