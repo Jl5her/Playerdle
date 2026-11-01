@@ -30,6 +30,16 @@
     "number": 24
   },
   {
+    "id": "nfl:4428932",
+    "name": "A.J. Woods",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
+    "position": "CB",
+    "number": 31
+  },
+  {
     "id": "nfl:3054857",
     "name": "A'Shawn Robinson",
     "conference": "NFC",
@@ -1058,16 +1068,6 @@
     "teamAbbr": "TEN",
     "position": "LB",
     "number": 53
-  },
-  {
-    "id": "nfl:4361748",
-    "name": "Anthony Johnson Jr.",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "S",
-    "number": 26
   },
   {
     "id": "nfl:4685442",
@@ -2408,6 +2408,16 @@
     "teamAbbr": "LAC",
     "position": "G",
     "number": 71
+  },
+  {
+    "id": "nfl:4426623",
+    "name": "Brant Banks",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "OT",
+    "number": 75
   },
   {
     "id": "nfl:4596602",
@@ -10884,6 +10894,16 @@
     "number": 32
   },
   {
+    "id": "nfl:4427479",
+    "name": "Jamal Hill",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "LB",
+    "number": 54
+  },
+  {
     "id": "nfl:5089178",
     "name": "Jamaree Caldwell",
     "conference": "AFC",
@@ -10972,6 +10992,16 @@
     "teamAbbr": "CHI",
     "position": "DT",
     "number": 97
+  },
+  {
+    "id": "nfl:4361988",
+    "name": "James Mitchell",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "TE",
+    "number": 84
   },
   {
     "id": "nfl:5081880",
@@ -13315,6 +13345,16 @@
     "number": 48
   },
   {
+    "id": "nfl:4566192",
+    "name": "Joshua Karty",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "PK",
+    "number": 16
+  },
+  {
     "id": "nfl:4046537",
     "name": "Joshua Metellus",
     "conference": "NFC",
@@ -15426,6 +15466,16 @@
     "number": 8
   },
   {
+    "id": "nfl:4698253",
+    "name": "Lan Larison",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "RB",
+    "number": 34
+  },
+  {
     "id": "nfl:4685272",
     "name": "Lander Barton",
     "conference": "AFC",
@@ -17014,6 +17064,16 @@
     "teamAbbr": "DET",
     "position": "DT",
     "number": 94
+  },
+  {
+    "id": "nfl:5278708",
+    "name": "Melvin Smith Jr.",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "CB",
+    "number": 39
   },
   {
     "id": "nfl:4371961",
@@ -20047,6 +20107,16 @@
     "number": 62
   },
   {
+    "id": "nfl:4369466",
+    "name": "Ryan Miller",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "WR",
+    "number": 11
+  },
+  {
     "id": "nfl:4036444",
     "name": "Ryan Neuzil",
     "conference": "NFC",
@@ -21657,6 +21727,16 @@
     "number": 48
   },
   {
+    "id": "nfl:12701",
+    "name": "Thomas Morstead",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "P",
+    "number": 13
+  },
+  {
     "id": "nfl:4361027",
     "name": "Thomas Yassmin",
     "conference": "NFC",
@@ -21675,6 +21755,16 @@
     "teamAbbr": "JAX",
     "position": "WR",
     "number": 13
+  },
+  {
+    "id": "nfl:4431414",
+    "name": "Tim Keenan III",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "DT",
+    "number": 91
   },
   {
     "id": "nfl:3134353",
