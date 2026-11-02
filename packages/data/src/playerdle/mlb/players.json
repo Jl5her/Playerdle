@@ -132,6 +132,17 @@
     "league": "NL"
   },
   {
+    "id": "mlb:5016591",
+    "name": "Aidan Curry",
+    "conference": "AL",
+    "division": "West",
+    "team": "Texas Rangers",
+    "teamAbbr": "TEX",
+    "position": "RP",
+    "number": 37,
+    "league": "AL"
+  },
+  {
     "id": "mlb:42556",
     "name": "AJ Blubaugh",
     "conference": "AL",
@@ -173,17 +184,6 @@
     "teamAbbr": "MIN",
     "position": "RF",
     "number": 18,
-    "league": "AL"
-  },
-  {
-    "id": "mlb:31109",
-    "name": "Albert Suarez",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 49,
     "league": "AL"
   },
   {
@@ -2464,17 +2464,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:42138",
-    "name": "Codi Heuer",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "RP",
-    "number": 59,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33912",
     "name": "Cody Bellinger",
     "conference": "AL",
@@ -3608,17 +3597,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:33403",
-    "name": "Emilio Pagan",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 15,
-    "league": "NL"
-  },
-  {
     "id": "mlb:5017049",
     "name": "Emmanuel Rodriguez",
     "conference": "AL",
@@ -3770,17 +3748,6 @@
     "teamAbbr": "SD",
     "position": "C",
     "number": 8,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:32367",
-    "name": "Eugenio Suarez",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "DH",
-    "number": 28,
     "league": "NL"
   },
   {
@@ -5929,17 +5896,6 @@
     "league": "AL"
   },
   {
-    "id": "mlb:40951",
-    "name": "Jose Barrero",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "SS",
-    "number": 54,
-    "league": "AL"
-  },
-  {
     "id": "mlb:42135",
     "name": "Jose Caballero",
     "conference": "AL",
@@ -7315,17 +7271,6 @@
     "league": "NL"
   },
   {
-    "id": "mlb:39631",
-    "name": "Luis Robert Jr.",
-    "conference": "AL",
-    "division": "East",
-    "team": "Baltimore Orioles",
-    "teamAbbr": "BAL",
-    "position": "CF",
-    "number": 88,
-    "league": "AL"
-  },
-  {
     "id": "mlb:33805",
     "name": "Luis Torrens",
     "conference": "NL",
@@ -8143,9 +8088,9 @@
     "id": "mlb:4752203",
     "name": "Nate Furman",
     "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
+    "division": "East",
+    "team": "Washington Nationals",
+    "teamAbbr": "WSH",
     "position": "2B",
     "number": 56,
     "league": "NL"
@@ -8742,17 +8687,6 @@
     "teamAbbr": "NYM",
     "position": "RP",
     "number": 57,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:32777",
-    "name": "Pierce Johnson",
-    "conference": "NL",
-    "division": "Central",
-    "team": "Cincinnati Reds",
-    "teamAbbr": "CIN",
-    "position": "RP",
-    "number": 52,
     "league": "NL"
   },
   {
@@ -9524,17 +9458,6 @@
     "position": "LF",
     "number": 0,
     "league": "NL"
-  },
-  {
-    "id": "mlb:4991148",
-    "name": "Sammy Peralta",
-    "conference": "AL",
-    "division": "West",
-    "team": "Los Angeles Angels",
-    "teamAbbr": "LAA",
-    "position": "RP",
-    "number": 67,
-    "league": "AL"
   },
   {
     "id": "mlb:4917646",
@@ -11283,17 +11206,6 @@
     "teamAbbr": "COL",
     "position": "RP",
     "number": 36,
-    "league": "NL"
-  },
-  {
-    "id": "mlb:5127801",
-    "name": "Zach Brzykcy",
-    "conference": "NL",
-    "division": "East",
-    "team": "Miami Marlins",
-    "teamAbbr": "MIA",
-    "position": "RP",
-    "number": 62,
     "league": "NL"
   },
   {
