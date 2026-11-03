@@ -960,16 +960,6 @@
     "number": 46
   },
   {
-    "id": "nhl:4378685",
-    "name": "Bo Groulx",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 29
-  },
-  {
     "id": "nhl:3042002",
     "name": "Bo Horvat",
     "conference": "East",
@@ -4378,6 +4368,16 @@
     "teamAbbr": "EDM",
     "position": "RW",
     "number": 42
+  },
+  {
+    "id": "nhl:4271557",
+    "name": "Keaton Middleton",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "D",
+    "number": 67
   },
   {
     "id": "nhl:3941546",
