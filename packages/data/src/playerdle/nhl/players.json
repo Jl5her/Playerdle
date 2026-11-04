@@ -1020,16 +1020,6 @@
     "number": 24
   },
   {
-    "id": "nhl:5080178",
-    "name": "Brad Lambert",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "C",
-    "number": 93
-  },
-  {
     "id": "nhl:3852",
     "name": "Brad Marchand",
     "conference": "East",
@@ -2178,6 +2168,16 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 7
+  },
+  {
+    "id": "nhl:5090524",
+    "name": "Dillon Boucher",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "LW",
+    "number": 36
   },
   {
     "id": "nhl:4063268",
@@ -3360,6 +3360,16 @@
     "number": 59
   },
   {
+    "id": "nhl:5206630",
+    "name": "Jake Livanavage",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "D",
+    "number": 4
+  },
+  {
     "id": "nhl:3020803",
     "name": "Jake McCabe",
     "conference": "East",
@@ -3538,6 +3548,16 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 46
+  },
+  {
+    "id": "nhl:5188348",
+    "name": "Jaroslav Chmelar",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New York Rangers",
+    "teamAbbr": "NYR",
+    "position": "RW",
+    "number": 49
   },
   {
     "id": "nhl:3042062",
@@ -5960,6 +5980,16 @@
     "number": 13
   },
   {
+    "id": "nhl:5149221",
+    "name": "Nico Myatovic",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "LW",
+    "number": 48
+  },
+  {
     "id": "nhl:4320625",
     "name": "Nico Sturm",
     "conference": "West",
@@ -7450,16 +7480,6 @@
     "number": 14
   },
   {
-    "id": "nhl:4781650",
-    "name": "Taylor Ward",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "RW",
-    "number": 17
-  },
-  {
     "id": "nhl:3024916",
     "name": "Teddy Blueger",
     "conference": "East",
@@ -7688,6 +7708,16 @@
     "teamAbbr": "PHI",
     "position": "C",
     "number": 46
+  },
+  {
+    "id": "nhl:5302584",
+    "name": "Trey Taylor",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "D",
+    "number": 27
   },
   {
     "id": "nhl:3042020",
@@ -8238,16 +8268,6 @@
     "teamAbbr": "CHI",
     "position": "D",
     "number": 44
-  },
-  {
-    "id": "nhl:4874739",
-    "name": "Xavier Bourgault",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "RW",
-    "number": 53
   },
   {
     "id": "nhl:3904188",
