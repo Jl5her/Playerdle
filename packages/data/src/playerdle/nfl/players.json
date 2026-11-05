@@ -1350,16 +1350,6 @@
     "number": 70
   },
   {
-    "id": "nfl:4569682",
-    "name": "Audric Estime",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "RB",
-    "number": 30
-  },
-  {
     "id": "nfl:3920814",
     "name": "Austen Pleasants",
     "conference": "NFC",
@@ -4538,7 +4528,7 @@
     "division": "AFC North",
     "team": "Baltimore Ravens",
     "teamAbbr": "BAL",
-    "position": "G",
+    "position": "OT",
     "number": 62
   },
   {
@@ -4690,16 +4680,6 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 0
-  },
-  {
-    "id": "nfl:4241983",
-    "name": "Cody White",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "WR",
-    "number": 82
   },
   {
     "id": "nfl:5092508",
@@ -5222,6 +5202,16 @@
     "number": 48
   },
   {
+    "id": "nfl:4878824",
+    "name": "Da'Metrius Weatherspoon",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "OT",
+    "number": 76
+  },
+  {
     "id": "nfl:3126352",
     "name": "Da'Shawn Hand",
     "conference": "NFC",
@@ -5600,6 +5590,16 @@
     "teamAbbr": "IND",
     "position": "S",
     "number": 32
+  },
+  {
+    "id": "nfl:4878293",
+    "name": "Daniel Sobkowicz",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "WR",
+    "number": 17
   },
   {
     "id": "nfl:4035505",
@@ -7571,6 +7571,16 @@
     "teamAbbr": "HOU",
     "position": "LB",
     "number": 45
+  },
+  {
+    "id": "nfl:4242292",
+    "name": "Earnest Brown IV",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "DE",
+    "number": 99
   },
   {
     "id": "nfl:4696488",
@@ -9994,16 +10004,6 @@
     "number": 69
   },
   {
-    "id": "nfl:3925443",
-    "name": "Jacob Bobenmoyer",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Jacksonville Jaguars",
-    "teamAbbr": "JAX",
-    "position": "LS",
-    "number": 55
-  },
-  {
     "id": "nfl:4575665",
     "name": "Jacob Cowing",
     "conference": "NFC",
@@ -10012,6 +10012,16 @@
     "teamAbbr": "SF",
     "position": "WR",
     "number": 4
+  },
+  {
+    "id": "nfl:5155179",
+    "name": "Jacob De Jesus",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "WR",
+    "number": 80
   },
   {
     "id": "nfl:3138764",
@@ -10132,6 +10142,16 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 86
+  },
+  {
+    "id": "nfl:4362910",
+    "name": "Jaden Crumedy",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "DT",
+    "number": 95
   },
   {
     "id": "nfl:4426435",
@@ -10994,6 +11014,16 @@
     "number": 23
   },
   {
+    "id": "nfl:3916204",
+    "name": "James Proche II",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "WR",
+    "number": 80
+  },
+  {
     "id": "nfl:4693371",
     "name": "James Thompson Jr.",
     "conference": "NFC",
@@ -11232,6 +11262,16 @@
     "teamAbbr": "NYJ",
     "position": "CB",
     "number": 2
+  },
+  {
+    "id": "nfl:4372519",
+    "name": "Jashaun Corbin",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "RB",
+    "number": 36
   },
   {
     "id": "nfl:4432730",
@@ -13214,16 +13254,6 @@
     "number": 10
   },
   {
-    "id": "nfl:2979632",
-    "name": "Josh Tupou",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "DT",
-    "number": 94
-  },
-  {
     "id": "nfl:4046528",
     "name": "Josh Uche",
     "conference": "AFC",
@@ -13754,6 +13784,16 @@
     "number": 52
   },
   {
+    "id": "nfl:4242521",
+    "name": "K.J. Britt",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "LB",
+    "number": 35
+  },
+  {
     "id": "nfl:3916566",
     "name": "K.J. Osborn",
     "conference": "AFC",
@@ -13822,16 +13862,6 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 10
-  },
-  {
-    "id": "nfl:4291489",
-    "name": "Kader Kohou",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "CB",
-    "number": 26
   },
   {
     "id": "nfl:4870976",
@@ -15313,16 +15343,6 @@
     "teamAbbr": "MIN",
     "position": "QB",
     "number": 1
-  },
-  {
-    "id": "nfl:4677281",
-    "name": "Kyonte Hamilton",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "DT",
-    "number": 58
   },
   {
     "id": "nfl:4430737",
@@ -18638,12 +18658,13 @@
   {
     "id": "nfl:4567219",
     "name": "Owen Pappoe",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
     "position": "LB",
-    "number": 40
+    "number": 40,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4432595",
@@ -22304,6 +22325,16 @@
     "teamAbbr": "CAR",
     "position": "RB",
     "number": 23
+  },
+  {
+    "id": "nfl:4427140",
+    "name": "Trevor Keegan",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Tampa Bay Buccaneers",
+    "teamAbbr": "TB",
+    "position": "G",
+    "number": 69
   },
   {
     "id": "nfl:4360310",
