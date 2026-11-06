@@ -3571,16 +3571,6 @@
     "number": 24
   },
   {
-    "id": "nfl:4685540",
-    "name": "Carsen Ryan",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "TE",
-    "number": 48
-  },
-  {
     "id": "nfl:4430841",
     "name": "Carson Beck",
     "conference": "NFC",
@@ -3639,16 +3629,6 @@
     "teamAbbr": "MIN",
     "position": "QB",
     "number": 11
-  },
-  {
-    "id": "nfl:5155825",
-    "name": "Carter Runyon",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "TE",
-    "number": 84
   },
   {
     "id": "nfl:4565779",
@@ -4680,6 +4660,16 @@
     "teamAbbr": "ARI",
     "position": "LB",
     "number": 0
+  },
+  {
+    "id": "nfl:4241983",
+    "name": "Cody White",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "WR",
+    "number": 82
   },
   {
     "id": "nfl:5092508",
@@ -5940,6 +5930,16 @@
     "teamAbbr": "NO",
     "position": "G",
     "number": 76
+  },
+  {
+    "id": "nfl:4046536",
+    "name": "David Long Jr.",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "CB",
+    "number": 22
   },
   {
     "id": "nfl:4360978",
@@ -10414,16 +10414,6 @@
     "number": 41
   },
   {
-    "id": "nfl:4243322",
-    "name": "Jake Haener",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "QB",
-    "number": 13
-  },
-  {
     "id": "nfl:4033812",
     "name": "Jake Hansen",
     "conference": "AFC",
@@ -12072,16 +12062,6 @@
     "teamAbbr": "MIN",
     "position": "LB",
     "number": 53
-  },
-  {
-    "id": "nfl:4689804",
-    "name": "Jimmy Ciarlo",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
-    "position": "LB",
-    "number": 46
   },
   {
     "id": "nfl:4431142",
@@ -14274,6 +14254,16 @@
     "number": 34
   },
   {
+    "id": "nfl:4428512",
+    "name": "Kedon Slovis",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "QB",
+    "number": 18
+  },
+  {
     "id": "nfl:4426694",
     "name": "Keeanu Benton",
     "conference": "AFC",
@@ -14942,6 +14932,16 @@
     "team": "Los Angeles Chargers",
     "teamAbbr": "LAC",
     "position": "RB",
+    "number": 28
+  },
+  {
+    "id": "nfl:4036651",
+    "name": "Kindle Vildor",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "CB",
     "number": 28
   },
   {
@@ -15933,16 +15933,6 @@
     "teamAbbr": "LAC",
     "position": "WR",
     "number": 87
-  },
-  {
-    "id": "nfl:4686884",
-    "name": "Luke Haggard",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Tampa Bay Buccaneers",
-    "teamAbbr": "TB",
-    "position": "G",
-    "number": 72
   },
   {
     "id": "nfl:4426948",
@@ -17203,6 +17193,16 @@
     "teamAbbr": "ATL",
     "position": "OT",
     "number": 72
+  },
+  {
+    "id": "nfl:4040622",
+    "name": "Michael Jordan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "G",
+    "number": 67
   },
   {
     "id": "nfl:4362010",
