@@ -700,16 +700,6 @@
     "number": 72
   },
   {
-    "id": "nhl:5104219",
-    "name": "Arsenii Sergeev",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "G",
-    "number": 35
-  },
-  {
     "id": "nhl:4915855",
     "name": "Arseny Gritsyuk",
     "conference": "East",
@@ -1158,6 +1148,16 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 10
+  },
+  {
+    "id": "nhl:5149188",
+    "name": "Brayden Yager",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Winnipeg Jets",
+    "teamAbbr": "WPG",
+    "position": "C",
+    "number": 29
   },
   {
     "id": "nhl:5614",
@@ -3320,6 +3320,16 @@
     "number": 71
   },
   {
+    "id": "nhl:5080204",
+    "name": "Jagger Firkus",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Seattle Kraken",
+    "teamAbbr": "SEA",
+    "position": "RW",
+    "number": 57
+  },
+  {
     "id": "nhl:5111",
     "name": "Jake Allen",
     "conference": "East",
@@ -3488,16 +3498,6 @@
     "teamAbbr": "BOS",
     "position": "C",
     "number": 44
-  },
-  {
-    "id": "nhl:3870",
-    "name": "James Reimer",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
-    "position": "G",
-    "number": 47
   },
   {
     "id": "nhl:3998",
