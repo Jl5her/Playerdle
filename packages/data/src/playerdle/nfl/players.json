@@ -3631,6 +3631,16 @@
     "number": 11
   },
   {
+    "id": "nfl:5155825",
+    "name": "Carter Runyon",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
+    "position": "TE",
+    "number": 84
+  },
+  {
     "id": "nfl:4565779",
     "name": "Carver Willis",
     "conference": "NFC",
@@ -10096,12 +10106,13 @@
   {
     "id": "nfl:2578570",
     "name": "Jacoby Brissett",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
     "position": "QB",
-    "number": 7
+    "number": 7,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4428909",
@@ -19025,16 +19036,6 @@
     "teamAbbr": "BUF",
     "position": "DT",
     "number": 72
-  },
-  {
-    "id": "nfl:2579604",
-    "name": "Phillip Dorsett II",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "WR",
-    "number": 13
   },
   {
     "id": "nfl:4249836",
