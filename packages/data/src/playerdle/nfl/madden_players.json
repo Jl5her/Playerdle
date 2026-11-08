@@ -1848,20 +1848,6 @@
     "str": 72
   },
   {
-    "id": "nfl:4599739",
-    "name": "Kendre Miller",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "RB",
-    "number": 5,
-    "ovr": 75,
-    "spd": 90,
-    "awr": 76,
-    "str": 75
-  },
-  {
     "id": "nfl:4567048",
     "name": "Kenneth Walker III",
     "conference": "AFC",
@@ -2084,6 +2070,20 @@
     "spd": 89,
     "awr": 75,
     "str": 69
+  },
+  {
+    "id": "nfl:4240603",
+    "name": "Malik Davis",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "RB",
+    "number": 20,
+    "ovr": 73,
+    "spd": 88,
+    "awr": 78,
+    "str": 64
   },
   {
     "id": "nfl:4595348",
