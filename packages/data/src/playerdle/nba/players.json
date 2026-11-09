@@ -3843,11 +3843,12 @@
     "id": "nba:4702384",
     "name": "Nique Clifford",
     "conference": "West",
-    "division": "Pacific",
-    "team": "Sacramento Kings",
-    "teamAbbr": "SAC",
+    "division": "Northwest",
+    "team": "Oklahoma City Thunder",
+    "teamAbbr": "OKC",
     "position": "G",
-    "number": 10
+    "number": 10,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5242496",
