@@ -6319,8 +6319,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "DT",
-    "number": 99,
-    "numberBackfilled": true
+    "number": 99
   },
   {
     "id": "nfl:4683151",
@@ -9171,7 +9170,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "WR",
-    "number": 30
+    "number": 83
   },
   {
     "id": "nfl:4431214",
@@ -12086,12 +12085,12 @@
   {
     "id": "nfl:3919512",
     "name": "Jessie Bates III",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
     "position": "S",
-    "number": 3
+    "number": 30
   },
   {
     "id": "nfl:4373809",
@@ -24094,7 +24093,7 @@
     "team": "New Orleans Saints",
     "teamAbbr": "NO",
     "position": "RB",
-    "number": 33
+    "number": 26
   },
   {
     "id": "nfl:4685347",
