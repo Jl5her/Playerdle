@@ -782,10 +782,10 @@
   {
     "id": "nfl:4361939",
     "name": "Andre Cisco",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
     "position": "S",
     "number": 8
   },
@@ -1488,16 +1488,6 @@
     "teamAbbr": "NYJ",
     "position": "P",
     "number": 14
-  },
-  {
-    "id": "nfl:4368343",
-    "name": "Austin Reed",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Baltimore Ravens",
-    "teamAbbr": "BAL",
-    "position": "QB",
-    "number": 16
   },
   {
     "id": "nfl:4038544",
@@ -6104,10 +6094,10 @@
   {
     "id": "nfl:3115383",
     "name": "Davon Godchaux",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
     "position": "DT",
     "number": 92
   },
@@ -6600,16 +6590,6 @@
     "teamAbbr": "CAR",
     "position": "DT",
     "number": 95
-  },
-  {
-    "id": "nfl:4429366",
-    "name": "Derrick Canteen",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "CB",
-    "number": 42
   },
   {
     "id": "nfl:4682980",
@@ -9993,16 +9973,6 @@
     "number": 46
   },
   {
-    "id": "nfl:4602788",
-    "name": "Jackson Meeks",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "WR",
-    "number": 13
-  },
-  {
     "id": "nfl:4875295",
     "name": "Jackson Powers-Johnson",
     "conference": "AFC",
@@ -12133,6 +12103,16 @@
     "number": 53
   },
   {
+    "id": "nfl:4689804",
+    "name": "Jimmy Ciarlo",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
+    "position": "LB",
+    "number": 46
+  },
+  {
     "id": "nfl:4431142",
     "name": "Jimmy Holiday",
     "conference": "AFC",
@@ -12785,10 +12765,10 @@
   {
     "id": "nfl:4381558",
     "name": "Jordan Davis",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
     "position": "DT",
     "number": 90
   },
@@ -13031,16 +13011,6 @@
     "teamAbbr": "LAR",
     "position": "LB",
     "number": 10
-  },
-  {
-    "id": "nfl:4569068",
-    "name": "Jose Ramirez",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "LB",
-    "number": 43
   },
   {
     "id": "nfl:4362094",
@@ -17774,6 +17744,16 @@
     "number": 38
   },
   {
+    "id": "nfl:4243009",
+    "name": "Mykal Walker",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "LB",
+    "number": 43
+  },
+  {
     "id": "nfl:4685623",
     "name": "Mykel Williams",
     "conference": "NFC",
@@ -21294,16 +21274,6 @@
     "teamAbbr": "HOU",
     "position": "WR",
     "number": 1
-  },
-  {
-    "id": "nfl:4683308",
-    "name": "Tanner Arkin",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New England Patriots",
-    "teamAbbr": "NE",
-    "position": "TE",
-    "number": 84
   },
   {
     "id": "nfl:3050481",
