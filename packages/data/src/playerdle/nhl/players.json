@@ -80,16 +80,6 @@
     "number": 81
   },
   {
-    "id": "nhl:5216884",
-    "name": "Adam Jiricek",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "D",
-    "number": 36
-  },
-  {
     "id": "nhl:5073306",
     "name": "Adam Klapka",
     "conference": "West",
@@ -268,6 +258,16 @@
     "teamAbbr": "EDM",
     "position": "LW",
     "number": 26
+  },
+  {
+    "id": "nhl:5188419",
+    "name": "Alex Gagne",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "D",
+    "number": 28
   },
   {
     "id": "nhl:3652598",
@@ -1340,6 +1340,16 @@
     "number": 82
   },
   {
+    "id": "nhl:4220707",
+    "name": "Calle Rosen",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "St. Louis Blues",
+    "teamAbbr": "STL",
+    "position": "D",
+    "number": 43
+  },
+  {
     "id": "nhl:5149210",
     "name": "Calum Ritchie",
     "conference": "East",
@@ -1388,16 +1398,6 @@
     "teamAbbr": "PHI",
     "position": "D",
     "number": 8
-  },
-  {
-    "id": "nhl:4587571",
-    "name": "Cameron Crotty",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "D",
-    "number": 34
   },
   {
     "id": "nhl:4064582",
@@ -2708,16 +2708,6 @@
     "teamAbbr": "COL",
     "position": "C",
     "number": 9
-  },
-  {
-    "id": "nhl:5080175",
-    "name": "Filip Bystedt",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "C",
-    "number": 18
   },
   {
     "id": "nhl:4233643",
@@ -4278,6 +4268,16 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 72
+  },
+  {
+    "id": "nhl:5763",
+    "name": "Justin Holl",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Washington Capitals",
+    "teamAbbr": "WSH",
+    "position": "D",
+    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -6710,6 +6710,16 @@
     "number": 49
   },
   {
+    "id": "nhl:4697829",
+    "name": "Remi Poirier",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Dallas Stars",
+    "teamAbbr": "DAL",
+    "position": "G",
+    "number": 31
+  },
+  {
     "id": "nhl:2562629",
     "name": "Rickard Rakell",
     "conference": "East",
@@ -6728,6 +6738,16 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 71
+  },
+  {
+    "id": "nhl:4024985",
+    "name": "Riley Tufte",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "LW",
+    "number": 10
   },
   {
     "id": "nhl:4233637",
@@ -7038,6 +7058,16 @@
     "teamAbbr": "MTL",
     "position": "G",
     "number": 35
+  },
+  {
+    "id": "nhl:5216901",
+    "name": "Sam O'Reilly",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Tampa Bay Lightning",
+    "teamAbbr": "TB",
+    "position": "RW",
+    "number": 23
   },
   {
     "id": "nhl:3114722",
@@ -7570,16 +7600,6 @@
     "number": 35
   },
   {
-    "id": "nhl:5149212",
-    "name": "Theo Lindstein",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "D",
-    "number": 4
-  },
-  {
     "id": "nhl:3900219",
     "name": "Thomas Chabot",
     "conference": "East",
@@ -7770,16 +7790,6 @@
     "number": 46
   },
   {
-    "id": "nhl:5302584",
-    "name": "Trey Taylor",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "D",
-    "number": 27
-  },
-  {
     "id": "nhl:3042020",
     "name": "Tristan Jarry",
     "conference": "West",
@@ -7878,16 +7888,6 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 57
-  },
-  {
-    "id": "nhl:5526",
-    "name": "Tyler Pitlick",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "C",
-    "number": 19
   },
   {
     "id": "nhl:5430",
@@ -8378,6 +8378,16 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:4781635",
+    "name": "Zac Jones",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "D",
+    "number": 15
   },
   {
     "id": "nhl:5149186",
