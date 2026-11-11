@@ -793,11 +793,12 @@
     "id": "nba:5105817",
     "name": "Carson Cooper",
     "conference": "West",
-    "division": "Southwest",
-    "team": "Memphis Grizzlies",
-    "teamAbbr": "MEM",
+    "division": "Pacific",
+    "team": "Los Angeles Lakers",
+    "teamAbbr": "LAL",
     "position": "C",
-    "number": 20
+    "number": 20,
+    "numberBackfilled": true
   },
   {
     "id": "nba:5061568",
@@ -850,16 +851,6 @@
     "number": 28
   },
   {
-    "id": "nba:4700852",
-    "name": "Chaz Lanier",
-    "conference": "East",
-    "division": "Central",
-    "team": "Detroit Pistons",
-    "teamAbbr": "DET",
-    "position": "G",
-    "number": 8
-  },
-  {
     "id": "nba:4433255",
     "name": "Chet Holmgren",
     "conference": "West",
@@ -868,6 +859,16 @@
     "teamAbbr": "OKC",
     "position": "C",
     "number": 7
+  },
+  {
+    "id": "nba:5142621",
+    "name": "Chris Cenac Jr.",
+    "conference": "East",
+    "division": "Atlantic",
+    "team": "Boston Celtics",
+    "teamAbbr": "BOS",
+    "position": "F",
+    "number": 12
   },
   {
     "id": "nba:4702972",
@@ -1838,16 +1839,6 @@
     "teamAbbr": "HOU",
     "position": "F",
     "number": 27
-  },
-  {
-    "id": "nba:5061585",
-    "name": "Isaiah Evans",
-    "conference": "West",
-    "division": "Northwest",
-    "team": "Minnesota Timberwolves",
-    "teamAbbr": "MIN",
-    "position": "F",
-    "number": 33
   },
   {
     "id": "nba:4222252",
