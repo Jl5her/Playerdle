@@ -2970,16 +2970,6 @@
     "number": 22
   },
   {
-    "id": "nhl:4997138",
-    "name": "Henry Thrun",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Winnipeg Jets",
-    "teamAbbr": "WPG",
-    "position": "D",
-    "number": 8
-  },
-  {
     "id": "nhl:4991",
     "name": "Ian Cole",
     "conference": "West",
@@ -3288,6 +3278,16 @@
     "teamAbbr": "ANA",
     "position": "D",
     "number": 2
+  },
+  {
+    "id": "nhl:5302564",
+    "name": "Jackson Parsons",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Ottawa Senators",
+    "teamAbbr": "OTT",
+    "position": "G",
+    "number": 32
   },
   {
     "id": "nhl:4352798",
@@ -6980,6 +6980,16 @@
     "number": 22
   },
   {
+    "id": "nhl:4697771",
+    "name": "Ryan Tverberg",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 77
+  },
+  {
     "id": "nhl:4894928",
     "name": "Ryan Winterton",
     "conference": "West",
@@ -8158,16 +8168,6 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 16
-  },
-  {
-    "id": "nhl:3095892",
-    "name": "Vinni Lettieri",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 71
   },
   {
     "id": "nhl:5346852",

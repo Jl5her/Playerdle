@@ -1,5 +1,21 @@
 [
   {
+    "id": "nhl:4024123",
+    "name": "Auston Matthews",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 34,
+    "gp": 20,
+    "goals": 11,
+    "assists": 17,
+    "points": 28,
+    "sog": 62,
+    "toiPerGame": 20.5
+  },
+  {
     "id": "nhl:3069411",
     "name": "Barclay Goodrow",
     "conference": "West",
@@ -14,6 +30,54 @@
     "points": 1,
     "sog": 15,
     "toiPerGame": 11.3
+  },
+  {
+    "id": "nhl:2563026",
+    "name": "Blake Coleman",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "LW",
+    "number": 20,
+    "gp": 20,
+    "goals": 5,
+    "assists": 3,
+    "points": 8,
+    "sog": 40,
+    "toiPerGame": 15.9
+  },
+  {
+    "id": "nhl:4565257",
+    "name": "Bobby Brink",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "RW",
+    "number": 10,
+    "gp": 20,
+    "goals": 2,
+    "assists": 8,
+    "points": 10,
+    "sog": 33,
+    "toiPerGame": 13.6
+  },
+  {
+    "id": "nhl:4197009",
+    "name": "Brandon Duhaime",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 24,
+    "gp": 20,
+    "goals": 1,
+    "assists": 3,
+    "points": 4,
+    "sog": 16,
+    "toiPerGame": 11.9
   },
   {
     "id": "nhl:3899979",
@@ -64,6 +128,38 @@
     "toiPerGame": 15.3
   },
   {
+    "id": "nhl:5080172",
+    "name": "Danila Yurov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "RW",
+    "number": 22,
+    "gp": 20,
+    "goals": 6,
+    "assists": 1,
+    "points": 7,
+    "sog": 28,
+    "toiPerGame": 15
+  },
+  {
+    "id": "nhl:3149843",
+    "name": "Darren Raddysh",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 43,
+    "gp": 20,
+    "goals": 1,
+    "assists": 11,
+    "points": 12,
+    "sog": 46,
+    "toiPerGame": 23.9
+  },
+  {
     "id": "nhl:5646",
     "name": "Dmitry Orlov",
     "conference": "West",
@@ -94,6 +190,22 @@
     "points": 5,
     "sog": 26,
     "toiPerGame": 15.7
+  },
+  {
+    "id": "nhl:5149211",
+    "name": "Easton Cowan",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 53,
+    "gp": 20,
+    "goals": 7,
+    "assists": 9,
+    "points": 16,
+    "sog": 41,
+    "toiPerGame": 15.8
   },
   {
     "id": "nhl:4233566",
@@ -128,6 +240,22 @@
     "toiPerGame": 26.4
   },
   {
+    "id": "nhl:5342529",
+    "name": "Gavin McKenna",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 92,
+    "gp": 20,
+    "goals": 6,
+    "assists": 7,
+    "points": 13,
+    "sog": 36,
+    "toiPerGame": 14.1
+  },
+  {
     "id": "nhl:5361709",
     "name": "Ivar Stenberg",
     "conference": "West",
@@ -140,7 +268,7 @@
     "goals": 6,
     "assists": 6,
     "points": 12,
-    "sog": 31,
+    "sog": 32,
     "toiPerGame": 16.1
   },
   {
@@ -160,6 +288,22 @@
     "toiPerGame": 22.1
   },
   {
+    "id": "nhl:3020803",
+    "name": "Jake McCabe",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 22,
+    "gp": 20,
+    "goals": 0,
+    "assists": 3,
+    "points": 3,
+    "sog": 20,
+    "toiPerGame": 20.1
+  },
+  {
     "id": "nhl:4697387",
     "name": "Jamie Drysdale",
     "conference": "East",
@@ -174,6 +318,38 @@
     "points": 9,
     "sog": 26,
     "toiPerGame": 23
+  },
+  {
+    "id": "nhl:3904091",
+    "name": "Joel Eriksson Ek",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 14,
+    "gp": 20,
+    "goals": 6,
+    "assists": 11,
+    "points": 17,
+    "sog": 64,
+    "toiPerGame": 19.8
+  },
+  {
+    "id": "nhl:2562600",
+    "name": "Jonas Brodin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 25,
+    "gp": 20,
+    "goals": 0,
+    "assists": 7,
+    "points": 7,
+    "sog": 21,
+    "toiPerGame": 22.6
   },
   {
     "id": "nhl:5080159",
@@ -208,6 +384,22 @@
     "toiPerGame": 15.9
   },
   {
+    "id": "nhl:3942335",
+    "name": "Kirill Kaprizov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "LW",
+    "number": 97,
+    "gp": 20,
+    "goals": 17,
+    "assists": 15,
+    "points": 32,
+    "sog": 62,
+    "toiPerGame": 21.5
+  },
+  {
     "id": "nhl:4587713",
     "name": "Linus Karlsson",
     "conference": "West",
@@ -238,6 +430,22 @@
     "points": 7,
     "sog": 37,
     "toiPerGame": 16.6
+  },
+  {
+    "id": "nhl:4565233",
+    "name": "Matt Boldy",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "LW",
+    "number": 12,
+    "gp": 20,
+    "goals": 7,
+    "assists": 11,
+    "points": 18,
+    "sog": 83,
+    "toiPerGame": 21.4
   },
   {
     "id": "nhl:5149170",
@@ -300,8 +508,24 @@
     "goals": 4,
     "assists": 7,
     "points": 11,
-    "sog": 28,
+    "sog": 29,
     "toiPerGame": 14.7
+  },
+  {
+    "id": "nhl:3042111",
+    "name": "Nick Paul",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "LW",
+    "number": 20,
+    "gp": 20,
+    "goals": 2,
+    "assists": 5,
+    "points": 7,
+    "sog": 21,
+    "toiPerGame": 16.2
   },
   {
     "id": "nhl:2564164",
@@ -352,6 +576,22 @@
     "toiPerGame": 13.7
   },
   {
+    "id": "nhl:5488",
+    "name": "Oliver Ekman-Larsson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 95,
+    "gp": 20,
+    "goals": 0,
+    "assists": 1,
+    "points": 1,
+    "sog": 15,
+    "toiPerGame": 18.2
+  },
+  {
     "id": "nhl:5291941",
     "name": "Porter Martone",
     "conference": "East",
@@ -368,6 +608,38 @@
     "toiPerGame": 14.1
   },
   {
+    "id": "nhl:4320548",
+    "name": "Quinn Hughes",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "D",
+    "number": 43,
+    "gp": 20,
+    "goals": 6,
+    "assists": 21,
+    "points": 27,
+    "sog": 52,
+    "toiPerGame": 28.2
+  },
+  {
+    "id": "nhl:3042063",
+    "name": "Ryan Hartman",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "RW",
+    "number": 38,
+    "gp": 20,
+    "goals": 1,
+    "assists": 3,
+    "points": 4,
+    "sog": 23,
+    "toiPerGame": 13.1
+  },
+  {
     "id": "nhl:2562601",
     "name": "Sean Couturier",
     "conference": "East",
@@ -382,6 +654,22 @@
     "points": 7,
     "sog": 22,
     "toiPerGame": 16.4
+  },
+  {
+    "id": "nhl:3024916",
+    "name": "Teddy Blueger",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 73,
+    "gp": 20,
+    "goals": 2,
+    "assists": 2,
+    "points": 4,
+    "sog": 23,
+    "toiPerGame": 13.3
   },
   {
     "id": "nhl:3114757",
@@ -416,6 +704,22 @@
     "toiPerGame": 18.5
   },
   {
+    "id": "nhl:3096102",
+    "name": "Troy Stecher",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "D",
+    "number": 28,
+    "gp": 20,
+    "goals": 2,
+    "assists": 3,
+    "points": 5,
+    "sog": 23,
+    "toiPerGame": 19.1
+  },
+  {
     "id": "nhl:5550",
     "name": "Tyler Toffoli",
     "conference": "West",
@@ -446,6 +750,38 @@
     "points": 13,
     "sog": 51,
     "toiPerGame": 19.8
+  },
+  {
+    "id": "nhl:3114736",
+    "name": "William Nylander",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "RW",
+    "number": 88,
+    "gp": 20,
+    "goals": 11,
+    "assists": 11,
+    "points": 22,
+    "sog": 56,
+    "toiPerGame": 19.9
+  },
+  {
+    "id": "nhl:3904188",
+    "name": "Yakov Trenin",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 13,
+    "gp": 20,
+    "goals": 0,
+    "assists": 2,
+    "points": 2,
+    "sog": 20,
+    "toiPerGame": 13.1
   },
   {
     "id": "nhl:5206642",
