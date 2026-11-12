@@ -4305,11 +4305,12 @@
     "id": "nfl:4034530",
     "name": "Chris Williams",
     "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
+    "division": "AFC West",
+    "team": "Las Vegas Raiders",
+    "teamAbbr": "LV",
     "position": "DT",
-    "number": 61
+    "number": 61,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4685479",
@@ -4724,12 +4725,13 @@
   {
     "id": "nfl:4430818",
     "name": "Cole Brevard",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
     "position": "DT",
-    "number": 96
+    "number": 96,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:5192448",
@@ -5266,8 +5268,8 @@
     "name": "Daiyan Henley",
     "conference": "AFC",
     "division": "AFC West",
-    "team": "Denver Broncos",
-    "teamAbbr": "DEN",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
     "position": "LB",
     "number": 0
   },
@@ -5990,6 +5992,16 @@
     "teamAbbr": "HOU",
     "position": "RB",
     "number": 32
+  },
+  {
+    "id": "nfl:4212909",
+    "name": "David Moore",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "WR",
+    "number": 83
   },
   {
     "id": "nfl:3123076",
@@ -8652,16 +8664,6 @@
     "number": 5
   },
   {
-    "id": "nfl:3916071",
-    "name": "Gary Jennings",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "WR",
-    "number": 87
-  },
-  {
     "id": "nfl:4708049",
     "name": "Gavin Bartholomew",
     "conference": "NFC",
@@ -9843,6 +9845,16 @@
     "number": 96
   },
   {
+    "id": "nfl:4035686",
+    "name": "Jack Jones",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "CB",
+    "number": 25
+  },
+  {
     "id": "nfl:4876380",
     "name": "Jack Kelly",
     "conference": "NFC",
@@ -9921,6 +9933,16 @@
     "teamAbbr": "CAR",
     "position": "LB",
     "number": 46
+  },
+  {
+    "id": "nfl:4602788",
+    "name": "Jackson Meeks",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "WR",
+    "number": 13
   },
   {
     "id": "nfl:4875295",
@@ -13194,6 +13216,16 @@
     "number": 31
   },
   {
+    "id": "nfl:4258198",
+    "name": "Josh Ross",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "LB",
+    "number": 52
+  },
+  {
     "id": "nfl:4039243",
     "name": "Josh Sills",
     "conference": "NFC",
@@ -14333,6 +14365,16 @@
     "teamAbbr": "DET",
     "position": "CB",
     "number": 6
+  },
+  {
+    "id": "nfl:4712462",
+    "name": "Keith Cooper Jr.",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "DT",
+    "number": 97
   },
   {
     "id": "nfl:4870707",
@@ -17616,6 +17658,16 @@
     "number": 59
   },
   {
+    "id": "nfl:4567403",
+    "name": "Mohamoud Diabate",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "LB",
+    "number": 44
+  },
+  {
     "id": "nfl:4432731",
     "name": "Moliki Matavao",
     "conference": "NFC",
@@ -18067,6 +18119,16 @@
     "number": 97
   },
   {
+    "id": "nfl:4426498",
+    "name": "Nick Broeker",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
+    "position": "G",
+    "number": 65
+  },
+  {
     "id": "nfl:4426403",
     "name": "Nick Cross",
     "conference": "NFC",
@@ -18217,6 +18279,16 @@
     "number": 21
   },
   {
+    "id": "nfl:2576399",
+    "name": "Nick Vannett",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "TE",
+    "number": 87
+  },
+  {
     "id": "nfl:3929785",
     "name": "Nick Westbrook-Ikhine",
     "conference": "AFC",
@@ -18275,16 +18347,6 @@
     "teamAbbr": "NYG",
     "position": "CB",
     "number": 35
-  },
-  {
-    "id": "nfl:4372716",
-    "name": "Nikko Remigio",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "WR",
-    "number": 81
   },
   {
     "id": "nfl:5348412",
@@ -21176,6 +21238,16 @@
     "teamAbbr": "HOU",
     "position": "WR",
     "number": 1
+  },
+  {
+    "id": "nfl:4683308",
+    "name": "Tanner Arkin",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New England Patriots",
+    "teamAbbr": "NE",
+    "position": "TE",
+    "number": 84
   },
   {
     "id": "nfl:3050481",
