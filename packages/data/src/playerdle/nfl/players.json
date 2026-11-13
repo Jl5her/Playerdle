@@ -340,16 +340,6 @@
     "number": 57
   },
   {
-    "id": "nfl:4427190",
-    "name": "AJ Finley",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
-    "position": "S",
-    "number": 30
-  },
-  {
     "id": "nfl:4429053",
     "name": "AJ Henning",
     "conference": "AFC",
@@ -608,6 +598,16 @@
     "teamAbbr": "DAL",
     "position": "S",
     "number": 11
+  },
+  {
+    "id": "nfl:4577494",
+    "name": "Alijah Huzzie",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "CB",
+    "number": 21
   },
   {
     "id": "nfl:4259646",
@@ -18137,6 +18137,16 @@
     "teamAbbr": "WSH",
     "position": "S",
     "number": 25
+  },
+  {
+    "id": "nfl:4692796",
+    "name": "Nick DeGennaro",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "WR",
+    "number": 88
   },
   {
     "id": "nfl:4869523",
