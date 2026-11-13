@@ -1170,6 +1170,16 @@
     "number": 29
   },
   {
+    "id": "nhl:4697412",
+    "name": "Brendan Brisson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 90
+  },
+  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "West",
@@ -2117,7 +2127,7 @@
     "team": "Winnipeg Jets",
     "teamAbbr": "WPG",
     "position": "C",
-    "number": 91
+    "number": 19
   },
   {
     "id": "nhl:5103825",
@@ -4460,16 +4470,6 @@
     "number": 55
   },
   {
-    "id": "nhl:5104190",
-    "name": "Kenny Connors",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Los Angeles Kings",
-    "teamAbbr": "LA",
-    "position": "C",
-    "number": 34
-  },
-  {
     "id": "nhl:4781553",
     "name": "Kent Johnson",
     "conference": "East",
@@ -4690,6 +4690,16 @@
     "number": 31
   },
   {
+    "id": "nhl:5149245",
+    "name": "Lenni Hameenaho",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "RW",
+    "number": 29
+  },
+  {
     "id": "nhl:5149153",
     "name": "Leo Carlsson",
     "conference": "West",
@@ -4827,7 +4837,7 @@
     "team": "New York Islanders",
     "teamAbbr": "NYI",
     "position": "D",
-    "number": 64
+    "number": 8
   },
   {
     "id": "nhl:4272888",
@@ -7490,6 +7500,16 @@
     "number": 24
   },
   {
+    "id": "nhl:2562623",
+    "name": "Stefan Noesen",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "RW",
+    "number": 11
+  },
+  {
     "id": "nhl:5136706",
     "name": "Stephen Halliday",
     "conference": "East",
@@ -8208,6 +8228,16 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 44
+  },
+  {
+    "id": "nhl:4565274",
+    "name": "Vladislav Kolyachonok",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "New Jersey Devils",
+    "teamAbbr": "NJ",
+    "position": "D",
+    "number": 18
   },
   {
     "id": "nhl:4319940",
