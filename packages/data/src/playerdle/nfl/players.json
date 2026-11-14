@@ -4152,16 +4152,6 @@
     "number": 30
   },
   {
-    "id": "nfl:4698191",
-    "name": "Chris Collier",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Las Vegas Raiders",
-    "teamAbbr": "LV",
-    "position": "RB",
-    "number": 33
-  },
-  {
     "id": "nfl:3116165",
     "name": "Chris Godwin Jr.",
     "conference": "NFC",
@@ -5722,16 +5712,6 @@
     "teamAbbr": "NE",
     "position": "DT",
     "number": 99
-  },
-  {
-    "id": "nfl:2983509",
-    "name": "Dare Ogunbowale",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "RB",
-    "number": 23
   },
   {
     "id": "nfl:4401805",
@@ -8514,16 +8494,6 @@
     "number": 38
   },
   {
-    "id": "nfl:3915106",
-    "name": "Fred Johnson",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "OT",
-    "number": 74
-  },
-  {
     "id": "nfl:3138826",
     "name": "Fred Warner",
     "conference": "NFC",
@@ -9223,16 +9193,6 @@
     "teamAbbr": "DET",
     "position": "LS",
     "number": 49
-  },
-  {
-    "id": "nfl:4241372",
-    "name": "Hollywood Brown",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
-    "position": "WR",
-    "number": 0
   },
   {
     "id": "nfl:4426992",
@@ -20490,6 +20450,16 @@
     "number": 4
   },
   {
+    "id": "nfl:4565769",
+    "name": "Sean Fresch",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "CB",
+    "number": 37
+  },
+  {
     "id": "nfl:4036275",
     "name": "Sean McKeon",
     "conference": "AFC",
@@ -23018,6 +22988,16 @@
     "teamAbbr": "WSH",
     "position": "S",
     "number": 18
+  },
+  {
+    "id": "nfl:4565908",
+    "name": "Tyler Scott",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "WR",
+    "number": 82
   },
   {
     "id": "nfl:4360689",
