@@ -1058,7 +1058,7 @@
     "team": "New York Knicks",
     "teamAbbr": "NY",
     "position": "F",
-    "number": 99
+    "number": 1
   },
   {
     "id": "nba:6606",
@@ -2541,6 +2541,16 @@
     "number": 2
   },
   {
+    "id": "nba:4433569",
+    "name": "Johni Broome",
+    "conference": "West",
+    "division": "Northwest",
+    "team": "Minnesota Timberwolves",
+    "teamAbbr": "MIN",
+    "position": "F",
+    "number": 22
+  },
+  {
     "id": "nba:5157066",
     "name": "Johnny Furphy",
     "conference": "East",
@@ -3031,6 +3041,16 @@
     "number": 3
   },
   {
+    "id": "nba:4997530",
+    "name": "Khalifa Diop",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "C",
+    "number": 18
+  },
+  {
     "id": "nba:5203685",
     "name": "Khaman Maluach",
     "conference": "West",
@@ -3098,7 +3118,7 @@
     "team": "Utah Jazz",
     "teamAbbr": "UTAH",
     "position": "G",
-    "number": 4
+    "number": 0
   },
   {
     "id": "nba:4702352",
@@ -3711,6 +3731,16 @@
     "number": 15
   },
   {
+    "id": "nba:5106268",
+    "name": "Nae'Qwan Tomlin",
+    "conference": "East",
+    "division": "Central",
+    "team": "Cleveland Cavaliers",
+    "teamAbbr": "CLE",
+    "position": "F",
+    "number": 35
+  },
+  {
     "id": "nba:4278594",
     "name": "Naji Marshall",
     "conference": "West",
@@ -3899,7 +3929,7 @@
     "team": "Cleveland Cavaliers",
     "teamAbbr": "CLE",
     "position": "C",
-    "number": 15
+    "number": 77
   },
   {
     "id": "nba:2595516",
@@ -3950,6 +3980,16 @@
     "teamAbbr": "ATL",
     "position": "F",
     "number": 17
+  },
+  {
+    "id": "nba:4593049",
+    "name": "Orlando Robinson",
+    "conference": "East",
+    "division": "Central",
+    "team": "Chicago Bulls",
+    "teamAbbr": "CHI",
+    "position": "C",
+    "number": 0
   },
   {
     "id": "nba:4432827",
