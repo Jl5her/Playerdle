@@ -1420,6 +1420,16 @@
     "number": 8
   },
   {
+    "id": "nhl:4587571",
+    "name": "Cameron Crotty",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "D",
+    "number": 51
+  },
+  {
     "id": "nhl:4064582",
     "name": "Carter Hart",
     "conference": "West",
@@ -3100,16 +3110,6 @@
     "number": 62
   },
   {
-    "id": "nhl:4697784",
-    "name": "Ilya Solovyov",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Pittsburgh Penguins",
-    "teamAbbr": "PIT",
-    "position": "D",
-    "number": 7
-  },
-  {
     "id": "nhl:3151981",
     "name": "Ilya Sorokin",
     "conference": "East",
@@ -4650,16 +4650,6 @@
     "number": 85
   },
   {
-    "id": "nhl:4393199",
-    "name": "Kyle MacLean",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Islanders",
-    "teamAbbr": "NYI",
-    "position": "C",
-    "number": 32
-  },
-  {
     "id": "nhl:5517",
     "name": "Kyle Palmieri",
     "conference": "East",
@@ -4818,16 +4808,6 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 23
-  },
-  {
-    "id": "nhl:4894822",
-    "name": "Logan Morrison",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
-    "position": "C",
-    "number": 96
   },
   {
     "id": "nhl:3988782",
@@ -5728,16 +5708,6 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 8
-  },
-  {
-    "id": "nhl:2563077",
-    "name": "Mike Reilly",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Carolina Hurricanes",
-    "teamAbbr": "CAR",
-    "position": "D",
-    "number": 6
   },
   {
     "id": "nhl:4588178",
@@ -6748,16 +6718,6 @@
     "teamAbbr": "NSH",
     "position": "LW",
     "number": 49
-  },
-  {
-    "id": "nhl:4697829",
-    "name": "Remi Poirier",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "G",
-    "number": 31
   },
   {
     "id": "nhl:2562629",
