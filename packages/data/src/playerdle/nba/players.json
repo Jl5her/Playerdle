@@ -2981,16 +2981,6 @@
     "number": 16
   },
   {
-    "id": "nba:4585618",
-    "name": "Keshon Gilbert",
-    "conference": "East",
-    "division": "Southeast",
-    "team": "Atlanta Hawks",
-    "teamAbbr": "ATL",
-    "position": "G",
-    "number": 0
-  },
-  {
     "id": "nba:3202",
     "name": "Kevin Durant",
     "conference": "West",
@@ -3479,6 +3469,16 @@
     "teamAbbr": "DEN",
     "position": "F",
     "number": 3
+  },
+  {
+    "id": "nba:2488653",
+    "name": "Mason Plumlee",
+    "conference": "West",
+    "division": "Pacific",
+    "team": "Sacramento Kings",
+    "teamAbbr": "SAC",
+    "position": "C",
+    "number": 24
   },
   {
     "id": "nba:4711294",
