@@ -667,7 +667,7 @@
     "team": "Buffalo Bills",
     "teamAbbr": "BUF",
     "position": "S",
-    "number": 37
+    "number": 22
   },
   {
     "id": "nfl:3116175",
@@ -1978,6 +1978,16 @@
     "teamAbbr": "HOU",
     "position": "OT",
     "number": 57
+  },
+  {
+    "id": "nfl:4429636",
+    "name": "Blake Freeland",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "OL",
+    "number": 76
   },
   {
     "id": "nfl:4045180",
@@ -3808,8 +3818,7 @@
     "team": "Tennessee Titans",
     "teamAbbr": "TEN",
     "position": "G",
-    "number": 62,
-    "numberBackfilled": true
+    "number": 76
   },
   {
     "id": "nfl:4688779",
@@ -6694,6 +6703,16 @@
     "number": 77
   },
   {
+    "id": "nfl:4361112",
+    "name": "Devin Culp",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "TE",
+    "number": 48
+  },
+  {
     "id": "nfl:4039050",
     "name": "Devin Duvernay",
     "conference": "NFC",
@@ -9542,7 +9561,7 @@
     "team": "Dallas Cowboys",
     "teamAbbr": "DAL",
     "position": "RB",
-    "number": 25
+    "number": 37
   },
   {
     "id": "nfl:4430280",
@@ -9962,8 +9981,7 @@
     "team": "Indianapolis Colts",
     "teamAbbr": "IND",
     "position": "LS",
-    "number": 55,
-    "numberBackfilled": true
+    "number": 48
   },
   {
     "id": "nfl:4575665",
@@ -12273,8 +12291,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "QB",
-    "number": 17,
-    "numberBackfilled": true
+    "number": 18
   },
   {
     "id": "nfl:4240824",
@@ -14264,8 +14281,7 @@
     "team": "San Francisco 49ers",
     "teamAbbr": "SF",
     "position": "WR",
-    "number": 10,
-    "numberBackfilled": true
+    "number": 3
   },
   {
     "id": "nfl:4426923",
@@ -17816,8 +17832,7 @@
     "team": "Houston Texans",
     "teamAbbr": "HOU",
     "position": "DT",
-    "number": 50,
-    "numberBackfilled": true
+    "number": 91
   },
   {
     "id": "nfl:4383440",
@@ -18290,6 +18305,16 @@
     "number": 35
   },
   {
+    "id": "nfl:4372716",
+    "name": "Nikko Remigio",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "WR",
+    "number": 88
+  },
+  {
     "id": "nfl:5348412",
     "name": "Niklas Henning",
     "conference": "AFC",
@@ -18647,8 +18672,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "LB",
-    "number": 40,
-    "numberBackfilled": true
+    "number": 51
   },
   {
     "id": "nfl:4432595",
@@ -19159,6 +19183,16 @@
     "teamAbbr": "SEA",
     "position": "G",
     "number": 53
+  },
+  {
+    "id": "nfl:4050373",
+    "name": "Quez Watkins",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
+    "position": "WR",
+    "number": 9
   },
   {
     "id": "nfl:4428350",
@@ -21781,6 +21815,16 @@
     "number": 99
   },
   {
+    "id": "nfl:4684030",
+    "name": "TJ Quinn",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "LB",
+    "number": 43
+  },
+  {
     "id": "nfl:3126997",
     "name": "Tom Kennedy",
     "conference": "NFC",
@@ -23091,6 +23135,16 @@
     "number": 29
   },
   {
+    "id": "nfl:4689333",
+    "name": "Tyrus Wheat",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Dallas Cowboys",
+    "teamAbbr": "DAL",
+    "position": "LB",
+    "number": 59
+  },
+  {
     "id": "nfl:4434153",
     "name": "Tyson Bagent",
     "conference": "NFC",
@@ -23728,7 +23782,7 @@
     "team": "Los Angeles Rams",
     "teamAbbr": "LAR",
     "position": "WR",
-    "number": 19
+    "number": 14
   },
   {
     "id": "nfl:4431005",
@@ -24018,7 +24072,7 @@
     "team": "Miami Dolphins",
     "teamAbbr": "MIA",
     "position": "PK",
-    "number": 45
+    "number": 31
   },
   {
     "id": "nfl:4244606",
