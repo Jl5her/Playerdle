@@ -2533,9 +2533,9 @@
     "id": "mlb:4995352",
     "name": "Christian Cairo",
     "conference": "NL",
-    "division": "East",
-    "team": "New York Mets",
-    "teamAbbr": "NYM",
+    "division": "West",
+    "team": "Los Angeles Dodgers",
+    "teamAbbr": "LAD",
     "position": "SS",
     "number": 70,
     "league": "NL"
@@ -4103,6 +4103,17 @@
     "league": "AL"
   },
   {
+    "id": "mlb:37911",
+    "name": "Evan Phillips",
+    "conference": "NL",
+    "division": "East",
+    "team": "Atlanta Braves",
+    "teamAbbr": "ATL",
+    "position": "RP",
+    "number": 59,
+    "league": "NL"
+  },
+  {
     "id": "mlb:4904087",
     "name": "Evan Reifert",
     "conference": "AL",
@@ -5486,6 +5497,17 @@
     "teamAbbr": "BOS",
     "position": "DH",
     "number": 37,
+    "league": "AL"
+  },
+  {
+    "id": "mlb:35013",
+    "name": "Jake Bauers",
+    "conference": "AL",
+    "division": "East",
+    "team": "Boston Red Sox",
+    "teamAbbr": "BOS",
+    "position": "1B",
+    "number": 9,
     "league": "AL"
   },
   {
@@ -10178,9 +10200,9 @@
     "id": "mlb:5000950",
     "name": "Ryan Walker",
     "conference": "NL",
-    "division": "West",
-    "team": "San Francisco Giants",
-    "teamAbbr": "SF",
+    "division": "Central",
+    "team": "Milwaukee Brewers",
+    "teamAbbr": "MIL",
     "position": "RP",
     "number": 74,
     "league": "NL"
@@ -10206,6 +10228,17 @@
     "position": "SP",
     "number": 40,
     "league": "AL"
+  },
+  {
+    "id": "mlb:3964917",
+    "name": "Ryan Weiss",
+    "conference": "NL",
+    "division": "West",
+    "team": "San Diego Padres",
+    "teamAbbr": "SD",
+    "position": "RP",
+    "number": 51,
+    "league": "NL"
   },
   {
     "id": "mlb:4722057",
