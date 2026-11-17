@@ -93,6 +93,8 @@ export default defineConfig({
     __BUILD_COMMIT_SHA__: JSON.stringify(buildCommitSha),
     __BUILD_COMMIT_SHORT_SHA__: JSON.stringify(buildCommitShortSha),
     __BUILD_COMMIT_URL__: JSON.stringify(buildCommitUrl),
+    // Tree-shake the Sentry SDK's internal debug logging (disables its `debug` option)
+    __SENTRY_DEBUG__: false,
   },
   resolve: {
     alias: {
