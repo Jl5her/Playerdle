@@ -1,4 +1,5 @@
 import posthog from "posthog-js"
+import { addGameBreadcrumb } from "./sentry"
 
 let ready = false
 
@@ -18,6 +19,7 @@ export function initAnalytics() {
 }
 
 function capture(event: string, props: object) {
+  addGameBreadcrumb(event, props as Record<string, unknown>)
   if (!ready) return
   posthog.capture(event, props)
 }

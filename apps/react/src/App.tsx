@@ -7,25 +7,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import clsx from "clsx"
 import { lazy, Suspense, useEffect, useRef, useState, useSyncExternalStore } from "react"
-import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom"
-import { parseDateKey } from "@/shared/utils/calendar-date"
-import { formatLongDate } from "@/shared/utils/time"
-import { usePanelStack } from "@/shared/hooks/use-panel-stack"
+import { Navigate, Route, useLocation, useNavigate, useParams } from "react-router-dom"
+import {
+  type CapCrunchLeague,
+  hasPlayedCapCrunchToday,
+} from "@/games/capcrunch/utils/capcrunch-daily"
+import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
+import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
 import {
   hasPlayedJourneyDailyToday,
   isJourneyLeague,
   type JourneyLeague,
 } from "@/games/journeyman/utils/journey-daily"
-import {
-  hasPlayedCapCrunchToday,
-  type CapCrunchLeague,
-} from "@/games/capcrunch/utils/capcrunch-daily"
-import { hasPlayedCollegeCourtToday } from "@/games/collegecourt/utils/collegecourt-daily"
-import { hasPlayedCollegeFieldToday } from "@/games/collegefield/utils/collegefield-daily"
-import { hasPlayedNflRatedToday } from "@/games/rated/utils/nfl-rated-daily"
-import { hasPlayedNbaRatedToday } from "@/games/rated/utils/nba-rated-daily"
-import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
 import { Header } from "@/games/playerdle/components"
 import { GameGuideContent, type GuideMode } from "@/games/playerdle/modals/game-guide-content"
 import { StatsContent } from "@/games/playerdle/modals/stats-content"
@@ -40,11 +33,19 @@ import {
   resolveSportConfig,
   type SportConfig,
 } from "@/games/playerdle/sports"
-import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
-import { PanelStackContext } from "@/shared/hooks/use-panel-context"
-import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
-import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
+import { hasPlayedTodaysDaily } from "@/games/playerdle/utils/stats"
+import { hasPlayedNbaRatedToday } from "@/games/rated/utils/nba-rated-daily"
+import { hasPlayedNflRatedToday } from "@/games/rated/utils/nfl-rated-daily"
 import { trackPanelOpened } from "@/lib/analytics"
+import { SentryRoutes } from "@/lib/sentry"
+import { type FooterTab, LeagueFooter, Panel, PWAUpdateToast } from "@/shared/components"
+import WelcomeScreen, { hasSeenWelcome } from "@/shared/components/welcome-screen"
+import { PanelStackContext } from "@/shared/hooks/use-panel-context"
+import { usePanelStack } from "@/shared/hooks/use-panel-stack"
+import { useViewportHeight } from "@/shared/hooks/use-viewport-height"
+import { parseDateKey } from "@/shared/utils/calendar-date"
+import { getIsSyncing, startAutoSync, subscribeSyncState, waitForSync } from "@/shared/utils/sync"
+import { formatLongDate } from "@/shared/utils/time"
 
 const Game = lazy(() => import("@/games/playerdle/screens/game"))
 const ColorsShell = lazy(() => import("@/games/statehue/screens/colors-shell"))
@@ -686,7 +687,7 @@ function App() {
     <>
       <PWAUpdateToast />
       {showWelcome && <WelcomeScreen onDismiss={() => setShowWelcome(false)} />}
-      <Routes>
+      <SentryRoutes>
         <Route
           path="/"
           element={<SportRoute screen="menu" />}
@@ -1305,7 +1306,7 @@ function App() {
             />
           }
         />
-      </Routes>
+      </SentryRoutes>
     </>
   )
 }
