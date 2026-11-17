@@ -3,6 +3,8 @@
 
 interface ImportMetaEnv {
   readonly VITE_POSTHOG_KEY: string
+  readonly VITE_SENTRY_DSN?: string
+  readonly VITE_SENTRY_ENVIRONMENT?: string
 }
 
 declare const __BUILD_COMMIT_SHA__: string | null
