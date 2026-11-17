@@ -8,7 +8,8 @@ import {
   useNavigationType,
 } from "react-router-dom"
 
-const DEFAULT_TRACES_SAMPLE_RATE = 0.1
+// Trace everything locally so traces are easy to inspect; sample production
+const DEFAULT_TRACES_SAMPLE_RATE = import.meta.env.DEV ? 1 : 0.1
 
 function tracesSampleRate(): number {
   const raw = import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE
