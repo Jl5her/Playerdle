@@ -7,33 +7,16 @@ import {
   useLocation,
   useNavigationType,
 } from "react-router-dom"
+import { redactStrings, redactUrl } from "./sentry-redact"
 
-// Trace everything locally so traces are easy to inspect; sample production
-const DEFAULT_TRACES_SAMPLE_RATE = import.meta.env.DEV ? 1 : 0.1
-
-function tracesSampleRate(): number {
-  const raw = import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE
-  if (raw === undefined || raw === "") return DEFAULT_TRACES_SAMPLE_RATE
+function sampleRate(raw: string | undefined, fallback: number): number {
+  if (raw === undefined || raw === "") return fallback
   const rate = Number(raw)
-  return Number.isFinite(rate) && rate >= 0 && rate <= 1 ? rate : DEFAULT_TRACES_SAMPLE_RATE
+  return Number.isFinite(rate) && rate >= 0 && rate <= 1 ? rate : fallback
 }
 
-/**
- * The sync API path embeds the passphrase hash, which acts as the credential for a
- * user's synced data, plus a device ID — never let either reach Sentry.
- */
-function redactUrl(value: string): string {
-  return value
-    .replace(/\/api\/sync\/[^/?#\s]+(\?[^#\s]*)?/g, "/api/sync/[redacted]")
-    .replace(/(^|[?&])device=[^&#\s]*/g, "$1device=[redacted]")
-}
-
-function redactStrings<T extends Record<string, unknown>>(obj: T | undefined): void {
-  if (!obj) return
-  for (const [key, value] of Object.entries(obj)) {
-    if (typeof value === "string") (obj as Record<string, unknown>)[key] = redactUrl(value)
-  }
-}
+// Sample everything locally so traces/replays are easy to inspect; sample production
+const DEV_OR = (prod: number) => (import.meta.env.DEV ? 1 : prod)
 
 export function initSentry() {
   const dsn = import.meta.env.VITE_SENTRY_DSN
@@ -53,6 +36,8 @@ export function initSentry() {
         matchRoutes,
       }),
       // Console breadcrumbs come from the default consoleIntegration
+      // Send console.warn/error to Sentry Logs
+      Sentry.consoleLoggingIntegration({ levels: ["warn", "error"] }),
       Sentry.breadcrumbsIntegration({
         dom: true,
         fetch: true,
@@ -60,12 +45,23 @@ export function initSentry() {
         xhr: true,
       }),
     ],
-    tracesSampleRate: tracesSampleRate(),
+    tracesSampleRate: sampleRate(import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE, DEV_OR(0.1)),
+    // Session Replay (integration is lazy-loaded below to keep it out of the main bundle)
+    replaysSessionSampleRate: sampleRate(
+      import.meta.env.VITE_SENTRY_REPLAYS_SESSION_SAMPLE_RATE,
+      DEV_OR(0.1),
+    ),
+    replaysOnErrorSampleRate: 1,
     maxBreadcrumbs: 100,
     beforeBreadcrumb(breadcrumb) {
       redactStrings(breadcrumb.data)
       if (breadcrumb.message) breadcrumb.message = redactUrl(breadcrumb.message)
       return breadcrumb
+    },
+    beforeSendLog(log) {
+      if (typeof log.message === "string") log.message = redactUrl(log.message)
+      redactStrings(log.attributes)
+      return log
     },
     beforeSendSpan(span) {
       span.name = redactUrl(span.name)
@@ -81,6 +77,15 @@ export function initSentry() {
       /Importing a module script failed/,
     ],
   })
+
+  void import("./sentry-replay")
+    .then(({ createReplayIntegration }) => Sentry.addIntegration(createReplayIntegration()))
+    .catch(() => {})
+}
+
+/** Sends a structured warning to Sentry Logs (no-op when Sentry isn't initialized). */
+export function logWarning(message: string, attributes?: Record<string, unknown>) {
+  Sentry.logger.warn(message, attributes)
 }
 
 /** Drop-in replacement for react-router's <Routes> that names transactions by route. */

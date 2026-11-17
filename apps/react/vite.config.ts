@@ -114,7 +114,9 @@ export default defineConfig({
         manualChunks: id => {
           // Separate vendor libraries into their own chunks
           if (id.includes("node_modules")) {
-            if (id.includes("react") || id.includes("react-dom")) {
+            // Match React's own packages only — a loose "react" substring also caught
+            // @sentry/react, dragging its lazy-loadable deps (Session Replay) along
+            if (/[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/.test(id)) {
               return "vendor-react"
             }
             if (id.includes("fuse.js")) {
