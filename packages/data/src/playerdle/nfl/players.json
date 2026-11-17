@@ -2490,16 +2490,6 @@
     "number": 54
   },
   {
-    "id": "nfl:4431342",
-    "name": "Brennan Presley",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Los Angeles Rams",
-    "teamAbbr": "LAR",
-    "position": "WR",
-    "number": 81
-  },
-  {
     "id": "nfl:5082398",
     "name": "Brent Austin",
     "conference": "AFC",
@@ -3899,16 +3889,6 @@
     "teamAbbr": "IND",
     "position": "OT",
     "number": 73
-  },
-  {
-    "id": "nfl:4257188",
-    "name": "Charlie Jones",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "WR",
-    "number": 89
   },
   {
     "id": "nfl:4241263",
@@ -6661,16 +6641,6 @@
     "teamAbbr": "NO",
     "position": "WR",
     "number": 14
-  },
-  {
-    "id": "nfl:4609203",
-    "name": "Deven Eastern",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
-    "position": "DT",
-    "number": 97
   },
   {
     "id": "nfl:4374187",
@@ -11542,6 +11512,16 @@
     "teamAbbr": "KC",
     "position": "RB",
     "number": 34
+  },
+  {
+    "id": "nfl:4685279",
+    "name": "Jaydon Blue",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "RB",
+    "number": 30
   },
   {
     "id": "nfl:4566154",
@@ -18115,16 +18095,6 @@
     "number": 66
   },
   {
-    "id": "nfl:4360773",
-    "name": "Nick Hampton",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Carolina Panthers",
-    "teamAbbr": "CAR",
-    "position": "LB",
-    "number": 39
-  },
-  {
     "id": "nfl:4429164",
     "name": "Nick Herbig",
     "conference": "AFC",
@@ -18255,16 +18225,6 @@
     "number": 12
   },
   {
-    "id": "nfl:5143915",
-    "name": "Nick Whiteside",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Detroit Lions",
-    "teamAbbr": "DET",
-    "position": "CB",
-    "number": 38
-  },
-  {
     "id": "nfl:4247590",
     "name": "Nick Zakelj",
     "conference": "NFC",
@@ -18293,16 +18253,6 @@
     "teamAbbr": "DEN",
     "position": "LB",
     "number": 15
-  },
-  {
-    "id": "nfl:4691043",
-    "name": "Nikko Reed",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "CB",
-    "number": 35
   },
   {
     "id": "nfl:4372716",
@@ -21348,11 +21298,12 @@
     "id": "nfl:4334405",
     "name": "Tavierre Thomas",
     "conference": "NFC",
-    "division": "NFC North",
-    "team": "Minnesota Vikings",
-    "teamAbbr": "MIN",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
     "position": "S",
-    "number": 37
+    "number": 37,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4690179",
@@ -23138,9 +23089,9 @@
     "id": "nfl:4689333",
     "name": "Tyrus Wheat",
     "conference": "NFC",
-    "division": "NFC East",
-    "team": "Dallas Cowboys",
-    "teamAbbr": "DAL",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
     "position": "LB",
     "number": 59
   },
@@ -23699,10 +23650,11 @@
     "name": "Xavier Gipson",
     "conference": "NFC",
     "division": "NFC East",
-    "team": "Philadelphia Eagles",
-    "teamAbbr": "PHI",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
     "position": "WR",
-    "number": 86
+    "number": 86,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4877877",
@@ -24063,16 +24015,6 @@
     "teamAbbr": "BUF",
     "position": "DT",
     "number": 92
-  },
-  {
-    "id": "nfl:3043234",
-    "name": "Zane Gonzalez",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "PK",
-    "number": 31
   },
   {
     "id": "nfl:4244606",
