@@ -40,12 +40,12 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 23,
-    "gp": 21,
+    "gp": 22,
     "goals": 2,
-    "assists": 21,
-    "points": 23,
-    "sog": 33,
-    "toiPerGame": 22.9
+    "assists": 22,
+    "points": 24,
+    "sog": 34,
+    "toiPerGame": 23
   },
   {
     "id": "nhl:5073306",
@@ -168,12 +168,12 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 15,
-    "gp": 20,
+    "gp": 21,
     "goals": 5,
     "assists": 5,
     "points": 10,
-    "sog": 24,
-    "toiPerGame": 16.2
+    "sog": 25,
+    "toiPerGame": 16.1
   },
   {
     "id": "nhl:4565266",
@@ -216,12 +216,12 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 45,
-    "gp": 20,
+    "gp": 21,
     "goals": 1,
     "assists": 6,
     "points": 7,
-    "sog": 14,
-    "toiPerGame": 20.5
+    "sog": 16,
+    "toiPerGame": 20.3
   },
   {
     "id": "nhl:4233880",
@@ -232,12 +232,12 @@
     "teamAbbr": "MTL",
     "position": "LW",
     "number": 85,
-    "gp": 20,
+    "gp": 21,
     "goals": 2,
     "assists": 3,
     "points": 5,
-    "sog": 34,
-    "toiPerGame": 13.5
+    "sog": 35,
+    "toiPerGame": 13.6
   },
   {
     "id": "nhl:4697382",
@@ -248,11 +248,11 @@
     "teamAbbr": "NYR",
     "position": "LW",
     "number": 13,
-    "gp": 21,
+    "gp": 22,
     "goals": 10,
     "assists": 12,
     "points": 22,
-    "sog": 45,
+    "sog": 48,
     "toiPerGame": 18.6
   },
   {
@@ -264,12 +264,12 @@
     "teamAbbr": "UTA",
     "position": "LW",
     "number": 72,
-    "gp": 21,
+    "gp": 22,
     "goals": 3,
-    "assists": 6,
-    "points": 9,
-    "sog": 37,
-    "toiPerGame": 14
+    "assists": 7,
+    "points": 10,
+    "sog": 38,
+    "toiPerGame": 14.1
   },
   {
     "id": "nhl:4352683",
@@ -312,12 +312,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 20,
-    "gp": 21,
+    "gp": 22,
     "goals": 2,
     "assists": 6,
     "points": 8,
     "sog": 18,
-    "toiPerGame": 17.9
+    "toiPerGame": 18
   },
   {
     "id": "nhl:5291935",
@@ -366,6 +366,22 @@
     "points": 11,
     "sog": 56,
     "toiPerGame": 17.4
+  },
+  {
+    "id": "nhl:4893969",
+    "name": "Arber Xhekaj",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "D",
+    "number": 72,
+    "gp": 20,
+    "goals": 1,
+    "assists": 3,
+    "points": 4,
+    "sog": 17,
+    "toiPerGame": 12.2
   },
   {
     "id": "nhl:4915855",
@@ -472,12 +488,12 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 27,
-    "gp": 21,
-    "goals": 3,
+    "gp": 22,
+    "goals": 4,
     "assists": 8,
-    "points": 11,
-    "sog": 39,
-    "toiPerGame": 14.8
+    "points": 12,
+    "sog": 42,
+    "toiPerGame": 14.7
   },
   {
     "id": "nhl:4063240",
@@ -584,12 +600,12 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 4,
-    "gp": 21,
+    "gp": 22,
     "goals": 0,
     "assists": 2,
     "points": 2,
-    "sog": 31,
-    "toiPerGame": 18.5
+    "sog": 33,
+    "toiPerGame": 18.6
   },
   {
     "id": "nhl:2976856",
@@ -704,6 +720,22 @@
     "toiPerGame": 19.9
   },
   {
+    "id": "nhl:5614",
+    "name": "Brendan Gallagher",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Vancouver Canucks",
+    "teamAbbr": "VAN",
+    "position": "RW",
+    "number": 7,
+    "gp": 20,
+    "goals": 0,
+    "assists": 3,
+    "points": 3,
+    "sog": 26,
+    "toiPerGame": 10.5
+  },
+  {
     "id": "nhl:2300",
     "name": "Brent Burns",
     "conference": "West",
@@ -760,12 +792,12 @@
     "teamAbbr": "VAN",
     "position": "RW",
     "number": 6,
-    "gp": 22,
-    "goals": 7,
-    "assists": 13,
-    "points": 20,
-    "sog": 35,
-    "toiPerGame": 19.3
+    "gp": 23,
+    "goals": 8,
+    "assists": 15,
+    "points": 23,
+    "sog": 37,
+    "toiPerGame": 19.4
   },
   {
     "id": "nhl:5798",
@@ -872,12 +904,12 @@
     "teamAbbr": "UTA",
     "position": "RW",
     "number": 9,
-    "gp": 21,
+    "gp": 22,
     "goals": 5,
-    "assists": 22,
-    "points": 27,
-    "sog": 56,
-    "toiPerGame": 19.1
+    "assists": 23,
+    "points": 28,
+    "sog": 60,
+    "toiPerGame": 19.2
   },
   {
     "id": "nhl:4233568",
@@ -904,12 +936,12 @@
     "teamAbbr": "MTL",
     "position": "RW",
     "number": 13,
-    "gp": 20,
+    "gp": 21,
     "goals": 12,
     "assists": 7,
     "points": 19,
-    "sog": 67,
-    "toiPerGame": 18.4
+    "sog": 69,
+    "toiPerGame": 18.6
   },
   {
     "id": "nhl:4697392",
@@ -1116,7 +1148,7 @@
     "goals": 1,
     "assists": 2,
     "points": 3,
-    "sog": 34,
+    "sog": 35,
     "toiPerGame": 21.4
   },
   {
@@ -1228,7 +1260,7 @@
     "goals": 3,
     "assists": 11,
     "points": 14,
-    "sog": 22,
+    "sog": 23,
     "toiPerGame": 17.2
   },
   {
@@ -1272,7 +1304,7 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 18,
-    "gp": 22,
+    "gp": 23,
     "goals": 3,
     "assists": 3,
     "points": 6,
@@ -1368,7 +1400,7 @@
     "teamAbbr": "NYR",
     "position": "RW",
     "number": 17,
-    "gp": 21,
+    "gp": 22,
     "goals": 4,
     "assists": 2,
     "points": 6,
@@ -1416,7 +1448,7 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 40,
-    "gp": 22,
+    "gp": 23,
     "goals": 6,
     "assists": 17,
     "points": 23,
@@ -1560,12 +1592,12 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 17,
-    "gp": 22,
+    "gp": 23,
     "goals": 1,
     "assists": 13,
     "points": 14,
-    "sog": 24,
-    "toiPerGame": 26.4
+    "sog": 28,
+    "toiPerGame": 26.6
   },
   {
     "id": "nhl:5080207",
@@ -1752,11 +1784,11 @@
     "teamAbbr": "NYR",
     "position": "LW",
     "number": 10,
-    "gp": 21,
+    "gp": 22,
     "goals": 4,
-    "assists": 12,
-    "points": 16,
-    "sog": 40,
+    "assists": 13,
+    "points": 17,
+    "sog": 42,
     "toiPerGame": 19
   },
   {
@@ -1832,7 +1864,7 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 22,
-    "gp": 21,
+    "gp": 22,
     "goals": 3,
     "assists": 4,
     "points": 7,
@@ -1944,12 +1976,12 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 74,
-    "gp": 20,
-    "goals": 5,
-    "assists": 5,
-    "points": 10,
-    "sog": 46,
-    "toiPerGame": 16.8
+    "gp": 21,
+    "goals": 6,
+    "assists": 6,
+    "points": 12,
+    "sog": 51,
+    "toiPerGame": 16.7
   },
   {
     "id": "nhl:4393049",
@@ -1960,12 +1992,12 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 71,
-    "gp": 20,
+    "gp": 21,
     "goals": 3,
     "assists": 5,
     "points": 8,
     "sog": 16,
-    "toiPerGame": 15.5
+    "toiPerGame": 15.3
   },
   {
     "id": "nhl:3042083",
@@ -2072,12 +2104,12 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 4,
-    "gp": 20,
+    "gp": 21,
     "goals": 2,
     "assists": 6,
     "points": 8,
     "sog": 15,
-    "toiPerGame": 17.3
+    "toiPerGame": 17
   },
   {
     "id": "nhl:4233875",
@@ -2296,11 +2328,11 @@
     "teamAbbr": "VAN",
     "position": "RW",
     "number": 88,
-    "gp": 22,
+    "gp": 23,
     "goals": 7,
-    "assists": 9,
-    "points": 16,
-    "sog": 38,
+    "assists": 11,
+    "points": 18,
+    "sog": 39,
     "toiPerGame": 15.3
   },
   {
@@ -2360,12 +2392,12 @@
     "teamAbbr": "MTL",
     "position": "LW",
     "number": 20,
-    "gp": 20,
+    "gp": 21,
     "goals": 2,
     "assists": 11,
     "points": 13,
-    "sog": 47,
-    "toiPerGame": 18.3
+    "sog": 50,
+    "toiPerGame": 18.4
   },
   {
     "id": "nhl:5746",
@@ -2472,12 +2504,12 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 82,
-    "gp": 21,
+    "gp": 22,
     "goals": 1,
     "assists": 4,
     "points": 5,
-    "sog": 19,
-    "toiPerGame": 13.5
+    "sog": 20,
+    "toiPerGame": 13.4
   },
   {
     "id": "nhl:4391255",
@@ -2552,12 +2584,12 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 48,
-    "gp": 20,
+    "gp": 21,
     "goals": 3,
-    "assists": 15,
-    "points": 18,
-    "sog": 42,
-    "toiPerGame": 24.9
+    "assists": 16,
+    "points": 19,
+    "sog": 43,
+    "toiPerGame": 25.1
   },
   {
     "id": "nhl:3946",
@@ -2584,12 +2616,12 @@
     "teamAbbr": "UTA",
     "position": "LW",
     "number": 67,
-    "gp": 21,
+    "gp": 22,
     "goals": 2,
     "assists": 5,
     "points": 7,
-    "sog": 34,
-    "toiPerGame": 15.2
+    "sog": 38,
+    "toiPerGame": 15.3
   },
   {
     "id": "nhl:5149153",
@@ -2632,12 +2664,12 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 92,
-    "gp": 21,
+    "gp": 22,
     "goals": 6,
     "assists": 4,
     "points": 10,
     "sog": 29,
-    "toiPerGame": 14.1
+    "toiPerGame": 14
   },
   {
     "id": "nhl:4587713",
@@ -2648,11 +2680,11 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 94,
-    "gp": 22,
+    "gp": 23,
     "goals": 6,
     "assists": 6,
     "points": 12,
-    "sog": 43,
+    "sog": 44,
     "toiPerGame": 14.5
   },
   {
@@ -2712,12 +2744,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 52,
-    "gp": 21,
+    "gp": 22,
     "goals": 2,
     "assists": 3,
     "points": 5,
-    "sog": 37,
-    "toiPerGame": 22.3
+    "sog": 40,
+    "toiPerGame": 22.1
   },
   {
     "id": "nhl:5206628",
@@ -2776,12 +2808,12 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 23,
-    "gp": 20,
+    "gp": 21,
     "goals": 3,
     "assists": 4,
     "points": 7,
-    "sog": 35,
-    "toiPerGame": 15.3
+    "sog": 36,
+    "toiPerGame": 15.1
   },
   {
     "id": "nhl:3114995",
@@ -2792,12 +2824,12 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 26,
-    "gp": 21,
+    "gp": 22,
     "goals": 0,
-    "assists": 4,
-    "points": 4,
-    "sog": 13,
-    "toiPerGame": 21.1
+    "assists": 5,
+    "points": 5,
+    "sog": 15,
+    "toiPerGame": 21.2
   },
   {
     "id": "nhl:4233884",
@@ -3048,12 +3080,12 @@
     "teamAbbr": "VAN",
     "position": "C",
     "number": 63,
-    "gp": 22,
+    "gp": 23,
     "goals": 5,
     "assists": 3,
     "points": 8,
     "sog": 24,
-    "toiPerGame": 12.4
+    "toiPerGame": 12.3
   },
   {
     "id": "nhl:3149829",
@@ -3160,11 +3192,11 @@
     "teamAbbr": "NYR",
     "position": "C",
     "number": 93,
-    "gp": 21,
+    "gp": 22,
     "goals": 5,
     "assists": 14,
     "points": 19,
-    "sog": 40,
+    "sog": 42,
     "toiPerGame": 20.4
   },
   {
@@ -3192,12 +3224,12 @@
     "teamAbbr": "UTA",
     "position": "D",
     "number": 98,
-    "gp": 21,
+    "gp": 22,
     "goals": 6,
     "assists": 16,
     "points": 22,
-    "sog": 52,
-    "toiPerGame": 24.5
+    "sog": 58,
+    "toiPerGame": 24.6
   },
   {
     "id": "nhl:3899938",
@@ -3512,11 +3544,11 @@
     "teamAbbr": "MTL",
     "position": "D",
     "number": 53,
-    "gp": 20,
+    "gp": 21,
     "goals": 0,
-    "assists": 8,
-    "points": 8,
-    "sog": 41,
+    "assists": 9,
+    "points": 9,
+    "sog": 42,
     "toiPerGame": 21
   },
   {
@@ -3528,11 +3560,11 @@
     "teamAbbr": "NYR",
     "position": "C",
     "number": 42,
-    "gp": 21,
+    "gp": 22,
     "goals": 0,
-    "assists": 5,
-    "points": 5,
-    "sog": 18,
+    "assists": 6,
+    "points": 6,
+    "sog": 19,
     "toiPerGame": 14.7
   },
   {
@@ -3592,7 +3624,7 @@
     "teamAbbr": "NYR",
     "position": "RW",
     "number": 28,
-    "gp": 21,
+    "gp": 22,
     "goals": 7,
     "assists": 4,
     "points": 11,
@@ -3672,11 +3704,11 @@
     "teamAbbr": "VAN",
     "position": "LW",
     "number": 47,
-    "gp": 21,
+    "gp": 22,
     "goals": 4,
     "assists": 4,
     "points": 8,
-    "sog": 13,
+    "sog": 15,
     "toiPerGame": 14.2
   },
   {
@@ -3736,12 +3768,12 @@
     "teamAbbr": "MTL",
     "position": "C",
     "number": 24,
-    "gp": 20,
-    "goals": 2,
+    "gp": 21,
+    "goals": 3,
     "assists": 5,
-    "points": 7,
-    "sog": 29,
-    "toiPerGame": 17.1
+    "points": 8,
+    "sog": 34,
+    "toiPerGame": 17.2
   },
   {
     "id": "nhl:4271732",
@@ -3868,7 +3900,7 @@
     "goals": 2,
     "assists": 21,
     "points": 23,
-    "sog": 57,
+    "sog": 58,
     "toiPerGame": 25.8
   },
   {
@@ -4520,11 +4552,11 @@
     "teamAbbr": "NYR",
     "position": "LW",
     "number": 24,
-    "gp": 21,
+    "gp": 22,
     "goals": 7,
     "assists": 7,
     "points": 14,
-    "sog": 37,
+    "sog": 39,
     "toiPerGame": 16.8
   },
   {
@@ -4680,12 +4712,12 @@
     "teamAbbr": "UTA",
     "position": "C",
     "number": 16,
-    "gp": 21,
-    "goals": 3,
+    "gp": 22,
+    "goals": 4,
     "assists": 7,
-    "points": 10,
-    "sog": 38,
-    "toiPerGame": 18.3
+    "points": 11,
+    "sog": 42,
+    "toiPerGame": 18.5
   },
   {
     "id": "nhl:3942292",
@@ -4696,11 +4728,11 @@
     "teamAbbr": "NYR",
     "position": "D",
     "number": 44,
-    "gp": 21,
+    "gp": 22,
     "goals": 1,
     "assists": 6,
     "points": 7,
-    "sog": 30,
+    "sog": 31,
     "toiPerGame": 21.5
   },
   {
@@ -4920,11 +4952,11 @@
     "teamAbbr": "VAN",
     "position": "D",
     "number": 8,
-    "gp": 22,
+    "gp": 23,
     "goals": 0,
     "assists": 5,
     "points": 5,
     "sog": 18,
-    "toiPerGame": 21.3
+    "toiPerGame": 21.4
   }
 ]
