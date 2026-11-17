@@ -4,7 +4,9 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "!dist/.tsbuildinfo"]
+      "outputs": ["dist/**", "!dist/.tsbuildinfo"],
+      "env": ["SENTRY_ORG", "SENTRY_PROJECT", "CF_PAGES_COMMIT_SHA"],
+      "passThroughEnv": ["SENTRY_AUTH_TOKEN"]
     },
     "dev": {
       "cache": false,
