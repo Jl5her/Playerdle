@@ -25,7 +25,8 @@ export function initSentry() {
   Sentry.init({
     dsn,
     environment: import.meta.env.VITE_SENTRY_ENVIRONMENT || import.meta.env.MODE,
-    release: __BUILD_COMMIT_SHA__ ?? undefined,
+    // Production: commit SHA; previews: "preview@<sha>"; local dev: none (see vite.config.ts)
+    release: __SENTRY_RELEASE__ ?? undefined,
     integrations: [
       // Page loads + navigations, named by route pattern (e.g. /:sport/daily)
       Sentry.reactRouterV7BrowserTracingIntegration({
