@@ -1,3 +1,5 @@
+import { ERROR_CODES, KnownError } from "./error-codes"
+
 function mix32(h: number): number {
   let x = h >>> 0
   x ^= x >>> 16
@@ -22,7 +24,7 @@ export function hashString(str: string): number {
 // pool never shifts past dates; only adding/removing the winning id for a date
 // changes that date's answer.
 export function minHashPick<T>(items: readonly T[], getId: (item: T) => string, seed: string): T {
-  if (items.length === 0) throw new Error("minHashPick: empty pool")
+  if (items.length === 0) throw new KnownError(ERROR_CODES.EMPTY_POOL, "minHashPick: empty pool")
   let bestIdx = 0
   let bestId = getId(items[0])
   let bestHash = hashString(`${seed}:${bestId}`)

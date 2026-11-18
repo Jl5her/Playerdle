@@ -1,5 +1,6 @@
 import type { Player, SportConfig } from "@/games/playerdle/sports"
 import { minHashPick } from "@/shared/utils/daily-select"
+import { ERROR_CODES, KnownError } from "@/shared/utils/error-codes"
 import { getDateKey } from "@/shared/utils/time"
 
 export type ArcadeDifficulty = "easy" | "medium" | "hard"
@@ -11,7 +12,7 @@ function getEligiblePlayersForSport(sport: SportConfig): Player[] {
 export function getDailyPlayer(sport: SportConfig, date?: Date): Player {
   const eligiblePlayers = getEligiblePlayersForSport(sport)
   if (eligiblePlayers.length === 0) {
-    throw new Error(`No eligible players available for ${sport.id}`)
+    throw new KnownError(ERROR_CODES.EMPTY_POOL, `No eligible players available for ${sport.id}`)
   }
   const targetDate = date || new Date()
   const dateStr = getDateKey(targetDate)
