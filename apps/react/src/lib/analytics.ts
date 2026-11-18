@@ -1,27 +1,33 @@
-import posthog from "posthog-js"
-import { addGameBreadcrumb } from "./sentry"
+import { addGameBreadcrumb, countMetric, distributionMetric } from "./sentry"
 
-let ready = false
+// Low-cardinality props sent as metric attributes (IDs, dates and timings are left out)
+const METRIC_ATTRIBUTES = [
+  "game",
+  "sport",
+  "variant",
+  "mode",
+  "is_archive",
+  "is_correct",
+  "won",
+  "panel",
+  "is_onboarding",
+] as const
 
-export function initAnalytics() {
-  const key = import.meta.env.VITE_POSTHOG_KEY
-  if (!key) return
-
-  posthog.init(key, {
-    api_host: "https://us.i.posthog.com",
-    person_profiles: "always",
-    autocapture: false,
-    capture_pageview: true,
-    capture_pageleave: true,
-    disable_external_dependency_loading: true,
-  })
-  ready = true
+function pickAttributes(props: object): Record<string, string | number | boolean> {
+  const attributes: Record<string, string | number | boolean> = {}
+  for (const key of METRIC_ATTRIBUTES) {
+    const value = (props as Record<string, unknown>)[key]
+    if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+      attributes[key] = value
+    }
+  }
+  return attributes
 }
 
+/** Records a game event as a Sentry breadcrumb (error context) and a counter metric. */
 function capture(event: string, props: object) {
   addGameBreadcrumb(event, props as Record<string, unknown>)
-  if (!ready) return
-  posthog.capture(event, props)
+  countMetric(event, pickAttributes(props))
 }
 
 type GameId = "playerdle" | "journeyman" | "statehue"
@@ -77,6 +83,9 @@ export function trackGuessSubmitted(props: GuessSubmittedProps) {
 
 export function trackGameComplete(props: GameCompleteProps) {
   capture("game_complete", props)
+  const attributes = pickAttributes(props)
+  distributionMetric("game_complete.guesses", props.guesses, undefined, attributes)
+  distributionMetric("game_complete.duration", props.seconds_to_complete, "second", attributes)
 }
 
 export function trackGameAbandoned(props: GameAbandonedProps) {

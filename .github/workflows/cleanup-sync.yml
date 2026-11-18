@@ -31,3 +31,7 @@ jobs:
           CF_KV_NAMESPACE_ID: ${{ secrets.CF_KV_NAMESPACE_ID }}
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: pnpm tsx scripts/cleanup-sync.ts
+
+      - name: Report failure to Sentry
+        if: failure()
+        run: bash scripts/report-job-failure.sh cleanup-sync

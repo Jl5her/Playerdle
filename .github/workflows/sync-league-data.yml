@@ -57,3 +57,7 @@ jobs:
           else
             echo "No ${{ inputs.league }} data changes detected"
           fi
+
+      - name: Report failure to Sentry
+        if: failure()
+        run: bash scripts/report-job-failure.sh sync-${{ inputs.league }}

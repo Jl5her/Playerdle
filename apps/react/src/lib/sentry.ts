@@ -96,6 +96,21 @@ export function addGameBreadcrumb(message: string, data?: Record<string, unknown
   Sentry.addBreadcrumb({ category: "game", message, data, level: "info" })
 }
 
+/** Increments a Sentry counter metric (no-op when Sentry isn't initialized). */
+export function countMetric(name: string, attributes?: Record<string, string | number | boolean>) {
+  Sentry.metrics.count(name, 1, { attributes })
+}
+
+/** Records a value in a Sentry distribution metric (no-op when Sentry isn't initialized). */
+export function distributionMetric(
+  name: string,
+  value: number,
+  unit?: "second",
+  attributes?: Record<string, string | number | boolean>,
+) {
+  Sentry.metrics.distribution(name, value, { unit, attributes })
+}
+
 /** Hooks for React 19's createRoot so uncaught/recoverable render errors are reported. */
 export const sentryRootErrorHandlers = {
   onUncaughtError: Sentry.reactErrorHandler(),
