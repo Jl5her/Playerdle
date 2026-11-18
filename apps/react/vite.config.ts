@@ -1,5 +1,5 @@
-import tailwindcss from "@tailwindcss/vite"
 import { sentryVitePlugin } from "@sentry/vite-plugin"
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { execSync } from "child_process"
 import path from "path"
@@ -7,7 +7,8 @@ import { defineConfig } from "vite"
 import { VitePWA } from "vite-plugin-pwa"
 
 function getGitCommitSha(): string | null {
-  const envSha = process.env.GITHUB_SHA || process.env.CF_PAGES_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA
+  const envSha =
+    process.env.GITHUB_SHA || process.env.CF_PAGES_COMMIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA
   if (envSha) return envSha
 
   try {
@@ -83,6 +84,16 @@ export default defineConfig({
       release: {
         // Matches the `release` passed to Sentry.init at runtime
         name: buildCommitSha ?? undefined,
+        // Associate the release with its GitHub commits (via Sentry's GitHub integration),
+        // so "Fixes PLAYERDLE-123" in a commit or PR resolves the issue in this release
+        // and a later recurrence is flagged as a regression. The repo is named explicitly:
+        // auto-detection reads the build machine's git remote, which isn't GitHub on
+        // Cloudflare Pages.
+        setCommits: buildCommitSha
+          ? { repo: "Jl5her/Playerdle", commit: buildCommitSha, ignoreMissing: true }
+          : false,
+        // Record a deploy so Sentry knows when the release went live, and where
+        deploy: { env: process.env.VITE_SENTRY_ENVIRONMENT || "production" },
       },
       sourcemaps: {
         filesToDeleteAfterUpload: ["./dist/**/*.map"],
