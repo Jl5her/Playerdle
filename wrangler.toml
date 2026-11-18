@@ -2,6 +2,15 @@ name = "playerdle"
 pages_build_output_dir = "apps/react/dist"
 compatibility_date = "2024-01-15"
 
+# Build-time variables (Vite + Sentry source map upload). Not secret — the DSN ships
+# in the client bundle. SENTRY_AUTH_TOKEN is a secret: set it with
+#   npx wrangler pages secret put SENTRY_AUTH_TOKEN --project-name playerdle
+# Preview deployments don't inherit [vars]; keep [env.preview.vars] in sync.
+[vars]
+VITE_SENTRY_DSN = "https://7b8885a6c35736004bea0bad7af0374d@o4511402247716864.ingest.us.sentry.io/4512449745059840"
+SENTRY_ORG = "jack-pfeiffer"
+SENTRY_PROJECT = "playerdle"
+
 # Production sync storage (live player stats — never use for testing).
 # Applies to all production deployments (main branch).
 [[kv_namespaces]]
@@ -14,3 +23,9 @@ id = "eeef69aa332141d5a3cc57522f30f9fc"
 [[env.preview.kv_namespaces]]
 binding = "PLAYERDLE_SYNC_KV"
 id = "af833ac4388746b9a41d1dd630057bfc"
+
+[env.preview.vars]
+VITE_SENTRY_DSN = "https://7b8885a6c35736004bea0bad7af0374d@o4511402247716864.ingest.us.sentry.io/4512449745059840"
+SENTRY_ORG = "jack-pfeiffer"
+SENTRY_PROJECT = "playerdle"
+VITE_SENTRY_ENVIRONMENT = "preview"
