@@ -1,4 +1,7 @@
 import { Component, type ErrorInfo, type ReactNode } from "react"
+import { reportBoundaryError } from "@/lib/sentry"
+import { classifyError, type ErrorClassification } from "@/shared/utils/error-codes"
+import ErrorScreen from "./error-screen"
 
 interface Props {
   children: ReactNode
@@ -7,53 +10,42 @@ interface Props {
 
 interface State {
   hasError: boolean
-  error: Error | null
+  classification: ErrorClassification
+  refId?: string
 }
 
+/**
+ * Catches render errors, reports them to Sentry and shows a friendly crash screen.
+ * The raw error message is never shown to players — only a known-error code and/or
+ * a short Sentry reference they can pass along.
+ */
 export class ErrorBoundary extends Component<Props, State> {
-  state: State = { hasError: false, error: null }
+  state: State = { hasError: false, classification: {} }
 
-  static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error }
+  static getDerivedStateFromError(error: unknown): Partial<State> {
+    return { hasError: true, classification: classifyError(error) }
   }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
+  componentDidCatch(error: unknown, info: ErrorInfo) {
     console.error("[ErrorBoundary]", error, info.componentStack)
+    const refId = reportBoundaryError(
+      error,
+      info.componentStack,
+      this.state.classification.code ?? classifyError(error).code,
+    )
+    if (refId) this.setState({ refId })
   }
 
   render() {
     if (this.state.hasError) {
+      const { code, hint } = this.state.classification
       return (
         this.props.fallback ?? (
-          <main className="min-h-dvh w-full overflow-y-auto bg-primary-50 px-4 py-8 text-center text-primary-900 dark:bg-primary-900 dark:text-primary-50">
-            <section
-              aria-labelledby="error-title"
-              className="mx-auto flex min-h-[50dvh] w-full max-w-lg flex-col items-center justify-center gap-4"
-              role="alert"
-            >
-              <h1
-                className="text-lg font-semibold"
-                id="error-title"
-              >
-                Something went wrong
-              </h1>
-              <p className="text-sm text-primary-600 dark:text-primary-200">
-                Please refresh the page to try again.
-              </p>
-              {this.state.error?.message && (
-                <pre className="max-h-40 w-full overflow-auto whitespace-pre-wrap break-words rounded bg-primary-100 p-3 text-left text-xs text-primary-800 dark:bg-primary-800 dark:text-primary-100">
-                  {this.state.error.message}
-                </pre>
-              )}
-              <button
-                className="rounded bg-primary-700 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 dark:bg-primary-200 dark:text-primary-900 dark:hover:bg-primary-100"
-                onClick={() => window.location.reload()}
-                type="button"
-              >
-                Refresh page
-              </button>
-            </section>
-          </main>
+          <ErrorScreen
+            code={code}
+            hint={hint}
+            refId={this.state.refId}
+          />
         )
       )
     }

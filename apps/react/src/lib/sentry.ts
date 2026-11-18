@@ -111,9 +111,36 @@ export function distributionMetric(
   Sentry.metrics.distribution(name, value, { unit, attributes })
 }
 
-/** Hooks for React 19's createRoot so uncaught/recoverable render errors are reported. */
+/**
+ * Reports an error caught by our ErrorBoundary and returns a short reference to show the
+ * player (undefined when Sentry isn't initialized). The reference is tagged as `error_ref`
+ * and any known-error code as `error_code`, so both can be searched in Sentry.
+ */
+export function reportBoundaryError(
+  error: unknown,
+  componentStack: string | null | undefined,
+  errorCode?: string,
+): string | undefined {
+  if (!Sentry.getClient()) return undefined
+  const eventId = crypto.randomUUID().replace(/-/g, "")
+  const ref = eventId.slice(0, 8)
+  Sentry.captureReactException(
+    error,
+    { componentStack: componentStack ?? "" },
+    {
+      event_id: eventId,
+      captureContext: { tags: { error_ref: ref, ...(errorCode ? { error_code: errorCode } : {}) } },
+    },
+  )
+  return ref
+}
+
+/**
+ * Hooks for React 19's createRoot so uncaught/recoverable render errors are reported.
+ * Boundary-caught errors are reported by ErrorBoundary itself (reportBoundaryError) so
+ * the event carries the reference shown on the error screen.
+ */
 export const sentryRootErrorHandlers = {
   onUncaughtError: Sentry.reactErrorHandler(),
-  onCaughtError: Sentry.reactErrorHandler(),
   onRecoverableError: Sentry.reactErrorHandler(),
 }
