@@ -420,16 +420,6 @@
     "number": 77
   },
   {
-    "id": "nfl:4683506",
-    "name": "Albert Reese IV",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "OT",
-    "number": 76
-  },
-  {
     "id": "nfl:4612298",
     "name": "Albert Regis",
     "conference": "AFC",
@@ -5156,11 +5146,12 @@
     "id": "nfl:4608386",
     "name": "D'Anthony Bell",
     "conference": "NFC",
-    "division": "NFC West",
-    "team": "Seattle Seahawks",
-    "teamAbbr": "SEA",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
     "position": "S",
-    "number": 23
+    "number": 23,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4880312",
@@ -7661,6 +7652,16 @@
     "teamAbbr": "NE",
     "position": "WR",
     "number": 86
+  },
+  {
+    "id": "nfl:4430825",
+    "name": "EJ Smith",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "RB",
+    "number": 35
   },
   {
     "id": "nfl:4361272",
@@ -10964,16 +10965,6 @@
     "number": 23
   },
   {
-    "id": "nfl:3916204",
-    "name": "James Proche II",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Arizona Cardinals",
-    "teamAbbr": "ARI",
-    "position": "WR",
-    "number": 80
-  },
-  {
     "id": "nfl:4693371",
     "name": "James Thompson Jr.",
     "conference": "NFC",
@@ -11952,6 +11943,16 @@
     "teamAbbr": "ARI",
     "position": "RB",
     "number": 34
+  },
+  {
+    "id": "nfl:4570084",
+    "name": "Jerrick Reed II",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Arizona Cardinals",
+    "teamAbbr": "ARI",
+    "position": "S",
+    "number": 33
   },
   {
     "id": "nfl:4241463",
@@ -15025,6 +15026,16 @@
     "number": 91
   },
   {
+    "id": "nfl:4373951",
+    "name": "Kohl Levao",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "New York Jets",
+    "teamAbbr": "NYJ",
+    "position": "G",
+    "number": 60
+  },
+  {
     "id": "nfl:5225419",
     "name": "Kolbe Katsis",
     "conference": "AFC",
@@ -16815,6 +16826,16 @@
     "number": 65
   },
   {
+    "id": "nfl:4242457",
+    "name": "Matthew Butler",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "DT",
+    "number": 91
+  },
+  {
     "id": "nfl:4877717",
     "name": "Matthew Caldwell",
     "conference": "NFC",
@@ -17083,6 +17104,16 @@
     "teamAbbr": "CLE",
     "position": "FB",
     "number": 34
+  },
+  {
+    "id": "nfl:4240657",
+    "name": "Michael Carter",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Tennessee Titans",
+    "teamAbbr": "TEN",
+    "position": "RB",
+    "number": 35
   },
   {
     "id": "nfl:4240456",
@@ -21354,6 +21385,16 @@
     "teamAbbr": "DEN",
     "position": "S",
     "number": 30
+  },
+  {
+    "id": "nfl:4427348",
+    "name": "Te'Cory Couch",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Buffalo Bills",
+    "teamAbbr": "BUF",
+    "position": "CB",
+    "number": 33
   },
   {
     "id": "nfl:4374045",
