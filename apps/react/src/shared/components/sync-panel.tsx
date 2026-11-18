@@ -1,6 +1,7 @@
 import { faArrowsRotate, faCheck, faCopy, faLinkSlash } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useCallback, useEffect, useRef, useState } from "react"
+import { logWarning } from "@/lib/sentry"
 import MenuLinkButton from "./menu-link-button"
 import Popup from "./popup"
 import {
@@ -48,7 +49,19 @@ function formatSyncedAt(date: Date): string {
 
 const CONFIRM_REVERT_MS = 3000
 
-export default function SyncPanel({ open = true }: { open?: boolean }) {
+/** Masked in Sentry Session Replay — this panel shows the sync passphrase. */
+export default function SyncPanel(props: { open?: boolean }) {
+  return (
+    <div
+      data-sentry-mask
+      className="contents"
+    >
+      <SyncPanelContent {...props} />
+    </div>
+  )
+}
+
+function SyncPanelContent({ open = true }: { open?: boolean }) {
   const [view, setView] = useState<PanelView>("no-code")
   const [passphrase, setLocalPassphrase] = useState("")
   const [deviceCount, setDeviceCount] = useState(0)
@@ -143,7 +156,9 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
       setStatus({ type: "idle" })
       flashSavedToast()
     } catch (e) {
-      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+      const message = e instanceof Error ? e.message : "Unknown error"
+      logWarning("Sync failed", { kind: "manual", reason: message })
+      setStatus({ type: "save-err", message })
     }
   }
 
@@ -189,7 +204,9 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
       setStatus({ type: "idle" })
       flashSavedToast()
     } catch (e) {
-      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+      const message = e instanceof Error ? e.message : "Unknown error"
+      logWarning("Sync failed", { kind: "manual", reason: message })
+      setStatus({ type: "save-err", message })
     }
   }
 
@@ -205,7 +222,9 @@ export default function SyncPanel({ open = true }: { open?: boolean }) {
       setStatus({ type: "idle" })
       flashSavedToast()
     } catch (e) {
-      setStatus({ type: "save-err", message: e instanceof Error ? e.message : "Unknown error" })
+      const message = e instanceof Error ? e.message : "Unknown error"
+      logWarning("Sync failed", { kind: "manual", reason: message })
+      setStatus({ type: "save-err", message })
     }
   }
 

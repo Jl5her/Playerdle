@@ -1,3 +1,4 @@
+import { logWarning } from "@/lib/sentry"
 import { WORDLIST } from "./wordlist"
 
 const PASSPHRASE_KEY = "playerdle-sync-passphrase"
@@ -566,20 +567,24 @@ let _autoSyncCleanup: (() => void) | null = null
 let _pushTimer: ReturnType<typeof setTimeout> | null = null
 let _lastBgSyncAt = 0
 
+function logSyncFailure(kind: string, e: unknown): void {
+  logWarning("Sync failed", { kind, reason: e instanceof Error ? e.message : String(e) })
+}
+
 function scheduleDebouncedPush(): void {
   if (_pushTimer) clearTimeout(_pushTimer)
   _pushTimer = setTimeout(() => {
     _pushTimer = null
     const phrase = getPassphrase()
     if (!phrase) return
-    void pushToCloud(phrase).catch(() => {})
+    void pushToCloud(phrase).catch(e => logSyncFailure("push", e))
   }, 1500)
 }
 
 function runTrackedSync(): void {
   if (_bgSyncPromise) return
   _bgSyncPromise = backgroundSync()
-    .catch(() => {})
+    .catch(e => logSyncFailure("background", e))
     .finally(() => {
       _bgSyncPromise = null
       notifySyncListeners()

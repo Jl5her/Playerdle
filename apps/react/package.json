@@ -21,6 +21,7 @@
     "@playerdle/data": "workspace:*",
     "@playerdle/theme": "workspace:*",
     "@playerdle/types": "workspace:*",
+    "@sentry/react": "^11.13.0",
     "@tailwindcss/vite": "^4.1.18",
     "canvas-confetti": "^1.9.4",
     "clsx": "^2.1.1",
@@ -33,6 +34,7 @@
     "workbox-window": "^7.4.1"
   },
   "devDependencies": {
+    "@sentry/vite-plugin": "^11.13.0",
     "@storybook/addon-a11y": "^10.4.0",
     "@storybook/addon-docs": "^10.4.0",
     "@storybook/react-vite": "^10.4.0",
