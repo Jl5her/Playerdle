@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
-import * as cheerio from "cheerio"
+import { fetchFantasyProsStats } from "./lib/fantasypros"
 
 const fantasyConfig = {
   positions: {
@@ -41,6 +41,9 @@ interface NFLPlayer {
   teamAbbr: string
   numberBackfilled?: boolean
 }
+
+// Refuse to write a pool smaller than this — a healthy run yields ~210-230 IDs
+const MIN_ANSWER_POOL_SIZE = 150
 
 const POSITIONS_CONFIG = fantasyConfig.positions
 const PRIOR_SEASON_POSITIONS_CONFIG = fantasyConfig.priorSeasonPositions
@@ -143,64 +146,18 @@ async function scrapeFantasyProsRankings(
   const fpPosition = FANTASYPROS_POSITIONS[position]
   if (!fpPosition) return []
 
-  const url = `https://www.fantasypros.com/nfl/stats/${fpPosition}.php?year=${season}&range=full`
-  console.log(`Scraping ${position} stats from ${url}...`)
-
-  try {
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-      },
-      signal: AbortSignal.timeout(10_000),
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`)
-    }
-
-    const html = await response.text()
-    const $ = cheerio.load(html)
-    const players: FantasyPlayer[] = []
-
-    const table = $("#data, table.table").first()
-    const tbody = table.find("tbody")
-    const rows = tbody.find("tr")
-
-    rows.slice(0, topN).each((idx, row) => {
-      const $row = $(row)
-      let playerCell = $row.find("td.player-label, a.fp-player-link").first()
-      if (!playerCell.length) {
-        playerCell = $row.find("td").first()
-      }
-
-      if (!playerCell.length) return
-
-      const fullText = playerCell.text().trim()
-      let team: string | null = null
-      let playerName = fullText
-
-      if (fullText.includes("(") && fullText.includes(")")) {
-        playerName = fullText.split("(")[0].trim()
-        const teamPart = fullText.split("(")[1].split(")")[0].trim()
-        team = teamPart.split("-")[0].trim()
-      }
-
-      if (playerName) {
-        players.push({
-          rank: idx + 1,
-          name: playerName,
-          position,
-          team,
-        })
-      }
-    })
-
-    console.log(`  Found ${players.length} ${position} players`)
-    return players
-  } catch (err) {
-    console.error(`  Error fetching ${position} stats: ${err}`)
-    return []
-  }
+  console.log(`Scraping ${position} ${season} stats from FantasyPros...`)
+  // Throws on any fetch/parse failure: a broken scrape must fail the job, not
+  // silently produce an empty pool (which emptied the NFL daily on 2026-10-19).
+  const rows = await fetchFantasyProsStats(fpPosition, season)
+  const players = rows.slice(0, topN).map((row, idx) => ({
+    rank: idx + 1,
+    name: row.name,
+    position,
+    team: row.team ?? null,
+  }))
+  console.log(`  Found ${players.length} ${position} players`)
+  return players
 }
 
 function loadNFLPlayers(): NFLPlayer[] {
@@ -350,6 +307,13 @@ async function main() {
 
   const validatedPlayers = validateAgainstNFLDatabase(allFantasyPlayers, nflPlayers)
   const answerPoolIds = buildAnswerPoolIds(validatedPlayers, nflPlayers)
+
+  if (answerPoolIds.length < MIN_ANSWER_POOL_SIZE) {
+    throw new Error(
+      `Only ${answerPoolIds.length} answer pool IDs (minimum ${MIN_ANSWER_POOL_SIZE}); ` +
+        "keeping the existing answer_pool.json",
+    )
+  }
 
   writeFileSync(outputPath, JSON.stringify(answerPoolIds, null, 2) + "\n", "utf-8")
   console.log(`\nSaved ${answerPoolIds.length} NFL answer pool IDs to ${outputPath}`)

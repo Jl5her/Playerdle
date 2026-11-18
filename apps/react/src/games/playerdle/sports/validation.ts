@@ -81,6 +81,12 @@ function validatePlayerAndAnswerPool(
 ): string[] {
   const errors: string[] = []
 
+  // An empty pool crashes the daily ("No eligible players available"); fail the build
+  // so the last good deploy stays live instead.
+  if (answerPool.length === 0) {
+    errors.push(`${prefix}Answer pool is empty`)
+  }
+
   const duplicatePlayerIds = findDuplicateIds(players)
   if (duplicatePlayerIds.length > 0) {
     errors.push(`${prefix}Duplicate player IDs: ${duplicatePlayerIds.join(", ")}`)

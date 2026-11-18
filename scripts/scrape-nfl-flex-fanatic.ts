@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
-import * as cheerio from "cheerio"
+import { type FantasyProsStatRow, fetchFantasyProsStats } from "./lib/fantasypros"
 
 type FlexPosition = "RB" | "WR" | "TE"
 
@@ -46,10 +46,6 @@ const MIN_GAMES_PLAYED = 6
 const MIN_GAMES_PLAYED_RATIO = 0.6
 const MIN_CURATED_ANSWER_POOL_SIZE = 140
 
-const TEAM_ABBR_MAP: Record<string, string> = {
-  JAC: "JAX",
-}
-
 // NFL seasons are named by the year they kick off (September). Before
 // September we're in the offseason, so the most recent season is last year's.
 function parseSeasonArg(): number {
@@ -83,92 +79,21 @@ function normalizeName(name: string): string {
     .toLowerCase()
 }
 
-function toNumber(value: string): number | null {
-  const normalized = value.replace(/,/g, "").trim()
-  if (!normalized) return null
-  const parsed = Number(normalized)
-  return Number.isFinite(parsed) ? parsed : null
-}
-
-function parsePlayerAndTeam(raw: string): { playerName: string; teamAbbr?: string } {
-  const match = raw.match(/^(.*?)\s*\(([^)]+)\)\s*$/)
-  if (!match) {
-    return { playerName: raw.trim() }
-  }
-
-  const playerName = match[1].trim()
-  const teamAbbr = TEAM_ABBR_MAP[match[2].trim().toUpperCase()] ?? match[2].trim().toUpperCase()
-  return { playerName, teamAbbr }
-}
-
-function resolveRow(
-  position: FlexPosition,
-  cells: string[],
-): Omit<FantasyProsFlexRow, "playerName" | "teamAbbr" | "position"> | null {
-  if (position === "RB") {
-    const rushYards = toNumber(cells[3])
-    const rushTds = toNumber(cells[7])
-    const targets = toNumber(cells[8])
-    const receptions = toNumber(cells[9])
-    const recYards = toNumber(cells[10])
-    const recTds = toNumber(cells[12])
-    const gamesPlayed = toNumber(cells[14])
-    const fantasyPointsPerGame = toNumber(cells[16])
-
-    if (
-      rushYards === null ||
-      rushTds === null ||
-      targets === null ||
-      receptions === null ||
-      recYards === null ||
-      recTds === null ||
-      gamesPlayed === null ||
-      fantasyPointsPerGame === null ||
-      gamesPlayed <= 0
-    ) {
-      return null
-    }
-
-    const totalYards = rushYards + recYards
-    const totalTds = rushTds + recTds
-    return {
-      gamesPlayed,
-      fantasyPointsPerGame: Number(fantasyPointsPerGame.toFixed(1)),
-      targetsPerGame: Number((targets / gamesPlayed).toFixed(1)),
-      receptionsPerGame: Number((receptions / gamesPlayed).toFixed(1)),
-      yardsPerGame: Number((totalYards / gamesPlayed).toFixed(1)),
-      touchdownsPerGame: Number((totalTds / gamesPlayed).toFixed(2)),
-    }
-  }
-
-  const targets = toNumber(cells[2])
-  const receptions = toNumber(cells[4])
-  const recYards = toNumber(cells[5])
-  const recTds = toNumber(cells[8])
-  const rushYards = toNumber(cells[10])
-  const rushTds = toNumber(cells[11])
-  const gamesPlayed = toNumber(cells[13])
-  const fantasyPointsPerGame = toNumber(cells[15])
-
-  if (
-    targets === null ||
-    receptions === null ||
-    recYards === null ||
-    recTds === null ||
-    rushYards === null ||
-    rushTds === null ||
-    gamesPlayed === null ||
-    fantasyPointsPerGame === null ||
-    gamesPlayed <= 0
-  ) {
-    return null
-  }
-
-  const totalYards = recYards + rushYards
-  const totalTds = recTds + rushTds
+function toFlexRow(position: FlexPosition, row: FantasyProsStatRow): FantasyProsFlexRow | null {
+  const gamesPlayed = row.games
+  if (!gamesPlayed || gamesPlayed <= 0) return null
+  const stat = (key: string) => row.stats[key] ?? 0
+  // rec_att is targets on FantasyPros' stats pages
+  const targets = stat("rec_att")
+  const receptions = stat("rec_rec")
+  const totalYards = stat("rush_yds") + stat("rec_yds")
+  const totalTds = stat("rush_tds") + stat("rec_tds")
   return {
+    position,
+    playerName: row.name,
+    teamAbbr: row.team,
     gamesPlayed,
-    fantasyPointsPerGame: Number(fantasyPointsPerGame.toFixed(1)),
+    fantasyPointsPerGame: Number(row.fptsg.toFixed(1)),
     targetsPerGame: Number((targets / gamesPlayed).toFixed(1)),
     receptionsPerGame: Number((receptions / gamesPlayed).toFixed(1)),
     yardsPerGame: Number((totalYards / gamesPlayed).toFixed(1)),
@@ -176,51 +101,14 @@ function resolveRow(
   }
 }
 
+// Half-PPR is FantasyPros' default scoring (the old scoring=HALF param now redirects to it).
+// Throws on any fetch/parse failure so a broken scrape fails the job.
 async function fetchPositionRows(
   position: FlexPosition,
   season: number,
 ): Promise<FantasyProsFlexRow[]> {
-  const url = `https://www.fantasypros.com/nfl/stats/${position.toLowerCase()}.php?scoring=HALF&year=${season}&range=full`
-  const response = await fetch(url, {
-    headers: { "User-Agent": "Mozilla/5.0" },
-    signal: AbortSignal.timeout(20_000),
-  })
-  if (!response.ok) {
-    throw new Error(`FantasyPros request failed for ${position}: HTTP ${response.status}`)
-  }
-
-  const html = await response.text()
-  const $ = cheerio.load(html)
-  const rows: FantasyProsFlexRow[] = []
-
-  $("#data tbody tr").each((_, tr) => {
-    const cells = $(tr)
-      .find("td")
-      .toArray()
-      .map(td => $(td).text().trim())
-    if (cells.length < 16) return
-
-    const playerCell = cells[1]
-    if (!playerCell) return
-
-    const { playerName, teamAbbr } = parsePlayerAndTeam(playerCell)
-    const derived = resolveRow(position, cells)
-    if (!derived) return
-
-    rows.push({
-      position,
-      playerName,
-      teamAbbr,
-      gamesPlayed: derived.gamesPlayed,
-      fantasyPointsPerGame: derived.fantasyPointsPerGame,
-      targetsPerGame: derived.targetsPerGame,
-      receptionsPerGame: derived.receptionsPerGame,
-      yardsPerGame: derived.yardsPerGame,
-      touchdownsPerGame: derived.touchdownsPerGame,
-    })
-  })
-
-  return rows
+  const rows = await fetchFantasyProsStats(position, season)
+  return rows.flatMap(row => toFlexRow(position, row) ?? [])
 }
 
 function loadNflPlayers(): NflPlayer[] {
@@ -250,7 +138,11 @@ function loadClassicAnswerPoolIds(): Set<string> {
     "nfl",
     "answer_pool.json",
   )
-  return new Set(JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[])
+  const ids = JSON.parse(readFileSync(answerPoolPath, "utf-8")) as string[]
+  if (ids.length === 0) {
+    throw new Error("Classic NFL answer_pool.json is empty; run generate:answer-pool first")
+  }
+  return new Set(ids)
 }
 
 function buildFanaticFlexPlayers(
@@ -379,6 +271,14 @@ async function main() {
   const fanaticPlayers = buildFanaticFlexPlayers(nflPlayers, allRows)
   const answerPoolIds = buildCuratedAnswerPool(fanaticPlayers, classicAnswerPoolIds)
   console.log(`Selected ${answerPoolIds.length} curated NFL Flex answer IDs`)
+
+  // Refuse to overwrite good data with a broken scrape
+  if (fanaticPlayers.length < MIN_CURATED_ANSWER_POOL_SIZE) {
+    throw new Error(
+      `Only ${fanaticPlayers.length} Flex Fanatic players (minimum ${MIN_CURATED_ANSWER_POOL_SIZE}); ` +
+        "keeping the existing data",
+    )
+  }
 
   writeData(fanaticPlayers, answerPoolIds)
 }
