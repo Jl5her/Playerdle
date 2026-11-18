@@ -13,11 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Sentry cron check-in (start)
-        env:
-          SCHEDULE: ${{ github.event.schedule }}
-        run: bash scripts/sentry-cron.sh start cleanup-sync
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
 
@@ -37,6 +32,6 @@ jobs:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
         run: pnpm tsx scripts/cleanup-sync.ts
 
-      - name: Sentry cron check-in (finish)
-        if: always()
-        run: bash scripts/sentry-cron.sh finish ${{ job.status == 'success' && 'ok' || 'error' }}
+      - name: Report failure to Sentry
+        if: failure()
+        run: bash scripts/report-job-failure.sh cleanup-sync
