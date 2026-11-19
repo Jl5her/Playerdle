@@ -720,6 +720,22 @@
     "tdPerGame": 0.8
   },
   {
+    "id": "nfl:4257188",
+    "name": "Charlie Jones",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 89,
+    "gp": 6,
+    "fppg": 0.6,
+    "tgtPerGame": 0.5,
+    "recPerGame": 0.3,
+    "ydsPerGame": 11,
+    "tdPerGame": 0
+  },
+  {
     "id": "nfl:4241263",
     "name": "Charlie Kolar",
     "conference": "AFC",

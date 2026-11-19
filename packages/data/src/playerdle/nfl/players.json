@@ -354,8 +354,8 @@
     "name": "Ajani Cornelius",
     "conference": "NFC",
     "division": "NFC East",
-    "team": "Dallas Cowboys",
-    "teamAbbr": "DAL",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
     "position": "OT",
     "number": 65
   },
@@ -2480,6 +2480,16 @@
     "number": 54
   },
   {
+    "id": "nfl:4431342",
+    "name": "Brennan Presley",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Los Angeles Rams",
+    "teamAbbr": "LAR",
+    "position": "WR",
+    "number": 81
+  },
+  {
     "id": "nfl:5082398",
     "name": "Brent Austin",
     "conference": "AFC",
@@ -3871,6 +3881,16 @@
     "number": 73
   },
   {
+    "id": "nfl:4257188",
+    "name": "Charlie Jones",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "WR",
+    "number": 89
+  },
+  {
     "id": "nfl:4241263",
     "name": "Charlie Kolar",
     "conference": "AFC",
@@ -4701,16 +4721,6 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 85
-  },
-  {
-    "id": "nfl:4036959",
-    "name": "Cole Christiansen",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "LB",
-    "number": 48
   },
   {
     "id": "nfl:3116689",
@@ -6634,6 +6644,16 @@
     "number": 14
   },
   {
+    "id": "nfl:4609203",
+    "name": "Deven Eastern",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "Seattle Seahawks",
+    "teamAbbr": "SEA",
+    "position": "DT",
+    "number": 97
+  },
+  {
     "id": "nfl:4374187",
     "name": "Deven Thompkins",
     "conference": "AFC",
@@ -7754,16 +7774,6 @@
     "number": 28
   },
   {
-    "id": "nfl:4429392",
-    "name": "Elijah Chatman",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cleveland Browns",
-    "teamAbbr": "CLE",
-    "position": "DT",
-    "number": 62
-  },
-  {
     "id": "nfl:4039170",
     "name": "Elijah Garcia",
     "conference": "NFC",
@@ -8484,6 +8494,16 @@
     "number": 38
   },
   {
+    "id": "nfl:3915106",
+    "name": "Fred Johnson",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "OT",
+    "number": 74
+  },
+  {
     "id": "nfl:3138826",
     "name": "Fred Warner",
     "conference": "NFC",
@@ -8682,16 +8702,6 @@
     "teamAbbr": "BUF",
     "position": "S",
     "number": 25
-  },
-  {
-    "id": "nfl:4875981",
-    "name": "Geno VanDeMark",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
-    "position": "OL",
-    "number": 69
   },
   {
     "id": "nfl:4708238",
@@ -17176,6 +17186,16 @@
     "number": 72
   },
   {
+    "id": "nfl:4040622",
+    "name": "Michael Jordan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "G",
+    "number": 67
+  },
+  {
     "id": "nfl:4362010",
     "name": "Michael Jurgens",
     "conference": "NFC",
@@ -18106,6 +18126,16 @@
     "number": 66
   },
   {
+    "id": "nfl:4360773",
+    "name": "Nick Hampton",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "LB",
+    "number": 39
+  },
+  {
     "id": "nfl:4429164",
     "name": "Nick Herbig",
     "conference": "AFC",
@@ -18236,6 +18266,16 @@
     "number": 12
   },
   {
+    "id": "nfl:5143915",
+    "name": "Nick Whiteside",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Detroit Lions",
+    "teamAbbr": "DET",
+    "position": "CB",
+    "number": 38
+  },
+  {
     "id": "nfl:4247590",
     "name": "Nick Zakelj",
     "conference": "NFC",
@@ -18264,6 +18304,16 @@
     "teamAbbr": "DEN",
     "position": "LB",
     "number": 15
+  },
+  {
+    "id": "nfl:4691043",
+    "name": "Nikko Reed",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "New York Giants",
+    "teamAbbr": "NYG",
+    "position": "CB",
+    "number": 35
   },
   {
     "id": "nfl:4372716",
