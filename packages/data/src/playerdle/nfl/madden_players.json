@@ -36,9 +36,9 @@
     "teamAbbr": "PIT",
     "position": "QB",
     "number": 8,
-    "ovr": 80,
+    "ovr": 79,
     "spd": 77,
-    "awr": 83,
+    "awr": 81,
     "str": 59
   },
   {
@@ -148,9 +148,9 @@
     "teamAbbr": "LV",
     "position": "RB",
     "number": 2,
-    "ovr": 83,
+    "ovr": 82,
     "spd": 90,
-    "awr": 81,
+    "awr": 78,
     "str": 80
   },
   {
@@ -176,7 +176,7 @@
     "teamAbbr": "TB",
     "position": "QB",
     "number": 6,
-    "ovr": 78,
+    "ovr": 77,
     "spd": 87,
     "awr": 73,
     "str": 69
@@ -190,9 +190,9 @@
     "teamAbbr": "JAX",
     "position": "RB",
     "number": 33,
-    "ovr": 82,
+    "ovr": 84,
     "spd": 95,
-    "awr": 78,
+    "awr": 81,
     "str": 75
   },
   {
@@ -204,7 +204,7 @@
     "teamAbbr": "ATL",
     "position": "RB",
     "number": 7,
-    "ovr": 98,
+    "ovr": 97,
     "spd": 96,
     "awr": 90,
     "str": 81
@@ -220,7 +220,7 @@
     "number": 24,
     "ovr": 82,
     "spd": 93,
-    "awr": 82,
+    "awr": 81,
     "str": 75
   },
   {
@@ -234,7 +234,7 @@
     "number": 10,
     "ovr": 81,
     "spd": 89,
-    "awr": 81,
+    "awr": 80,
     "str": 60
   },
   {
@@ -346,7 +346,7 @@
     "number": 13,
     "ovr": 92,
     "spd": 86,
-    "awr": 92,
+    "awr": 93,
     "str": 63
   },
   {
@@ -360,7 +360,7 @@
     "number": 9,
     "ovr": 82,
     "spd": 87,
-    "awr": 84,
+    "awr": 85,
     "str": 54
   },
   {
@@ -582,7 +582,7 @@
     "teamAbbr": "CAR",
     "position": "RB",
     "number": 30,
-    "ovr": 85,
+    "ovr": 86,
     "spd": 91,
     "awr": 90,
     "str": 75
@@ -714,20 +714,6 @@
     "str": 76
   },
   {
-    "id": "nfl:3917792",
-    "name": "Daniel Jones",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Indianapolis Colts",
-    "teamAbbr": "IND",
-    "position": "QB",
-    "number": 17,
-    "ovr": 72,
-    "spd": 87,
-    "awr": 63,
-    "str": 67
-  },
-  {
     "id": "nfl:4430802",
     "name": "Darnell Washington",
     "conference": "AFC",
@@ -820,9 +806,9 @@
     "teamAbbr": "MIA",
     "position": "RB",
     "number": 28,
-    "ovr": 86,
+    "ovr": 85,
     "spd": 96,
-    "awr": 76,
+    "awr": 74,
     "str": 68
   },
   {
@@ -834,9 +820,9 @@
     "teamAbbr": "SF",
     "position": "WR",
     "number": 19,
-    "ovr": 79,
+    "ovr": 80,
     "spd": 91,
-    "awr": 84,
+    "awr": 92,
     "str": 80
   },
   {
@@ -876,9 +862,9 @@
     "teamAbbr": "CLE",
     "position": "QB",
     "number": 4,
-    "ovr": 76,
+    "ovr": 77,
     "spd": 85,
-    "awr": 76,
+    "awr": 77,
     "str": 69
   },
   {
@@ -988,9 +974,9 @@
     "teamAbbr": "NE",
     "position": "QB",
     "number": 10,
-    "ovr": 89,
+    "ovr": 88,
     "spd": 89,
-    "awr": 85,
+    "awr": 83,
     "str": 62
   },
   {
@@ -1030,9 +1016,9 @@
     "teamAbbr": "TB",
     "position": "WR",
     "number": 2,
-    "ovr": 81,
+    "ovr": 80,
     "spd": 90,
-    "awr": 82,
+    "awr": 76,
     "str": 60
   },
   {
@@ -1044,9 +1030,9 @@
     "teamAbbr": "KC",
     "position": "RB",
     "number": 10,
-    "ovr": 73,
+    "ovr": 77,
     "spd": 89,
-    "awr": 74,
+    "awr": 79,
     "str": 74
   },
   {
@@ -1116,7 +1102,7 @@
     "number": 7,
     "ovr": 75,
     "spd": 84,
-    "awr": 75,
+    "awr": 74,
     "str": 58
   },
   {
@@ -1156,9 +1142,9 @@
     "teamAbbr": "CLE",
     "position": "TE",
     "number": 44,
-    "ovr": 81,
+    "ovr": 82,
     "spd": 82,
-    "awr": 83,
+    "awr": 87,
     "str": 75
   },
   {
@@ -1184,9 +1170,9 @@
     "teamAbbr": "NYG",
     "position": "TE",
     "number": 9,
-    "ovr": 83,
-    "spd": 84,
-    "awr": 86,
+    "ovr": 84,
+    "spd": 87,
+    "awr": 89,
     "str": 66
   },
   {
@@ -1246,6 +1232,20 @@
     "str": 73
   },
   {
+    "id": "nfl:2578570",
+    "name": "Jacoby Brissett",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "QB",
+    "number": 11,
+    "ovr": 72,
+    "spd": 81,
+    "awr": 69,
+    "str": 73
+  },
+  {
     "id": "nfl:4575131",
     "name": "Jacory Croskey-Merritt",
     "conference": "NFC",
@@ -1274,6 +1274,20 @@
     "str": 72
   },
   {
+    "id": "nfl:4361409",
+    "name": "Jahan Dotson",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Atlanta Falcons",
+    "teamAbbr": "ATL",
+    "position": "WR",
+    "number": 4,
+    "ovr": 77,
+    "spd": 92,
+    "awr": 82,
+    "str": 61
+  },
+  {
     "id": "nfl:4429795",
     "name": "Jahmyr Gibbs",
     "conference": "NFC",
@@ -1282,7 +1296,7 @@
     "teamAbbr": "DET",
     "position": "RB",
     "number": 0,
-    "ovr": 97,
+    "ovr": 98,
     "spd": 98,
     "awr": 88,
     "str": 72
@@ -1466,7 +1480,7 @@
     "number": 6,
     "ovr": 78,
     "spd": 84,
-    "awr": 80,
+    "awr": 79,
     "str": 63
   },
   {
@@ -1478,7 +1492,7 @@
     "teamAbbr": "WSH",
     "position": "QB",
     "number": 5,
-    "ovr": 79,
+    "ovr": 80,
     "spd": 91,
     "awr": 61,
     "str": 59
@@ -1506,9 +1520,9 @@
     "teamAbbr": "GB",
     "position": "WR",
     "number": 11,
-    "ovr": 80,
+    "ovr": 79,
     "spd": 94,
-    "awr": 76,
+    "awr": 70,
     "str": 58
   },
   {
@@ -1772,9 +1786,9 @@
     "teamAbbr": "SF",
     "position": "RB",
     "number": 26,
-    "ovr": 74,
+    "ovr": 75,
     "spd": 91,
-    "awr": 76,
+    "awr": 78,
     "str": 79
   },
   {
@@ -1842,7 +1856,7 @@
     "teamAbbr": "SF",
     "position": "WR",
     "number": 3,
-    "ovr": 80,
+    "ovr": 81,
     "spd": 88,
     "awr": 87,
     "str": 72
@@ -1926,9 +1940,9 @@
     "teamAbbr": "MIN",
     "position": "QB",
     "number": 8,
-    "ovr": 77,
+    "ovr": 78,
     "spd": 69,
-    "awr": 79,
+    "awr": 84,
     "str": 52
   },
   {
@@ -2124,7 +2138,7 @@
     "number": 89,
     "ovr": 86,
     "spd": 87,
-    "awr": 87,
+    "awr": 85,
     "str": 81
   },
   {
@@ -2180,7 +2194,7 @@
     "number": 9,
     "ovr": 97,
     "spd": 77,
-    "awr": 97,
+    "awr": 98,
     "str": 66
   },
   {
@@ -2296,20 +2310,6 @@
     "str": 76
   },
   {
-    "id": "nfl:4723820",
-    "name": "Omar Cooper Jr.",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "New York Jets",
-    "teamAbbr": "NYJ",
-    "position": "WR",
-    "number": 11,
-    "ovr": 77,
-    "spd": 93,
-    "awr": 70,
-    "str": 72
-  },
-  {
     "id": "nfl:4685382",
     "name": "Omarion Hampton",
     "conference": "AFC",
@@ -2332,8 +2332,8 @@
     "teamAbbr": "JAX",
     "position": "WR",
     "number": 11,
-    "ovr": 84,
-    "spd": 89,
+    "ovr": 85,
+    "spd": 91,
     "awr": 94,
     "str": 66
   },
@@ -2626,9 +2626,9 @@
     "teamAbbr": "MIN",
     "position": "TE",
     "number": 87,
-    "ovr": 84,
+    "ovr": 83,
     "spd": 83,
-    "awr": 89,
+    "awr": 86,
     "str": 80
   },
   {
@@ -2738,9 +2738,9 @@
     "teamAbbr": "NO",
     "position": "RB",
     "number": 3,
-    "ovr": 84,
+    "ovr": 82,
     "spd": 92,
-    "awr": 83,
+    "awr": 81,
     "str": 70
   },
   {
@@ -2794,9 +2794,9 @@
     "teamAbbr": "JAX",
     "position": "QB",
     "number": 16,
-    "ovr": 88,
+    "ovr": 89,
     "spd": 89,
-    "awr": 90,
+    "awr": 92,
     "str": 69
   },
   {
@@ -2894,7 +2894,7 @@
     "number": 6,
     "ovr": 80,
     "spd": 87,
-    "awr": 77,
+    "awr": 76,
     "str": 56
   },
   {
@@ -2906,9 +2906,9 @@
     "teamAbbr": "IND",
     "position": "TE",
     "number": 84,
-    "ovr": 82,
+    "ovr": 81,
     "spd": 84,
-    "awr": 85,
+    "awr": 80,
     "str": 80
   },
   {
@@ -2990,9 +2990,9 @@
     "teamAbbr": "SEA",
     "position": "RB",
     "number": 26,
-    "ovr": 82,
+    "ovr": 83,
     "spd": 88,
-    "awr": 81,
+    "awr": 82,
     "str": 79
   },
   {

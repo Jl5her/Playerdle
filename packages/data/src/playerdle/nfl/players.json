@@ -420,6 +420,16 @@
     "number": 77
   },
   {
+    "id": "nfl:4683506",
+    "name": "Albert Reese IV",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "OT",
+    "number": 76
+  },
+  {
     "id": "nfl:4612298",
     "name": "Albert Regis",
     "conference": "AFC",
@@ -2350,16 +2360,6 @@
     "number": 95
   },
   {
-    "id": "nfl:4240577",
-    "name": "Brandon Smith",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "WR",
-    "number": 87
-  },
-  {
     "id": "nfl:4035824",
     "name": "Brandon Stephens",
     "conference": "AFC",
@@ -3549,6 +3549,16 @@
     "teamAbbr": "GB",
     "position": "CB",
     "number": 24
+  },
+  {
+    "id": "nfl:4685540",
+    "name": "Carsen Ryan",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cleveland Browns",
+    "teamAbbr": "CLE",
+    "position": "TE",
+    "number": 48
   },
   {
     "id": "nfl:4430841",
@@ -5184,16 +5194,6 @@
     "number": 48
   },
   {
-    "id": "nfl:4878824",
-    "name": "Da'Metrius Weatherspoon",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Carolina Panthers",
-    "teamAbbr": "CAR",
-    "position": "OT",
-    "number": 76
-  },
-  {
     "id": "nfl:3126352",
     "name": "Da'Shawn Hand",
     "conference": "NFC",
@@ -5522,16 +5522,6 @@
     "teamAbbr": "TEN",
     "position": "TE",
     "number": 82
-  },
-  {
-    "id": "nfl:2976117",
-    "name": "Daniel Brunskill",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Los Angeles Chargers",
-    "teamAbbr": "LAC",
-    "position": "C",
-    "number": 61
   },
   {
     "id": "nfl:4360964",
@@ -13675,16 +13665,6 @@
     "number": 77
   },
   {
-    "id": "nfl:3931399",
-    "name": "Justin Reid",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "New Orleans Saints",
-    "teamAbbr": "NO",
-    "position": "S",
-    "number": 21
-  },
-  {
     "id": "nfl:3915777",
     "name": "Justin Skule",
     "conference": "NFC",
@@ -19054,16 +19034,6 @@
     "teamAbbr": "NYG",
     "position": "RB",
     "number": 36
-  },
-  {
-    "id": "nfl:4249836",
-    "name": "Pierre Strong Jr.",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Green Bay Packers",
-    "teamAbbr": "GB",
-    "position": "RB",
-    "number": 22
   },
   {
     "id": "nfl:4429946",
