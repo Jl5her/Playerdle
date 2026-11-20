@@ -3650,16 +3650,6 @@
     "number": 4
   },
   {
-    "id": "nhl:5080217",
-    "name": "Jani Nyman",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Seattle Kraken",
-    "teamAbbr": "SEA",
-    "position": "RW",
-    "number": 38
-  },
-  {
     "id": "nhl:3900154",
     "name": "Jansen Harkins",
     "conference": "East",
@@ -7600,6 +7590,16 @@
     "number": 91
   },
   {
+    "id": "nhl:5216891",
+    "name": "Stian Solberg",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 50
+  },
+  {
     "id": "nhl:4268767",
     "name": "Stuart Skinner",
     "conference": "West",
@@ -8008,6 +8008,16 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 57
+  },
+  {
+    "id": "nhl:5526",
+    "name": "Tyler Pitlick",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Minnesota Wild",
+    "teamAbbr": "MIN",
+    "position": "C",
+    "number": 19
   },
   {
     "id": "nhl:5430",
