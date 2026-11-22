@@ -980,6 +980,16 @@
     "number": 33
   },
   {
+    "id": "nfl:4567535",
+    "name": "Anfernee Orji",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Philadelphia Eagles",
+    "teamAbbr": "PHI",
+    "position": "LB",
+    "number": 45
+  },
+  {
     "id": "nfl:5150660",
     "name": "Anterio Thompson",
     "conference": "NFC",
@@ -2228,16 +2238,6 @@
     "teamAbbr": "CIN",
     "position": "CB",
     "number": 21
-  },
-  {
-    "id": "nfl:16731",
-    "name": "Brandin Cooks",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 84
   },
   {
     "id": "nfl:4567979",
@@ -4298,8 +4298,7 @@
     "team": "Las Vegas Raiders",
     "teamAbbr": "LV",
     "position": "DT",
-    "number": 61,
-    "numberBackfilled": true
+    "number": 72
   },
   {
     "id": "nfl:4685479",
@@ -4690,6 +4689,16 @@
     "teamAbbr": "LAR",
     "position": "TE",
     "number": 84
+  },
+  {
+    "id": "nfl:4367775",
+    "name": "Colby Sorsdal",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "New Orleans Saints",
+    "teamAbbr": "NO",
+    "position": "OT",
+    "number": 67
   },
   {
     "id": "nfl:4567224",
@@ -5522,6 +5531,16 @@
     "teamAbbr": "TEN",
     "position": "TE",
     "number": 82
+  },
+  {
+    "id": "nfl:3051909",
+    "name": "Daniel Carlson",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "KR",
+    "number": 38
   },
   {
     "id": "nfl:4360964",
@@ -7694,6 +7713,16 @@
     "number": 74
   },
   {
+    "id": "nfl:4426981",
+    "name": "Eli Cox",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Jacksonville Jaguars",
+    "teamAbbr": "JAX",
+    "position": "C",
+    "number": 66
+  },
+  {
     "id": "nfl:5081508",
     "name": "Eli Heidenreich",
     "conference": "AFC",
@@ -9605,6 +9634,16 @@
     "number": 20
   },
   {
+    "id": "nfl:4567416",
+    "name": "Ja'Markis Weston",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Carolina Panthers",
+    "teamAbbr": "CAR",
+    "position": "LB",
+    "number": 47
+  },
+  {
     "id": "nfl:4362628",
     "name": "Ja'Marr Chase",
     "conference": "AFC",
@@ -9713,6 +9752,16 @@
     "teamAbbr": "LAR",
     "position": "P",
     "number": 14
+  },
+  {
+    "id": "nfl:4876013",
+    "name": "Jack Browning",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "P",
+    "number": 31
   },
   {
     "id": "nfl:4569465",
@@ -10395,16 +10444,6 @@
     "number": 70
   },
   {
-    "id": "nfl:14676",
-    "name": "Jake McQuaide",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "Los Angeles Rams",
-    "teamAbbr": "LAR",
-    "position": "LS",
-    "number": 44
-  },
-  {
     "id": "nfl:4372066",
     "name": "Jake Moody",
     "conference": "NFC",
@@ -10753,6 +10792,16 @@
     "teamAbbr": "ATL",
     "position": "LB",
     "number": 11
+  },
+  {
+    "id": "nfl:4372017",
+    "name": "Jalyn Armour-Davis",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "CB",
+    "number": 36
   },
   {
     "id": "nfl:3121414",
@@ -18952,7 +19001,7 @@
     "division": "AFC West",
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
-    "position": "OT",
+    "position": "C",
     "number": 50
   },
   {
@@ -19014,6 +19063,16 @@
     "teamAbbr": "NYG",
     "position": "RB",
     "number": 36
+  },
+  {
+    "id": "nfl:4249836",
+    "name": "Pierre Strong Jr.",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Green Bay Packers",
+    "teamAbbr": "GB",
+    "position": "RB",
+    "number": 22
   },
   {
     "id": "nfl:4429946",
