@@ -1250,16 +1250,6 @@
     "number": 84
   },
   {
-    "id": "nhl:4697654",
-    "name": "Brett Berard",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
-    "position": "LW",
-    "number": 37
-  },
-  {
     "id": "nhl:4024989",
     "name": "Brett Howden",
     "conference": "West",
@@ -1730,16 +1720,6 @@
     "number": 91
   },
   {
-    "id": "nhl:4894702",
-    "name": "Cole Reinhardt",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Florida Panthers",
-    "teamAbbr": "FLA",
-    "position": "LW",
-    "number": 29
-  },
-  {
     "id": "nhl:4845286",
     "name": "Cole Schwindt",
     "conference": "East",
@@ -2160,16 +2140,6 @@
     "number": 16
   },
   {
-    "id": "nhl:5149157",
-    "name": "David Reinbacher",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
-    "position": "D",
-    "number": 64
-  },
-  {
     "id": "nhl:5103533",
     "name": "David Spacek",
     "conference": "West",
@@ -2270,16 +2240,6 @@
     "number": 7
   },
   {
-    "id": "nhl:5090524",
-    "name": "Dillon Boucher",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
-    "position": "LW",
-    "number": 36
-  },
-  {
     "id": "nhl:4063268",
     "name": "Dillon Dube",
     "conference": "West",
@@ -2338,6 +2298,16 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 17
+  },
+  {
+    "id": "nhl:3942809",
+    "name": "Dominic Toninato",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "C",
+    "number": 25
   },
   {
     "id": "nhl:2562605",
@@ -2478,6 +2448,16 @@
     "teamAbbr": "DAL",
     "position": "RW",
     "number": 46
+  },
+  {
+    "id": "nhl:3114755",
+    "name": "Dylan Larkin",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Montreal Canadiens",
+    "teamAbbr": "MTL",
+    "position": "C",
+    "number": 71
   },
   {
     "id": "nhl:4233878",
@@ -3108,16 +3088,6 @@
     "teamAbbr": "CHI",
     "position": "D",
     "number": 28
-  },
-  {
-    "id": "nhl:5188523",
-    "name": "Ian Moore",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Anaheim Ducks",
-    "teamAbbr": "ANA",
-    "position": "D",
-    "number": 3
   },
   {
     "id": "nhl:5216907",
@@ -4614,8 +4584,8 @@
     "name": "Kirby Dach",
     "conference": "East",
     "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
     "position": "C",
     "number": 77
   },
@@ -4962,12 +4932,12 @@
   {
     "id": "nhl:2335062",
     "name": "Luke Glendening",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New York Rangers",
-    "teamAbbr": "NYR",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
     "position": "C",
-    "number": 43
+    "number": 23
   },
   {
     "id": "nhl:5206955",
@@ -7154,8 +7124,8 @@
     "name": "Sam Montembeault",
     "conference": "East",
     "division": "Atlantic Division",
-    "team": "Montreal Canadiens",
-    "teamAbbr": "MTL",
+    "team": "Detroit Red Wings",
+    "teamAbbr": "DET",
     "position": "G",
     "number": 35
   },
@@ -7598,16 +7568,6 @@
     "teamAbbr": "OTT",
     "position": "C",
     "number": 34
-  },
-  {
-    "id": "nhl:3939658",
-    "name": "Steven Lorentz",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Columbus Blue Jackets",
-    "teamAbbr": "CBJ",
-    "position": "C",
-    "number": 18
   },
   {
     "id": "nhl:5037",
@@ -8478,16 +8438,6 @@
     "teamAbbr": "DAL",
     "position": "C",
     "number": 53
-  },
-  {
-    "id": "nhl:4697717",
-    "name": "Wyatt Kaiser",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
-    "position": "D",
-    "number": 44
   },
   {
     "id": "nhl:3904188",
