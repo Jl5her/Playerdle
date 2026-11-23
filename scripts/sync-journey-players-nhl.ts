@@ -11,6 +11,13 @@
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import {
+  applyStatus,
+  findOnRoster,
+  loadRosterIndex,
+  normalizeName,
+  statusLines,
+} from "./lib/journey-status"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
@@ -22,6 +29,8 @@ interface SyncPlayer {
   position: string
   teams: string[]
   nhlId?: string
+  active?: boolean
+  retiredYear?: number
 }
 
 // Historical / relocated franchise names → current canonical names used in
@@ -33,6 +42,7 @@ const TEAM_NAME_MAP: Record<string, string> = {
   "Utah Hockey Club": "Utah Mammoth",
   "Atlanta Thrashers": "Winnipeg Jets",
   "Mighty Ducks of Anaheim": "Anaheim Ducks",
+  "Montréal Canadiens": "Montreal Canadiens",
 }
 
 function normalizeTeamName(name: string): string {
@@ -55,14 +65,14 @@ async function sleep(ms: number): Promise<void> {
 async function searchNhlId(name: string): Promise<string | undefined> {
   const url =
     `https://search.d3.nhle.com/api/v1/search/player` +
-    `?culture=en-us&limit=10&q=${encodeURIComponent(name)}&active=null`
+    `?culture=en-us&limit=10&q=${encodeURIComponent(name)}`
   try {
     const data =
       await fetchJson<Array<{ playerId: string | number; name?: string; lastTeamId?: string }>>(url)
     if (!Array.isArray(data) || data.length === 0) return undefined
     // Bail on no exact match or ambiguous duplicates rather than silently
     // assigning the wrong player ID — the caller already handles undefined.
-    const exact = data.filter(p => p.name?.toLowerCase() === name.toLowerCase())
+    const exact = data.filter(p => p.name && normalizeName(p.name) === normalizeName(name))
     if (exact.length !== 1) return undefined
     return String(exact[0].playerId)
   } catch {
@@ -159,6 +169,7 @@ function playerBlock(p: SyncPlayer): string {
     `${pad}teams: ${formatTeams(p.teams, 4)},`,
   ]
   if (p.nhlId) lines.push(`${pad}nhlId: "${p.nhlId}",`)
+  lines.push(...statusLines(p, pad))
   lines.push(`  },`)
   return lines.join("\n")
 }
@@ -212,6 +223,35 @@ async function main() {
   // name that isn't in teams.json — writing would corrupt downstream lookups.
   const blockingWarnings: string[] = []
 
+  const rosterIndex = loadRosterIndex(DATA_ROOT, "nhl")
+  let teamsAppended = 0
+  let statusChanges = 0
+  // Roster-based current team + active/retired status. Runs for every player,
+  // including ones whose API lookup failed, and after any stats-based rewrite
+  // of teams[] so a just-signed team stays at the end of the path.
+  const updateStatus = (p: SyncPlayer, lastSeasonYear?: number) => {
+    const status = applyStatus(p, {
+      league: "nhl",
+      rosterEntry: findOnRoster(rosterIndex, "nhl", p.name, p.position, undefined),
+      lastSeasonYear,
+      validTeamNames,
+      normalizeTeam: normalizeTeamName,
+    })
+    if (status.appendedTeam) {
+      teamsAppended++
+      process.stdout.write(` [team:+${status.appendedTeam}]`)
+    }
+    if (status.unknownTeam) {
+      warnings.push(`${p.name}: current team "${status.unknownTeam}" not in teams.json — skipped`)
+    }
+    if (status.statusChanged) {
+      statusChanges++
+      process.stdout.write(
+        ` [status:${p.active ? "active" : `retired${p.retiredYear ? ` ${p.retiredYear}` : ""}`}]`,
+      )
+    }
+  }
+
   for (let i = 0; i < players.length; i++) {
     const p = players[i]
     process.stdout.write(`[${i + 1}/${players.length}] ${p.name}`)
@@ -221,7 +261,9 @@ async function main() {
       const id = await searchNhlId(p.name)
       if (!id) {
         warnings.push(`${p.name}: NHL ID not found — skip`)
-        process.stdout.write(" [id:NOT FOUND]\n")
+        process.stdout.write(" [id:NOT FOUND]")
+        updateStatus(p)
+        console.log()
         continue
       }
       p.nhlId = id
@@ -236,7 +278,9 @@ async function main() {
     const stints = await fetchCareerStints(p.nhlId)
     if (!stints || stints.length === 0) {
       warnings.push(`${p.name}: career stats returned no NHL rows`)
-      process.stdout.write(" [stats:none]\n")
+      process.stdout.write(" [stats:none]")
+      updateStatus(p)
+      console.log()
       continue
     }
 
@@ -261,11 +305,14 @@ async function main() {
     if (multiTeamSeasons.length > 0) {
       process.stdout.write(` [trades:${multiTeamSeasons.length}]`)
     }
+    updateStatus(p, Math.max(...stints.map(s => s.season % 10000)))
     console.log()
     await sleep(200)
   }
 
   console.log("\n--- Sync Summary ---")
+  console.log(`Current teams appended  : ${teamsAppended}`)
+  console.log(`Status changes          : ${statusChanges}`)
   console.log(`NHL IDs newly populated : ${idsPopulated}`)
   console.log(`NHL IDs already cached  : ${idsAlreadyCached}`)
   console.log(`Team lists rewritten    : ${listsRewritten}`)

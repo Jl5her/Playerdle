@@ -11,6 +11,13 @@
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import {
+  applyStatus,
+  findOnRoster,
+  loadRosterIndex,
+  normalizeName,
+  statusLines,
+} from "./lib/journey-status"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
@@ -22,6 +29,8 @@ interface SyncPlayer {
   position: string
   teams: string[]
   mlbId?: string
+  active?: boolean
+  retiredYear?: number
 }
 
 // Map historical / pre-rebrand franchise names → current canonical names used
@@ -67,7 +76,7 @@ async function searchMlbId(name: string): Promise<string | undefined> {
     if (people.length === 0) return undefined
     // Bail on no exact match or ambiguous duplicates rather than silently
     // assigning the wrong MLB ID — the caller already handles undefined.
-    const exact = people.filter(p => p.fullName.toLowerCase() === name.toLowerCase())
+    const exact = people.filter(p => normalizeName(p.fullName) === normalizeName(name))
     if (exact.length !== 1) return undefined
     return String(exact[0].id)
   } catch {
@@ -228,6 +237,7 @@ function playerBlock(p: SyncPlayer): string {
     `${pad}teams: ${formatTeams(p.teams, 4)},`,
   ]
   if (p.mlbId) lines.push(`${pad}mlbId: "${p.mlbId}",`)
+  lines.push(...statusLines(p, pad))
   lines.push(`  },`)
   return lines.join("\n")
 }
@@ -295,6 +305,35 @@ async function main() {
   // name that isn't in teams.json — writing would corrupt downstream lookups.
   const blockingWarnings: string[] = []
 
+  const rosterIndex = loadRosterIndex(DATA_ROOT, "mlb")
+  let teamsAppended = 0
+  let statusChanges = 0
+  // Roster-based current team + active/retired status. Runs for every player,
+  // including ones whose API lookup failed, and after any stats-based rewrite
+  // of teams[] so a just-signed team stays at the end of the path.
+  const updateStatus = (p: SyncPlayer, lastSeasonYear?: number) => {
+    const status = applyStatus(p, {
+      league: "mlb",
+      rosterEntry: findOnRoster(rosterIndex, "mlb", p.name, p.position, undefined),
+      lastSeasonYear,
+      validTeamNames,
+      normalizeTeam: normalizeTeamName,
+    })
+    if (status.appendedTeam) {
+      teamsAppended++
+      process.stdout.write(` [team:+${status.appendedTeam}]`)
+    }
+    if (status.unknownTeam) {
+      warnings.push(`${p.name}: current team "${status.unknownTeam}" not in teams.json — skipped`)
+    }
+    if (status.statusChanged) {
+      statusChanges++
+      process.stdout.write(
+        ` [status:${p.active ? "active" : `retired${p.retiredYear ? ` ${p.retiredYear}` : ""}`}]`,
+      )
+    }
+  }
+
   for (let i = 0; i < players.length; i++) {
     const p = players[i]
     process.stdout.write(`[${i + 1}/${players.length}] ${p.name}`)
@@ -304,7 +343,9 @@ async function main() {
       const id = await searchMlbId(p.name)
       if (!id) {
         warnings.push(`${p.name}: MLB ID not found — skip`)
-        process.stdout.write(" [id:NOT FOUND]\n")
+        process.stdout.write(" [id:NOT FOUND]")
+        updateStatus(p)
+        console.log()
         continue
       }
       p.mlbId = id
@@ -319,7 +360,9 @@ async function main() {
     const splits = await fetchCareerSplits(p.mlbId)
     if (!splits || splits.length === 0) {
       warnings.push(`${p.name}: career stats fetch returned no rows`)
-      process.stdout.write(" [stats:none]\n")
+      process.stdout.write(" [stats:none]")
+      updateStatus(p)
+      console.log()
       continue
     }
 
@@ -344,11 +387,14 @@ async function main() {
     if (multiTeamSeasons.length > 0) {
       process.stdout.write(` [trades:${multiTeamSeasons.join(",")}]`)
     }
+    updateStatus(p, Math.max(...splits.map(s => s.season)))
     console.log()
     await sleep(200)
   }
 
   console.log("\n--- Sync Summary ---")
+  console.log(`Current teams appended  : ${teamsAppended}`)
+  console.log(`Status changes          : ${statusChanges}`)
   console.log(`MLB IDs newly populated : ${idsPopulated}`)
   console.log(`MLB IDs already cached  : ${idsAlreadyCached}`)
   console.log(`Team lists rewritten    : ${listsRewritten}`)

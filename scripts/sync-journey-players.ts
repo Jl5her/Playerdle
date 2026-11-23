@@ -2,11 +2,22 @@
 
 // Daily sync: verifies each journey player's college and current NFL team against
 // ESPN, populates espnId for future lookups, appends new team signings, removes
-// consecutive duplicate team entries, and rewrites players.ts in place.
+// consecutive duplicate team entries, records active/retired status, and
+// rewrites players.ts in place.
+//
+// The script exits non-zero when most ESPN lookups fail, so an endpoint change
+// shows up as a failed CI job instead of a silent no-op.
 
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import {
+  applyStatus,
+  currentSeasonYear,
+  findOnRoster,
+  loadRosterIndex,
+  statusLines,
+} from "./lib/journey-status"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
@@ -19,6 +30,8 @@ interface SyncPlayer {
   college: string
   teams: string[]
   espnId?: string
+  active?: boolean
+  retiredYear?: number
 }
 
 // Maps historical/relocated franchise names to current canonical display names
@@ -61,43 +74,31 @@ function buildRosterNameMap(): Map<string, string> {
   return map
 }
 
-// Search ESPN's common search API for a player by name.
-// Returns the ESPN athlete ID string, or undefined if not found.
+// Search ESPN's site search for an NFL player by name. Player results carry a
+// uid like "s:20~l:28~a:3912547" — l:28 is the NFL, a: is the athlete ID.
+// Returns the ESPN athlete ID string, or undefined if there's no single exact match.
 async function searchEspnId(name: string): Promise<string | undefined> {
   const nameLower = name.toLowerCase()
-  const encoded = encodeURIComponent(name)
-  const url = `https://site.api.espn.com/apis/common/v3/search?query=${encoded}&sport=football&league=nfl&limit=5`
+  const url = `https://site.web.api.espn.com/apis/search/v2?query=${encodeURIComponent(name)}&limit=10`
 
   try {
     const data = await fetchJson<{
       results?: Array<{
-        contents?: Array<{
-          id?: string
-          data?: {
-            athletes?: Array<{ id?: string; displayName?: string }>
-            athlete?: { id?: string; displayName?: string }
-          }
-        }>
+        type?: string
+        contents?: Array<{ displayName?: string; uid?: string }>
       }>
     }>(url)
 
-    const candidates: Array<{ id: string; displayName: string }> = []
-
+    const ids = new Set<string>()
     for (const group of data.results ?? []) {
+      if (group.type !== "player") continue
       for (const item of group.contents ?? []) {
-        const athletes = [
-          ...(item.data?.athletes ?? []),
-          ...(item.data?.athlete ? [item.data.athlete] : []),
-        ]
-        for (const a of athletes) {
-          if (a.id && a.displayName) candidates.push({ id: a.id, displayName: a.displayName })
-        }
+        if (item.displayName?.toLowerCase() !== nameLower) continue
+        const m = item.uid?.match(/~l:28~a:(\d+)/)
+        if (m) ids.add(m[1])
       }
     }
-
-    // Prefer exact display-name match; fall back to first candidate.
-    const exact = candidates.find(a => a.displayName.toLowerCase() === nameLower)
-    return exact?.id ?? candidates[0]?.id
+    return ids.size === 1 ? [...ids][0] : undefined
   } catch {
     return undefined
   }
@@ -106,56 +107,70 @@ async function searchEspnId(name: string): Promise<string | undefined> {
 interface AthleteProfile {
   college?: string
   currentTeam?: string
+  active?: boolean
 }
 
-// Fetch an ESPN athlete profile and return college + current team (if active).
+// Fetch an ESPN athlete profile and return college, current team and ESPN's
+// active flag. (The older site.api.espn.com/apis/site/v2/.../athletes/{id}
+// endpoint now returns 404.)
 async function fetchAthleteProfile(espnId: string): Promise<AthleteProfile | null> {
-  const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/athletes/${espnId}`
+  const url = `https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${espnId}`
   try {
     const data = await fetchJson<{
       athlete?: {
+        active?: boolean
+        status?: { type?: string }
         college?: { name?: string }
         team?: { displayName?: string }
       }
     }>(url)
     const a = data.athlete
     if (!a) return null
+    const statusType = a.status?.type?.toLowerCase()
     return {
       college: a.college?.name,
       currentTeam: a.team?.displayName ? normalizeTeamName(a.team.displayName) : undefined,
+      active:
+        typeof a.active === "boolean" ? a.active : statusType ? statusType === "active" : undefined,
     }
   } catch {
     return null
   }
 }
 
-// Recursively walk an ESPN JSON response and collect every team.displayName
-// encountered. Works regardless of which nested structure the stats endpoint
-// returns for a given player.
-function extractTeamNames(obj: unknown, out: Set<string>): void {
-  if (!obj || typeof obj !== "object") return
-  if (Array.isArray(obj)) {
-    for (const item of obj) extractTeamNames(item, out)
-    return
-  }
-  const record = obj as Record<string, unknown>
-  if (record.team && typeof record.team === "object") {
-    const t = record.team as Record<string, unknown>
-    if (typeof t.displayName === "string") out.add(normalizeTeamName(t.displayName))
-  }
-  for (const v of Object.values(record)) extractTeamNames(v, out)
+interface CareerStats {
+  teams: Set<string>
+  lastSeason?: number
+}
+
+// ESPN's common/v3 stats response lists season rows under
+// categories[].statistics[] as { teamSlug, season: { year } }, with team
+// display names in a top-level `teams` map keyed by slug.
+interface EspnStatsResponse {
+  teams?: Record<string, { displayName?: string }>
+  categories?: Array<{
+    statistics?: Array<{ teamSlug?: string; season?: { year?: number } }>
+  }>
 }
 
 // Fetch the player's season-by-season stats from ESPN and return the set of
-// teams they have stats entries for. Returns null when the endpoint has no
-// data (retired players with no ESPN stats, or a network error).
-async function fetchCareerTeams(espnId: string): Promise<Set<string> | null> {
-  const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/athletes/${espnId}/stats`
+// teams they have stats entries for plus their latest season. Returns null
+// when there's no data (no ESPN stats, or a network error).
+async function fetchCareerStats(espnId: string): Promise<CareerStats | null> {
+  const url = `https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${espnId}/stats`
   try {
-    const data = await fetchJson<unknown>(url)
+    const data = await fetchJson<EspnStatsResponse>(url)
     const teams = new Set<string>()
-    extractTeamNames(data, teams)
-    return teams.size > 0 ? teams : null
+    let lastSeason: number | undefined
+    for (const cat of data.categories ?? []) {
+      for (const row of cat.statistics ?? []) {
+        const name = row.teamSlug ? data.teams?.[row.teamSlug]?.displayName : undefined
+        if (name) teams.add(normalizeTeamName(name))
+        const year = row.season?.year
+        if (year && (lastSeason === undefined || year > lastSeason)) lastSeason = year
+      }
+    }
+    return teams.size > 0 || lastSeason !== undefined ? { teams, lastSeason } : null
   } catch {
     return null
   }
@@ -186,6 +201,7 @@ function playerBlock(p: SyncPlayer): string {
     `${pad}teams: ${formatTeams(p.teams, 4)},`,
   ]
   if (p.espnId) lines.push(`${pad}espnId: "${p.espnId}",`)
+  lines.push(...statusLines(p, pad))
   lines.push(`  },`)
   return lines.join("\n")
 }
@@ -222,7 +238,12 @@ export interface JourneyPlayer {
   position: string
   college?: string
   teams: string[] // chronological: oldest stint first, current/last team last
-  espnId?: string // ESPN athlete ID for direct API lookups
+  espnId?: string // ESPN athlete ID for direct API lookups (NFL)
+  mlbId?: string // MLB Stats API person ID
+  nbaId?: string // ESPN athlete ID (NBA)
+  nhlId?: string // NHL API player ID
+  active?: boolean // on a current roster or still listed as active by the league API
+  retiredYear?: number // last season played, when retired
 }
 
 export const JOURNEY_PLAYERS: JourneyPlayer[] = [
@@ -271,11 +292,15 @@ async function main() {
   const rosterNameMap = buildRosterNameMap()
   console.log(`  ${rosterNameMap.size} active players indexed\n`)
 
+  const rosterIndex = loadRosterIndex(DATA_ROOT, "nfl")
+
   let idsPopulated = 0
   let idsAlreadyCached = 0
   let teamsAdded = 0
   let dupsRemoved = 0
   let historyWarnings = 0
+  let statusChanges = 0
+  let lookupFailures = 0
   const warnings: string[] = []
 
   for (let i = 0; i < players.length; i++) {
@@ -297,9 +322,8 @@ async function main() {
           idsPopulated++
           process.stdout.write(` [id:${fromSearch} search]`)
         } else {
-          warnings.push(`${p.name}: ESPN ID not found — skip`)
-          process.stdout.write(" [id:NOT FOUND]\n")
-          continue
+          warnings.push(`${p.name}: ESPN ID not found`)
+          process.stdout.write(" [id:NOT FOUND]")
         }
       }
     } else {
@@ -307,18 +331,25 @@ async function main() {
       process.stdout.write(` [id:${p.espnId} cached]`)
     }
 
-    // ── 2. Fetch ESPN athlete profile ───────────────────────────────────────
-    await sleep(300)
-    const profile = await fetchAthleteProfile(p.espnId)
-
-    if (!profile) {
-      warnings.push(`${p.name}: ESPN profile fetch failed`)
-      process.stdout.write(" [profile:ERROR]\n")
-      continue
+    // ── 2. Fetch ESPN athlete profile + career stats ────────────────────────
+    let profile: AthleteProfile | null = null
+    let career: CareerStats | null = null
+    if (p.espnId) {
+      await sleep(300)
+      profile = await fetchAthleteProfile(p.espnId)
+      if (!profile) {
+        lookupFailures++
+        warnings.push(`${p.name}: ESPN profile fetch failed`)
+        process.stdout.write(" [profile:ERROR]")
+      }
+      await sleep(300)
+      career = await fetchCareerStats(p.espnId)
+    } else {
+      lookupFailures++
     }
 
     // ── 3. Verify college (log mismatch; do not auto-correct) ───────────────
-    if (profile.college && profile.college !== p.college) {
+    if (profile?.college && profile.college !== p.college) {
       warnings.push(`${p.name}: college mismatch — stored="${p.college}" ESPN="${profile.college}"`)
       process.stdout.write(` [college:mismatch]`)
     }
@@ -340,33 +371,50 @@ async function main() {
       }
     }
 
-    // ── 6. Append new current team if player has moved ──────────────────────
-    if (profile.currentTeam) {
-      const lastTeam = p.teams[p.teams.length - 1]
-      if (profile.currentTeam !== lastTeam) {
-        if (validTeamNames.has(profile.currentTeam)) {
-          p.teams.push(profile.currentTeam)
-          teamsAdded++
-          process.stdout.write(` [team:+${profile.currentTeam}]`)
-        } else {
-          warnings.push(`${p.name}: ESPN reports unknown team "${profile.currentTeam}" — skipped`)
-          process.stdout.write(` [team:unrecognized "${profile.currentTeam}"]`)
-        }
-      }
+    // ── 6. Current team + active/retired status ─────────────────────────────
+    // The daily roster scrape is the primary signal; ESPN's profile team is a
+    // fallback for players the roster index can't match. ESPN leaves retired
+    // players marked active with their final team (e.g. Jared Cook, last
+    // played 2021), so only trust it when they also played this season or last.
+    const recentlyPlayed =
+      career?.lastSeason !== undefined && career.lastSeason >= currentSeasonYear("nfl") - 1
+    const rosterEntry =
+      findOnRoster(rosterIndex, "nfl", p.name, p.position, p.espnId) ??
+      (profile?.currentTeam && profile.active === true && recentlyPlayed
+        ? { id: `nfl:${p.espnId}`, name: p.name, team: profile.currentTeam }
+        : undefined)
+    const status = applyStatus(p, {
+      league: "nfl",
+      rosterEntry,
+      apiActive: profile?.active,
+      lastSeasonYear: career?.lastSeason,
+      validTeamNames,
+      normalizeTeam: normalizeTeamName,
+    })
+    if (status.appendedTeam) {
+      teamsAdded++
+      process.stdout.write(` [team:+${status.appendedTeam}]`)
     }
-    // No currentTeam → player is retired or a free agent; leave teams[] as-is.
+    if (status.unknownTeam) {
+      warnings.push(`${p.name}: current team "${status.unknownTeam}" not in teams.json — skipped`)
+      process.stdout.write(` [team:unrecognized "${status.unknownTeam}"]`)
+    }
+    if (status.statusChanged) {
+      statusChanges++
+      process.stdout.write(
+        ` [status:${p.active ? "active" : `retired${p.retiredYear ? ` ${p.retiredYear}` : ""}`}]`,
+      )
+    }
 
     // ── 7. Cross-check every team[] entry against ESPN career stats ──────────
     // Flags teams the player signed with but never accumulated stats for
-    // (cut in preseason, spent entirely on IR, bad data entry, etc.).
-    await sleep(300)
-    const careerTeams = await fetchCareerTeams(p.espnId)
-
-    if (careerTeams) {
+    // (cut in preseason, spent entirely on IR, bad data entry, etc.). A team
+    // appended in step 6 is expected to be missing until they play a game.
+    if (career) {
       for (const team of p.teams) {
-        // Skip teams already flagged as unrecognized in step 5.
         if (!validTeamNames.has(team)) continue
-        if (!careerTeams.has(team)) {
+        if (team === status.appendedTeam) continue
+        if (!career.teams.has(team)) {
           historyWarnings++
           warnings.push(
             `${p.name}: "${team}" absent from ESPN career stats — signed but may not have played (verify and remove if inaccurate)`,
@@ -384,7 +432,9 @@ async function main() {
   console.log("\n--- Sync Summary ---")
   console.log(`ESPN IDs newly populated : ${idsPopulated}`)
   console.log(`ESPN IDs already cached  : ${idsAlreadyCached}`)
+  console.log(`ESPN lookup failures     : ${lookupFailures}`)
   console.log(`Teams added              : ${teamsAdded}`)
+  console.log(`Status changes           : ${statusChanges}`)
   console.log(`Consecutive dups removed : ${dupsRemoved}`)
   console.log(`Career stats mismatches  : ${historyWarnings}`)
   console.log(`Warnings (manual review) : ${warnings.length}`)
@@ -399,8 +449,13 @@ async function main() {
   writeFileSync(outPath, generatePlayersTs(players), "utf-8")
   console.log(`\nWrote ${players.length} players to ${outPath}`)
 
-  if (warnings.length > 0) {
-    process.exitCode = 0 // warnings don't fail the job; CI log captures them
+  // Roster-derived updates above are still written, but fail the job loudly
+  // when ESPN is broken for most players so CI doesn't report a silent success.
+  if (lookupFailures > players.length / 2) {
+    console.error(
+      `\n${lookupFailures}/${players.length} ESPN lookups failed — the ESPN API may have changed.`,
+    )
+    process.exitCode = 1
   }
 }
 

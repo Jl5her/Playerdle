@@ -1,7 +1,9 @@
-name: Sync NFL Journey Data
+name: Sync Journey Data
 
 # Runs 10 minutes after the main NFL roster sync so the active players.json
-# is already up-to-date when we do the ESPN ID lookups.
+# is already up-to-date when we do the ESPN ID lookups. Each league's sync also
+# reads its Playerdle roster file to append current teams and set the
+# active/retired status Journeyman shows as a hint.
 on:
   schedule:
     - cron: "10 7 * 9-12,1-2 *" # daily during season (Sept–Feb)
@@ -35,8 +37,28 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Sync journey player data with ESPN
+      # Each league runs even if an earlier one fails, so one broken API
+      # doesn't block the others; the job still fails (and reports to Sentry)
+      # after committing whatever did sync.
+      - name: Sync NFL journey data (ESPN)
+        id: nfl
+        continue-on-error: true
         run: pnpm run sync:journey
+
+      - name: Sync MLB journey data (MLB Stats API)
+        id: mlb
+        continue-on-error: true
+        run: pnpm run sync:journey:mlb
+
+      - name: Sync NBA journey data (ESPN)
+        id: nba
+        continue-on-error: true
+        run: pnpm run sync:journey:nba
+
+      - name: Sync NHL journey data (NHL API)
+        id: nhl
+        continue-on-error: true
+        run: pnpm run sync:journey:nhl
 
       - name: Commit and push updates
         run: |
@@ -44,11 +66,19 @@ jobs:
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add packages/data/src/journeyman
-            git commit -m "chore(data): sync nfl journey player data via espn"
+            git commit -m "chore(data): sync journey player data"
             git push
           else
             echo "No journey data changes detected"
           fi
+
+      - name: Fail if any league sync failed
+        if: >-
+          steps.nfl.outcome == 'failure' || steps.mlb.outcome == 'failure' ||
+          steps.nba.outcome == 'failure' || steps.nhl.outcome == 'failure'
+        run: |
+          echo "nfl=${{ steps.nfl.outcome }} mlb=${{ steps.mlb.outcome }} nba=${{ steps.nba.outcome }} nhl=${{ steps.nhl.outcome }}"
+          exit 1
 
       - name: Report failure to Sentry
         if: failure()

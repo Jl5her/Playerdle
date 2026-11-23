@@ -243,10 +243,26 @@ async function buildStarters(
     return true
   })
 
-  const top: { key: Position; entry: EspnDepthEntry | undefined; fallback: CollegeStarter | undefined }[] = [
-    { key: "QB", entry: qbEntries.find(e => e.rank === 1) ?? qbEntries[0], fallback: existing?.starters.QB },
-    { key: "RB", entry: rbEntries.find(e => e.rank === 1) ?? rbEntries[0], fallback: existing?.starters.RB },
-    { key: "TE", entry: teEntries.find(e => e.rank === 1) ?? teEntries[0], fallback: existing?.starters.TE },
+  const top: {
+    key: Position
+    entry: EspnDepthEntry | undefined
+    fallback: CollegeStarter | undefined
+  }[] = [
+    {
+      key: "QB",
+      entry: qbEntries.find(e => e.rank === 1) ?? qbEntries[0],
+      fallback: existing?.starters.QB,
+    },
+    {
+      key: "RB",
+      entry: rbEntries.find(e => e.rank === 1) ?? rbEntries[0],
+      fallback: existing?.starters.RB,
+    },
+    {
+      key: "TE",
+      entry: teEntries.find(e => e.rank === 1) ?? teEntries[0],
+      fallback: existing?.starters.TE,
+    },
     { key: "WR1", entry: dedupedWrs[0], fallback: existing?.starters.WR1 },
     { key: "WR2", entry: dedupedWrs[1], fallback: existing?.starters.WR2 },
     { key: "WR3", entry: dedupedWrs[2], fallback: existing?.starters.WR3 },
@@ -320,9 +336,7 @@ async function main() {
       })
 
       // Report starters summary
-      console.log(
-        `QB: ${starters.QB.name} | RB: ${starters.RB.name} | TE: ${starters.TE.name}`,
-      )
+      console.log(`QB: ${starters.QB.name} | RB: ${starters.RB.name} | TE: ${starters.TE.name}`)
     } catch (error) {
       console.log(`FAILED: ${String(error)}`)
       const existing = existingByAbbr.get(team.abbr)

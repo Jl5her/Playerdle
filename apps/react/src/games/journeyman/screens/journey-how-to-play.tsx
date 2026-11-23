@@ -194,6 +194,11 @@ export default function JourneyHowToPlay({ id, league, onOpenCalendar }: Props) 
             <span className="font-semibold">?</span> until you guess a player with the matching
             position.
           </li>
+          <li>
+            After your 2nd wrong guess, the tag above the position shows whether the player is{" "}
+            <span className="font-semibold">Active</span> or{" "}
+            <span className="font-semibold">Retired</span> (with their last season).
+          </li>
         </ul>
       </div>
 

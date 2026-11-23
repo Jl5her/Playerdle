@@ -10,7 +10,12 @@ export interface JourneyPlayer {
   position: string
   college?: string
   teams: string[] // chronological: oldest stint first, current/last team last
-  espnId?: string // ESPN athlete ID for direct API lookups
+  espnId?: string // ESPN athlete ID for direct API lookups (NFL)
+  mlbId?: string // MLB Stats API person ID
+  nbaId?: string // ESPN athlete ID (NBA)
+  nhlId?: string // NHL API player ID
+  active?: boolean // on a current roster or still listed as active by the league API
+  retiredYear?: number // last season played, when retired
 }
 
 export const JOURNEY_PLAYERS: JourneyPlayer[] = [
@@ -21,6 +26,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "QB",
     college: "Wisconsin",
     teams: ["Seattle Seahawks", "Denver Broncos", "Pittsburgh Steelers", "New York Giants"],
+    espnId: "14881",
+    active: true,
   },
   {
     id: "journey:sam-darnold",
@@ -35,6 +42,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Seattle Seahawks",
     ],
     espnId: "3912547",
+    active: true,
   },
   {
     id: "journey:baker-mayfield",
@@ -43,6 +51,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Oklahoma",
     teams: ["Cleveland Browns", "Carolina Panthers", "Los Angeles Rams", "Tampa Bay Buccaneers"],
     espnId: "3052587",
+    active: true,
   },
   {
     id: "journey:geno-smith",
@@ -55,16 +64,19 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Chargers",
       "Seattle Seahawks",
       "Las Vegas Raiders",
+      "New York Jets",
     ],
     espnId: "15864",
+    active: true,
   },
   {
     id: "journey:justin-fields",
     name: "Justin Fields",
     position: "QB",
     college: "Ohio State",
-    teams: ["Chicago Bears", "Pittsburgh Steelers", "New York Jets"],
+    teams: ["Chicago Bears", "Pittsburgh Steelers", "New York Jets", "Kansas City Chiefs"],
     espnId: "4362887",
+    active: true,
   },
   {
     id: "journey:aaron-rodgers",
@@ -73,6 +85,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "California",
     teams: ["Green Bay Packers", "New York Jets", "Pittsburgh Steelers"],
     espnId: "8439",
+    active: true,
   },
   {
     id: "journey:joe-flacco",
@@ -85,8 +98,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New York Jets",
       "Cleveland Browns",
       "Indianapolis Colts",
+      "Cincinnati Bengals",
     ],
     espnId: "11252",
+    active: true,
   },
   {
     id: "journey:jameis-winston",
@@ -95,6 +110,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Florida State",
     teams: ["Tampa Bay Buccaneers", "New Orleans Saints", "Cleveland Browns", "New York Giants"],
     espnId: "2969939",
+    active: true,
   },
   {
     id: "journey:andy-dalton",
@@ -107,16 +123,19 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
       "New Orleans Saints",
       "Carolina Panthers",
+      "Atlanta Falcons",
     ],
     espnId: "14012",
+    active: true,
   },
   {
     id: "journey:kirk-cousins",
     name: "Kirk Cousins",
     position: "QB",
     college: "Michigan State",
-    teams: ["Washington Commanders", "Minnesota Vikings", "Atlanta Falcons"],
+    teams: ["Washington Commanders", "Minnesota Vikings", "Atlanta Falcons", "Minnesota Vikings"],
     espnId: "14880",
+    active: true,
   },
   {
     id: "journey:carson-wentz",
@@ -129,16 +148,19 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Washington Commanders",
       "Los Angeles Rams",
       "Kansas City Chiefs",
+      "Minnesota Vikings",
     ],
     espnId: "2573079",
+    active: true,
   },
   {
     id: "journey:mitchell-trubisky",
     name: "Mitchell Trubisky",
     position: "QB",
     college: "North Carolina",
-    teams: ["Chicago Bears", "Buffalo Bills", "Pittsburgh Steelers"],
+    teams: ["Chicago Bears", "Buffalo Bills", "Pittsburgh Steelers", "Tennessee Titans"],
     espnId: "3039707",
+    active: true,
   },
   {
     id: "journey:teddy-bridgewater",
@@ -155,6 +177,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Detroit Lions",
     ],
     espnId: "16728",
+    active: false,
+    retiredYear: 2025,
   },
   {
     id: "journey:ryan-fitzpatrick",
@@ -171,6 +195,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Miami Dolphins",
       "Washington Commanders",
     ],
+    espnId: "8664",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:nick-foles",
@@ -185,6 +212,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
       "Indianapolis Colts",
     ],
+    espnId: "14877",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:case-keenum",
@@ -202,6 +232,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
     ],
     espnId: "15168",
+    active: true,
   },
   {
     id: "journey:marcus-mariota",
@@ -216,6 +247,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Washington Commanders",
     ],
     espnId: "2576980",
+    active: true,
   },
   {
     id: "journey:jacoby-brissett",
@@ -230,8 +262,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Washington Commanders",
       "New England Patriots",
       "Arizona Cardinals",
+      "Baltimore Ravens",
     ],
     espnId: "2578570",
+    active: true,
   },
   {
     id: "journey:tyrod-taylor",
@@ -246,8 +280,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Houston Texans",
       "New York Giants",
       "New York Jets",
+      "Green Bay Packers",
     ],
     espnId: "14163",
+    active: true,
   },
   {
     id: "journey:jimmy-garoppolo",
@@ -255,14 +291,17 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "QB",
     college: "Eastern Illinois",
     teams: ["New England Patriots", "San Francisco 49ers", "Las Vegas Raiders", "Los Angeles Rams"],
+    espnId: "16760",
+    active: true,
   },
   {
     id: "journey:drew-lock",
     name: "Drew Lock",
     position: "QB",
     college: "Missouri",
-    teams: ["Denver Broncos", "Seattle Seahawks", "New York Giants"],
+    teams: ["Denver Broncos", "Seattle Seahawks", "New York Giants", "Seattle Seahawks"],
     espnId: "3924327",
+    active: true,
   },
   {
     id: "journey:gardner-minshew-ii",
@@ -275,8 +314,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Indianapolis Colts",
       "Las Vegas Raiders",
       "Kansas City Chiefs",
+      "Arizona Cardinals",
     ],
     espnId: "4038524",
+    active: true,
   },
   {
     id: "journey:jarrett-stidham",
@@ -285,14 +326,22 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Auburn",
     teams: ["New England Patriots", "Las Vegas Raiders", "Denver Broncos"],
     espnId: "3892775",
+    active: true,
   },
   {
     id: "journey:cooper-rush",
     name: "Cooper Rush",
     position: "QB",
     college: "Central Michigan",
-    teams: ["Dallas Cowboys", "New York Giants", "Dallas Cowboys", "Baltimore Ravens"],
+    teams: [
+      "Dallas Cowboys",
+      "New York Giants",
+      "Dallas Cowboys",
+      "Baltimore Ravens",
+      "Tampa Bay Buccaneers",
+    ],
     espnId: "2972515",
+    active: true,
   },
 
   // Wide Receivers
@@ -308,6 +357,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Kansas City Chiefs",
       "Baltimore Ravens",
     ],
+    espnId: "15795",
+    active: true,
   },
   {
     id: "journey:davante-adams",
@@ -316,6 +367,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Fresno State",
     teams: ["Green Bay Packers", "Las Vegas Raiders", "New York Jets", "Los Angeles Rams"],
     espnId: "16800",
+    active: true,
   },
   {
     id: "journey:mike-williams",
@@ -323,14 +375,24 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Clemson",
     teams: ["Los Angeles Chargers", "New York Jets", "Pittsburgh Steelers"],
+    espnId: "3045138",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:stefon-diggs",
     name: "Stefon Diggs",
     position: "WR",
     college: "Maryland",
-    teams: ["Minnesota Vikings", "Buffalo Bills", "Houston Texans", "New England Patriots"],
+    teams: [
+      "Minnesota Vikings",
+      "Buffalo Bills",
+      "Houston Texans",
+      "New England Patriots",
+      "Washington Commanders",
+    ],
     espnId: "2976212",
+    active: true,
   },
   {
     id: "journey:calvin-ridley",
@@ -339,6 +401,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Alabama",
     teams: ["Atlanta Falcons", "Jacksonville Jaguars", "Tennessee Titans"],
     espnId: "3925357",
+    active: true,
   },
   {
     id: "journey:brandin-cooks",
@@ -352,8 +415,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Houston Texans",
       "Dallas Cowboys",
       "New Orleans Saints",
+      "San Francisco 49ers",
     ],
     espnId: "16731",
+    active: true,
   },
   {
     id: "journey:amari-cooper",
@@ -361,6 +426,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Alabama",
     teams: ["Las Vegas Raiders", "Dallas Cowboys", "Cleveland Browns", "Buffalo Bills"],
+    espnId: "2976499",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:antonio-brown",
@@ -373,6 +441,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New England Patriots",
       "Tampa Bay Buccaneers",
     ],
+    espnId: "13934",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:desean-jackson",
@@ -387,6 +458,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Rams",
       "Baltimore Ravens",
     ],
+    espnId: "11283",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:jarvis-landry",
@@ -394,6 +468,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "LSU",
     teams: ["Miami Dolphins", "Cleveland Browns", "New Orleans Saints"],
+    espnId: "16790",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:robert-woods",
@@ -401,6 +478,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "USC",
     teams: ["Buffalo Bills", "Los Angeles Rams", "Tennessee Titans", "Houston Texans"],
+    espnId: "15880",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:allen-robinson",
@@ -415,6 +495,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New York Giants",
       "Detroit Lions",
     ],
+    espnId: "16799",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:odell-beckham-jr",
@@ -427,8 +510,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Rams",
       "Baltimore Ravens",
       "Miami Dolphins",
+      "Minnesota Vikings",
     ],
     espnId: "16733",
+    active: true,
   },
   {
     id: "journey:tyler-boyd",
@@ -436,6 +521,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Pittsburgh",
     teams: ["Cincinnati Bengals", "Tennessee Titans", "New York Jets"],
+    espnId: "3045144",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:emmanuel-sanders",
@@ -449,6 +537,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New Orleans Saints",
       "Buffalo Bills",
     ],
+    espnId: "13295",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:golden-tate",
@@ -462,6 +553,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "New York Giants",
       "Tennessee Titans",
     ],
+    espnId: "13217",
+    active: false,
+    retiredYear: 2020,
   },
   {
     id: "journey:adam-thielen",
@@ -469,14 +563,18 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Minnesota State",
     teams: ["Minnesota Vikings", "Carolina Panthers", "Indianapolis Colts"],
+    espnId: "16460",
+    active: false,
+    retiredYear: 2025,
   },
   {
     id: "journey:keenan-allen",
     name: "Keenan Allen",
     position: "WR",
     college: "California",
-    teams: ["Los Angeles Chargers", "Chicago Bears", "Las Vegas Raiders"],
+    teams: ["Los Angeles Chargers", "Chicago Bears", "Las Vegas Raiders", "San Francisco 49ers"],
     espnId: "15818",
+    active: true,
   },
   {
     id: "journey:mohamed-sanu",
@@ -490,6 +588,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "San Francisco 49ers",
       "Detroit Lions",
     ],
+    espnId: "14922",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:julio-jones",
@@ -497,6 +598,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Alabama",
     teams: ["Atlanta Falcons", "Tennessee Titans", "Tampa Bay Buccaneers", "Philadelphia Eagles"],
+    espnId: "13982",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:juju-smith-schuster",
@@ -508,8 +612,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Kansas City Chiefs",
       "New England Patriots",
       "Kansas City Chiefs",
+      "New York Giants",
     ],
     espnId: "3120348",
+    active: true,
   },
   {
     id: "journey:nelson-agholor",
@@ -517,6 +623,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "USC",
     teams: ["Philadelphia Eagles", "Las Vegas Raiders", "New England Patriots", "Baltimore Ravens"],
+    espnId: "2971618",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:randall-cobb",
@@ -530,6 +639,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Green Bay Packers",
       "New York Jets",
     ],
+    espnId: "14053",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:kenny-golladay",
@@ -537,14 +649,24 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Northern Illinois",
     teams: ["Detroit Lions", "New York Giants", "Philadelphia Eagles"],
+    espnId: "2974858",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:mecole-hardman",
     name: "Mecole Hardman Jr.",
     position: "WR",
     college: "Georgia",
-    teams: ["Kansas City Chiefs", "New York Jets", "Kansas City Chiefs", "Green Bay Packers"],
+    teams: [
+      "Kansas City Chiefs",
+      "New York Jets",
+      "Kansas City Chiefs",
+      "Green Bay Packers",
+      "Indianapolis Colts",
+    ],
     espnId: "4035004",
+    active: true,
   },
   {
     id: "journey:dj-chark",
@@ -552,13 +674,18 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "LSU",
     teams: ["Jacksonville Jaguars", "Detroit Lions", "Carolina Panthers", "Los Angeles Chargers"],
+    espnId: "3115394",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:noah-brown",
     name: "Noah Brown",
     position: "WR",
     college: "Ohio State",
-    teams: ["Dallas Cowboys", "Houston Texans", "Washington Commanders"],
+    teams: ["Dallas Cowboys", "Houston Texans", "Washington Commanders", "Las Vegas Raiders"],
+    espnId: "3121409",
+    active: true,
   },
   {
     id: "journey:deandre-carter",
@@ -574,8 +701,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Chargers",
       "Chicago Bears",
       "Cleveland Browns",
+      "Detroit Lions",
     ],
     espnId: "2580216",
+    active: true,
   },
   {
     id: "journey:corey-davis",
@@ -583,6 +712,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "WR",
     college: "Western Michigan",
     teams: ["Tennessee Titans", "New York Jets", "Tennessee Titans"],
+    espnId: "3042778",
+    active: false,
+    retiredYear: 2022,
   },
 
   // Running Backs
@@ -598,6 +730,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Baltimore Ravens",
       "Tampa Bay Buccaneers",
     ],
+    espnId: "15825",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:adrian-peterson",
@@ -613,6 +748,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Tennessee Titans",
       "Seattle Seahawks",
     ],
+    espnId: "10452",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:mark-ingram",
@@ -620,6 +758,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Alabama",
     teams: ["New Orleans Saints", "Baltimore Ravens", "Houston Texans"],
+    espnId: "13981",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:latavius-murray",
@@ -634,6 +775,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Denver Broncos",
       "Buffalo Bills",
     ],
+    espnId: "15920",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:melvin-gordon",
@@ -641,14 +785,18 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Wisconsin",
     teams: ["Los Angeles Chargers", "Denver Broncos", "Kansas City Chiefs", "Baltimore Ravens"],
+    espnId: "2576434",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:james-conner",
     name: "James Conner",
     position: "RB",
     college: "Pittsburgh",
-    teams: ["Pittsburgh Steelers", "Arizona Cardinals", "Houston Texans"],
+    teams: ["Pittsburgh Steelers", "Arizona Cardinals", "Houston Texans", "Arizona Cardinals"],
     espnId: "3045147",
+    active: true,
   },
   {
     id: "journey:devonta-freeman",
@@ -656,13 +804,18 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Florida State",
     teams: ["Atlanta Falcons", "New York Giants", "Baltimore Ravens", "Cleveland Browns"],
+    espnId: "16944",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:kareem-hunt",
     name: "Kareem Hunt",
     position: "RB",
     college: "Toledo",
-    teams: ["Kansas City Chiefs", "Cleveland Browns", "Los Angeles Chargers"],
+    teams: ["Kansas City Chiefs", "Cleveland Browns", "Los Angeles Chargers", "Kansas City Chiefs"],
+    espnId: "3059915",
+    active: true,
   },
   {
     id: "journey:duke-johnson",
@@ -670,6 +823,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Miami (FL)",
     teams: ["Cleveland Browns", "Houston Texans", "Miami Dolphins", "Buffalo Bills"],
+    espnId: "2969962",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:ezekiel-elliott",
@@ -677,6 +833,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Ohio State",
     teams: ["Dallas Cowboys", "New England Patriots", "Dallas Cowboys", "Los Angeles Chargers"],
+    espnId: "3051392",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:dalvin-cook",
@@ -684,6 +843,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Florida State",
     teams: ["Minnesota Vikings", "New York Jets", "Baltimore Ravens", "Dallas Cowboys"],
+    espnId: "3116593",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:cordarrelle-patterson",
@@ -698,6 +860,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Atlanta Falcons",
       "Pittsburgh Steelers",
     ],
+    espnId: "15807",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:jamaal-williams",
@@ -705,6 +870,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "BYU",
     teams: ["Green Bay Packers", "Detroit Lions", "New Orleans Saints"],
+    espnId: "2980453",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:miles-sanders",
@@ -712,6 +880,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Penn State",
     teams: ["Philadelphia Eagles", "Carolina Panthers", "Dallas Cowboys"],
+    espnId: "4045163",
+    active: true,
   },
   {
     id: "journey:alexander-mattison",
@@ -719,6 +889,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Boise State",
     teams: ["Minnesota Vikings", "Las Vegas Raiders", "Miami Dolphins"],
+    espnId: "4048244",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:raheem-mostert",
@@ -735,6 +908,8 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Miami Dolphins",
       "Las Vegas Raiders",
     ],
+    espnId: "2576414",
+    active: true,
   },
   {
     id: "journey:leonard-fournette",
@@ -742,14 +917,24 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "LSU",
     teams: ["Jacksonville Jaguars", "Tampa Bay Buccaneers", "Buffalo Bills"],
+    espnId: "3115364",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:samaje-perine",
     name: "Samaje Perine",
     position: "RB",
     college: "Oklahoma",
-    teams: ["Washington Commanders", "Cincinnati Bengals", "Denver Broncos", "Kansas City Chiefs"],
+    teams: [
+      "Washington Commanders",
+      "Cincinnati Bengals",
+      "Denver Broncos",
+      "Kansas City Chiefs",
+      "Cincinnati Bengals",
+    ],
     espnId: "3116389",
+    active: true,
   },
   {
     id: "journey:sony-michel",
@@ -757,6 +942,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "RB",
     college: "Georgia",
     teams: ["New England Patriots", "Los Angeles Rams", "Miami Dolphins", "Los Angeles Chargers"],
+    espnId: "3128721",
+    active: false,
+    retiredYear: 2022,
   },
   {
     id: "journey:donta-foreman",
@@ -771,6 +959,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
       "Cleveland Browns",
     ],
+    espnId: "3125116",
+    active: false,
+    retiredYear: 2024,
   },
 
   // Tight Ends
@@ -785,8 +976,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Tennessee Titans",
       "Las Vegas Raiders",
       "New England Patriots",
+      "Atlanta Falcons",
     ],
     espnId: "3043275",
+    active: true,
   },
   {
     id: "journey:jared-cook",
@@ -801,6 +994,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Los Angeles Chargers",
       "Denver Broncos",
     ],
+    espnId: "12537",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:jimmy-graham",
@@ -814,6 +1010,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Chicago Bears",
       "New Orleans Saints",
     ],
+    espnId: "13232",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:gerald-everett",
@@ -821,6 +1020,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "TE",
     college: "South Alabama",
     teams: ["Los Angeles Rams", "Seattle Seahawks", "Los Angeles Chargers", "Chicago Bears"],
+    espnId: "3918639",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:eric-ebron",
@@ -828,6 +1030,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "TE",
     college: "North Carolina",
     teams: ["Detroit Lions", "Indianapolis Colts", "Pittsburgh Steelers"],
+    espnId: "16732",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:hayden-hurst",
@@ -841,6 +1046,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Carolina Panthers",
       "Los Angeles Chargers",
     ],
+    espnId: "3924365",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:mike-gesicki",
@@ -849,6 +1057,7 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Penn State",
     teams: ["Miami Dolphins", "New England Patriots", "Cincinnati Bengals"],
     espnId: "3116164",
+    active: true,
   },
   {
     id: "journey:jonnu-smith",
@@ -861,16 +1070,24 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Atlanta Falcons",
       "Miami Dolphins",
       "Pittsburgh Steelers",
+      "Green Bay Packers",
     ],
     espnId: "3054212",
+    active: true,
   },
   {
     id: "journey:hunter-henry",
     name: "Hunter Henry",
     position: "TE",
     college: "Arkansas",
-    teams: ["Los Angeles Chargers", "New England Patriots", "Las Vegas Raiders"],
+    teams: [
+      "Los Angeles Chargers",
+      "New England Patriots",
+      "Las Vegas Raiders",
+      "New England Patriots",
+    ],
     espnId: "3046439",
+    active: true,
   },
   {
     id: "journey:evan-engram",
@@ -879,22 +1096,31 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Ole Miss",
     teams: ["New York Giants", "Jacksonville Jaguars", "Denver Broncos"],
     espnId: "3051876",
+    active: true,
   },
   {
     id: "journey:robert-tonyan",
     name: "Robert Tonyan",
     position: "TE",
     college: "Indiana State",
-    teams: ["Green Bay Packers", "Chicago Bears", "Minnesota Vikings", "Kansas City Chiefs"],
+    teams: [
+      "Green Bay Packers",
+      "Chicago Bears",
+      "Minnesota Vikings",
+      "Kansas City Chiefs",
+      "Pittsburgh Steelers",
+    ],
     espnId: "2975674",
+    active: true,
   },
   {
     id: "journey:noah-fant",
     name: "Noah Fant",
     position: "TE",
     college: "Iowa",
-    teams: ["Denver Broncos", "Seattle Seahawks", "Cincinnati Bengals"],
+    teams: ["Denver Broncos", "Seattle Seahawks", "Cincinnati Bengals", "New Orleans Saints"],
     espnId: "4036131",
+    active: true,
   },
 
   // Defensive players
@@ -905,14 +1131,22 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     college: "Buffalo",
     teams: ["Las Vegas Raiders", "Chicago Bears", "Los Angeles Chargers"],
     espnId: "16710",
+    active: true,
   },
   {
     id: "journey:von-miller",
     name: "Von Miller",
     position: "LB",
     college: "Texas A&M",
-    teams: ["Denver Broncos", "Los Angeles Rams", "Buffalo Bills", "Washington Commanders"],
+    teams: [
+      "Denver Broncos",
+      "Los Angeles Rams",
+      "Buffalo Bills",
+      "Washington Commanders",
+      "Dallas Cowboys",
+    ],
     espnId: "13976",
+    active: true,
   },
   {
     id: "journey:jadeveon-clowney",
@@ -926,8 +1160,10 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Cleveland Browns",
       "Baltimore Ravens",
       "Carolina Panthers",
+      "Houston Texans",
     ],
     espnId: "16734",
+    active: true,
   },
   {
     id: "journey:melvin-ingram",
@@ -935,6 +1171,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "LB",
     college: "South Carolina",
     teams: ["Los Angeles Chargers", "Pittsburgh Steelers", "Kansas City Chiefs", "Miami Dolphins"],
+    espnId: "14926",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:tyrann-mathieu",
@@ -942,6 +1181,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "S",
     college: "LSU",
     teams: ["Arizona Cardinals", "Houston Texans", "Kansas City Chiefs", "New Orleans Saints"],
+    espnId: "15851",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:richard-sherman",
@@ -949,6 +1191,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "CB",
     college: "Stanford",
     teams: ["Seattle Seahawks", "San Francisco 49ers", "Tampa Bay Buccaneers"],
+    espnId: "14086",
+    active: false,
+    retiredYear: 2021,
   },
   {
     id: "journey:patrick-peterson",
@@ -956,6 +1201,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "CB",
     college: "LSU",
     teams: ["Arizona Cardinals", "Minnesota Vikings", "Pittsburgh Steelers"],
+    espnId: "13980",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:marcus-peters",
@@ -963,6 +1211,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "CB",
     college: "Washington",
     teams: ["Kansas City Chiefs", "Los Angeles Rams", "Baltimore Ravens", "Las Vegas Raiders"],
+    espnId: "2578378",
+    active: false,
+    retiredYear: 2023,
   },
   {
     id: "journey:stephon-gilmore",
@@ -977,6 +1228,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
       "Dallas Cowboys",
       "Minnesota Vikings",
     ],
+    espnId: "14942",
+    active: false,
+    retiredYear: 2024,
   },
   {
     id: "journey:chandler-jones",
@@ -984,6 +1238,9 @@ export const JOURNEY_PLAYERS: JourneyPlayer[] = [
     position: "DE",
     college: "Syracuse",
     teams: ["New England Patriots", "Arizona Cardinals", "Las Vegas Raiders"],
+    espnId: "14927",
+    active: false,
+    retiredYear: 2022,
   },
 ]
 
