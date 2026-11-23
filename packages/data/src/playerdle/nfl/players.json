@@ -4361,16 +4361,6 @@
     "number": 0
   },
   {
-    "id": "nfl:4567099",
-    "name": "Christian Harris",
-    "conference": "NFC",
-    "division": "NFC South",
-    "team": "Atlanta Falcons",
-    "teamAbbr": "ATL",
-    "position": "LB",
-    "number": 45
-  },
-  {
     "id": "nfl:4362135",
     "name": "Christian Haynes",
     "conference": "AFC",
@@ -4982,6 +4972,16 @@
     "number": 44
   },
   {
+    "id": "nfl:2972515",
+    "name": "Cooper Rush",
+    "conference": "NFC",
+    "division": "NFC South",
+    "team": "Tampa Bay Buccaneers",
+    "teamAbbr": "TB",
+    "position": "QB",
+    "number": 16
+  },
+  {
     "id": "nfl:4429607",
     "name": "Cor'Dale Flott",
     "conference": "AFC",
@@ -5539,7 +5539,7 @@
     "division": "AFC East",
     "team": "Miami Dolphins",
     "teamAbbr": "MIA",
-    "position": "KR",
+    "position": "PK",
     "number": 38
   },
   {
@@ -6050,7 +6050,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "DT",
-    "number": 92
+    "number": 94
   },
   {
     "id": "nfl:3915520",
@@ -8113,6 +8113,16 @@
     "number": 5
   },
   {
+    "id": "nfl:4569016",
+    "name": "Eric Watts",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "DE",
+    "number": 95
+  },
+  {
     "id": "nfl:3056916",
     "name": "Eric Wilson",
     "conference": "NFC",
@@ -8920,8 +8930,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "RB",
-    "number": 31,
-    "numberBackfilled": true
+    "number": 30
   },
   {
     "id": "nfl:4037235",
@@ -10761,7 +10770,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "WR",
-    "number": 13
+    "number": 81
   },
   {
     "id": "nfl:4596472",
@@ -12011,7 +12020,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "S",
-    "number": 30
+    "number": 0
   },
   {
     "id": "nfl:4373809",
@@ -12774,6 +12783,16 @@
     "number": 29
   },
   {
+    "id": "nfl:4569448",
+    "name": "Jordan Jefferson",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "DT",
+    "number": 98
+  },
+  {
     "id": "nfl:4036378",
     "name": "Jordan Love",
     "conference": "NFC",
@@ -13031,7 +13050,7 @@
     "team": "Kansas City Chiefs",
     "teamAbbr": "KC",
     "position": "WR",
-    "number": 2
+    "number": 12
   },
   {
     "id": "nfl:4429782",
@@ -13101,7 +13120,7 @@
     "team": "Arizona Cardinals",
     "teamAbbr": "ARI",
     "position": "QB",
-    "number": 14
+    "number": 9
   },
   {
     "id": "nfl:3914630",
@@ -16901,7 +16920,7 @@
     "division": "AFC North",
     "team": "Pittsburgh Steelers",
     "teamAbbr": "PIT",
-    "position": "RB",
+    "position": "WR",
     "number": 84
   },
   {
@@ -19695,6 +19714,16 @@
     "number": 37
   },
   {
+    "id": "nfl:4243371",
+    "name": "Riley Patterson",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Baltimore Ravens",
+    "teamAbbr": "BAL",
+    "position": "PK",
+    "number": 35
+  },
+  {
     "id": "nfl:4245185",
     "name": "Riq Woolen",
     "conference": "NFC",
@@ -20132,7 +20161,7 @@
     "team": "Baltimore Ravens",
     "teamAbbr": "BAL",
     "position": "C",
-    "number": 64
+    "number": 58
   },
   {
     "id": "nfl:4608820",
@@ -21382,8 +21411,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "S",
-    "number": 37,
-    "numberBackfilled": true
+    "number": 37
   },
   {
     "id": "nfl:4690179",
@@ -22343,7 +22371,7 @@
     "team": "Tampa Bay Buccaneers",
     "teamAbbr": "TB",
     "position": "G",
-    "number": 69
+    "number": 64
   },
   {
     "id": "nfl:4360310",
@@ -23183,7 +23211,7 @@
     "team": "Detroit Lions",
     "teamAbbr": "DET",
     "position": "LB",
-    "number": 59
+    "number": 90
   },
   {
     "id": "nfl:4434153",
@@ -23483,7 +23511,7 @@
     "team": "Jacksonville Jaguars",
     "teamAbbr": "JAX",
     "position": "DE",
-    "number": 90
+    "number": 97
   },
   {
     "id": "nfl:4587724",
@@ -23743,8 +23771,7 @@
     "team": "New York Giants",
     "teamAbbr": "NYG",
     "position": "WR",
-    "number": 86,
-    "numberBackfilled": true
+    "number": 80
   },
   {
     "id": "nfl:4877877",
