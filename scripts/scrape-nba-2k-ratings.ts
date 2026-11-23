@@ -129,14 +129,7 @@ async function fetch2KRatingsPage(page: number): Promise<TwoKRatingsRow[]> {
     const ply = toInt(cells[5] ?? "")
     const def = toInt(cells[6] ?? "")
 
-    if (
-      !playerName ||
-      ovr === null ||
-      out === null ||
-      ath === null ||
-      ply === null ||
-      def === null
-    ) {
+    if (!playerName || ovr === null || out === null || ath === null || ply === null || def === null) {
       return
     }
 
@@ -148,16 +141,7 @@ async function fetch2KRatingsPage(page: number): Promise<TwoKRatingsRow[]> {
 
 function loadNbaPlayers(): NbaPlayer[] {
   const __dirname = dirname(fileURLToPath(import.meta.url))
-  const playersPath = resolve(
-    __dirname,
-    "..",
-    "packages",
-    "data",
-    "src",
-    "playerdle",
-    "nba",
-    "players.json",
-  )
+  const playersPath = resolve(__dirname, "..", "packages", "data", "src", "playerdle", "nba", "players.json")
   return JSON.parse(readFileSync(playersPath, "utf-8")) as NbaPlayer[]
 }
 
@@ -207,10 +191,7 @@ function buildNba2kPlayers(nbaPlayers: NbaPlayer[], ratingRows: TwoKRatingsRow[]
   return nba2kPlayers.sort((a, b) => a.name.localeCompare(b.name))
 }
 
-function buildCuratedAnswerPool(
-  players: Nba2kPlayer[],
-  classicAnswerPoolIds: Set<string>,
-): string[] {
+function buildCuratedAnswerPool(players: Nba2kPlayer[], classicAnswerPoolIds: Set<string>): string[] {
   const curated = players.filter(p => classicAnswerPoolIds.has(p.id))
   if (curated.length >= MIN_CURATED_ANSWER_POOL_SIZE) return curated.map(p => p.id)
 

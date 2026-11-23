@@ -94,9 +94,7 @@ export async function fetchFantasyProsStats(
   }
   const rawRows = config.table?.rows
   if (!Array.isArray(rawRows)) {
-    throw new Error(
-      `FantasyPros ${position.toUpperCase()} ${season}: no table.rows in reportConfig`,
-    )
+    throw new Error(`FantasyPros ${position.toUpperCase()} ${season}: no table.rows in reportConfig`)
   }
 
   const rows: FantasyProsStatRow[] = []
