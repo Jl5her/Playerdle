@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import { createPortal } from "react-dom"
 
 const TRANSITION_MS = 200
 
@@ -81,16 +82,22 @@ export default function Popup({ visible, message, durationMs = 5000 }: Props) {
 
   if (!isMounted || !message) return null
 
-  return (
+  // Portaled to <body>: ancestors like .app-viewport and .crossfade-panel use
+  // transform/will-change, which would otherwise become the containing block for
+  // `position: fixed` and pin the popup below the header, covering game content.
+  // At the top edge it sits over the game title in a browser tab, and just below
+  // the status bar / Dynamic Island in a standalone PWA (via safe-area-inset-top).
+  return createPortal(
     <div
-      className="fixed left-1/2 -translate-x-1/2 z-50 pointer-events-none px-3 w-full flex justify-center"
+      className="fixed inset-x-0 z-50 pointer-events-none px-3 flex justify-center"
       style={{ top: "calc(0.5rem + env(safe-area-inset-top))" }}
     >
       <div
-        className={`motion-safe:transition-[opacity,transform] motion-safe:duration-200 bg-black text-white rounded-xl px-4 py-2 text-sm font-semibold text-center max-w-[min(90vw,30rem)] shadow-lg ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2"}`}
+        className={`origin-top motion-safe:transition-[opacity,transform] motion-safe:duration-200 motion-safe:ease-[cubic-bezier(0.32,0.72,0,1)] bg-black text-white rounded-full px-5 py-2 text-sm font-semibold text-center max-w-[min(90vw,30rem)] shadow-lg ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 -translate-y-3 scale-x-75 scale-y-50"}`}
       >
         {message}
       </div>
-    </div>
+    </div>,
+    document.body,
   )
 }
