@@ -168,12 +168,12 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 14,
-    "gp": 9,
-    "fppg": 6.5,
-    "tgtPerGame": 4.6,
-    "recPerGame": 3.1,
-    "ydsPerGame": 36.2,
-    "tdPerGame": 0.22
+    "gp": 10,
+    "fppg": 7.5,
+    "tgtPerGame": 5.2,
+    "recPerGame": 3.7,
+    "ydsPerGame": 44.8,
+    "tdPerGame": 0.2
   },
   {
     "id": "nfl:4061956",
@@ -216,11 +216,11 @@
     "teamAbbr": "WSH",
     "position": "RB",
     "number": 30,
-    "gp": 6,
-    "fppg": 4.2,
-    "tgtPerGame": 2,
+    "gp": 7,
+    "fppg": 4.4,
+    "tgtPerGame": 2.1,
     "recPerGame": 1.7,
-    "ydsPerGame": 30.5,
+    "ydsPerGame": 32.4,
     "tdPerGame": 0
   },
   {
@@ -296,12 +296,12 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 82,
-    "gp": 9,
-    "fppg": 1.5,
-    "tgtPerGame": 0.7,
-    "recPerGame": 0.6,
-    "ydsPerGame": 5.3,
-    "tdPerGame": 0.11
+    "gp": 10,
+    "fppg": 1.3,
+    "tgtPerGame": 0.6,
+    "recPerGame": 0.5,
+    "ydsPerGame": 4.8,
+    "tdPerGame": 0.1
   },
   {
     "id": "nfl:4035656",
@@ -318,6 +318,22 @@
     "recPerGame": 0.6,
     "ydsPerGame": 4.6,
     "tdPerGame": 0.14
+  },
+  {
+    "id": "nfl:4433959",
+    "name": "Ben Yurosek",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Minnesota Vikings",
+    "teamAbbr": "MIN",
+    "position": "TE",
+    "number": 85,
+    "gp": 6,
+    "fppg": 0.9,
+    "tgtPerGame": 0.7,
+    "recPerGame": 0.5,
+    "ydsPerGame": 6.8,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:4882093",
@@ -648,11 +664,11 @@
     "teamAbbr": "HOU",
     "position": "TE",
     "number": 8,
-    "gp": 8,
-    "fppg": 0.7,
-    "tgtPerGame": 0.4,
-    "recPerGame": 0.4,
-    "ydsPerGame": 2.8,
+    "gp": 9,
+    "fppg": 0.6,
+    "tgtPerGame": 0.3,
+    "recPerGame": 0.3,
+    "ydsPerGame": 2.4,
     "tdPerGame": 0
   },
   {
@@ -824,12 +840,12 @@
     "teamAbbr": "CIN",
     "position": "RB",
     "number": 30,
-    "gp": 9,
-    "fppg": 11.8,
-    "tgtPerGame": 6,
+    "gp": 10,
+    "fppg": 11.2,
+    "tgtPerGame": 6.2,
     "recPerGame": 5.2,
-    "ydsPerGame": 76.3,
-    "tdPerGame": 0.33
+    "ydsPerGame": 72.3,
+    "tdPerGame": 0.3
   },
   {
     "id": "nfl:4360635",
@@ -840,11 +856,11 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 85,
-    "gp": 7,
-    "fppg": 5.4,
-    "tgtPerGame": 5.6,
+    "gp": 8,
+    "fppg": 5.8,
+    "tgtPerGame": 5.5,
     "recPerGame": 3.9,
-    "ydsPerGame": 37.6,
+    "ydsPerGame": 41.1,
     "tdPerGame": 0
   },
   {
@@ -1048,12 +1064,12 @@
     "teamAbbr": "CIN",
     "position": "WR",
     "number": 86,
-    "gp": 7,
-    "fppg": 0.3,
-    "tgtPerGame": 0.3,
-    "recPerGame": 0.3,
-    "ydsPerGame": 1.3,
-    "tdPerGame": 0
+    "gp": 8,
+    "fppg": 1.1,
+    "tgtPerGame": 0.5,
+    "recPerGame": 0.4,
+    "ydsPerGame": 1.6,
+    "tdPerGame": 0.13
   },
   {
     "id": "nfl:4242557",
@@ -1096,11 +1112,11 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 80,
-    "gp": 8,
-    "fppg": 0.5,
+    "gp": 9,
+    "fppg": 0.4,
     "tgtPerGame": 0.6,
-    "recPerGame": 0.4,
-    "ydsPerGame": 2.8,
+    "recPerGame": 0.3,
+    "ydsPerGame": 2.4,
     "tdPerGame": 0
   },
   {
@@ -1288,11 +1304,11 @@
     "teamAbbr": "LV",
     "position": "WR",
     "number": 81,
-    "gp": 10,
-    "fppg": 0.3,
+    "gp": 11,
+    "fppg": 0.2,
     "tgtPerGame": 0.3,
     "recPerGame": 0.2,
-    "ydsPerGame": 3.6,
+    "ydsPerGame": 3.3,
     "tdPerGame": 0
   },
   {
@@ -1384,7 +1400,7 @@
     "teamAbbr": "TEN",
     "position": "TE",
     "number": 88,
-    "gp": 8,
+    "gp": 9,
     "fppg": 0,
     "tgtPerGame": 0,
     "recPerGame": 0,
@@ -1688,12 +1704,12 @@
     "teamAbbr": "CIN",
     "position": "WR",
     "number": 81,
-    "gp": 9,
-    "fppg": 4.8,
-    "tgtPerGame": 3.1,
-    "recPerGame": 2.2,
-    "ydsPerGame": 29.8,
-    "tdPerGame": 0.11
+    "gp": 10,
+    "fppg": 4.4,
+    "tgtPerGame": 3,
+    "recPerGame": 2.1,
+    "ydsPerGame": 27,
+    "tdPerGame": 0.1
   },
   {
     "id": "nfl:4428850",
@@ -1752,12 +1768,12 @@
     "teamAbbr": "CIN",
     "position": "TE",
     "number": 89,
-    "gp": 9,
-    "fppg": 2.6,
+    "gp": 10,
+    "fppg": 2.5,
     "tgtPerGame": 1.2,
     "recPerGame": 1.1,
-    "ydsPerGame": 7,
-    "tdPerGame": 0.22
+    "ydsPerGame": 7.2,
+    "tdPerGame": 0.2
   },
   {
     "id": "nfl:4361577",
@@ -1880,11 +1896,11 @@
     "teamAbbr": "PHI",
     "position": "WR",
     "number": 19,
-    "gp": 7,
+    "gp": 8,
     "fppg": 0.5,
-    "tgtPerGame": 0.9,
-    "recPerGame": 0.6,
-    "ydsPerGame": 2.4,
+    "tgtPerGame": 0.8,
+    "recPerGame": 0.5,
+    "ydsPerGame": 2.1,
     "tdPerGame": 0
   },
   {
@@ -1992,9 +2008,9 @@
     "teamAbbr": "ARI",
     "position": "RB",
     "number": 26,
-    "gp": 6,
+    "gp": 7,
     "fppg": 0,
-    "tgtPerGame": 0.2,
+    "tgtPerGame": 0.1,
     "recPerGame": 0,
     "ydsPerGame": 0,
     "tdPerGame": 0
@@ -2376,12 +2392,12 @@
     "teamAbbr": "CIN",
     "position": "WR",
     "number": 1,
-    "gp": 9,
-    "fppg": 18,
-    "tgtPerGame": 9.7,
-    "recPerGame": 7.1,
-    "ydsPerGame": 97.6,
-    "tdPerGame": 0.78
+    "gp": 10,
+    "fppg": 16.7,
+    "tgtPerGame": 9.6,
+    "recPerGame": 6.9,
+    "ydsPerGame": 90.9,
+    "tdPerGame": 0.7
   },
   {
     "id": "nfl:4603186",
@@ -2408,12 +2424,12 @@
     "teamAbbr": "CIN",
     "position": "TE",
     "number": 84,
-    "gp": 6,
-    "fppg": 1.4,
-    "tgtPerGame": 0.7,
-    "recPerGame": 0.5,
-    "ydsPerGame": 1.5,
-    "tdPerGame": 0.17
+    "gp": 7,
+    "fppg": 2,
+    "tgtPerGame": 1.3,
+    "recPerGame": 1,
+    "ydsPerGame": 6,
+    "tdPerGame": 0.14
   },
   {
     "id": "nfl:4573699",
@@ -2424,11 +2440,11 @@
     "teamAbbr": "BUF",
     "position": "TE",
     "number": 85,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.3,
     "tgtPerGame": 0.4,
     "recPerGame": 0.2,
-    "ydsPerGame": 1.7,
+    "ydsPerGame": 1.5,
     "tdPerGame": 0
   },
   {
@@ -2462,6 +2478,22 @@
     "recPerGame": 0,
     "ydsPerGame": 1,
     "tdPerGame": 0
+  },
+  {
+    "id": "nfl:4575131",
+    "name": "Jacory Croskey-Merritt",
+    "conference": "NFC",
+    "division": "NFC East",
+    "team": "Washington Commanders",
+    "teamAbbr": "WSH",
+    "position": "RB",
+    "number": 22,
+    "gp": 6,
+    "fppg": 9.5,
+    "tgtPerGame": 1.7,
+    "recPerGame": 1.2,
+    "ydsPerGame": 59.3,
+    "tdPerGame": 0.5
   },
   {
     "id": "nfl:4685512",
@@ -2872,12 +2904,12 @@
     "teamAbbr": "NYJ",
     "position": "TE",
     "number": 89,
-    "gp": 10,
-    "fppg": 1.5,
-    "tgtPerGame": 0.8,
-    "recPerGame": 0.8,
-    "ydsPerGame": 4.8,
-    "tdPerGame": 0.1
+    "gp": 11,
+    "fppg": 1.3,
+    "tgtPerGame": 0.7,
+    "recPerGame": 0.7,
+    "ydsPerGame": 4.4,
+    "tdPerGame": 0.09
   },
   {
     "id": "nfl:4241463",
@@ -2904,11 +2936,11 @@
     "teamAbbr": "WSH",
     "position": "TE",
     "number": 87,
-    "gp": 9,
-    "fppg": 0.6,
-    "tgtPerGame": 0.7,
-    "recPerGame": 0.6,
-    "ydsPerGame": 3,
+    "gp": 10,
+    "fppg": 0.5,
+    "tgtPerGame": 0.6,
+    "recPerGame": 0.5,
+    "ydsPerGame": 2.7,
     "tdPerGame": 0
   },
   {
@@ -2936,11 +2968,11 @@
     "teamAbbr": "PHI",
     "position": "TE",
     "number": 83,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.4,
-    "tgtPerGame": 0.7,
+    "tgtPerGame": 0.6,
     "recPerGame": 0.4,
-    "ydsPerGame": 1.8,
+    "ydsPerGame": 1.6,
     "tdPerGame": 0
   },
   {
@@ -3752,11 +3784,11 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 11,
-    "gp": 6,
+    "gp": 7,
     "fppg": 0.2,
     "tgtPerGame": 0.3,
-    "recPerGame": 0.2,
-    "ydsPerGame": 1,
+    "recPerGame": 0.1,
+    "ydsPerGame": 0.9,
     "tdPerGame": 0
   },
   {
@@ -3880,7 +3912,7 @@
     "teamAbbr": "NYJ",
     "position": "WR",
     "number": 84,
-    "gp": 8,
+    "gp": 9,
     "fppg": 0,
     "tgtPerGame": 0,
     "recPerGame": 0,
@@ -4136,12 +4168,12 @@
     "teamAbbr": "CIN",
     "position": "TE",
     "number": 88,
-    "gp": 9,
-    "fppg": 8,
-    "tgtPerGame": 3.1,
-    "recPerGame": 2.2,
-    "ydsPerGame": 29,
-    "tdPerGame": 0.67
+    "gp": 10,
+    "fppg": 8.2,
+    "tgtPerGame": 3.4,
+    "recPerGame": 2.5,
+    "ydsPerGame": 33.8,
+    "tdPerGame": 0.6
   },
   {
     "id": "nfl:4686658",
@@ -4232,12 +4264,12 @@
     "teamAbbr": "JAX",
     "position": "TE",
     "number": 87,
-    "gp": 9,
-    "fppg": 3.6,
-    "tgtPerGame": 1.6,
-    "recPerGame": 1.1,
-    "ydsPerGame": 17.3,
-    "tdPerGame": 0.22
+    "gp": 10,
+    "fppg": 3.3,
+    "tgtPerGame": 1.4,
+    "recPerGame": 1,
+    "ydsPerGame": 15.6,
+    "tdPerGame": 0.2
   },
   {
     "id": "nfl:4569547",
@@ -4280,7 +4312,7 @@
     "teamAbbr": "BAL",
     "position": "TE",
     "number": 87,
-    "gp": 6,
+    "gp": 7,
     "fppg": 0,
     "tgtPerGame": 0,
     "recPerGame": 0,
@@ -4424,12 +4456,12 @@
     "teamAbbr": "LAC",
     "position": "TE",
     "number": 86,
-    "gp": 9,
-    "fppg": 3.8,
-    "tgtPerGame": 3.3,
-    "recPerGame": 2.2,
-    "ydsPerGame": 20.1,
-    "tdPerGame": 0.11
+    "gp": 10,
+    "fppg": 3.4,
+    "tgtPerGame": 3,
+    "recPerGame": 2,
+    "ydsPerGame": 18.1,
+    "tdPerGame": 0.1
   },
   {
     "id": "nfl:4702559",
@@ -4568,11 +4600,11 @@
     "teamAbbr": "JAX",
     "position": "TE",
     "number": 80,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.1,
     "tgtPerGame": 0.2,
     "recPerGame": 0.1,
-    "ydsPerGame": 0.8,
+    "ydsPerGame": 0.7,
     "tdPerGame": 0
   },
   {
@@ -4584,12 +4616,12 @@
     "teamAbbr": "WSH",
     "position": "RB",
     "number": 1,
-    "gp": 8,
-    "fppg": 8.3,
-    "tgtPerGame": 2.9,
-    "recPerGame": 2.4,
-    "ydsPerGame": 51.1,
-    "tdPerGame": 0.38
+    "gp": 9,
+    "fppg": 7.4,
+    "tgtPerGame": 2.6,
+    "recPerGame": 2.1,
+    "ydsPerGame": 45.4,
+    "tdPerGame": 0.33
   },
   {
     "id": "nfl:4601080",
@@ -4632,11 +4664,11 @@
     "teamAbbr": "BAL",
     "position": "RB",
     "number": 26,
-    "gp": 10,
+    "gp": 11,
     "fppg": 0.2,
     "tgtPerGame": 0,
     "recPerGame": 0,
-    "ydsPerGame": 2.4,
+    "ydsPerGame": 2.2,
     "tdPerGame": 0
   },
   {
@@ -4696,11 +4728,11 @@
     "teamAbbr": "ARI",
     "position": "WR",
     "number": 82,
-    "gp": 6,
-    "fppg": 1.2,
-    "tgtPerGame": 1.8,
-    "recPerGame": 0.5,
-    "ydsPerGame": 9,
+    "gp": 7,
+    "fppg": 1,
+    "tgtPerGame": 1.6,
+    "recPerGame": 0.4,
+    "ydsPerGame": 7.7,
     "tdPerGame": 0
   },
   {
@@ -4760,7 +4792,7 @@
     "teamAbbr": "PIT",
     "position": "TE",
     "number": 85,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.1,
     "tgtPerGame": 0.2,
     "recPerGame": 0.1,
@@ -4824,12 +4856,12 @@
     "teamAbbr": "CHI",
     "position": "RB",
     "number": 23,
-    "gp": 9,
-    "fppg": 3,
-    "tgtPerGame": 1.2,
-    "recPerGame": 1,
-    "ydsPerGame": 21,
-    "tdPerGame": 0.11
+    "gp": 10,
+    "fppg": 2.7,
+    "tgtPerGame": 1.1,
+    "recPerGame": 0.9,
+    "ydsPerGame": 18.9,
+    "tdPerGame": 0.1
   },
   {
     "id": "nfl:5083754",
@@ -4904,12 +4936,12 @@
     "teamAbbr": "CIN",
     "position": "RB",
     "number": 34,
-    "gp": 9,
-    "fppg": 5.9,
-    "tgtPerGame": 1.7,
-    "recPerGame": 1.3,
-    "ydsPerGame": 32,
-    "tdPerGame": 0.33
+    "gp": 10,
+    "fppg": 6.5,
+    "tgtPerGame": 1.9,
+    "recPerGame": 1.6,
+    "ydsPerGame": 38.5,
+    "tdPerGame": 0.3
   },
   {
     "id": "nfl:3929630",
@@ -4936,12 +4968,12 @@
     "teamAbbr": "TB",
     "position": "RB",
     "number": 44,
-    "gp": 7,
-    "fppg": 2.9,
+    "gp": 8,
+    "fppg": 2.5,
     "tgtPerGame": 0,
     "recPerGame": 0,
-    "ydsPerGame": 11.4,
-    "tdPerGame": 0.29
+    "ydsPerGame": 10,
+    "tdPerGame": 0.25
   },
   {
     "id": "nfl:4686468",
@@ -4968,7 +5000,7 @@
     "teamAbbr": "MIA",
     "position": "TE",
     "number": 83,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0,
     "tgtPerGame": 0.1,
     "recPerGame": 0,
@@ -5032,12 +5064,12 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 3,
-    "gp": 8,
-    "fppg": 11.6,
-    "tgtPerGame": 7.4,
-    "recPerGame": 4.5,
-    "ydsPerGame": 48.3,
-    "tdPerGame": 0.75
+    "gp": 9,
+    "fppg": 11,
+    "tgtPerGame": 7.2,
+    "recPerGame": 4.4,
+    "ydsPerGame": 47.9,
+    "tdPerGame": 0.67
   },
   {
     "id": "nfl:4036133",
@@ -5064,11 +5096,11 @@
     "teamAbbr": "CIN",
     "position": "RB",
     "number": 25,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.2,
     "tgtPerGame": 0,
     "recPerGame": 0,
-    "ydsPerGame": 2,
+    "ydsPerGame": 1.8,
     "tdPerGame": 0
   },
   {
@@ -5096,11 +5128,11 @@
     "teamAbbr": "JAX",
     "position": "TE",
     "number": 88,
-    "gp": 7,
-    "fppg": 0.7,
-    "tgtPerGame": 0.6,
-    "recPerGame": 0.6,
-    "ydsPerGame": 4.4,
+    "gp": 8,
+    "fppg": 0.6,
+    "tgtPerGame": 0.5,
+    "recPerGame": 0.5,
+    "ydsPerGame": 3.9,
     "tdPerGame": 0
   },
   {
@@ -5112,11 +5144,11 @@
     "teamAbbr": "DET",
     "position": "WR",
     "number": 17,
-    "gp": 9,
+    "gp": 10,
     "fppg": 0.2,
     "tgtPerGame": 0.1,
     "recPerGame": 0.1,
-    "ydsPerGame": 1.2,
+    "ydsPerGame": 1.1,
     "tdPerGame": 0
   },
   {
@@ -5128,12 +5160,12 @@
     "teamAbbr": "ARI",
     "position": "TE",
     "number": 47,
-    "gp": 6,
-    "fppg": 2.6,
-    "tgtPerGame": 0.5,
-    "recPerGame": 0.5,
-    "ydsPerGame": 3.8,
-    "tdPerGame": 0.33
+    "gp": 7,
+    "fppg": 2.3,
+    "tgtPerGame": 0.4,
+    "recPerGame": 0.4,
+    "ydsPerGame": 3.3,
+    "tdPerGame": 0.29
   },
   {
     "id": "nfl:5220680",
@@ -5160,12 +5192,12 @@
     "teamAbbr": "CIN",
     "position": "WR",
     "number": 5,
-    "gp": 9,
-    "fppg": 16.1,
-    "tgtPerGame": 8.1,
-    "recPerGame": 5.9,
-    "ydsPerGame": 91.6,
-    "tdPerGame": 0.67
+    "gp": 10,
+    "fppg": 15.6,
+    "tgtPerGame": 7.6,
+    "recPerGame": 5.5,
+    "ydsPerGame": 86.7,
+    "tdPerGame": 0.7
   },
   {
     "id": "nfl:4685472",
@@ -5272,11 +5304,11 @@
     "teamAbbr": "PIT",
     "position": "RB",
     "number": 21,
-    "gp": 8,
+    "gp": 9,
     "fppg": 0.2,
     "tgtPerGame": 0,
     "recPerGame": 0,
-    "ydsPerGame": 1.9,
+    "ydsPerGame": 1.7,
     "tdPerGame": 0
   },
   {
@@ -5400,12 +5432,12 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 13,
-    "gp": 7,
-    "fppg": 6.4,
-    "tgtPerGame": 3.6,
+    "gp": 8,
+    "fppg": 6.1,
+    "tgtPerGame": 3.5,
     "recPerGame": 2,
-    "ydsPerGame": 37.1,
-    "tdPerGame": 0.29
+    "ydsPerGame": 36.3,
+    "tdPerGame": 0.25
   },
   {
     "id": "nfl:4431280",
@@ -5640,11 +5672,11 @@
     "teamAbbr": "MIA",
     "position": "TE",
     "number": 89,
-    "gp": 9,
-    "fppg": 0.7,
-    "tgtPerGame": 1.1,
-    "recPerGame": 0.6,
-    "ydsPerGame": 3.9,
+    "gp": 10,
+    "fppg": 0.6,
+    "tgtPerGame": 1,
+    "recPerGame": 0.5,
+    "ydsPerGame": 3.5,
     "tdPerGame": 0
   },
   {

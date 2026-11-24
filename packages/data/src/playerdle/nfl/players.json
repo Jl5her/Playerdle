@@ -2250,16 +2250,6 @@
     "number": 26
   },
   {
-    "id": "nfl:4360438",
-    "name": "Brandon Aiyuk",
-    "conference": "NFC",
-    "division": "NFC West",
-    "team": "San Francisco 49ers",
-    "teamAbbr": "SF",
-    "position": "WR",
-    "number": 11
-  },
-  {
     "id": "nfl:3953687",
     "name": "Brandon Aubrey",
     "conference": "NFC",
@@ -3259,6 +3249,16 @@
     "teamAbbr": "IND",
     "position": "S",
     "number": 0
+  },
+  {
+    "id": "nfl:4700712",
+    "name": "Cam Grandy",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cincinnati Bengals",
+    "teamAbbr": "CIN",
+    "position": "TE",
+    "number": 85
   },
   {
     "id": "nfl:4427404",
@@ -4730,6 +4730,16 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 85
+  },
+  {
+    "id": "nfl:4036959",
+    "name": "Cole Christiansen",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Kansas City Chiefs",
+    "teamAbbr": "KC",
+    "position": "LB",
+    "number": 48
   },
   {
     "id": "nfl:3116689",
@@ -7673,16 +7683,6 @@
     "number": 86
   },
   {
-    "id": "nfl:4430825",
-    "name": "EJ Smith",
-    "conference": "AFC",
-    "division": "AFC West",
-    "team": "Kansas City Chiefs",
-    "teamAbbr": "KC",
-    "position": "RB",
-    "number": 35
-  },
-  {
     "id": "nfl:4361272",
     "name": "Eku Leota",
     "conference": "NFC",
@@ -8045,12 +8045,13 @@
   {
     "id": "nfl:4570561",
     "name": "Eric Gray",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "New York Giants",
-    "teamAbbr": "NYG",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Indianapolis Colts",
+    "teamAbbr": "IND",
     "position": "RB",
-    "number": 20
+    "number": 20,
+    "numberBackfilled": true
   },
   {
     "id": "nfl:4567171",
@@ -9353,16 +9354,6 @@
     "number": 18
   },
   {
-    "id": "nfl:3122797",
-    "name": "Isaac Yiadom",
-    "conference": "NFC",
-    "division": "NFC East",
-    "team": "Washington Commanders",
-    "teamAbbr": "WSH",
-    "position": "CB",
-    "number": 37
-  },
-  {
     "id": "nfl:5084939",
     "name": "Isaiah Adams",
     "conference": "NFC",
@@ -9861,6 +9852,16 @@
     "teamAbbr": "NYG",
     "position": "LB",
     "number": 51
+  },
+  {
+    "id": "nfl:4427716",
+    "name": "Jack Kiser",
+    "conference": "AFC",
+    "division": "AFC North",
+    "team": "Cincinnati Bengals",
+    "teamAbbr": "CIN",
+    "position": "LB",
+    "number": 45
   },
   {
     "id": "nfl:4372576",
@@ -13141,16 +13142,6 @@
     "teamAbbr": "LAC",
     "position": "C",
     "number": 68
-  },
-  {
-    "id": "nfl:4819215",
-    "name": "Josh Kattus",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Cincinnati Bengals",
-    "teamAbbr": "CIN",
-    "position": "TE",
-    "number": 48
   },
   {
     "id": "nfl:4575558",
@@ -16944,16 +16935,6 @@
     "number": 86
   },
   {
-    "id": "nfl:4683101",
-    "name": "Max Llewellyn",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "DE",
-    "number": 57
-  },
-  {
     "id": "nfl:4698113",
     "name": "Max Melton",
     "conference": "NFC",
@@ -17522,16 +17503,6 @@
     "teamAbbr": "DEN",
     "position": "S",
     "number": 39
-  },
-  {
-    "id": "nfl:4431580",
-    "name": "Miller Moss",
-    "conference": "NFC",
-    "division": "NFC North",
-    "team": "Chicago Bears",
-    "teamAbbr": "CHI",
-    "position": "QB",
-    "number": 16
   },
   {
     "id": "nfl:4371940",
@@ -20632,16 +20603,6 @@
     "teamAbbr": "MIA",
     "position": "TE",
     "number": 83
-  },
-  {
-    "id": "nfl:4360413",
-    "name": "Shaka Heyward",
-    "conference": "AFC",
-    "division": "AFC East",
-    "team": "Miami Dolphins",
-    "teamAbbr": "MIA",
-    "position": "LB",
-    "number": 45
   },
   {
     "id": "nfl:4039034",
