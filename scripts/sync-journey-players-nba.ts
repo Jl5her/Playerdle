@@ -14,6 +14,13 @@
 import { readFileSync, writeFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
+import {
+  applyStatus,
+  findOnRoster,
+  loadRosterIndex,
+  normalizeName,
+  statusLines,
+} from "./lib/journey-status"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, "..")
@@ -26,6 +33,8 @@ interface SyncPlayer {
   college?: string
   teams: string[]
   nbaId?: string
+  active?: boolean
+  retiredYear?: number
 }
 
 // Historical / relocated franchise names → current canonical names used in
@@ -37,12 +46,15 @@ const TEAM_NAME_MAP: Record<string, string> = {
   "Charlotte Bobcats": "Charlotte Hornets",
   "New Orleans Hornets": "New Orleans Pelicans",
   "New Orleans/Oklahoma City Hornets": "New Orleans Pelicans",
+  "NO/Oklahoma City Hornets": "New Orleans Pelicans",
   "New Jersey Nets": "Brooklyn Nets",
   "Los Angeles Clippers": "LA Clippers",
 }
 
 function normalizeTeamName(name: string): string {
-  return TEAM_NAME_MAP[name] ?? name
+  // ESPN sometimes embeds line breaks in names ("NO/Oklahoma City\nHornets").
+  const clean = name.replace(/\s+/g, " ").trim()
+  return TEAM_NAME_MAP[clean] ?? clean
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -58,120 +70,44 @@ async function sleep(ms: number): Promise<void> {
   await new Promise(r => setTimeout(r, ms))
 }
 
+// ESPN site search. Player results carry a uid like "s:40~l:46~a:3992" —
+// l:46 is the NBA, a: is the athlete ID. (The older common/v3/search endpoint
+// now returns no results.)
 async function searchNbaId(name: string): Promise<string | undefined> {
-  const url =
-    `https://site.api.espn.com/apis/common/v3/search` +
-    `?query=${encodeURIComponent(name)}&sport=basketball&league=nba&limit=10`
+  const url = `https://site.web.api.espn.com/apis/search/v2?query=${encodeURIComponent(name)}&limit=10`
   try {
     const data = await fetchJson<{
       results?: Array<{
-        contents?: Array<{
-          id?: string
-          data?: {
-            athletes?: Array<{ id?: string; displayName?: string }>
-            athlete?: { id?: string; displayName?: string }
-          }
-        }>
+        type?: string
+        contents?: Array<{ displayName?: string; uid?: string }>
       }>
     }>(url)
-    const candidates: Array<{ id: string; displayName: string }> = []
+    const ids = new Set<string>()
     for (const group of data.results ?? []) {
+      if (group.type !== "player") continue
       for (const item of group.contents ?? []) {
-        const athletes = [
-          ...(item.data?.athletes ?? []),
-          ...(item.data?.athlete ? [item.data.athlete] : []),
-        ]
-        for (const a of athletes) {
-          if (a.id && a.displayName) candidates.push({ id: a.id, displayName: a.displayName })
-        }
+        if (!item.displayName || normalizeName(item.displayName) !== normalizeName(name)) continue
+        const m = item.uid?.match(/~l:46~a:(\d+)/)
+        if (m) ids.add(m[1])
       }
     }
-    // Bail on no exact match or ambiguous duplicates rather than silently
-    // assigning the wrong athlete ID — the caller already handles undefined.
-    const exact = candidates.filter(a => a.displayName.toLowerCase() === name.toLowerCase())
-    if (exact.length !== 1) return undefined
-    return exact[0].id
+    // Bail on no match or ambiguous duplicates rather than silently assigning
+    // the wrong athlete ID — the caller already handles undefined.
+    return ids.size === 1 ? [...ids][0] : undefined
   } catch {
     return undefined
   }
 }
 
-// Recursively walk an ESPN JSON response and harvest two kinds of evidence:
-// (a) every team display name seen anywhere — for set-membership verification.
-// (b) (season, teamName) tuples — when an object has both a recognizable
-//     season indicator AND a team reference, we capture the pair for ordering.
-//
-// ESPN's stats response shape varies by sport/endpoint. This walker is
-// permissive on purpose: it tolerates the data being one or two levels deep
-// either way.
-interface ExtractContext {
-  currentSeason?: number
-  currentTeam?: string
-}
-
-function readSeason(obj: Record<string, unknown>): number | undefined {
-  const candidates = [obj.year, obj.season, obj.displayYear, obj.displayName]
-  for (const c of candidates) {
-    if (typeof c === "number" && c > 1900 && c < 2100) return c
-    if (typeof c === "string") {
-      // "2023-24" or "2024" — take the higher year (season end year).
-      const m = c.match(/(\d{4})(?:[-–](\d{2,4}))?/)
-      if (m) {
-        const start = parseInt(m[1], 10)
-        const endRaw = m[2]
-        const end = endRaw
-          ? endRaw.length === 2
-            ? parseInt(m[1].slice(0, 2) + endRaw, 10)
-            : parseInt(endRaw, 10)
-          : start
-        const year = Math.max(start, end)
-        if (year > 1900 && year < 2100) return year
-      }
-    }
-  }
-  return undefined
-}
-
-function readTeamName(obj: Record<string, unknown>): string | undefined {
-  if (obj.team && typeof obj.team === "object") {
-    const t = obj.team as Record<string, unknown>
-    if (typeof t.displayName === "string") return normalizeTeamName(t.displayName)
-    if (typeof t.name === "string") return normalizeTeamName(t.name)
-  }
-  return undefined
-}
-
+// Career evidence from ESPN: every team seen (for verification) and
+// (season, team) pairs in stint order (for rebuilding the path).
 interface Extraction {
   allTeams: Set<string>
   pairs: Array<{ season: number; team: string }>
 }
 
-function walk(obj: unknown, ctx: ExtractContext, out: Extraction): void {
-  if (!obj || typeof obj !== "object") return
-  if (Array.isArray(obj)) {
-    for (const item of obj) walk(item, ctx, out)
-    return
-  }
-  const record = obj as Record<string, unknown>
-
-  const teamHere = readTeamName(record)
-  const seasonHere = readSeason(record)
-  const next: ExtractContext = { ...ctx }
-  if (teamHere) {
-    out.allTeams.add(teamHere)
-    next.currentTeam = teamHere
-  }
-  if (seasonHere) next.currentSeason = seasonHere
-
-  if (next.currentSeason && next.currentTeam) {
-    out.pairs.push({ season: next.currentSeason, team: next.currentTeam })
-  }
-
-  for (const v of Object.values(record)) walk(v, next, out)
-}
-
 async function fetchAthleteCollege(nbaId: string): Promise<string | undefined> {
-  const url = `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/athletes/${nbaId}`
+  const url = `https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/${nbaId}`
   try {
     const data = await fetchJson<{
       athlete?: { college?: { name?: string } }
@@ -182,23 +118,36 @@ async function fetchAthleteCollege(nbaId: string): Promise<string | undefined> {
   }
 }
 
+// ESPN's common/v3 stats response lists season rows under
+// categories[].statistics[] as { teamSlug, season: { year } } (year = season
+// end year, so 2020-21 → 2021), with team display names in a top-level `teams`
+// map keyed by slug. Rows within a season are in stint order. "Totals" rows
+// (teamSlug like "2020-21 Totals") aren't in the teams map and are skipped.
+interface EspnStatsResponse {
+  teams?: Record<string, { displayName?: string }>
+  categories?: Array<{
+    statistics?: Array<{ teamSlug?: string; season?: { year?: number } }>
+  }>
+}
+
 async function fetchCareer(nbaId: string): Promise<Extraction | null> {
-  const urls = [
-    `https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/${nbaId}/stats`,
-    `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/athletes/${nbaId}/stats`,
-  ]
-  for (const url of urls) {
-    try {
-      const data = await fetchJson<unknown>(url)
-      const ex: Extraction = { allTeams: new Set(), pairs: [] }
-      walk(data, {}, ex)
-      if (ex.pairs.length > 0 || ex.allTeams.size > 0) return ex
-    } catch {
-      /* try next endpoint */
+  const url = `https://site.web.api.espn.com/apis/common/v3/sports/basketball/nba/athletes/${nbaId}/stats`
+  try {
+    const data = await fetchJson<EspnStatsResponse>(url)
+    const ex: Extraction = { allTeams: new Set(), pairs: [] }
+    // Every category repeats the same rows; the first one is enough.
+    for (const row of data.categories?.[0]?.statistics ?? []) {
+      const raw = row.teamSlug ? data.teams?.[row.teamSlug]?.displayName : undefined
+      const season = row.season?.year
+      if (!raw || !season) continue
+      const team = normalizeTeamName(raw)
+      ex.allTeams.add(team)
+      ex.pairs.push({ season, team })
     }
-    await sleep(200)
+    return ex.pairs.length > 0 ? ex : null
+  } catch {
+    return null
   }
-  return null
 }
 
 function buildTeamList(pairs: Array<{ season: number; team: string }>): string[] {
@@ -246,6 +195,7 @@ function playerBlock(p: SyncPlayer): string {
   if (p.college) lines.push(`${pad}college: "${p.college}",`)
   lines.push(`${pad}teams: ${formatTeams(p.teams, 4)},`)
   if (p.nbaId) lines.push(`${pad}nbaId: "${p.nbaId}",`)
+  lines.push(...statusLines(p, pad))
   lines.push(`  },`)
   return lines.join("\n")
 }
@@ -301,6 +251,35 @@ async function main() {
   // name that isn't in teams.json — writing would corrupt downstream lookups.
   const blockingWarnings: string[] = []
 
+  const rosterIndex = loadRosterIndex(DATA_ROOT, "nba")
+  let teamsAppended = 0
+  let statusChanges = 0
+  // Roster-based current team + active/retired status. Runs for every player,
+  // including ones whose API lookup failed, and after any stats-based rewrite
+  // of teams[] so a just-signed team stays at the end of the path.
+  const updateStatus = (p: SyncPlayer, lastSeasonYear?: number) => {
+    const status = applyStatus(p, {
+      league: "nba",
+      rosterEntry: findOnRoster(rosterIndex, "nba", p.name, p.position, p.nbaId),
+      lastSeasonYear,
+      validTeamNames,
+      normalizeTeam: normalizeTeamName,
+    })
+    if (status.appendedTeam) {
+      teamsAppended++
+      process.stdout.write(` [team:+${status.appendedTeam}]`)
+    }
+    if (status.unknownTeam) {
+      warnings.push(`${p.name}: current team "${status.unknownTeam}" not in teams.json — skipped`)
+    }
+    if (status.statusChanged) {
+      statusChanges++
+      process.stdout.write(
+        ` [status:${p.active ? "active" : `retired${p.retiredYear ? ` ${p.retiredYear}` : ""}`}]`,
+      )
+    }
+  }
+
   for (let i = 0; i < players.length; i++) {
     const p = players[i]
     process.stdout.write(`[${i + 1}/${players.length}] ${p.name}`)
@@ -310,7 +289,9 @@ async function main() {
       const id = await searchNbaId(p.name)
       if (!id) {
         warnings.push(`${p.name}: NBA ESPN ID not found — skip`)
-        process.stdout.write(" [id:NOT FOUND]\n")
+        process.stdout.write(" [id:NOT FOUND]")
+        updateStatus(p)
+        console.log()
         continue
       }
       p.nbaId = id
@@ -335,7 +316,9 @@ async function main() {
     const ex = await fetchCareer(p.nbaId)
     if (!ex || (ex.pairs.length === 0 && ex.allTeams.size === 0)) {
       warnings.push(`${p.name}: career stats fetch returned no data`)
-      process.stdout.write(" [stats:none]\n")
+      process.stdout.write(" [stats:none]")
+      updateStatus(p)
+      console.log()
       continue
     }
 
@@ -372,11 +355,14 @@ async function main() {
         }
       }
     }
+    updateStatus(p, ex.pairs.length > 0 ? Math.max(...ex.pairs.map(x => x.season)) : undefined)
     console.log()
     await sleep(200)
   }
 
   console.log("\n--- Sync Summary ---")
+  console.log(`Current teams appended  : ${teamsAppended}`)
+  console.log(`Status changes          : ${statusChanges}`)
   console.log(`NBA IDs newly populated  : ${idsPopulated}`)
   console.log(`NBA IDs already cached   : ${idsAlreadyCached}`)
   console.log(`Colleges populated       : ${collegesPopulated}`)

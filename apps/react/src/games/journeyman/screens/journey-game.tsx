@@ -34,6 +34,8 @@ import { getTodayKey } from "@/shared/utils/time"
 import { useGameAnalytics } from "@/shared/hooks/use-game-analytics"
 
 const MAX_GUESSES = 5
+/** Wrong guesses needed before the active/retired hint is shown. */
+const STATUS_HINT_AFTER_WRONG = 2
 const STORAGE_KEY_PREFIX = "playerdle-journey-state:v1"
 
 export type JourneyGameMode = "daily" | "arcade"
@@ -137,6 +139,36 @@ function PositionDiamond({ position }: { position: string }) {
       <span className="absolute inset-0 -rotate-45 flex items-center justify-center text-sm font-black tracking-wider text-primary-900 dark:text-primary-50">
         {position}
       </span>
+    </span>
+  )
+}
+
+/** "Active" or "Retired '22" from the synced player data; null when unknown. */
+function careerStatusLabel(player: { active?: boolean; retiredYear?: number }): string | null {
+  if (player.active === true) return "Active"
+  if (player.active === false) {
+    return player.retiredYear ? `Retired '${String(player.retiredYear).slice(-2)}` : "Retired"
+  }
+  return null
+}
+
+/**
+ * Pill above the position diamond. Shows "?" until the hint unlocks, then the
+ * player's active/retired status. Never reveals the position itself.
+ */
+function StatusPill({ label, revealed }: { label: string; revealed: boolean }) {
+  return (
+    <span
+      className={clsx(
+        "inline-flex items-center justify-center min-w-12 h-6 px-2.5 rounded-full border-2 text-[11px] font-black uppercase tracking-wider whitespace-nowrap",
+        "motion-safe:transition-colors motion-safe:duration-300",
+        revealed
+          ? "border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 text-primary-900 dark:text-primary-50"
+          : "border-dashed border-primary-300 dark:border-primary-700 bg-primary-50 dark:bg-primary-900 text-primary-400 dark:text-primary-400",
+      )}
+      aria-label={revealed ? `Career status: ${label}` : "Career status hidden"}
+    >
+      {revealed ? label : "?"}
     </span>
   )
 }
@@ -826,6 +858,9 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
     onModeChange?.("arcade")
   }
 
+  const statusLabel = careerStatusLabel(puzzle.player)
+  const statusRevealed = gameOver || wrongCount >= STATUS_HINT_AFTER_WRONG
+
   const collegePalette =
     leagueData.hasCollegeRung && puzzle.player.college
       ? getCollegePalette(puzzle.player.college)
@@ -865,10 +900,23 @@ export default function JourneyGame({ league, mode, onModeChange, archiveDateKey
         className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-none"
       >
         <div className="max-w-sm mx-auto px-3 py-4 flex flex-col gap-3">
-          <div className="relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 pt-8 px-8 pb-3 mt-6 mx-8">
+          <div
+            className={clsx(
+              "relative rounded-2xl border-2 border-primary-300 dark:border-primary-700 pt-8 px-8 pb-3 mx-8",
+              statusLabel ? "mt-14" : "mt-6",
+            )}
+          >
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <PositionDiamond position={positionRevealed ? puzzle.player.position : "?"} />
             </div>
+            {statusLabel && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-[calc(100%+2.5rem)]">
+                <StatusPill
+                  label={statusLabel}
+                  revealed={statusRevealed}
+                />
+              </div>
+            )}
             <div className="flex flex-col">
               {leagueData.hasCollegeRung && puzzle.player.college && (
                 <LadderRow
