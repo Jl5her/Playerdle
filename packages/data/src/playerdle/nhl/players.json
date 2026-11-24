@@ -3630,16 +3630,6 @@
     "number": 4
   },
   {
-    "id": "nhl:3900154",
-    "name": "Jansen Harkins",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Tampa Bay Lightning",
-    "teamAbbr": "TB",
-    "position": "C",
-    "number": 10
-  },
-  {
     "id": "nhl:3114777",
     "name": "Jared McCann",
     "conference": "West",
@@ -5730,6 +5720,16 @@
     "number": 64
   },
   {
+    "id": "nhl:4697824",
+    "name": "Mikael Pyyhtia",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Columbus Blue Jackets",
+    "teamAbbr": "CBJ",
+    "position": "LW",
+    "number": 82
+  },
+  {
     "id": "nhl:2976851",
     "name": "Mike Matheson",
     "conference": "East",
@@ -6158,16 +6158,6 @@
     "teamAbbr": "ANA",
     "position": "C",
     "number": 13
-  },
-  {
-    "id": "nhl:5188534",
-    "name": "Nikita Tolopilo",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Vancouver Canucks",
-    "teamAbbr": "VAN",
-    "position": "G",
-    "number": 60
   },
   {
     "id": "nhl:3042021",
@@ -7130,6 +7120,16 @@
     "number": 35
   },
   {
+    "id": "nhl:4755753",
+    "name": "Sam Morton",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 45
+  },
+  {
     "id": "nhl:5216901",
     "name": "Sam O'Reilly",
     "conference": "East",
@@ -7458,16 +7458,6 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 27
-  },
-  {
-    "id": "nhl:4196931",
-    "name": "Sheldon Dries",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "C",
-    "number": 15
   },
   {
     "id": "nhl:3114",
