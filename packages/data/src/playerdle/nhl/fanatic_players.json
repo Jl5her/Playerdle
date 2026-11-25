@@ -184,7 +184,7 @@
     "teamAbbr": "EDM",
     "position": "LW",
     "number": 26,
-    "gp": 26,
+    "gp": 27,
     "goals": 2,
     "assists": 3,
     "points": 5,
@@ -396,7 +396,7 @@
     "goals": 3,
     "assists": 7,
     "points": 10,
-    "sog": 48,
+    "sog": 47,
     "toiPerGame": 14
   },
   {
@@ -508,7 +508,7 @@
     "goals": 7,
     "assists": 3,
     "points": 10,
-    "sog": 28,
+    "sog": 29,
     "toiPerGame": 13.7
   },
   {
@@ -748,7 +748,7 @@
     "goals": 0,
     "assists": 2,
     "points": 2,
-    "sog": 22,
+    "sog": 23,
     "toiPerGame": 20.5
   },
   {
@@ -920,12 +920,12 @@
     "teamAbbr": "VGK",
     "position": "RW",
     "number": 42,
-    "gp": 25,
+    "gp": 26,
     "goals": 5,
     "assists": 4,
     "points": 9,
     "sog": 28,
-    "toiPerGame": 12.7
+    "toiPerGame": 12.6
   },
   {
     "id": "nhl:3904175",
@@ -1016,12 +1016,12 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 3,
-    "gp": 25,
+    "gp": 26,
     "goals": 0,
     "assists": 9,
     "points": 9,
-    "sog": 26,
-    "toiPerGame": 20.1
+    "sog": 28,
+    "toiPerGame": 20.4
   },
   {
     "id": "nhl:3151187",
@@ -1096,11 +1096,11 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 21,
-    "gp": 25,
+    "gp": 26,
     "goals": 8,
     "assists": 4,
     "points": 12,
-    "sog": 43,
+    "sog": 44,
     "toiPerGame": 15.2
   },
   {
@@ -1464,12 +1464,12 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 34,
-    "gp": 20,
-    "goals": 5,
+    "gp": 21,
+    "goals": 6,
     "assists": 2,
-    "points": 7,
-    "sog": 34,
-    "toiPerGame": 14
+    "points": 8,
+    "sog": 40,
+    "toiPerGame": 13.9
   },
   {
     "id": "nhl:3069341",
@@ -1512,11 +1512,11 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 97,
-    "gp": 26,
-    "goals": 13,
+    "gp": 27,
+    "goals": 14,
     "assists": 45,
-    "points": 58,
-    "sog": 68,
+    "points": 59,
+    "sog": 72,
     "toiPerGame": 23.7
   },
   {
@@ -1544,12 +1544,12 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 5,
-    "gp": 26,
+    "gp": 27,
     "goals": 0,
-    "assists": 2,
-    "points": 2,
-    "sog": 25,
-    "toiPerGame": 20.9
+    "assists": 3,
+    "points": 3,
+    "sog": 26,
+    "toiPerGame": 20.8
   },
   {
     "id": "nhl:5080155",
@@ -2168,12 +2168,12 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 2,
-    "gp": 26,
+    "gp": 27,
     "goals": 12,
-    "assists": 27,
-    "points": 39,
-    "sog": 65,
-    "toiPerGame": 25.6
+    "assists": 29,
+    "points": 41,
+    "sog": 68,
+    "toiPerGame": 25.7
   },
   {
     "id": "nhl:3648008",
@@ -2252,7 +2252,7 @@
     "goals": 1,
     "assists": 16,
     "points": 17,
-    "sog": 31,
+    "sog": 32,
     "toiPerGame": 26.8
   },
   {
@@ -2472,12 +2472,12 @@
     "teamAbbr": "VGK",
     "position": "LW",
     "number": 49,
-    "gp": 25,
+    "gp": 26,
     "goals": 5,
     "assists": 12,
     "points": 17,
-    "sog": 32,
-    "toiPerGame": 15.4
+    "sog": 33,
+    "toiPerGame": 15.3
   },
   {
     "id": "nhl:5361709",
@@ -2552,11 +2552,11 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 9,
-    "gp": 25,
-    "goals": 9,
+    "gp": 26,
+    "goals": 11,
     "assists": 22,
-    "points": 31,
-    "sog": 68,
+    "points": 33,
+    "sog": 72,
     "toiPerGame": 20.6
   },
   {
@@ -2936,12 +2936,12 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 5,
-    "gp": 25,
+    "gp": 26,
     "goals": 1,
     "assists": 2,
     "points": 3,
-    "sog": 29,
-    "toiPerGame": 17.4
+    "sog": 30,
+    "toiPerGame": 17.5
   },
   {
     "id": "nhl:4233872",
@@ -3432,12 +3432,12 @@
     "teamAbbr": "EDM",
     "position": "RW",
     "number": 42,
-    "gp": 26,
+    "gp": 27,
     "goals": 7,
-    "assists": 8,
-    "points": 15,
+    "assists": 9,
+    "points": 16,
     "sog": 33,
-    "toiPerGame": 18.3
+    "toiPerGame": 18.4
   },
   {
     "id": "nhl:3941546",
@@ -3532,7 +3532,7 @@
     "goals": 19,
     "assists": 30,
     "points": 49,
-    "sog": 76,
+    "sog": 77,
     "toiPerGame": 21.4
   },
   {
@@ -3656,12 +3656,12 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 29,
-    "gp": 26,
+    "gp": 27,
     "goals": 23,
     "assists": 24,
     "points": 47,
-    "sog": 98,
-    "toiPerGame": 22
+    "sog": 99,
+    "toiPerGame": 22.1
   },
   {
     "id": "nhl:5080163",
@@ -3676,7 +3676,7 @@
     "goals": 6,
     "assists": 4,
     "points": 10,
-    "sog": 39,
+    "sog": 40,
     "toiPerGame": 14.1
   },
   {
@@ -3864,12 +3864,12 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 17,
-    "gp": 23,
+    "gp": 24,
     "goals": 1,
-    "assists": 1,
-    "points": 2,
-    "sog": 30,
-    "toiPerGame": 10.3
+    "assists": 2,
+    "points": 3,
+    "sog": 32,
+    "toiPerGame": 10.2
   },
   {
     "id": "nhl:4697391",
@@ -3976,11 +3976,11 @@
     "teamAbbr": "VGK",
     "position": "RW",
     "number": 61,
-    "gp": 25,
+    "gp": 26,
     "goals": 11,
     "assists": 12,
     "points": 23,
-    "sog": 43,
+    "sog": 44,
     "toiPerGame": 19
   },
   {
@@ -4088,12 +4088,12 @@
     "teamAbbr": "EDM",
     "position": "RW",
     "number": 21,
-    "gp": 26,
+    "gp": 27,
     "goals": 4,
-    "assists": 6,
-    "points": 10,
+    "assists": 7,
+    "points": 11,
     "sog": 22,
-    "toiPerGame": 12.8
+    "toiPerGame": 12.9
   },
   {
     "id": "nhl:4064781",
@@ -4200,12 +4200,12 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 14,
-    "gp": 24,
+    "gp": 25,
     "goals": 3,
     "assists": 8,
     "points": 11,
-    "sog": 28,
-    "toiPerGame": 21
+    "sog": 29,
+    "toiPerGame": 20.9
   },
   {
     "id": "nhl:4378656",
@@ -4472,12 +4472,12 @@
     "teamAbbr": "VGK",
     "position": "RW",
     "number": 93,
-    "gp": 23,
+    "gp": 24,
     "goals": 4,
-    "assists": 23,
-    "points": 27,
-    "sog": 58,
-    "toiPerGame": 20.6
+    "assists": 25,
+    "points": 29,
+    "sog": 62,
+    "toiPerGame": 20.7
   },
   {
     "id": "nhl:4316970",
@@ -4616,11 +4616,11 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 26,
-    "gp": 25,
-    "goals": 0,
+    "gp": 26,
+    "goals": 1,
     "assists": 3,
-    "points": 3,
-    "sog": 8,
+    "points": 4,
+    "sog": 9,
     "toiPerGame": 11.2
   },
   {
@@ -4984,12 +4984,12 @@
     "teamAbbr": "EDM",
     "position": "C",
     "number": 43,
-    "gp": 26,
+    "gp": 27,
     "goals": 3,
     "assists": 2,
     "points": 5,
     "sog": 16,
-    "toiPerGame": 11.4
+    "toiPerGame": 11.3
   },
   {
     "id": "nhl:4781556",
@@ -5272,11 +5272,11 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 4,
-    "gp": 25,
+    "gp": 26,
     "goals": 3,
     "assists": 4,
     "points": 7,
-    "sog": 47,
+    "sog": 48,
     "toiPerGame": 19.7
   },
   {
@@ -5544,11 +5544,11 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 6,
-    "gp": 26,
+    "gp": 27,
     "goals": 1,
-    "assists": 6,
-    "points": 7,
-    "sog": 21,
+    "assists": 7,
+    "points": 8,
+    "sog": 23,
     "toiPerGame": 22.8
   },
   {
@@ -5816,12 +5816,12 @@
     "teamAbbr": "EDM",
     "position": "D",
     "number": 85,
-    "gp": 21,
+    "gp": 22,
     "goals": 1,
     "assists": 1,
     "points": 2,
-    "sog": 12,
-    "toiPerGame": 14.9
+    "sog": 13,
+    "toiPerGame": 14.8
   },
   {
     "id": "nhl:4565255",
@@ -5880,12 +5880,12 @@
     "teamAbbr": "VGK",
     "position": "D",
     "number": 27,
-    "gp": 25,
+    "gp": 26,
     "goals": 2,
-    "assists": 5,
-    "points": 7,
+    "assists": 6,
+    "points": 8,
     "sog": 43,
-    "toiPerGame": 22.2
+    "toiPerGame": 22.3
   },
   {
     "id": "nhl:3114",
@@ -6184,12 +6184,12 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 48,
-    "gp": 25,
+    "gp": 26,
     "goals": 10,
     "assists": 10,
     "points": 20,
-    "sog": 64,
-    "toiPerGame": 15.7
+    "sog": 65,
+    "toiPerGame": 15.6
   },
   {
     "id": "nhl:3114769",
@@ -6232,12 +6232,12 @@
     "teamAbbr": "VGK",
     "position": "LW",
     "number": 24,
-    "gp": 25,
-    "goals": 7,
-    "assists": 9,
-    "points": 16,
-    "sog": 56,
-    "toiPerGame": 14.7
+    "gp": 26,
+    "goals": 9,
+    "assists": 10,
+    "points": 19,
+    "sog": 61,
+    "toiPerGame": 14.8
   },
   {
     "id": "nhl:3096186",
@@ -6456,12 +6456,12 @@
     "teamAbbr": "EDM",
     "position": "RW",
     "number": 92,
-    "gp": 26,
-    "goals": 13,
+    "gp": 27,
+    "goals": 14,
     "assists": 9,
-    "points": 22,
-    "sog": 51,
-    "toiPerGame": 18
+    "points": 23,
+    "sog": 53,
+    "toiPerGame": 18.1
   },
   {
     "id": "nhl:5291952",
@@ -6616,12 +6616,12 @@
     "teamAbbr": "VGK",
     "position": "C",
     "number": 71,
-    "gp": 25,
+    "gp": 26,
     "goals": 6,
-    "assists": 5,
-    "points": 11,
-    "sog": 49,
-    "toiPerGame": 17.7
+    "assists": 6,
+    "points": 12,
+    "sog": 50,
+    "toiPerGame": 17.9
   },
   {
     "id": "nhl:3114736",
@@ -6684,7 +6684,7 @@
     "goals": 0,
     "assists": 5,
     "points": 5,
-    "sog": 26,
+    "sog": 25,
     "toiPerGame": 17.4
   },
   {

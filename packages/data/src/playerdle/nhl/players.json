@@ -1190,16 +1190,6 @@
     "number": 29
   },
   {
-    "id": "nhl:4697412",
-    "name": "Brendan Brisson",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 90
-  },
-  {
     "id": "nhl:5614",
     "name": "Brendan Gallagher",
     "conference": "West",
@@ -3088,6 +3078,16 @@
     "teamAbbr": "CHI",
     "position": "D",
     "number": 28
+  },
+  {
+    "id": "nhl:4997137",
+    "name": "Ian Moore",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "D",
+    "number": 3
   },
   {
     "id": "nhl:5216907",
@@ -7028,16 +7028,6 @@
     "teamAbbr": "CGY",
     "position": "C",
     "number": 22
-  },
-  {
-    "id": "nhl:4697771",
-    "name": "Ryan Tverberg",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 77
   },
   {
     "id": "nhl:4894928",
