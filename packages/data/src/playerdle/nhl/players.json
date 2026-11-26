@@ -780,6 +780,16 @@
     "number": 62
   },
   {
+    "id": "nhl:4697577",
+    "name": "Artur Akhtyamov",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "G",
+    "number": 70
+  },
+  {
     "id": "nhl:4576894",
     "name": "Arturs Silovs",
     "conference": "East",
@@ -908,6 +918,16 @@
     "teamAbbr": "NYI",
     "position": "D",
     "number": 71
+  },
+  {
+    "id": "nhl:4270546",
+    "name": "Ben Jones",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "C",
+    "number": 18
   },
   {
     "id": "nhl:5291947",
@@ -1378,16 +1398,6 @@
     "teamAbbr": "NYI",
     "position": "C",
     "number": 64
-  },
-  {
-    "id": "nhl:5524",
-    "name": "Calvin Pickard",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Minnesota Wild",
-    "teamAbbr": "MIN",
-    "position": "G",
-    "number": 31
   },
   {
     "id": "nhl:5495",
@@ -4590,6 +4600,16 @@
     "number": 97
   },
   {
+    "id": "nhl:5188566",
+    "name": "Kirill Kirsanov",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Los Angeles Kings",
+    "teamAbbr": "LA",
+    "position": "D",
+    "number": 78
+  },
+  {
     "id": "nhl:4587996",
     "name": "Kirill Marchenko",
     "conference": "East",
@@ -4688,6 +4708,16 @@
     "teamAbbr": "FLA",
     "position": "C",
     "number": 20
+  },
+  {
+    "id": "nhl:3026526",
+    "name": "Laurent Brossoit",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Anaheim Ducks",
+    "teamAbbr": "ANA",
+    "position": "G",
+    "number": 31
   },
   {
     "id": "nhl:3899951",
@@ -7108,16 +7138,6 @@
     "teamAbbr": "DET",
     "position": "G",
     "number": 35
-  },
-  {
-    "id": "nhl:4755753",
-    "name": "Sam Morton",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "Calgary Flames",
-    "teamAbbr": "CGY",
-    "position": "C",
-    "number": 45
   },
   {
     "id": "nhl:5216901",
