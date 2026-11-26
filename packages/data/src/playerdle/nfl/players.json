@@ -100,16 +100,6 @@
     "number": 33
   },
   {
-    "id": "nfl:8439",
-    "name": "Aaron Rodgers",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "QB",
-    "number": 8
-  },
-  {
     "id": "nfl:3049339",
     "name": "Aaron Stinnie",
     "conference": "NFC",
@@ -1500,6 +1490,16 @@
     "number": 81
   },
   {
+    "id": "nfl:5082331",
+    "name": "Avery Smith",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Los Angeles Chargers",
+    "teamAbbr": "LAC",
+    "position": "CB",
+    "number": 36
+  },
+  {
     "id": "nfl:4870988",
     "name": "Avieon Terrell",
     "conference": "NFC",
@@ -2228,6 +2228,16 @@
     "teamAbbr": "CIN",
     "position": "CB",
     "number": 21
+  },
+  {
+    "id": "nfl:16731",
+    "name": "Brandin Cooks",
+    "conference": "NFC",
+    "division": "NFC West",
+    "team": "San Francisco 49ers",
+    "teamAbbr": "SF",
+    "position": "WR",
+    "number": 84
   },
   {
     "id": "nfl:4567979",
@@ -5553,6 +5563,16 @@
     "number": 32
   },
   {
+    "id": "nfl:4878293",
+    "name": "Daniel Sobkowicz",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "WR",
+    "number": 17
+  },
+  {
     "id": "nfl:4035505",
     "name": "Daniel Thomas",
     "conference": "AFC",
@@ -5651,16 +5671,6 @@
     "teamAbbr": "NE",
     "position": "DT",
     "number": 99
-  },
-  {
-    "id": "nfl:2983509",
-    "name": "Dare Ogunbowale",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Houston Texans",
-    "teamAbbr": "HOU",
-    "position": "RB",
-    "number": 23
   },
   {
     "id": "nfl:4401805",
@@ -7772,6 +7782,16 @@
     "teamAbbr": "ARI",
     "position": "TE",
     "number": 84
+  },
+  {
+    "id": "nfl:4360203",
+    "name": "Elijah Jones",
+    "conference": "NFC",
+    "division": "NFC North",
+    "team": "Chicago Bears",
+    "teamAbbr": "CHI",
+    "position": "CB",
+    "number": 37
   },
   {
     "id": "nfl:4241555",
@@ -13526,6 +13546,16 @@
     "number": 25
   },
   {
+    "id": "nfl:4695607",
+    "name": "Junior Tafuna",
+    "conference": "AFC",
+    "division": "AFC South",
+    "team": "Houston Texans",
+    "teamAbbr": "HOU",
+    "position": "DT",
+    "number": 58
+  },
+  {
     "id": "nfl:4038441",
     "name": "Justice Hill",
     "conference": "AFC",
@@ -16845,6 +16875,16 @@
     "teamAbbr": "LAR",
     "position": "TE",
     "number": 86
+  },
+  {
+    "id": "nfl:4683101",
+    "name": "Max Llewellyn",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "DE",
+    "number": 57
   },
   {
     "id": "nfl:4698113",
@@ -21165,16 +21205,6 @@
     "teamAbbr": "WSH",
     "position": "G",
     "number": 62
-  },
-  {
-    "id": "nfl:2982313",
-    "name": "Tanoh Kpassagnon",
-    "conference": "AFC",
-    "division": "AFC South",
-    "team": "Tennessee Titans",
-    "teamAbbr": "TEN",
-    "position": "DE",
-    "number": 58
   },
   {
     "id": "nfl:4430957",

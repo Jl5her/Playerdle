@@ -28,20 +28,6 @@
     "str": 71
   },
   {
-    "id": "nfl:8439",
-    "name": "Aaron Rodgers",
-    "conference": "AFC",
-    "division": "AFC North",
-    "team": "Pittsburgh Steelers",
-    "teamAbbr": "PIT",
-    "position": "QB",
-    "number": 8,
-    "ovr": 79,
-    "spd": 77,
-    "awr": 81,
-    "str": 59
-  },
-  {
     "id": "nfl:4597500",
     "name": "Adonai Mitchell",
     "conference": "AFC",
@@ -134,9 +120,9 @@
     "teamAbbr": "WSH",
     "position": "WR",
     "number": 14,
-    "ovr": 77,
+    "ovr": 79,
     "spd": 92,
-    "awr": 69,
+    "awr": 78,
     "str": 61
   },
   {
@@ -149,7 +135,7 @@
     "position": "RB",
     "number": 2,
     "ovr": 82,
-    "spd": 90,
+    "spd": 91,
     "awr": 78,
     "str": 80
   },
@@ -246,7 +232,7 @@
     "teamAbbr": "NYJ",
     "position": "RB",
     "number": 0,
-    "ovr": 81,
+    "ovr": 82,
     "spd": 88,
     "awr": 85,
     "str": 79
@@ -344,9 +330,9 @@
     "teamAbbr": "SF",
     "position": "QB",
     "number": 13,
-    "ovr": 92,
+    "ovr": 94,
     "spd": 86,
-    "awr": 93,
+    "awr": 95,
     "str": 63
   },
   {
@@ -386,9 +372,9 @@
     "teamAbbr": "HOU",
     "position": "QB",
     "number": 7,
-    "ovr": 85,
+    "ovr": 86,
     "spd": 82,
-    "awr": 86,
+    "awr": 87,
     "str": 61
   },
   {
@@ -400,9 +386,9 @@
     "teamAbbr": "CHI",
     "position": "QB",
     "number": 18,
-    "ovr": 94,
+    "ovr": 93,
     "spd": 91,
-    "awr": 94,
+    "awr": 90,
     "str": 65
   },
   {
@@ -442,9 +428,9 @@
     "teamAbbr": "TEN",
     "position": "QB",
     "number": 1,
-    "ovr": 74,
+    "ovr": 75,
     "spd": 82,
-    "awr": 58,
+    "awr": 65,
     "str": 66
   },
   {
@@ -470,9 +456,9 @@
     "teamAbbr": "DAL",
     "position": "WR",
     "number": 88,
-    "ovr": 96,
+    "ovr": 97,
     "spd": 91,
-    "awr": 95,
+    "awr": 98,
     "str": 70
   },
   {
@@ -512,9 +498,9 @@
     "teamAbbr": "NO",
     "position": "WR",
     "number": 12,
-    "ovr": 89,
+    "ovr": 90,
     "spd": 93,
-    "awr": 89,
+    "awr": 92,
     "str": 59
   },
   {
@@ -582,9 +568,9 @@
     "teamAbbr": "CAR",
     "position": "RB",
     "number": 30,
-    "ovr": 86,
+    "ovr": 88,
     "spd": 91,
-    "awr": 90,
+    "awr": 93,
     "str": 75
   },
   {
@@ -652,9 +638,9 @@
     "teamAbbr": "CHI",
     "position": "RB",
     "number": 4,
-    "ovr": 88,
+    "ovr": 87,
     "spd": 90,
-    "awr": 89,
+    "awr": 88,
     "str": 68
   },
   {
@@ -736,9 +722,9 @@
     "teamAbbr": "CAR",
     "position": "TE",
     "number": 88,
-    "ovr": 81,
+    "ovr": 80,
     "spd": 87,
-    "awr": 83,
+    "awr": 78,
     "str": 70
   },
   {
@@ -764,9 +750,9 @@
     "teamAbbr": "HOU",
     "position": "RB",
     "number": 32,
-    "ovr": 80,
+    "ovr": 81,
     "spd": 87,
-    "awr": 87,
+    "awr": 89,
     "str": 77
   },
   {
@@ -918,9 +904,9 @@
     "teamAbbr": "BUF",
     "position": "WR",
     "number": 2,
-    "ovr": 84,
+    "ovr": 85,
     "spd": 91,
-    "awr": 83,
+    "awr": 85,
     "str": 66
   },
   {
@@ -974,7 +960,7 @@
     "teamAbbr": "NE",
     "position": "QB",
     "number": 10,
-    "ovr": 88,
+    "ovr": 87,
     "spd": 89,
     "awr": 83,
     "str": 62
@@ -1030,10 +1016,10 @@
     "teamAbbr": "KC",
     "position": "RB",
     "number": 10,
-    "ovr": 77,
+    "ovr": 80,
     "spd": 89,
-    "awr": 79,
-    "str": 74
+    "awr": 83,
+    "str": 79
   },
   {
     "id": "nfl:3051876",
@@ -1100,9 +1086,9 @@
     "teamAbbr": "NYJ",
     "position": "QB",
     "number": 7,
-    "ovr": 75,
+    "ovr": 76,
     "spd": 84,
-    "awr": 74,
+    "awr": 75,
     "str": 58
   },
   {
@@ -1143,7 +1129,7 @@
     "position": "TE",
     "number": 44,
     "ovr": 82,
-    "spd": 82,
+    "spd": 84,
     "awr": 87,
     "str": 75
   },
@@ -1212,9 +1198,9 @@
     "teamAbbr": "DEN",
     "position": "RB",
     "number": 27,
-    "ovr": 79,
+    "ovr": 77,
     "spd": 90,
-    "awr": 73,
+    "awr": 66,
     "str": 74
   },
   {
@@ -1240,9 +1226,9 @@
     "teamAbbr": "BAL",
     "position": "QB",
     "number": 11,
-    "ovr": 72,
+    "ovr": 74,
     "spd": 81,
-    "awr": 69,
+    "awr": 74,
     "str": 73
   },
   {
@@ -1396,7 +1382,7 @@
     "number": 4,
     "ovr": 92,
     "spd": 93,
-    "awr": 92,
+    "awr": 91,
     "str": 67
   },
   {
@@ -1422,7 +1408,7 @@
     "teamAbbr": "DET",
     "position": "QB",
     "number": 16,
-    "ovr": 87,
+    "ovr": 88,
     "spd": 74,
     "awr": 89,
     "str": 64
@@ -1492,9 +1478,9 @@
     "teamAbbr": "WSH",
     "position": "QB",
     "number": 5,
-    "ovr": 80,
+    "ovr": 82,
     "spd": 91,
-    "awr": 61,
+    "awr": 69,
     "str": 59
   },
   {
@@ -1534,9 +1520,9 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 17,
-    "ovr": 85,
+    "ovr": 84,
     "spd": 96,
-    "awr": 89,
+    "awr": 88,
     "str": 57
   },
   {
@@ -1562,9 +1548,9 @@
     "teamAbbr": "ARI",
     "position": "RB",
     "number": 4,
-    "ovr": 82,
+    "ovr": 81,
     "spd": 94,
-    "awr": 69,
+    "awr": 66,
     "str": 76
   },
   {
@@ -1604,9 +1590,9 @@
     "teamAbbr": "DEN",
     "position": "RB",
     "number": 20,
-    "ovr": 75,
+    "ovr": 79,
     "spd": 87,
-    "awr": 71,
+    "awr": 82,
     "str": 80
   },
   {
@@ -1716,7 +1702,7 @@
     "teamAbbr": "GB",
     "position": "RB",
     "number": 8,
-    "ovr": 87,
+    "ovr": 86,
     "spd": 90,
     "awr": 86,
     "str": 83
@@ -1758,9 +1744,9 @@
     "teamAbbr": "MIN",
     "position": "WR",
     "number": 18,
-    "ovr": 97,
+    "ovr": 96,
     "spd": 91,
-    "awr": 97,
+    "awr": 95,
     "str": 64
   },
   {
@@ -2068,7 +2054,7 @@
     "number": 13,
     "ovr": 77,
     "spd": 90,
-    "awr": 85,
+    "awr": 84,
     "str": 73
   },
   {
@@ -2112,6 +2098,20 @@
     "spd": 96,
     "awr": 88,
     "str": 66
+  },
+  {
+    "id": "nfl:4242512",
+    "name": "Malik Willis",
+    "conference": "AFC",
+    "division": "AFC East",
+    "team": "Miami Dolphins",
+    "teamAbbr": "MIA",
+    "position": "QB",
+    "number": 2,
+    "ovr": 72,
+    "spd": 90,
+    "awr": 61,
+    "str": 72
   },
   {
     "id": "nfl:2576980",
@@ -2192,7 +2192,7 @@
     "teamAbbr": "LAR",
     "position": "QB",
     "number": 9,
-    "ovr": 97,
+    "ovr": 96,
     "spd": 77,
     "awr": 98,
     "str": 66
@@ -2276,9 +2276,9 @@
     "teamAbbr": "CIN",
     "position": "TE",
     "number": 88,
-    "ovr": 80,
+    "ovr": 81,
     "spd": 84,
-    "awr": 78,
+    "awr": 83,
     "str": 76
   },
   {
@@ -2290,9 +2290,9 @@
     "teamAbbr": "HOU",
     "position": "WR",
     "number": 12,
-    "ovr": 90,
+    "ovr": 89,
     "spd": 93,
-    "awr": 92,
+    "awr": 89,
     "str": 67
   },
   {
@@ -2318,9 +2318,9 @@
     "teamAbbr": "LAC",
     "position": "RB",
     "number": 8,
-    "ovr": 81,
+    "ovr": 82,
     "spd": 90,
-    "awr": 80,
+    "awr": 85,
     "str": 78
   },
   {
@@ -2474,7 +2474,7 @@
     "number": 38,
     "ovr": 84,
     "spd": 88,
-    "awr": 91,
+    "awr": 90,
     "str": 82
   },
   {
@@ -2530,7 +2530,7 @@
     "number": 15,
     "ovr": 83,
     "spd": 91,
-    "awr": 88,
+    "awr": 89,
     "str": 65
   },
   {
@@ -2556,9 +2556,9 @@
     "teamAbbr": "SEA",
     "position": "QB",
     "number": 14,
-    "ovr": 84,
+    "ovr": 83,
     "spd": 82,
-    "awr": 82,
+    "awr": 77,
     "str": 60
   },
   {
@@ -2726,7 +2726,7 @@
     "number": 20,
     "ovr": 85,
     "spd": 90,
-    "awr": 88,
+    "awr": 87,
     "str": 69
   },
   {
