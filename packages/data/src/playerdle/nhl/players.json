@@ -820,6 +820,16 @@
     "number": 40
   },
   {
+    "id": "nhl:5237802",
+    "name": "Atley Calvert",
+    "conference": "East",
+    "division": "Metropolitan Division",
+    "team": "Pittsburgh Penguins",
+    "teamAbbr": "PIT",
+    "position": "C",
+    "number": 84
+  },
+  {
     "id": "nhl:4024123",
     "name": "Auston Matthews",
     "conference": "East",
@@ -938,16 +948,6 @@
     "teamAbbr": "PIT",
     "position": "C",
     "number": 81
-  },
-  {
-    "id": "nhl:4586827",
-    "name": "Ben McCartney",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Utah Mammoth",
-    "teamAbbr": "UTA",
-    "position": "LW",
-    "number": 62
   },
   {
     "id": "nhl:4755729",
@@ -1230,16 +1230,6 @@
     "number": 7
   },
   {
-    "id": "nhl:2554903",
-    "name": "Brenden Dillon",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "New Jersey Devils",
-    "teamAbbr": "NJ",
-    "position": "D",
-    "number": 5
-  },
-  {
     "id": "nhl:4874733",
     "name": "Brennan Othmann",
     "conference": "West",
@@ -1278,16 +1268,6 @@
     "teamAbbr": "COL",
     "position": "D",
     "number": 27
-  },
-  {
-    "id": "nhl:4565278",
-    "name": "Brett Leason",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "RW",
-    "number": 17
   },
   {
     "id": "nhl:3025535",
@@ -1408,6 +1388,16 @@
     "teamAbbr": "STL",
     "position": "D",
     "number": 17
+  },
+  {
+    "id": "nhl:5080203",
+    "name": "Cam Lund",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "San Jose Sharks",
+    "teamAbbr": "SJ",
+    "position": "C",
+    "number": 46
   },
   {
     "id": "nhl:5734",
@@ -2240,6 +2230,16 @@
     "number": 7
   },
   {
+    "id": "nhl:5090524",
+    "name": "Dillon Boucher",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Chicago Blackhawks",
+    "teamAbbr": "CHI",
+    "position": "LW",
+    "number": 36
+  },
+  {
     "id": "nhl:4063268",
     "name": "Dillon Dube",
     "conference": "West",
@@ -2298,16 +2298,6 @@
     "teamAbbr": "TB",
     "position": "C",
     "number": 17
-  },
-  {
-    "id": "nhl:3942809",
-    "name": "Dominic Toninato",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Chicago Blackhawks",
-    "teamAbbr": "CHI",
-    "position": "C",
-    "number": 25
   },
   {
     "id": "nhl:2562605",
@@ -4798,16 +4788,6 @@
     "teamAbbr": "DAL",
     "position": "D",
     "number": 6
-  },
-  {
-    "id": "nhl:4063429",
-    "name": "Libor Hajek",
-    "conference": "West",
-    "division": "Pacific Division",
-    "team": "San Jose Sharks",
-    "teamAbbr": "SJ",
-    "position": "D",
-    "number": 24
   },
   {
     "id": "nhl:4587713",
@@ -7650,6 +7630,16 @@
     "number": 71
   },
   {
+    "id": "nhl:4997080",
+    "name": "Taylor Makar",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Colorado Avalanche",
+    "teamAbbr": "COL",
+    "position": "LW",
+    "number": 16
+  },
+  {
     "id": "nhl:4063502",
     "name": "Taylor Raddysh",
     "conference": "East",
@@ -8478,6 +8468,16 @@
     "teamAbbr": "SJ",
     "position": "G",
     "number": 30
+  },
+  {
+    "id": "nhl:5310524",
+    "name": "Yegor Borikov",
+    "conference": "West",
+    "division": "Central Division",
+    "team": "Utah Mammoth",
+    "teamAbbr": "UTA",
+    "position": "RW",
+    "number": 65
   },
   {
     "id": "nhl:4587843",
