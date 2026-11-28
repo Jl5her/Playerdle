@@ -24,12 +24,12 @@
     "teamAbbr": "DEN",
     "position": "TE",
     "number": 82,
-    "gp": 10,
-    "fppg": 1.5,
-    "tgtPerGame": 1.1,
-    "recPerGame": 0.7,
-    "ydsPerGame": 5.6,
-    "tdPerGame": 0.1
+    "gp": 11,
+    "fppg": 1.6,
+    "tgtPerGame": 1.2,
+    "recPerGame": 0.8,
+    "ydsPerGame": 6.6,
+    "tdPerGame": 0.09
   },
   {
     "id": "nfl:4597500",
@@ -1208,12 +1208,12 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 14,
-    "gp": 10,
-    "fppg": 5.1,
-    "tgtPerGame": 4.8,
-    "recPerGame": 2.5,
-    "ydsPerGame": 26.6,
-    "tdPerGame": 0.2
+    "gp": 11,
+    "fppg": 4.7,
+    "tgtPerGame": 5.1,
+    "recPerGame": 2.4,
+    "ydsPerGame": 24.5,
+    "tdPerGame": 0.18
   },
   {
     "id": "nfl:4912218",
@@ -1736,12 +1736,12 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 4,
-    "gp": 10,
-    "fppg": 7.7,
-    "tgtPerGame": 7.4,
-    "recPerGame": 3.6,
-    "ydsPerGame": 44.5,
-    "tdPerGame": 0.2
+    "gp": 11,
+    "fppg": 8,
+    "tgtPerGame": 7.1,
+    "recPerGame": 3.5,
+    "ydsPerGame": 43.7,
+    "tdPerGame": 0.27
   },
   {
     "id": "nfl:4384852",
@@ -2040,12 +2040,12 @@
     "teamAbbr": "DEN",
     "position": "TE",
     "number": 1,
-    "gp": 10,
-    "fppg": 4.2,
-    "tgtPerGame": 3.8,
-    "recPerGame": 2.3,
-    "ydsPerGame": 24.3,
-    "tdPerGame": 0.1
+    "gp": 11,
+    "fppg": 3.8,
+    "tgtPerGame": 3.6,
+    "recPerGame": 2.1,
+    "ydsPerGame": 22.1,
+    "tdPerGame": 0.09
   },
   {
     "id": "nfl:4569609",
@@ -2184,12 +2184,12 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 17,
-    "gp": 10,
+    "gp": 11,
     "fppg": 5.9,
-    "tgtPerGame": 5.5,
-    "recPerGame": 3.8,
-    "ydsPerGame": 33.8,
-    "tdPerGame": 0.1
+    "tgtPerGame": 5.2,
+    "recPerGame": 3.5,
+    "ydsPerGame": 36,
+    "tdPerGame": 0.09
   },
   {
     "id": "nfl:4037235",
@@ -2856,12 +2856,12 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 17,
-    "gp": 10,
+    "gp": 11,
     "fppg": 7.5,
-    "tgtPerGame": 5.8,
-    "recPerGame": 3.3,
-    "ydsPerGame": 42.1,
-    "tdPerGame": 0.2
+    "tgtPerGame": 6,
+    "recPerGame": 3.5,
+    "ydsPerGame": 43.1,
+    "tdPerGame": 0.18
   },
   {
     "id": "nfl:4569987",
@@ -2872,12 +2872,12 @@
     "teamAbbr": "PIT",
     "position": "RB",
     "number": 30,
-    "gp": 10,
-    "fppg": 13.9,
-    "tgtPerGame": 4.5,
-    "recPerGame": 3.2,
-    "ydsPerGame": 106.8,
-    "tdPerGame": 0.3
+    "gp": 11,
+    "fppg": 13.1,
+    "tgtPerGame": 4.3,
+    "recPerGame": 3,
+    "ydsPerGame": 101.3,
+    "tdPerGame": 0.27
   },
   {
     "id": "nfl:4682745",
@@ -3032,12 +3032,12 @@
     "teamAbbr": "DEN",
     "position": "RB",
     "number": 20,
-    "gp": 6,
-    "fppg": 14.9,
-    "tgtPerGame": 3.2,
-    "recPerGame": 2.8,
-    "ydsPerGame": 74.7,
-    "tdPerGame": 1
+    "gp": 7,
+    "fppg": 14.4,
+    "tgtPerGame": 4.1,
+    "recPerGame": 3.6,
+    "ydsPerGame": 74.3,
+    "tdPerGame": 0.86
   },
   {
     "id": "nfl:4426485",
@@ -3800,11 +3800,11 @@
     "teamAbbr": "PIT",
     "position": "RB",
     "number": 31,
-    "gp": 8,
-    "fppg": 0.7,
+    "gp": 9,
+    "fppg": 0.6,
     "tgtPerGame": 0.1,
     "recPerGame": 0.1,
-    "ydsPerGame": 6.4,
+    "ydsPerGame": 5.7,
     "tdPerGame": 0
   },
   {
@@ -4088,11 +4088,11 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 19,
-    "gp": 8,
-    "fppg": 2.6,
-    "tgtPerGame": 2.3,
-    "recPerGame": 1.4,
-    "ydsPerGame": 21.1,
+    "gp": 9,
+    "fppg": 2.2,
+    "tgtPerGame": 2,
+    "recPerGame": 1.2,
+    "ydsPerGame": 18.6,
     "tdPerGame": 0
   },
   {
@@ -4296,12 +4296,12 @@
     "teamAbbr": "DEN",
     "position": "TE",
     "number": 45,
-    "gp": 10,
-    "fppg": 2.7,
-    "tgtPerGame": 0.9,
+    "gp": 11,
+    "fppg": 2.5,
+    "tgtPerGame": 1,
     "recPerGame": 0.7,
-    "ydsPerGame": 5.3,
-    "tdPerGame": 0.3
+    "ydsPerGame": 5.4,
+    "tdPerGame": 0.27
   },
   {
     "id": "nfl:4686248",
@@ -4552,12 +4552,12 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 13,
-    "gp": 6,
-    "fppg": 7.6,
-    "tgtPerGame": 3.5,
-    "recPerGame": 2.7,
-    "ydsPerGame": 39.5,
-    "tdPerGame": 0.33
+    "gp": 7,
+    "fppg": 7.4,
+    "tgtPerGame": 4,
+    "recPerGame": 2.9,
+    "ydsPerGame": 39.9,
+    "tdPerGame": 0.29
   },
   {
     "id": "nfl:4361411",
@@ -4568,12 +4568,12 @@
     "teamAbbr": "PIT",
     "position": "TE",
     "number": 88,
-    "gp": 10,
-    "fppg": 8.4,
-    "tgtPerGame": 4.3,
-    "recPerGame": 3.2,
-    "ydsPerGame": 31.5,
-    "tdPerGame": 0.6
+    "gp": 11,
+    "fppg": 7.6,
+    "tgtPerGame": 4,
+    "recPerGame": 3,
+    "ydsPerGame": 28.7,
+    "tdPerGame": 0.55
   },
   {
     "id": "nfl:4372505",
@@ -4808,12 +4808,12 @@
     "teamAbbr": "PIT",
     "position": "RB",
     "number": 13,
-    "gp": 7,
-    "fppg": 6.8,
-    "tgtPerGame": 3.4,
-    "recPerGame": 2.7,
-    "ydsPerGame": 46.3,
-    "tdPerGame": 0.14
+    "gp": 8,
+    "fppg": 6.7,
+    "tgtPerGame": 3.1,
+    "recPerGame": 2.5,
+    "ydsPerGame": 49.8,
+    "tdPerGame": 0.13
   },
   {
     "id": "nfl:4568490",
@@ -4856,12 +4856,12 @@
     "teamAbbr": "PIT",
     "position": "WR",
     "number": 14,
-    "gp": 7,
-    "fppg": 6.2,
-    "tgtPerGame": 4.4,
-    "recPerGame": 2.4,
-    "ydsPerGame": 33,
-    "tdPerGame": 0.29
+    "gp": 8,
+    "fppg": 6,
+    "tgtPerGame": 4,
+    "recPerGame": 2.3,
+    "ydsPerGame": 33.5,
+    "tdPerGame": 0.25
   },
   {
     "id": "nfl:4431299",
@@ -5512,11 +5512,11 @@
     "teamAbbr": "DEN",
     "position": "WR",
     "number": 11,
-    "gp": 10,
-    "fppg": 1.5,
-    "tgtPerGame": 1.7,
+    "gp": 11,
+    "fppg": 1.4,
+    "tgtPerGame": 1.6,
     "recPerGame": 0.9,
-    "ydsPerGame": 10.5,
+    "ydsPerGame": 9.6,
     "tdPerGame": 0
   },
   {
@@ -5614,6 +5614,22 @@
     "recPerGame": 2.1,
     "ydsPerGame": 48.5,
     "tdPerGame": 0.27
+  },
+  {
+    "id": "nfl:4362748",
+    "name": "Tyler Badie",
+    "conference": "AFC",
+    "division": "AFC West",
+    "team": "Denver Broncos",
+    "teamAbbr": "DEN",
+    "position": "RB",
+    "number": 28,
+    "gp": 6,
+    "fppg": 2.5,
+    "tgtPerGame": 1.2,
+    "recPerGame": 1,
+    "ydsPerGame": 16.7,
+    "tdPerGame": 0
   },
   {
     "id": "nfl:3915486",
