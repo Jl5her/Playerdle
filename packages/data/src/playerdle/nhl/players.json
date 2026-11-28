@@ -27,7 +27,7 @@
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
     "position": "C",
-    "number": 54
+    "number": 26
   },
   {
     "id": "nhl:4894056",
@@ -497,7 +497,7 @@
     "team": "New Jersey Devils",
     "teamAbbr": "NJ",
     "position": "C",
-    "number": 98
+    "number": 93
   },
   {
     "id": "nhl:5793",
@@ -780,16 +780,6 @@
     "number": 62
   },
   {
-    "id": "nhl:4697577",
-    "name": "Artur Akhtyamov",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "G",
-    "number": 70
-  },
-  {
     "id": "nhl:4576894",
     "name": "Arturs Silovs",
     "conference": "East",
@@ -848,16 +838,6 @@
     "teamAbbr": "PIT",
     "position": "RW",
     "number": 85
-  },
-  {
-    "id": "nhl:5149192",
-    "name": "Axel Sandin-Pellikka",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "D",
-    "number": 44
   },
   {
     "id": "nhl:5188613",
@@ -1126,7 +1106,7 @@
     "division": "Atlantic Division",
     "team": "Toronto Maple Leafs",
     "teamAbbr": "TOR",
-    "position": "RW",
+    "position": "LW",
     "number": 24
   },
   {
@@ -1208,6 +1188,16 @@
     "teamAbbr": "WPG",
     "position": "C",
     "number": 29
+  },
+  {
+    "id": "nhl:4697412",
+    "name": "Brendan Brisson",
+    "conference": "East",
+    "division": "Atlantic Division",
+    "team": "Toronto Maple Leafs",
+    "teamAbbr": "TOR",
+    "position": "C",
+    "number": 90
   },
   {
     "id": "nhl:5614",
@@ -2430,16 +2420,6 @@
     "number": 81
   },
   {
-    "id": "nhl:5275580",
-    "name": "Dylan Hryckowian",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "RW",
-    "number": 46
-  },
-  {
     "id": "nhl:3114755",
     "name": "Dylan Larkin",
     "conference": "East",
@@ -3010,16 +2990,6 @@
     "number": 27
   },
   {
-    "id": "nhl:5206683",
-    "name": "Harrison Scott",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "C",
-    "number": 37
-  },
-  {
     "id": "nhl:3150479",
     "name": "Hayden Hodgson",
     "conference": "East",
@@ -3370,16 +3340,6 @@
     "number": 2
   },
   {
-    "id": "nhl:4352798",
-    "name": "Jacob Bernard-Docker",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Detroit Red Wings",
-    "teamAbbr": "DET",
-    "position": "D",
-    "number": 25
-  },
-  {
     "id": "nhl:5188437",
     "name": "Jacob Fowler",
     "conference": "East",
@@ -3688,16 +3648,6 @@
     "teamAbbr": "BUF",
     "position": "LW",
     "number": 17
-  },
-  {
-    "id": "nhl:5451622",
-    "name": "Jaxon Fuder",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "C",
-    "number": 48
   },
   {
     "id": "nhl:4565269",
@@ -4080,6 +4030,16 @@
     "number": 38
   },
   {
+    "id": "nhl:2562606",
+    "name": "Jonathan Huberdeau",
+    "conference": "West",
+    "division": "Pacific Division",
+    "team": "Calgary Flames",
+    "teamAbbr": "CGY",
+    "position": "LW",
+    "number": 10
+  },
+  {
     "id": "nhl:5080159",
     "name": "Jonathan Lekkerimaki",
     "conference": "West",
@@ -4096,7 +4056,7 @@
     "division": "Central Division",
     "team": "Nashville Predators",
     "teamAbbr": "NSH",
-    "position": "RW",
+    "position": "C",
     "number": 81
   },
   {
@@ -4328,16 +4288,6 @@
     "teamAbbr": "DET",
     "position": "D",
     "number": 72
-  },
-  {
-    "id": "nhl:5763",
-    "name": "Justin Holl",
-    "conference": "East",
-    "division": "Metropolitan Division",
-    "team": "Washington Capitals",
-    "teamAbbr": "WSH",
-    "position": "D",
-    "number": 4
   },
   {
     "id": "nhl:5229176",
@@ -4577,7 +4527,7 @@
     "team": "Detroit Red Wings",
     "teamAbbr": "DET",
     "position": "C",
-    "number": 77
+    "number": 17
   },
   {
     "id": "nhl:3942335",
@@ -4940,16 +4890,6 @@
     "number": 23
   },
   {
-    "id": "nhl:5206955",
-    "name": "Luke Haymes",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "C",
-    "number": 37
-  },
-  {
     "id": "nhl:4874719",
     "name": "Luke Hughes",
     "conference": "East",
@@ -4958,16 +4898,6 @@
     "teamAbbr": "NJ",
     "position": "D",
     "number": 43
-  },
-  {
-    "id": "nhl:5207357",
-    "name": "Luke Krys",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "Dallas Stars",
-    "teamAbbr": "DAL",
-    "position": "D",
-    "number": 36
   },
   {
     "id": "nhl:5092",
@@ -5318,16 +5248,6 @@
     "teamAbbr": "BUF",
     "position": "D",
     "number": 48
-  },
-  {
-    "id": "nhl:4316995",
-    "name": "Matt Hellickson",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Toronto Maple Leafs",
-    "teamAbbr": "TOR",
-    "position": "D",
-    "number": 66
   },
   {
     "id": "nhl:4799741",
@@ -6680,16 +6600,6 @@
     "number": 43
   },
   {
-    "id": "nhl:5172484",
-    "name": "Quinton Burns",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "D",
-    "number": 42
-  },
-  {
     "id": "nhl:4697383",
     "name": "Quinton Byfield",
     "conference": "West",
@@ -7117,7 +7027,7 @@
     "team": "Detroit Red Wings",
     "teamAbbr": "DET",
     "position": "G",
-    "number": 35
+    "number": 32
   },
   {
     "id": "nhl:5216901",
@@ -7970,16 +7880,6 @@
     "number": 59
   },
   {
-    "id": "nhl:4874724",
-    "name": "Tyler Boucher",
-    "conference": "East",
-    "division": "Atlantic Division",
-    "team": "Ottawa Senators",
-    "teamAbbr": "OTT",
-    "position": "RW",
-    "number": 54
-  },
-  {
     "id": "nhl:4697448",
     "name": "Tyler Kleven",
     "conference": "East",
@@ -8518,16 +8418,6 @@
     "teamAbbr": "MIN",
     "position": "D",
     "number": 24
-  },
-  {
-    "id": "nhl:4874747",
-    "name": "Zach Dean",
-    "conference": "West",
-    "division": "Central Division",
-    "team": "St. Louis Blues",
-    "teamAbbr": "STL",
-    "position": "C",
-    "number": 52
   },
   {
     "id": "nhl:5509",
